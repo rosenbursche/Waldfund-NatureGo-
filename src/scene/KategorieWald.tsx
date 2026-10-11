@@ -6,13 +6,13 @@ import { artById } from '@/data/arten';
 import type { KategorieId } from '@/data/artTypen';
 import { baumById } from '@/data/baumarten';
 import type { Naturraum } from '@/data/typen';
-import { waldPlaetze } from '@/logic/katalog';
+import { katalogEintrag, waldPlaetze } from '@/logic/katalog';
 import { startwertAus, zufall } from '@/logic/lichtung';
 import { getHeimischeBaeume } from '@/logic/regelEngine';
 import type { Stimmung } from '@/logic/tageszeit';
 import { colors } from '@/theme/theme';
 
-import { ArtFigur, Schloss } from './ArtFigur';
+import { ArtFigur, GefahrMarke, Schloss } from './ArtFigur';
 import { Baum3D } from './Baum3D';
 import { FORM, matt } from './material';
 import { Kamera, Tippen, type KameraBahn } from './Steuerung';
@@ -115,6 +115,8 @@ export function KategorieWald({ kategorie, naturraum, gefunden, stimmung, ruhig,
         const sockel = p.hoch ? 0.9 : 0; // Vögel sitzen auf einem Baumstumpf
         return (
           <group key={p.id} position={[p.x, 0, p.z]} rotation={[0, -Math.atan2(p.z, p.x) - Math.PI / 2, 0]}>
+            {/* gefährliche Arten: roter Ring, roter Nebel, Dornenkranz */}
+            {katalogEintrag(p.id)?.gefahr && <GefahrMarke radius={baumById[p.id] ? 1.1 : 0.6} ruhig={ruhig} />}
             {p.hoch && (
               <mesh
                 geometry={FORM.stamm}

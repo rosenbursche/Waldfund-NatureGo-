@@ -158,7 +158,7 @@ function WaldAnsicht({ kategorie }: { kategorie: KategorieId }) {
           Tippe eine Art an
         </Schrift>
         <Schrift art="klein" style={stile.schatten}>
-          Farbig: gefunden · Grau mit Schloss: noch zu entdecken
+          Farbig: gefunden · Grau mit Schloss: noch zu entdecken · Rot glimmend: gefährlich
         </Schrift>
       </SafeAreaView>
     </View>

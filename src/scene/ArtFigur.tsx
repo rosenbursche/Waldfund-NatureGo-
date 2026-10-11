@@ -1,12 +1,15 @@
 import { useFrame } from '@react-three/fiber/native';
-import { useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import * as THREE from 'three';
 
 import { artById } from '@/data/arten';
 import { baumById } from '@/data/baumarten';
+import { colors } from '@/theme/theme';
 
 import { baueArtModell, einpassen, type ModellStil } from './artModell';
 import { Baum3D } from './Baum3D';
 import { FORM, matt, UNSICHTBAR } from './material';
+import { leuchtTextur } from './texturen';
 
 /**
  * Eine Art als kleine 3D-Figur – für den Kategorie-Wald und die Runensteine.
@@ -86,6 +89,54 @@ export function Schloss({ position, groesse = 0.35 }: { position: [number, numbe
         <torusGeometry args={[0.32, 0.09, 6, 12, Math.PI]} />
       </mesh>
       <mesh geometry={FORM.kiste} material={dunkel} position={[0, -0.05, 0.24]} scale={[0.14, 0.3, 0.04]} />
+    </group>
+  );
+}
+
+/** Markierung für gefährliche Arten im Wald: pulsierender roter Ring, roter Nebel und ein Dornenkranz */
+export function GefahrMarke({ radius = 0.7, ruhig }: { radius?: number; ruhig: boolean }) {
+  const ring = useRef<THREE.Mesh>(null);
+  const nebel = useMemo(
+    () =>
+      new THREE.SpriteMaterial({
+        map: leuchtTextur(),
+        color: colors.blut,
+        transparent: true,
+        opacity: 0.45,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      }),
+    [],
+  );
+  const ringMaterial = useMemo(
+    () => new THREE.MeshBasicMaterial({ color: colors.blut, transparent: true, opacity: 0.8 }),
+    [],
+  );
+  useFrame(({ clock }) => {
+    if (ruhig || !ring.current) return;
+    const p = 0.5 + Math.sin(clock.elapsedTime * 2.2) * 0.5; // langsamer "Herzschlag"
+    ring.current.scale.setScalar(1 + p * 0.12);
+    (ring.current.material as THREE.MeshBasicMaterial).opacity = 0.45 + p * 0.45;
+  });
+  return (
+    <group>
+      <mesh ref={ring} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.03, 0]} material={ringMaterial}>
+        <ringGeometry args={[radius, radius + 0.08, 32]} />
+      </mesh>
+      {Array.from({ length: 10 }, (_, i) => {
+        const w = (i / 10) * Math.PI * 2;
+        return (
+          <mesh
+            key={i}
+            geometry={FORM.kegel}
+            material={matt('#3A1418')}
+            position={[Math.cos(w) * (radius + 0.04), 0.1, Math.sin(w) * (radius + 0.04)]}
+            rotation={[Math.sin(w) * 0.4, 0, -Math.cos(w) * 0.4]}
+            scale={[0.05, 0.22, 0.05]}
+          />
+        );
+      })}
+      <sprite material={nebel} position={[0, 0.25, 0]} scale={[radius * 3.2, radius * 1.4, 1]} />
     </group>
   );
 }
