@@ -1,140 +1,385 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Svg, { Path, Text as SvgText } from 'react-native-svg';
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from 'react-native-reanimated';
+import Svg, { Defs, G, Line, Path, Pattern, Polygon, Rect, Text as SvgText } from 'react-native-svg';
 
-import { DEUTSCHLAND_UMRISS } from '@/data/verbreitung';
-import type { Naturraum } from '@/data/typen';
-import { KARTE, projiziere, rasterZellen, vorkommen } from '@/logic/verbreitung';
+import { FLUESSE, GEBIRGE, GROSSLANDSCHAFTEN, UMRISS, WALDGEBIETE, WUCHSGEBIETE } from '@/data/karte';
+import { naturraumById } from '@/data/naturraeume';
+import type { Geometrie, Naturraum } from '@/data/typen';
+import { gebietsAnteile, KARTE, projiziere } from '@/logic/verbreitung';
+import { useEinstellungen } from '@/store/einstellungen';
 import { colors, fonts } from '@/theme/theme';
 
 import { Schrift } from './Schrift';
 import { skizze, SkizzePfad } from './Skizze';
 
 /**
- * Deutschlandkarte. Zwei Varianten:
- * - Arten: Rasterpunkte (TK25) mit Demo-Vorkommen
- * - Baumarten: die Demo-Naturräume, in denen die Art von Natur aus heimisch ist
+ * Lebendige Deutschlandkarte:
+ * - Untergrund: Großlandschaften von Tiefland bis Alpen, große Flüsse, Gebirge, Waldgebiete
+ * - Verbreitung als Flächen (Wuchsgebiete): voll gefüllt = häufig, schraffiert = vereinzelt
+ *   (bei Baumarten: die Demo-Naturräume, in denen sie von Natur aus wachsen)
+ * - Dein Standort als pulsierender Punkt – nur ungefähr (±10 km)
  *
- * Nie genauer als ein Rasterfeld – damit Fundorte seltener Arten geschützt bleiben.
+ * Schutz der Natur: Flächen sind gröber als Rasterfelder, Fundorte bleiben geheim.
  */
 type Props =
   | { art: 'raster'; artId: string; modell: string; farbe: string }
   | { art: 'naturraeume'; naturraeume: Naturraum[]; farbe: string; eigenerId?: string };
 
-/** Viele kleine Kreise als ein einziger SVG-Pfad – viel schneller als tausende Einzelkreise. */
-function kreisPfad(punkte: [number, number][], r: number): string {
-  return punkte.map(([x, y]) => `M${x - r} ${y}a${r} ${r} 0 1 0 ${2 * r} 0a${r} ${r} 0 1 0 ${-2 * r} 0`).join('');
+const LANDSCHAFT_FARBE: Record<string, string> = {
+  'Norddeutsches Tiefland': colors.kartenTief,
+  Lösshügelländer: colors.kartenHuegel,
+  'Mesozoisches Schichtstufenland': colors.kartenHuegel,
+  'Östliche Mittelgebirgsschwelle': colors.kartenBerg,
+  'Westliche Mittelgebirgsschwelle': colors.kartenBerg,
+  Alpenvorland: colors.kartenHuegel,
+  Alpen: colors.kartenAlpen,
+};
+
+/** GeoJSON-Fläche → SVG-Pfad in Kartenkoordinaten */
+function flaechenPfad(g: Geometrie): string {
+  const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+  return polys
+    .map((poly) =>
+      poly
+        .map(
+          (ring) =>
+            'M' +
+            ring
+              .map(([lon, lat]) =>
+                projiziere(lon, lat)
+                  .map((v) => v.toFixed(1))
+                  .join(' '),
+              )
+              .join('L') +
+            'Z',
+        )
+        .join(''),
+    )
+    .join('');
+}
+
+/** Größter Ring einer Fläche (für den handgezeichneten Umriss) */
+function groessterRing(g: Geometrie): [number, number][] {
+  const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+  return polys.map((p) => p[0]).sort((a, b) => b.length - a.length)[0];
+}
+
+/** Mittelpunkt einer Fläche (grob: Durchschnitt der Eckpunkte des größten Rings) */
+function mitte(g: Geometrie): [number, number] {
+  const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+  const ring = polys.map((p) => p[0]).sort((a, b) => b.length - a.length)[0];
+  const s = ring.reduce((a, [x, y]) => [a[0] + x, a[1] + y], [0, 0]);
+  return projiziere(s[0] / ring.length, s[1] / ring.length);
+}
+
+// Statische Kartenebenen nur einmal berechnen
+let untergrund: {
+  landschaften: { d: string; farbe: string }[];
+  gebiete: { id: number; d: string }[];
+  fluesse: string[];
+  waelder: [number, number][];
+} | null = null;
+function statischeEbenen() {
+  if (untergrund) return untergrund;
+  untergrund = {
+    landschaften: GROSSLANDSCHAFTEN.map((l) => ({
+      d: flaechenPfad(l.geo),
+      farbe: LANDSCHAFT_FARBE[l.name] ?? colors.kartenTief,
+    })),
+    gebiete: WUCHSGEBIETE.map((g) => ({ id: g.id, d: flaechenPfad(g.geo) })),
+    fluesse: FLUESSE.map((f) => {
+      const linien = f.geo.type === 'LineString' ? [f.geo.coordinates] : f.geo.coordinates;
+      return linien
+        .map(
+          (l) =>
+            'M' +
+            l
+              .map(([lon, lat]) =>
+                projiziere(lon, lat)
+                  .map((v) => v.toFixed(1))
+                  .join(' '),
+              )
+              .join('L'),
+        )
+        .join('');
+    }),
+    waelder: WUCHSGEBIETE.filter((g) => WALDGEBIETE.includes(g.id)).map((g) => mitte(g.geo)),
+  };
+  return untergrund;
 }
 
 export function VerbreitungsKarte(props: Props) {
+  const ebenen = statischeEbenen();
+  const { grobStandort, naturraumId } = useEinstellungen();
+
   const umriss = useMemo(
     () =>
       skizze.polygon(
-        DEUTSCHLAND_UMRISS.map(([lon, lat]) => projiziere(lon, lat)),
+        groessterRing(UMRISS).map(([lon, lat]) => projiziere(lon, lat)),
         { stroke: colors.fog, strokeWidth: 1.4, roughness: 0.9, seed: 3 },
       ),
     [],
   );
 
-  const inhalt = useMemo(() => {
+  // Flächen für diese Art
+  const flaechen = useMemo(() => {
     if (props.art === 'raster') {
-      const occ = vorkommen(props.artId, props.modell);
-      const zellen = rasterZellen();
-      const ja: [number, number][] = [];
-      const nein: [number, number][] = [];
-      zellen.forEach((z, i) => (occ[i] ? ja : nein).push(projiziere(z.lon, z.lat)));
+      const stufen = new Map(gebietsAnteile(props.artId, props.modell).map((g) => [g.id, g.stufe]));
+      const voll = ebenen.gebiete.filter((g) => stufen.get(g.id) === 'voll');
+      const teil = ebenen.gebiete.filter((g) => stufen.get(g.id) === 'teil');
       return {
-        typ: 'raster' as const,
-        ja: kreisPfad(ja, 2.3),
-        nein: kreisPfad(nein, 1.2),
-        n: ja.length,
-        gesamt: zellen.length,
+        voll: voll.map((g) => g.d).join(''),
+        teil: teil.map((g) => g.d).join(''),
+        nVoll: voll.length,
+        nTeil: teil.length,
       };
     }
-    const flaechen = props.naturraeume.map((n) => {
-      const polys = n.geometrie.type === 'Polygon' ? [n.geometrie.coordinates] : n.geometrie.coordinates;
-      const d = polys
-        .map((poly) =>
-          poly
-            .map(
-              (ring) =>
-                'M' +
-                ring
-                  .map(([lon, lat]) =>
-                    projiziere(lon, lat)
-                      .map((v) => v.toFixed(1))
-                      .join(' '),
-                  )
-                  .join('L') +
-                'Z',
-            )
-            .join(''),
-        )
-        .join('');
-      return { id: n.id, d };
-    });
-    return { typ: 'naturraeume' as const, flaechen };
-  }, [props]);
+    const eigene = props.naturraeume.filter((n) => n.id === props.eigenerId).map((n) => flaechenPfad(n.geometrie));
+    const andere = props.naturraeume.filter((n) => n.id !== props.eigenerId).map((n) => flaechenPfad(n.geometrie));
+    return { voll: eigene.join(''), teil: andere.join(''), nVoll: eigene.length, nTeil: andere.length };
+  }, [props, ebenen]);
 
+  // Standort: grober Punkt (nur wenn gewählt) – sonst Mitte des eigenen Naturraums
+  const standort = useMemo(() => {
+    if (grobStandort) return { punkt: projiziere(grobStandort.lon, grobStandort.lat), text: 'Du (ungefähr)' };
+    const n = naturraumId ? naturraumById[naturraumId] : undefined;
+    return n ? { punkt: mitte(n.geometrie), text: 'Dein Naturraum' } : null;
+  }, [grobStandort, naturraumId]);
+
+  const farbe = props.farbe;
   return (
     <View>
       <View style={stile.flaeche}>
         <Svg width="100%" height="100%" viewBox={`0 0 ${KARTE.breite} ${KARTE.hoehe}`}>
-          {inhalt.typ === 'raster' ? (
-            <>
-              <Path d={inhalt.nein} fill={colors.moss} opacity={0.45} />
-              <Path d={inhalt.ja} fill={props.farbe} />
-            </>
-          ) : (
-            inhalt.flaechen.map((f) => (
-              <Path
-                key={f.id}
-                d={f.d}
-                fill={props.farbe}
-                fillOpacity={props.art === 'naturraeume' && f.id === props.eigenerId ? 0.85 : 0.5}
-                stroke={props.farbe}
-                strokeWidth={0.8}
-              />
-            ))
-          )}
+          <Defs>
+            {/* Schraffur für "vereinzelt" */}
+            <Pattern id="teil" patternUnits="userSpaceOnUse" width={6} height={6} patternTransform="rotate(45)">
+              <Rect width={6} height={6} fill={farbe} fillOpacity={0.12} />
+              <Line x1={0} y1={0} x2={0} y2={6} stroke={farbe} strokeWidth={2.2} strokeOpacity={0.85} />
+            </Pattern>
+          </Defs>
+
+          {/* Untergrund: Landschaften von Tiefland bis Alpen */}
+          {ebenen.landschaften.map((l, i) => (
+            <Path key={i} d={l.d} fill={l.farbe} />
+          ))}
+          {/* Grenzen der Wuchsgebiete, ganz fein */}
+          <Path
+            d={ebenen.gebiete.map((g) => g.d).join('')}
+            fill="none"
+            stroke={colors.moss}
+            strokeWidth={0.4}
+            strokeOpacity={0.6}
+          />
+
+          {/* Verbreitung der Art als Flächen */}
+          <Path d={flaechen.teil} fill="url(#teil)" stroke={farbe} strokeWidth={0.6} strokeOpacity={0.6} />
+          <Path d={flaechen.voll} fill={farbe} fillOpacity={0.38} stroke={farbe} strokeWidth={0.8} />
+
+          {/* Flüsse */}
+          {ebenen.fluesse.map((d, i) => (
+            <Path
+              key={i}
+              d={d}
+              fill="none"
+              stroke={colors.wasser}
+              strokeWidth={1.3}
+              strokeOpacity={0.85}
+              strokeLinecap="round"
+            />
+          ))}
+
+          {/* Große Waldgebiete: kleine Tannen */}
+          {ebenen.waelder.map(([x, y], i) => (
+            <G key={i} opacity={0.9}>
+              <Tanne x={x - 5} y={y + 2} />
+              <Tanne x={x + 4} y={y} gross />
+              <Tanne x={x + 1} y={y + 6} />
+            </G>
+          ))}
+
+          {/* Gebirge: handgezeichnete Gipfel mit Namen */}
+          {GEBIRGE.map((g) => {
+            const [x, y] = projiziere(g.lon, g.lat);
+            return (
+              <G key={g.name}>
+                <Berg x={x} y={y} hoch={g.hoch} />
+                <SvgText
+                  x={x + (g.dx ?? 0)}
+                  y={y + (g.hoch ? 16 : 13) + (g.dy ?? 0)}
+                  fill={colors.moon}
+                  fontSize={g.hoch ? 11 : 8.5}
+                  fontFamily={fonts.hand}
+                  textAnchor="middle"
+                  opacity={0.85}
+                >
+                  {g.name}
+                </SvgText>
+              </G>
+            );
+          })}
+
           <SkizzePfad drawable={umriss} />
           {[
             ['Nordsee', 40, 58],
             ['Ostsee', 230, 40],
-            ['Alpen', 232, 436],
           ].map(([t, x, y]) => (
-            <SvgText key={t} x={x} y={y} fill={colors.fog} fontSize={13} fontFamily={fonts.hand}>
+            <SvgText key={t} x={x} y={y} fill={colors.wasser} fontSize={13} fontFamily={fonts.hand}>
               {t}
             </SvgText>
           ))}
         </Svg>
+        {standort && <StandortPunkt x={standort.punkt[0]} y={standort.punkt[1]} text={standort.text} />}
       </View>
+
       <View style={stile.legende}>
-        <Punkt farbe={props.farbe} />
-        <Schrift art="klein">{props.art === 'raster' ? 'Nachweis im Rasterfeld' : 'von Natur aus heimisch'}</Schrift>
-        {props.art === 'raster' && (
-          <>
-            <Punkt farbe={colors.moss} />
-            <Schrift art="klein">kein Nachweis</Schrift>
-          </>
-        )}
+        <Kaestchen farbe={farbe} />
+        <Schrift art="klein">{props.art === 'raster' ? 'häufig nachgewiesen' : 'dein Naturraum'}</Schrift>
+        <Kaestchen farbe={farbe} schraffiert />
+        <Schrift art="klein">{props.art === 'raster' ? 'vereinzelt' : 'von Natur aus heimisch'}</Schrift>
+        <View style={[stile.punkt, { backgroundColor: colors.amber }]} />
+        <Schrift art="klein">{standort?.text ?? 'Standort'}</Schrift>
       </View>
       <Schrift art="etikett" style={stile.fuss}>
-        {inhalt.typ === 'raster'
-          ? `${inhalt.n} von ${inhalt.gesamt} Feldern · TK25-Raster (10′ × 6′) · Demo-Daten`
-          : `${props.art === 'naturraeume' ? props.naturraeume.length : 0} von 10 Demo-Naturräumen`}
+        {props.art === 'raster'
+          ? `${flaechen.nVoll} Gebiete häufig · ${flaechen.nTeil} vereinzelt · 82 Wuchsgebiete · Demo-Daten`
+          : `${flaechen.nVoll + flaechen.nTeil} von 10 Demo-Naturräumen`}
       </Schrift>
     </View>
   );
 }
 
-function Punkt({ farbe }: { farbe: string }) {
-  return <View style={[stile.punkt, { backgroundColor: farbe }]} />;
+/** Kleine Tanne als Waldsymbol */
+function Tanne({ x, y, gross = false }: { x: number; y: number; gross?: boolean }) {
+  const s = gross ? 1.25 : 1;
+  return (
+    <Polygon
+      points={`${x},${y - 7 * s} ${x + 3.2 * s},${y} ${x - 3.2 * s},${y}`}
+      fill={colors.waldSymbol}
+      stroke={colors.night}
+      strokeWidth={0.4}
+    />
+  );
+}
+
+/** Zwei bis drei Gipfel, die Alpen mit Schneekappen */
+function Berg({ x, y, hoch = false }: { x: number; y: number; hoch?: boolean }) {
+  const s = hoch ? 1.6 : 1;
+  const gipfel = (dx: number, h: number, b: number) => `M${x + dx - b} ${y} L${x + dx} ${y - h} L${x + dx + b} ${y} Z`;
+  return (
+    <G>
+      <Path
+        d={gipfel(-5 * s, 8 * s, 6 * s)}
+        fill={colors.kartenAlpen}
+        stroke={colors.fog}
+        strokeWidth={0.7}
+        strokeOpacity={0.8}
+      />
+      <Path
+        d={gipfel(3 * s, 11 * s, 7 * s)}
+        fill={colors.kartenAlpen}
+        stroke={colors.fog}
+        strokeWidth={0.7}
+        strokeOpacity={0.8}
+      />
+      {hoch && (
+        <>
+          <Path
+            d={`M${x + 3 * s - 2.5 * s} ${y - 7.5 * s} L${x + 3 * s} ${y - 11 * s} L${x + 3 * s + 2.5 * s} ${y - 7.5 * s} Z`}
+            fill={colors.moon}
+          />
+          <Path
+            d={`M${x - 5 * s - 2 * s} ${y - 5.5 * s} L${x - 5 * s} ${y - 8 * s} L${x - 5 * s + 2 * s} ${y - 5.5 * s} Z`}
+            fill={colors.moon}
+          />
+        </>
+      )}
+    </G>
+  );
+}
+
+function Kaestchen({ farbe, schraffiert = false }: { farbe: string; schraffiert?: boolean }) {
+  return (
+    <View
+      style={[
+        stile.kaestchen,
+        schraffiert
+          ? { borderColor: farbe, borderStyle: 'dashed', backgroundColor: 'transparent' }
+          : { backgroundColor: farbe, borderColor: farbe },
+      ]}
+    />
+  );
+}
+
+/** Pulsierender Standort-Punkt (über der Karte, in Prozent positioniert) */
+function StandortPunkt({ x, y, text }: { x: number; y: number; text: string }) {
+  const ruhig = useReducedMotion();
+  const puls = useSharedValue(0);
+  useEffect(() => {
+    if (!ruhig) puls.value = withRepeat(withTiming(1, { duration: 1800, easing: Easing.out(Easing.quad) }), -1, false);
+  }, [ruhig, puls]);
+  const ring = useAnimatedStyle(() => ({
+    opacity: 0.7 * (1 - puls.value),
+    transform: [{ scale: 1 + puls.value * 2.2 }],
+  }));
+  return (
+    <View
+      pointerEvents="none"
+      accessible
+      accessibilityLabel={`${text}, ungefähr, auf etwa 10 Kilometer genau`}
+      style={[stile.standort, { left: `${(x / KARTE.breite) * 100}%`, top: `${(y / KARTE.hoehe) * 100}%` }]}
+    >
+      <Animated.View style={[stile.standortRing, ring]} />
+      <View style={stile.standortKern} />
+      <Schrift style={stile.standortText}>{text}</Schrift>
+    </View>
+  );
 }
 
 const stile = StyleSheet.create({
   flaeche: { width: '100%', aspectRatio: KARTE.breite / KARTE.hoehe },
   legende: { flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: 6 },
+  kaestchen: { width: 12, height: 12, borderRadius: 2, borderWidth: 1.5, marginLeft: 6 },
   punkt: { width: 10, height: 10, borderRadius: 5, marginLeft: 6 },
   fuss: { fontSize: 10, marginTop: 6, textTransform: 'none' },
+  standort: { position: 'absolute', width: 0, height: 0, alignItems: 'center', justifyContent: 'center' },
+  standortRing: {
+    position: 'absolute',
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: colors.amber,
+  },
+  standortKern: {
+    position: 'absolute',
+    width: 9,
+    height: 9,
+    borderRadius: 5,
+    backgroundColor: colors.amber,
+    borderWidth: 1.5,
+    borderColor: colors.night,
+    shadowColor: colors.amber,
+    shadowOpacity: 1,
+    shadowRadius: 6,
+  },
+  standortText: {
+    position: 'absolute',
+    top: 8,
+    width: 110,
+    textAlign: 'center',
+    fontFamily: fonts.hand,
+    fontSize: 12,
+    color: colors.amber,
+    textShadowColor: colors.night,
+    textShadowRadius: 4,
+  },
 });

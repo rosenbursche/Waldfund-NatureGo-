@@ -94,9 +94,9 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 ### 2.4 Deutschlandkarte
 | Anforderung | Stand |
 |---|---|
-| Statt Punkten: **gefüllte bzw. halb gefüllte Flächen** | ⬜ |
-| Lebendiger: Berge, Mittelgebirge, große Wälder | ⬜ (Geodaten: Copernicus-Höhenmodell, CORINE-Landbedeckung – Lizenz vor Nutzung prüfen) |
-| Eigene Position einzeichnen | ⬜ (nur **grob**, ca. 10 km – Datenschutz) |
+| Statt Punkten: **gefüllte bzw. halb gefüllte (schraffierte) Flächen** – 82 Wuchsgebiete | ✅ |
+| Lebendiger: Großlandschaften als Untergrund, Gebirge mit Namen, Waldgebiete, große Flüsse | ✅ (später genauer mit Höhenmodell/CORINE möglich – Lizenz prüfen) |
+| Eigene Position einzeichnen | ✅ pulsierender Punkt, nur **grob** (ca. 10 km); ohne gespeicherten Standort: Mitte des Naturraums |
 | Fundorte seltener Arten nie genauer als Rasterebene | ✅ gilt weiter |
 
 ### 2.5 Realistische 3D-Modelle
@@ -114,7 +114,7 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 1. **Schritt 1 – jetziges System (ohne externe Modelle)**
    - ✅ Wild-Wert, Tier-/Vogel-Sektionen, Nahrungsnetz, LiDAR, Tropfen/Schütteln/Blätter
    - ⬜ Pflanzen: Jahreszeiten-Regler, Wachstums-Regler, Biologie zerlegt
-   - ⬜ Lebendige Karte (Flächen, Relief, Wälder, grober Standort)
+   - ✅ Lebendige Karte (Flächen, Landschaften, Gebirge, Wälder, Flüsse, grober Standort)
    - ⬜ Steckbriefe für Pilze und Pflanzen
    - ⬜ Zeichnungen für Spuren, Bauten, Nester, Vogelfüße (Tinten-Stil)
 2. **Schritt 2 – Pilot mit realistischen Modellen** (Fuchs, ggf. Rotkehlchen, Fliegenpilz): GLB-Lader, Animationen, Alters-Regler, Größe/Bildrate auf dem Handy testen

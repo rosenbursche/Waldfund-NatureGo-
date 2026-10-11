@@ -1,6 +1,8 @@
+import { WUCHSGEBIETE } from '@/data/karte';
+import type { Geometrie } from '@/data/typen';
 import { DEUTSCHLAND_UMRISS, VERBREITUNG } from '@/data/verbreitung';
 
-import { punktInRing } from './geo';
+import { punktInGeometrie, punktInRing } from './geo';
 
 /**
  * Verbreitungskarte im Messtischblatt-Raster (TK25: 10′ Länge × 6′ Breite).
@@ -64,4 +66,70 @@ export function vorkommen(artId: string, modellName: string): boolean[] {
 export const KARTE = { breite: 340, hoehe: 440 };
 export function projiziere(lon: number, lat: number): [number, number] {
   return [16 + (lon - 5.85) * 33.5, 10 + (55.1 - lat) * 53.5];
+}
+
+// ---------- Flächen statt Punkte ----------
+
+/** Wie stark kommt eine Art in einem Gebiet vor? */
+export type GebietsStufe = 'voll' | 'teil' | 'keine';
+export const SCHWELLE_VOLL = 0.45;
+export const SCHWELLE_TEIL = 0.12;
+
+let zellGebiet: (number | null)[] | null = null;
+
+/** Ordnet jedes Rasterfeld einem Wuchsgebiet zu (einmal berechnet, dann gemerkt). */
+export function zellenNachGebiet(): (number | null)[] {
+  if (zellGebiet) return zellGebiet;
+  const gebiete = WUCHSGEBIETE.map((g) => ({ id: g.id, geo: g.geo, box: begrenzung(g.geo) }));
+  zellGebiet = rasterZellen().map(({ lon, lat }) => {
+    for (const g of gebiete) {
+      const [x0, y0, x1, y1] = g.box;
+      if (lon < x0 || lon > x1 || lat < y0 || lat > y1) continue;
+      if (punktInGeometrie(lon, lat, g.geo)) return g.id;
+    }
+    return null;
+  });
+  return zellGebiet;
+}
+
+function begrenzung(g: Geometrie): [number, number, number, number] {
+  let x0 = Infinity;
+  let y0 = Infinity;
+  let x1 = -Infinity;
+  let y1 = -Infinity;
+  const polys = g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+  for (const p of polys)
+    for (const [x, y] of p[0]) {
+      x0 = Math.min(x0, x);
+      y0 = Math.min(y0, y);
+      x1 = Math.max(x1, x);
+      y1 = Math.max(y1, y);
+    }
+  return [x0, y0, x1, y1];
+}
+
+/**
+ * Für jedes Wuchsgebiet: Anteil der Rasterfelder mit Nachweis und daraus die Stufe
+ * (voll gefüllt / schraffiert / leer). Gröber als die Rasterfelder – das schützt zusätzlich
+ * die Fundorte seltener Arten.
+ */
+export function gebietsAnteile(
+  artId: string,
+  modellName: string,
+): { id: number; anteil: number; stufe: GebietsStufe }[] {
+  const occ = vorkommen(artId, modellName);
+  const zuordnung = zellenNachGebiet();
+  const zaehler = new Map<number, { ja: number; alle: number }>();
+  zuordnung.forEach((id, i) => {
+    if (id === null) return;
+    const z = zaehler.get(id) ?? { ja: 0, alle: 0 };
+    z.alle += 1;
+    if (occ[i]) z.ja += 1;
+    zaehler.set(id, z);
+  });
+  return WUCHSGEBIETE.map((g) => {
+    const z = zaehler.get(g.id);
+    const anteil = z && z.alle > 0 ? z.ja / z.alle : 0;
+    return { id: g.id, anteil, stufe: anteil >= SCHWELLE_VOLL ? 'voll' : anteil >= SCHWELLE_TEIL ? 'teil' : 'keine' };
+  });
 }

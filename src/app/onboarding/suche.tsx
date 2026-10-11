@@ -7,7 +7,7 @@ import { Hintergrund } from '@/components/Hintergrund';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { NATURRAEUME } from '@/data/naturraeume';
-import { naechsterNaturraum } from '@/logic/geo';
+import { naechsterNaturraum, vergroebern } from '@/logic/geo';
 import { sucheOrte, type OrtEintrag, type Treffer } from '@/logic/ortsuche';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
@@ -25,9 +25,18 @@ export default function Suche() {
 
   function waehle(t: Treffer) {
     const { naturraum, km } = naechsterNaturraum(t.lon, t.lat, NATURRAEUME);
+    // nur grob gerundet (ca. 10 km) – für den Standort-Punkt auf der Karte
+    const grob = vergroebern(t.lon, t.lat);
     router.push({
       pathname: '/onboarding/ergebnis',
-      params: { id: naturraum.id, per: 'suche', km: String(Math.round(km)), ort: t.ort },
+      params: {
+        id: naturraum.id,
+        per: 'suche',
+        km: String(Math.round(km)),
+        ort: t.ort,
+        glon: String(grob.lon),
+        glat: String(grob.lat),
+      },
     });
   }
 

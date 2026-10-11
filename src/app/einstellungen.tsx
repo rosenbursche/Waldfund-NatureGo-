@@ -6,6 +6,7 @@ import { Hintergrund } from '@/components/Hintergrund';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
+import { KARTEN_QUELLE } from '@/data/karte';
 import { NATURRAUM_QUELLE, naturraumById } from '@/data/naturraeume';
 import { useEinstellungen } from '@/store/einstellungen';
 import { alleFotosLoeschen } from '@/logic/foto';
@@ -188,6 +189,7 @@ export default function Einstellungen() {
           <View style={stile.karte}>
             <Schrift art="etikett">Datenquellen</Schrift>
             <Schrift art="klein">Grenzen der Naturräume: {NATURRAUM_QUELLE}.</Schrift>
+            <Schrift art="klein">Karte: {KARTEN_QUELLE}.</Schrift>
             <Schrift art="klein">Orte und Postleitzahlen: GeoNames (geonames.org), CC BY 4.0.</Schrift>
             {pruefModus === 'echt' && (
               <Schrift art="klein">

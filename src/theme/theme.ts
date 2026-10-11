@@ -24,6 +24,14 @@ export const colors = {
   warn: '#E07A5F', // Warnungen (Gift), gedämpft statt grell
   abgrund: '#050808', // Hintergrund der Sektion "Gefährlich & tödlich"
   blut: '#9E2F3A', // Dornen und Glut in der Gefahren-Sektion
+
+  // Deutschlandkarte: Landschaften von tief (Tiefland) bis hoch (Alpen), Wasser, Wald
+  kartenTief: '#17271F',
+  kartenHuegel: '#1C2D24',
+  kartenBerg: '#24372B',
+  kartenAlpen: '#2F3D36',
+  wasser: '#5D8FA3',
+  waldSymbol: '#3A6B48',
   shadow: '#000000',
 } as const;
 

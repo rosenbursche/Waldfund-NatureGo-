@@ -12,6 +12,12 @@ Stand der Recherche: 11.10.2026
 - **Im Projekt:** `scripts/naturraeume-bauen.mjs` lädt die Daten, verschmilzt die Wuchsbezirke zu 10 Demo-Naturräumen, vereinfacht sie und schreibt `src/data/naturraeume.json` (ca. 38 KB).
 - **Wichtig:** Die Daten enthalten **nur Namen und Grenzen**. Höhenstufe, Boden und Großlandschaft der Demo-Naturräume habe ich selbst eingestuft. Sie sind als `TODO fachlich prüfen` markiert.
 
+### Lebendige Deutschlandkarte
+- **Wuchsgebiete 2020** (82 Flächen für die Verbreitung) und **Forstliche Großlandschaften 2011** (Untergrund, Umriss): Thünen-Institut, dl-de/by-2-0, Namensnennung „© Thünen-Institut“.
+- **Flüsse:** Natural Earth 1:10 Mio. „rivers_lake_centerlines“, **gemeinfrei (Public Domain)**, keine Namensnennung nötig. Quelle: [Natural Earth – Nutzungsbedingungen](https://www.naturalearthdata.com/about/terms-of-use/)
+- **Gebirge und Waldgebiete:** von Hand gesetzte Kartensymbole (Lage ungefähr); Waldgebiete nach Bekanntheit, nicht nach gemessenem Waldanteil.
+- **Im Projekt:** `scripts/karte-bauen.mjs` → `src/data/karte.json` (ca. 150 KB).
+
 ### Orte und Postleitzahlen (GeoNames)
 - **Was:** rund 19.000 Postleitzahlen und Orte in Deutschland mit Koordinaten, für die Offline-Ortssuche im Onboarding.
 - **Wo:** https://download.geonames.org/export/zip/DE.zip

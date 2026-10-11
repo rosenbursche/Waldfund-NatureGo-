@@ -204,6 +204,7 @@ describe('Screens rendern ohne Fehler', () => {
   test('Einstellungen', async () => {
     useEinstellungen.setState({ naturraumId: 'hochharz', gewaehltPer: 'liste' });
     await render(<Einstellungen />);
-    expect(screen.getByText(/Thünen-Institut/)).toBeTruthy();
+    expect(screen.getAllByText(/Thünen-Institut/).length).toBeGreaterThanOrEqual(2); // Naturräume und Karte
+    expect(screen.getByText(/Natural Earth/)).toBeTruthy();
   });
 });
