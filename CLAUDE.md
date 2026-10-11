@@ -19,17 +19,23 @@ Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur,
 - `expo-camera` / `expo-image-picker`, `expo-location`, `expo-sensors`.
 - Zustand: **Zustand** + AsyncStorage. Alles **offline**, Daten als JSON/TS im Projekt.
 - Pakete immer mit `npx expo install <paket>` installieren.
-- Vor „fertig“: `npx tsc --noEmit` und (ab Phase 1) `npm test`.
+- Vor „fertig“: `npx tsc --noEmit`, `npx expo lint` und `npm test`.
 
 ## Ordnerstruktur
 - `src/app/` – Screens (nur Routen)
 - `src/theme/theme.ts` – Design-Tokens (Farben, Schriften, Abstände). **Keine Farbwerte direkt in Komponenten.**
-- `src/data/` – Artendaten, Baumarten, Naturräume
-- `src/logic/` – Regel-Engine, Punkte, Level (mit Tests)
+- `src/data/` – Artendaten (`arten.ts`), Baumarten (`baumarten.ts`), Naturräume (`naturraeume.json`, erzeugt), Spielregeln (`spiel.ts`)
+- `src/logic/` – Regel-Engine, Geo (Punkt-in-Polygon), Punkte/Level/Serien/Erfolge; Tests in `src/logic/__tests__/`
 - `src/components/` – wiederverwendbare UI-Bausteine
 - `src/scene/` – 3D-Szenen
 - `src/store/` – Zustand-Store
-- `assets/geo/` – vereinfachte GeoJSON-Dateien
+- `scripts/naturraeume-bauen.mjs` – erzeugt `src/data/naturraeume.json` aus Thünen-Wuchsbezirken (`node scripts/naturraeume-bauen.mjs`)
+
+## Daten
+- Quellen und Lizenzen stehen in `DATENQUELLEN.md`. Neue Daten nur mit geprüfter Lizenz übernehmen und dort eintragen.
+- Geodaten: © Thünen-Institut (dl-de/by-2-0), Namensnennung muss in der App sichtbar sein.
+- Baumarten liegen als `baumarten.ts` statt JSON vor, damit `// TODO fachlich prüfen`-Kommentare möglich sind.
+- Anteile der Regel-Engine (haupt 6 / neben 3 / begleiter 1) sind eine Spiel-Vereinfachung, keine forstlichen Flächenanteile.
 
 ## Look & Feel: mystisch statt neon
 - Wald in der Dämmerung, altes Naturforscher-Tagebuch. **Kein Neongrün.** Leuchten weich (Bloom, Nebel, Licht in Schichten).
