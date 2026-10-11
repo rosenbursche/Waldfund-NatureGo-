@@ -12,6 +12,7 @@ import Start from '@/app/index';
 import Katalog from '@/app/katalog/[kategorie]';
 import Mystery from '@/app/mystery';
 import Sammeln from '@/app/sammeln/[id]';
+import Tagebuch from '@/app/tagebuch';
 import Ergebnis from '@/app/onboarding/ergebnis';
 import Willkommen from '@/app/onboarding/index';
 import Liste from '@/app/onboarding/liste';
@@ -63,8 +64,9 @@ describe('Screens rendern ohne Fehler', () => {
   test('Startseite mit gewähltem Naturraum', async () => {
     useEinstellungen.setState({ naturraumId: 'hochharz' });
     await render(<Start />);
-    expect(screen.getByText('Hochharz')).toBeTruthy();
+    expect(screen.getByText(/Hochharz ·/)).toBeTruthy();
     expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
+    expect(screen.getByText('Entdecker')).toBeTruthy(); // Rang in der Fortschrittsanzeige
   });
 
   test('Artenseite einer Baumart', async () => {
@@ -128,6 +130,14 @@ describe('Screens rendern ohne Fehler', () => {
     await render(<Sammeln />);
     expect(screen.getByText('Mystery-Art')).toBeTruthy();
     expect(screen.queryByText('Eurasischer Luchs')).toBeNull();
+  });
+
+  test('Feldtagebuch zeigt Level, Hütte und Erfolge', async () => {
+    useSammlung.setState({ gefunden: { amsel: { datum: '2026-10-11' } }, ap: 120, serie: 2 });
+    await render(<Tagebuch />);
+    expect(screen.getByText('Spurenleser')).toBeTruthy(); // 120 AP = Level 3
+    expect(screen.getByText('Waldhütte')).toBeTruthy();
+    expect(screen.getByText('Erster Fund')).toBeTruthy();
   });
 
   test('Einstellungen', async () => {

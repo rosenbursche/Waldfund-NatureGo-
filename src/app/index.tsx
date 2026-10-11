@@ -5,6 +5,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { Fortschrittsanzeige } from '@/components/Fortschrittsanzeige';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Icon } from '@/components/Icon';
 import { Schrift } from '@/components/Schrift';
@@ -12,6 +13,7 @@ import type { KategorieId } from '@/data/artTypen';
 import { naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN } from '@/data/spiel';
 import type { Naturraum } from '@/data/typen';
+import { huettenStufe, levelInfo } from '@/logic/fortschritt';
 import { fortschrittDerKategorie } from '@/logic/katalog';
 import { stimmungJetzt } from '@/logic/tageszeit';
 import { Lichtung } from '@/scene/Lichtung';
@@ -38,6 +40,8 @@ export default function Start() {
 function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
   const ruhig = useReducedMotion();
   const gefunden = useSammlung((s) => s.gefunden);
+  const ap = useSammlung((s) => s.ap);
+  const huette = huettenStufe(levelInfo(ap).level);
   const [steuer] = useState(() => new Steuerung());
   const [kanal] = useState(() => new PunkteKanal());
 
@@ -83,6 +87,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
             aktiv={aktiv}
             naturraum={naturraum}
             gefunden={gefunden}
+            huette={huette}
             fortschritt={anteile}
             stimmung={stimmung}
             ruhig={ruhig}
@@ -96,10 +101,10 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
       <RunenBeschriftung kanal={kanal} fortschritt={fortschritt} />
 
       <SafeAreaView style={stile.oben} pointerEvents="box-none">
-        <View style={{ flex: 1 }} pointerEvents="none">
-          <Schrift art="etikett">{stimmung.name}</Schrift>
-          <Schrift art="ueberschrift" style={stile.schatten}>
-            {naturraum.name}
+        <View style={{ flex: 1, gap: spacing.s }} pointerEvents="box-none">
+          <Fortschrittsanzeige />
+          <Schrift art="etikett" style={stile.schatten} pointerEvents="none">
+            {naturraum.name} · {stimmung.name}
           </Schrift>
         </View>
         <Pressable

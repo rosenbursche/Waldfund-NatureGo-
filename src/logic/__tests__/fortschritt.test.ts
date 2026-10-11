@@ -1,6 +1,14 @@
 import { ARTEN, artById } from '@/data/arten';
 import { MYSTERY_AB } from '@/data/spiel';
-import { levelInfo, neueErfolge, neueSerie, punkteFuerArt, tagesKey } from '@/logic/fortschritt';
+import {
+  berechneBelohnung,
+  huettenStufe,
+  levelInfo,
+  neueErfolge,
+  neueSerie,
+  punkteFuerArt,
+  tagesKey,
+} from '@/logic/fortschritt';
 
 describe('Artendaten aus dem Prototyp', () => {
   test('39 Arten in 4 Kategorien', () => {
@@ -81,5 +89,52 @@ describe('Erfolge', () => {
   test('legendäre Art zählt auch als Seltenheitsjäger', () => {
     const ids = neueErfolge(new Set(['amsel']), new Set(['amsel', 'luchs'])).map((e) => e.id);
     expect(ids).toEqual(['seltenheitsjaeger', 'legende']);
+  });
+});
+
+describe('Belohnung für einen Fund', () => {
+  const start = { ap: 0, serie: 0, letzterTag: null, gesammelt: new Set<string>() };
+  const tag = new Date('2026-10-11T12:00:00');
+
+  test('erster Fund: Punkte, Serie 1, Erfolg "Erster Fund"', () => {
+    const b = berechneBelohnung(start, artById['amsel'], 'amsel', tag);
+    expect(b).toMatchObject({ neu: true, punkte: 10, bonus: 0, serie: 1, levelVorher: 1, levelNachher: 1 });
+    expect(b.neueErfolge.map((e) => e.id)).toEqual(['erster-fund']);
+    expect(b.stand.ap).toBe(10);
+  });
+
+  test('legendäre Art bringt Level-up und lässt die Hütte wachsen', () => {
+    const b = berechneBelohnung(start, artById['luchs'], 'luchs', tag);
+    expect(b.punkte).toBe(400);
+    expect(b.levelNachher).toBe(5); // 400 AP → Level 5 (Level 6 beginnt bei 550)
+    expect(b.huetteVorher).toBe(0);
+    expect(b.huetteNachher).toBe(1);
+  });
+
+  test('schon gesammelte Art bringt keine Punkte', () => {
+    const b = berechneBelohnung({ ...start, ap: 10, gesammelt: new Set(['amsel']) }, artById['amsel'], 'amsel', tag);
+    expect(b).toMatchObject({ neu: false, punkte: 0, bonus: 0 });
+    expect(b.stand.ap).toBe(10);
+  });
+
+  test('Fund am nächsten Tag gibt Serienbonus', () => {
+    const b = berechneBelohnung(
+      { ap: 10, serie: 1, letzterTag: '2026-10-10', gesammelt: new Set(['amsel']) },
+      artById['kohlmeise'],
+      'kohlmeise',
+      tag,
+    );
+    expect(b).toMatchObject({ serie: 2, bonus: 10 });
+    expect(b.stand.ap).toBe(30);
+  });
+
+  test('Baumart ohne Steckbrief zählt als häufig', () => {
+    expect(berechneBelohnung(start, undefined, 'traubeneiche', tag).punkte).toBe(10);
+  });
+});
+
+describe('Hütte wächst mit dem Level', () => {
+  test('Stufen', () => {
+    expect([1, 2, 3, 5, 6, 8, 9, 12].map(huettenStufe)).toEqual([0, 0, 1, 1, 2, 2, 3, 3]);
   });
 });

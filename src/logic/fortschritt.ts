@@ -104,3 +104,88 @@ export function erfolgeListe(arten: Art[] = ARTEN): Erfolg[] {
 export function neueErfolge(vorher: Set<string>, nachher: Set<string>, arten: Art[] = ARTEN): Erfolg[] {
   return erfolgeListe(arten).filter((e) => !e.erreicht(vorher) && e.erreicht(nachher));
 }
+
+// ---------- Belohnung für einen Fund ----------
+
+export type Spielstand = {
+  ap: number;
+  serie: number;
+  letzterTag: string | null;
+  /** IDs aller echten (nicht Beispiel-)Funde */
+  gesammelt: Set<string>;
+};
+
+export type Belohnung = {
+  neu: boolean; // false = Art war schon gesammelt (nur neues Foto)
+  punkte: number; // Grundpunkte nach Seltenheit
+  bonus: number; // Serienbonus
+  serie: number;
+  levelVorher: number;
+  levelNachher: number;
+  huetteVorher: HuettenStufe;
+  huetteNachher: HuettenStufe;
+  neueErfolge: Erfolg[];
+  stand: Omit<Spielstand, 'gesammelt'>;
+};
+
+/**
+ * Was bringt dieser Fund?
+ * - Punkte gibt es nur für Arten, die man zum ersten Mal echt findet.
+ * - Der Serienbonus zählt einmal pro Tag (beim ersten Fund des Tages).
+ */
+export function berechneBelohnung(stand: Spielstand, art: Art | undefined, artId: string, jetzt: Date): Belohnung {
+  const neu = !stand.gesammelt.has(artId);
+  const levelVorher = levelIndex(stand.ap) + 1;
+  if (!neu) {
+    const h = huettenStufe(levelVorher);
+    return {
+      neu,
+      punkte: 0,
+      bonus: 0,
+      serie: stand.serie,
+      levelVorher,
+      levelNachher: levelVorher,
+      huetteVorher: h,
+      huetteNachher: h,
+      neueErfolge: [],
+      stand: { ap: stand.ap, serie: stand.serie, letzterTag: stand.letzterTag },
+    };
+  }
+  // Baumarten ohne eigenen Steckbrief zählen als "häufig"
+  const punkte = art ? punkteFuerArt(art) : SELTENHEIT[1].punkte;
+  const s = neueSerie(stand.letzterTag, stand.serie, jetzt);
+  const ap = stand.ap + punkte + s.bonus;
+  const levelNachher = levelIndex(ap) + 1;
+  const nachher = new Set(stand.gesammelt).add(artId);
+  return {
+    neu,
+    punkte,
+    bonus: s.bonus,
+    serie: s.serie,
+    levelVorher,
+    levelNachher,
+    huetteVorher: huettenStufe(levelVorher),
+    huetteNachher: huettenStufe(levelNachher),
+    neueErfolge: neueErfolge(stand.gesammelt, nachher),
+    stand: { ap, serie: s.serie, letzterTag: s.letzterTag },
+  };
+}
+
+// ---------- Die Hütte wächst mit dem Level ----------
+
+export type HuettenStufe = 0 | 1 | 2 | 3;
+
+export const HUETTEN_NAME: Record<HuettenStufe, string> = {
+  0: 'Unterstand',
+  1: 'Waldhütte',
+  2: 'Forsthaus',
+  3: 'Baumhaus-Sternwarte',
+};
+
+/** Level 1–2 Unterstand, 3–5 Waldhütte, 6–8 Forsthaus, ab 9 Sternwarte */
+export function huettenStufe(level: number): HuettenStufe {
+  if (level >= 9) return 3;
+  if (level >= 6) return 2;
+  if (level >= 3) return 1;
+  return 0;
+}

@@ -21,7 +21,7 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { artById } from '@/data/arten';
 import { SELTENHEIT } from '@/data/spiel';
-import { tagesKey } from '@/logic/fortschritt';
+import { HUETTEN_NAME, levelInfo, tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
 import { validatePhoto, type Pruefergebnis } from '@/logic/validierung';
@@ -36,7 +36,7 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
 type Schritt =
   | { art: 'start'; meldung?: string }
   | { art: 'pruefen'; foto: string; zeilen: string[] }
-  | { art: 'erfolg'; foto: string; schonGehabt: boolean }
+  | { art: 'erfolg'; foto: string; belohnung: Belohnung }
   | { art: 'nicht'; foto: string; ergebnis: Exclude<Pruefergebnis, { status: 'treffer' }> };
 
 const PAUSE = 650; // Zeit zwischen den Prüfschritten, wie im Prototyp
@@ -47,7 +47,6 @@ export default function Sammeln() {
   const art = artById[id];
   const { pruefModus, demoFehlschlag } = useEinstellungen();
   const sammeln = useSammlung((s) => s.sammeln);
-  const schonGehabt = useSammlung((s) => !!s.gefunden[id] && !s.gefunden[id].beispiel);
   const verborgen = useSammlung((s) => istVerborgen(id, s.gefunden));
   const [schritt, setSchritt] = useState<Schritt>({ art: 'start' });
 
@@ -100,9 +99,8 @@ export default function Sammeln() {
       setSchritt({ art: 'pruefen', foto, zeilen: [...zeilen] });
       await warten(PAUSE);
       const dauerhaft = await fotoBehalten(foto, id);
-      const vorher = schonGehabt;
-      sammeln(id, { datum: tagesKey(new Date()), foto: dauerhaft });
-      setSchritt({ art: 'erfolg', foto: dauerhaft, schonGehabt: vorher });
+      const belohnung = sammeln(id, { datum: tagesKey(new Date()), foto: dauerhaft });
+      setSchritt({ art: 'erfolg', foto: dauerhaft, belohnung });
     } else {
       zeilen.push('Keine sichere Übereinstimmung');
       setSchritt({ art: 'pruefen', foto, zeilen: [...zeilen] });
@@ -180,15 +178,13 @@ export default function Sammeln() {
               <Leuchtkreis foto={schritt.foto} farbe={s.farbe} />
               <Animated.View entering={FadeInDown.delay(300).duration(600)} style={{ alignItems: 'center', gap: 6 }}>
                 <Schrift style={[stile.stufe, { color: s.farbe }]}>
-                  {s.name} · {schritt.schonGehabt ? 'Neues Foto gespeichert' : 'Neu in deiner Sammlung'}
+                  {s.name} · {schritt.belohnung.neu ? 'Neu in deiner Sammlung' : 'Neues Foto gespeichert'}
                 </Schrift>
                 <Schrift art="titel" style={{ textAlign: 'center' }} accessibilityRole="header">
                   {eintrag.name}
                 </Schrift>
-                <Schrift art="klein" style={{ textAlign: 'center' }}>
-                  Punkte, Level und Erfolge kommen in Phase 7 dazu.
-                </Schrift>
               </Animated.View>
+              <BelohnungsText b={schritt.belohnung} />
               <Knopf
                 titel="Art ansehen"
                 symbol="pfeil"
@@ -221,6 +217,67 @@ export default function Sammeln() {
         </ScrollView>
       </SafeAreaView>
     </Hintergrund>
+  );
+}
+
+/** Punkte (zählen hoch), Serienbonus, Level-up, wachsende Hütte und neue Erfolge */
+function BelohnungsText({ b }: { b: Belohnung }) {
+  const ruhig = useReducedMotion();
+  const gesamt = b.punkte + b.bonus;
+  const [angezeigt, setAngezeigt] = useState(ruhig ? gesamt : 0);
+  useEffect(() => {
+    if (ruhig || gesamt === 0) return;
+    const start = Date.now();
+    const t = setInterval(() => {
+      const p = Math.min(1, (Date.now() - start) / 900);
+      setAngezeigt(Math.round(gesamt * p));
+      if (p >= 1) clearInterval(t);
+    }, 30);
+    return () => clearInterval(t);
+  }, [gesamt, ruhig]);
+
+  if (!b.neu) {
+    return (
+      <Schrift art="klein" style={{ textAlign: 'center' }}>
+        Diese Art hattest du schon – dein neues Foto ist gespeichert. Punkte gibt es nur für neue Arten.
+      </Schrift>
+    );
+  }
+  return (
+    <View style={{ alignItems: 'center', gap: spacing.s }} accessibilityLiveRegion="polite">
+      <Animated.View entering={ZoomIn.delay(600).duration(500)}>
+        <Schrift style={stile.punkte} accessibilityLabel={`plus ${gesamt} Aktivitätspunkte`}>
+          +{angezeigt} AP
+        </Schrift>
+      </Animated.View>
+      {b.bonus > 0 && (
+        <Schrift art="klein">
+          inklusive {b.bonus} AP Serienbonus ({b.serie} Tage in Folge)
+        </Schrift>
+      )}
+      {b.levelNachher > b.levelVorher && (
+        <Animated.View entering={FadeInDown.delay(1100).duration(600)}>
+          <Schrift art="notiz" style={{ fontSize: 22, textAlign: 'center' }}>
+            Level {b.levelNachher} erreicht: {levelInfo(b.stand.ap).rang}!
+          </Schrift>
+        </Animated.View>
+      )}
+      {b.huetteNachher > b.huetteVorher && (
+        <Animated.View entering={FadeInDown.delay(1400).duration(600)}>
+          <Schrift art="notiz" style={{ color: colors.rune, textAlign: 'center' }}>
+            Deine Hütte ist gewachsen: {HUETTEN_NAME[b.huetteNachher]}
+          </Schrift>
+        </Animated.View>
+      )}
+      {b.neueErfolge.map((e, i) => (
+        <Animated.View key={e.id} entering={FadeInDown.delay(1600 + i * 200).duration(500)} style={stile.erfolg}>
+          <Schrift style={{ color: colors.amber }}>★</Schrift>
+          <Schrift art="klein" style={{ color: colors.moon }}>
+            Neuer Erfolg: {e.name}
+          </Schrift>
+        </Animated.View>
+      ))}
+    </View>
   );
 }
 
@@ -293,5 +350,22 @@ const stile = StyleSheet.create({
     shadowRadius: 18,
   },
   kreisFoto: { width: 160, height: 160, borderRadius: 80 },
+  punkte: {
+    fontFamily: fonts.type,
+    fontSize: 32,
+    color: colors.amber,
+    textShadowColor: colors.amber,
+    textShadowRadius: 12,
+  },
+  erfolg: {
+    flexDirection: 'row',
+    gap: 6,
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: radius.l,
+    borderWidth: 1.5,
+    borderColor: colors.amber,
+  },
   kleinesFoto: { width: '100%', aspectRatio: 1.4, borderRadius: radius.m },
 });

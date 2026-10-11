@@ -7,6 +7,7 @@ import { baumById } from '@/data/baumarten';
 import type { Naturraum } from '@/data/typen';
 import { platziereBaeume, startwertAus } from '@/logic/lichtung';
 import { getHeimischeBaeume } from '@/logic/regelEngine';
+import type { HuettenStufe } from '@/logic/fortschritt';
 import type { Stimmung } from '@/logic/tageszeit';
 
 import { Atmosphaere } from './Atmosphaere';
@@ -32,6 +33,8 @@ type Props = {
   aktiv: boolean;
   naturraum: Naturraum;
   gefunden: Record<string, unknown>;
+  /** Ausbaustufe der Hütte (wächst mit dem Level) */
+  huette: HuettenStufe;
   fortschritt: Record<KategorieId, number>;
   stimmung: Stimmung;
   ruhig: boolean;
@@ -40,7 +43,18 @@ type Props = {
   onZiel: (z: Ziel) => void;
 };
 
-export function Lichtung({ aktiv, naturraum, gefunden, fortschritt, stimmung, ruhig, steuer, kanal, onZiel }: Props) {
+export function Lichtung({
+  aktiv,
+  naturraum,
+  gefunden,
+  huette,
+  fortschritt,
+  stimmung,
+  ruhig,
+  steuer,
+  kanal,
+  onZiel,
+}: Props) {
   const plaetze = useMemo(
     () => platziereBaeume(getHeimischeBaeume(naturraum), BAUM_ANZAHL, startwertAus(naturraum.id)),
     [naturraum],
@@ -57,7 +71,7 @@ export function Lichtung({ aktiv, naturraum, gefunden, fortschritt, stimmung, ru
   return (
     <Canvas style={StyleSheet.absoluteFill} camera={{ fov: 50, near: 0.1, far: 120, position: [0, 6, 17] }}>
       <Atmosphaere stimmung={stimmung} ruhig={ruhig} />
-      <Huette fenster={stimmung.fenster} ruhig={ruhig} />
+      <Huette stufe={huette} fenster={stimmung.fenster} ruhig={ruhig} />
 
       {plaetze.map((p, i) => {
         const baum = baumById[p.baumId];
