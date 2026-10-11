@@ -36,6 +36,8 @@ type Props = {
   /** Ausbaustufe der Hütte (wächst mit dem Level) */
   huette: HuettenStufe;
   fortschritt: Record<KategorieId, number>;
+  /** je Kategorie einige gefundene Arten für die Vitrine am Runenstein */
+  vitrinen: Record<KategorieId, string[]>;
   stimmung: Stimmung;
   ruhig: boolean;
   steuer: Steuerung;
@@ -51,6 +53,7 @@ export function Lichtung({
   gefunden,
   huette,
   fortschritt,
+  vitrinen,
   stimmung,
   ruhig,
   steuer,
@@ -93,7 +96,14 @@ export function Lichtung({
       })}
 
       {RUNEN_POSITIONEN.map((r) => (
-        <Runenstein key={r.id} kategorie={r.id} position={r.position} fortschritt={fortschritt[r.id]} ruhig={ruhig} />
+        <Runenstein
+          key={r.id}
+          kategorie={r.id}
+          position={r.position}
+          fortschritt={fortschritt[r.id]}
+          vitrine={vitrinen[r.id]}
+          ruhig={ruhig}
+        />
       ))}
 
       <Kamera steuer={steuer} ruhig={ruhig} />

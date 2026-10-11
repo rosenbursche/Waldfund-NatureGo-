@@ -20,6 +20,9 @@ export function matt(farbe: string): THREE.MeshLambertMaterial {
 /** Farbe für noch nicht gefundene Arten: dunkle Silhouette im Nebel */
 export const SILHOUETTE = '#16231F';
 
+/** Farbe für noch nicht gefundene Arten im Kategorie-Wald: ausgegraut */
+export const GRAU = '#6E7673';
+
 /** Unsichtbares Material für größere Tipp-Flächen */
 export const UNSICHTBAR = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false });
 

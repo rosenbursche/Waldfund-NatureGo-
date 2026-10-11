@@ -15,9 +15,9 @@ import { naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN } from '@/data/spiel';
 import type { Naturraum } from '@/data/typen';
 import { huettenStufe, levelInfo } from '@/logic/fortschritt';
-import { fortschrittDerKategorie } from '@/logic/katalog';
+import { fortschrittDerKategorie, vitrinenArten } from '@/logic/katalog';
 import { stimmungJetzt } from '@/logic/tageszeit';
-import { Lichtung } from '@/scene/Lichtung';
+import { Lichtung, RUNEN_POSITIONEN } from '@/scene/Lichtung';
 import { FpsKanal, PunkteKanal, Steuerung, type BildschirmPunkt, type Ziel } from '@/scene/steuerZustand';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
@@ -53,8 +53,9 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
   useFocusEffect(
     useCallback(() => {
       setAktiv(true);
+      steuer.zoomZurueck(); // nach dem Zurückkommen wieder die ganze Lichtung zeigen
       return () => setAktiv(false);
-    }, []),
+    }, [steuer]),
   );
 
   // Licht nach Uhrzeit, jede Minute neu berechnet
@@ -69,14 +70,32 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
     for (const k of KATEGORIEN) f[k.id] = fortschrittDerKategorie(k.id, gefunden, naturraum);
     return f;
   }, [gefunden, naturraum]);
+  const vitrinen = useMemo(
+    () =>
+      Object.fromEntries(KATEGORIEN.map((k) => [k.id, vitrinenArten(k.id, gefunden, naturraum)])) as Record<
+        KategorieId,
+        string[]
+      >,
+    [gefunden, naturraum],
+  );
   const anteile = useMemo(
     () => Object.fromEntries(KATEGORIEN.map((k) => [k.id, fortschritt[k.id].anteil])) as Record<KategorieId, number>,
     [fortschritt],
   );
 
+  /** Runenstein gewählt: Kamera fliegt auf den Stein zu, dann geht es in die Kategorie hinein */
+  function inKategorie(id: KategorieId) {
+    if (steuer.zoomZiel) return; // läuft schon
+    const stein = RUNEN_POSITIONEN.find((r) => r.id === id);
+    const weiter = () => router.push({ pathname: '/katalog/[kategorie]', params: { kategorie: id } });
+    if (ruhig || !stein) return weiter();
+    steuer.zoomZu(stein.position);
+    setTimeout(weiter, 650);
+  }
+
   function onZiel(z: Ziel) {
     if (z.typ === 'baum' && z.id) router.push({ pathname: '/art/[id]', params: { id: z.id } });
-    if (z.typ === 'kategorie' && z.id) router.push({ pathname: '/katalog/[kategorie]', params: { kategorie: z.id } });
+    if (z.typ === 'kategorie' && z.id) inKategorie(z.id as KategorieId);
   }
 
   // Finger: ziehen dreht die Szene, kurz tippen wählt aus
@@ -92,6 +111,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
             gefunden={gefunden}
             huette={huette}
             fortschritt={anteile}
+            vitrinen={vitrinen}
             stimmung={stimmung}
             ruhig={ruhig}
             steuer={steuer}
@@ -102,7 +122,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
         </View>
       </GestureDetector>
 
-      <RunenBeschriftung kanal={kanal} fortschritt={fortschritt} />
+      <RunenBeschriftung kanal={kanal} fortschritt={fortschritt} onWaehle={inKategorie} />
       {leistungAnzeigen && <BildrateAnzeige kanal={fpsKanal} />}
 
       <SafeAreaView style={stile.oben} pointerEvents="box-none">
@@ -195,8 +215,10 @@ function BildrateAnzeige({ kanal }: { kanal: FpsKanal }) {
 function RunenBeschriftung({
   kanal,
   fortschritt,
+  onWaehle,
 }: {
   kanal: PunkteKanal;
+  onWaehle: (id: KategorieId) => void;
   fortschritt: Record<KategorieId, { gefunden: number; gesamt: number }>;
 }) {
   const [punkte, setPunkte] = useState<BildschirmPunkt[]>([]);
@@ -211,7 +233,7 @@ function RunenBeschriftung({
         return (
           <Pressable
             key={p.id}
-            onPress={() => router.push({ pathname: '/katalog/[kategorie]', params: { kategorie: k.id } })}
+            onPress={() => onWaehle(k.id)}
             accessibilityRole="button"
             accessibilityLabel={`${k.name}: ${f.gefunden} von ${f.gesamt} gesammelt`}
             style={[stile.label, { left: p.x - 50, top: p.y - 34 }]}

@@ -10,13 +10,17 @@ import { colors } from '@/theme/theme';
  * Rückgabe: die 3D-Gruppe und eine Funktion `bewege(t)`, die in jedem Bild aufgerufen wird
  * (Flügelschlag, wippende Blüte, Ohrenzucken …).
  *
- * `silhouette = true`: dunkles Material – so sieht man die Form, aber nicht die Art.
+ * Stil:
+ * - 'farbe': gefunden, in echten Farben
+ * - 'silhouette': dunkel – man sieht die Form, aber nicht die Art (Artenseite)
+ * - 'grau': ausgegraut – noch nicht gefunden (Kategorie-Wald, mit Schloss)
  */
+export type ModellStil = 'farbe' | 'silhouette' | 'grau';
 export type ArtModell = { gruppe: THREE.Group; bewege: (t: number) => void };
 
 type Farbe = string | number;
 
-export function baueArtModell(m: ModellParameter, silhouette: boolean): ArtModell {
+export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
   const T = THREE;
   const zahl = (k: string, standard = 0) => (typeof m[k] === 'number' ? (m[k] as number) : standard);
   const farbe = (k: string, standard: Farbe = '#888888'): Farbe => (m[k] as Farbe | undefined) ?? standard;
@@ -24,9 +28,11 @@ export function baueArtModell(m: ModellParameter, silhouette: boolean): ArtModel
   const form = m.shape as string | undefined;
 
   const M = (c: Farbe) =>
-    silhouette
+    stil === 'silhouette'
       ? new T.MeshLambertMaterial({ color: '#16231F', emissive: '#0C1C19', flatShading: true })
-      : new T.MeshLambertMaterial({ color: c, flatShading: true });
+      : stil === 'grau'
+        ? new T.MeshLambertMaterial({ color: '#6E7673', flatShading: true })
+        : new T.MeshLambertMaterial({ color: c, flatShading: true });
   const mesh = (
     geo: THREE.BufferGeometry,
     c: Farbe,

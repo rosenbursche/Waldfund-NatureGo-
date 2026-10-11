@@ -32,6 +32,7 @@ jest.mock('expo-location', () => ({}));
 // Im Test gibt es keine Grafikkarte – die 3D-Szene wird durch eine Attrappe ersetzt.
 jest.mock('@/scene/Lichtung', () => ({ Lichtung: () => null }));
 jest.mock('@/scene/ArtBuehne', () => ({ ArtBuehne: () => null }));
+jest.mock('@/scene/KategorieWald', () => ({ KategorieWald: () => null }));
 jest.mock('@/logic/foto', () => ({ fotoAufnehmen: jest.fn(), fotoBehalten: jest.fn(), alleFotosLoeschen: jest.fn() }));
 
 describe('Screens rendern ohne Fehler', () => {
@@ -94,8 +95,17 @@ describe('Screens rendern ohne Fehler', () => {
     }
   });
 
+  test('Katalog: Wald-Ansicht ist Standard, mit Umschalter', async () => {
+    mockParams.kategorie = 'voegel';
+    useEinstellungen.setState({ katalogAnsicht: 'wald' });
+    await render(<Katalog />);
+    expect(screen.getByText('Tippe eine Art an')).toBeTruthy();
+    expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
+  });
+
   test('Katalog Pilze mit Stammbaum und Mystery-Zone', async () => {
     mockParams.kategorie = 'pilze';
+    useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
     expect(screen.getByText('Blätterpilze')).toBeTruthy();
     expect(screen.getByText('Mystery-Zone')).toBeTruthy();

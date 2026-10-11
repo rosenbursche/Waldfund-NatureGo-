@@ -94,3 +94,44 @@ export function mysteryArten(kategorie?: KategorieId): KatalogEintrag[] {
 export function istVerborgen(id: string, gefunden: Record<string, unknown>): boolean {
   return !(id in gefunden) && (katalogEintrag(id)?.seltenheit ?? 1) >= MYSTERY_AB;
 }
+
+// ---------- Vitrine am Runenstein ----------
+
+/**
+ * Welche gefundenen Arten schweben um den Runenstein einer Kategorie?
+ * Nicht alle – höchstens `max`: die seltensten zuerst, bei Gleichstand die neuesten Funde.
+ */
+export function vitrinenArten(
+  kategorie: KategorieId,
+  gefunden: Record<string, { datum: string }>,
+  naturraum?: Naturraum,
+  max = 3,
+): string[] {
+  return artIdsDerKategorie(kategorie, naturraum)
+    .filter((id) => id in gefunden)
+    .map((id) => ({ id, s: katalogEintrag(id)?.seltenheit ?? 1, d: gefunden[id].datum }))
+    .sort((a, b) => b.s - a.s || b.d.localeCompare(a.d))
+    .slice(0, max)
+    .map((x) => x.id);
+}
+
+// ---------- Plätze im Kategorie-Wald ----------
+
+export type WaldPlatz = { id: string; x: number; z: number; hoch: boolean };
+
+/**
+ * Verteilt die Arten einer Kategorie natürlich im Wald:
+ * spiralförmig um die Mitte (goldener Winkel), damit sich nichts überdeckt.
+ * Vögel sitzen erhöht (auf einem Ast/Baumstumpf), alle anderen am Boden.
+ */
+export function waldPlaetze(kategorie: KategorieId, naturraum?: Naturraum): WaldPlatz[] {
+  const ids = [
+    ...katalogGruppen(kategorie, naturraum).flatMap((g) => g.eintraege.map((e) => e.id)),
+    ...mysteryArten(kategorie).map((e) => e.id),
+  ];
+  return ids.map((id, i) => {
+    const winkel = i * 2.39996; // goldener Winkel
+    const radius = 1.6 + Math.sqrt(i) * 1.55;
+    return { id, x: Math.cos(winkel) * radius, z: Math.sin(winkel) * radius, hoch: kategorie === 'voegel' };
+  });
+}

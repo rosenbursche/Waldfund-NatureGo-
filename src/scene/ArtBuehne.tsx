@@ -78,7 +78,7 @@ function Drehteller({ drehung, ruhig, children }: { drehung: Drehung; ruhig: boo
 /** Das Modell einer Art (Blume, Pilz, Vogel, Säugetier) – einmal gebaut, dann nur noch bewegt */
 function Modell({ modell, silhouette, ruhig }: { modell: ModellParameter; silhouette: boolean; ruhig: boolean }) {
   const [art] = useState(() => {
-    const a = baueArtModell(modell, silhouette);
+    const a = baueArtModell(modell, silhouette ? 'silhouette' : 'farbe');
     einpassen(a.gruppe);
     return a;
   });

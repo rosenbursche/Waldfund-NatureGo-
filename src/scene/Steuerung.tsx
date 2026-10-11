@@ -5,14 +5,29 @@ import * as THREE from 'three';
 
 import type { FpsKanal, PunkteKanal, Steuerung, Ziel } from './steuerZustand';
 
-const ZIEL_PUNKT = new THREE.Vector3(0, 1.4, 0);
+const ZIEL_HILFE = new THREE.Vector3();
 
 /**
  * Kamera: schwebt ohne Berührung langsam um die Lichtung,
  * lässt sich mit dem Finger drehen und verschiebt sich leicht, wenn man das Handy kippt.
  */
-export function Kamera({ steuer, ruhig }: { steuer: Steuerung; ruhig: boolean }) {
+/** Einstellungen für die Kreisbahn der Kamera (Lichtung bzw. Kategorie-Wald) */
+export type KameraBahn = { abstand: number; hoehe: number; zielY: number; schweben: boolean };
+const LICHTUNG_BAHN: KameraBahn = { abstand: 17, hoehe: 5.5, zielY: 1.4, schweben: true };
+
+export function Kamera({
+  steuer,
+  ruhig,
+  bahn = LICHTUNG_BAHN,
+}: {
+  steuer: Steuerung;
+  ruhig: boolean;
+  bahn?: KameraBahn;
+}) {
   const { camera } = useThree();
+  const blick = useRef(new THREE.Vector3());
+  const bahnPunkt = useRef(new THREE.Vector3());
+  const zoomPunkt = useRef(new THREE.Vector3());
   const kippen = useRef({ x: 0, y: 0, ruheX: null as number | null, ruheY: null as number | null });
   const glatt = useRef({ x: 0, y: 0 });
 
@@ -33,16 +48,28 @@ export function Kamera({ steuer, ruhig }: { steuer: Steuerung; ruhig: boolean })
   }, [ruhig]);
 
   useFrame((_, dt) => {
-    if (!ruhig) steuer.schweben(dt);
+    if (!ruhig && bahn.schweben) steuer.schweben(dt);
     // Parallaxe weich nachziehen
     glatt.current.x += (kippen.current.x - glatt.current.x) * 0.08;
     glatt.current.y += (kippen.current.y - glatt.current.y) * 0.08;
 
-    const r = 17 - steuer.neigung * 2;
-    const hoehe = 5.5 + steuer.neigung * 4 + glatt.current.y * 2;
+    const r = bahn.abstand - steuer.neigung * (bahn.abstand * 0.12);
+    const hoehe = bahn.hoehe + steuer.neigung * (bahn.hoehe * 0.7) + glatt.current.y * 2;
     const w = steuer.winkel + glatt.current.x * 0.25;
-    camera.position.set(Math.sin(w) * r, hoehe, Math.cos(w) * r);
-    camera.lookAt(ZIEL_PUNKT);
+    bahnPunkt.current.set(Math.sin(w) * r, hoehe, Math.cos(w) * r);
+    blick.current.set(0, bahn.zielY, 0);
+
+    // Zoom: Kamera fliegt weich auf den Runenstein zu
+    const z = steuer.zoomZiel;
+    if (z) {
+      const t = steuer.zoomWeiter(dt);
+      // Zielpunkt: kurz vor dem Stein, auf der Seite der Kamera
+      zoomPunkt.current.set(z[0], z[1], z[2]).lerp(bahnPunkt.current, 0.12);
+      bahnPunkt.current.lerp(zoomPunkt.current, t);
+      blick.current.lerp(ZIEL_HILFE.set(z[0], z[1], z[2]), t);
+    }
+    camera.position.copy(bahnPunkt.current);
+    camera.lookAt(blick.current);
   });
 
   return null;

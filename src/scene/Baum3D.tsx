@@ -4,7 +4,7 @@ import type * as THREE from 'three';
 
 import type { BaumModell } from '@/data/typen';
 
-import { FORM, matt, SILHOUETTE, UNSICHTBAR } from './material';
+import { FORM, GRAU, matt, SILHOUETTE, UNSICHTBAR } from './material';
 
 /**
  * Ein prozedural erzeugter Low-Poly-Baum.
@@ -23,9 +23,23 @@ type Props = {
   drehung: number;
   /** Wind abschalten bei "Bewegung reduzieren" */
   ruhig: boolean;
+  /** nicht gefunden: grau statt dunkler Silhouette (Kategorie-Wald) */
+  grau?: boolean;
+  /** false = reine Kulisse, lässt sich nicht antippen */
+  antippbar?: boolean;
 };
 
-export function Baum3D({ id, modell, gefunden, position, skala, drehung, ruhig }: Props) {
+export function Baum3D({
+  id,
+  modell,
+  gefunden,
+  position,
+  skala,
+  drehung,
+  ruhig,
+  grau = false,
+  antippbar = true,
+}: Props) {
   const krone = useRef<THREE.Group>(null);
   const phase = useRef((position[0] * 7.3 + position[2] * 3.1) % (Math.PI * 2));
 
@@ -37,21 +51,29 @@ export function Baum3D({ id, modell, gefunden, position, skala, drehung, ruhig }
     krone.current.rotation.x = Math.cos(t * 0.8) * 0.018;
   });
 
-  const laub = matt(gefunden ? modell.laub : SILHOUETTE);
-  const rinde = matt(gefunden ? modell.rinde : SILHOUETTE);
+  const verdeckt = grau ? GRAU : SILHOUETTE;
+  const laub = matt(gefunden ? modell.laub : verdeckt);
+  const rinde = matt(gefunden ? modell.rinde : verdeckt);
   const h = modell.hoehe;
 
   return (
-    <group position={position} rotation={[0, drehung, 0]} scale={skala} userData={{ ziel: { typ: 'baum', id } }}>
+    <group
+      position={position}
+      rotation={[0, drehung, 0]}
+      scale={skala}
+      userData={antippbar ? { ziel: { typ: 'baum', id } } : undefined}
+    >
       {/* große, unsichtbare Tipp-Fläche, damit man den Baum leicht trifft */}
-      <mesh
-        geometry={FORM.trefferZylinder}
-        material={UNSICHTBAR}
-        position={[0, 2.2 * h, 0]}
-        scale={[1.3, 4.4 * h, 1.3]}
-      />
+      {antippbar && (
+        <mesh
+          geometry={FORM.trefferZylinder}
+          material={UNSICHTBAR}
+          position={[0, 2.2 * h, 0]}
+          scale={[1.3, 4.4 * h, 1.3]}
+        />
+      )}
       <group ref={krone}>
-        <Form krone={modell.krone} laub={laub} rinde={rinde} h={h} gefunden={gefunden} />
+        <Form krone={modell.krone} laub={laub} rinde={rinde} h={h} gefunden={gefunden} verdeckt={verdeckt} />
       </group>
     </group>
   );
@@ -63,9 +85,10 @@ type FormProps = {
   rinde: THREE.Material;
   h: number;
   gefunden: boolean;
+  verdeckt: string;
 };
 
-function Form({ krone, laub, rinde, h, gefunden }: FormProps) {
+function Form({ krone, laub, rinde, h, gefunden, verdeckt }: FormProps) {
   switch (krone) {
     case 'rund': // Buche
       return (
@@ -128,7 +151,7 @@ function Form({ krone, laub, rinde, h, gefunden }: FormProps) {
         <>
           <mesh
             geometry={FORM.stamm}
-            material={matt(gefunden ? '#4A3A2E' : SILHOUETTE)}
+            material={matt(gefunden ? '#4A3A2E' : verdeckt)}
             position={[0, 0.9 * h, 0]}
             scale={[0.15, 1.8 * h, 0.15]}
           />
@@ -147,7 +170,7 @@ function Form({ krone, laub, rinde, h, gefunden }: FormProps) {
             <mesh
               key={y}
               geometry={FORM.kiste}
-              material={matt(gefunden ? '#2A2622' : SILHOUETTE)}
+              material={matt(gefunden ? '#2A2622' : verdeckt)}
               position={[0, y * h, 0.07]}
               scale={[0.12, 0.05, 0.06]}
             />

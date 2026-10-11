@@ -1,6 +1,6 @@
 /** Zustände, die Gesten (außerhalb) und 3D-Szene (innerhalb) gemeinsam nutzen – ohne three.js. */
 
-export type Ziel = { typ: 'baum' | 'kategorie' | 'huette'; id?: string };
+export type Ziel = { typ: 'baum' | 'kategorie' | 'huette' | 'art'; id?: string };
 
 /**
  * Gemeinsamer Zustand zwischen Fingergesten (außerhalb der 3D-Szene) und Kamera (innerhalb).
@@ -31,7 +31,26 @@ export class Steuerung {
   }
   /** Langsames Schweben um die Lichtung, solange kein Finger aufliegt */
   schweben(dt: number): void {
-    if (!this.beruehrt) this.winkel += dt * 0.035;
+    if (!this.beruehrt && !this.zoomZiel) this.winkel += dt * 0.035;
+  }
+
+  // --- Zoom auf einen Runenstein (vor dem Wechsel in die Kategorie) ---
+  /** Punkt, auf den die Kamera zufliegt – oder null */
+  zoomZiel: [number, number, number] | null = null;
+  /** Fortschritt des Zooms 0–1 */
+  zoom = 0;
+  zoomZu(ziel: [number, number, number]): void {
+    this.zoomZiel = ziel;
+    this.zoom = 0;
+  }
+  /** Zoom einen Schritt weiter (dauert ca. 0,7 s). Gibt den weich geglätteten Fortschritt 0–1 zurück. */
+  zoomWeiter(dt: number): number {
+    this.zoom = Math.min(1, this.zoom + dt / 0.7);
+    return this.zoom * this.zoom * (3 - 2 * this.zoom); // weicher Anfang und weiches Ende
+  }
+  zoomZurueck(): void {
+    this.zoomZiel = null;
+    this.zoom = 0;
   }
 }
 

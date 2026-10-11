@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import type { KategorieId } from '@/data/artTypen';
 import { colors } from '@/theme/theme';
 
+import { ArtFigur } from './ArtFigur';
 import { FORM, matt, UNSICHTBAR } from './material';
 import { leuchtTextur } from './texturen';
 
@@ -17,10 +18,12 @@ type Props = {
   position: [number, number, number];
   /** Anteil gesammelter Arten 0–1 */
   fortschritt: number;
+  /** einige gefundene Arten, die um den Stein schweben (höchstens drei) */
+  vitrine: string[];
   ruhig: boolean;
 };
 
-export function Runenstein({ kategorie, position, fortschritt, ruhig }: Props) {
+export function Runenstein({ kategorie, position, fortschritt, vitrine, ruhig }: Props) {
   const gruppe = useRef<THREE.Group>(null);
   const start = position[0] * 3 + position[2];
   // Auch ohne Fund glimmt der Stein ein wenig – er soll neugierig machen
@@ -69,6 +72,27 @@ export function Runenstein({ kategorie, position, fortschritt, ruhig }: Props) {
       <sprite material={hof} scale={[2.6 * (0.7 + glut * 0.5), 2.6 * (0.7 + glut * 0.5), 1]} />
       <sprite material={hof} scale={[1.1, 1.1, 1]} />
       <pointLight color={colors.rune} intensity={1.2 * glut} distance={3.5} decay={1.8} />
+      <Vitrine ids={vitrine} ruhig={ruhig} />
+    </group>
+  );
+}
+
+/** Gefundene Arten kreisen langsam um den Stein – wie Trophäen in einer Vitrine */
+function Vitrine({ ids, ruhig }: { ids: string[]; ruhig: boolean }) {
+  const kreis = useRef<THREE.Group>(null);
+  useFrame((_, dt) => {
+    if (!ruhig && kreis.current) kreis.current.rotation.y -= dt * 0.45; // gegen die Drehung des Steins
+  });
+  return (
+    <group ref={kreis}>
+      {ids.map((id, i) => {
+        const w = (i / Math.max(ids.length, 1)) * Math.PI * 2;
+        return (
+          <group key={id} position={[Math.cos(w) * 1.05, -0.45, Math.sin(w) * 1.05]}>
+            <ArtFigur id={id} stil="farbe" groesse={0.55} ruhig={ruhig} />
+          </group>
+        );
+      })}
     </group>
   );
 }

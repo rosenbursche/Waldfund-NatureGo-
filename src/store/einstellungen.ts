@@ -26,6 +26,9 @@ type EinstellungenState = {
   /** Nur Demo: manche Fotos "nicht erkennen", um die Tipps zu testen */
   demoFehlschlag: boolean;
   setDemoFehlschlag: (an: boolean) => void;
+  /** Ansicht im Katalog: 3D-Wald oder Stammbaum */
+  katalogAnsicht: 'wald' | 'stammbaum';
+  setKatalogAnsicht: (a: 'wald' | 'stammbaum') => void;
   /** Bildrate auf der Lichtung anzeigen (zum Prüfen der Leistung) */
   leistungAnzeigen: boolean;
   setLeistungAnzeigen: (an: boolean) => void;
@@ -57,6 +60,8 @@ export const useEinstellungen = create<EinstellungenState>()(
       geraetId: zufallsId(),
       demoFehlschlag: false,
       setDemoFehlschlag: (an) => set({ demoFehlschlag: an }),
+      katalogAnsicht: 'wald',
+      setKatalogAnsicht: (a) => set({ katalogAnsicht: a }),
       leistungAnzeigen: false,
       setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
 

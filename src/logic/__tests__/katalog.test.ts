@@ -1,6 +1,13 @@
 import { naturraumById } from '@/data/naturraeume';
 import { MYSTERY_AB } from '@/data/spiel';
-import { fortschrittDerKategorie, istVerborgen, katalogGruppen, mysteryArten } from '@/logic/katalog';
+import {
+  fortschrittDerKategorie,
+  istVerborgen,
+  katalogGruppen,
+  mysteryArten,
+  vitrinenArten,
+  waldPlaetze,
+} from '@/logic/katalog';
 
 const heide = naturraumById['lueneburger-heide'];
 
@@ -40,5 +47,38 @@ describe('Katalog', () => {
     const f = fortschrittDerKategorie('pflanzen', { stieleiche: {}, sandbirke: {} }, heide);
     expect(f.gefunden).toBe(2);
     expect(f.gesamt).toBeGreaterThan(9);
+  });
+});
+
+describe('Vitrine am Runenstein und Plätze im Wald', () => {
+  test('höchstens drei gefundene Arten, die seltensten zuerst', () => {
+    const g = {
+      amsel: { datum: '2026-10-01' },
+      kohlmeise: { datum: '2026-10-05' },
+      eisvogel: { datum: '2026-09-01' },
+      uhu: { datum: '2026-08-01' },
+      rotkehlchen: { datum: '2026-10-09' },
+    };
+    expect(vitrinenArten('voegel', g)).toEqual(['uhu', 'eisvogel', 'rotkehlchen']);
+  });
+
+  test('keine Funde – leere Vitrine; andere Kategorie zählt nicht', () => {
+    expect(vitrinenArten('pilze', { amsel: { datum: '2026-10-01' } })).toEqual([]);
+  });
+
+  test('jede Art der Kategorie bekommt genau einen Platz im Wald, ohne Überlappung', () => {
+    const p = waldPlaetze('pflanzen', heide);
+    expect(new Set(p.map((x) => x.id)).size).toBe(p.length);
+    expect(p.some((x) => x.id === 'frauenschuh')).toBe(true); // Mystery-Arten stehen auch im Wald (mit Schloss)
+    for (let i = 0; i < p.length; i++) {
+      for (let j = i + 1; j < p.length; j++) {
+        expect(Math.hypot(p[i].x - p[j].x, p[i].z - p[j].z)).toBeGreaterThan(1.2);
+      }
+    }
+  });
+
+  test('Vögel sitzen erhöht', () => {
+    expect(waldPlaetze('voegel').every((p) => p.hoch)).toBe(true);
+    expect(waldPlaetze('pilze').some((p) => p.hoch)).toBe(false);
   });
 });
