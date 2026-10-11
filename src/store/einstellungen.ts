@@ -32,7 +32,7 @@ type EinstellungenState = {
   /** Bildrate auf der Lichtung anzeigen (zum Prüfen der Leistung) */
   leistungAnzeigen: boolean;
   setLeistungAnzeigen: (an: boolean) => void;
-  /** Startszene: Bild-Diorama (2,5D, Test) oder gebaute 3D-Lichtung */
+  /** Startszene: gebaute 3D-Lichtung (Standard) oder Bild-Diorama (2,5D, Test) */
   startSzene: 'diorama' | '3d';
   setStartSzene: (s: 'diorama' | '3d') => void;
 
@@ -67,13 +67,23 @@ export const useEinstellungen = create<EinstellungenState>()(
       setKatalogAnsicht: (a) => set({ katalogAnsicht: a }),
       leistungAnzeigen: false,
       setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
-      startSzene: 'diorama',
+      startSzene: '3d',
       setStartSzene: (sz) => set({ startSzene: sz }),
 
       setNaturraum: (id, per, grobStandort = null) => set({ naturraumId: id, gewaehltPer: per, grobStandort }),
       allesZuruecksetzen: () =>
         set({ naturraumId: null, gewaehltPer: null, grobStandort: null, pruefModus: 'demo', geraetId: zufallsId() }),
     }),
-    { name: 'wildfund-einstellungen', storage: createJSONStorage(() => AsyncStorage), version: 1 },
+    {
+      name: 'wildfund-einstellungen',
+      storage: createJSONStorage(() => AsyncStorage),
+      version: 2,
+      // Version 2: Startszene wieder standardmäßig 3D (das Diorama war kurz Standard)
+      migrate: (alt, version) => {
+        const s = alt as Partial<EinstellungenState>;
+        if (version < 2) s.startSzene = '3d';
+        return s as EinstellungenState;
+      },
+    },
   ),
 );

@@ -170,7 +170,7 @@ export default function Einstellungen() {
             </View>
             <Schrift art="klein">
               An: gemalte Bildebenen, die sich beim Kippen des Handys räumlich verschieben (noch mit
-              Platzhalter-Bildern). Aus: die gebaute 3D-Lichtung zum Drehen.
+              Platzhalter-Bildern). Aus (Standard): die 3D-Lichtung zum Drehen.
             </Schrift>
             <View style={stile.schalter}>
               <Schrift art="text" style={{ flex: 1 }}>

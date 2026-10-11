@@ -5,12 +5,12 @@ import * as THREE from 'three';
 import type { Stimmung } from '@/logic/tageszeit';
 import { colors } from '@/theme/theme';
 
-import { FORM, matt } from './material';
 import { leuchtTextur } from './texturen';
 
 /**
  * Alles, was die Stimmung macht: Himmel, Nebel, Licht, Sterne,
  * Glühwürmchen und ziehende Nebelschwaden – gesteuert von der Tageszeit.
+ * Boden, Pflanzen und Kleinkram der Lichtung: LichtungDetails.tsx
  */
 export function Atmosphaere({ stimmung, ruhig }: { stimmung: Stimmung; ruhig: boolean }) {
   const h = stimmung.lichtHoehe;
@@ -26,44 +26,9 @@ export function Atmosphaere({ stimmung, ruhig }: { stimmung: Stimmung; ruhig: bo
         intensity={stimmung.lichtStaerke}
         position={[-12 * (1 - h), 4 + 18 * h, -8]}
       />
-      <Boden />
       <Sterne sichtbar={stimmung.sterne} />
       <Gluehwuermchen anteil={stimmung.gluehwuermchen} ruhig={ruhig} />
       <Nebelschwaden farbe={stimmung.nebel} ruhig={ruhig} />
-    </>
-  );
-}
-
-/** Waldboden, Lichtung und ein paar Steine */
-function Boden() {
-  const steine: [number, number, number, number][] = [
-    [2.6, 0, 1.8, 0.35],
-    [-2.9, 0, 1.2, 0.28],
-    [3.4, 0, -1.9, 0.4],
-    [-1.6, 0, -2.9, 0.3],
-    [0.4, 0, 3.4, 0.22],
-  ];
-  return (
-    <>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} material={matt('#18261F')}>
-        <circleGeometry args={[40, 24]} />
-      </mesh>
-      {/* hellere, moosige Lichtung um die Hütte */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} material={matt('#2A3D30')}>
-        <circleGeometry args={[5.4, 18]} />
-      </mesh>
-      {steine.map(([x, y, z, s], i) => (
-        <mesh key={i} position={[x, y + s * 0.4, z]} scale={[s, s * 0.7, s]} material={matt('#4B514C')}>
-          <dodecahedronGeometry args={[1, 0]} />
-        </mesh>
-      ))}
-      {/* Pilzgruppe am Rand – ein kleines Geheimnis */}
-      {[0, 0.35, -0.3].map((dx, i) => (
-        <group key={i} position={[-3.6 + dx, 0, 2.4 + i * 0.2]} scale={0.16 + i * 0.04}>
-          <mesh geometry={FORM.stamm} material={matt('#E8E2D2')} position={[0, 0.6, 0]} scale={[0.25, 1.2, 0.25]} />
-          <mesh geometry={FORM.kugel} material={matt('#9C3A2C')} position={[0, 1.25, 0]} scale={[0.75, 0.4, 0.75]} />
-        </group>
-      ))}
     </>
   );
 }

@@ -6,6 +6,7 @@ import type { KategorieId } from '@/data/artTypen';
 import { baumById } from '@/data/baumarten';
 import type { Naturraum } from '@/data/typen';
 import { platziereBaeume, startwertAus } from '@/logic/lichtung';
+import { baeumeFreiRuecken } from '@/logic/lichtungDetails';
 import { getHeimischeBaeume } from '@/logic/regelEngine';
 import type { HuettenStufe } from '@/logic/fortschritt';
 import type { Stimmung } from '@/logic/tageszeit';
@@ -13,6 +14,7 @@ import type { Stimmung } from '@/logic/tageszeit';
 import { Atmosphaere } from './Atmosphaere';
 import { Baum3D } from './Baum3D';
 import { Huette } from './Huette';
+import { LichtungDetails } from './LichtungDetails';
 import { Runenstein } from './Runenstein';
 import { FpsMesser, Kamera, Projektor, Tippen } from './Steuerung';
 import type { FpsKanal, PunkteKanal, Steuerung, Ziel } from './steuerZustand';
@@ -62,7 +64,7 @@ export function Lichtung({
   onZiel,
 }: Props) {
   const plaetze = useMemo(
-    () => platziereBaeume(getHeimischeBaeume(naturraum), BAUM_ANZAHL, startwertAus(naturraum.id)),
+    () => baeumeFreiRuecken(platziereBaeume(getHeimischeBaeume(naturraum), BAUM_ANZAHL, startwertAus(naturraum.id))),
     [naturraum],
   );
   const labelPunkte = useMemo(
@@ -78,6 +80,7 @@ export function Lichtung({
     <Canvas style={StyleSheet.absoluteFill} camera={{ fov: 50, near: 0.1, far: 120, position: [0, 6, 17] }}>
       <Atmosphaere stimmung={stimmung} ruhig={ruhig} />
       <Huette stufe={huette} fenster={stimmung.fenster} ruhig={ruhig} />
+      <LichtungDetails startwert={startwertAus(naturraum.id)} stimmung={stimmung} ruhig={ruhig} />
 
       {plaetze.map((p, i) => {
         const baum = baumById[p.baumId];

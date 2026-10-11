@@ -112,11 +112,12 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 ### 2.6 Fotorealistische Startszene (2,5D-Diorama)
 | Anforderung | Stand |
 |---|---|
+| **3D-Lichtung detailreicher** (Wunsch nach Test des Dioramas): welliger Boden mit Farbflecken, Gras und Farne im Wind, Moos, Blumen, Steine, Pilzgruppen, Weg mit Trittsteinen, Tümpel mit Schilf und Seerosen, Holzstapel, Hackklotz, Laterne, umgestürzter Stamm, Baumstümpfe, Wald am Horizont, Mond, Lichtstrahlen | ✅ `src/scene/LichtungDetails.tsx` |
 | Startszene (Hütte) fotorealistisch wie das Referenzbild | 🟡 Technik fertig, Bilder kommen aus ChatGPT (`docs/SZENE-PROMPTS.md`) |
 | Bildebenen (Himmel, Ferne, Mittelgrund, Lichtung, Hütte, Vordergrund) mit Parallaxe beim Kippen und Ziehen | ✅ mit Platzhalter-Bildern (`scripts/platzhalter-szene.mjs`) |
 | Effekte aus Code: Nebelbänke, Glühwürmchen, Schornsteinrauch, Fensterlicht, Tümpel-Glitzern, Mondstrahlen | ✅ folgen der Tageszeit-Stimmung, stehen bei „Bewegung reduzieren“ still |
 | Runensteine als gezeichnete, antippbare Steine mit Leuchten nach Fortschritt | ✅ |
-| Umschalter Diorama ↔ 3D-Lichtung (Einstellungen → Darstellung) | ✅ Diorama ist Standard |
+| Umschalter Diorama ↔ 3D-Lichtung (Einstellungen → Darstellung) | ✅ 3D ist Standard (Wunsch: „3D-Space mit vielen Details“) |
 | Magenta freistellen und komprimieren (`scripts/ebenen-freistellen.py`) | ✅ wartet auf die ChatGPT-Bilder |
 | **Pilot: Lüneburger Heide in der Dämmerung** | 🔒 wartet auf die Bilder |
 | Hütte je Ausbaustufe (Unterstand … Sternwarte) | 🔒 Prompts fertig, wartet auf Bilder (bis dahin Stufe 1) |
