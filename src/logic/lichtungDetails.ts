@@ -26,11 +26,20 @@ const RUNEN: [number, number][] = [
   [3.8, -2.9],
 ];
 
-/** Feste Dinge neben der Hütte: Holzstapel, Hackklotz, Laterne am Weg, umgestürzter Stamm, Baumstümpfe */
+/**
+ * Feste Dinge rund um die Hütte: Holzstapel, Hackklotz, Laterne und Wegweiser am Weg, Bank und Regentonne
+ * an der Hütte, Zaun dahinter, umgestürzter Stamm, Baumstümpfe und ein Hexenring aus Pilzen
+ * (Pilze, die im Kreis aus einem unterirdischen Pilzgeflecht wachsen).
+ */
 export const AUSSTATTUNG = {
   holzstapel: { x: 2.5, z: -1.6, drehung: 0.3 },
   hackklotz: { x: 2.0, z: -0.6 },
   laterne: { x: wegX(4.2) + 0.85, z: 4.2 },
+  wegweiser: { x: wegX(9) - 0.95, z: 9 },
+  bank: { x: 0.75, z: 1.55 },
+  regentonne: { x: -1.6, z: 1.2 },
+  zaun: { von: -2.4, bis: 2.4, z: -3.4 },
+  hexenring: { x: -6.6, z: 4.6, r: 0.85 },
   stamm: { x: -6.0, z: -0.8, drehung: 0.6 },
   stuempfe: [
     { x: -2.6, z: -4.1 },
@@ -54,6 +63,9 @@ export function istFrei(x: number, z: number, rand = 0): boolean {
   // Ausstattung
   const a = AUSSTATTUNG;
   if (Math.hypot(x - a.laterne.x, z - a.laterne.z) < 0.4 + rand) return false;
+  if (Math.hypot(x - a.wegweiser.x, z - a.wegweiser.z) < 0.4 + rand) return false;
+  if (Math.hypot(x - a.hexenring.x, z - a.hexenring.z) < a.hexenring.r + 0.3 + rand) return false;
+  if (Math.abs(z - a.zaun.z) < 0.3 + rand && x > a.zaun.von - rand && x < a.zaun.bis + rand) return false;
   if (Math.hypot(x - a.stamm.x, z - a.stamm.z) < 1.4 + rand) return false;
   for (const s of a.stuempfe) if (Math.hypot(x - s.x, z - s.z) < 0.5 + rand) return false;
   return true;

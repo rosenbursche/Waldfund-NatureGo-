@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 import { AUSSTATTUNG, streuen, trittsteine, TUEMPEL, WEG, wegX, type Detail } from '@/logic/lichtungDetails';
+import { zufall } from '@/logic/lichtung';
 import type { Stimmung } from '@/logic/tageszeit';
 import { colors } from '@/theme/theme';
 
@@ -42,6 +43,9 @@ const FARBE = {
   kolben: '#4A3424',
   seerose: '#365A3A',
   wald: ['#13211B', '#172820', '#1B2C23'],
+  laub: ['#5A3E2A', '#6B4A2E', '#7A5A30', '#4E3A26', '#3E4A2E'],
+  zapfen: '#4A3424',
+  punkte: '#EFE6CF',
 };
 
 /** Gemeinsamer Wind für alle Pflanzen (wird einmal pro Bild weitergezählt) */
@@ -113,6 +117,14 @@ const BLUETE = new THREE.IcosahedronGeometry(0.05, 0);
 const HALM = new THREE.CylinderGeometry(0.008, 0.01, 1, 3);
 const PLATTE = new THREE.CylinderGeometry(1, 1.05, 0.12, 7);
 const SCHEIBE = new THREE.CircleGeometry(1, 10);
+/** Laubblatt: flache Raute */
+const BLATT = (() => {
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute([0, 0, -1, 0.45, 0, 0, 0, 0, 1, -0.45, 0, 0], 3));
+  g.setIndex([0, 2, 1, 0, 3, 2]);
+  g.computeVertexNormals();
+  return g;
+})();
 
 // ---------- Hilfen ----------
 
@@ -249,6 +261,12 @@ function baueTeile(s: number) {
   const straeucher = streuen(s + 7, 40, 6, 15, { haufen: 1.4, rand: 0.4, groesse: [0.25, 0.5] });
   const tritt = trittsteine(s + 8);
   // erst hinter der Kamerabahn (Abstand 17), sonst stünden Bäume direkt vor der Linse
+  const laub = streuen(s + 10, 650, 2.4, 15, { haufen: 1.8, groesse: [0.06, 0.11] });
+  const zweige = streuen(s + 11, 90, 3, 14, { groesse: [0.3, 0.8] });
+  const zapfen = streuen(s + 12, 80, 4.5, 14, { haufen: 1.2, groesse: [0.05, 0.08] });
+  const fliegenpilzPunkte = punkteAufFliegenpilzen(pilze, s + 13);
+  const ring = hexenring(s + 14);
+  const grosseSteine = steine.filter((d) => d.groesse > 0.28);
   const ferneBaeume = streuen(s + 9, 190, 19.5, 42, { groesse: [0.8, 1.5] });
 
   const meshes: THREE.Object3D[] = [
@@ -311,6 +329,52 @@ function baueTeile(s: number) {
       },
       FARBE.pilz,
     ),
+    // weiße Tupfen auf den roten Hüten (Fliegenpilz)
+    instanzen(BLUETE, matt(FARBE.punkte), fliegenpilzPunkte, (d, o) => {
+      o.position.y = d.neigung;
+      o.scale.setScalar(d.groesse);
+    }),
+    // Hexenring: kleine helle Pilze im Kreis
+    instanzen(STIEL, matt(FARBE.stiel), ring, (d, o) => {
+      o.position.y = d.groesse * 0.5;
+      o.scale.set(d.groesse * 0.7, d.groesse, d.groesse * 0.7);
+    }),
+    instanzen(HUT, matt(FARBE.pilz[3]), ring, (d, o) => {
+      o.position.y = d.groesse * 0.95;
+      o.scale.set(d.groesse * 0.55, d.groesse * 0.35, d.groesse * 0.55);
+    }),
+    // Moospolster oben auf den großen Steinen
+    instanzen(
+      FORM.kugelFein,
+      matt('#ffffff'),
+      grosseSteine,
+      (d, o) => {
+        o.position.y = d.groesse * 0.62;
+        o.scale.set(d.groesse * 0.8, d.groesse * 0.22, d.groesse * 0.7);
+      },
+      FARBE.moos,
+    ),
+    // Falllaub, Zweige und Zapfen am Boden
+    instanzen(
+      BLATT,
+      new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide }),
+      laub,
+      (d, o) => {
+        o.position.y = 0.02 + d.ton * 0.01;
+        o.rotation.set(d.neigung * 0.6, d.drehung, d.neigung * 0.4);
+      },
+      FARBE.laub,
+    ),
+    instanzen(FORM.stamm, matt(FARBE.rinde), zweige, (d, o) => {
+      o.position.y = 0.025;
+      o.rotation.set(Math.PI / 2, d.drehung, 0);
+      o.scale.set(0.025, d.groesse, 0.025);
+    }),
+    instanzen(FORM.kegel, matt(FARBE.zapfen), zapfen, (d, o) => {
+      o.position.y = d.groesse * 0.45;
+      o.rotation.set(Math.PI / 2, d.drehung, 0);
+      o.scale.set(d.groesse * 0.45, d.groesse, d.groesse * 0.45);
+    }),
     // niedrige Sträucher (Polster aus Laub)
     instanzen(
       FORM.kugelFein,
@@ -351,6 +415,47 @@ function baueTeile(s: number) {
     weg: wegGeometrie(),
     meshes,
   };
+}
+
+/** Weiße Tupfen auf den roten Pilzhüten. `neigung` trägt hier die Höhe (y). */
+function punkteAufFliegenpilzen(pilze: Detail[], startwert: number): Detail[] {
+  const rnd = zufall(startwert);
+  const liste: Detail[] = [];
+  for (const p of pilze) {
+    // nur Hüte in der ersten Farbe der Palette (rot)
+    if (Math.floor(p.ton * FARBE.pilz.length) % FARBE.pilz.length !== 0) continue;
+    for (let i = 0; i < 6; i++) {
+      const w = rnd() * Math.PI * 2;
+      const phi = 0.25 + rnd() * 0.9; // vom Scheitel Richtung Rand
+      liste.push({
+        x: p.x + Math.sin(phi) * Math.cos(w) * p.groesse * 0.65,
+        z: p.z + Math.sin(phi) * Math.sin(w) * p.groesse * 0.65,
+        neigung: p.groesse * 0.95 + Math.cos(phi) * p.groesse * 0.4,
+        groesse: p.groesse * 0.12,
+        drehung: 0,
+        ton: 0,
+      });
+    }
+  }
+  return liste;
+}
+
+/** Pilze im Kreis um die Mitte des Hexenrings */
+function hexenring(startwert: number): Detail[] {
+  const rnd = zufall(startwert);
+  const h = AUSSTATTUNG.hexenring;
+  return Array.from({ length: 16 }, (_, i) => {
+    const w = (i / 16) * Math.PI * 2 + (rnd() - 0.5) * 0.25;
+    const r = h.r * (0.92 + rnd() * 0.16);
+    return {
+      x: h.x + Math.cos(w) * r,
+      z: h.z + Math.sin(w) * r,
+      groesse: 0.07 + rnd() * 0.05,
+      drehung: 0,
+      neigung: 0,
+      ton: 0,
+    };
+  });
 }
 
 // ---------- Tümpel ----------
@@ -590,6 +695,89 @@ function Ausstattung({ fenster, ruhig }: { fenster: number; ruhig: boolean }) {
           />
         </group>
       ))}
+      {/* Zaun aus gespaltenen Stangen hinter der Hütte */}
+      <group position={[0, 0, a.zaun.z]}>
+        {Array.from({ length: 7 }, (_, i) => {
+          const x = a.zaun.von + ((a.zaun.bis - a.zaun.von) * i) / 6;
+          return (
+            <mesh
+              key={i}
+              geometry={FORM.stamm}
+              material={matt(FARBE.holz)}
+              position={[x, 0.42, (i % 2) * 0.05]}
+              rotation={[0, 0, (i % 3) * 0.04 - 0.04]}
+              scale={[0.05, 0.84, 0.05]}
+            />
+          );
+        })}
+        {[0.35, 0.68].map((y, i) => (
+          <mesh
+            key={y}
+            geometry={FORM.stamm}
+            material={matt(FARBE.holzHell)}
+            position={[0, y, 0.04]}
+            rotation={[0, 0, Math.PI / 2 + (i === 0 ? 0.02 : -0.03)]}
+            scale={[0.035, a.zaun.bis - a.zaun.von + 0.2, 0.035]}
+          />
+        ))}
+      </group>
+      {/* Bank neben der Tür */}
+      <group position={[a.bank.x, 0, a.bank.z]}>
+        <mesh geometry={FORM.kiste} material={matt(FARBE.holzHell)} position={[0, 0.34, 0]} scale={[0.9, 0.06, 0.28]} />
+        {[-0.36, 0.36].map((x) => (
+          <mesh
+            key={x}
+            geometry={FORM.kiste}
+            material={matt(FARBE.holz)}
+            position={[x, 0.16, 0]}
+            scale={[0.08, 0.32, 0.24]}
+          />
+        ))}
+      </group>
+      {/* Regentonne mit Metallreifen und Wasser */}
+      <group position={[a.regentonne.x, 0, a.regentonne.z]}>
+        <mesh geometry={FORM.stamm} material={matt(FARBE.holz)} position={[0, 0.32, 0]} scale={[0.26, 0.64, 0.26]} />
+        {[0.12, 0.5].map((y) => (
+          <mesh
+            key={y}
+            geometry={FORM.stamm}
+            material={matt(FARBE.stein[2])}
+            position={[0, y, 0]}
+            scale={[0.27, 0.04, 0.27]}
+          />
+        ))}
+        <mesh
+          geometry={SCHEIBE}
+          material={WASSER}
+          position={[0, 0.6, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={0.21}
+        />
+      </group>
+      {/* Wegweiser: Pfahl mit zwei Brettern (ohne Schrift) */}
+      <group position={[a.wegweiser.x, 0, a.wegweiser.z]} rotation={[0, 0.4, 0]}>
+        <mesh geometry={FORM.stamm} material={matt(FARBE.rinde)} position={[0, 0.65, 0]} scale={[0.06, 1.3, 0.06]} />
+        <mesh
+          geometry={FORM.kiste}
+          material={matt(FARBE.holzHell)}
+          position={[0.22, 1.12, 0]}
+          rotation={[0, 0, 0.06]}
+          scale={[0.5, 0.12, 0.03]}
+        />
+        <mesh
+          geometry={FORM.kiste}
+          material={matt(FARBE.holz)}
+          position={[-0.2, 0.9, 0]}
+          rotation={[0, 0.5, -0.05]}
+          scale={[0.46, 0.11, 0.03]}
+        />
+        <mesh
+          geometry={FORM.kugelFein}
+          material={matt(FARBE.moos[1])}
+          position={[0, 0.06, 0]}
+          scale={[0.18, 0.08, 0.18]}
+        />
+      </group>
       {/* Steinplatte vor der Tür */}
       <mesh geometry={PLATTE} material={matt(FARBE.stein[1])} position={[-0.45, 0.04, 1.3]} scale={[0.45, 0.5, 0.3]} />
     </>

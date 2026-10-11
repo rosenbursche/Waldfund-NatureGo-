@@ -113,6 +113,7 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 | Anforderung | Stand |
 |---|---|
 | **3D-Lichtung detailreicher** (Wunsch nach Test des Dioramas): welliger Boden mit Farbflecken, Gras und Farne im Wind, Moos, Blumen, Steine, Pilzgruppen, Weg mit Trittsteinen, Tümpel mit Schilf und Seerosen, Holzstapel, Hackklotz, Laterne, umgestürzter Stamm, Baumstümpfe, Wald am Horizont, Mond, Lichtstrahlen | ✅ `src/scene/LichtungDetails.tsx` |
+| Noch mehr Details: Falllaub, Zweige, Zapfen, Fliegenpilz-Tupfen, Hexenring, Moos auf Steinen, Zaun, Bank, Regentonne, Wegweiser; Bewegung: fallende Blätter, Motten an der Laterne, Vögel über dem Wald, Staub im Licht | ✅ `LichtungDetails.tsx`, `LichtungLeben.tsx` |
 | Startszene (Hütte) fotorealistisch wie das Referenzbild | 🟡 Technik fertig, Bilder kommen aus ChatGPT (`docs/SZENE-PROMPTS.md`) |
 | Bildebenen (Himmel, Ferne, Mittelgrund, Lichtung, Hütte, Vordergrund) mit Parallaxe beim Kippen und Ziehen | ✅ mit Platzhalter-Bildern (`scripts/platzhalter-szene.mjs`) |
 | Effekte aus Code: Nebelbänke, Glühwürmchen, Schornsteinrauch, Fensterlicht, Tümpel-Glitzern, Mondstrahlen | ✅ folgen der Tageszeit-Stimmung, stehen bei „Bewegung reduzieren“ still |
