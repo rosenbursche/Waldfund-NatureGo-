@@ -5,7 +5,7 @@ import { MeshSurfaceSampler } from 'three/examples/jsm/math/MeshSurfaceSampler.j
  * Rechenteil des LiDAR-Effekts (ohne React): Punkte auf den Flächen eines Modells verteilen,
  * Startwolke erzeugen, Materialien aus- und wieder einblenden.
  */
-export const PUNKTE = 2600;
+export const PUNKTE = 4000;
 
 export type LidarZustand = {
   start: Float32Array; // Startpositionen (zufällige Wolke)

@@ -10,6 +10,7 @@ import { BAUMARTEN } from '@/data/baumarten';
 import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
 import Katalog from '@/app/katalog/[kategorie]';
+import Modelltest from '@/app/modelltest';
 import Mystery from '@/app/mystery';
 import Sammeln from '@/app/sammeln/[id]';
 import Tagebuch from '@/app/tagebuch';
@@ -199,6 +200,12 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Spurenleser')).toBeTruthy(); // 120 AP = Level 3
     expect(screen.getByText('Waldhütte')).toBeTruthy();
     expect(screen.getByText('Erster Fund')).toBeTruthy();
+  });
+
+  test('3D-Test-Ansicht zeigt Modell-Herkunft und Namensnennung', async () => {
+    await render(<Modelltest />);
+    expect(screen.getByText(/kein Reh, nur Technik-Test/)).toBeTruthy();
+    expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
   });
 
   test('Einstellungen', async () => {

@@ -105,7 +105,9 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 | Realistische, pixelgenaue 3D-Modelle von Tier, Pflanze, Pilz | 🔒 extern erzeugen/kaufen, siehe `docs/3D-PIPELINE.md` |
 | Realistische Animationen (Ohren, Putzen, Schütteln, Tropfen …) | 🔒 Rigging/Animation extern, Einbau durch App |
 | **Pilot: Fuchs** (Grundmodell + Alters-Stufen) | 🔒 Prompts fertig, wartet auf GLB-Dateien |
-| GLB-Lader, Animations-Wechsel, Alters-Regler mit Überblenden | ⬜ (kann mit Platzhalter vorbereitet werden) |
+| GLB-Lader, LiDAR mit echtem Modell, Animations-Wechsel (falls Clips vorhanden) | ✅ Technik-Test mit „Realistic Deer“ (Weißwedelhirsch, CC BY) unter Einstellungen → 3D-Test |
+| Alters-Regler mit Überblenden zwischen GLB-Stufen | ⬜ wartet auf Modelle je Alters-Stufe |
+| Echtes Reh-Modell (Capreolus capreolus), geriggt | 🔒 noch zu finden – Test-Modell ist ein Weißwedelhirsch |
 
 ---
 

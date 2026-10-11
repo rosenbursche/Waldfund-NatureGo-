@@ -45,7 +45,7 @@ export function Lidar({ ruhig, children }: { ruhig: boolean; children: ReactNode
       new THREE.PointsMaterial({
         map: leuchtTextur(),
         color: colors.rune,
-        size: 0.034,
+        size: 0.04,
         transparent: true,
         opacity: 0.95,
         blending: THREE.AdditiveBlending,

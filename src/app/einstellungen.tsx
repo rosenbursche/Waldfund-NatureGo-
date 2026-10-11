@@ -7,6 +7,7 @@ import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { KARTEN_QUELLE } from '@/data/karte';
+import { MODELLE, namensnennung } from '@/data/modelle';
 import { NATURRAUM_QUELLE, naturraumById } from '@/data/naturraeume';
 import { useEinstellungen } from '@/store/einstellungen';
 import { alleFotosLoeschen } from '@/logic/foto';
@@ -169,6 +170,13 @@ export default function Einstellungen() {
               Zeigt, wie flüssig die 3D-Szene läuft (Ziel: 60 Bilder pro Sekunde). Ist auf deinem Handy „Bewegung
               reduzieren“ eingeschaltet, steht die Szene still und alle Animationen werden abgeschwächt.
             </Schrift>
+            <Knopf
+              titel="3D-Test: realistisches Modell"
+              untertitel="Lädt ein echtes 3D-Modell mit LiDAR-Effekt"
+              art="leise"
+              onPress={() => router.push('/modelltest')}
+              style={{ marginTop: spacing.s }}
+            />
           </View>
 
           <View style={stile.karte}>
@@ -190,6 +198,11 @@ export default function Einstellungen() {
             <Schrift art="etikett">Datenquellen</Schrift>
             <Schrift art="klein">Grenzen der Naturräume: {NATURRAUM_QUELLE}.</Schrift>
             <Schrift art="klein">Karte: {KARTEN_QUELLE}.</Schrift>
+            {MODELLE.map((m) => (
+              <Schrift key={m.id} art="klein">
+                3D-Modell: {namensnennung(m)}.
+              </Schrift>
+            ))}
             <Schrift art="klein">Orte und Postleitzahlen: GeoNames (geonames.org), CC BY 4.0.</Schrift>
             {pruefModus === 'echt' && (
               <Schrift art="klein">

@@ -15,4 +15,7 @@ config.resolver.resolveRequest = (context, modulName, plattform) => {
   return (standardAufloesung ?? context.resolveRequest)(context, modulName, plattform);
 };
 
+// 3D-Modelle (GLB) als Dateien ins App-Paket aufnehmen
+config.resolver.assetExts.push('glb');
+
 module.exports = config;

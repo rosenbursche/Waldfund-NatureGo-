@@ -24,6 +24,13 @@ Stand der Recherche: 11.10.2026
 - **Lizenz:** Creative Commons Namensnennung 4.0 (CC BY 4.0). Die Namensnennung „GeoNames“ steht in der App unter Einstellungen → Datenquellen.
 - **Im Projekt:** `scripts/orte-bauen.mjs` → `src/data/orte.json` (ca. 720 KB, Koordinaten auf ~1 km gerundet, ohne Firmen-Postleitzahlen).
 
+### Realistische 3D-Modelle
+| Modell | Zeigt | Autor | Lizenz | Quelle | Verwendung |
+|---|---|---|---|---|---|
+| „Realistic Deer“ | Weißwedelhirsch (kein Reh) | pighunt3r15 | CC BY 4.0 (Namensnennung) | [Sketchfab](https://sketchfab.com/3d-models/realistic-deer-76039b75cdc0492a80680c2404725496) | nur Technik-Test (Einstellungen → 3D-Test) |
+
+Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in der Test-Ansicht. Liste im Code: `src/data/modelle.ts`.
+
 ### Artendaten aus dem Prototyp
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.
 - Verbreitungskarten sind **Demo-Daten** (`src/data/verbreitung.ts`), keine echten Funde.

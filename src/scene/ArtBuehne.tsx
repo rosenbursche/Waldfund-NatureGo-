@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber/native';
-import { useMemo, useRef, useState } from 'react';
+import { Suspense, useMemo, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as THREE from 'three';
@@ -10,6 +10,7 @@ import { colors } from '@/theme/theme';
 
 import { baueArtModell, einpassen } from './artModell';
 import { Baum3D } from './Baum3D';
+import { GlbModell } from './GlbModell';
 import { Lidar } from './Lidar';
 import { Drehung } from './steuerZustand';
 
@@ -18,9 +19,17 @@ import { Drehung } from './steuerZustand';
  * Solange die Art nicht gesammelt ist, zeigt sie nur eine dunkle Silhouette.
  * Ziehen nach links/rechts dreht das Modell; senkrecht scrollt die Seite weiter.
  */
-type Props = { modell?: ModellParameter; baum?: BaumModell; silhouette: boolean; ruhig: boolean; hoehe?: number };
+type Props = {
+  /** realistisches Modell (require('…glb')) – hat Vorrang vor den anderen */
+  glb?: number;
+  modell?: ModellParameter;
+  baum?: BaumModell;
+  silhouette: boolean;
+  ruhig: boolean;
+  hoehe?: number;
+};
 
-export function ArtBuehne({ modell, baum, silhouette, ruhig, hoehe = 300 }: Props) {
+export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300 }: Props) {
   const [drehung] = useState(() => new Drehung());
   const gesten = useMemo(
     () =>
@@ -45,7 +54,11 @@ export function ArtBuehne({ modell, baum, silhouette, ruhig, hoehe = 300 }: Prop
           <Runenkreis />
           <Drehteller drehung={drehung} ruhig={ruhig}>
             <Lidar key={String(silhouette)} ruhig={ruhig}>
-              {baum ? (
+              {glb ? (
+                <Suspense fallback={null}>
+                  <GlbModell quelle={glb} ruhig={ruhig} />
+                </Suspense>
+              ) : baum ? (
                 <group scale={0.55}>
                   <Baum3D
                     id="buehne"

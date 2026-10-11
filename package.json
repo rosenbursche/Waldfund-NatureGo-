@@ -71,6 +71,9 @@
     "preset": "jest-expo",
     "setupFiles": [
       "./jest.setup.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.glb$": "<rootDir>/jest.datei-attrappe.js"
+    }
   }
 }
