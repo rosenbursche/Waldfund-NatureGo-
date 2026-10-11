@@ -2,7 +2,7 @@ import { Canvas, useFrame } from '@react-three/fiber/native';
 import { useMemo, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import type * as THREE from 'three';
+import * as THREE from 'three';
 
 import type { ModellParameter } from '@/data/artTypen';
 import type { BaumModell } from '@/data/typen';
@@ -82,13 +82,88 @@ function Drehteller({ drehung, ruhig, children }: { drehung: Drehung; ruhig: boo
 function Modell({ modell, silhouette, ruhig }: { modell: ModellParameter; silhouette: boolean; ruhig: boolean }) {
   const [art] = useState(() => {
     const a = baueArtModell(modell, silhouette ? 'silhouette' : 'farbe');
-    einpassen(a.gruppe);
-    return a;
+    return { ...a, hoehe: einpassen(a.gruppe) };
   });
   useFrame(({ clock }) => {
     if (!ruhig) art.bewege(clock.elapsedTime);
   });
-  return <primitive object={art.gruppe} />;
+  return (
+    <>
+      <primitive object={art.gruppe} />
+      {/* Pilze: Wassertropfen fallen auf den Hut */}
+      {modell.t === 'shroom' && !silhouette && !ruhig && <Wassertropfen hoehe={art.hoehe} />}
+    </>
+  );
+}
+
+/** Drei Tropfen fallen nacheinander auf den Pilzhut und hinterlassen einen kleinen Spritzring */
+const TROPFEN = [
+  { x: 0.12, z: 0.05, versatz: 0 },
+  { x: -0.18, z: -0.1, versatz: 0.9 },
+  { x: 0.02, z: -0.2, versatz: 1.7 },
+];
+const ZYKLUS = 2.6;
+
+function Wassertropfen({ hoehe }: { hoehe: number }) {
+  const tropfen = useRef<(THREE.Mesh | null)[]>([]);
+  const ringe = useRef<(THREE.Mesh | null)[]>([]);
+  const wasser = useMemo(
+    () => new THREE.MeshLambertMaterial({ color: '#BFE3F2', transparent: true, opacity: 0.85 }),
+    [],
+  );
+  const spritzer = useMemo(
+    () =>
+      TROPFEN.map(
+        () => new THREE.MeshBasicMaterial({ color: '#D8F0FA', transparent: true, opacity: 0, side: THREE.DoubleSide }),
+      ),
+    [],
+  );
+  const aufprall = hoehe * 0.97; // Oberseite des Huts
+
+  useFrame(({ clock }) => {
+    TROPFEN.forEach((d, i) => {
+      const tr = tropfen.current[i];
+      const ri = ringe.current[i];
+      if (!tr || !ri) return;
+      const p = ((clock.elapsedTime + d.versatz) % ZYKLUS) / ZYKLUS;
+      const fall = Math.min(1, p / 0.45); // Fallen in der ersten knappen Hälfte
+      tr.visible = fall < 1;
+      tr.position.set(d.x, aufprall + 1.4 * (1 - fall * fall), d.z);
+      // Spritzring nach dem Aufprall
+      const sp = p < 0.45 ? 0 : (p - 0.45) / 0.3;
+      ri.visible = sp > 0 && sp < 1;
+      ri.scale.setScalar(0.3 + sp * 1.4);
+      (ri.material as THREE.MeshBasicMaterial).opacity = 0.7 * (1 - sp);
+    });
+  });
+
+  return (
+    <>
+      {TROPFEN.map((d, i) => (
+        <group key={i}>
+          <mesh
+            ref={(m) => {
+              tropfen.current[i] = m;
+            }}
+            material={wasser}
+            scale={[0.035, 0.06, 0.035]}
+          >
+            <sphereGeometry args={[1, 8, 6]} />
+          </mesh>
+          <mesh
+            ref={(m) => {
+              ringe.current[i] = m;
+            }}
+            material={spritzer[i]}
+            position={[d.x, aufprall + 0.01, d.z]}
+            rotation={[-Math.PI / 2, 0, 0]}
+          >
+            <ringGeometry args={[0.06, 0.08, 16]} />
+          </mesh>
+        </group>
+      ))}
+    </>
+  );
 }
 
 function Runenkreis() {

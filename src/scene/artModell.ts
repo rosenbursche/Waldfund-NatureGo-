@@ -49,6 +49,7 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
   const g = new T.Group();
   let bewege: (t: number) => void = () => {};
 
+  const blaetter: [THREE.Group, number][] = [];
   if (m.t === 'shrub') {
     // Busch: mehrere kurze Triebe, darauf eine buschige Krone aus Laubballen, dazu Früchte oder Blütendolden
     const busch = new T.Group();
@@ -123,11 +124,13 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
     } else {
       g.add(mesh(new T.CylinderGeometry(0.025, 0.035, 1.3, 5), L, [0, 0.65, 0]));
       for (const s of [-1, 1]) {
-        g.add(
-          mesh(new T.SphereGeometry(0.25, 7, 5), L, [s * 0.2, 0.35 + (s > 0 ? 0.25 : 0), 0], [1, 0.12, 0.4]).rotateZ(
-            s * 0.4,
-          ),
-        );
+        // Blatt an einem Gelenk am Stängel, damit es wippen kann
+        const gelenk = new T.Group();
+        gelenk.position.set(0, 0.35 + (s > 0 ? 0.25 : 0), 0);
+        gelenk.rotation.z = s * 0.4;
+        gelenk.add(mesh(new T.SphereGeometry(0.25, 7, 5), L, [s * 0.2, 0, 0], [1, 0.12, 0.4]));
+        g.add(gelenk);
+        blaetter.push([gelenk, s]);
       }
       kopf.position.y = 1.3;
       g.add(kopf);
@@ -200,6 +203,8 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
     bewege = (t) => {
       kopf.rotation.z = Math.sin(t * 1.5) * 0.08;
       g.rotation.z = Math.sin(t * 1.1) * 0.02;
+      // Blätter wippen leicht versetzt im Wind
+      blaetter.forEach(([b, s], i) => (b.rotation.z = s * 0.4 + Math.sin(t * 2.3 + i * 1.7) * 0.12));
     };
   } else if (m.t === 'shroom') {
     const n = zahl('cluster', 1);
@@ -396,9 +401,16 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
         ]),
       );
     bewege = (t) => {
-      const f = t % 3.2 < 0.5 ? Math.sin(t * 40) * 0.6 : 0;
-      fluegel.forEach(([w, z]) => (w.rotation.x = z * (0.15 + Math.abs(f))));
-      kopf.rotation.y = Math.sin(t * 1.7) * 0.3;
+      // alle ~7 s: kurz schütteln und das Gefieder aufplustern, sonst ruhig mit kleinem Flügelzucken
+      const zyklus = t % 7;
+      const schuetteln = zyklus > 5.6 && zyklus < 6.4;
+      const s1 = schuetteln ? Math.sin((zyklus - 5.6) * Math.PI * 12) * (1 - Math.abs(zyklus - 6) / 0.4) : 0;
+      const plustern = schuetteln ? 1 + 0.12 * Math.sin(((zyklus - 5.6) / 0.8) * Math.PI) : 1;
+      const f = !schuetteln && t % 3.2 < 0.5 ? Math.sin(t * 40) * 0.6 : 0;
+      fluegel.forEach(([w, z]) => (w.rotation.x = z * (0.15 + Math.abs(f) + Math.abs(s1) * 0.35)));
+      koerper.rotation.x = s1 * 0.25;
+      koerper.scale.set(s * plustern, s * plustern, s * plustern);
+      kopf.rotation.y = schuetteln ? s1 * 0.6 : Math.sin(t * 1.7) * 0.3;
       kopf.rotation.z = Math.sin(t * 3.1) * 0.05;
       koerper.position.y = beinL + Math.abs(Math.sin(t * 2)) * 0.03;
     };
