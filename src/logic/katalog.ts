@@ -1,8 +1,8 @@
 import { ARTEN, artById } from '@/data/arten';
-import type { Art, IconName, KategorieId, Seltenheit } from '@/data/artTypen';
+import type { Art, IconName, KategorieId, ModellParameter, Seltenheit } from '@/data/artTypen';
 import { baumById } from '@/data/baumarten';
 import { MYSTERY_AB } from '@/data/spiel';
-import type { Naturraum } from '@/data/typen';
+import type { BaumModell, Naturraum } from '@/data/typen';
 
 import { getHeimischeBaeume } from './regelEngine';
 
@@ -38,9 +38,26 @@ export type KatalogEintrag = {
   lat: string;
   seltenheit: Seltenheit;
   icon: IconName;
+  gruppe: string;
   namensZeilen?: string[];
   raetsel?: string;
   lebensraum?: string;
+  /** Giftigkeit oder Gefahr – dann steht die Art in der Sektion "Gefährlich & tödlich" */
+  gefahr?: string;
+  /** für die individuellen Miniaturen im Stammbaum */
+  modell?: ModellParameter;
+  baumModell?: BaumModell;
+};
+
+/** Name der Sektion, die es in jeder Kategorie gibt */
+export const GEFAHR_GRUPPE = 'Gefährlich & tödlich';
+
+/** Sinnvolle Reihenfolge der Gruppen je Kategorie (unbekannte Gruppen kommen ans Ende) */
+export const GRUPPEN_REIHENFOLGE: Record<KategorieId, string[]> = {
+  pflanzen: ['Bäume', 'Büsche', 'Frühblüher', 'Waldboden & Wiese', 'Wiesen & Heiden', 'Moore', 'Orchideen'],
+  pilze: ['Blätterpilze', 'Röhrlinge', 'Besondere Formen'],
+  voegel: ['Singvögel', 'Spechte', 'Am Wasser', 'Eulen', 'Offenland'],
+  saeuger: ['Wald', 'Feld & Garten', 'Am Wasser'],
 };
 
 export type KatalogGruppe = { name: string; eintraege: KatalogEintrag[] };
@@ -52,9 +69,13 @@ function ausArt(a: Art): KatalogEintrag {
     lat: a.lat,
     seltenheit: a.seltenheit,
     icon: a.icon,
+    gruppe: a.gruppe,
     namensZeilen: a.namensZeilen,
     raetsel: a.raetsel,
     lebensraum: a.lebensraum,
+    gefahr: a.giftig ?? a.gefahr,
+    modell: a.modell,
+    baumModell: baumById[a.id]?.modell,
   };
 }
 
@@ -64,7 +85,16 @@ export function katalogEintrag(id: string): KatalogEintrag | undefined {
   if (art) return ausArt(art);
   const baum = baumById[id];
   // Baumarten ohne eigenen Steckbrief gelten im Spiel vorerst als "häufig"
-  if (baum) return { id: baum.id, name: baum.name, lat: baum.lat, seltenheit: 1, icon: 'tree' };
+  if (baum)
+    return {
+      id: baum.id,
+      name: baum.name,
+      lat: baum.lat,
+      seltenheit: 1,
+      icon: 'tree',
+      gruppe: 'Bäume',
+      baumModell: baum.modell,
+    };
   return undefined;
 }
 
@@ -77,7 +107,7 @@ export function katalogGruppen(kategorie: KategorieId, naturraum?: Naturraum): K
   for (const id of artIdsDerKategorie(kategorie, naturraum)) {
     const e = katalogEintrag(id);
     if (!e || e.seltenheit >= MYSTERY_AB) continue;
-    const gruppe = artById[id]?.gruppe ?? 'Bäume';
+    const gruppe = e.gruppe;
     let g = gruppen.find((x) => x.name === gruppe);
     if (!g) gruppen.push((g = { name: gruppe, eintraege: [] }));
     g.eintraege.push(e);
@@ -134,4 +164,47 @@ export function waldPlaetze(kategorie: KategorieId, naturraum?: Naturraum): Wald
     const radius = 1.6 + Math.sqrt(i) * 1.55;
     return { id, x: Math.cos(winkel) * radius, z: Math.sin(winkel) * radius, hoch: kategorie === 'voegel' };
   });
+}
+
+// ---------- Stammbaum nach Seltenheit ----------
+
+export type Stufe = { seltenheit: Seltenheit; gruppen: KatalogGruppe[] };
+
+function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): KatalogGruppe[] {
+  const reihenfolge = GRUPPEN_REIHENFOLGE[kategorie];
+  const rang = (g: string) => (reihenfolge.includes(g) ? reihenfolge.indexOf(g) : reihenfolge.length);
+  const gruppen: KatalogGruppe[] = [];
+  for (const e of eintraege) {
+    let g = gruppen.find((x) => x.name === e.gruppe);
+    if (!g) gruppen.push((g = { name: e.gruppe, eintraege: [] }));
+    g.eintraege.push(e);
+  }
+  return gruppen.sort((a, b) => rang(a.name) - rang(b.name));
+}
+
+/**
+ * Stufen des Stammbaums: Krone (legendär) → Äste (sehr selten) → Stamm (selten) → Wurzeln (häufig).
+ * Gefährliche Arten stehen nicht hier, sondern in der eigenen Sektion. Leere Stufen fallen weg.
+ */
+export function stammbaumStufen(kategorie: KategorieId, naturraum?: Naturraum): Stufe[] {
+  const alle = artIdsDerKategorie(kategorie, naturraum)
+    .map(katalogEintrag)
+    .filter((e): e is KatalogEintrag => !!e && !e.gefahr);
+  return ([4, 3, 2, 1] as Seltenheit[])
+    .map((seltenheit) => ({
+      seltenheit,
+      gruppen: nachGruppen(
+        alle.filter((e) => e.seltenheit === seltenheit),
+        kategorie,
+      ),
+    }))
+    .filter((st) => st.gruppen.length > 0);
+}
+
+/** Arten der Sektion "Gefährlich & tödlich" – die seltensten zuerst */
+export function gefahrEintraege(kategorie: KategorieId, naturraum?: Naturraum): KatalogEintrag[] {
+  return artIdsDerKategorie(kategorie, naturraum)
+    .map(katalogEintrag)
+    .filter((e): e is KatalogEintrag => !!e && !!e.gefahr)
+    .sort((a, b) => b.seltenheit - a.seltenheit);
 }

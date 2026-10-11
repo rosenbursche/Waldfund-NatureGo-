@@ -22,6 +22,8 @@ export const colors = {
   ink: '#3A2A1C',
   inkFaded: '#6B5640', // Bildunterschriften auf Papier
   warn: '#E07A5F', // Warnungen (Gift), gedämpft statt grell
+  abgrund: '#050808', // Hintergrund der Sektion "Gefährlich & tödlich"
+  blut: '#9E2F3A', // Dornen und Glut in der Gefahren-Sektion
   shadow: '#000000',
 } as const;
 

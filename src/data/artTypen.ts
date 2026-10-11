@@ -18,7 +18,7 @@ export type IconName = 'tree' | 'flower' | 'shroom' | 'bird' | 'mammal';
  * Die Kurznamen stammen aus dem Prototyp und werden in Phase 5 von den
  * Zeichen-Funktionen gelesen. "t" ist der Modelltyp, c1/c2 sind Farben.
  */
-export type ModellParameter = { t: 'tree' | 'flower' | 'shroom' | 'bird' | 'mammal' } & Record<
+export type ModellParameter = { t: 'tree' | 'shrub' | 'flower' | 'shroom' | 'bird' | 'mammal' } & Record<
   string,
   string | number
 >;
@@ -27,7 +27,7 @@ export type ZeichnungParameter = { t: string } & Record<string, string | number>
 export type Art = {
   id: string;
   kategorie: KategorieId;
-  /** Gruppe im Stammbaum, z. B. "Frühblüher". "Mystery" = erscheint in der Mystery-Zone */
+  /** Gruppe im Katalog, z. B. "Frühblüher" oder "Gefährlich & tödlich" */
   gruppe: string;
   name: string;
   lat: string;
@@ -35,8 +35,10 @@ export type Art = {
   seltenheit: Seltenheit;
   schutz: Schutz;
   roteListe?: RoteListe;
-  /** nur bei Pilzen: "giftig" oder "tödlich giftig" */
+  /** Giftigkeit bei Pflanzen und Pilzen: "giftig", "sehr giftig" oder "tödlich giftig" */
   giftig?: string;
+  /** Gefahr bei Tieren, die nicht giftig sind (z. B. Angriff, Krankheitserreger) – kurzer Warntext */
+  gefahr?: string;
   lebensraum: string;
   saison: string;
   groesse: string;

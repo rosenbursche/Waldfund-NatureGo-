@@ -2,143 +2,240 @@ import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
-import Svg, { Circle } from 'react-native-svg';
+import Svg from 'react-native-svg';
 
+import type { Seltenheit } from '@/data/artTypen';
 import { SELTENHEIT } from '@/data/spiel';
-import type { KatalogEintrag, KatalogGruppe } from '@/logic/katalog';
-import { colors, fonts } from '@/theme/theme';
+import type { KatalogEintrag, Stufe } from '@/logic/katalog';
+import { colors, fonts, radius } from '@/theme/theme';
 
-import { ArtIcon, type ArtIconName } from './ArtIcon';
+import { ArtMiniatur } from './ArtMiniatur';
 import { Schrift } from './Schrift';
 import { skizze, SkizzePfad } from './Skizze';
 
 /**
- * Stammbaum einer Kategorie: ein handgezeichneter Stamm, je Gruppe ein Ast,
- * an den Ästen die Arten als runde Knoten.
- * Gesammelte Arten leuchten in ihrer Seltenheitsfarbe, offene sind gestrichelte Umrisse.
+ * Stammbaum einer Kategorie, nach Seltenheit gebaut:
+ *   Krone (legendär) → Äste (sehr selten) → Stamm (selten) → Wurzeln (häufig)
+ * Jede Stufe zeigt groß ihre Punkte. Innerhalb einer Stufe stehen die Arten nach Gruppen
+ * (z. B. Bäume, Büsche, Frühblüher) – jede mit ihrer eigenen Miniatur.
  *
- * Die Linien sind ein SVG im Hintergrund, die Knoten echte Knöpfe darüber –
- * so funktionieren sie auch mit Screenreader.
+ * Die Linien sind ein SVG im Hintergrund, die Arten echte Knöpfe darüber (Screenreader).
  */
-const OBEN = 76; // Platz für die Wurzel-Plakette
-const GRUPPE_KOPF = 44;
-const REIHE = 122;
+const STUFEN_NAME: Record<Seltenheit, string> = { 4: 'Krone', 3: 'Äste', 2: 'Stamm', 1: 'Wurzeln' };
+const KOPF = 78;
+const GRUPPE = 30;
+const REIHE = 128;
 const PRO_REIHE = 4;
-const KNOTEN = 56;
+const KNOTEN = 60;
 
-type Props = { gruppen: KatalogGruppe[]; gefunden: Record<string, unknown>; kategorieIcon: ArtIconName };
+type Props = {
+  stufen: Stufe[];
+  gefunden: Record<string, unknown>;
+  /** Mystery-Arten, die noch nicht gefunden sind (zeigen nur "?") */
+  verborgen: (id: string) => boolean;
+};
 
-type Knoten = { e: KatalogEintrag; x: number; y: number; astX: number; astY: number };
+type Platz = { e: KatalogEintrag; x: number; y: number };
+type Band = {
+  seltenheit: Seltenheit;
+  oben: number;
+  unten: number;
+  kopfY: number;
+  gruppen: { name: string; y: number }[];
+};
 
-export function Stammbaum({ gruppen, gefunden, kategorieIcon }: Props) {
+export function Stammbaum({ stufen, gefunden, verborgen }: Props) {
   const [breite, setBreite] = useState(0);
   const mitte = breite / 2;
 
-  // Positionen ausrechnen
-  const { knoten, gruppenKoepfe, hoehe } = useMemo(() => {
-    const knoten: Knoten[] = [];
-    const gruppenKoepfe: { name: string; y: number; links: boolean }[] = [];
-    let y = OBEN;
-    gruppen.forEach((g, gi) => {
-      gruppenKoepfe.push({ name: g.name, y: y + 10, links: gi % 2 === 0 });
-      const astY = y + 14;
-      y += GRUPPE_KOPF;
-      for (let r = 0; r * PRO_REIHE < g.eintraege.length; r++) {
-        const reihe = g.eintraege.slice(r * PRO_REIHE, (r + 1) * PRO_REIHE);
-        const rand = 44;
-        reihe.forEach((e, k) => {
-          const x = reihe.length === 1 ? mitte : rand + (k * (breite - 2 * rand)) / (reihe.length - 1 || 1);
-          knoten.push({ e, x, y: y + KNOTEN / 2 + 8, astX: mitte, astY });
-        });
-        y += REIHE;
+  const { plaetze, baender, hoehe } = useMemo(() => {
+    const plaetze: Platz[] = [];
+    const baender: Band[] = [];
+    let y = 0;
+    for (const st of stufen) {
+      const band: Band = { seltenheit: st.seltenheit, oben: y, unten: 0, kopfY: y + 12, gruppen: [] };
+      y += KOPF;
+      for (const g of st.gruppen) {
+        band.gruppen.push({ name: g.name, y });
+        y += GRUPPE;
+        for (let r = 0; r * PRO_REIHE < g.eintraege.length; r++) {
+          const reihe = g.eintraege.slice(r * PRO_REIHE, (r + 1) * PRO_REIHE);
+          const rand = 46;
+          const schritt = (breite - 2 * rand) / (PRO_REIHE - 1);
+          // Reihe mittig ausrichten, auch wenn sie nicht voll ist
+          const start = mitte - ((reihe.length - 1) * schritt) / 2;
+          reihe.forEach((e, k) => plaetze.push({ e, x: start + k * schritt, y: y + KNOTEN / 2 + 4 }));
+          y += REIHE;
+        }
       }
-      y += 8;
-    });
-    return { knoten, gruppenKoepfe, hoehe: y + 10 };
-  }, [gruppen, breite, mitte]);
+      band.unten = y;
+      baender.push(band);
+      y += 10;
+    }
+    return { plaetze, baender, hoehe: y };
+  }, [stufen, breite, mitte]);
 
-  // Handgezeichnete Linien (fester Zufallswert → bei jedem Öffnen gleich)
+  // Handgezeichnete Baum-Architektur hinter den Arten
   const linien = useMemo(() => {
-    if (!breite) return null;
-    const stamm = skizze.curve(
-      [
-        [mitte, 40],
-        [mitte - 4, hoehe * 0.4],
-        [mitte + 4, hoehe * 0.7],
-        [mitte, hoehe - 20],
-      ],
-      { stroke: colors.moss, strokeWidth: 4, roughness: 1.4, seed: 7 },
-    );
-    const aeste = knoten.map((k, i) => ({
-      ok: k.e.id in gefunden,
-      d: skizze.curve(
+    if (!breite || baender.length === 0) return [];
+    const d: { drawable: ReturnType<typeof skizze.line>; deckkraft: number }[] = [];
+    const o = (extra: object = {}) => ({ stroke: colors.moss, strokeWidth: 2, roughness: 1.4, seed: 5, ...extra });
+    // Stamm über die ganze Höhe – zwei Linien, unten breiter
+    d.push({
+      drawable: skizze.curve(
         [
-          [k.astX, k.astY],
-          [(k.astX + k.x) / 2, k.astY + 16],
-          [k.x, k.y - KNOTEN / 2 - 22],
-          [k.x, k.y - KNOTEN / 2 - 2],
+          [mitte - 6, 30],
+          [mitte - 9, hoehe * 0.5],
+          [mitte - 16, hoehe - 30],
         ],
-        { stroke: k.e.id in gefunden ? colors.rune : colors.moss, strokeWidth: 1.6, roughness: 1.5, seed: 11 + i },
+        o({ strokeWidth: 3 }),
       ),
-    }));
-    return { stamm, aeste };
-  }, [breite, mitte, hoehe, knoten, gefunden]);
+      deckkraft: 0.8,
+    });
+    d.push({
+      drawable: skizze.curve(
+        [
+          [mitte + 6, 30],
+          [mitte + 9, hoehe * 0.5],
+          [mitte + 16, hoehe - 30],
+        ],
+        o({ strokeWidth: 3, seed: 6 }),
+      ),
+      deckkraft: 0.8,
+    });
+    for (const b of baender) {
+      const h = b.unten - b.oben;
+      if (b.seltenheit === 4) {
+        // Krone: leuchtende, schraffierte Laubwolke
+        d.push({
+          drawable: skizze.ellipse(
+            mitte,
+            b.oben + h * 0.55,
+            breite * 0.96,
+            h * 1.05,
+            o({
+              fill: colors.legend,
+              fillStyle: 'hachure',
+              hachureGap: 10,
+              fillWeight: 0.6,
+              stroke: colors.legend,
+              seed: 9,
+            }),
+          ),
+          deckkraft: 0.18,
+        });
+      } else if (b.seltenheit === 3) {
+        // Äste: schräg nach oben
+        for (const [s, k] of [
+          [-1, 0.35],
+          [1, 0.45],
+          [-1, 0.75],
+          [1, 0.85],
+        ] as const) {
+          const y0 = b.oben + h * k;
+          d.push({
+            drawable: skizze.curve(
+              [
+                [mitte, y0],
+                [mitte + s * breite * 0.22, y0 - 22],
+                [mitte + s * breite * 0.45, y0 - 46],
+              ],
+              o({ seed: 20 + k * 10 }),
+            ),
+            deckkraft: 0.6,
+          });
+        }
+      } else if (b.seltenheit === 2) {
+        // Stamm: Rindenstriche
+        for (let i = 0; i < 6; i++) {
+          const y0 = b.oben + 40 + (i * (h - 60)) / 6;
+          d.push({
+            drawable: skizze.line(mitte - 4, y0, mitte + 3, y0 + 10, o({ strokeWidth: 1, seed: 30 + i })),
+            deckkraft: 0.6,
+          });
+        }
+      } else {
+        // Wurzeln: geschwungen nach außen und unten
+        for (const [s, w] of [
+          [-1, 0.42],
+          [1, 0.42],
+          [-1, 0.26],
+          [1, 0.3],
+          [-1, 0.12],
+          [1, 0.14],
+        ] as const) {
+          d.push({
+            drawable: skizze.curve(
+              [
+                [mitte, b.oben + 30],
+                [mitte + s * breite * w * 0.6, b.oben + h * 0.45],
+                [mitte + s * breite * w, b.unten - 10],
+              ],
+              o({ seed: 40 + w * 100 }),
+            ),
+            deckkraft: 0.55,
+          });
+        }
+      }
+    }
+    return d;
+  }, [breite, baender, hoehe, mitte]);
 
   return (
     <View style={{ height: hoehe }} onLayout={(e) => setBreite(e.nativeEvent.layout.width)}>
-      {linien && (
+      {breite > 0 && (
         <Svg width={breite} height={hoehe} style={StyleSheet.absoluteFill}>
-          <SkizzePfad drawable={linien.stamm} />
-          {linien.aeste.map((a, i) => (
-            <SkizzePfad key={i} drawable={a.d} deckkraft={a.ok ? 0.9 : 0.55} />
-          ))}
-          {gruppenKoepfe.map((g) => (
-            <Circle key={g.name} cx={mitte} cy={g.y + 4} r={4.5} fill={colors.moss} />
+          {linien.map((l, i) => (
+            <SkizzePfad key={i} drawable={l.drawable} deckkraft={l.deckkraft} />
           ))}
         </Svg>
       )}
 
-      {/* Wurzel-Plakette mit Kategoriesymbol */}
-      {breite > 0 && (
-        <View style={[stile.wurzel, { left: mitte - 26 }]}>
-          <ArtIcon name={kategorieIcon} groesse={26} farbe={colors.rune} />
-        </View>
+      {baender.map((b) => {
+        const s = SELTENHEIT[b.seltenheit];
+        return (
+          <View key={b.seltenheit} style={[stile.kopf, { top: b.kopfY }]} accessibilityRole="header">
+            <View style={[stile.kopfSchild, { borderColor: s.farbe, shadowColor: s.farbe }]}>
+              <Schrift style={[stile.kopfName, { color: s.farbe }]}>
+                {b.seltenheit === 4 ? '★ ' : ''}
+                {STUFEN_NAME[b.seltenheit]} · {s.name}
+              </Schrift>
+              <Schrift style={[stile.kopfPunkte, { color: s.farbe }]}>{s.punkte} AP</Schrift>
+            </View>
+          </View>
+        );
+      })}
+
+      {baender.flatMap((b) =>
+        b.gruppen.map((g) => (
+          <View key={`${b.seltenheit}-${g.name}`} style={[stile.gruppe, { top: g.y + 2 }]}>
+            <Schrift art="etikett" style={{ fontSize: 11 }}>
+              {g.name}
+            </Schrift>
+          </View>
+        )),
       )}
 
-      {gruppenKoepfe.map((g) => (
-        <Schrift
-          key={g.name}
-          art="notiz"
-          accessibilityRole="header"
-          style={[
-            stile.gruppe,
-            { top: g.y - 12 },
-            g.links ? { right: mitte + 14, textAlign: 'right' } : { left: mitte + 14 },
-          ]}
-        >
-          {g.name}
-        </Schrift>
-      ))}
-
-      {knoten.map((k, i) => (
-        <KnotenKnopf key={k.e.id} k={k} ok={k.e.id in gefunden} index={i} />
+      {plaetze.map((p, i) => (
+        <Knoten key={p.e.id} p={p} ok={p.e.id in gefunden} verborgen={verborgen(p.e.id)} index={i} />
       ))}
     </View>
   );
 }
 
-function KnotenKnopf({ k, ok, index }: { k: Knoten; ok: boolean; index: number }) {
-  const s = SELTENHEIT[k.e.seltenheit];
-  const zeilen = k.e.namensZeilen ?? umbrechen(k.e.name);
+function Knoten({ p, ok, verborgen, index }: { p: Platz; ok: boolean; verborgen: boolean; index: number }) {
+  const s = SELTENHEIT[p.e.seltenheit];
+  const name = verborgen ? '???' : p.e.name;
+  const zeilen = verborgen ? ['???'] : (p.e.namensZeilen ?? umbrechen(p.e.name));
   return (
     <Animated.View
-      entering={FadeIn.delay(80 + index * 35).duration(500)}
-      style={[stile.knoten, { left: k.x - 46, top: k.y - KNOTEN / 2 }]}
+      entering={FadeIn.delay(60 + index * 25).duration(450)}
+      style={[stile.knoten, { left: p.x - 48, top: p.y - KNOTEN / 2 }]}
     >
       <Pressable
-        onPress={() => router.push({ pathname: '/art/[id]', params: { id: k.e.id } })}
+        onPress={() => router.push({ pathname: '/art/[id]', params: { id: p.e.id } })}
         accessibilityRole="button"
-        accessibilityLabel={`${k.e.name}, ${s.name}, ${ok ? 'gesammelt' : 'noch offen'}`}
+        accessibilityLabel={`${name}, ${s.name}, ${s.punkte} Punkte, ${ok ? 'gesammelt' : 'noch offen'}`}
         style={({ pressed }) => [{ alignItems: 'center' }, pressed && { opacity: 0.6 }]}
       >
         <View
@@ -146,27 +243,29 @@ function KnotenKnopf({ k, ok, index }: { k: Knoten; ok: boolean; index: number }
             stile.kreis,
             ok
               ? {
-                  backgroundColor: s.farbe,
                   borderColor: s.farbe,
+                  backgroundColor: colors.forest,
                   shadowColor: s.farbe,
-                  shadowOpacity: 0.6,
-                  shadowRadius: 10,
+                  shadowOpacity: 0.7,
+                  shadowRadius: 12,
                 }
-              : { borderColor: s.farbe, borderStyle: 'dashed', opacity: 0.85 },
+              : { borderColor: s.farbe, borderStyle: 'dashed', opacity: 0.9 },
           ]}
         >
-          <ArtIcon name={k.e.icon} groesse={26} farbe={ok ? colors.night : s.farbe} strich={ok ? 1.9 : 1.5} />
+          <ArtMiniatur
+            modell={p.e.modell}
+            baumModell={p.e.baumModell}
+            stil={ok ? 'farbe' : verborgen ? 'verborgen' : 'umriss'}
+            akzent={s.farbe}
+            groesse={44}
+          />
         </View>
-        {k.e.seltenheit > 1 && (
-          <View style={[stile.marke, { backgroundColor: s.farbe }]}>
-            <Schrift style={stile.markeText}>S</Schrift>
-          </View>
-        )}
         {zeilen.map((z) => (
           <Schrift key={z} art="klein" style={[stile.name, ok && { color: colors.moon }]} numberOfLines={1}>
             {z}
           </Schrift>
         ))}
+        <Schrift style={[stile.punkte, { color: s.farbe }]}>{ok ? '✓ gesammelt' : `+${s.punkte} AP`}</Schrift>
       </Pressable>
     </Animated.View>
   );
@@ -186,23 +285,30 @@ function umbrechen(name: string): string[] {
 }
 
 const stile = StyleSheet.create({
-  wurzel: {
-    position: 'absolute',
-    top: 12,
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    borderWidth: 1.5,
-    borderColor: colors.rune,
-    backgroundColor: colors.forest,
+  kopf: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
+  kopfSchild: {
     alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: colors.rune,
-    shadowOpacity: 0.5,
-    shadowRadius: 12,
+    paddingHorizontal: 18,
+    paddingVertical: 4,
+    borderRadius: radius.l,
+    borderWidth: 1.5,
+    backgroundColor: colors.night,
+    shadowOpacity: 0.55,
+    shadowRadius: 14,
   },
-  gruppe: { position: 'absolute', fontSize: 18 },
-  knoten: { position: 'absolute', width: 92 },
+  kopfName: { fontFamily: fonts.type, fontSize: 12, letterSpacing: 1.4, textTransform: 'uppercase' },
+  kopfPunkte: { fontFamily: fonts.handBold, fontSize: 24, lineHeight: 30 },
+  gruppe: {
+    position: 'absolute',
+    left: 0,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: radius.s,
+    borderWidth: 1,
+    borderColor: colors.moss,
+    backgroundColor: colors.night,
+  },
+  knoten: { position: 'absolute', width: 96 },
   kreis: {
     width: KNOTEN,
     height: KNOTEN,
@@ -212,16 +318,6 @@ const stile = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.night,
   },
-  marke: {
-    position: 'absolute',
-    top: -2,
-    right: 14,
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  markeText: { fontFamily: fonts.bodySemiBold, fontSize: 9, lineHeight: 12, color: colors.night },
   name: { textAlign: 'center', fontSize: 12, lineHeight: 15, marginTop: 4 },
+  punkte: { fontFamily: fonts.type, fontSize: 10.5, marginTop: 1 },
 });

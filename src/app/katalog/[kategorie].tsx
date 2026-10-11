@@ -1,6 +1,13 @@
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
+} from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,13 +15,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
-import { MysteryKarte } from '@/components/MysteryKarte';
+import { GefahrSektion } from '@/components/GefahrSektion';
 import { Schrift } from '@/components/Schrift';
 import { Stammbaum } from '@/components/Stammbaum';
 import type { KategorieId } from '@/data/artTypen';
 import { naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN } from '@/data/spiel';
-import { fortschrittDerKategorie, katalogGruppen, mysteryArten } from '@/logic/katalog';
+import { fortschrittDerKategorie, gefahrEintraege, istVerborgen, stammbaumStufen } from '@/logic/katalog';
 import { stimmungJetzt } from '@/logic/tageszeit';
 import { KategorieWald } from '@/scene/KategorieWald';
 import { Steuerung, type Ziel } from '@/scene/steuerZustand';
@@ -55,11 +62,7 @@ export default function Katalog() {
           <Kopfzeile etikett={`Reich ${kat.tag} · ${f.gefunden}/${f.gesamt}`} titel={kat.name} />
           <Umschalter ansicht={ansicht} onWechsel={setAnsicht} />
         </View>
-        {ansicht === 'wald' ? (
-          <WaldAnsicht kategorie={kat.id} />
-        ) : (
-          <StammbaumAnsicht kategorie={kat.id} icon={kat.icon} />
-        )}
+        {ansicht === 'wald' ? <WaldAnsicht kategorie={kat.id} /> : <StammbaumAnsicht kategorie={kat.id} />}
       </SafeAreaView>
     </Hintergrund>
   );
@@ -162,30 +165,57 @@ function WaldAnsicht({ kategorie }: { kategorie: KategorieId }) {
   );
 }
 
-function StammbaumAnsicht({ kategorie, icon }: { kategorie: KategorieId; icon: (typeof KATEGORIEN)[number]['icon'] }) {
+/** Gefahren-Sektion bei Vögeln: ehrlich statt erfunden */
+const LEER_TEXT: Partial<Record<KategorieId, string>> = {
+  voegel:
+    'Keine heimische Vogelart ist für Menschen gefährlich. Aber: Fass Vögel, Nester und tote Vögel nie an – sie können Krankheitserreger tragen. Und störe keine brütenden Vögel.',
+};
+
+/** Stammbaum nach Seltenheit, darunter die Sektion "Gefährlich & tödlich" */
+function StammbaumAnsicht({ kategorie }: { kategorie: KategorieId }) {
   const naturraumId = useEinstellungen((s) => s.naturraumId);
   const gefunden = useSammlung((s) => s.gefunden);
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
-  const gruppen = katalogGruppen(kategorie, naturraum);
-  const mystery = mysteryArten(kategorie);
+  const stufen = stammbaumStufen(kategorie, naturraum);
+  const gefahr = gefahrEintraege(kategorie, naturraum);
+  const verborgen = (id: string) => istVerborgen(id, gefunden);
+
+  // Gruselige Animation, sobald die Gefahren-Sektion ins Bild scrollt (einmal pro Besuch)
+  const [gefahrY, setGefahrY] = useState<number | null>(null);
+  const [ausloeser, setAusloeser] = useState(0);
+  const [hoehe, setHoehe] = useState(0);
+  function beimScrollen(e: NativeSyntheticEvent<NativeScrollEvent>) {
+    const sichtbarBis = e.nativeEvent.contentOffset.y + e.nativeEvent.layoutMeasurement.height;
+    if (ausloeser === 0 && gefahrY !== null && sichtbarBis > gefahrY + 120) setAusloeser(1);
+  }
 
   return (
-    <ScrollView contentContainerStyle={stile.inhalt}>
-      <Stammbaum gruppen={gruppen} gefunden={gefunden} kategorieIcon={icon} />
-
-      <View style={stile.mysteryKopf}>
-        <Schrift art="ueberschrift" style={{ color: colors.rare }} accessibilityRole="header">
-          Mystery-Zone
-        </Schrift>
-        <Schrift art="etikett">sehr selten</Schrift>
-      </View>
-      <Schrift art="klein">
-        Diese Arten zeigen sich nur als Rätsel, bis du sie findest. Nur fotografieren – nie stören oder pflücken.
+    <ScrollView
+      contentContainerStyle={stile.inhalt}
+      onScroll={beimScrollen}
+      scrollEventThrottle={100}
+      onLayout={(e) => setHoehe(e.nativeEvent.layout.height)}
+    >
+      <Schrift art="klein" style={{ textAlign: 'center' }}>
+        Je höher im Baum, desto seltener – und desto mehr Punkte.
       </Schrift>
-      <View style={stile.raster}>
-        {mystery.map((e, i) => (
-          <MysteryKarte key={e.id} e={e} ok={e.id in gefunden} index={i} />
-        ))}
+      <Stammbaum stufen={stufen} gefunden={gefunden} verborgen={verborgen} />
+
+      <View
+        onLayout={(e) => {
+          const y = e.nativeEvent.layout.y;
+          setGefahrY(y);
+          // passt die Sektion schon ohne Scrollen ins Bild? Dann gleich auslösen
+          if (ausloeser === 0 && hoehe > 0 && y + 120 < hoehe) setAusloeser(1);
+        }}
+      >
+        <GefahrSektion
+          eintraege={gefahr}
+          gefunden={gefunden}
+          verborgen={verborgen}
+          ausloeser={ausloeser}
+          leerText={LEER_TEXT[kategorie]}
+        />
       </View>
 
       <Knopf
@@ -193,7 +223,7 @@ function StammbaumAnsicht({ kategorie, icon }: { kategorie: KategorieId; icon: (
         untertitel="Die seltensten Arten aus allen vier Reichen"
         art="leise"
         onPress={() => router.push('/mystery')}
-        style={{ marginTop: spacing.m }}
+        style={{ marginTop: spacing.l }}
       />
     </ScrollView>
   );
@@ -223,6 +253,4 @@ const stile = StyleSheet.create({
   tabText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.fog },
   legende: { position: 'absolute', left: 0, right: 0, bottom: spacing.m, alignItems: 'center', gap: 2 },
   schatten: { textAlign: 'center', textShadowColor: colors.night, textShadowRadius: 8 },
-  mysteryKopf: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginTop: spacing.l },
-  raster: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: spacing.m },
 });

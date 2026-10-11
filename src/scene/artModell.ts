@@ -49,7 +49,57 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
   const g = new T.Group();
   let bewege: (t: number) => void = () => {};
 
-  if (m.t === 'flower') {
+  if (m.t === 'shrub') {
+    // Busch: mehrere kurze Triebe, darauf eine buschige Krone aus Laubballen, dazu Früchte oder Blütendolden
+    const busch = new T.Group();
+    g.add(busch);
+    const s = wahr('klein') ? 0.65 : 1;
+    busch.scale.setScalar(s);
+    for (let i = 0; i < 4; i++) {
+      const a = (i / 4) * Math.PI * 2;
+      const trieb = mesh(new T.CylinderGeometry(0.035, 0.05, 0.6, 5), '#5B4A3A', [
+        Math.cos(a) * 0.12,
+        0.3,
+        Math.sin(a) * 0.12,
+      ]);
+      trieb.rotation.set(Math.sin(a) * 0.25, 0, Math.cos(a) * 0.25);
+      busch.add(trieb);
+    }
+    const ballen: [number, number, number, number][] = [
+      [0, 0.85, 0, 0.5],
+      [0.38, 0.7, 0.1, 0.38],
+      [-0.36, 0.72, -0.08, 0.4],
+      [0.1, 0.72, 0.38, 0.36],
+      [-0.12, 0.7, -0.38, 0.36],
+      [0.05, 1.15, -0.05, 0.32],
+    ];
+    ballen.forEach(([x, y, z, r], i) =>
+      busch.add(mesh(new T.IcosahedronGeometry(r, 0), i % 2 ? farbe('c1') : heller(farbe('c1'), 0.05), [x, y, z])),
+    );
+    if (wahr('fruechte')) {
+      for (let j = 0; j < 18; j++) {
+        const a = j * 2.39;
+        const h = 0.65 + (j % 5) * 0.11;
+        const r = 0.5 - Math.abs(h - 0.85) * 0.5;
+        busch.add(mesh(new T.SphereGeometry(0.045, 6, 4), farbe('c2'), [Math.cos(a) * r, h, Math.sin(a) * r]));
+      }
+    }
+    if (wahr('bluetenDolden')) {
+      for (let j = 0; j < 8; j++) {
+        const a = j * 2.39;
+        const d = mesh(new T.CylinderGeometry(0.12, 0.12, 0.03, 8), farbe('c2'), [
+          Math.cos(a) * 0.42,
+          0.95 + (j % 3) * 0.1,
+          Math.sin(a) * 0.42,
+        ]);
+        busch.add(d);
+      }
+    }
+    bewege = (t) => {
+      busch.rotation.z = Math.sin(t * 1.1) * 0.03;
+      busch.rotation.x = Math.cos(t * 0.8) * 0.02;
+    };
+  } else if (m.t === 'flower') {
     const L = farbe('leaf', '#4F8F3D');
     const kopf = new T.Group();
     if (form === 'drosera') {

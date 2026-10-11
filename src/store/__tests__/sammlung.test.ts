@@ -7,13 +7,13 @@ describe('Sammlung speichert Punkte und Fortschritt', () => {
 
   test('Fund bringt Punkte und wird gespeichert', async () => {
     const b = useSammlung.getState().sammeln('uhu', { datum: '2026-10-11' }, new Date('2026-10-11T10:00:00'));
-    expect(b.punkte).toBe(150);
-    expect(useSammlung.getState().ap).toBe(150);
+    expect(b.punkte).toBe(300);
+    expect(useSammlung.getState().ap).toBe(300);
 
     // Ist der Stand auch im Gerätespeicher angekommen (übersteht also einen Neustart)?
     await new Promise((ok) => setTimeout(ok, 0));
     const gespeichert = JSON.parse((await AsyncStorage.getItem('wildfund-sammlung')) ?? '{}');
-    expect(gespeichert.state.ap).toBe(150);
+    expect(gespeichert.state.ap).toBe(300);
     expect(gespeichert.state.gefunden.uhu.datum).toBe('2026-10-11');
   });
 

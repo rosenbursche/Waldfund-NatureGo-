@@ -11,22 +11,35 @@ import { colors } from '@/theme/theme';
  * Zeichenfläche 100 × 140, der Boden liegt bei y = 140.
  * In Phase 3 bekommen die Bäume echte 3D-Formen nach denselben Parametern.
  */
-type Props = { modell: BaumModell; breite?: number; dunkel?: boolean };
+/** umriss: nur Kontur in dieser Farbe (noch nicht gefunden, z. B. im Stammbaum) */
+type Props = { modell: BaumModell; breite?: number; dunkel?: boolean; umriss?: string };
 
-export function BaumSilhouette({ modell, breite = 60, dunkel = false }: Props) {
-  // "dunkel" = noch nicht gefunden: dunkle Silhouette statt Farbe
-  const laub = dunkel ? colors.forest : modell.laub;
-  const rinde = dunkel ? colors.forest : modell.rinde;
-  const schatten = colors.night;
+export function BaumSilhouette({ modell, breite = 60, dunkel = false, umriss }: Props) {
+  // "dunkel" = noch nicht gefunden: dunkle Silhouette statt Farbe; "umriss" = nur farbige Kontur
+  const laub = umriss ? colors.night : dunkel ? colors.forest : modell.laub;
+  const rinde = umriss ? colors.night : dunkel ? colors.forest : modell.rinde;
+  const schatten = umriss ? 'transparent' : colors.night;
 
   return (
     <Svg width={breite} height={breite * 1.4} viewBox="0 0 100 140">
-      <Krone krone={modell.krone} laub={laub} rinde={rinde} schatten={schatten} />
+      <G stroke={umriss} strokeWidth={umriss ? 3 : 0}>
+        <Krone krone={modell.krone} laub={laub} rinde={rinde} schatten={schatten} />
+      </G>
     </Svg>
   );
 }
 
-function Krone({ krone, laub, rinde, schatten }: { krone: BaumModell['krone']; laub: string; rinde: string; schatten: string }) {
+function Krone({
+  krone,
+  laub,
+  rinde,
+  schatten,
+}: {
+  krone: BaumModell['krone'];
+  laub: string;
+  rinde: string;
+  schatten: string;
+}) {
   switch (krone) {
     case 'rund': // Buche: breite, runde Krone, glatter grauer Stamm
       return (
@@ -39,7 +52,13 @@ function Krone({ krone, laub, rinde, schatten }: { krone: BaumModell['krone']; l
     case 'ausladend': // Eiche: knorrig, ausladend
       return (
         <G>
-          <Path d="M46 140 L47 96 L32 78 M53 140 L54 92 L70 74 M50 100 L50 70" stroke={rinde} strokeWidth={8} strokeLinecap="round" fill="none" />
+          <Path
+            d="M46 140 L47 96 L32 78 M53 140 L54 92 L70 74 M50 100 L50 70"
+            stroke={rinde}
+            strokeWidth={8}
+            strokeLinecap="round"
+            fill="none"
+          />
           <Circle cx={28} cy={64} r={22} fill={laub} />
           <Circle cx={72} cy={60} r={24} fill={laub} />
           <Circle cx={50} cy={44} r={26} fill={laub} />
@@ -85,7 +104,13 @@ function Krone({ krone, laub, rinde, schatten }: { krone: BaumModell['krone']; l
           <Rect x={47} y={40} width={6} height={100} rx={2} fill={rinde} />
           <Path d="M47 70h4M49 92h4M47 112h3M50 56h3" stroke={schatten} strokeWidth={2} />
           <Ellipse cx={50} cy={50} rx={30} ry={42} fill={laub} opacity={0.85} />
-          <Path d="M26 60 Q22 90 28 108 M74 60 Q78 90 72 108 M38 70 Q34 96 38 112 M62 70 Q66 96 62 112" stroke={laub} strokeWidth={3} fill="none" strokeLinecap="round" />
+          <Path
+            d="M26 60 Q22 90 28 108 M74 60 Q78 90 72 108 M38 70 Q34 96 38 112 M62 70 Q66 96 62 112"
+            stroke={laub}
+            strokeWidth={3}
+            fill="none"
+            strokeLinecap="round"
+          />
         </G>
       );
     case 'saeule':

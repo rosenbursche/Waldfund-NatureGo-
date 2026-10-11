@@ -78,6 +78,12 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 
+  test('Artenseite einer giftigen Pflanze warnt', async () => {
+    mockParams.id = 'tollkirsche';
+    await render(<ArtSeite />);
+    expect(screen.getByText(/Nichts davon in den Mund nehmen/)).toBeTruthy();
+  });
+
   test('Artenseite eines Pilzes: Giftwarnung, Schutzstatus, Wusstest du', async () => {
     mockParams.id = 'knolli';
     await render(<ArtSeite />);
@@ -87,7 +93,7 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Verbreitung in Deutschland')).toBeTruthy();
   });
 
-  test('alle 39 Arten und alle Baumarten haben eine Artenseite', async () => {
+  test('alle 48 Arten und alle Baumarten haben eine Artenseite', async () => {
     for (const id of [...ARTEN, ...BAUMARTEN].map((a) => a.id)) {
       mockParams.id = id;
       await render(<ArtSeite />);
@@ -103,15 +109,33 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
   });
 
-  test('Katalog Pilze mit Stammbaum und Mystery-Zone', async () => {
+  test('Katalog Pilze: Stammbaum nach Seltenheit und Gefahren-Sektion', async () => {
     mockParams.kategorie = 'pilze';
+    useSammlung.setState({ gefunden: {} });
     useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
     expect(screen.getByText('Blätterpilze')).toBeTruthy();
-    expect(screen.getByText('Mystery-Zone')).toBeTruthy();
-    // Mystery-Arten bleiben verborgen: Rätsel statt Name
+    expect(screen.getByText('1000 AP')).toBeTruthy(); // Krone: legendär
+    expect(screen.getByText('☠ Gefährlich & tödlich ☠')).toBeTruthy();
+    expect(screen.getByLabelText(/Grüner Knollenblätterpilz, tödlich giftig/)).toBeTruthy();
+    // Mystery-Arten bleiben verborgen
     expect(screen.queryByText('Igel-Stachelbart')).toBeNull();
-    expect(screen.getByText(/weißer Wasserfall aus Eiszapfen/)).toBeTruthy();
+  });
+
+  test('Katalog Pflanzen: Bäume und Büsche, giftige Pflanzen nur in der Gefahren-Sektion', async () => {
+    mockParams.kategorie = 'pflanzen';
+    useEinstellungen.setState({ naturraumId: 'lueneburger-heide', katalogAnsicht: 'stammbaum' });
+    await render(<Katalog />);
+    expect(screen.getByText('Bäume')).toBeTruthy();
+    expect(screen.getByText('Büsche')).toBeTruthy();
+    expect(screen.getAllByLabelText(/Blauer Eisenhut/)).toHaveLength(1);
+  });
+
+  test('Katalog Vögel: Gefahren-Sektion erklärt ehrlich, dass keine Vogelart gefährlich ist', async () => {
+    mockParams.kategorie = 'voegel';
+    useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
+    await render(<Katalog />);
+    expect(screen.getByText(/Keine heimische Vogelart ist für Menschen gefährlich/)).toBeTruthy();
   });
 
   test('Mystery-Zone über alle Reiche', async () => {

@@ -2,9 +2,11 @@ import { naturraumById } from '@/data/naturraeume';
 import { MYSTERY_AB } from '@/data/spiel';
 import {
   fortschrittDerKategorie,
+  gefahrEintraege,
   istVerborgen,
   katalogGruppen,
   mysteryArten,
+  stammbaumStufen,
   vitrinenArten,
   waldPlaetze,
 } from '@/logic/katalog';
@@ -80,5 +82,42 @@ describe('Vitrine am Runenstein und Plätze im Wald', () => {
   test('Vögel sitzen erhöht', () => {
     expect(waldPlaetze('voegel').every((p) => p.hoch)).toBe(true);
     expect(waldPlaetze('pilze').some((p) => p.hoch)).toBe(false);
+  });
+});
+
+describe('Stammbaum nach Seltenheit und Gefahren-Sektion', () => {
+  test('Stufen von legendär (Krone) bis häufig (Wurzeln)', () => {
+    const stufen = stammbaumStufen('pflanzen', heide);
+    expect(stufen.map((s) => s.seltenheit)).toEqual([4, 3, 2, 1]);
+    const ids = (s: number) =>
+      stufen.find((x) => x.seltenheit === s)!.gruppen.flatMap((g) => g.eintraege.map((e) => e.id));
+    expect(ids(4)).toContain('frauenschuh');
+    expect(ids(1)).toEqual(expect.arrayContaining(['stieleiche', 'hasel']));
+  });
+
+  test('Pflanzen sind sinnvoll eingeteilt: Bäume vor Büschen', () => {
+    const haeufig = stammbaumStufen('pflanzen', heide).find((s) => s.seltenheit === 1)!;
+    const namen = haeufig.gruppen.map((g) => g.name);
+    expect(namen.indexOf('Bäume')).toBeLessThan(namen.indexOf('Büsche'));
+    expect(haeufig.gruppen.find((g) => g.name === 'Büsche')!.eintraege.map((e) => e.id)).toEqual(
+      expect.arrayContaining(['hasel', 'holunder', 'schlehe', 'weissdorn']),
+    );
+  });
+
+  test('gefährliche Arten stehen nur in ihrer eigenen Sektion', () => {
+    const gefahr = gefahrEintraege('pflanzen', heide).map((e) => e.id);
+    expect(gefahr).toEqual(expect.arrayContaining(['eisenhut', 'tollkirsche', 'herbstzeitlose', 'seidelbast', 'eibe']));
+    const imBaum = stammbaumStufen('pflanzen', heide).flatMap((s) =>
+      s.gruppen.flatMap((g) => g.eintraege.map((e) => e.id)),
+    );
+    for (const id of gefahr) expect(imBaum).not.toContain(id);
+  });
+
+  test('Gefahren-Sektion: Pilze und Säugetiere haben Einträge, Vögel keine', () => {
+    expect(gefahrEintraege('pilze').map((e) => e.id)).toEqual(
+      expect.arrayContaining(['fliegenpilz', 'knolli', 'satan']),
+    );
+    expect(gefahrEintraege('saeuger').map((e) => e.id)).toEqual(expect.arrayContaining(['wildschwein', 'fuchs']));
+    expect(gefahrEintraege('voegel')).toEqual([]);
   });
 });

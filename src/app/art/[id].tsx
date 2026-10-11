@@ -173,6 +173,27 @@ export default function ArtSeite() {
             </Kasten>
           )}
 
+          {/* Giftige Pflanzen */}
+          {art?.giftig && art.kategorie === 'pflanzen' && (
+            <Kasten farbe={colors.blut}>
+              <Schrift>
+                <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>☠ {art.giftig}: </Schrift>
+                Nichts davon in den Mund nehmen – auch keine Beeren oder Blätter. Am besten gar nicht anfassen und
+                danach die Hände waschen. Bei Verdacht auf Vergiftung sofort den Giftnotruf oder 112 anrufen.
+              </Schrift>
+            </Kasten>
+          )}
+
+          {/* Gefährliche Tiere */}
+          {art?.gefahr && (
+            <Kasten farbe={colors.blut}>
+              <Schrift>
+                <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>☠ Vorsicht: </Schrift>
+                {art.gefahr}
+              </Schrift>
+            </Kasten>
+          )}
+
           {art && art.schutz > 0 && !verborgen && (
             <Kasten farbe={SCHUTZ_FARBE[art.schutz]}>
               <Schrift>Geschützte Art: Nur fotografieren – nicht pflücken, nicht fangen, nicht stören.</Schrift>

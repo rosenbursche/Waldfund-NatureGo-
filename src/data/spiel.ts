@@ -5,10 +5,11 @@ import type { IconName, KategorieId, RoteListe, Schutz, Seltenheit } from './art
 /** Spielregeln aus dem Prototyp: Seltenheit, Schutzstatus, Level, Ränge. */
 
 export const SELTENHEIT: Record<Seltenheit, { name: string; punkte: number; farbe: string }> = {
+  // Seltene Arten bringen überproportional mehr: jede Stufe etwa 5–6-mal so viel wie die darunter
   1: { name: 'Häufig', punkte: 10, farbe: colors.fog },
-  2: { name: 'Selten', punkte: 50, farbe: colors.rune },
-  3: { name: 'Sehr selten', punkte: 150, farbe: colors.rare },
-  4: { name: 'Legendär', punkte: 400, farbe: colors.legend },
+  2: { name: 'Selten', punkte: 60, farbe: colors.rune },
+  3: { name: 'Sehr selten', punkte: 300, farbe: colors.rare },
+  4: { name: 'Legendär', punkte: 1000, farbe: colors.legend },
 };
 
 /** Ab dieser Seltenheit erscheint eine Art nur als Rätsel (Mystery-Zone), bis man sie findet. */
@@ -36,7 +37,8 @@ export const KATEGORIEN: { id: KategorieId; name: string; tag: string; icon: Ico
 ];
 
 /** Aktivitätspunkte (AP), ab denen ein Level beginnt. Index 0 = Level 1. */
-export const LEVEL_SCHWELLEN = [0, 40, 100, 200, 350, 550, 800, 1100, 1500, 2000, 2600, 3300];
+// An die höheren Punkte angepasst: die ersten Level bleiben schnell erreichbar, die oberen brauchen seltene Funde
+export const LEVEL_SCHWELLEN = [0, 40, 120, 260, 480, 800, 1250, 1900, 2800, 4000, 5600, 7600];
 
 /** Rang-Titel je Level (gleicher Index wie LEVEL_SCHWELLEN) */
 export const RAENGE = [

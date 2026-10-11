@@ -11,8 +11,8 @@ import {
 } from '@/logic/fortschritt';
 
 describe('Artendaten aus dem Prototyp', () => {
-  test('39 Arten in 4 Kategorien', () => {
-    expect(ARTEN).toHaveLength(39);
+  test('48 Arten in 4 Kategorien (39 aus dem Prototyp + 9 ergänzte Pflanzen)', () => {
+    expect(ARTEN).toHaveLength(48);
     expect(new Set(ARTEN.map((a) => a.kategorie))).toEqual(new Set(['pflanzen', 'pilze', 'voegel', 'saeuger']));
   });
 
@@ -28,18 +28,20 @@ describe('Artendaten aus dem Prototyp', () => {
 });
 
 describe('Punkte und Level', () => {
-  test('Punkte nach Seltenheit: 10 / 50 / 150 / 400', () => {
+  test('Punkte nach Seltenheit: 10 / 60 / 300 / 1000 – seltene überproportional mehr', () => {
     expect(punkteFuerArt(artById['amsel'])).toBe(10);
-    expect(punkteFuerArt(artById['eisvogel'])).toBe(50);
-    expect(punkteFuerArt(artById['uhu'])).toBe(150);
-    expect(punkteFuerArt(artById['luchs'])).toBe(400);
+    expect(punkteFuerArt(artById['eisvogel'])).toBe(60);
+    expect(punkteFuerArt(artById['uhu'])).toBe(300);
+    expect(punkteFuerArt(artById['luchs'])).toBe(1000);
+    // ein legendärer Fund zählt so viel wie 100 häufige
+    expect(punkteFuerArt(artById['luchs']) / punkteFuerArt(artById['amsel'])).toBe(100);
   });
 
   test('Level-Grenzen', () => {
     expect(levelInfo(0)).toMatchObject({ level: 1, rang: 'Entdecker', fehlend: 40 });
     expect(levelInfo(40)).toMatchObject({ level: 2, rang: 'Spurenleser' });
-    expect(levelInfo(120).fortschritt).toBeCloseTo(0.2);
-    expect(levelInfo(5000)).toMatchObject({ level: 12, rang: 'Wildnis-Legende' });
+    expect(levelInfo(190).fortschritt).toBeCloseTo(0.5); // zwischen 120 und 260
+    expect(levelInfo(9000)).toMatchObject({ level: 12, rang: 'Wildnis-Legende' });
   });
 });
 
@@ -103,12 +105,12 @@ describe('Belohnung für einen Fund', () => {
     expect(b.stand.ap).toBe(10);
   });
 
-  test('legendäre Art bringt Level-up und lässt die Hütte wachsen', () => {
+  test('legendäre Art bringt einen großen Sprung und lässt die Hütte wachsen', () => {
     const b = berechneBelohnung(start, artById['luchs'], 'luchs', tag);
-    expect(b.punkte).toBe(400);
-    expect(b.levelNachher).toBe(5); // 400 AP → Level 5 (Level 6 beginnt bei 550)
+    expect(b.punkte).toBe(1000);
+    expect(b.levelNachher).toBe(6); // 1000 AP → Level 6 (beginnt bei 800)
     expect(b.huetteVorher).toBe(0);
-    expect(b.huetteNachher).toBe(1);
+    expect(b.huetteNachher).toBe(2); // Forsthaus
   });
 
   test('schon gesammelte Art bringt keine Punkte', () => {
