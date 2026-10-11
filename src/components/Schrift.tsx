@@ -9,7 +9,8 @@ import { colors, fonts } from '@/theme/theme';
 type Art = 'titel' | 'ueberschrift' | 'notiz' | 'text' | 'klein' | 'etikett';
 
 export function Schrift({ art = 'text', style, ...rest }: TextProps & { art?: Art }) {
-  return <Text style={[stile[art], style]} {...rest} />;
+  // Systemschriftgröße wird beachtet, aber auf das 1,5-Fache begrenzt, damit nichts überläuft
+  return <Text maxFontSizeMultiplier={art === 'titel' ? 1.25 : 1.5} style={[stile[art], style]} {...rest} />;
 }
 
 const stile = StyleSheet.create({

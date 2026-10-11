@@ -14,8 +14,8 @@ import { Atmosphaere } from './Atmosphaere';
 import { Baum3D } from './Baum3D';
 import { Huette } from './Huette';
 import { Runenstein } from './Runenstein';
-import { Kamera, Projektor, Tippen } from './Steuerung';
-import type { PunkteKanal, Steuerung, Ziel } from './steuerZustand';
+import { FpsMesser, Kamera, Projektor, Tippen } from './Steuerung';
+import type { FpsKanal, PunkteKanal, Steuerung, Ziel } from './steuerZustand';
 
 /** Positionen der vier Runensteine rund um die Hütte */
 export const RUNEN_POSITIONEN: { id: KategorieId; position: [number, number, number] }[] = [
@@ -40,6 +40,8 @@ type Props = {
   ruhig: boolean;
   steuer: Steuerung;
   kanal: PunkteKanal;
+  /** Bildrate melden (nur wenn die Leistungsanzeige an ist) */
+  fps: FpsKanal;
   onZiel: (z: Ziel) => void;
 };
 
@@ -53,6 +55,7 @@ export function Lichtung({
   ruhig,
   steuer,
   kanal,
+  fps,
   onZiel,
 }: Props) {
   const plaetze = useMemo(
@@ -96,6 +99,7 @@ export function Lichtung({
       <Kamera steuer={steuer} ruhig={ruhig} />
       <Tippen steuer={steuer} onZiel={onZiel} />
       <Projektor punkte={labelPunkte} kanal={kanal} />
+      <FpsMesser kanal={fps} />
     </Canvas>
   );
 }

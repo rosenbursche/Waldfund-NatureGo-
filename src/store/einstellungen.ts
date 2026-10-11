@@ -26,6 +26,9 @@ type EinstellungenState = {
   /** Nur Demo: manche Fotos "nicht erkennen", um die Tipps zu testen */
   demoFehlschlag: boolean;
   setDemoFehlschlag: (an: boolean) => void;
+  /** Bildrate auf der Lichtung anzeigen (zum Prüfen der Leistung) */
+  leistungAnzeigen: boolean;
+  setLeistungAnzeigen: (an: boolean) => void;
 
   setNaturraum: (
     id: string,
@@ -54,6 +57,8 @@ export const useEinstellungen = create<EinstellungenState>()(
       geraetId: zufallsId(),
       demoFehlschlag: false,
       setDemoFehlschlag: (an) => set({ demoFehlschlag: an }),
+      leistungAnzeigen: false,
+      setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
 
       setNaturraum: (id, per, grobStandort = null) => set({ naturraumId: id, gewaehltPer: per, grobStandort }),
       allesZuruecksetzen: () =>

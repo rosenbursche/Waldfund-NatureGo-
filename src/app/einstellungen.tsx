@@ -25,6 +25,8 @@ export default function Einstellungen() {
     setPruefModus,
     demoFehlschlag,
     setDemoFehlschlag,
+    leistungAnzeigen,
+    setLeistungAnzeigen,
   } = useEinstellungen();
   const serverUrl = erkennungsServerUrl();
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
@@ -147,6 +149,25 @@ export default function Einstellungen() {
                 />
               </View>
             )}
+          </View>
+
+          <View style={stile.karte}>
+            <Schrift art="etikett">Darstellung</Schrift>
+            <View style={stile.schalter}>
+              <Schrift art="text" style={{ flex: 1 }}>
+                Bildrate auf der Lichtung anzeigen
+              </Schrift>
+              <Switch
+                value={leistungAnzeigen}
+                onValueChange={setLeistungAnzeigen}
+                trackColor={{ true: colors.rune, false: colors.moss }}
+                accessibilityLabel="Bildrate anzeigen"
+              />
+            </View>
+            <Schrift art="klein">
+              Zeigt, wie flüssig die 3D-Szene läuft (Ziel: 60 Bilder pro Sekunde). Ist auf deinem Handy „Bewegung
+              reduzieren“ eingeschaltet, steht die Szene still und alle Animationen werden abgeschwächt.
+            </Schrift>
           </View>
 
           <View style={stile.karte}>

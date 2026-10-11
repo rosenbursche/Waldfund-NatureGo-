@@ -32,6 +32,7 @@ Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur,
 - `src/scene/` – 3D-Szenen
 - `src/store/` – Zustand-Store
 - `server/` – Erkennungsserver (Cloudflare Worker) zwischen App und Pl@ntNet, eigene `tsconfig.json`, Anleitung in `server/README.md`. Typprüfung: `npx tsc -p server`
+- `scripts/icons-bauen.mjs` – erzeugt App-Icon, Android-Icons, Splash und Favicon aus `assets/icon-quelle/` (Vektor)
 - `scripts/naturraeume-bauen.mjs` – erzeugt `src/data/naturraeume.json` aus Thünen-Wuchsbezirken (`node scripts/naturraeume-bauen.mjs`)
 
 ## Code-Regeln

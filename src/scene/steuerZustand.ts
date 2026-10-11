@@ -71,3 +71,20 @@ export class Drehung {
     if (!this.beruehrt && !ruhig) this.winkel += dt * 0.35;
   }
 }
+
+/** Kanal für die gemessene Bildrate (Bilder pro Sekunde) – für die Leistungsanzeige */
+export class FpsKanal {
+  private hoerer: ((fps: number) => void) | null = null;
+  abonnieren(f: (fps: number) => void): () => void {
+    this.hoerer = f;
+    return () => {
+      if (this.hoerer === f) this.hoerer = null;
+    };
+  }
+  hatHoerer(): boolean {
+    return this.hoerer !== null;
+  }
+  melden(fps: number): void {
+    this.hoerer?.(fps);
+  }
+}

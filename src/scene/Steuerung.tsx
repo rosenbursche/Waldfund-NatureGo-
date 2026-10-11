@@ -3,7 +3,7 @@ import { DeviceMotion } from 'expo-sensors';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-import type { PunkteKanal, Steuerung, Ziel } from './steuerZustand';
+import type { FpsKanal, PunkteKanal, Steuerung, Ziel } from './steuerZustand';
 
 const ZIEL_PUNKT = new THREE.Vector3(0, 1.4, 0);
 
@@ -105,5 +105,22 @@ export function Projektor({
     );
   });
 
+  return null;
+}
+
+/** Misst die Bildrate: zählt gezeichnete Bilder und meldet einmal pro Sekunde. */
+export function FpsMesser({ kanal }: { kanal: FpsKanal }) {
+  const zeit = useRef(0);
+  const bilder = useRef(0);
+  useFrame((_, dt) => {
+    if (!kanal.hatHoerer()) return;
+    zeit.current += dt;
+    bilder.current += 1;
+    if (zeit.current >= 1) {
+      kanal.melden(Math.round(bilder.current / zeit.current));
+      zeit.current = 0;
+      bilder.current = 0;
+    }
+  });
   return null;
 }

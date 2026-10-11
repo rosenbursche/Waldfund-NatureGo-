@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  
+  <defs>
+    <radialGradient id="himmel" cx="50%" cy="42%" r="70%">
+      <stop offset="0" stop-color="#142420"/>
+      <stop offset="1" stop-color="#0B1414"/>
+    </radialGradient>
+    <radialGradient id="glut" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#E8B86A" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#E8B86A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebel" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#9FB3AD" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#9FB3AD" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#himmel)"/><ellipse cx="512" cy="720" rx="520" ry="120" fill="url(#nebel)"/>
+  
+  <g stroke="#8FD1C4" stroke-linecap="round" fill="none">
+      <circle cx="512" cy="512" r="330" stroke-width="10" opacity="0.85"/>
+      <g stroke-width="6" stroke-linejoin="round" opacity="0.8"><path d="M0 -22 V22 M0 -10 L12 -20 M0 2 L12 -8" transform="rotate(22.5 512 512) translate(512 236)"/><path d="M0 -22 V22 M0 -22 L12 -10 L0 0" transform="rotate(67.5 512 512) translate(512 236)"/><path d="M0 -22 V22 M-10 -12 L10 4" transform="rotate(112.5 512 512) translate(512 236)"/><path d="M0 -22 V22 M0 -6 L12 -18 M0 -6 L-12 -18" transform="rotate(157.5 512 512) translate(512 236)"/><path d="M-8 -22 V22 M8 -22 V22 M-8 -6 L8 6" transform="rotate(202.5 512 512) translate(512 236)"/><path d="M0 -22 V22 M0 10 L12 22 M0 10 L-12 22" transform="rotate(247.5 512 512) translate(512 236)"/><path d="M0 -22 L10 0 L0 22 L-10 0 Z" transform="rotate(292.5 512 512) translate(512 236)"/><path d="M0 -22 V22 M0 -14 L12 -4 L0 6" transform="rotate(337.5 512 512) translate(512 236)"/></g>
+    </g>
+  <!-- Boden -->
+  <ellipse cx="512" cy="700" rx="270" ry="34" fill="#3D5A45" opacity="0.55"/>
+  <!-- Tannen links und rechts -->
+  <path d="M300 700 L300 640 L240 640 L300 560 L258 560 L310 480 L278 480 L330 390 L382 480 L350 480 L402 560 L360 560 L420 640 L360 640 L360 700 Z" fill="#1F3A30"/>
+  <path d="M690 700 L690 650 L640 650 L690 580 L655 580 L700 510 L672 510 L715 440 L758 510 L730 510 L775 580 L740 580 L790 650 L740 650 L740 700 Z" fill="#1F3A30"/>
+  <!-- Hütte -->
+  <path d="M430 700 L430 560 L512 486 L594 560 L594 700 Z" fill="#0E1C19"/>
+  <path d="M410 572 L512 470 L614 572" fill="none" stroke="#0E1C19" stroke-width="26" stroke-linejoin="round"/>
+  <path d="M398 580 L512 460 L626 580" fill="none" stroke="#3D5A45" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="556" y="474" width="22" height="58" fill="#0E1C19"/>
+  <circle cx="512" cy="610" r="90" fill="url(#glut)"/>
+  <rect x="488" y="584" width="48" height="52" rx="4" fill="#E8B86A"/>
+  <path d="M512 584 V636 M488 610 H536" stroke="#0E1C19" stroke-width="6"/>
+  <circle cx="300" cy="330" r="7" fill="#E8B86A" opacity="0.9"/><circle cx="720" cy="300" r="6" fill="#8FD1C4" opacity="0.9"/><circle cx="760" cy="470" r="5" fill="#E8B86A" opacity="0.9"/><circle cx="270" cy="520" r="5" fill="#8FD1C4" opacity="0.9"/><circle cx="640" cy="250" r="4" fill="#E8B86A" opacity="0.9"/>
+</svg>

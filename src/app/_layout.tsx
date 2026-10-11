@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useReducedMotion } from 'react-native-reanimated';
 
 import { colors } from '@/theme/theme';
 
@@ -29,6 +30,7 @@ const navTheme = {
 };
 
 export default function RootLayout() {
+  const ruhig = useReducedMotion();
   const [fontsLoaded, fontError] = useFonts({
     Kalam_400Regular,
     Kalam_700Bold,
@@ -52,13 +54,13 @@ export default function RootLayout() {
           screenOptions={{
             headerShown: false,
             contentStyle: { backgroundColor: colors.night },
-            animation: 'fade', // sanfte Übergänge zwischen Screens
+            animation: ruhig ? 'none' : 'fade', // sanfte Übergänge – aus bei "Bewegung reduzieren"
           }}
         >
           {/* Sammeln öffnet sich als Vollbild von unten und ist ein eigener Moment */}
           <Stack.Screen
             name="sammeln/[id]"
-            options={{ presentation: 'fullScreenModal', animation: 'slide_from_bottom' }}
+            options={{ presentation: 'fullScreenModal', animation: ruhig ? 'none' : 'slide_from_bottom' }}
           />
         </Stack>
       </ThemeProvider>

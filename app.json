@@ -8,7 +8,7 @@
     "scheme": "wildfund",
     "userInterfaceStyle": "dark",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/icon.png"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,7 +30,11 @@
         {
           "backgroundColor": "#0B1414",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 220,
+          "dark": {
+            "backgroundColor": "#0B1414",
+            "image": "./assets/images/splash-icon.png"
+          }
         }
       ],
       [

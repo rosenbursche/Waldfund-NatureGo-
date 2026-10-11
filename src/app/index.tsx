@@ -5,6 +5,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { ArtIcon } from '@/components/ArtIcon';
 import { Fortschrittsanzeige } from '@/components/Fortschrittsanzeige';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Icon } from '@/components/Icon';
@@ -17,7 +18,7 @@ import { huettenStufe, levelInfo } from '@/logic/fortschritt';
 import { fortschrittDerKategorie } from '@/logic/katalog';
 import { stimmungJetzt } from '@/logic/tageszeit';
 import { Lichtung } from '@/scene/Lichtung';
-import { PunkteKanal, Steuerung, type BildschirmPunkt, type Ziel } from '@/scene/steuerZustand';
+import { FpsKanal, PunkteKanal, Steuerung, type BildschirmPunkt, type Ziel } from '@/scene/steuerZustand';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 import { useGeladen } from '@/store/useGeladen';
@@ -44,6 +45,8 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
   const huette = huettenStufe(levelInfo(ap).level);
   const [steuer] = useState(() => new Steuerung());
   const [kanal] = useState(() => new PunkteKanal());
+  const [fpsKanal] = useState(() => new FpsKanal());
+  const leistungAnzeigen = useEinstellungen((s) => s.leistungAnzeigen);
 
   // Szene pausieren, solange eine andere Seite darüber liegt – spart Akku und Leistung
   const [aktiv, setAktiv] = useState(true);
@@ -93,12 +96,14 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
             ruhig={ruhig}
             steuer={steuer}
             kanal={kanal}
+            fps={fpsKanal}
             onZiel={onZiel}
           />
         </View>
       </GestureDetector>
 
       <RunenBeschriftung kanal={kanal} fortschritt={fortschritt} />
+      {leistungAnzeigen && <BildrateAnzeige kanal={fpsKanal} />}
 
       <SafeAreaView style={stile.oben} pointerEvents="box-none">
         <View style={{ flex: 1, gap: spacing.s }} pointerEvents="box-none">
@@ -122,14 +127,33 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
         <Schrift art="notiz" style={[stile.zentriert, stile.schatten]} pointerEvents="none">
           Tippe einen Baum oder Runenstein an
         </Schrift>
-        <Pressable
-          onPress={() => router.push('/mystery')}
-          accessibilityRole="button"
-          accessibilityLabel="Mystery-Zone: die seltensten Arten"
-          style={({ pressed }) => [stile.mystery, pressed && { opacity: 0.6 }]}
-        >
-          <Schrift style={stile.mysteryText}>M?</Schrift>
-        </Pressable>
+        <View style={stile.knopfReihe}>
+          {/* Alternative zur 3D-Szene: die Bäume der Lichtung als Liste (auch für Screenreader) */}
+          <Pressable
+            onPress={() => router.push({ pathname: '/katalog/[kategorie]', params: { kategorie: 'pflanzen' } })}
+            accessibilityRole="button"
+            accessibilityLabel="Bäume und Pflanzen der Lichtung als Liste"
+            style={({ pressed }) => [stile.rundUnten, pressed && { opacity: 0.6 }]}
+          >
+            <ArtIcon name="tree" groesse={24} farbe={colors.rune} />
+          </Pressable>
+          <Pressable
+            onPress={() => router.push('/mystery')}
+            accessibilityRole="button"
+            accessibilityLabel="Mystery-Zone: die seltensten Arten"
+            style={({ pressed }) => [stile.mystery, pressed && { opacity: 0.6 }]}
+          >
+            <Schrift style={stile.mysteryText}>M?</Schrift>
+          </Pressable>
+          <Pressable
+            onPress={() => router.push('/tagebuch')}
+            accessibilityRole="button"
+            accessibilityLabel="Feldtagebuch"
+            style={({ pressed }) => [stile.rundUnten, pressed && { opacity: 0.6 }]}
+          >
+            <ArtIcon name="leaf" groesse={22} farbe={colors.amber} />
+          </Pressable>
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -152,6 +176,19 @@ function baueGesten(steuer: Steuerung) {
       if (ok) steuer.tippen(e.x, e.y);
     });
   return Gesture.Race(ziehen, tippen);
+}
+
+/** Bildrate (Bilder pro Sekunde) – grün ab 55, sonst bernstein */
+function BildrateAnzeige({ kanal }: { kanal: FpsKanal }) {
+  const [fps, setFps] = useState<number | null>(null);
+  useEffect(() => kanal.abonnieren(setFps), [kanal]);
+  return (
+    <View style={stile.fps} pointerEvents="none">
+      <Schrift style={[stile.fpsText, { color: fps !== null && fps >= 55 ? colors.rune : colors.amber }]}>
+        {fps === null ? '… fps' : `${fps} fps`}
+      </Schrift>
+    </View>
+  );
 }
 
 /** Lesbare Beschriftungen über den Runensteinen – auch für Screenreader als Knöpfe nutzbar */
@@ -207,9 +244,36 @@ const stile = StyleSheet.create({
   unten: { position: 'absolute', bottom: spacing.m, left: 0, right: 0 },
   zentriert: { textAlign: 'center' },
   schatten: { textShadowColor: colors.night, textShadowRadius: 8 },
-  mystery: {
-    alignSelf: 'center',
+  knopfReihe: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: spacing.l,
     marginTop: spacing.s,
+  },
+  rundUnten: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    borderWidth: 1.5,
+    borderColor: colors.moss,
+    backgroundColor: colors.night,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fps: {
+    position: 'absolute',
+    top: 110,
+    right: spacing.m,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: radius.s,
+    backgroundColor: colors.night,
+    borderWidth: 1,
+    borderColor: colors.moss,
+  },
+  fpsText: { fontFamily: fonts.type, fontSize: 12 },
+  mystery: {
     width: 52,
     height: 52,
     borderRadius: 26,
