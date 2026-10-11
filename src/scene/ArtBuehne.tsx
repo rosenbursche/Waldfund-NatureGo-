@@ -10,6 +10,7 @@ import { colors } from '@/theme/theme';
 
 import { baueArtModell, einpassen } from './artModell';
 import { Baum3D } from './Baum3D';
+import { Lidar } from './Lidar';
 import { Drehung } from './steuerZustand';
 
 /**
@@ -43,21 +44,23 @@ export function ArtBuehne({ modell, baum, silhouette, ruhig, hoehe = 300 }: Prop
           <directionalLight position={[-4, 2, -4]} color={colors.rune} intensity={1.4} />
           <Runenkreis />
           <Drehteller drehung={drehung} ruhig={ruhig}>
-            {baum ? (
-              <group scale={0.55}>
-                <Baum3D
-                  id="buehne"
-                  modell={baum}
-                  gefunden={!silhouette}
-                  position={[0, 0, 0]}
-                  skala={1}
-                  drehung={0}
-                  ruhig={ruhig}
-                />
-              </group>
-            ) : modell ? (
-              <Modell key={String(silhouette)} modell={modell} silhouette={silhouette} ruhig={ruhig} />
-            ) : null}
+            <Lidar key={String(silhouette)} ruhig={ruhig}>
+              {baum ? (
+                <group scale={0.55}>
+                  <Baum3D
+                    id="buehne"
+                    modell={baum}
+                    gefunden={!silhouette}
+                    position={[0, 0, 0]}
+                    skala={1}
+                    drehung={0}
+                    ruhig={ruhig}
+                  />
+                </group>
+              ) : modell ? (
+                <Modell key={String(silhouette)} modell={modell} silhouette={silhouette} ruhig={ruhig} />
+              ) : null}
+            </Lidar>
           </Drehteller>
           <KameraBlick />
         </Canvas>
