@@ -1,5 +1,5 @@
-import { Redirect, router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { Redirect, router, useFocusEffect } from 'expo-router';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useReducedMotion } from 'react-native-reanimated';
@@ -41,6 +41,15 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
   const [steuer] = useState(() => new Steuerung());
   const [kanal] = useState(() => new PunkteKanal());
 
+  // Szene pausieren, solange eine andere Seite darüber liegt – spart Akku und Leistung
+  const [aktiv, setAktiv] = useState(true);
+  useFocusEffect(
+    useCallback(() => {
+      setAktiv(true);
+      return () => setAktiv(false);
+    }, []),
+  );
+
   // Licht nach Uhrzeit, jede Minute neu berechnet
   const [stimmung, setStimmung] = useState(() => stimmungJetzt());
   useEffect(() => {
@@ -71,6 +80,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
       <GestureDetector gesture={gesten}>
         <View style={StyleSheet.absoluteFill} accessibilityLabel={`3D-Lichtung im Naturraum ${naturraum.name}`}>
           <Lichtung
+            aktiv={aktiv}
             naturraum={naturraum}
             gefunden={gefunden}
             fortschritt={anteile}

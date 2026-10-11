@@ -5,6 +5,8 @@
 import { render, screen } from '@testing-library/react-native';
 
 import ArtSeite from '@/app/art/[id]';
+import { ARTEN } from '@/data/arten';
+import { BAUMARTEN } from '@/data/baumarten';
 import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
 import Katalog from '@/app/katalog/[kategorie]';
@@ -20,11 +22,13 @@ const mockParams: Record<string, string> = { id: 'lueneburger-heide', per: 'list
 jest.mock('expo-router', () => ({
   router: { push: jest.fn(), back: jest.fn(), replace: jest.fn(), canDismiss: () => false, dismissAll: jest.fn() },
   useLocalSearchParams: () => mockParams,
+  useFocusEffect: () => {},
   Redirect: () => null,
 }));
 jest.mock('expo-location', () => ({}));
 // Im Test gibt es keine Grafikkarte – die 3D-Szene wird durch eine Attrappe ersetzt.
 jest.mock('@/scene/Lichtung', () => ({ Lichtung: () => null }));
+jest.mock('@/scene/ArtBuehne', () => ({ ArtBuehne: () => null }));
 
 describe('Screens rendern ohne Fehler', () => {
   test('Willkommen', async () => {
@@ -60,11 +64,29 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
   });
 
-  test('Artenseite (vorläufig)', async () => {
+  test('Artenseite einer Baumart', async () => {
     mockParams.id = 'fichte';
     useEinstellungen.setState({ naturraumId: 'lueneburger-heide' });
     await render(<ArtSeite />);
-    expect(screen.getByText('Gemeine Fichte – hier angepflanzt, nicht heimisch')).toBeTruthy();
+    expect(screen.getByText(/Gemeine Fichte – hier angepflanzt, nicht heimisch/)).toBeTruthy();
+    expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
+  });
+
+  test('Artenseite eines Pilzes: Giftwarnung, Schutzstatus, Wusstest du', async () => {
+    mockParams.id = 'knolli';
+    await render(<ArtSeite />);
+    expect(screen.getByText(/Tödlich giftig/)).toBeTruthy();
+    expect(screen.getByText(/Iss niemals Pilze/)).toBeTruthy();
+    expect(screen.getByText('Wusstest du?')).toBeTruthy();
+    expect(screen.getByText('Verbreitung in Deutschland')).toBeTruthy();
+  });
+
+  test('alle 39 Arten und alle Baumarten haben eine Artenseite', async () => {
+    for (const id of [...ARTEN, ...BAUMARTEN].map((a) => a.id)) {
+      mockParams.id = id;
+      await render(<ArtSeite />);
+      expect(screen.queryByText('Unbekannte Art')).toBeNull();
+    }
   });
 
   test('Katalog Pilze mit Stammbaum und Mystery-Zone', async () => {

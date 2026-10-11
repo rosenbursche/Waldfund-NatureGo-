@@ -28,6 +28,8 @@ export const RUNEN_POSITIONEN: { id: KategorieId; position: [number, number, num
 const BAUM_ANZAHL = 30;
 
 type Props = {
+  /** false = Szene steht still (andere Seite ist offen) */
+  aktiv: boolean;
   naturraum: Naturraum;
   gefunden: Record<string, unknown>;
   fortschritt: Record<KategorieId, number>;
@@ -38,7 +40,7 @@ type Props = {
   onZiel: (z: Ziel) => void;
 };
 
-export function Lichtung({ naturraum, gefunden, fortschritt, stimmung, ruhig, steuer, kanal, onZiel }: Props) {
+export function Lichtung({ aktiv, naturraum, gefunden, fortschritt, stimmung, ruhig, steuer, kanal, onZiel }: Props) {
   const plaetze = useMemo(
     () => platziereBaeume(getHeimischeBaeume(naturraum), BAUM_ANZAHL, startwertAus(naturraum.id)),
     [naturraum],

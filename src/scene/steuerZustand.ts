@@ -56,3 +56,18 @@ export class PunkteKanal {
     this.hoerer?.(p);
   }
 }
+
+/** Drehung des Modells auf der Artenseite: dreht sich langsam, per Finger schneller oder zurück. */
+export class Drehung {
+  winkel = 0.5;
+  private beruehrt = false;
+  ziehen(dx: number): void {
+    this.winkel += dx * 0.012;
+  }
+  fingerAuf(an: boolean): void {
+    this.beruehrt = an;
+  }
+  weiter(dt: number, ruhig: boolean): void {
+    if (!this.beruehrt && !ruhig) this.winkel += dt * 0.35;
+  }
+}
