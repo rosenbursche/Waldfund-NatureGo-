@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, View, type ViewStyle } from 'react-native';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { Schrift } from './Schrift';
-import { Symbol, type SymbolName } from './Symbol';
+import { Icon, type IconArt } from './Icon';
 
 /**
  * Knopf im Laternen-Stil.
@@ -13,7 +13,7 @@ import { Symbol, type SymbolName } from './Symbol';
 type Props = {
   titel: string;
   untertitel?: string;
-  symbol?: SymbolName;
+  symbol?: IconArt;
   art?: 'haupt' | 'leise';
   onPress: () => void;
   deaktiviert?: boolean;
@@ -39,7 +39,7 @@ export function Knopf({ titel, untertitel, symbol, art = 'haupt', onPress, deakt
     >
       {symbol && (
         <View style={[stile.symbol, haupt && stile.symbolHaupt]}>
-          <Symbol name={symbol} farbe={haupt ? colors.amber : colors.rune} />
+          <Icon name={symbol} farbe={haupt ? colors.amber : colors.rune} />
         </View>
       )}
       <View style={stile.texte}>

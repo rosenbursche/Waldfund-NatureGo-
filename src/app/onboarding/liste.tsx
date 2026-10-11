@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
-import { Symbol } from '@/components/Symbol';
+import { Icon } from '@/components/Icon';
 import { NATURRAEUME } from '@/data/naturraeume';
 import { GROSSLANDSCHAFT_NAME, type Grosslandschaft } from '@/data/typen';
 import { colors, radius, spacing } from '@/theme/theme';
@@ -42,7 +42,7 @@ export default function Liste() {
                     <Schrift art="text" style={{ flex: 1 }}>
                       {n.name}
                     </Schrift>
-                    <Symbol name="pfeil" groesse={18} farbe={colors.fog} />
+                    <Icon name="pfeil" groesse={18} farbe={colors.fog} />
                   </Pressable>
                 ))}
               </View>

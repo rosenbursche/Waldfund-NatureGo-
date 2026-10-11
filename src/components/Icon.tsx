@@ -2,10 +2,13 @@ import Svg, { Circle, Path } from 'react-native-svg';
 
 import { colors } from '@/theme/theme';
 
-/** Kleine, handgezeichnet wirkende Symbole (Strichzeichnungen). */
-export type SymbolName = 'standort' | 'lupe' | 'liste' | 'zurueck' | 'zahnrad' | 'pfeil';
+/**
+ * Kleine, handgezeichnet wirkende Symbole (Strichzeichnungen).
+ * Achtung: Nicht "Symbol" nennen – das ist ein eingebauter JavaScript-Name.
+ */
+export type IconArt = 'standort' | 'lupe' | 'liste' | 'zurueck' | 'zahnrad' | 'pfeil';
 
-const PFADE: Record<SymbolName, React.ReactNode> = {
+const PFADE: Record<IconArt, React.ReactNode> = {
   standort: (
     <>
       <Path d="M12 21s-6.5-6.2-6.5-11.3A6.5 6.5 0 0 1 18.5 9.7C18.5 14.8 12 21 12 21z" />
@@ -29,7 +32,7 @@ const PFADE: Record<SymbolName, React.ReactNode> = {
   ),
 };
 
-export function Symbol({ name, groesse = 22, farbe = colors.moon }: { name: SymbolName; groesse?: number; farbe?: string }) {
+export function Icon({ name, groesse = 22, farbe = colors.moon }: { name: IconArt; groesse?: number; farbe?: string }) {
   return (
     <Svg
       width={groesse}

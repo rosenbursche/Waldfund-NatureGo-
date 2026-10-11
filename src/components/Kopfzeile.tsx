@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { colors, spacing } from '@/theme/theme';
 
 import { Schrift } from './Schrift';
-import { Symbol } from './Symbol';
+import { Icon } from './Icon';
 
 /** Kopfzeile für Unterseiten: Zurück-Knopf, kleines Etikett und Überschrift. */
 export function Kopfzeile({ titel, etikett }: { titel: string; etikett?: string }) {
@@ -17,7 +17,7 @@ export function Kopfzeile({ titel, etikett }: { titel: string; etikett?: string 
         hitSlop={8}
         style={({ pressed }) => [stile.zurueck, pressed && { opacity: 0.6 }]}
       >
-        <Symbol name="zurueck" groesse={20} />
+        <Icon name="zurueck" groesse={20} />
       </Pressable>
       <View style={{ flex: 1 }}>
         {etikett && <Schrift art="etikett">{etikett}</Schrift>}
