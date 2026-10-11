@@ -11,12 +11,14 @@ import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
 import Katalog from '@/app/katalog/[kategorie]';
 import Mystery from '@/app/mystery';
+import Sammeln from '@/app/sammeln/[id]';
 import Ergebnis from '@/app/onboarding/ergebnis';
 import Willkommen from '@/app/onboarding/index';
 import Liste from '@/app/onboarding/liste';
 import Suche from '@/app/onboarding/suche';
 import Waehlen from '@/app/onboarding/waehlen';
 import { useEinstellungen } from '@/store/einstellungen';
+import { useSammlung } from '@/store/sammlung';
 
 const mockParams: Record<string, string> = { id: 'lueneburger-heide', per: 'liste' };
 jest.mock('expo-router', () => ({
@@ -29,6 +31,7 @@ jest.mock('expo-location', () => ({}));
 // Im Test gibt es keine Grafikkarte – die 3D-Szene wird durch eine Attrappe ersetzt.
 jest.mock('@/scene/Lichtung', () => ({ Lichtung: () => null }));
 jest.mock('@/scene/ArtBuehne', () => ({ ArtBuehne: () => null }));
+jest.mock('@/logic/foto', () => ({ fotoAufnehmen: jest.fn(), fotoBehalten: jest.fn(), alleFotosLoeschen: jest.fn() }));
 
 describe('Screens rendern ohne Fehler', () => {
   test('Willkommen', async () => {
@@ -108,6 +111,21 @@ describe('Screens rendern ohne Fehler', () => {
   test('Mystery-Art zeigt auf der Artenseite nur das Rätsel', async () => {
     mockParams.id = 'luchs';
     await render(<ArtSeite />);
+    expect(screen.getByText('Mystery-Art')).toBeTruthy();
+    expect(screen.queryByText('Eurasischer Luchs')).toBeNull();
+  });
+
+  test('Sammeln: Startschritt mit Schutzhinweis', async () => {
+    mockParams.id = 'eisvogel';
+    await render(<Sammeln />);
+    expect(screen.getByText('Kamera öffnen')).toBeTruthy();
+    expect(screen.getByText(/Streng geschützt: Nur aus Abstand fotografieren/)).toBeTruthy();
+  });
+
+  test('Sammeln einer Mystery-Art verrät den Namen nicht', async () => {
+    mockParams.id = 'luchs';
+    useSammlung.setState({ gefunden: {} });
+    await render(<Sammeln />);
     expect(screen.getByText('Mystery-Art')).toBeTruthy();
     expect(screen.queryByText('Eurasischer Luchs')).toBeNull();
   });

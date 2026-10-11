@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Alert, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Switch, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Hintergrund } from '@/components/Hintergrund';
@@ -8,13 +8,15 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { NATURRAUM_QUELLE, naturraumById } from '@/data/naturraeume';
 import { useEinstellungen } from '@/store/einstellungen';
+import { alleFotosLoeschen } from '@/logic/foto';
 import { useSammlung } from '@/store/sammlung';
 import { colors, radius, spacing } from '@/theme/theme';
 
 const PER_TEXT = { standort: 'per Standort (grob)', suche: 'per Ortssuche', liste: 'aus der Liste' } as const;
 
 export default function Einstellungen() {
-  const { naturraumId, gewaehltPer, grobStandort, allesZuruecksetzen } = useEinstellungen();
+  const { naturraumId, gewaehltPer, grobStandort, allesZuruecksetzen, pruefModus, demoFehlschlag, setDemoFehlschlag } =
+    useEinstellungen();
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
   const { gefunden, beispielfundeLaden, leeren } = useSammlung();
   const anzahl = Object.keys(gefunden).length;
@@ -70,7 +72,39 @@ export default function Einstellungen() {
               onPress={beispielfundeLaden}
               style={{ marginTop: spacing.s }}
             />
-            {anzahl > 0 && <Knopf titel="Sammlung leeren" art="leise" onPress={leeren} />}
+            {anzahl > 0 && (
+              <Knopf
+                titel="Sammlung leeren"
+                untertitel="Löscht auch deine Fund-Fotos"
+                art="leise"
+                onPress={() => {
+                  leeren();
+                  alleFotosLoeschen();
+                }}
+              />
+            )}
+          </View>
+
+          <View style={stile.karte}>
+            <Schrift art="etikett">Bilderkennung</Schrift>
+            <Schrift art="klein">
+              {pruefModus === 'demo'
+                ? 'Demo-Modus: Die Erkennung wird simuliert. Die echte Erkennung folgt in Phase 8.'
+                : 'Echte Erkennung über den Wildfund-Server.'}
+            </Schrift>
+            {pruefModus === 'demo' && (
+              <View style={stile.schalter}>
+                <Schrift art="text" style={{ flex: 1 }}>
+                  Manche Fotos „nicht erkennen“ (zum Testen der Foto-Tipps)
+                </Schrift>
+                <Switch
+                  value={demoFehlschlag}
+                  onValueChange={setDemoFehlschlag}
+                  trackColor={{ true: colors.rune, false: colors.moss }}
+                  accessibilityLabel="Manche Fotos nicht erkennen"
+                />
+              </View>
+            )}
           </View>
 
           <View style={stile.karte}>
@@ -97,6 +131,7 @@ export default function Einstellungen() {
 }
 
 const stile = StyleSheet.create({
+  schalter: { flexDirection: 'row', alignItems: 'center', gap: spacing.m, marginTop: spacing.s },
   inhalt: { padding: spacing.m, gap: spacing.m },
   karte: {
     gap: spacing.xs,

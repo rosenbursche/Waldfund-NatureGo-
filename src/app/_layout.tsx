@@ -54,7 +54,13 @@ export default function RootLayout() {
             contentStyle: { backgroundColor: colors.night },
             animation: 'fade', // sanfte Übergänge zwischen Screens
           }}
-        />
+        >
+          {/* Sammeln öffnet sich als Vollbild von unten und ist ein eigener Moment */}
+          <Stack.Screen
+            name="sammeln/[id]"
+            options={{ presentation: 'fullScreenModal', animation: 'slide_from_bottom' }}
+          />
+        </Stack>
       </ThemeProvider>
     </GestureHandlerRootView>
   );

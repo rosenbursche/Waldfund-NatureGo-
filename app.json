@@ -39,7 +39,15 @@
           "locationWhenInUsePermission": "Wildfund nutzt deinen Standort einmalig und grob (ca. 10 km), um deinen Naturraum zu bestimmen. Er bleibt auf deinem Handy."
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Wildfund braucht die Kamera, damit du gefundene Arten fotografieren kannst. Deine Fotos bleiben auf deinem Handy.",
+          "photosPermission": "Wildfund möchte ein Foto aus deiner Galerie öffnen, das du von einer Art gemacht hast. Deine Fotos bleiben auf deinem Handy.",
+          "microphonePermission": false
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

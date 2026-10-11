@@ -1,4 +1,5 @@
-import { useLocalSearchParams } from 'expo-router';
+import { Image } from 'expo-image';
+import { router, useLocalSearchParams } from 'expo-router';
 import type { ReactNode } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
@@ -109,21 +110,40 @@ export default function ArtSeite() {
 
           {gefunden ? (
             <Kasten>
-              <Schrift art="ueberschrift" style={{ color: colors.amber, fontSize: 21 }}>
-                Gesammelt
-              </Schrift>
-              <Schrift art="klein">
-                am {datumText(fund.datum)}
-                {fund.beispiel ? ' · Beispielfund' : ''}
-              </Schrift>
+              <View style={{ flexDirection: 'row', gap: spacing.m, alignItems: 'center' }}>
+                {fund.foto ? (
+                  <Image
+                    source={{ uri: fund.foto }}
+                    style={stile.fundFoto}
+                    contentFit="cover"
+                    accessibilityLabel="Dein Foto"
+                  />
+                ) : null}
+                <View style={{ flex: 1 }}>
+                  <Schrift art="ueberschrift" style={{ color: colors.amber, fontSize: 21 }}>
+                    Gesammelt
+                  </Schrift>
+                  <Schrift art="klein">
+                    am {datumText(fund.datum)}
+                    {fund.beispiel ? ' · Beispielfund' : ''}
+                  </Schrift>
+                </View>
+              </View>
+              {fund.beispiel && (
+                <Knopf
+                  titel="Selbst fotografieren"
+                  art="leise"
+                  onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
+                  style={{ marginTop: spacing.s }}
+                />
+              )}
             </Kasten>
           ) : (
             <Knopf
               titel="Foto machen & sammeln"
-              untertitel="Kommt in Phase 6"
+              untertitel={`${s.punkte} AP · nur fotografieren, nichts mitnehmen`}
               symbol="pfeil"
-              onPress={() => {}}
-              deaktiviert
+              onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
             />
           )}
 
@@ -301,6 +321,7 @@ const stile = StyleSheet.create({
   pille: { borderWidth: 1.5, borderRadius: radius.l, paddingHorizontal: 10, paddingVertical: 3 },
   kasten: { borderWidth: 1.5, borderRadius: radius.m, padding: spacing.m, backgroundColor: colors.forest, gap: 4 },
   status: { flexDirection: 'row', gap: spacing.s },
+  fundFoto: { width: 64, height: 64, borderRadius: radius.s },
   zeile: { flexDirection: 'row', gap: spacing.m, paddingVertical: 3 },
   zeileName: { width: 104, paddingTop: 3, textTransform: 'none', fontSize: 12 },
 });
