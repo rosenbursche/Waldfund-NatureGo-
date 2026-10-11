@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber/native';
-import { Suspense, useMemo, useRef, useState } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import * as THREE from 'three';
@@ -8,7 +8,7 @@ import type { ModellParameter } from '@/data/artTypen';
 import type { BaumModell } from '@/data/typen';
 import { colors } from '@/theme/theme';
 
-import { baueArtModell, einpassen } from './artModell';
+import { baueArtModell, einpassen, type Jahreszeit } from './artModell';
 import { Baum3D } from './Baum3D';
 import { GlbModell } from './GlbModell';
 import { Lidar } from './Lidar';
@@ -27,9 +27,11 @@ type Props = {
   silhouette: boolean;
   ruhig: boolean;
   hoehe?: number;
+  /** Pflanzen: Zustand im gewählten Monat und Wachstum (0–1) – von den Reglern der Artenseite */
+  pflanze?: Jahreszeit & { wuchs: number };
 };
 
-export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300 }: Props) {
+export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze }: Props) {
   const [drehung] = useState(() => new Drehung());
   const gesten = useMemo(
     () =>
@@ -68,10 +70,20 @@ export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300 }:
                     skala={1}
                     drehung={0}
                     ruhig={ruhig}
+                    laub={pflanze?.laub}
+                    wuchs={pflanze?.wuchs}
                   />
                 </group>
               ) : modell ? (
-                <Modell key={String(silhouette)} modell={modell} silhouette={silhouette} ruhig={ruhig} />
+                <group scale={Math.max(0.08, pflanze?.wuchs ?? 1)}>
+                  <Modell
+                    key={String(silhouette)}
+                    modell={modell}
+                    silhouette={silhouette}
+                    ruhig={ruhig}
+                    jahreszeit={pflanze}
+                  />
+                </group>
               ) : null}
             </Lidar>
           </Drehteller>
@@ -92,11 +104,28 @@ function Drehteller({ drehung, ruhig, children }: { drehung: Drehung; ruhig: boo
 }
 
 /** Das Modell einer Art (Blume, Pilz, Vogel, Säugetier) – einmal gebaut, dann nur noch bewegt */
-function Modell({ modell, silhouette, ruhig }: { modell: ModellParameter; silhouette: boolean; ruhig: boolean }) {
+function Modell({
+  modell,
+  silhouette,
+  ruhig,
+  jahreszeit,
+}: {
+  modell: ModellParameter;
+  silhouette: boolean;
+  ruhig: boolean;
+  jahreszeit?: Jahreszeit;
+}) {
   const [art] = useState(() => {
     const a = baueArtModell(modell, silhouette ? 'silhouette' : 'farbe');
     return { ...a, hoehe: einpassen(a.gruppe) };
   });
+  // Pflanzen: Blüte, Früchte und Laub nach dem gewählten Monat
+  const bluete = jahreszeit?.bluete;
+  const frucht = jahreszeit?.frucht;
+  const laub = jahreszeit?.laub;
+  useEffect(() => {
+    if (bluete !== undefined && frucht !== undefined && laub !== undefined) art.jahreszeit({ bluete, frucht, laub });
+  }, [art, bluete, frucht, laub]);
   useFrame(({ clock }) => {
     if (!ruhig) art.bewege(clock.elapsedTime);
   });

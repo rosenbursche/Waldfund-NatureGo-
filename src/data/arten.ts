@@ -22,7 +22,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Laub- und Mischwälder, Auen, Parks',
     saison: 'Eicheln Sep–Okt',
     groesse: 'bis 40 m',
-    wusstestDu: 'Eine alte Eiche ist Lebensraum für Hunderte Insektenarten – mehr als fast jeder andere heimische Baum.',
+    wusstestDu:
+      'Eine alte Eiche ist Lebensraum für Hunderte Insektenarten – mehr als fast jeder andere heimische Baum.',
     verbreitung: 'all',
     modell: { t: 'tree', shape: 'round', c1: '#4F8A3A', c2: '#5B4330' },
     zeichnung: { t: 'tree', kern: '#8a5a32' },
@@ -164,7 +165,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Hochmoore, nasse Heiden',
     saison: 'Blüte Juli–Aug',
     groesse: '5–20 cm',
-    wusstestDu: 'Er fängt Insekten mit klebrigen Tröpfchen und verdaut sie. So gleicht er den Nährstoffmangel im Moor aus.',
+    wusstestDu:
+      'Er fängt Insekten mit klebrigen Tröpfchen und verdaut sie. So gleicht er den Nährstoffmangel im Moor aus.',
     raetsel: 'Ich wohne im Moor und fange Insekten mit glitzernden Klebetröpfchen.',
     verbreitung: 'moor',
     modell: { t: 'flower', shape: 'drosera', c1: '#C8323A', c2: '#FFFFFF', leaf: '#B8473E' },
@@ -221,9 +223,10 @@ export const ARTEN: Art[] = [
     lebensraum: 'Waldränder, Hecken, nährstoffreiche Böden',
     saison: 'Blüte Mai–Juni, Beeren Aug–Sep',
     groesse: '3–7 m',
-    wusstestDu: 'Die Beeren sind roh unverträglich und werden nur gekocht verwendet – die Blüten duften stark nach Sommer.',
+    wusstestDu:
+      'Die Beeren sind roh unverträglich und werden nur gekocht verwendet – die Blüten duften stark nach Sommer.',
     verbreitung: 'all',
-    modell: { t: 'shrub', c1: '#557F3A', c2: '#F1EBD8', bluetenDolden: 1 },
+    modell: { t: 'shrub', c1: '#557F3A', c2: '#F1EBD8', bluetenDolden: 1, fruechte: 1, frucht: '#2B1D2B' },
     zeichnung: { t: 'tree', kern: '#d8c8a0' },
   },
   {
@@ -239,7 +242,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Hecken, Waldränder, sonnige Hänge',
     saison: 'Blüte März–April, Früchte Okt–Nov',
     groesse: '1–3 m',
-    wusstestDu: 'Die weißen Blüten erscheinen vor den Blättern. In den dornigen Hecken ziehen viele Vögel ihre Jungen groß.',
+    wusstestDu:
+      'Die weißen Blüten erscheinen vor den Blättern. In den dornigen Hecken ziehen viele Vögel ihre Jungen groß.',
     verbreitung: 'all55',
     modell: { t: 'shrub', c1: '#4F7438', c2: '#3B4A7A', fruechte: 1, dornig: 1 },
     zeichnung: { t: 'tree', kern: '#8a5a42' },
@@ -257,7 +261,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Hecken, Waldränder, Gebüsche',
     saison: 'Blüte Mai–Juni, Früchte Sep–Okt',
     groesse: '2–8 m',
-    wusstestDu: 'An Weißdorn leben besonders viele Insektenarten – und seine roten Früchte sind Winterfutter für Vögel.',
+    wusstestDu:
+      'An Weißdorn leben besonders viele Insektenarten – und seine roten Früchte sind Winterfutter für Vögel.',
     verbreitung: 'all',
     modell: { t: 'shrub', c1: '#5A8A3C', c2: '#B8322C', fruechte: 1, dornig: 1 },
     zeichnung: { t: 'tree', kern: '#a07850' },
@@ -276,7 +281,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Feuchte Hochstaudenfluren und Bachufer im Bergland',
     saison: 'Blüte Juni–Aug',
     groesse: '50–150 cm',
-    wusstestDu: 'Er gilt als giftigste Pflanze Europas. Sein Gift kann sogar über die Haut aufgenommen werden – nicht anfassen!',
+    wusstestDu:
+      'Er gilt als giftigste Pflanze Europas. Sein Gift kann sogar über die Haut aufgenommen werden – nicht anfassen!',
     verbreitung: 'mountain',
     modell: { t: 'flower', shape: 'bell', n: 5, c1: '#3B4FA8', c2: '#26306A', leaf: '#3F6E3A' },
     zeichnung: { t: 'flower', tint: '#4a5ab0' },
@@ -312,7 +318,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Feuchte Wiesen',
     saison: 'Blüte Aug–Okt',
     groesse: '8–30 cm',
-    wusstestDu: 'Sie blüht im Herbst ohne Blätter. Die Blätter kommen erst im Frühjahr – und werden leicht mit Bärlauch verwechselt.',
+    wusstestDu:
+      'Sie blüht im Herbst ohne Blätter. Die Blätter kommen erst im Frühjahr – und werden leicht mit Bärlauch verwechselt.',
     verbreitung: 'central',
     modell: { t: 'flower', shape: 'star', n: 6, c1: '#C9A0D8', c2: '#E8D070', leaf: '#5A8A45' },
     zeichnung: { t: 'flower', tint: '#c9a0d8' },
@@ -367,7 +374,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Unter Birken und Fichten',
     saison: 'Aug–Nov',
     groesse: 'Hut 8–20 cm',
-    wusstestDu: 'Er lebt in Partnerschaft (Mykorrhiza) mit Baumwurzeln: Er liefert Wasser und Mineralien, der Baum Zucker.',
+    wusstestDu:
+      'Er lebt in Partnerschaft (Mykorrhiza) mit Baumwurzeln: Er liefert Wasser und Mineralien, der Baum Zucker.',
     verbreitung: 'all',
     modell: { t: 'shroom', shape: 'dome', c1: '#D8261C', c2: '#F3EDE0', spots: 1, ring: 1, volva: 1 },
     zeichnung: { t: 'shroom', kind: 'amanita', tint: '#d8261c' },
@@ -420,7 +428,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'In Büscheln an Stümpfen und lebenden Bäumen',
     saison: 'Sep–Nov',
     groesse: 'Hut 3–10 cm',
-    wusstestDu: 'Ein naher Verwandter, der Dunkle Hallimasch, bildet in Oregon (USA) ein Pilzgeflecht über mehrere Quadratkilometer – eines der größten Lebewesen der Erde.',
+    wusstestDu:
+      'Ein naher Verwandter, der Dunkle Hallimasch, bildet in Oregon (USA) ein Pilzgeflecht über mehrere Quadratkilometer – eines der größten Lebewesen der Erde.',
     verbreitung: 'all',
     // Korrigiert: Der Rekord im Prototyp gehört zu Armillaria ostoyae, nicht zu A. mellea. TODO fachlich prüfen
     modell: { t: 'shroom', shape: 'flat', c1: '#C8A24A', c2: '#E8DCC0', ring: 1, cluster: 3 },
@@ -438,7 +447,8 @@ export const ARTEN: Art[] = [
     lebensraum: 'Fichten- und Buchenwälder',
     saison: 'Juli–Okt',
     groesse: 'Hut 8–25 cm',
-    wusstestDu: 'Steinpilze sind besonders geschützt: Sammeln ist nur in kleinen Mengen für den eigenen Bedarf erlaubt.',
+    wusstestDu:
+      'Steinpilze sind besonders geschützt: Sammeln ist nur in kleinen Mengen für den eigenen Bedarf erlaubt.',
     verbreitung: 'all',
     modell: { t: 'shroom', shape: 'dome', c1: '#7A4A28', c2: '#E9DCC0', thick: 1 },
     zeichnung: { t: 'shroom', kind: 'bolete', tint: '#7a4a28' },
@@ -669,7 +679,16 @@ export const ARTEN: Art[] = [
     wusstestDu: 'Bei Gefahr verspritzen Weibchen und Junge im Nest ein übel riechendes Sekret.',
     raetsel: 'Ich trage eine aufklappbare Federkrone und rufe „hup-hup-hup“.',
     verbreitung: 'wiedehopf',
-    modell: { t: 'bird', c1: '#D9A06A', c2: '#E3B07C', head: '#D9A06A', beak: '#2A2A2A', crest: 1, longBeak: 1, stripes: 1 },
+    modell: {
+      t: 'bird',
+      c1: '#D9A06A',
+      c2: '#E3B07C',
+      head: '#D9A06A',
+      beak: '#2A2A2A',
+      crest: 1,
+      longBeak: 1,
+      stripes: 1,
+    },
     zeichnung: { t: 'bird', tint: '#d9a06a' },
   },
   {
@@ -687,7 +706,16 @@ export const ARTEN: Art[] = [
     wusstestDu: 'Anders als der Weißstorch meidet er Menschen und brütet versteckt in alten Waldbäumen.',
     raetsel: 'Ich bin der scheue, dunkle Verwandte des Klapperstorchs und brüte tief im Wald.',
     verbreitung: 'mountain',
-    modell: { t: 'bird', c1: '#161616', c2: '#F2F2F2', head: '#161616', beak: '#C0302A', longBeak: 1, longLegs: 1, s: 1.3 },
+    modell: {
+      t: 'bird',
+      c1: '#161616',
+      c2: '#F2F2F2',
+      head: '#161616',
+      beak: '#C0302A',
+      longBeak: 1,
+      longLegs: 1,
+      s: 1.3,
+    },
     zeichnung: { t: 'bird', tint: '#222' },
   },
   // --- Säugetiere ---
@@ -769,7 +797,8 @@ export const ARTEN: Art[] = [
     icon: 'mammal',
     seltenheit: 1,
     schutz: 0,
-    gefahr: 'Kann den Fuchsbandwurm übertragen. Tote oder zutrauliche Füchse nie anfassen, Waldbeeren vor dem Essen waschen.', // TODO fachlich prüfen
+    gefahr:
+      'Kann den Fuchsbandwurm übertragen. Tote oder zutrauliche Füchse nie anfassen, Waldbeeren vor dem Essen waschen.', // TODO fachlich prüfen
     lebensraum: 'Überall – vom Wald bis in die Stadt',
     saison: 'ganzjährig',
     groesse: 'Körper 60–75 cm',

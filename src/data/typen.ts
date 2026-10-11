@@ -35,9 +35,7 @@ export const BODEN_NAME: Record<Boden, string> = {
 
 /** GeoJSON-Geometrie (nur die beiden Typen, die wir brauchen) */
 export type Ring = [number, number][];
-export type Geometrie =
-  | { type: 'Polygon'; coordinates: Ring[] }
-  | { type: 'MultiPolygon'; coordinates: Ring[][] };
+export type Geometrie = { type: 'Polygon'; coordinates: Ring[] } | { type: 'MultiPolygon'; coordinates: Ring[][] };
 
 export type Naturraum = {
   id: string;
@@ -59,12 +57,7 @@ export type Naturraum = {
 export type Rolle = 'haupt' | 'neben' | 'begleiter';
 
 /** Bedingung für eine Rolle. Leere Felder bedeuten "egal". */
-export type RollenRegel = {
-  hoehenstufen?: Hoehenstufe[];
-  boeden?: Boden[];
-  naturraeume?: string[];
-  rolle: Rolle;
-};
+export type RollenRegel = { hoehenstufen?: Hoehenstufe[]; boeden?: Boden[]; naturraeume?: string[]; rolle: Rolle };
 
 /** Parameter für den prozeduralen 3D-Baum (Phase 3) */
 export type BaumModell = {
@@ -95,6 +88,10 @@ export type Baumart = {
   heimisch_in?: string[];
   /** Wird in Deutschland häufig forstlich angepflanzt (auch außerhalb des natürlichen Gebiets) */
   forstlich_angebaut?: boolean;
+  /** behält das Laub/die Nadeln im Winter (Nadelbäume außer Lärche, Eibe) */
+  immergruen?: boolean;
+  /** ungefähres erreichbares Höchstalter in Jahren (für den Wachstums-Regler) */
+  hoechstalter?: number;
   /** Erste passende Regel bestimmt die Rolle, sonst "begleiter" */
   rollen?: RollenRegel[];
   modell: BaumModell;

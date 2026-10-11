@@ -16,7 +16,13 @@ import { colors } from '@/theme/theme';
  * - 'grau': ausgegraut – noch nicht gefunden (Kategorie-Wald, mit Schloss)
  */
 export type ModellStil = 'farbe' | 'silhouette' | 'grau';
-export type ArtModell = { gruppe: THREE.Group; bewege: (t: number) => void };
+export type Jahreszeit = { bluete: boolean; frucht: boolean; laub: 'austrieb' | 'gruen' | 'herbst' | 'kahl' };
+export type ArtModell = {
+  gruppe: THREE.Group;
+  bewege: (t: number) => void;
+  /** Pflanzen: Blüte, Früchte und Laub zeigen (Teile werden über die Größe ein-/ausgeblendet) */
+  jahreszeit: (z: Jahreszeit) => void;
+};
 
 type Farbe = string | number;
 
@@ -50,6 +56,9 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
   let bewege: (t: number) => void = () => {};
 
   const blaetter: [THREE.Group, number][] = [];
+  // Pflanzenteile für den Jahreszeiten-Regler
+  const teile = { bluete: [] as THREE.Object3D[], frucht: [] as THREE.Object3D[], laub: [] as THREE.Mesh[] };
+  let bluetenKopf: THREE.Object3D | null = null;
   if (m.t === 'shrub') {
     // Busch: mehrere kurze Triebe, darauf eine buschige Krone aus Laubballen, dazu Früchte oder Blütendolden
     const busch = new T.Group();
@@ -74,26 +83,34 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
       [-0.12, 0.7, -0.38, 0.36],
       [0.05, 1.15, -0.05, 0.32],
     ];
-    ballen.forEach(([x, y, z, r], i) =>
-      busch.add(mesh(new T.IcosahedronGeometry(r, 0), i % 2 ? farbe('c1') : heller(farbe('c1'), 0.05), [x, y, z])),
-    );
+    ballen.forEach(([x, y, z, r], i) => {
+      const b = mesh(new T.IcosahedronGeometry(r, 0), i % 2 ? farbe('c1') : heller(farbe('c1'), 0.05), [x, y, z]);
+      busch.add(b);
+      teile.laub.push(b);
+    });
+    // Punkt auf der Oberfläche eines Laubballens (damit Früchte und Blüten nicht im Laub verschwinden)
+    const aufLaub = (j: number, hoeher = 0): [number, number, number] => {
+      const [bx, by, bz, br] = ballen[j % ballen.length];
+      const w = j * 2.39996;
+      const neigung = 0.25 + ((j * 0.37) % 1) * 0.9 + hoeher; // eher seitlich bis oben
+      return [
+        bx + Math.cos(w) * Math.sin(neigung) * br,
+        by + Math.cos(neigung) * br,
+        bz + Math.sin(w) * Math.sin(neigung) * br,
+      ];
+    };
     if (wahr('fruechte')) {
-      for (let j = 0; j < 18; j++) {
-        const a = j * 2.39;
-        const h = 0.65 + (j % 5) * 0.11;
-        const r = 0.5 - Math.abs(h - 0.85) * 0.5;
-        busch.add(mesh(new T.SphereGeometry(0.045, 6, 4), farbe('c2'), [Math.cos(a) * r, h, Math.sin(a) * r]));
+      for (let j = 0; j < 22; j++) {
+        const f = mesh(new T.SphereGeometry(0.05, 6, 4), farbe('frucht', farbe('c2')), aufLaub(j)); // eigene Fruchtfarbe, sonst Akzentfarbe
+        busch.add(f);
+        teile.frucht.push(f);
       }
     }
     if (wahr('bluetenDolden')) {
-      for (let j = 0; j < 8; j++) {
-        const a = j * 2.39;
-        const d = mesh(new T.CylinderGeometry(0.12, 0.12, 0.03, 8), farbe('c2'), [
-          Math.cos(a) * 0.42,
-          0.95 + (j % 3) * 0.1,
-          Math.sin(a) * 0.42,
-        ]);
+      for (let j = 0; j < 16; j++) {
+        const d = mesh(new T.CylinderGeometry(0.11, 0.11, 0.03, 8), farbe('c2'), aufLaub(j + 3, -0.1));
         busch.add(d);
+        teile.bluete.push(d);
       }
     }
     bewege = (t) => {
@@ -200,6 +217,7 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
         if (lilie) kopf.rotation.x = Math.PI;
       }
     }
+    bluetenKopf = kopf;
     bewege = (t) => {
       kopf.rotation.z = Math.sin(t * 1.5) * 0.08;
       g.rotation.z = Math.sin(t * 1.1) * 0.02;
@@ -508,7 +526,28 @@ export function baueArtModell(m: ModellParameter, stil: ModellStil): ArtModell {
     };
   }
 
-  return { gruppe: g, bewege };
+  // Jahreszeiten-Regler: Teile über ihre Größe ein- und ausblenden (der LiDAR-Effekt nutzt die Sichtbarkeit selbst)
+  const zeigen = (o: THREE.Object3D, an: boolean) => o.scale.setScalar(an ? 1 : 0.0001);
+  const laubFarben = teile.laub.map((m) => (m.material as THREE.MeshLambertMaterial).color.clone());
+  const jahreszeit = (z: Jahreszeit) => {
+    // Blüte: Blütenkopf (Blumen) bzw. Dolden (Büsche)
+    if (bluetenKopf) zeigen(bluetenKopf, z.bluete);
+    teile.bluete.forEach((o) => zeigen(o, z.bluete));
+    teile.frucht.forEach((o) => zeigen(o, z.frucht));
+    // Laub der Büsche: frisch, grün, bunt oder weg
+    teile.laub.forEach((m, i) => {
+      zeigen(m, z.laub !== 'kahl');
+      if (stil !== 'farbe') return;
+      const c = (m.material as THREE.MeshLambertMaterial).color;
+      c.copy(laubFarben[i]);
+      if (z.laub === 'austrieb') c.lerp(new T.Color('#B8D88A'), 0.55);
+      if (z.laub === 'herbst') c.lerp(new T.Color('#C9822E'), 0.75);
+    });
+    // Kräuter ruhen im Winter im Boden (das Wachstum skaliert die Bühne von außen)
+    g.visible = m.t === 'shrub' || m.t === 'tree' || z.laub !== 'kahl';
+  };
+
+  return { gruppe: g, bewege, jahreszeit };
 }
 
 /** Skaliert ein Modell so, dass es gut in die Bühne passt (wie im Prototyp). Gibt die Höhe zurück. */

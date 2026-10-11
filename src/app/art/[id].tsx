@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
-import type { ReactNode } from 'react';
+import Slider from '@react-native-community/slider';
+import { useState, type ReactNode } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -21,13 +22,14 @@ import { BODEN_NAME, GROSSLANDSCHAFT_NAME, HOEHENSTUFE_NAME } from '@/data/typen
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
 import { wirdGefressenVon } from '@/logic/nahrungsnetz';
 import { berechneWildWert } from '@/logic/wildwert';
+import { MONATE, MONATE_LANG, zustandImMonat } from '@/logic/jahreszeit';
 import { herkunftsText, istHeimisch } from '@/logic/regelEngine';
+import { wachstum, wachstumsBereich } from '@/logic/wachstum';
 import { ArtBuehne } from '@/scene/ArtBuehne';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
-const MONATE = ['Jan', 'Feb', 'März', 'April', 'Mai', 'Juni', 'Juli', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
 const datumText = (d: string) => {
   const [j, m, t] = d.split('-');
   return `${Number(t)}. ${MONATE[Number(m) - 1]} ${j}`;
@@ -50,6 +52,9 @@ export default function ArtSeite() {
   const ruhig = useReducedMotion();
   const naturraumId = useEinstellungen((s) => s.naturraumId);
   const sammlung = useSammlung((s) => s.gefunden);
+  // Pflanzen-Regler: Monat (Start: aktueller Monat) und Wachstum (Start: ausgewachsen)
+  const [monat, setMonat] = useState(() => new Date().getMonth() + 1);
+  const [wuchsWert, setWuchsWert] = useState(() => standardWuchs(id));
 
   const eintrag = katalogEintrag(id);
   const art = artById[id];
@@ -73,6 +78,7 @@ export default function ArtSeite() {
   const kategorie = KATEGORIEN.find((k) => k.id === (art?.kategorie ?? 'pflanzen'))!;
   const gruppe = art?.gruppe === 'Mystery' ? 'Mystery-Zone' : (art?.gruppe ?? 'Bäume');
   const istPilz = art?.kategorie === 'pilze';
+  const istPflanze = art ? art.kategorie === 'pflanzen' : !!baum;
   const steckbrief = STECKBRIEFE[id];
   const fressfeinde = wirdGefressenVon(id);
 
@@ -84,7 +90,13 @@ export default function ArtSeite() {
 
           {/* 3D-Modell: Silhouette, solange nicht gesammelt */}
           <View style={stile.buehne}>
-            <ArtBuehne modell={art?.modell} baum={baum?.modell} silhouette={!gefunden} ruhig={ruhig} />
+            <ArtBuehne
+              modell={art?.modell}
+              baum={baum?.modell}
+              silhouette={!gefunden}
+              ruhig={ruhig}
+              pflanze={istPflanze ? pflanzenZustand(id, monat, wuchsWert) : undefined}
+            />
             {!gefunden && (
               <Schrift art="notiz" style={stile.sperre} pointerEvents="none">
                 {verborgen
@@ -93,6 +105,16 @@ export default function ArtSeite() {
               </Schrift>
             )}
           </View>
+
+          {istPflanze && !verborgen && (
+            <PflanzenRegler
+              id={id}
+              monat={monat}
+              setMonat={setMonat}
+              wuchsWert={wuchsWert}
+              setWuchsWert={setWuchsWert}
+            />
+          )}
 
           <View>
             <Schrift art="titel" accessibilityRole="header">
@@ -366,6 +388,94 @@ export default function ArtSeite() {
   );
 }
 
+/** Startwert Wachstum: Bäume als junger, ausgewachsener Baum (ca. 30 % des Höchstalters), sonst "ausgewachsen" */
+function standardWuchs(id: string): number {
+  const b = wachstumsBereich(id);
+  return b.einheit === 'Jahre' ? Math.round(b.max * 0.3) : 3;
+}
+
+/** Zustand für die 3D-Bühne aus Monat und Wachstum */
+function pflanzenZustand(id: string, monat: number, wuchsWert: number) {
+  const z = zustandImMonat(id, monat);
+  return {
+    // ohne hinterlegte Blütezeit bleibt die Blüte sichtbar
+    bluete: z.datenVorhanden ? z.bluete : true,
+    frucht: z.frucht,
+    laub: z.laub,
+    wuchs: wachstum(id, wuchsWert).groesse,
+  };
+}
+
+/** Zwei Regler: Jahreszeit (Jan–Dez) und Wachstum (Keimling → alter Baum) */
+function PflanzenRegler({
+  id,
+  monat,
+  setMonat,
+  wuchsWert,
+  setWuchsWert,
+}: {
+  id: string;
+  monat: number;
+  setMonat: (m: number) => void;
+  wuchsWert: number;
+  setWuchsWert: (w: number) => void;
+}) {
+  const z = zustandImMonat(id, monat);
+  const w = wachstum(id, wuchsWert);
+  return (
+    <View style={stile.regler}>
+      <Schrift art="etikett">Blüte & Frucht im Jahreslauf</Schrift>
+      <Slider
+        value={monat}
+        minimumValue={1}
+        maximumValue={12}
+        step={1}
+        onValueChange={setMonat}
+        minimumTrackTintColor={colors.rune}
+        maximumTrackTintColor={colors.moss}
+        thumbTintColor={colors.amber}
+        accessibilityLabel={`Monat: ${MONATE_LANG[monat - 1]}`}
+      />
+      <View style={stile.monate}>
+        {MONATE.map((m, i) => (
+          <Schrift key={m} style={[stile.monat, i + 1 === monat && { color: colors.amber }]}>
+            {m[0]}
+          </Schrift>
+        ))}
+      </View>
+      <Schrift art="notiz" style={{ fontSize: 17, lineHeight: 23 }}>
+        {z.text}
+      </Schrift>
+      {!z.datenVorhanden && (
+        <Schrift art="klein">
+          Blüte- und Fruchtzeit sind für diese Art noch nicht hinterlegt – gezeigt wird das Laub.
+        </Schrift>
+      )}
+
+      <Schrift art="etikett" style={{ marginTop: spacing.m }}>
+        Wachstum
+      </Schrift>
+      <Slider
+        value={wuchsWert}
+        minimumValue={0}
+        maximumValue={w.max}
+        step={w.einheit === 'Jahre' ? 1 : 1}
+        onValueChange={setWuchsWert}
+        minimumTrackTintColor={colors.rune}
+        maximumTrackTintColor={colors.moss}
+        thumbTintColor={colors.amber}
+        accessibilityLabel={w.einheit === 'Jahre' ? `Alter: ${wuchsWert} Jahre` : `Wachstumsstufe: ${w.stufe}`}
+      />
+      <Schrift art="notiz" style={{ fontSize: 17, lineHeight: 23 }}>
+        {w.einheit === 'Jahre' ? `${wuchsWert} ${wuchsWert === 1 ? 'Jahr' : 'Jahre'} · ${w.stufe}` : w.stufe}
+      </Schrift>
+      {w.einheit === 'Jahre' && (
+        <Schrift art="klein">Kann etwa {w.max} Jahre alt werden (ungefähr, noch fachlich zu prüfen).</Schrift>
+      )}
+    </View>
+  );
+}
+
 /** Wild-Wert: 1–100, wie selten die Art ist – dazu der Hinweis, ob sie bedroht ist */
 function WildWertAnzeige({ id }: { id: string }) {
   const w = berechneWildWert(id);
@@ -474,6 +584,16 @@ function Zeile({ name, wert }: { name: string; wert: string }) {
 }
 
 const stile = StyleSheet.create({
+  regler: {
+    borderWidth: 1.5,
+    borderColor: colors.moss,
+    borderRadius: radius.m,
+    padding: spacing.m,
+    backgroundColor: colors.forest,
+    gap: 4,
+  },
+  monate: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 6 },
+  monat: { fontFamily: fonts.type, fontSize: 11, color: colors.fog, width: 14, textAlign: 'center' },
   wild: { flexDirection: 'row', alignItems: 'center', gap: spacing.m },
   wildKreis: {
     width: 62,

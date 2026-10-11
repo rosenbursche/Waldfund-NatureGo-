@@ -3,6 +3,8 @@ import { useRef } from 'react';
 import type * as THREE from 'three';
 
 import type { BaumModell } from '@/data/typen';
+import type { Laub } from '@/logic/jahreszeit';
+import { mischeFarbe } from '@/logic/tageszeit';
 
 import { FORM, GRAU, matt, SILHOUETTE, UNSICHTBAR } from './material';
 
@@ -27,7 +29,19 @@ type Props = {
   grau?: boolean;
   /** false = reine Kulisse, lässt sich nicht antippen */
   antippbar?: boolean;
+  /** Jahreszeit: Austrieb (hellgrün), Herbst (bunt), kahl (Winter) – Standard: grün */
+  laub?: Laub;
+  /** Wachstum 0–1 (1 = ausgewachsen); sehr klein = Keimling */
+  wuchs?: number;
 };
+
+/** Farbe des Laubs je nach Jahreszeit */
+function laubFarbe(grund: string, laub: Laub): string {
+  if (laub === 'austrieb') return mischeFarbe(grund, '#B8D88A', 0.55);
+  if (laub === 'herbst') return mischeFarbe(grund, '#C9822E', 0.75);
+  if (laub === 'kahl') return '#4E4236'; // kahle Zweige
+  return grund;
+}
 
 export function Baum3D({
   id,
@@ -39,6 +53,8 @@ export function Baum3D({
   ruhig,
   grau = false,
   antippbar = true,
+  laub: jahreszeit = 'gruen',
+  wuchs = 1,
 }: Props) {
   const krone = useRef<THREE.Group>(null);
   const phase = useRef((position[0] * 7.3 + position[2] * 3.1) % (Math.PI * 2));
@@ -52,7 +68,7 @@ export function Baum3D({
   });
 
   const verdeckt = grau ? GRAU : SILHOUETTE;
-  const laub = matt(gefunden ? modell.laub : verdeckt);
+  const laub = matt(gefunden ? laubFarbe(modell.laub, jahreszeit) : verdeckt);
   const rinde = matt(gefunden ? modell.rinde : verdeckt);
   const h = modell.hoehe;
 
@@ -60,7 +76,7 @@ export function Baum3D({
     <group
       position={position}
       rotation={[0, drehung, 0]}
-      scale={skala}
+      scale={skala * Math.max(wuchs, 0.12)}
       userData={antippbar ? { ziel: { typ: 'baum', id } } : undefined}
     >
       {/* große, unsichtbare Tipp-Fläche, damit man den Baum leicht trifft */}
@@ -73,9 +89,36 @@ export function Baum3D({
         />
       )}
       <group ref={krone}>
-        <Form krone={modell.krone} laub={laub} rinde={rinde} h={h} gefunden={gefunden} verdeckt={verdeckt} />
+        {wuchs < 0.1 ? (
+          <Keimling laub={matt(gefunden ? '#7FB255' : verdeckt)} />
+        ) : (
+          <Form krone={modell.krone} laub={laub} rinde={rinde} h={h} gefunden={gefunden} verdeckt={verdeckt} />
+        )}
       </group>
     </group>
+  );
+}
+
+/** Keimling: dünner Stängel mit zwei Keimblättern (wird mit dem Baum mitskaliert) */
+function Keimling({ laub }: { laub: THREE.Material }) {
+  return (
+    <>
+      <mesh geometry={FORM.stamm} material={laub} position={[0, 1.6, 0]} scale={[0.12, 3.2, 0.12]} />
+      <mesh
+        geometry={FORM.kugel}
+        material={laub}
+        position={[0.75, 3.2, 0]}
+        rotation={[0, 0, -0.5]}
+        scale={[0.9, 0.18, 0.5]}
+      />
+      <mesh
+        geometry={FORM.kugel}
+        material={laub}
+        position={[-0.75, 3.2, 0]}
+        rotation={[0, 0, 0.5]}
+        scale={[0.9, 0.18, 0.5]}
+      />
+    </>
   );
 }
 

@@ -57,6 +57,7 @@ export function vorbereiten(g: THREE.Group, p: THREE.Points): LidarZustand | nul
   let ymin = Infinity;
   let ymax = -Infinity;
   for (const { mesh, flaeche } of meshes) {
+    if (flaeche < 1e-3) continue; // ausgeblendete Teile (Größe ~0) überspringen
     const anzahl = Math.max(1, Math.round((flaeche / gesamt) * PUNKTE));
     const sampler = new MeshSurfaceSampler(mesh).build();
     for (let k = 0; k < anzahl && i < PUNKTE; k++, i++) {

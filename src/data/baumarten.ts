@@ -20,6 +20,7 @@ const BIS_MONTAN: Hoehenstufe[] = ['planar', 'kollin', 'submontan', 'montan'];
 export const BAUMARTEN: Baumart[] = [
   {
     id: 'rotbuche',
+    hoechstalter: 300, // TODO fachlich prüfen
     name: 'Rotbuche',
     lat: 'Fagus sylvatica',
     status: 'heimisch',
@@ -35,6 +36,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'traubeneiche',
+    hoechstalter: 800, // TODO fachlich prüfen
     name: 'Traubeneiche',
     lat: 'Quercus petraea',
     status: 'heimisch',
@@ -46,6 +48,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'stieleiche',
+    hoechstalter: 800, // TODO fachlich prüfen
     name: 'Stieleiche',
     lat: 'Quercus robur',
     status: 'heimisch',
@@ -60,6 +63,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'hainbuche',
+    hoechstalter: 150, // TODO fachlich prüfen
     name: 'Hainbuche',
     lat: 'Carpinus betulus',
     status: 'heimisch',
@@ -71,6 +75,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'bergahorn',
+    hoechstalter: 500, // TODO fachlich prüfen
     name: 'Bergahorn',
     lat: 'Acer pseudoplatanus',
     status: 'heimisch',
@@ -82,6 +87,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'spitzahorn',
+    hoechstalter: 150, // TODO fachlich prüfen
     name: 'Spitzahorn',
     lat: 'Acer platanoides',
     status: 'heimisch',
@@ -92,6 +98,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'feldahorn',
+    hoechstalter: 200, // TODO fachlich prüfen
     name: 'Feldahorn',
     lat: 'Acer campestre',
     status: 'heimisch',
@@ -102,6 +109,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'esche',
+    hoechstalter: 250, // TODO fachlich prüfen
     name: 'Gemeine Esche',
     lat: 'Fraxinus excelsior',
     status: 'heimisch',
@@ -113,6 +121,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'winterlinde',
+    hoechstalter: 1000, // TODO fachlich prüfen
     name: 'Winterlinde',
     lat: 'Tilia cordata',
     status: 'heimisch',
@@ -123,6 +132,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'sommerlinde',
+    hoechstalter: 1000, // TODO fachlich prüfen
     name: 'Sommerlinde',
     lat: 'Tilia platyphyllos',
     status: 'heimisch',
@@ -133,6 +143,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'bergulme',
+    hoechstalter: 400, // TODO fachlich prüfen
     name: 'Bergulme',
     lat: 'Ulmus glabra',
     status: 'heimisch',
@@ -143,6 +154,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'schwarzerle',
+    hoechstalter: 120, // TODO fachlich prüfen
     name: 'Schwarzerle',
     lat: 'Alnus glutinosa',
     status: 'heimisch',
@@ -154,6 +166,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'grauerle',
+    hoechstalter: 50, // TODO fachlich prüfen
     name: 'Grauerle',
     lat: 'Alnus incana',
     status: 'heimisch',
@@ -164,6 +177,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'sandbirke',
+    hoechstalter: 120, // TODO fachlich prüfen
     name: 'Sandbirke',
     lat: 'Betula pendula',
     status: 'heimisch',
@@ -175,6 +189,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'moorbirke',
+    hoechstalter: 100, // TODO fachlich prüfen
     name: 'Moorbirke',
     lat: 'Betula pubescens',
     status: 'heimisch',
@@ -185,6 +200,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'vogelbeere',
+    hoechstalter: 100, // TODO fachlich prüfen
     name: 'Vogelbeere',
     lat: 'Sorbus aucuparia',
     status: 'heimisch',
@@ -196,6 +212,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'vogelkirsche',
+    hoechstalter: 100, // TODO fachlich prüfen
     name: 'Vogelkirsche',
     lat: 'Prunus avium',
     status: 'heimisch',
@@ -206,6 +223,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'elsbeere',
+    hoechstalter: 300, // TODO fachlich prüfen
     name: 'Elsbeere',
     lat: 'Sorbus torminalis',
     status: 'heimisch',
@@ -216,6 +234,8 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'waldkiefer',
+    hoechstalter: 600, // TODO fachlich prüfen
+    immergruen: true,
     name: 'Waldkiefer',
     lat: 'Pinus sylvestris',
     status: 'heimisch',
@@ -231,6 +251,8 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'weisstanne',
+    hoechstalter: 600, // TODO fachlich prüfen
+    immergruen: true,
     name: 'Weißtanne',
     lat: 'Abies alba',
     status: 'heimisch',
@@ -245,6 +267,8 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'fichte',
+    hoechstalter: 600, // TODO fachlich prüfen
+    immergruen: true,
     name: 'Gemeine Fichte',
     lat: 'Picea abies',
     status: 'heimisch',
@@ -263,6 +287,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'laerche',
+    hoechstalter: 800, // TODO fachlich prüfen
     name: 'Europäische Lärche',
     lat: 'Larix decidua',
     status: 'heimisch',
@@ -275,6 +300,8 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'eibe',
+    hoechstalter: 1000, // TODO fachlich prüfen
+    immergruen: true,
     name: 'Eibe',
     lat: 'Taxus baccata',
     status: 'heimisch',
@@ -285,6 +312,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'zitterpappel',
+    hoechstalter: 100, // TODO fachlich prüfen
     name: 'Zitterpappel',
     lat: 'Populus tremula',
     status: 'heimisch',
@@ -295,6 +323,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'silberweide',
+    hoechstalter: 150, // TODO fachlich prüfen
     name: 'Silberweide',
     lat: 'Salix alba',
     status: 'heimisch',
@@ -305,6 +334,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'salweide',
+    hoechstalter: 60, // TODO fachlich prüfen
     name: 'Salweide',
     lat: 'Salix caprea',
     status: 'heimisch',
@@ -317,6 +347,8 @@ export const BAUMARTEN: Baumart[] = [
   // --- Nicht heimisch, aber häufig gepflanzt. Damit die App "nicht heimisch" anzeigen kann. ---
   {
     id: 'douglasie',
+    hoechstalter: 700, // TODO fachlich prüfen
+    immergruen: true,
     name: 'Douglasie',
     lat: 'Pseudotsuga menziesii',
     status: 'eingefuehrt', // stammt aus Nordamerika
@@ -328,6 +360,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'roteiche',
+    hoechstalter: 400, // TODO fachlich prüfen
     name: 'Roteiche',
     lat: 'Quercus rubra',
     status: 'eingefuehrt', // stammt aus Nordamerika

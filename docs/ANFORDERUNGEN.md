@@ -87,8 +87,8 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 | „Wer frisst mich?“ – verknüpft mit Tieren in der App | ✅ (automatisch aus der Tier-Nahrung) |
 | Wild-Wert | ✅ |
 | **Biologie zerlegt** (Wurzel, Stamm/Stängel, Blatt, Blüte) – interaktive Explosionsansicht | ⬜ |
-| **Blüten-/Frucht-Sektion mit Jahreszeiten-Regler** (Pflanze verändert sich über das Jahr) | ⬜ (prozedural machbar, braucht Monatsdaten je Art) |
-| **Wachstums-Regler** Keimling → großer Baum (Stufen je nach Art, z. B. bis 300 bei Bäumen) | ⬜ (prozedural machbar) |
+| **Blüten-/Frucht-Sektion mit Jahreszeiten-Regler** (Pflanze verändert sich über das Jahr) | ✅ Monate aus den Saison-Angaben; Laub (Austrieb, Herbst, kahl), Blüten, Früchte; Bäume ohne Blütedaten zeigen nur das Laub |
+| **Wachstums-Regler** Keimling → großer Baum | ✅ Bäume in Lebensjahren bis zum ungefähren Höchstalter (TODO prüfen), Kräuter/Büsche in Stufen |
 | Lebensraum-Sektionen | ⬜ |
 
 ### 2.4 Deutschlandkarte
@@ -115,7 +115,7 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 
 1. **Schritt 1 – jetziges System (ohne externe Modelle)**
    - ✅ Wild-Wert, Tier-/Vogel-Sektionen, Nahrungsnetz, LiDAR, Tropfen/Schütteln/Blätter
-   - ⬜ Pflanzen: Jahreszeiten-Regler, Wachstums-Regler, Biologie zerlegt
+   - ✅ Pflanzen: Jahreszeiten-Regler, Wachstums-Regler · ⬜ Biologie zerlegt
    - ✅ Lebendige Karte (Flächen, Landschaften, Gebirge, Wälder, Flüsse, grober Standort)
    - ⬜ Steckbriefe für Pilze und Pflanzen
    - ⬜ Zeichnungen für Spuren, Bauten, Nester, Vogelfüße (Tinten-Stil)
@@ -159,3 +159,4 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 - Steckbrief-Texte der Tiere und Vögel (`src/data/steckbriefe.ts`)
 - Gefahren-Texte (Wildschwein, Fuchs) und Giftigkeit der Pflanzen
 - Verbreitungskarten (bisher Demo-Modell, später echte Rasterdaten)
+- Höchstalter der Baumarten (`hoechstalter` in `src/data/baumarten.ts`)
