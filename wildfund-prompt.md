@@ -160,7 +160,7 @@ Dann wartest du auf mein OK. Lege am Anfang eine `CLAUDE.md` mit den wichtigsten
 
 | Phase | Inhalt | Fertig, wenn … |
 |---|---|---|
-| 0 | Expo-Projekt anlegen, Ordnerstruktur, Theme-Tokens, Schriften, Git-Repo | Die App startet in Expo Go mit dunklem Screen und Testtext in den richtigen Schriften. |
+| 0 | Expo-Projekt im vorhandenen Repo anlegen, Ordnerstruktur, Theme-Tokens, Schriften | Die App startet in Expo Go mit dunklem Screen und Testtext in den richtigen Schriften. |
 | 1 | Daten: Arten aus dem Prototyp, Baumarten, Naturräume (Demo), Regel-Engine mit Tests | `npm test` zeigt grüne Tests für mindestens 3 Naturräume. |
 | 2 | Onboarding: Naturraum per GPS, Suche oder Liste, Ergebnisscreen | Ich wähle einen Naturraum und sehe meine heimischen Bäume. |
 | 3 | Startszene: Hütte, prozedurale Bäume, Runensteine, Nebel, Partikel, Tageszeit, Gyroskop | Die Szene läuft flüssig (Ziel: 60 fps auf einem Mittelklasse-Handy) und reagiert auf Antippen. |
@@ -177,6 +177,7 @@ Dann wartest du auf mein OK. Lege am Anfang eine `CLAUDE.md` mit den wichtigsten
 - Kommentiere den Code auf Deutsch, dort wo es beim Verstehen hilft.
 - Wenn du etwas nicht weißt (Daten, Lizenzen, API-Bedingungen): recherchieren oder nachfragen, **nicht raten**.
 - Wenn eine Bibliothek in Expo Go nicht läuft, sag es mir und schlag eine Alternative vor (z. B. einen Development Build).
-- Mach nach jeder abgeschlossenen Phase einen Git-Commit mit einer klaren Nachricht.
+- **Git:** Dieser Ordner ist bereits mein GitHub-Repository `rosenbursche/Waldfund-NatureGo-` (Branch `main`). Lege kein neues Repo an. Erzeuge das Expo-Projekt direkt in diesem Ordner. Falls `create-expo-app` einen nicht leeren Ordner ablehnt, erzeuge es in einem Unterordner und verschiebe den Inhalt dann ins Hauptverzeichnis, ohne meine vorhandenen Dateien zu überschreiben.
+- Mach nach jeder abgeschlossenen Phase einen Git-Commit mit einer klaren Nachricht und frag mich, ob du ihn mit `git push` hochladen sollst.
 
 **Starte jetzt mit Phase 0.** Lies vorher `prototyp-wildfund.html`, damit du weißt, wohin die Reise geht.
