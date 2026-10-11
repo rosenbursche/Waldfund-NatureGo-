@@ -5,8 +5,8 @@ import type { KategorieId } from '@/data/artTypen';
  *
  * Eine Schnittstelle, zwei Umsetzungen:
  * - "demo": simuliert die Erkennung (wie im Prototyp) – zum Testen ohne Internet
- * - "echt": kommt in Phase 8 (Pl@ntNet / iNaturalist über einen eigenen Server,
- *   damit kein API-Schlüssel in der App steckt)
+ * - "echt": Pflanzen über Pl@ntNet – aber nie direkt, sondern über einen eigenen
+ *   Server (server/), damit kein API-Schlüssel in der App steckt
  *
  * Ein Fund zählt nur, wenn die erkannte Art passt UND die Sicherheit hoch genug ist.
  */
@@ -93,15 +93,63 @@ export function demoErkennung(erwartet: ErwarteteArt, o: DemoOptionen): Erkennun
 }
 
 /** Die eine Schnittstelle für die App. */
+/** Woher das Ergebnis stammt – damit die App ehrlich anzeigen kann, ob wirklich geprüft wurde */
+export type Quelle = 'demo' | 'plantnet';
+
+export type ServerOptionen = {
+  /** Adresse des eigenen Erkennungsservers, z. B. https://wildfund-erkennung.<name>.workers.dev */
+  url: string;
+  /** zufällige Geräte-ID (nur für das Tageskontingent, keine persönlichen Daten) */
+  geraetId: string;
+  /** im Test austauschbar */
+  senden?: typeof fetch;
+};
+
+/** Fehler mit einem Text, den man Jugendlichen direkt zeigen kann */
+export class ErkennungsFehler extends Error {}
+
+/** Echter Modus: Foto an den eigenen Server schicken, der Pl@ntNet fragt. */
+export async function serverErkennung(fotoUri: string, o: ServerOptionen): Promise<Erkennung[]> {
+  const form = new FormData();
+  // React Native erwartet beim Hochladen von Dateien dieses Objekt (uri, name, type)
+  form.append('foto', { uri: fotoUri, name: 'foto.jpg', type: 'image/jpeg' } as unknown as Blob);
+  let antwort: Response;
+  try {
+    antwort = await (o.senden ?? fetch)(`${o.url.replace(/\/$/, '')}/erkennen`, {
+      method: 'POST',
+      headers: { 'x-wildfund-geraet': o.geraetId },
+      body: form,
+    });
+  } catch {
+    throw new ErkennungsFehler(
+      'Keine Verbindung zur Bilderkennung. Bist du online? Du kannst es später noch einmal versuchen.',
+    );
+  }
+  const daten = (await antwort.json().catch(() => ({}))) as { kandidaten?: Erkennung[]; fehler?: string };
+  if (!antwort.ok) throw new ErkennungsFehler(daten.fehler ?? 'Die Bilderkennung ist gerade nicht erreichbar.');
+  return daten.kandidaten ?? [];
+}
+
+/**
+ * Die eine Schnittstelle für die App.
+ * Echter Modus gilt nur für Pflanzen (Pl@ntNet). Pilze, Vögel und Säugetiere
+ * werden weiter im Demo-Modus geprüft – das Ergebnis sagt das über `quelle`.
+ */
 export async function validatePhoto(
   foto: { uri: string },
   erwarteteArt: ErwarteteArt,
-  optionen: { modus: PruefModus; demo: DemoOptionen },
-): Promise<Pruefergebnis> {
-  if (optionen.modus === 'echt') {
-    // Phase 8: Foto an den eigenen Server schicken, der Pl@ntNet bzw. iNaturalist fragt.
-    throw new Error('Die echte Bilderkennung ist noch nicht eingerichtet (Phase 8).');
+  optionen: { modus: PruefModus; demo: DemoOptionen; server?: ServerOptionen },
+): Promise<Pruefergebnis & { quelle: Quelle }> {
+  const echt = optionen.modus === 'echt' && erwarteteArt.kategorie === 'pflanzen';
+  if (echt) {
+    if (!optionen.server?.url) throw new ErkennungsFehler('Die echte Bilderkennung ist noch nicht eingerichtet.');
+    const kandidaten = await serverErkennung(foto.uri, optionen.server);
+    return { ...bewerte(kandidaten, erwarteteArt), quelle: 'plantnet' };
   }
-  void foto; // im Demo-Modus wird das Foto nicht ausgewertet
-  return bewerte(demoErkennung(erwarteteArt, optionen.demo), erwarteteArt);
+  return { ...bewerte(demoErkennung(erwarteteArt, optionen.demo), erwarteteArt), quelle: 'demo' };
+}
+
+/** Kann die echte Erkennung diese Kategorie prüfen? */
+export function echtPruefbar(kategorie: KategorieId): boolean {
+  return kategorie === 'pflanzen';
 }

@@ -10,7 +10,8 @@ import { berechneBelohnung, type Belohnung } from '@/logic/fortschritt';
  * dazu Aktivitätspunkte (AP) und deine Serie. Alles bleibt auf dem Handy
  * und übersteht einen Neustart der App.
  */
-export type Fund = { datum: string; beispiel?: boolean; foto?: string };
+/** geprueft: wie der Fund geprüft wurde – 'demo' (simuliert) oder 'plantnet' (echt) */
+export type Fund = { datum: string; beispiel?: boolean; foto?: string; geprueft?: 'demo' | 'plantnet' };
 
 type SammlungState = {
   gefunden: Record<string, Fund>;
@@ -72,7 +73,10 @@ export const useSammlung = create<SammlungState>()(
         );
         const alt = s.gefunden[id];
         // Beispielfund wird durch echten Fund ersetzt, echter Fund bekommt nur ein neues Foto
-        const neuerFund = alt && !alt.beispiel ? { ...alt, foto: fund.foto ?? alt.foto } : fund;
+        const neuerFund =
+          alt && !alt.beispiel
+            ? { ...alt, foto: fund.foto ?? alt.foto, geprueft: fund.geprueft ?? alt.geprueft }
+            : fund;
         set({ gefunden: { ...s.gefunden, [id]: neuerFund }, ...belohnung.stand });
         return belohnung;
       },

@@ -24,19 +24,21 @@ import { SELTENHEIT } from '@/data/spiel';
 import { HUETTEN_NAME, levelInfo, tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
-import { validatePhoto, type Pruefergebnis } from '@/logic/validierung';
+import { erkennungsServerUrl } from '@/logic/konfiguration';
+import { echtPruefbar, ErkennungsFehler, validatePhoto, type Pruefergebnis, type Quelle } from '@/logic/validierung';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
  * Sammel-Ablauf: Foto machen → Bild prüfen → Art freischalten.
- * Die Prüfung läuft über validatePhoto() – im Demo-Modus simuliert.
+ * Die Prüfung läuft über validatePhoto(): Pflanzen auf Wunsch echt (Pl@ntNet über den
+ * eigenen Server), alles andere im Demo-Modus – das wird ehrlich angezeigt.
  */
 type Schritt =
-  | { art: 'start'; meldung?: string }
+  | { art: 'start'; meldung?: string; zuEinstellungen?: boolean }
   | { art: 'pruefen'; foto: string; zeilen: string[] }
-  | { art: 'erfolg'; foto: string; belohnung: Belohnung }
+  | { art: 'erfolg'; foto: string; belohnung: Belohnung; quelle: Quelle }
   | { art: 'nicht'; foto: string; ergebnis: Exclude<Pruefergebnis, { status: 'treffer' }> };
 
 const PAUSE = 650; // Zeit zwischen den Prüfschritten, wie im Prototyp
@@ -45,7 +47,8 @@ export default function Sammeln() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const eintrag = katalogEintrag(id);
   const art = artById[id];
-  const { pruefModus, demoFehlschlag } = useEinstellungen();
+  const { pruefModus, demoFehlschlag, geraetId } = useEinstellungen();
+  const serverUrl = erkennungsServerUrl();
   const sammeln = useSammlung((s) => s.sammeln);
   const verborgen = useSammlung((s) => istVerborgen(id, s.gefunden));
   const [schritt, setSchritt] = useState<Schritt>({ art: 'start' });
@@ -53,6 +56,8 @@ export default function Sammeln() {
   if (!eintrag) return null;
   const s = SELTENHEIT[eintrag.seltenheit];
   const kategorie = art?.kategorie ?? 'pflanzen';
+  // Wird dieses Foto wirklich geprüft? Nur Pflanzen, nur wenn eingeschaltet und Server eingerichtet
+  const echt = pruefModus === 'echt' && !!serverUrl && echtPruefbar(kategorie);
 
   async function los(quelle: FotoQuelle) {
     try {
@@ -61,6 +66,7 @@ export default function Sammeln() {
       if (foto.status === 'keineErlaubnis') {
         setSchritt({
           art: 'start',
+          zuEinstellungen: true,
           meldung:
             quelle === 'kamera'
               ? 'Wildfund darf die Kamera noch nicht benutzen. Du kannst das in den Einstellungen deines Handys erlauben.'
@@ -83,24 +89,38 @@ export default function Sammeln() {
     const ergebnisPromise = validatePhoto(
       { uri: foto },
       { id, name: eintrag!.name, lat: eintrag!.lat, kategorie },
-      { modus: pruefModus, demo: { fehlschlagQuote: demoFehlschlag ? 0.4 : 0 } },
+      {
+        modus: echt ? 'echt' : 'demo',
+        demo: { fehlschlagQuote: demoFehlschlag ? 0.4 : 0 },
+        server: serverUrl ? { url: serverUrl, geraetId } : undefined,
+      },
     );
     await warten(PAUSE);
-    zeilen.push('Merkmale werden verglichen …');
+    zeilen.push(echt ? 'Pl@ntNet vergleicht mit Pflanzenfotos …' : 'Merkmale werden verglichen …');
     setSchritt({ art: 'pruefen', foto, zeilen: [...zeilen] });
-    const ergebnis = await ergebnisPromise;
+    let ergebnis: Awaited<typeof ergebnisPromise>;
+    try {
+      ergebnis = await ergebnisPromise;
+    } catch (e) {
+      const text =
+        e instanceof ErkennungsFehler
+          ? e.message
+          : 'Bei der Prüfung ist etwas schiefgelaufen. Versuch es bitte noch einmal.';
+      setSchritt({ art: 'start', meldung: text });
+      return;
+    }
     await warten(PAUSE);
 
     if (ergebnis.status === 'treffer') {
       zeilen.push(`Treffer: ${eintrag!.lat} ✓`);
       setSchritt({ art: 'pruefen', foto, zeilen: [...zeilen] });
       await warten(PAUSE);
-      zeilen.push('Foto bleibt auf deinem Handy ✓');
+      zeilen.push(ergebnis.quelle === 'plantnet' ? 'Geprüft mit Pl@ntNet ✓' : 'Foto bleibt auf deinem Handy ✓');
       setSchritt({ art: 'pruefen', foto, zeilen: [...zeilen] });
       await warten(PAUSE);
       const dauerhaft = await fotoBehalten(foto, id);
-      const belohnung = sammeln(id, { datum: tagesKey(new Date()), foto: dauerhaft });
-      setSchritt({ art: 'erfolg', foto: dauerhaft, belohnung });
+      const belohnung = sammeln(id, { datum: tagesKey(new Date()), foto: dauerhaft, geprueft: ergebnis.quelle });
+      setSchritt({ art: 'erfolg', foto: dauerhaft, belohnung, quelle: ergebnis.quelle });
     } else {
       zeilen.push('Keine sichere Übereinstimmung');
       setSchritt({ art: 'pruefen', foto, zeilen: [...zeilen] });
@@ -135,7 +155,9 @@ export default function Sammeln() {
               {schritt.meldung && (
                 <View style={[stile.kasten, { borderColor: colors.amber }]}>
                   <Schrift>{schritt.meldung}</Schrift>
-                  <Knopf titel="Handy-Einstellungen öffnen" art="leise" onPress={() => Linking.openSettings()} />
+                  {schritt.zuEinstellungen && (
+                    <Knopf titel="Handy-Einstellungen öffnen" art="leise" onPress={() => Linking.openSettings()} />
+                  )}
                 </View>
               )}
               <Knopf
@@ -151,10 +173,12 @@ export default function Sammeln() {
                 onPress={() => los('galerie')}
               />
               <Schrift art="klein" style={{ opacity: 0.75 }}>
-                {pruefModus === 'demo'
-                  ? 'Demo-Modus: Die Bilderkennung wird simuliert. Die echte Erkennung folgt in Phase 8.'
-                  : 'Das Foto wird zur Erkennung an den Wildfund-Server geschickt und danach dort gelöscht.'}{' '}
-                Dein Foto bleibt auf deinem Handy, Standortdaten werden aus dem Bild entfernt.
+                {echt
+                  ? 'Echte Prüfung: Das Foto wird über den Wildfund-Server an Pl@ntNet geschickt und dort nicht gespeichert.'
+                  : pruefModus === 'echt' && !echtPruefbar(kategorie)
+                    ? 'Für diese Gruppe gibt es noch keine echte Erkennung – die Prüfung wird simuliert.'
+                    : 'Demo-Modus: Die Bilderkennung wird simuliert.'}{' '}
+                Deine Fotos bleiben auf deinem Handy, Standortdaten werden aus dem Bild entfernt.
               </Schrift>
             </>
           )}
@@ -185,6 +209,11 @@ export default function Sammeln() {
                 </Schrift>
               </Animated.View>
               <BelohnungsText b={schritt.belohnung} />
+              <Schrift art="klein" style={{ textAlign: 'center', opacity: 0.75 }}>
+                {schritt.quelle === 'plantnet'
+                  ? 'The image-based plant species identification service used, is based on the Pl@ntNet recognition API.'
+                  : 'Simulierte Prüfung (Demo) – noch nicht echt geprüft.'}
+              </Schrift>
               <Knopf
                 titel="Art ansehen"
                 symbol="pfeil"

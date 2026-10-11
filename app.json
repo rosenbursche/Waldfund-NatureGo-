@@ -53,6 +53,9 @@
       "typedRoutes": true,
       "reactCompiler": true
     },
-    "backgroundColor": "#0B1414"
+    "backgroundColor": "#0B1414",
+    "extra": {
+      "erkennungsServer": ""
+    }
   }
 }

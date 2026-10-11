@@ -31,6 +31,7 @@ Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur,
 - `src/components/` – wiederverwendbare UI-Bausteine
 - `src/scene/` – 3D-Szenen
 - `src/store/` – Zustand-Store
+- `server/` – Erkennungsserver (Cloudflare Worker) zwischen App und Pl@ntNet, eigene `tsconfig.json`, Anleitung in `server/README.md`. Typprüfung: `npx tsc -p server`
 - `scripts/naturraeume-bauen.mjs` – erzeugt `src/data/naturraeume.json` aus Thünen-Wuchsbezirken (`node scripts/naturraeume-bauen.mjs`)
 
 ## Code-Regeln
@@ -60,4 +61,5 @@ Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur,
 - Bei geschützten Arten: „Nur fotografieren, nicht pflücken, nicht stören“. Bei Pilzen immer: nichts essen, was nicht von Sachverständigen geprüft wurde.
 - Keine Mechanik, die belohnt, Tiere zu verfolgen oder Wege zu verlassen.
 - Datenschutz (teils Minderjährige): kein Konto im MVP, Daten nur lokal, Standort nur grob und nur mit Zustimmung. Kommen später Konten/Server dazu: auf DSGVO und Einwilligung bei unter 16-Jährigen hinweisen.
-- **API-Schlüssel nie in die App einbauen**, sondern über einen Server/eine Serverless-Funktion.
+- **API-Schlüssel nie in die App einbauen**, sondern über einen Server/eine Serverless-Funktion (`server/`). In `app.json → extra` steht nur die öffentliche Server-Adresse.
+- Echte Erkennung ist standardmäßig aus und wird erst nach Hinweis (inkl. „unter 16: Eltern fragen“) eingeschaltet. Pilze, Vögel, Säugetiere: nur Demo-Prüfung, ehrlich gekennzeichnet (`Fund.geprueft`).

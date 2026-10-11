@@ -32,4 +32,18 @@ Stand der Recherche: 11.10.2026
 
 ## Später nötig
 - Echte Verbreitungsdaten auf Rasterebene (TK25), z. B. FloraWeb, GBIF oder Atlas-Projekte. Lizenzen sind dann je Datensatz zu prüfen.
-- Bilderkennung (Pl@ntNet, iNaturalist): Recherche folgt in Phase 8.
+- Bilderkennung: siehe unten.
+
+## Bilderkennung (Recherche Phase 8, Stand 11.10.2026)
+
+### Pl@ntNet API – nur Pflanzen
+- **Kosten:** kostenlos bis **500 Erkennungen pro Tag**. Darüber hinaus kostenpflichtig (Einstieg 1.000 € für 200.000 Anfragen, danach 2–5 € je 1.000). Für gemeinnützige Bildungs- oder Forschungszwecke auf Anfrage auch darüber hinaus kostenlos.
+- **API-Schlüssel:** nötig, kostenloses Konto auf my.plantnet.org. Pro Person bzw. Organisation ist nur **ein** kostenloses Konto erlaubt.
+- **Pflicht:** Hinweis in der App: „The image-based plant species identification service used, is based on the Pl@ntNet recognition API“ plus Logo.
+- **Fotos:** werden laut Bedingungen **nicht gespeichert**, nur während der Erkennung im Arbeitsspeicher gehalten.
+- Quellen: [Nutzungsbedingungen](https://my.plantnet.org/terms_of_use), [Preise](https://my.plantnet.org/pricing), [Kontingente](https://my.plantnet.org/doc/api/quota)
+
+### iNaturalist – alle Gruppen
+- Die Bilderkennung (Computer Vision) ist **nicht öffentlich** nutzbar. iNaturalist gibt nur ausgewählten Organisationen **kostenpflichtigen** Zugang für Forschung oder Citizen-Science-Apps, auf Anfrage per E-Mail.
+- Die öffentliche iNaturalist-API (Beobachtungen, Arten) enthält die Bilderkennung nicht.
+- Quellen: [iNaturalist-Forum: Computer Vision API](https://forum.inaturalist.org/t/computer-vision-suggestion-api/12336), [Forum: Species from photograph](https://forum.inaturalist.org/t/inaturalist-api-species-from-photograph/24686)

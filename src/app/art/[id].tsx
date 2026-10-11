@@ -125,7 +125,13 @@ export default function ArtSeite() {
                   </Schrift>
                   <Schrift art="klein">
                     am {datumText(fund.datum)}
-                    {fund.beispiel ? ' · Beispielfund' : ''}
+                    {fund.beispiel
+                      ? ' · Beispielfund'
+                      : fund.geprueft === 'plantnet'
+                        ? ' · geprüft mit Pl@ntNet'
+                        : fund.geprueft === 'demo'
+                          ? ' · Demo-Prüfung'
+                          : ''}
                   </Schrift>
                 </View>
               </View>

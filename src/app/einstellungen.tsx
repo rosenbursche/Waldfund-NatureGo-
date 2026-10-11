@@ -9,17 +9,45 @@ import { Schrift } from '@/components/Schrift';
 import { NATURRAUM_QUELLE, naturraumById } from '@/data/naturraeume';
 import { useEinstellungen } from '@/store/einstellungen';
 import { alleFotosLoeschen } from '@/logic/foto';
+import { erkennungsServerUrl } from '@/logic/konfiguration';
 import { useSammlung } from '@/store/sammlung';
 import { colors, radius, spacing } from '@/theme/theme';
 
 const PER_TEXT = { standort: 'per Standort (grob)', suche: 'per Ortssuche', liste: 'aus der Liste' } as const;
 
 export default function Einstellungen() {
-  const { naturraumId, gewaehltPer, grobStandort, allesZuruecksetzen, pruefModus, demoFehlschlag, setDemoFehlschlag } =
-    useEinstellungen();
+  const {
+    naturraumId,
+    gewaehltPer,
+    grobStandort,
+    allesZuruecksetzen,
+    pruefModus,
+    setPruefModus,
+    demoFehlschlag,
+    setDemoFehlschlag,
+  } = useEinstellungen();
+  const serverUrl = erkennungsServerUrl();
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
   const { gefunden, beispielfundeLaden, leeren } = useSammlung();
   const anzahl = Object.keys(gefunden).length;
+
+  // Echte Erkennung nur nach klarer Information einschalten – das Foto verlässt dann das Handy
+  function echtUmschalten(an: boolean) {
+    if (!an) {
+      setPruefModus('demo');
+      return;
+    }
+    Alert.alert(
+      'Echte Erkennung einschalten?',
+      'Dann wird jedes Pflanzenfoto, das du prüfen lässt, über den Wildfund-Server an den Dienst Pl@ntNet geschickt. ' +
+        'Dort wird es nur zur Erkennung benutzt und nicht gespeichert. Auf dem Foto sollten keine Personen zu sehen sein.\n\n' +
+        'Wenn du jünger als 16 bist, frag bitte vorher deine Eltern.',
+      [
+        { text: 'Abbrechen', style: 'cancel' },
+        { text: 'Einschalten', onPress: () => setPruefModus('echt') },
+      ],
+    );
+  }
 
   function zuruecksetzen() {
     Alert.alert(
@@ -87,15 +115,29 @@ export default function Einstellungen() {
 
           <View style={stile.karte}>
             <Schrift art="etikett">Bilderkennung</Schrift>
+            <View style={stile.schalter}>
+              <Schrift art="text" style={{ flex: 1 }}>
+                Echte Erkennung für Pflanzen (Pl@ntNet)
+              </Schrift>
+              <Switch
+                value={pruefModus === 'echt'}
+                onValueChange={echtUmschalten}
+                disabled={!serverUrl}
+                trackColor={{ true: colors.rune, false: colors.moss }}
+                accessibilityLabel="Echte Erkennung für Pflanzen"
+              />
+            </View>
             <Schrift art="klein">
-              {pruefModus === 'demo'
-                ? 'Demo-Modus: Die Erkennung wird simuliert. Die echte Erkennung folgt in Phase 8.'
-                : 'Echte Erkennung über den Wildfund-Server.'}
+              {!serverUrl
+                ? 'Noch nicht eingerichtet – bis dahin wird die Erkennung simuliert (Demo).'
+                : pruefModus === 'echt'
+                  ? 'Pflanzenfotos werden über den Wildfund-Server an Pl@ntNet geschickt und dort nicht gespeichert. Pilze, Vögel und Säugetiere werden weiter simuliert geprüft.'
+                  : 'Aus: Alle Fotos werden nur simuliert geprüft und verlassen dein Handy nie.'}
             </Schrift>
             {pruefModus === 'demo' && (
               <View style={stile.schalter}>
                 <Schrift art="text" style={{ flex: 1 }}>
-                  Manche Fotos „nicht erkennen“ (zum Testen der Foto-Tipps)
+                  Demo: manche Fotos „nicht erkennen“ (zum Testen der Foto-Tipps)
                 </Schrift>
                 <Switch
                   value={demoFehlschlag}
@@ -110,7 +152,11 @@ export default function Einstellungen() {
           <View style={stile.karte}>
             <Schrift art="etikett">Deine Daten</Schrift>
             <Schrift art="klein">
-              Wildfund braucht kein Konto. Alles bleibt auf diesem Handy und wird nirgendwohin geschickt.
+              Wildfund braucht kein Konto. Alles bleibt auf diesem Handy
+              {pruefModus === 'echt'
+                ? ' – außer Pflanzenfotos, die du echt prüfen lässt'
+                : ' und wird nirgendwohin geschickt'}
+              .
               {grobStandort
                 ? ` Gespeichert ist nur ein grober Standort (auf ca. 10 km gerundet): ${grobStandort.lat}° N, ${grobStandort.lon}° O.`
                 : ' Ein Standort ist nicht gespeichert.'}
@@ -122,6 +168,11 @@ export default function Einstellungen() {
             <Schrift art="etikett">Datenquellen</Schrift>
             <Schrift art="klein">Grenzen der Naturräume: {NATURRAUM_QUELLE}.</Schrift>
             <Schrift art="klein">Orte und Postleitzahlen: GeoNames (geonames.org), CC BY 4.0.</Schrift>
+            {pruefModus === 'echt' && (
+              <Schrift art="klein">
+                The image-based plant species identification service used, is based on the Pl@ntNet recognition API.
+              </Schrift>
+            )}
             <Schrift art="klein">Baumarten-Zuordnung: Demo-Stand, wird noch fachlich geprüft.</Schrift>
           </View>
         </ScrollView>

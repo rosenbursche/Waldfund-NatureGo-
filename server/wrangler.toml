@@ -1,0 +1,15 @@
+# Cloudflare-Worker-Konfiguration für den Wildfund-Erkennungsserver.
+# Anleitung: server/README.md
+name = "wildfund-erkennung"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+# KV-Speicher für die Tageszähler (Kontingent). Die id bekommst du mit:
+#   npx wrangler kv namespace create ZAEHLER
+[[kv_namespaces]]
+binding = "ZAEHLER"
+id = "HIER_DIE_KV_ID_EINTRAGEN"
+
+# Keine Protokolle mit Inhalten
+[observability]
+enabled = false
