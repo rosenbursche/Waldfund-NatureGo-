@@ -17,6 +17,8 @@ import type { Naturraum } from '@/data/typen';
 import { huettenStufe, levelInfo } from '@/logic/fortschritt';
 import { fortschrittDerKategorie, vitrinenArten } from '@/logic/katalog';
 import { stimmungJetzt } from '@/logic/tageszeit';
+import { DIORAMA_SZENEN } from '@/data/szenen';
+import { Diorama } from '@/scene/Diorama';
 import { Lichtung, RUNEN_POSITIONEN } from '@/scene/Lichtung';
 import { FpsKanal, PunkteKanal, Steuerung, type BildschirmPunkt, type Ziel } from '@/scene/steuerZustand';
 import { useEinstellungen } from '@/store/einstellungen';
@@ -47,6 +49,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
   const [kanal] = useState(() => new PunkteKanal());
   const [fpsKanal] = useState(() => new FpsKanal());
   const leistungAnzeigen = useEinstellungen((s) => s.leistungAnzeigen);
+  const diorama = useEinstellungen((s) => s.startSzene) === 'diorama';
 
   // Szene pausieren, solange eine andere Seite darüber liegt – spart Akku und Leistung
   const [aktiv, setAktiv] = useState(true);
@@ -88,7 +91,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
     if (steuer.zoomZiel) return; // läuft schon
     const stein = RUNEN_POSITIONEN.find((r) => r.id === id);
     const weiter = () => router.push({ pathname: '/katalog/[kategorie]', params: { kategorie: id } });
-    if (ruhig || !stein) return weiter();
+    if (ruhig || !stein || diorama) return weiter();
     steuer.zoomZu(stein.position);
     setTimeout(weiter, 650);
   }
@@ -103,27 +106,42 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
 
   return (
     <View style={stile.flaeche}>
-      <GestureDetector gesture={gesten}>
-        <View style={StyleSheet.absoluteFill} accessibilityLabel={`3D-Lichtung im Naturraum ${naturraum.name}`}>
-          <Lichtung
-            aktiv={aktiv}
-            naturraum={naturraum}
-            gefunden={gefunden}
-            huette={huette}
-            fortschritt={anteile}
-            vitrinen={vitrinen}
-            stimmung={stimmung}
-            ruhig={ruhig}
-            steuer={steuer}
-            kanal={kanal}
-            fps={fpsKanal}
-            onZiel={onZiel}
-          />
-        </View>
-      </GestureDetector>
+      {diorama ? (
+        <Diorama
+          szene={DIORAMA_SZENEN[0]}
+          aktiv={aktiv}
+          huette={huette}
+          stimmung={stimmung}
+          ruhig={ruhig}
+          fortschritt={anteile}
+          zaehler={fortschritt}
+          onRune={inKategorie}
+        />
+      ) : (
+        <>
+          <GestureDetector gesture={gesten}>
+            <View style={StyleSheet.absoluteFill} accessibilityLabel={`3D-Lichtung im Naturraum ${naturraum.name}`}>
+              <Lichtung
+                aktiv={aktiv}
+                naturraum={naturraum}
+                gefunden={gefunden}
+                huette={huette}
+                fortschritt={anteile}
+                vitrinen={vitrinen}
+                stimmung={stimmung}
+                ruhig={ruhig}
+                steuer={steuer}
+                kanal={kanal}
+                fps={fpsKanal}
+                onZiel={onZiel}
+              />
+            </View>
+          </GestureDetector>
 
-      <RunenBeschriftung kanal={kanal} fortschritt={fortschritt} onWaehle={inKategorie} />
-      {leistungAnzeigen && <BildrateAnzeige kanal={fpsKanal} />}
+          <RunenBeschriftung kanal={kanal} fortschritt={fortschritt} onWaehle={inKategorie} />
+        </>
+      )}
+      {leistungAnzeigen && !diorama && <BildrateAnzeige kanal={fpsKanal} />}
 
       <SafeAreaView style={stile.oben} pointerEvents="box-none">
         <View style={{ flex: 1, gap: spacing.s }} pointerEvents="box-none">
@@ -145,7 +163,7 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
 
       <SafeAreaView edges={['bottom']} style={stile.unten} pointerEvents="box-none">
         <Schrift art="notiz" style={[stile.zentriert, stile.schatten]} pointerEvents="none">
-          Tippe einen Baum oder Runenstein an
+          {diorama ? 'Kippe das Handy · tippe einen Runenstein an' : 'Tippe einen Baum oder Runenstein an'}
         </Schrift>
         <View style={stile.knopfReihe}>
           {/* Alternative zur 3D-Szene: die Bäume der Lichtung als Liste (auch für Screenreader) */}

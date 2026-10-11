@@ -1,6 +1,6 @@
 # Wildfund – Anforderungen und Stand
 
-Stand: 11.10.2026 · Ursprünglicher Auftrag: `wildfund-prompt.md` · Projektregeln: `CLAUDE.md` · Datenquellen: `DATENQUELLEN.md` · 3D-Modelle: `docs/3D-PIPELINE.md`
+Stand: 11.10.2026 · Ursprünglicher Auftrag: `wildfund-prompt.md` · Projektregeln: `CLAUDE.md` · Datenquellen: `DATENQUELLEN.md` · 3D-Modelle: `docs/3D-PIPELINE.md` · Startszene-Bilder: `docs/SZENE-PROMPTS.md`
 
 Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 wartet auf Material, Konto oder Entscheidung von außen
 
@@ -109,6 +109,20 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 | Alters-Regler mit Überblenden zwischen GLB-Stufen | ⬜ wartet auf Modelle je Alters-Stufe |
 | Echtes Reh-Modell (Capreolus capreolus), geriggt | 🔒 noch zu finden – Test-Modell ist ein Weißwedelhirsch |
 
+### 2.6 Fotorealistische Startszene (2,5D-Diorama)
+| Anforderung | Stand |
+|---|---|
+| Startszene (Hütte) fotorealistisch wie das Referenzbild | 🟡 Technik fertig, Bilder kommen aus ChatGPT (`docs/SZENE-PROMPTS.md`) |
+| Bildebenen (Himmel, Ferne, Mittelgrund, Lichtung, Hütte, Vordergrund) mit Parallaxe beim Kippen und Ziehen | ✅ mit Platzhalter-Bildern (`scripts/platzhalter-szene.mjs`) |
+| Effekte aus Code: Nebelbänke, Glühwürmchen, Schornsteinrauch, Fensterlicht, Tümpel-Glitzern, Mondstrahlen | ✅ folgen der Tageszeit-Stimmung, stehen bei „Bewegung reduzieren“ still |
+| Runensteine als gezeichnete, antippbare Steine mit Leuchten nach Fortschritt | ✅ |
+| Umschalter Diorama ↔ 3D-Lichtung (Einstellungen → Darstellung) | ✅ Diorama ist Standard |
+| Magenta freistellen und komprimieren (`scripts/ebenen-freistellen.py`) | ✅ wartet auf die ChatGPT-Bilder |
+| **Pilot: Lüneburger Heide in der Dämmerung** | 🔒 wartet auf die Bilder |
+| Hütte je Ausbaustufe (Unterstand … Sternwarte) | 🔒 Prompts fertig, wartet auf Bilder (bis dahin Stufe 1) |
+| Tageszeit-Varianten der Bilder (Morgen, Tag, goldene Stunde, Nacht) | ⬜ später |
+| Eigene Szene je Naturraum (Mittelgebirge, Alpen, Küste …) | ⬜ nach dem Pilot |
+
 ---
 
 ## 3. Vorgeschlagene Reihenfolge
@@ -119,6 +133,7 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
    - ✅ Lebendige Karte (Flächen, Landschaften, Gebirge, Wälder, Flüsse, grober Standort)
    - ⬜ Steckbriefe für Pilze und Pflanzen
    - ⬜ Zeichnungen für Spuren, Bauten, Nester, Vogelfüße (Tinten-Stil)
+   - 🟡 Fotorealistische Startszene als Diorama (Technik fertig, Bilder aus ChatGPT ausstehend)
 2. **Schritt 2 – Pilot mit realistischen Modellen** (Fuchs, ggf. Rotkehlchen, Fliegenpilz): GLB-Lader, Animationen, Alters-Regler, Größe/Bildrate auf dem Handy testen
 3. **Schritt 3 – auf alle Arten ausweiten**, wenn der Pilot überzeugt
 

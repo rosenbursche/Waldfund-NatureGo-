@@ -29,6 +29,8 @@ export default function Einstellungen() {
     setDemoFehlschlag,
     leistungAnzeigen,
     setLeistungAnzeigen,
+    startSzene,
+    setStartSzene,
   } = useEinstellungen();
   const serverUrl = erkennungsServerUrl();
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
@@ -155,6 +157,21 @@ export default function Einstellungen() {
 
           <View style={stile.karte}>
             <Schrift art="etikett">Darstellung</Schrift>
+            <View style={stile.schalter}>
+              <Schrift art="text" style={{ flex: 1 }}>
+                Startszene als Bild-Diorama (Test)
+              </Schrift>
+              <Switch
+                value={startSzene === 'diorama'}
+                onValueChange={(an) => setStartSzene(an ? 'diorama' : '3d')}
+                trackColor={{ true: colors.rune, false: colors.moss }}
+                accessibilityLabel="Startszene als Bild-Diorama"
+              />
+            </View>
+            <Schrift art="klein">
+              An: gemalte Bildebenen, die sich beim Kippen des Handys räumlich verschieben (noch mit
+              Platzhalter-Bildern). Aus: die gebaute 3D-Lichtung zum Drehen.
+            </Schrift>
             <View style={stile.schalter}>
               <Schrift art="text" style={{ flex: 1 }}>
                 Bildrate auf der Lichtung anzeigen

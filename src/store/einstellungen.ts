@@ -32,6 +32,9 @@ type EinstellungenState = {
   /** Bildrate auf der Lichtung anzeigen (zum Prüfen der Leistung) */
   leistungAnzeigen: boolean;
   setLeistungAnzeigen: (an: boolean) => void;
+  /** Startszene: Bild-Diorama (2,5D, Test) oder gebaute 3D-Lichtung */
+  startSzene: 'diorama' | '3d';
+  setStartSzene: (s: 'diorama' | '3d') => void;
 
   setNaturraum: (
     id: string,
@@ -64,6 +67,8 @@ export const useEinstellungen = create<EinstellungenState>()(
       setKatalogAnsicht: (a) => set({ katalogAnsicht: a }),
       leistungAnzeigen: false,
       setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
+      startSzene: 'diorama',
+      setStartSzene: (sz) => set({ startSzene: sz }),
 
       setNaturraum: (id, per, grobStandort = null) => set({ naturraumId: id, gewaehltPer: per, grobStandort }),
       allesZuruecksetzen: () =>

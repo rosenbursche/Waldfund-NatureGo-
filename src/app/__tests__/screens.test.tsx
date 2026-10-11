@@ -63,12 +63,21 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText(/Gemeine Fichte/)).toBeTruthy();
   });
 
-  test('Startseite mit gewähltem Naturraum', async () => {
-    useEinstellungen.setState({ naturraumId: 'hochharz' });
+  test('Startseite mit gewähltem Naturraum (Bild-Diorama)', async () => {
+    useEinstellungen.setState({ naturraumId: 'hochharz', startSzene: 'diorama' });
     await render(<Start />);
     expect(screen.getByText(/Hochharz ·/)).toBeTruthy();
-    expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
+    expect(screen.getByText('Kippe das Handy · tippe einen Runenstein an')).toBeTruthy();
     expect(screen.getByText('Entdecker')).toBeTruthy(); // Rang in der Fortschrittsanzeige
+    // alle vier Runensteine sind als Knöpfe erreichbar (auch für Screenreader)
+    expect(screen.getByLabelText(/^Pflanzen: \d+ von \d+ gesammelt/)).toBeTruthy();
+    expect(screen.getByLabelText(/^Säugetiere: \d+ von \d+ gesammelt/)).toBeTruthy();
+  });
+
+  test('Startseite mit 3D-Lichtung', async () => {
+    useEinstellungen.setState({ naturraumId: 'hochharz', startSzene: '3d' });
+    await render(<Start />);
+    expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
   });
 
   test('Artenseite einer Baumart', async () => {
