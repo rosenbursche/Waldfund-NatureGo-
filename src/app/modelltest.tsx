@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -16,13 +17,18 @@ import { colors, radius, spacing } from '@/theme/theme';
 export default function Modelltest() {
   const ruhig = useReducedMotion();
   const m = MODELLE[0];
+  const [status, setStatus] = useState('Szene startet …');
   return (
     <Hintergrund>
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
         <ScrollView contentContainerStyle={stile.inhalt}>
           <Kopfzeile etikett="Technik-Test" titel="Realistisches 3D-Modell" />
           <View style={{ marginHorizontal: -spacing.m }}>
-            <ArtBuehne glb={m.datei} silhouette={false} ruhig={ruhig} hoehe={360} />
+            <ArtBuehne glb={m.datei} silhouette={false} ruhig={ruhig} hoehe={360} melden={setStatus} />
+          </View>
+          <View style={[stile.kasten, { borderColor: status.startsWith('Fehler') ? colors.warn : colors.rune }]}>
+            <Schrift art="etikett">Ladestatus</Schrift>
+            <Schrift>{status}</Schrift>
           </View>
           <View style={stile.kasten}>
             <Schrift art="etikett">Was das Modell zeigt</Schrift>

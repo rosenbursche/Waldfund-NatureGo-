@@ -11,6 +11,7 @@ import { colors } from '@/theme/theme';
 import { baueArtModell, einpassen, type Jahreszeit } from './artModell';
 import { Baum3D } from './Baum3D';
 import { GlbModell } from './GlbModell';
+import { FehlerFaenger, MeldeLaden } from './LadeStatus';
 import { Lidar } from './Lidar';
 import { Drehung } from './steuerZustand';
 
@@ -29,9 +30,11 @@ type Props = {
   hoehe?: number;
   /** Pflanzen: Zustand im gewählten Monat und Wachstum (0–1) – von den Reglern der Artenseite */
   pflanze?: Jahreszeit & { wuchs: number };
+  /** Ladezustand eines GLB-Modells melden (für die Test-Ansicht) */
+  melden?: (s: string) => void;
 };
 
-export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze }: Props) {
+export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze, melden }: Props) {
   const [drehung] = useState(() => new Drehung());
   const gesten = useMemo(
     () =>
@@ -57,9 +60,11 @@ export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, p
           <Drehteller drehung={drehung} ruhig={ruhig}>
             <Lidar key={String(silhouette)} ruhig={ruhig}>
               {glb ? (
-                <Suspense fallback={null}>
-                  <GlbModell quelle={glb} ruhig={ruhig} />
-                </Suspense>
+                <FehlerFaenger melden={melden}>
+                  <Suspense fallback={<MeldeLaden melden={melden} />}>
+                    <GlbModell quelle={glb} ruhig={ruhig} melden={melden} />
+                  </Suspense>
+                </FehlerFaenger>
               ) : baum ? (
                 <group scale={0.55}>
                   <Baum3D

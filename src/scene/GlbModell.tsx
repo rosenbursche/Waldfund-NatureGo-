@@ -15,9 +15,9 @@ import { einpassen } from './artModell';
  *
  * `quelle` ist das Ergebnis von require('…/datei.glb').
  */
-type Props = { quelle: number; ruhig: boolean; groesse?: number };
+type Props = { quelle: number; ruhig: boolean; groesse?: number; melden?: (s: string) => void };
 
-export function GlbModell({ quelle, ruhig, groesse = 2.6 }: Props) {
+export function GlbModell({ quelle, ruhig, groesse = 2.6, melden }: Props) {
   const gltf = useLoader(GLTFLoader, quelle as unknown as string);
   const atmen = useRef<THREE.Group>(null);
 
@@ -27,6 +27,22 @@ export function GlbModell({ quelle, ruhig, groesse = 2.6 }: Props) {
     einpassen(s, groesse);
     return s;
   }, [gltf, groesse]);
+
+  // Status melden: wie viele Teile, ist die Textur angekommen?
+  useEffect(() => {
+    let teile = 0;
+    let mitTextur = 0;
+    szene.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      teile += 1;
+      const mat = m.material as THREE.MeshStandardMaterial;
+      if (mat.map?.image) mitTextur += 1;
+    });
+    const text = `Geladen: ${teile} Teil${teile === 1 ? '' : 'e'}, ${mitTextur > 0 ? 'mit Textur' : 'ohne Textur (Textur fehlt)'}, ${gltf.animations.length} Animationen`;
+    console.log('[3D-Test]', text);
+    melden?.(text);
+  }, [szene, gltf, melden]);
 
   // Eingebaute Animationen (falls vorhanden)
   const mixer = useMemo(() => (gltf.animations.length > 0 ? new THREE.AnimationMixer(szene) : null), [gltf, szene]);
