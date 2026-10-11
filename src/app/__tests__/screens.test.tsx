@@ -8,6 +8,7 @@ import ArtSeite from '@/app/art/[id]';
 import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
 import Katalog from '@/app/katalog/[kategorie]';
+import Mystery from '@/app/mystery';
 import Ergebnis from '@/app/onboarding/ergebnis';
 import Willkommen from '@/app/onboarding/index';
 import Liste from '@/app/onboarding/liste';
@@ -66,11 +67,27 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Gemeine Fichte – hier angepflanzt, nicht heimisch')).toBeTruthy();
   });
 
-  test('Katalog Pilze (vorläufig)', async () => {
+  test('Katalog Pilze mit Stammbaum und Mystery-Zone', async () => {
     mockParams.kategorie = 'pilze';
     await render(<Katalog />);
-    expect(screen.getByText('Fliegenpilz')).toBeTruthy();
-    expect(screen.getAllByText('???').length).toBeGreaterThan(0); // Mystery-Arten bleiben verborgen
+    expect(screen.getByText('Blätterpilze')).toBeTruthy();
+    expect(screen.getByText('Mystery-Zone')).toBeTruthy();
+    // Mystery-Arten bleiben verborgen: Rätsel statt Name
+    expect(screen.queryByText('Igel-Stachelbart')).toBeNull();
+    expect(screen.getByText(/weißer Wasserfall aus Eiszapfen/)).toBeTruthy();
+  });
+
+  test('Mystery-Zone über alle Reiche', async () => {
+    await render(<Mystery />);
+    expect(screen.getByText('Säugetiere')).toBeTruthy();
+    expect(screen.queryByText('Eurasischer Luchs')).toBeNull();
+  });
+
+  test('Mystery-Art zeigt auf der Artenseite nur das Rätsel', async () => {
+    mockParams.id = 'luchs';
+    await render(<ArtSeite />);
+    expect(screen.getByText('Mystery-Art')).toBeTruthy();
+    expect(screen.queryByText('Eurasischer Luchs')).toBeNull();
   });
 
   test('Einstellungen', async () => {

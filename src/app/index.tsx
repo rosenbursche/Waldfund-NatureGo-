@@ -19,7 +19,7 @@ import { PunkteKanal, Steuerung, type BildschirmPunkt, type Ziel } from '@/scene
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 import { useGeladen } from '@/store/useGeladen';
-import { colors, radius, spacing } from '@/theme/theme';
+import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
  * Startseite: die 3D-Lichtung mit Hütte, heimischen Bäumen und Runensteinen.
@@ -103,10 +103,18 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
         </Pressable>
       </SafeAreaView>
 
-      <SafeAreaView edges={['bottom']} style={stile.unten} pointerEvents="none">
-        <Schrift art="notiz" style={[stile.zentriert, stile.schatten]}>
+      <SafeAreaView edges={['bottom']} style={stile.unten} pointerEvents="box-none">
+        <Schrift art="notiz" style={[stile.zentriert, stile.schatten]} pointerEvents="none">
           Tippe einen Baum oder Runenstein an
         </Schrift>
+        <Pressable
+          onPress={() => router.push('/mystery')}
+          accessibilityRole="button"
+          accessibilityLabel="Mystery-Zone: die seltensten Arten"
+          style={({ pressed }) => [stile.mystery, pressed && { opacity: 0.6 }]}
+        >
+          <Schrift style={stile.mysteryText}>M?</Schrift>
+        </Pressable>
       </SafeAreaView>
     </View>
   );
@@ -184,6 +192,23 @@ const stile = StyleSheet.create({
   unten: { position: 'absolute', bottom: spacing.m, left: 0, right: 0 },
   zentriert: { textAlign: 'center' },
   schatten: { textShadowColor: colors.night, textShadowRadius: 8 },
+  mystery: {
+    alignSelf: 'center',
+    marginTop: spacing.s,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    borderWidth: 1.5,
+    borderStyle: 'dashed',
+    borderColor: colors.rare,
+    backgroundColor: colors.night,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: colors.rare,
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+  },
+  mysteryText: { fontFamily: fonts.handBold, fontSize: 20, color: colors.rare },
   rund: {
     width: 44,
     height: 44,

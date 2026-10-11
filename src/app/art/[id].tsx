@@ -9,6 +9,7 @@ import { Schrift } from '@/components/Schrift';
 import { artById } from '@/data/arten';
 import { baumById } from '@/data/baumarten';
 import { naturraumById } from '@/data/naturraeume';
+import { istVerborgen } from '@/logic/katalog';
 import { herkunftsText } from '@/logic/regelEngine';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
@@ -21,13 +22,16 @@ import { spacing } from '@/theme/theme';
 export default function ArtSeite() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const naturraumId = useEinstellungen((s) => s.naturraumId);
-  const gefunden = useSammlung((s) => id in s.gefunden);
+  const sammlung = useSammlung((s) => s.gefunden);
+  const gefunden = id in sammlung;
+  // Sehr seltene Arten bleiben ein Rätsel, bis man sie gefunden hat
+  const verborgen = istVerborgen(id, sammlung);
 
   const art = artById[id];
   const baum = baumById[id];
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
-  const name = art?.name ?? baum?.name ?? 'Unbekannte Art';
-  const lat = art?.lat ?? baum?.lat ?? '';
+  const name = verborgen ? 'Mystery-Art' : (art?.name ?? baum?.name ?? 'Unbekannte Art');
+  const lat = verborgen ? 'Species incognita' : (art?.lat ?? baum?.lat ?? '');
 
   return (
     <Hintergrund>
@@ -43,7 +47,8 @@ export default function ArtSeite() {
             {lat}
           </Schrift>
           {baum && naturraum && <Schrift art="notiz">{herkunftsText(baum, naturraum)}</Schrift>}
-          {art && <Schrift>{art.wusstestDu}</Schrift>}
+          {verborgen && art?.raetsel && <Schrift art="notiz">„{art.raetsel}“</Schrift>}
+          {art && !verborgen && <Schrift>{art.wusstestDu}</Schrift>}
           <Schrift art="klein" style={{ marginTop: spacing.l }}>
             Die vollständige Artenseite mit 3D-Modell, Steckbrief, Lehrbuch-Zeichnung und Karte folgt in Phase 5.
           </Schrift>
