@@ -1,65 +1,64 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Redirect, router } from 'expo-router';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { colors, fonts, radius, spacing } from '@/theme/theme';
+import { Hintergrund } from '@/components/Hintergrund';
+import { Knopf } from '@/components/Knopf';
+import { Schrift } from '@/components/Schrift';
+import { WaldStreifen } from '@/components/WaldStreifen';
+import { naturraumById } from '@/data/naturraeume';
+import { getHeimischeBaeume } from '@/logic/regelEngine';
+import { useEinstellungen } from '@/store/einstellungen';
+import { useGeladen } from '@/store/useGeladen';
+import { spacing } from '@/theme/theme';
 
 /**
- * Phase 0: Testscreen.
- * Zeigt alle Schriften und Farb-Tokens, damit wir prüfen können,
- * ob Theme und Schriftladen funktionieren. Wird in Phase 2/3 ersetzt.
+ * Startseite.
+ * - Noch kein Naturraum gewählt → weiter zum Onboarding.
+ * - Sonst: vorläufige Lichtung. In Phase 3 kommt hier die 3D-Szene mit Hütte hin.
  */
-const swatches = ['night', 'forest', 'moss', 'fog', 'moon', 'amber', 'rune', 'rare', 'legend'] as const;
+export default function Start() {
+  const geladen = useGeladen();
+  const naturraumId = useEinstellungen((s) => s.naturraumId);
 
-export default function Index() {
+  if (!geladen) return <Hintergrund />;
+
+  const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
+  if (!naturraum) return <Redirect href="/onboarding" />;
+
+  const baeume = getHeimischeBaeume(naturraum);
+
   return (
-    <SafeAreaView style={styles.screen}>
-      <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.kicker}>FELDTAGEBUCH · EINTRAG 0</Text>
-        <Text style={styles.title}>Wildfund</Text>
-        <Text style={styles.note}>Etwas lebt in diesem Wald, das du noch nicht kennst …</Text>
+    <Hintergrund>
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={stile.inhalt}>
+          <Schrift art="etikett">Deine Lichtung</Schrift>
+          <Schrift art="titel">{naturraum.name}</Schrift>
+          <Schrift art="notiz">Hier wird bald deine Waldhütte stehen …</Schrift>
 
-        <Text style={styles.body}>
-          Das ist die Textschrift (Lexend). Sie ist gut lesbar und wird für Steckbriefe, Erklärungen und
-          Buttons verwendet.
-        </Text>
+          <View style={{ marginVertical: spacing.l }}>
+            <WaldStreifen baeume={baeume} />
+          </View>
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Handschrift (Kalam)</Text>
-          <Text style={styles.type}>Schreibmaschine (Special Elite) · 150 AP · Rote Liste 3</Text>
-        </View>
+          <Schrift art="klein">
+            {baeume.length} heimische Baumarten warten darauf, von dir gefunden zu werden. Die 3D-Lichtung folgt in
+            Phase 3.
+          </Schrift>
 
-        <View style={styles.swatches}>
-          {swatches.map((name) => (
-            <View key={name} style={styles.swatch}>
-              <View style={[styles.dot, { backgroundColor: colors[name] }]} />
-              <Text style={styles.swatchLabel}>{name}</Text>
-            </View>
-          ))}
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+          <Knopf
+            titel="Einstellungen"
+            untertitel="Naturraum ändern, Datenquellen"
+            symbol="zahnrad"
+            art="leise"
+            onPress={() => router.push('/einstellungen')}
+            style={{ marginTop: spacing.l }}
+          />
+        </ScrollView>
+      </SafeAreaView>
+    </Hintergrund>
   );
 }
 
-const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: colors.night },
-  content: { padding: spacing.m, gap: spacing.m },
-  kicker: { fontFamily: fonts.type, fontSize: 12, color: colors.fog, letterSpacing: 1.5, marginTop: spacing.l },
-  title: { fontFamily: fonts.handBold, fontSize: 52, lineHeight: 60, color: colors.moon },
-  note: { fontFamily: fonts.hand, fontSize: 20, lineHeight: 28, color: colors.amber },
-  body: { fontFamily: fonts.body, fontSize: 15, lineHeight: 23, color: colors.moon },
-  card: {
-    backgroundColor: colors.forest,
-    borderColor: colors.moss,
-    borderWidth: 1,
-    borderRadius: radius.m,
-    padding: spacing.m,
-    gap: spacing.s,
-  },
-  cardTitle: { fontFamily: fonts.handBold, fontSize: 24, color: colors.rune },
-  type: { fontFamily: fonts.type, fontSize: 13, color: colors.fog },
-  swatches: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.m },
-  swatch: { alignItems: 'center', width: 64, gap: spacing.xs },
-  dot: { width: 40, height: 40, borderRadius: 20, borderWidth: 1, borderColor: colors.moss },
-  swatchLabel: { fontFamily: fonts.type, fontSize: 11, color: colors.fog },
+const stile = StyleSheet.create({
+  inhalt: { padding: spacing.m, paddingTop: spacing.xl, gap: spacing.s },
 });

@@ -12,6 +12,12 @@ Stand der Recherche: 11.10.2026
 - **Im Projekt:** `scripts/naturraeume-bauen.mjs` lädt die Daten, verschmilzt die Wuchsbezirke zu 10 Demo-Naturräumen, vereinfacht sie und schreibt `src/data/naturraeume.json` (ca. 38 KB).
 - **Wichtig:** Die Daten enthalten **nur Namen und Grenzen**. Höhenstufe, Boden und Großlandschaft der Demo-Naturräume habe ich selbst eingestuft. Sie sind als `TODO fachlich prüfen` markiert.
 
+### Orte und Postleitzahlen (GeoNames)
+- **Was:** rund 19.000 Postleitzahlen und Orte in Deutschland mit Koordinaten, für die Offline-Ortssuche im Onboarding.
+- **Wo:** https://download.geonames.org/export/zip/DE.zip
+- **Lizenz:** Creative Commons Namensnennung 4.0 (CC BY 4.0). Die Namensnennung „GeoNames“ steht in der App unter Einstellungen → Datenquellen.
+- **Im Projekt:** `scripts/orte-bauen.mjs` → `src/data/orte.json` (ca. 720 KB, Koordinaten auf ~1 km gerundet, ohne Firmen-Postleitzahlen).
+
 ### Artendaten aus dem Prototyp
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.
 - Verbreitungskarten sind **Demo-Daten** (`src/data/verbreitung.ts`), keine echten Funde.
