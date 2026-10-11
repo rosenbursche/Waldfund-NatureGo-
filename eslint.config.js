@@ -14,4 +14,9 @@ module.exports = defineConfig([
       'id-denylist': ['error', 'Symbol', 'Map', 'Set', 'Object', 'Array', 'String', 'Number', 'Boolean', 'Promise', 'Date', 'Error', 'JSON', 'Math'],
     },
   },
+  {
+    // In 3D-Szenen sind position, args, intensity usw. gültige three.js-Eigenschaften
+    files: ['src/scene/**'],
+    rules: { 'react/no-unknown-property': 'off' },
+  },
 ]);

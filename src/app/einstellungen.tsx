@@ -8,6 +8,7 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { NATURRAUM_QUELLE, naturraumById } from '@/data/naturraeume';
 import { useEinstellungen } from '@/store/einstellungen';
+import { useSammlung } from '@/store/sammlung';
 import { colors, radius, spacing } from '@/theme/theme';
 
 const PER_TEXT = { standort: 'per Standort (grob)', suche: 'per Ortssuche', liste: 'aus der Liste' } as const;
@@ -15,20 +16,27 @@ const PER_TEXT = { standort: 'per Standort (grob)', suche: 'per Ortssuche', list
 export default function Einstellungen() {
   const { naturraumId, gewaehltPer, grobStandort, allesZuruecksetzen } = useEinstellungen();
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
+  const { gefunden, beispielfundeLaden, leeren } = useSammlung();
+  const anzahl = Object.keys(gefunden).length;
 
   function zuruecksetzen() {
-    Alert.alert('Alles zurücksetzen?', 'Dein Naturraum und alle Einstellungen werden von diesem Handy gelöscht.', [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Zurücksetzen',
-        style: 'destructive',
-        onPress: () => {
-          allesZuruecksetzen();
-          if (router.canDismiss()) router.dismissAll();
-          router.replace('/onboarding');
+    Alert.alert(
+      'Alles zurücksetzen?',
+      'Dein Naturraum, deine Sammlung und alle Einstellungen werden von diesem Handy gelöscht.',
+      [
+        { text: 'Abbrechen', style: 'cancel' },
+        {
+          text: 'Zurücksetzen',
+          style: 'destructive',
+          onPress: () => {
+            allesZuruecksetzen();
+            leeren();
+            if (router.canDismiss()) router.dismissAll();
+            router.replace('/onboarding');
+          },
         },
-      },
-    ]);
+      ],
+    );
   }
 
   return (
@@ -48,6 +56,21 @@ export default function Einstellungen() {
               onPress={() => router.push('/onboarding/waehlen')}
               style={{ marginTop: spacing.s }}
             />
+          </View>
+
+          <View style={stile.karte}>
+            <Schrift art="etikett">Sammlung</Schrift>
+            <Schrift art="klein">
+              {anzahl === 0 ? 'Noch keine Funde.' : `${anzahl} Arten in deiner Sammlung.`} Zum Ausprobieren kannst du
+              Beispielfunde laden – dann stehen z. B. Stieleiche, Rotbuche und Sandbirke in Farbe auf der Lichtung.
+            </Schrift>
+            <Knopf
+              titel="Beispielfunde laden"
+              art="leise"
+              onPress={beispielfundeLaden}
+              style={{ marginTop: spacing.s }}
+            />
+            {anzahl > 0 && <Knopf titel="Sammlung leeren" art="leise" onPress={leeren} />}
           </View>
 
           <View style={stile.karte}>

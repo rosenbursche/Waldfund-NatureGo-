@@ -38,7 +38,8 @@
         {
           "locationWhenInUsePermission": "Wildfund nutzt deinen Standort einmalig und grob (ca. 10 km), um deinen Naturraum zu bestimmen. Er bleibt auf deinem Handy."
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true,

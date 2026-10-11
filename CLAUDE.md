@@ -19,6 +19,8 @@ Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur,
 - `expo-camera` / `expo-image-picker`, `expo-location`, `expo-sensors`.
 - Zustand: **Zustand** + AsyncStorage. Alles **offline**, Daten als JSON/TS im Projekt.
 - Pakete immer mit `npx expo install <paket>` installieren.
+- `@react-three/drei` wird bewusst nicht genutzt (viele Helfer laden aus dem Netz oder laufen nicht nativ). Leuchten/Nebel/Partikel entstehen in three.js selbst (additive Sprites mit `leuchtTextur()`), Skia ist dafür nicht nötig.
+- `expo-gl` rendert immer in voller Pixeldichte – Leistung über wenige, geteilte Geometrien/Materialien sichern (`src/scene/material.ts`).
 - Vor „fertig“: `npx tsc --noEmit`, `npx expo lint` und `npm test`.
 
 ## Ordnerstruktur
@@ -30,6 +32,12 @@ Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur,
 - `src/scene/` – 3D-Szenen
 - `src/store/` – Zustand-Store
 - `scripts/naturraeume-bauen.mjs` – erzeugt `src/data/naturraeume.json` aus Thünen-Wuchsbezirken (`node scripts/naturraeume-bauen.mjs`)
+
+## Code-Regeln
+- Keine eigenen Namen, die JavaScript-Globals überdecken (`Symbol`, `Map`, …) – Lint-Regel `id-denylist`. Hat in Phase 2 einen Absturz verursacht.
+- React-Compiler-Lint ist streng: In 3D-Szenen Werte nur über Refs (`ref.current`) oder Klassen mit Methoden ändern (siehe `src/scene/steuerZustand.ts`), nicht über Props oder useMemo-Werte.
+- Formatierung: Prettier mit `.prettierrc` (einfache Anführungszeichen, 120 Zeichen). Nur geänderte Dateien formatieren, nicht das ganze Projekt.
+- Render-Tests in `src/app/__tests__/` stellen jeden Screen einmal dar; die 3D-Szene wird dort gemockt.
 
 ## Daten
 - Quellen und Lizenzen stehen in `DATENQUELLEN.md`. Neue Daten nur mit geprüfter Lizenz übernehmen und dort eintragen.

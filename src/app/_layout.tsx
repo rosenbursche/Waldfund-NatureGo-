@@ -6,6 +6,7 @@ import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { colors } from '@/theme/theme';
 
@@ -44,15 +45,17 @@ export default function RootLayout() {
   if (!fontsLoaded && !fontError) return null;
 
   return (
-    <ThemeProvider value={navTheme}>
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: colors.night },
-          animation: 'fade', // sanfte Übergänge zwischen Screens
-        }}
-      />
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.night }}>
+      <ThemeProvider value={navTheme}>
+        <StatusBar style="light" />
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: colors.night },
+            animation: 'fade', // sanfte Übergänge zwischen Screens
+          }}
+        />
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

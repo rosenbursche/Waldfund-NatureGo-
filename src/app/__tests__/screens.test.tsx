@@ -4,8 +4,10 @@
  */
 import { render, screen } from '@testing-library/react-native';
 
+import ArtSeite from '@/app/art/[id]';
 import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
+import Katalog from '@/app/katalog/[kategorie]';
 import Ergebnis from '@/app/onboarding/ergebnis';
 import Willkommen from '@/app/onboarding/index';
 import Liste from '@/app/onboarding/liste';
@@ -20,6 +22,8 @@ jest.mock('expo-router', () => ({
   Redirect: () => null,
 }));
 jest.mock('expo-location', () => ({}));
+// Im Test gibt es keine Grafikkarte – die 3D-Szene wird durch eine Attrappe ersetzt.
+jest.mock('@/scene/Lichtung', () => ({ Lichtung: () => null }));
 
 describe('Screens rendern ohne Fehler', () => {
   test('Willkommen', async () => {
@@ -52,6 +56,21 @@ describe('Screens rendern ohne Fehler', () => {
     useEinstellungen.setState({ naturraumId: 'hochharz' });
     await render(<Start />);
     expect(screen.getByText('Hochharz')).toBeTruthy();
+    expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
+  });
+
+  test('Artenseite (vorläufig)', async () => {
+    mockParams.id = 'fichte';
+    useEinstellungen.setState({ naturraumId: 'lueneburger-heide' });
+    await render(<ArtSeite />);
+    expect(screen.getByText('Gemeine Fichte – hier angepflanzt, nicht heimisch')).toBeTruthy();
+  });
+
+  test('Katalog Pilze (vorläufig)', async () => {
+    mockParams.kategorie = 'pilze';
+    await render(<Katalog />);
+    expect(screen.getByText('Fliegenpilz')).toBeTruthy();
+    expect(screen.getAllByText('???').length).toBeGreaterThan(0); // Mystery-Arten bleiben verborgen
   });
 
   test('Einstellungen', async () => {
