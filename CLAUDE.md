@@ -2,7 +2,7 @@
 
 „Pokémon Go für Naturliebhaber“: Heimische Arten finden, fotografieren, im Katalog freischalten, Punkte sammeln. Der Reiz liegt in **seltenen** Arten. Zielgruppe 12–25 Jahre.
 
-Vollständiger Auftrag: `wildfund-prompt.md`. Klickbarer Web-Prototyp (Struktur, Daten, Punktelogik, Zeichnungen, Karte): `prototyp-wildfund.html`. Das **Farbschema des Prototyps nicht übernehmen**. Expo-spezifische Hinweise: `AGENTS.md`.
+Vollständiger Auftrag: `wildfund-prompt.md`. **Alle Anforderungen mit Stand: `docs/ANFORDERUNGEN.md`** (bei neuen Wünschen dort ergänzen und Status pflegen). Vorgaben für realistische 3D-Modelle: `docs/3D-PIPELINE.md`. Klickbarer Web-Prototyp (Struktur, Daten, Punktelogik, Zeichnungen, Karte): `prototyp-wildfund.html`. Das **Farbschema des Prototyps nicht übernehmen**. Expo-spezifische Hinweise: `AGENTS.md`.
 
 ## Zusammenarbeit
 - Der Nutzer ist Einsteiger. Jeden Schritt kurz in einfachem Deutsch erklären, genaue Befehle nennen und sagen, was auf dem Handy zu sehen sein soll.
