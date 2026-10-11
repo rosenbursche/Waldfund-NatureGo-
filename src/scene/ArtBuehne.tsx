@@ -58,11 +58,11 @@ export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, p
           <directionalLight position={[-4, 2, -4]} color={colors.rune} intensity={1.4} />
           <Runenkreis />
           <Drehteller drehung={drehung} ruhig={ruhig}>
-            <Lidar key={String(silhouette)} ruhig={ruhig}>
+            <Lidar key={`${silhouette}-${glb ?? ''}`} ruhig={ruhig}>
               {glb ? (
                 <FehlerFaenger melden={melden}>
                   <Suspense fallback={<MeldeLaden melden={melden} />}>
-                    <GlbModell quelle={glb} ruhig={ruhig} melden={melden} />
+                    <GlbModell quelle={glb} ruhig={ruhig} melden={melden} silhouette={silhouette} />
                   </Suspense>
                 </FehlerFaenger>
               ) : baum ? (

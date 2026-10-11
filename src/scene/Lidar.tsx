@@ -33,6 +33,7 @@ export function Lidar({ ruhig, children }: { ruhig: boolean; children: ReactNode
   const scan = useRef<THREE.Mesh>(null);
   const zustand = useRef<LidarZustand | null>(null);
   const zeit = useRef(0);
+  const warten = useRef(0);
   const fertig = useRef(ruhig);
 
   const geo = useMemo(() => {
@@ -75,11 +76,13 @@ export function Lidar({ ruhig, children }: { ruhig: boolean; children: ReactNode
     const p = punkte.current;
     if (!g || !p || fertig.current) return;
 
-    // Beim ersten Bild: Punkte auf den Flächen verteilen und das Modell unsichtbar machen
+    // Sobald das Modell da ist: Punkte auf den Flächen verteilen und das Modell unsichtbar machen.
+    // (Realistische GLB-Modelle laden etwas später – bis zu 6 Sekunden wird gewartet.)
     if (!zustand.current) {
+      warten.current += dt;
       zustand.current = vorbereiten(g, p);
       if (!zustand.current) {
-        fertig.current = true; // nichts zum Abtasten
+        if (warten.current > 6) fertig.current = true; // nichts zum Abtasten
         return;
       }
     }

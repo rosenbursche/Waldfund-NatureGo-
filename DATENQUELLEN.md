@@ -27,7 +27,7 @@ Stand der Recherche: 11.10.2026
 ### Realistische 3D-Modelle
 | Modell | Zeigt | Autor | Lizenz | Quelle | Verwendung |
 |---|---|---|---|---|---|
-| „Realistic Deer“ | Weißwedelhirsch (kein Reh) | pighunt3r15 | CC BY 4.0 (Namensnennung) | [Sketchfab](https://sketchfab.com/3d-models/realistic-deer-76039b75cdc0492a80680c2404725496) | nur Technik-Test (Einstellungen → 3D-Test) |
+| „Realistic Deer“ | Weißwedelhirsch (kein Reh) | pighunt3r15 | CC BY 4.0 (Namensnennung) | [Sketchfab](https://sketchfab.com/3d-models/realistic-deer-76039b75cdc0492a80680c2404725496) | vorläufig auf der Reh-Seite (als Platzhalter gekennzeichnet) und im 3D-Test |
 
 Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in der Test-Ansicht. Liste im Code: `src/data/modelle.ts`.
 

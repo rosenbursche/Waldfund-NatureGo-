@@ -14,6 +14,7 @@ import { LehrbuchKarte } from '@/components/LehrbuchZeichnung';
 import { Schrift } from '@/components/Schrift';
 import { VerbreitungsKarte } from '@/components/VerbreitungsKarte';
 import { artById } from '@/data/arten';
+import { modellFuerArt, namensnennung } from '@/data/modelle';
 import { STECKBRIEFE } from '@/data/steckbriefe';
 import { baumById } from '@/data/baumarten';
 import { NATURRAEUME, naturraumById } from '@/data/naturraeume';
@@ -55,6 +56,7 @@ export default function ArtSeite() {
   // Pflanzen-Regler: Monat (Start: aktueller Monat) und Wachstum (Start: ausgewachsen)
   const [monat, setMonat] = useState(() => new Date().getMonth() + 1);
   const [wuchsWert, setWuchsWert] = useState(() => standardWuchs(id));
+  const [modellStatus, setModellStatus] = useState('');
 
   const eintrag = katalogEintrag(id);
   const art = artById[id];
@@ -79,6 +81,7 @@ export default function ArtSeite() {
   const gruppe = art?.gruppe === 'Mystery' ? 'Mystery-Zone' : (art?.gruppe ?? 'Bäume');
   const istPilz = art?.kategorie === 'pilze';
   const istPflanze = art ? art.kategorie === 'pflanzen' : !!baum;
+  const realistisch = modellFuerArt(id);
   const steckbrief = STECKBRIEFE[id];
   const fressfeinde = wirdGefressenVon(id);
 
@@ -91,6 +94,8 @@ export default function ArtSeite() {
           {/* 3D-Modell: Silhouette, solange nicht gesammelt */}
           <View style={stile.buehne}>
             <ArtBuehne
+              glb={realistisch?.datei}
+              melden={realistisch ? setModellStatus : undefined}
               modell={art?.modell}
               baum={baum?.modell}
               silhouette={!gefunden}
@@ -105,6 +110,20 @@ export default function ArtSeite() {
               </Schrift>
             )}
           </View>
+
+          {realistisch && (
+            <View style={stile.platzhalter}>
+              <Schrift art="klein">
+                Realistisches 3D-Modell (Platzhalter): zeigt einen Weißwedelhirsch, kein Reh – ein echtes Reh-Modell
+                folgt. Modell: {namensnennung(realistisch)}.
+              </Schrift>
+              {modellStatus.startsWith('Fehler') || modellStatus.includes('geladen …') ? (
+                <Schrift art="klein" style={{ color: modellStatus.startsWith('Fehler') ? colors.warn : colors.fog }}>
+                  {modellStatus}
+                </Schrift>
+              ) : null}
+            </View>
+          )}
 
           {istPflanze && !verborgen && (
             <PflanzenRegler
@@ -584,6 +603,7 @@ function Zeile({ name, wert }: { name: string; wert: string }) {
 }
 
 const stile = StyleSheet.create({
+  platzhalter: { borderLeftWidth: 2, borderLeftColor: colors.amber, paddingLeft: spacing.s, gap: 2 },
   regler: {
     borderWidth: 1.5,
     borderColor: colors.moss,

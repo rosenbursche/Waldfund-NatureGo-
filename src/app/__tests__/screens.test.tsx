@@ -89,6 +89,7 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Spuren')).toBeTruthy();
     expect(screen.getByText('Wohnen & Schlafen')).toBeTruthy();
     expect(screen.getByText('Fressfeinde')).toBeTruthy(); // der Luchs jagt Rehe
+    expect(screen.getByText(/Realistisches 3D-Modell \(Platzhalter\)/)).toBeTruthy();
   });
 
   test('Artenseite eines Vogels: Füße, Nest, Warum so gebaut', async () => {
@@ -204,7 +205,7 @@ describe('Screens rendern ohne Fehler', () => {
 
   test('3D-Test-Ansicht zeigt Modell-Herkunft und Namensnennung', async () => {
     await render(<Modelltest />);
-    expect(screen.getByText(/kein Reh, nur Technik-Test/)).toBeTruthy();
+    expect(screen.getByText(/Platzhalter, kein echtes Reh/)).toBeTruthy();
     expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
   });
 

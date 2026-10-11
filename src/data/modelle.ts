@@ -23,8 +23,8 @@ export type ModellEintrag = {
 export const MODELLE: ModellEintrag[] = [
   {
     id: 'weisswedelhirsch-test',
-    zeigt: 'Weißwedelhirsch (Odocoileus virginianus) – kein Reh, nur Technik-Test',
-    artId: null,
+    zeigt: 'Weißwedelhirsch (Odocoileus virginianus) – Platzhalter, kein echtes Reh',
+    artId: 'reh', // vorläufig auf der Reh-Seite, bis ein echtes Reh-Modell da ist
     titel: 'Realistic Deer',
     autor: 'pighunt3r15',
     lizenz: 'CC BY 4.0',
@@ -34,6 +34,9 @@ export const MODELLE: ModellEintrag[] = [
     dreiecke: 9754,
   },
 ];
+
+/** Realistisches Modell für eine Art (falls vorhanden) */
+export const modellFuerArt = (artId: string) => MODELLE.find((m) => m.artId === artId);
 
 /** Namensnennung im üblichen Format */
 export const namensnennung = (m: ModellEintrag) => `„${m.titel}“ von ${m.autor} (Sketchfab), ${m.lizenz}`;

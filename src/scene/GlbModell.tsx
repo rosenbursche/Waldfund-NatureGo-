@@ -15,9 +15,18 @@ import { einpassen } from './artModell';
  *
  * `quelle` ist das Ergebnis von require('…/datei.glb').
  */
-type Props = { quelle: number; ruhig: boolean; groesse?: number; melden?: (s: string) => void };
+const SILHOUETTE_MATERIAL = new THREE.MeshLambertMaterial({ color: '#16231F', emissive: '#0C1C19' });
 
-export function GlbModell({ quelle, ruhig, groesse = 2.6, melden }: Props) {
+type Props = {
+  quelle: number;
+  ruhig: boolean;
+  groesse?: number;
+  melden?: (s: string) => void;
+  /** noch nicht gesammelt: dunkle Silhouette statt Farben */
+  silhouette?: boolean;
+};
+
+export function GlbModell({ quelle, ruhig, groesse = 2.6, melden, silhouette = false }: Props) {
   const gltf = useLoader(GLTFLoader, quelle as unknown as string);
   const atmen = useRef<THREE.Group>(null);
 
@@ -27,6 +36,19 @@ export function GlbModell({ quelle, ruhig, groesse = 2.6, melden }: Props) {
     einpassen(s, groesse);
     return s;
   }, [gltf, groesse]);
+
+  // Silhouette: Materialien gegen ein dunkles tauschen (Originale merken und zurückholen)
+  useEffect(() => {
+    if (!silhouette) return;
+    const original = new Map<THREE.Mesh, THREE.Material | THREE.Material[]>();
+    szene.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      original.set(m, m.material);
+      m.material = SILHOUETTE_MATERIAL;
+    });
+    return () => original.forEach((mat, m) => (m.material = mat));
+  }, [silhouette, szene]);
 
   // Status melden: wie viele Teile, ist die Textur angekommen?
   useEffect(() => {
