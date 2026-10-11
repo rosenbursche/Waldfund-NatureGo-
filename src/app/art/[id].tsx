@@ -1,22 +1,26 @@
 import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import type { ReactNode } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Hintergrund } from '@/components/Hintergrund';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
+import { ArtMiniatur } from '@/components/ArtMiniatur';
 import { LehrbuchKarte } from '@/components/LehrbuchZeichnung';
 import { Schrift } from '@/components/Schrift';
 import { VerbreitungsKarte } from '@/components/VerbreitungsKarte';
 import { artById } from '@/data/arten';
+import { STECKBRIEFE } from '@/data/steckbriefe';
 import { baumById } from '@/data/baumarten';
 import { NATURRAEUME, naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN, ROTE_LISTE_NAME, SCHUTZ_NAME, SELTENHEIT } from '@/data/spiel';
 import { BODEN_NAME, GROSSLANDSCHAFT_NAME, HOEHENSTUFE_NAME } from '@/data/typen';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
+import { wirdGefressenVon } from '@/logic/nahrungsnetz';
+import { berechneWildWert } from '@/logic/wildwert';
 import { herkunftsText, istHeimisch } from '@/logic/regelEngine';
 import { ArtBuehne } from '@/scene/ArtBuehne';
 import { useEinstellungen } from '@/store/einstellungen';
@@ -69,6 +73,8 @@ export default function ArtSeite() {
   const kategorie = KATEGORIEN.find((k) => k.id === (art?.kategorie ?? 'pflanzen'))!;
   const gruppe = art?.gruppe === 'Mystery' ? 'Mystery-Zone' : (art?.gruppe ?? 'Bäume');
   const istPilz = art?.kategorie === 'pilze';
+  const steckbrief = STECKBRIEFE[id];
+  const fressfeinde = wirdGefressenVon(id);
 
   return (
     <Hintergrund>
@@ -94,6 +100,8 @@ export default function ArtSeite() {
             </Schrift>
             <Schrift style={stile.latein}>{verborgen ? 'Species incognita' : eintrag.lat}</Schrift>
           </View>
+
+          <WildWertAnzeige id={id} />
 
           <View style={stile.chips}>
             <Pille farbe={s.farbe} voll>
@@ -235,6 +243,63 @@ export default function ArtSeite() {
             </Abschnitt>
           )}
 
+          {steckbrief && !verborgen && (
+            <>
+              <Abschnitt titel="Key Features">
+                {steckbrief.merkmale.map((m) => (
+                  <View key={m} style={stile.merkmal}>
+                    <Schrift style={stile.rune}>ᛟ</Schrift>
+                    <Schrift style={{ flex: 1 }}>{m}</Schrift>
+                  </View>
+                ))}
+              </Abschnitt>
+
+              <Abschnitt titel="Lebensraum">
+                <Schrift art="notiz" style={{ color: colors.moon }}>
+                  {art?.lebensraum}
+                </Schrift>
+                <Schrift>
+                  <Schrift style={{ color: colors.rune }}>Warum gerade dort? </Schrift>
+                  {steckbrief.lebensraumWarum}
+                </Schrift>
+              </Abschnitt>
+
+              <Abschnitt titel="Nahrung">
+                <Schrift>{steckbrief.nahrung}</Schrift>
+                <ArtVerweise ids={steckbrief.nahrungIds} titel="Davon in Wildfund:" sammlung={sammlung} />
+              </Abschnitt>
+
+              {art?.kategorie === 'voegel' && (
+                <>
+                  <Abschnitt titel="Füße & Krallen">
+                    <Schrift>{steckbrief.fuesse}</Schrift>
+                  </Abschnitt>
+                  <Abschnitt titel="Nest">
+                    <Schrift>{steckbrief.nest}</Schrift>
+                  </Abschnitt>
+                  <Kasten farbe={colors.rune}>
+                    <Schrift art="etikett">Warum so gebaut?</Schrift>
+                    <Schrift>{steckbrief.warumSoGebaut}</Schrift>
+                  </Kasten>
+                </>
+              )}
+
+              <Abschnitt titel="Spuren">
+                <Schrift>{steckbrief.spuren}</Schrift>
+              </Abschnitt>
+
+              <Abschnitt titel={art?.kategorie === 'voegel' ? 'Schlafen' : 'Wohnen & Schlafen'}>
+                <Schrift>{steckbrief.wohnen}</Schrift>
+              </Abschnitt>
+            </>
+          )}
+
+          {!verborgen && fressfeinde.length > 0 && (
+            <Abschnitt titel={art?.kategorie === 'pflanzen' || !art ? 'Wer frisst mich?' : 'Fressfeinde'}>
+              <ArtVerweise ids={fressfeinde} sammlung={sammlung} />
+            </Abschnitt>
+          )}
+
           <Abschnitt titel="">
             <LehrbuchKarte
               id={id}
@@ -301,6 +366,75 @@ export default function ArtSeite() {
   );
 }
 
+/** Wild-Wert: 1–100, wie selten die Art ist – dazu der Hinweis, ob sie bedroht ist */
+function WildWertAnzeige({ id }: { id: string }) {
+  const w = berechneWildWert(id);
+  const farbe = w.wert >= 80 ? colors.legend : w.wert >= 55 ? colors.rare : w.wert >= 30 ? colors.rune : colors.fog;
+  return (
+    <View
+      style={stile.wild}
+      accessible
+      accessibilityLabel={`Wild-Wert ${w.wert} von 100. ${w.bedroht ?? (w.vorwarnung ? 'Auf der Vorwarnliste' : 'Nicht bedroht')}`}
+    >
+      <View style={[stile.wildKreis, { borderColor: farbe, shadowColor: farbe }]}>
+        <Schrift style={[stile.wildZahl, { color: farbe }]}>{w.wert}</Schrift>
+      </View>
+      <View style={{ flex: 1 }}>
+        <Schrift art="etikett">Wild-Wert · 1–100</Schrift>
+        <Schrift art="klein" style={{ color: w.bedroht ? colors.warn : colors.fog }}>
+          {w.bedroht ? `⚠ ${w.bedroht}` : w.vorwarnung ? 'Auf der Vorwarnliste' : 'Nicht bedroht'}
+        </Schrift>
+        <Schrift art="klein" style={{ fontSize: 11, opacity: 0.7 }}>
+          aus Verbreitung, Seltenheit und Roter Liste (Demo-Daten)
+        </Schrift>
+      </View>
+    </View>
+  );
+}
+
+/** Verknüpfte Arten als antippbare Chips mit Miniatur (Mystery-Arten bleiben verborgen) */
+function ArtVerweise({ ids, titel, sammlung }: { ids: string[]; titel?: string; sammlung: Record<string, unknown> }) {
+  if (ids.length === 0) return null;
+  return (
+    <View style={{ gap: spacing.s }}>
+      {titel && <Schrift art="etikett">{titel}</Schrift>}
+      <View style={stile.verweise}>
+        {ids.map((vid) => {
+          const e = katalogEintrag(vid);
+          if (!e) return null;
+          const versteckt = istVerborgen(vid, sammlung);
+          const ok = vid in sammlung;
+          const s = SELTENHEIT[e.seltenheit];
+          return (
+            <Pressable
+              key={vid}
+              onPress={() => router.push({ pathname: '/art/[id]', params: { id: vid } })}
+              accessibilityRole="button"
+              accessibilityLabel={versteckt ? 'Unbekannte Art' : e.name}
+              style={({ pressed }) => [
+                stile.verweis,
+                { borderColor: ok ? s.farbe : colors.moss },
+                pressed && { opacity: 0.6 },
+              ]}
+            >
+              <ArtMiniatur
+                modell={e.modell}
+                baumModell={e.baumModell}
+                stil={ok ? 'farbe' : versteckt ? 'verborgen' : 'umriss'}
+                akzent={s.farbe}
+                groesse={28}
+              />
+              <Schrift art="klein" style={{ color: ok ? colors.moon : colors.fog }}>
+                {versteckt ? '???' : e.name}
+              </Schrift>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 function Pille({ farbe, voll, children }: { farbe: string; voll?: boolean; children: ReactNode }) {
   return (
     <View style={[stile.pille, { borderColor: farbe }, voll && { backgroundColor: farbe }]}>
@@ -340,6 +474,33 @@ function Zeile({ name, wert }: { name: string; wert: string }) {
 }
 
 const stile = StyleSheet.create({
+  wild: { flexDirection: 'row', alignItems: 'center', gap: spacing.m },
+  wildKreis: {
+    width: 62,
+    height: 62,
+    borderRadius: 31,
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.night,
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+  },
+  wildZahl: { fontFamily: fonts.handBold, fontSize: 26, lineHeight: 32 },
+  merkmal: { flexDirection: 'row', gap: spacing.s, alignItems: 'flex-start' },
+  rune: { color: colors.rune, fontSize: 15, lineHeight: 23 },
+  verweise: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
+  verweis: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingLeft: 4,
+    paddingRight: 10,
+    paddingVertical: 3,
+    borderRadius: radius.l,
+    borderWidth: 1.2,
+    backgroundColor: colors.forest,
+  },
   inhalt: { padding: spacing.m, gap: spacing.m, paddingBottom: spacing.xxl },
   buehne: { marginHorizontal: -spacing.m },
   sperre: { position: 'absolute', left: 0, right: 0, bottom: 10, textAlign: 'center', color: colors.fog, fontSize: 15 },

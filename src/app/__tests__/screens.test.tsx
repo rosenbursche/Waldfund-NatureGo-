@@ -78,6 +78,33 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 
+  test('Artenseite eines Tieres: Wild-Wert, Key Features, Nahrung mit Verknüpfungen, Spuren, Wohnen', async () => {
+    mockParams.id = 'reh';
+    useSammlung.setState({ gefunden: {} });
+    await render(<ArtSeite />);
+    expect(screen.getByText('Wild-Wert · 1–100')).toBeTruthy();
+    expect(screen.getByText('Key Features')).toBeTruthy();
+    expect(screen.getByLabelText('Stieleiche')).toBeTruthy(); // verknüpfte Nahrung
+    expect(screen.getByText('Spuren')).toBeTruthy();
+    expect(screen.getByText('Wohnen & Schlafen')).toBeTruthy();
+    expect(screen.getByText('Fressfeinde')).toBeTruthy(); // der Luchs jagt Rehe
+  });
+
+  test('Artenseite eines Vogels: Füße, Nest, Warum so gebaut', async () => {
+    mockParams.id = 'buntspecht';
+    await render(<ArtSeite />);
+    expect(screen.getByText('Füße & Krallen')).toBeTruthy();
+    expect(screen.getByText('Nest')).toBeTruthy();
+    expect(screen.getByText('Warum so gebaut?')).toBeTruthy();
+  });
+
+  test('Artenseite einer Pflanze: Wer frisst mich?', async () => {
+    mockParams.id = 'stieleiche';
+    await render(<ArtSeite />);
+    expect(screen.getByText('Wer frisst mich?')).toBeTruthy();
+    expect(screen.getByLabelText('Eichelhäher')).toBeTruthy();
+  });
+
   test('Artenseite einer giftigen Pflanze warnt', async () => {
     mockParams.id = 'tollkirsche';
     await render(<ArtSeite />);
