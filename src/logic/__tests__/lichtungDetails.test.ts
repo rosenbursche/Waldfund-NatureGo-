@@ -34,7 +34,7 @@ describe('Details der Lichtung', () => {
     const plaetze = baeumeFreiRuecken(vorher);
     expect(plaetze).toHaveLength(vorher.length); // nur verschoben, keiner fällt weg
     for (const p of plaetze) {
-      if (p.z > 2) expect(Math.abs(p.x - wegX(p.z))).toBeGreaterThanOrEqual(2.8);
+      if (p.z > 2) expect(Math.abs(p.x - wegX(p.z))).toBeGreaterThanOrEqual(3.4);
     }
   });
 });

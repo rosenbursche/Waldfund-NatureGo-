@@ -17,6 +17,18 @@ export function matt(farbe: string): THREE.MeshLambertMaterial {
   return m;
 }
 
+const getoente = new Map<string, THREE.MeshLambertMaterial>();
+
+/** Material für Geometrien mit Graustufen in den Eckpunkten (Holz, Schindeln, Steine): Farbe × Ton */
+export function getoent(farbe: string): THREE.MeshLambertMaterial {
+  let m = getoente.get(farbe);
+  if (!m) {
+    m = new THREE.MeshLambertMaterial({ color: farbe, vertexColors: true });
+    getoente.set(farbe, m);
+  }
+  return m;
+}
+
 /** Farbe für noch nicht gefundene Arten: dunkle Silhouette im Nebel */
 export const SILHOUETTE = '#16231F';
 

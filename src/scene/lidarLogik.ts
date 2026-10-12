@@ -6,6 +6,7 @@ import { MeshSurfaceSampler } from 'three/examples/jsm/math/MeshSurfaceSampler.j
  * Startwolke erzeugen, Materialien aus- und wieder einblenden.
  */
 export const PUNKTE = 4000;
+const EXEMPLAR = new THREE.Matrix4();
 
 export type LidarZustand = {
   start: Float32Array; // Startpositionen (zufällige Wolke)
@@ -60,8 +61,11 @@ export function vorbereiten(g: THREE.Group, p: THREE.Points): LidarZustand | nul
     if (flaeche < 1e-3) continue; // ausgeblendete Teile (Größe ~0) überspringen
     const anzahl = Math.max(1, Math.round((flaeche / gesamt) * PUNKTE));
     const sampler = new MeshSurfaceSampler(mesh).build();
+    // InstancedMesh (z. B. Blattbüschel): jedes Mal ein zufälliges Exemplar treffen
+    const inst = (mesh as THREE.InstancedMesh).isInstancedMesh ? (mesh as THREE.InstancedMesh) : null;
     for (let k = 0; k < anzahl && i < PUNKTE; k++, i++) {
       sampler.sample(v);
+      if (inst) v.applyMatrix4(inst.getMatrixAt(Math.floor(Math.random() * inst.count), EXEMPLAR));
       v.applyMatrix4(mesh.matrixWorld).applyMatrix4(zurueck);
       ziel.set([v.x, v.y, v.z], i * 3);
       ymin = Math.min(ymin, v.y);

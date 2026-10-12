@@ -5,7 +5,8 @@ import * as THREE from 'three';
 import type { HuettenStufe } from '@/logic/fortschritt';
 import { colors } from '@/theme/theme';
 
-import { FORM, matt } from './material';
+import { blockwand, kamin, schindeldach, steinsockel, tuer } from './huettenTeile';
+import { FORM, getoent, matt } from './material';
 import { leuchtTextur } from './texturen';
 
 /**
@@ -18,6 +19,8 @@ import { leuchtTextur } from './texturen';
 const HOLZ = '#5A4232';
 const HOLZ_DUNKEL = '#3E2E24';
 const DACH = '#2E3B30';
+const DACH_HOLZ = '#4A4038';
+const LADEN = '#3E4A3A';
 const STEIN = '#5F625C';
 
 type HuettenProps = { stufe: HuettenStufe; fenster: number; ruhig: boolean };
@@ -184,50 +187,64 @@ function Glut({ position, staerke }: { position: [number, number, number]; staer
   return <Laterne position={position} staerke={staerke} />;
 }
 
-/** Stufe 1: die Waldhütte */
+/** Fein gebaute Teile der Waldhütte – einmal erzeugt, von allen Ausbaustufen geteilt */
+let teile: {
+  sockel: THREE.BufferGeometry;
+  wand: THREE.BufferGeometry;
+  dach: THREE.BufferGeometry;
+  kamin: THREE.BufferGeometry;
+  tuer: THREE.BufferGeometry;
+} | null = null;
+function huettenTeile() {
+  teile ??= {
+    sockel: steinsockel(2.62, 2.12, 0.24),
+    wand: blockwand(2.4, 1.5, 1.9),
+    dach: schindeldach(2.4, 1.9, 0.78),
+    kamin: kamin(0.38, 1.3),
+    tuer: tuer(0.55, 1.08),
+  };
+  return teile;
+}
+
+/** Stufe 1: die Waldhütte – Blockhaus aus Rundstämmen, Schindeldach, Feldsteinsockel und -kamin */
 function Waldhuette({ fenster, ruhig }: { fenster: number; ruhig: boolean }) {
+  const t = huettenTeile();
   return (
     <group>
-      {/* Steinsockel */}
-      <mesh geometry={FORM.kiste} material={matt(STEIN)} position={[0, 0.12, 0]} scale={[2.7, 0.24, 2.2]} />
-      {/* Wände */}
-      <mesh geometry={FORM.kiste} material={matt(HOLZ)} position={[0, 0.98, 0]} scale={[2.4, 1.5, 1.9]} />
-      {/* Balkenecken */}
-      {[-1.2, 1.2].flatMap((x) =>
-        [-0.95, 0.95].map((z) => (
-          <mesh
-            key={`${x}${z}`}
-            geometry={FORM.kiste}
-            material={matt(HOLZ_DUNKEL)}
-            position={[x, 0.98, z]}
-            scale={[0.16, 1.55, 0.16]}
-          />
-        )),
-      )}
-      {/* Satteldach: dreieckiges Prisma */}
-      {/* Zylinder mit 3 Ecken = Dreiecksprisma. Gekippt, damit die Spitze nach oben zeigt,
-          und gedreht, damit der First entlang der Hüttenbreite läuft. */}
-      <group position={[0, 2.07, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <mesh rotation={[-Math.PI / 2, 0, 0]} scale={[2.15, 1.4, 1.1]} material={matt(DACH)}>
-          <cylinderGeometry args={[0.62, 0.62, 2, 3]} />
-        </mesh>
-      </group>
-      {/* Moospolster auf dem Dach */}
-      <mesh geometry={FORM.kugel} material={matt('#3D5A45')} position={[0.6, 2.45, 0.25]} scale={[0.35, 0.12, 0.3]} />
-      <mesh geometry={FORM.kugel} material={matt('#3D5A45')} position={[-0.5, 2.38, -0.35]} scale={[0.3, 0.1, 0.25]} />
-      {/* Kamin */}
-      <mesh geometry={FORM.kiste} material={matt(STEIN)} position={[0.75, 2.55, -0.35]} scale={[0.34, 1, 0.34]} />
-      {/* Tür */}
+      <mesh geometry={t.sockel} material={getoent(STEIN)} />
+      <mesh geometry={t.wand} material={getoent(HOLZ)} position={[0, 0.24, 0]} />
+      <mesh geometry={t.dach} material={getoent(DACH_HOLZ)} position={[0, 1.74, 0]} />
+      {/* Moospolster auf den Schindeln */}
       <mesh
-        geometry={FORM.kiste}
-        material={matt(HOLZ_DUNKEL)}
-        position={[-0.45, 0.78, 0.96]}
-        scale={[0.55, 1.05, 0.05]}
+        geometry={FORM.kugelFein}
+        material={matt('#3D5A45')}
+        position={[0.55, 2.2, 0.45]}
+        rotation={[0.55, 0, 0]}
+        scale={[0.4, 0.07, 0.3]}
       />
+      <mesh
+        geometry={FORM.kugelFein}
+        material={matt('#4C6B3E')}
+        position={[-0.7, 2.05, 0.7]}
+        rotation={[0.55, 0, 0]}
+        scale={[0.3, 0.06, 0.22]}
+      />
+      <mesh
+        geometry={FORM.kugelFein}
+        material={matt('#3D5A45')}
+        position={[-0.3, 2.25, -0.5]}
+        rotation={[-0.55, 0, 0]}
+        scale={[0.45, 0.07, 0.28]}
+      />
+      <mesh geometry={t.kamin} material={getoent(STEIN)} position={[0.75, 1.7, -0.35]} />
+      <mesh geometry={t.tuer} material={getoent(HOLZ_DUNKEL)} position={[-0.45, 0.25, 1.05]} />
+      {/* Türgriff und Schwelle */}
+      <mesh geometry={FORM.kugel} material={matt('#2A2622')} position={[-0.25, 0.8, 1.1]} scale={0.035} />
+      <mesh geometry={FORM.kiste} material={matt(STEIN)} position={[-0.45, 0.26, 1.14]} scale={[0.7, 0.04, 0.16]} />
       {/* Fenster vorne und an der Seite */}
-      <Fenster position={[0.55, 1.1, 0.97]} rotation={0} staerke={fenster} />
-      <Fenster position={[1.22, 1.1, 0.2]} rotation={Math.PI / 2} staerke={fenster} />
-      <Fenster position={[-1.22, 1.1, -0.2]} rotation={-Math.PI / 2} staerke={fenster} />
+      <Fenster position={[0.55, 1.1, 1.05]} rotation={0} staerke={fenster} />
+      <Fenster position={[1.3, 1.1, 0.2]} rotation={Math.PI / 2} staerke={fenster} />
+      <Fenster position={[-1.3, 1.1, -0.2]} rotation={-Math.PI / 2} staerke={fenster} />
       {/* Warmes Licht, das aus der Hütte auf die Lichtung fällt */}
       <pointLight position={[0.3, 1.2, 2]} color={colors.amber} intensity={4 * fenster} distance={7} decay={1.6} />
       <Rauch ruhig={ruhig} ursprung={[0.75, 3.1, -0.35]} />
@@ -266,6 +283,51 @@ function Fenster({
       {/* Fensterkreuz */}
       <mesh geometry={FORM.kiste} material={matt(HOLZ_DUNKEL)} scale={[0.05, 0.47, 0.03]} position={[0, 0, 0.02]} />
       <mesh geometry={FORM.kiste} material={matt(HOLZ_DUNKEL)} scale={[0.52, 0.05, 0.03]} position={[0, 0, 0.02]} />
+      {/* Rahmen, Fensterbank und offene Fensterläden */}
+      {[-0.27, 0.27].map((x) => (
+        <mesh
+          key={`r${x}`}
+          geometry={FORM.kiste}
+          material={matt(HOLZ_DUNKEL)}
+          scale={[0.06, 0.58, 0.06]}
+          position={[x, 0, 0.02]}
+        />
+      ))}
+      <mesh geometry={FORM.kiste} material={matt(HOLZ_DUNKEL)} scale={[0.6, 0.06, 0.06]} position={[0, 0.26, 0.02]} />
+      <mesh geometry={FORM.kiste} material={matt(HOLZ)} scale={[0.68, 0.05, 0.14]} position={[0, -0.28, 0.06]} />
+      {[-1, 1].map((seite) => (
+        <group key={`l${seite}`} position={[seite * 0.3, 0, 0.03]} rotation={[0, -seite * 0.6, 0]}>
+          <mesh
+            geometry={FORM.kiste}
+            material={matt(LADEN)}
+            scale={[0.25, 0.52, 0.03]}
+            position={[seite * 0.13, 0, 0]}
+          />
+          <mesh
+            geometry={FORM.kiste}
+            material={matt(HOLZ_DUNKEL)}
+            scale={[0.26, 0.04, 0.035]}
+            position={[seite * 0.13, 0.15, 0.01]}
+          />
+          <mesh
+            geometry={FORM.kiste}
+            material={matt(HOLZ_DUNKEL)}
+            scale={[0.26, 0.04, 0.035]}
+            position={[seite * 0.13, -0.15, 0.01]}
+          />
+        </group>
+      ))}
+      {/* Blumenkasten mit kleinen Blüten */}
+      <mesh geometry={FORM.kiste} material={matt(HOLZ_DUNKEL)} scale={[0.5, 0.1, 0.12]} position={[0, -0.36, 0.1]} />
+      {[-0.18, -0.06, 0.06, 0.18].map((x, i) => (
+        <mesh
+          key={`b${x}`}
+          geometry={FORM.kugel}
+          material={matt(i % 2 ? colors.rare : colors.paper)}
+          scale={0.04}
+          position={[x, -0.28, 0.1]}
+        />
+      ))}
       {/* weicher Lichthof statt harter Kante */}
       <sprite material={hof} scale={[1.6, 1.4, 1]} position={[0, 0, 0.15]} />
     </group>

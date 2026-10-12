@@ -8,6 +8,7 @@ import { zufall } from '@/logic/lichtung';
 import type { Stimmung } from '@/logic/tageszeit';
 import { colors } from '@/theme/theme';
 
+import { blattTextur } from './blattTexturen';
 import { FORM, matt } from './material';
 import { leuchtTextur } from './texturen';
 
@@ -125,6 +126,29 @@ const BLATT = (() => {
   g.computeVertexNormals();
   return g;
 })();
+
+/** Feldstein: verbeulte Kugel mit weichen Kanten und Kerben (statt glatter Low-Poly-Form) */
+const FELS = (() => {
+  const g = new THREE.IcosahedronGeometry(1, 2);
+  const pos = g.attributes.position as THREE.BufferAttribute;
+  const v = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i);
+    const beule = 1 + Math.sin(v.x * 3.1 + v.y * 1.7) * 0.12 + Math.sin(v.z * 4.3 - v.x * 2.2) * 0.08;
+    // unten abgeflacht, als läge er auf dem Boden
+    v.multiplyScalar(beule);
+    if (v.y < -0.3) v.y = -0.3 + (v.y + 0.3) * 0.3;
+    pos.setXYZ(i, v.x, v.y, v.z);
+  }
+  g.computeVertexNormals();
+  return g;
+})();
+
+/** Zwei gekreuzte Karten (Unterkante am Boden) für entfernte Bäume */
+const FERNBAUM = mergeGeometries([
+  new THREE.PlaneGeometry(1, 1).translate(0, 0.5, 0),
+  new THREE.PlaneGeometry(1, 1).translate(0, 0.5, 0).rotateY(Math.PI / 2),
+]);
 
 // ---------- Hilfen ----------
 
@@ -301,8 +325,8 @@ function baueTeile(s: number) {
       FARBE.blume,
     ),
     instanzen(
-      FORM.kugel,
-      matt('#ffffff'),
+      FELS,
+      new THREE.MeshLambertMaterial({ color: '#ffffff' }),
       [...steine, ...tritt.map((t) => ({ ...t, ton: 0.4 }))],
       (d, o) => {
         const flach = d.groesse < 0.3 && Math.abs(d.x - wegX(d.z)) < WEG.breite + 0.1;
@@ -386,24 +410,19 @@ function baueTeile(s: number) {
       },
       FARBE.farn,
     ),
-    // Wald am Horizont: dunkle Nadelbaum-Silhouetten auf den Hügeln, im Nebel verschwimmend
+    // Wald am Horizont: gemalte Fichten-Umrisse auf den Hügeln (zwei gekreuzte Karten je Baum), im Nebel verschwimmend
     instanzen(
-      FORM.kegel,
-      matt('#ffffff'),
+      FERNBAUM,
+      new THREE.MeshLambertMaterial({
+        color: '#ffffff',
+        map: blattTextur('fernbaum'),
+        alphaTest: 0.5,
+        side: THREE.DoubleSide,
+      }),
       ferneBaeume,
       (d, o) => {
-        o.position.y = bodenHoehe(d.x, d.z) + 2.6 * d.groesse;
-        o.scale.set(1.3 * d.groesse, 5.5 * d.groesse, 1.3 * d.groesse);
-      },
-      FARBE.wald,
-    ),
-    instanzen(
-      FORM.kegel,
-      matt('#ffffff'),
-      ferneBaeume,
-      (d, o) => {
-        o.position.y = bodenHoehe(d.x, d.z) + 5.4 * d.groesse;
-        o.scale.set(0.9 * d.groesse, 3.4 * d.groesse, 0.9 * d.groesse);
+        o.position.y = bodenHoehe(d.x, d.z) - 0.1;
+        o.scale.set(3.4 * d.groesse, 8 * d.groesse, 3.4 * d.groesse);
       },
       FARBE.wald,
     ),

@@ -140,7 +140,7 @@ export function trittsteine(startwert: number): Detail[] {
  */
 export function baeumeFreiRuecken<T extends { x: number; z: number }>(plaetze: T[], abstand = 0.7): T[] {
   // Sichtachse: vor der Hütte bleibt ein breiter Streifen entlang des Weges frei (Baumkronen sind breit)
-  const ok = (x: number, z: number) => istFrei(x, z, abstand) && !(z > 2 && Math.abs(x - wegX(z)) < 2.8);
+  const ok = (x: number, z: number) => istFrei(x, z, abstand) && !(z > 2 && Math.abs(x - wegX(z)) < 3.4);
   return plaetze.map((p) => {
     if (ok(p.x, p.z)) return p;
     const r = Math.hypot(p.x, p.z);
