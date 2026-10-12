@@ -222,3 +222,44 @@ export function blattTextur(art: BlattArt): THREE.DataTexture {
   }
   return t;
 }
+
+let netz: THREE.DataTexture | null = null;
+
+/** Radnetz einer Spinne: Speichen von der Mitte aus und eine Fangspirale, leicht unregelmäßig */
+export function netzTextur(): THREE.DataTexture {
+  if (netz) return netz;
+  const r = folge(61);
+  const striche: Strich[] = [];
+  const speichen = 16;
+  const winkel = Array.from({ length: speichen }, (_, i) => (i / speichen) * Math.PI * 2 + (r() - 0.5) * 0.15);
+  const laenge = winkel.map(() => 0.42 + r() * 0.06);
+  winkel.forEach((w, i) =>
+    striche.push({
+      ax: 0.5,
+      ay: 0.5,
+      bx: 0.5 + Math.cos(w) * laenge[i],
+      by: 0.5 + Math.sin(w) * laenge[i],
+      dicke: 0.005,
+      hell: 1,
+    }),
+  );
+  // Fangspirale: von Speiche zu Speiche, Runde für Runde etwas weiter außen
+  for (let runde = 0; runde < 13; runde++) {
+    for (let i = 0; i < speichen; i++) {
+      const j = (i + 1) % speichen;
+      const a = 0.07 + (runde + i / speichen) * 0.027;
+      const b = 0.07 + (runde + (i + 1) / speichen) * 0.027;
+      if (b > laenge[j] || a > laenge[i]) continue;
+      striche.push({
+        ax: 0.5 + Math.cos(winkel[i]) * a,
+        ay: 0.5 + Math.sin(winkel[i]) * a,
+        bx: 0.5 + Math.cos(winkel[j]) * b,
+        by: 0.5 + Math.sin(winkel[j]) * b,
+        dicke: 0.004,
+        hell: 0.85,
+      });
+    }
+  }
+  netz = malen([], striche);
+  return netz;
+}

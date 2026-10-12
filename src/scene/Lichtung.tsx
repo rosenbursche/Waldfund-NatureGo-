@@ -16,6 +16,7 @@ import { Baum3D } from './Baum3D';
 import { Huette } from './Huette';
 import { LichtungDetails } from './LichtungDetails';
 import { LichtungLeben } from './LichtungLeben';
+import { LichtungVerborgenes } from './LichtungVerborgenes';
 import { Runenstein } from './Runenstein';
 import { FpsMesser, Kamera, Projektor, Tippen } from './Steuerung';
 import type { FpsKanal, PunkteKanal, Steuerung, Ziel } from './steuerZustand';
@@ -83,6 +84,7 @@ export function Lichtung({
       <Huette stufe={huette} fenster={stimmung.fenster} ruhig={ruhig} />
       <LichtungDetails startwert={startwertAus(naturraum.id)} stimmung={stimmung} ruhig={ruhig} />
       <LichtungLeben stimmung={stimmung} ruhig={ruhig} />
+      <LichtungVerborgenes startwert={startwertAus(naturraum.id)} stimmung={stimmung} ruhig={ruhig} />
 
       {plaetze.map((p, i) => {
         const baum = baumById[p.baumId];

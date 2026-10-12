@@ -3,7 +3,16 @@ import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
-import { AUSSTATTUNG, streuen, trittsteine, TUEMPEL, WEG, wegX, type Detail } from '@/logic/lichtungDetails';
+import {
+  AUSSTATTUNG,
+  straeucherPlaetze,
+  streuen,
+  trittsteine,
+  TUEMPEL,
+  WEG,
+  wegX,
+  type Detail,
+} from '@/logic/lichtungDetails';
 import { zufall } from '@/logic/lichtung';
 import type { Stimmung } from '@/logic/tageszeit';
 import { colors } from '@/theme/theme';
@@ -282,7 +291,7 @@ function baueTeile(s: number) {
   const blumen = streuen(s + 4, 180, 2.6, 10, { haufen: 0.9, groesse: [0.8, 1.3] });
   const steine = streuen(s + 5, 45, 2.8, 15, { rand: 0.2, groesse: [0.1, 0.42] });
   const pilze = streuen(s + 6, 36, 4.5, 12, { haufen: 0.45, rand: 0.2, groesse: [0.08, 0.17] });
-  const straeucher = streuen(s + 7, 40, 6, 15, { haufen: 1.4, rand: 0.4, groesse: [0.25, 0.5] });
+  const straeucher = straeucherPlaetze(s);
   const tritt = trittsteine(s + 8);
   // erst hinter der Kamerabahn (Abstand 17), sonst stünden Bäume direkt vor der Linse
   const laub = streuen(s + 10, 650, 2.4, 15, { haufen: 1.8, groesse: [0.06, 0.11] });

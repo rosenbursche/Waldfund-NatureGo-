@@ -117,6 +117,11 @@ export function streuen(
   return liste;
 }
 
+/** Niedrige Sträucher rund um die Lichtung (auch Versteck für die Augenpaare) */
+export function straeucherPlaetze(startwert: number): Detail[] {
+  return streuen(startwert + 7, 40, 6, 15, { haufen: 1.4, rand: 0.4, groesse: [0.25, 0.5] });
+}
+
 /** Trittsteine entlang des Weges */
 export function trittsteine(startwert: number): Detail[] {
   const rnd = zufall(startwert);
