@@ -161,6 +161,21 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | K1: Kampf-Rechenlogik `src/logic/kampf.ts` mit Tests | 🟡 Grundregeln + Kampfwerte Reh (`src/data/kampfwerte.ts`), weitere 5 Start-Tiere fehlen |
 | Kampf-Arena als Test: Reh gegen Reh gegen den Computer, 3D-Arena mit Platzhalter-Modell (Einstellungen → Darstellung) | ✅ `src/app/kampf.tsx`, `src/scene/KampfArena.tsx` · Mini-Spiel beim Spezialangriff fehlt noch |
 
+### 2.9 Veröffentlichung im App Store und bei Google Play
+Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 dort in Abschnitt 7.
+
+| Anforderung | Stand |
+|---|---|
+| Umfang 1.0 festlegen: Pflanzen echt geprüft, Pilze/Tiere ehrlich selbst eintragen, Test-Ansichten nur im Entwicklungs-Build | ⬜ |
+| Konten Apple, Google, Expo; Name, App-ID, Händlerstatus | ⬜ 🔒 Du |
+| Pflanzenerkennung live, Pl@ntNet-Bedingungen für Store-Apps geklärt, Verhalten bei ausgelasteter Tagesgrenze | ⬜ 🔒 Konten, Antwort Pl@ntNet |
+| Fachprüfung Stufe A (Gift, Verwechslung, Gefahren, Schutzstatus) | ⬜ 🔒 Fachleute |
+| Datenschutzerklärung (Webseite), Datenschutz-Seite in der App, Erlaubnis-Texte korrigiert | ⬜ |
+| App-IDs, Versionen, `eas.json`, erster echter Build, Fehlerseite, Leistungstest auf günstigem Android | ⬜ |
+| GitHub Actions (Tests, Typprüfung, Lint), Test-Checkliste | ⬜ |
+| Testphase: TestFlight und geschlossener Test bei Google (12 Tester, 14 Tage) | ⬜ 🔒 Tester |
+| Store-Einträge, Screenshots, Altersfreigabe, Datenschutz-Angaben | ⬜ |
+
 ---
 
 ## 3. Vorgeschlagene Reihenfolge
