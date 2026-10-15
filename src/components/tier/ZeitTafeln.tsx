@@ -157,11 +157,18 @@ export function Jahresrad({
             tier={tier}
             fell={z.fell}
             geweih={zeigeMaennlich ? z.geweih : undefined}
-            pose={!zeigeMaennlich && z.geburt && !z.jung ? 'liegt' : 'steht'}
+            pose={z.ruhe || (!zeigeMaennlich && z.geburt && !z.jung) ? 'liegt' : 'steht'}
           />
           {!zeigeMaennlich && z.jung && (
             <View style={stile.kitz}>
-              <TierFigur tier={tier} fell={z.fell} flecken={z.flecken} dunkel={z.jungDunkel} />
+              <TierFigur
+                tier={tier}
+                fell={z.fell}
+                flecken={z.flecken}
+                streifen={z.streifen}
+                dunkel={z.jungDunkel}
+                pose={z.ruhe ? 'liegt' : 'steht'}
+              />
             </View>
           )}
         </View>
@@ -172,7 +179,14 @@ export function Jahresrad({
         />
       </View>
       <View style={stile.chips}>
-        <Chip symbol={z.fell >= 0.5 ? 'sonne' : 'mond'} text={fellName} farbe={colors.moon} />
+        {z.ruhe && tier.ruhe ? (
+          <Chip symbol="schnee" text={tier.ruhe.kurz} farbe={colors.rune} />
+        ) : (
+          // nur zeigen, wenn das Tier das Fell überhaupt wechselt (Igel nicht)
+          new Set(tier.fell).size > 1 && (
+            <Chip symbol={z.fell >= 0.5 ? 'sonne' : 'mond'} text={fellName} farbe={colors.moon} />
+          )
+        )}
         {tier.jahr
           .filter((e) => z.ereignisse.includes(e.id))
           .map((e) => (

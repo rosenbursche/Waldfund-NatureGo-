@@ -50,7 +50,16 @@ export function TierSeiteInhalt({
       </Speiseplan>
       <SpurenKarten tier={tier} />
       <Gefahren tier={tier} sammlung={sammlung} />
-      <Hinweis tier={tier} text={tier.hinweis.text === 'gefahr' ? art?.gefahr : art?.wusstestDu} />
+      <Hinweis
+        tier={tier}
+        text={
+          tier.hinweis.text === 'eigen'
+            ? tier.hinweis.eigenerText
+            : tier.hinweis.text === 'gefahr'
+              ? art?.gefahr
+              : art?.wusstestDu
+        }
+      />
     </View>
   );
 }

@@ -7,7 +7,7 @@ import { Schrift } from '@/components/Schrift';
 import type { TierSeite } from '@/data/tierSeiten';
 import { colors, fonts, spacing } from '@/theme/theme';
 
-import { AUSSCHNITT, SCHULTER_Y, TierFigur } from './TierFigur';
+import { FIGUR_MASS, TierFigur } from './TierFigur';
 import { Leuchtpunkt, SymbolSchalter, TierTafel } from './TierTafel';
 import { TierSymbol } from './TierSymbol';
 
@@ -24,12 +24,19 @@ const MENSCH =
 
 export function GroessenVergleich({ tier }: { tier: TierSeite }) {
   const [du, setDu] = useState(160);
-  const [s1, s2] = tier.groesse.schulterCm;
+  const g = tier.groesse;
+  const [s1, s2] = g.cm;
   const mitte = (s1 + s2) / 2;
-  // Figur so skalieren, dass ihre mittlere Schulterhöhe stimmt (Boden der Zeichnung bei y = 150)
-  const mass = (mitte * PRO_CM) / (150 - SCHULTER_Y[tier.figur]); // Einheiten pro Zeichen-Einheit
+  const fm = FIGUR_MASS[tier.figur];
+  const nachLaenge = g.mass === 'laenge' && !!fm.laenge;
+  // Figur so skalieren, dass ihre mittlere Schulterhöhe bzw. Körperlänge stimmt (Boden der Zeichnung bei y = 150)
+  const zeichenEinheiten = nachLaenge ? fm.laenge! : 150 - (fm.schulterY ?? 60);
+  const mass = (mitte * PRO_CM) / zeichenEinheiten; // Einheiten pro Zeichen-Einheit
   const figurBreite = 200 * mass;
-  const box = AUSSCHNITT[tier.figur];
+  const box = fm.ausschnitt;
+  const tierMitteX = TIER_X + 100 * mass;
+  const laengeHalb = (mitte * PRO_CM) / 2;
+  const gewicht = `${g.gewicht[0]}–${g.gewicht[1]} ${g.einheit}`;
   const figurHoehe = box.hoehe * mass;
   // Unterkante des Ausschnitts liegt (y0 + hoehe − 150) Zeichen-Einheiten unter dem Boden
   const figurOben = BODEN + (box.y0 + box.hoehe - 150) * mass - figurHoehe;
@@ -49,18 +56,50 @@ export function GroessenVergleich({ tier }: { tier: TierSeite }) {
               </SvgText>
             </G>
           ))}
-          {/* Band der Schulterhöhe */}
-          <Rect x={22} y={y(s2)} width={260} height={(s2 - s1) * PRO_CM} fill={colors.amber} opacity={0.14} />
-          <Line
-            x1={22}
-            y1={y(mitte)}
-            x2={282}
-            y2={y(mitte)}
-            stroke={colors.amber}
-            strokeDasharray="4 4"
-            strokeWidth={1}
-            opacity={0.7}
-          />
+          {nachLaenge ? (
+            /* Kleine Tiere: Maßlinie für die Körperlänge unter dem Tier */
+            <G>
+              <Line
+                x1={tierMitteX - laengeHalb}
+                y1={BODEN + 8}
+                x2={tierMitteX + laengeHalb}
+                y2={BODEN + 8}
+                stroke={colors.amber}
+                strokeWidth={1.2}
+              />
+              <Line
+                x1={tierMitteX - laengeHalb}
+                y1={BODEN + 4}
+                x2={tierMitteX - laengeHalb}
+                y2={BODEN + 12}
+                stroke={colors.amber}
+                strokeWidth={1.2}
+              />
+              <Line
+                x1={tierMitteX + laengeHalb}
+                y1={BODEN + 4}
+                x2={tierMitteX + laengeHalb}
+                y2={BODEN + 12}
+                stroke={colors.amber}
+                strokeWidth={1.2}
+              />
+            </G>
+          ) : (
+            /* Band der Schulterhöhe */
+            <G>
+              <Rect x={22} y={y(s2)} width={260} height={(s2 - s1) * PRO_CM} fill={colors.amber} opacity={0.14} />
+              <Line
+                x1={22}
+                y1={y(mitte)}
+                x2={282}
+                y2={y(mitte)}
+                stroke={colors.amber}
+                strokeDasharray="4 4"
+                strokeWidth={1}
+                opacity={0.7}
+              />
+            </G>
+          )}
           {/* Du */}
           <Path d={MENSCH} fill={colors.moss} transform={`translate(85 ${BODEN}) scale(${du * PRO_CM})`} />
           <Line x1={60} y1={y(du)} x2={110} y2={y(du)} stroke={colors.rune} strokeWidth={1} opacity={0.8} />
@@ -81,12 +120,8 @@ export function GroessenVergleich({ tier }: { tier: TierSeite }) {
         </View>
       </View>
       <View style={stile.zahlen}>
-        <Wert symbol="lineal" text={`${s1}–${s2} cm`} farbe={colors.amber} />
-        <Wert
-          symbol="waage"
-          text={`${tier.groesse.gewichtKg[0]}–${tier.groesse.gewichtKg[1]} kg`}
-          farbe={colors.amber}
-        />
+        <Wert symbol="lineal" text={`${s1}–${s2} cm${nachLaenge ? ' lang' : ''}`} farbe={colors.amber} />
+        <Wert symbol="waage" text={gewicht} farbe={colors.amber} />
         <Wert symbol="tippen" text={`Du: ${du} cm`} farbe={colors.rune} />
       </View>
       <Slider
@@ -119,7 +154,7 @@ export function KoerperErkunden({ tier, ruhig }: { tier: TierSeite; ruhig: boole
   const [maennlich, setMaennlich] = useState(true);
   const [wahl, setWahl] = useState<string | null>(null);
   const g = tier.geschlechter;
-  const box = AUSSCHNITT[tier.figur];
+  const box = FIGUR_MASS[tier.figur].ausschnitt;
   const punkte = tier.koerper.filter((p) => maennlich || !p.nurMaennlich);
   const gewaehlt = punkte.find((p) => p.id === wahl);
 

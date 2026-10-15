@@ -91,15 +91,18 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 
-  test('Artenseite eines Tieres (Text-Aufbau): Wild-Wert, Key Features, Nahrung, Spuren, Wohnen', async () => {
-    mockParams.id = 'dachs';
-    useSammlung.setState({ gefunden: {} });
-    await render(<ArtSeite />);
-    expect(screen.getByText('Wild-Wert · 1–100')).toBeTruthy();
-    expect(screen.getByText('Key Features')).toBeTruthy();
-    expect(screen.getByText('Spuren')).toBeTruthy();
-    expect(screen.getByText('Wohnen & Schlafen')).toBeTruthy();
-  });
+  test.each(['eichhoernchen', 'wildschwein', 'dachs', 'igel', 'feldhase', 'biber', 'wildkatze', 'luchs'])(
+    'Grafische Seite für jedes Säugetier: %s',
+    async (id) => {
+      mockParams.id = id;
+      // gefunden, damit auch seltene Arten (Luchs, Wildkatze) nicht als Mystery verborgen sind
+      useSammlung.setState({ gefunden: { [id]: { datum: '2026-10-01' } } });
+      await render(<ArtSeite />);
+      for (const titel of ['So groß', 'Erkunden', 'Ein Jahr', 'Ein Tag', 'Zuhause', 'Speiseplan', 'Spuren lesen']) {
+        expect(screen.getByText(titel)).toBeTruthy();
+      }
+    },
+  );
 
   test('Grafische Reh-Seite: alle Bild-Abschnitte, verknüpftes Futter, Gefahren', async () => {
     mockParams.id = 'reh';

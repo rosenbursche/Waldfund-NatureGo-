@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import type { ModellParameter } from '@/data/artTypen';
 import type { BaumModell } from '@/data/typen';
 import type { Stimmung } from '@/logic/tageszeit';
-import type { Umgebung } from '@/data/tierSeiten';
+import type { Extra, Umgebung } from '@/data/tierSeiten';
 import { colors } from '@/theme/theme';
 
 import { baueArtModell, einpassen, type Jahreszeit } from './artModell';
@@ -36,7 +36,7 @@ type Props = {
   /** Ladezustand eines GLB-Modells melden (für die Test-Ansicht) */
   melden?: (s: string) => void;
   /** Lebensraum als 3D-Umgebung hinter dem Tier (statt Runenkreis), Licht nach Tageszeit */
-  umgebung?: { art: Umgebung; stimmung: Stimmung; extras?: 'bau'[] };
+  umgebung?: { art: Umgebung; stimmung: Stimmung; extras?: Extra[] };
 };
 
 export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze, melden, umgebung }: Props) {

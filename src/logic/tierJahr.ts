@@ -13,7 +13,10 @@ export type JahresZustand = {
   /** Jungtier draußen zu sehen, mit Flecken (Kitz) bzw. noch dunklem Fell (Welpe) */
   jung: boolean;
   flecken: boolean;
+  streifen: boolean;
   jungDunkel: boolean;
+  /** Winterschlaf bzw. Winterruhe in diesem Monat */
+  ruhe: boolean;
   /** Geburtszeit: Die Mutter liegt bei den Jungen */
   geburt: boolean;
   /** IDs der Ereignisse in diesem Monat (z. B. 'brunft') */
@@ -30,6 +33,8 @@ export function jahresZustand(t: TierSeite, monat: number): JahresZustand {
     geweih: t.geweih?.[i],
     jung: t.jung.sichtbar.includes(m),
     flecken: !!t.jung.flecken?.includes(m),
+    streifen: !!t.jung.streifen?.includes(m),
+    ruhe: !!t.ruhe?.monate.includes(m),
     jungDunkel: !!t.jung.dunkel?.includes(m),
     geburt: ereignisse.includes(t.geburt),
     ereignisse,

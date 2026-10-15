@@ -353,13 +353,15 @@ Von oben nach unten:
 9. **Lehrbuch-Zeichnung** im Stil „Tinte auf altem Papier“ (`LehrbuchZeichnung.tsx`).
 10. **Verbreitung in Deutschland**. Bei Mystery-Arten heißt der Abschnitt „Hier könntest du suchen“.
 
-**Grafische Tierseiten (Reh, Fuchs):** Gibt es für eine Art einen Eintrag in `src/data/tierSeiten.ts`, ersetzt eine Bild-Seite die Text-Abschnitte (Steckbrief, Key Features, Nahrung, Spuren, Wohnen, Fressfeinde, Wusstest du). Bausteine in `src/components/tier/`:
+**Grafische Tierseiten (alle 10 Säugetiere):** Gibt es für eine Art einen Eintrag in `src/data/tierSeiten.ts`, ersetzt eine Bild-Seite die Text-Abschnitte (Steckbrief, Key Features, Nahrung, Spuren, Wohnen, Fressfeinde, Wusstest du). Bausteine in `src/components/tier/`:
 
 | Datei | Abschnitte |
 |---|---|
 | `RehFigur.tsx` | Reh als Zeichnung aus Code: steht, äst oder liegt; Sommer-/Winterfell; Geweih blank, im Bast oder keins; Kitz mit Flecken |
 | `FuchsFigur.tsx` | Fuchs als Zeichnung: steht, Mäusesprung oder eingerollt mit der Lunte über der Nase; Winterfell mit buschigerer Lunte; dunkle Welpen |
-| `TierFigur.tsx` | wählt die passende Figur (Reh, Fuchs …), dazu Schulterhöhe und Bildausschnitt je Figur |
+| `figuren/` | Zeichnungen von Eichhörnchen, Wildschwein, Dachs, Igel, Feldhase, Biber, Wildkatze und Luchs (je steht / aktiv / liegt), gemeinsame Teile wie Fellverlauf und schlafend eingerolltes Tier |
+| `TierFigur.tsx` | wählt die passende Figur, dazu Bildausschnitt, Schulterhöhe bzw. Körperlänge je Figur |
+| `Trittsiegel.tsx` | Trittsiegel-Formen: Huf, Huf mit Afterklauen, Fuchspfote, Katzenpfote, 5-Zehen-Pfote, Hase, Nager, Biber |
 | `TierSymbol.tsx` | kleine Strich-Symbole und Spuren-Zeichnungen |
 | `TierTafel.tsx` | Rahmen je Abschnitt, Symbol-Umschalter, pulsierender Leuchtpunkt, Fingerfläche für Drehräder |
 | `KoerperTafeln.tsx` | „So groß“ (Reh neben dir, eigene Größe per Regler), „Erkunden“ (Leuchtpunkte, Bock/Ricke) |
@@ -370,9 +372,17 @@ Von oben nach unten:
 
 **Hero:** Oben steht das Tier in einer 3D-Umgebung passend zu seinem Lebensraum (`src/scene/Lebensraum3D.tsx`, beim Reh ein Waldrand: Wiese mit Gras und Blumen, Hecke aus gemalten Blattzweigen mit Beeren, zwei Reihen heimischer Laubbäume aus dem Baum-Generator, Glühwürmchen). Licht und Nebel folgen der Uhrzeit. Der Name steht groß auf dem Bild, darunter ein weicher Übergang in die Seite.
 
-Die Rechenlogik (Monat, Uhrzeit, Fingerposition, Zentimeter → Bildschirmpunkte) steht in `src/logic/tierJahr.ts`. **Neue Tierart hinzufügen:**
-1. In `src/data/tierSeiten.ts` einen Eintrag anlegen (Vorlagen: `reh`, `fuchs`). Dort stehen Größe, Körperpunkte, Jahreslauf, Tagesrhythmus, Futter, Spuren, Gefahren und der Sicherheits-Hinweis. Neue Fachangaben mit `TODO fachlich prüfen` markieren.
-2. Eine Figur zeichnen (wie `FuchsFigur.tsx`) und in `TierFigur.tsx` eintragen: Schulterhöhe und Bildausschnitt.
+Die Rechenlogik (Monat, Uhrzeit, Fingerposition, Zentimeter → Bildschirmpunkte) steht in `src/logic/tierJahr.ts`. **Jedes Tier ist anders** – die Daten (`src/data/tiere/<art>.ts`) steuern die Besonderheiten:
+- Größe über Schulterhöhe (große Tiere) oder Körperlänge (kleine Tiere), Gewicht in kg oder g
+- Lebensraum-Landschaft `waldrand`, `wald`, `feld` oder `ufer` – als Bild (Abschnitt „Zuhause“) und als 3D-Hero; Extras im Hero: Bau, Suhle, Biberburg, Kobel, Laubnest
+- Winterschlaf/Winterruhe (`ruhe`): das Tier liegt im Jahresrad eingerollt
+- Jungtiere mit Flecken (Kitz), Streifen (Frischling) oder dunklem Fell (Welpen)
+- Fährte versetzt, geschnürt oder als Sprungspur; eigene Spuren-Karten (Zapfen, Nuss, Suhle, Malbaum, Sanduhr-Nagespur …)
+- Hinweis am Ende: Jungtier im Gras („nicht anfassen“) oder Tier auf Abstand, mit Text aus `arten.ts` oder eigenem Text
+
+**Neue Tierart hinzufügen:**
+1. In `src/data/tiere/` eine Datei anlegen (Vorlagen: `reh.ts`, `igel.ts`, `biber.ts` …) und in `src/data/tierSeiten.ts` eintragen. Dort stehen Größe, Körperpunkte, Jahreslauf, Tagesrhythmus, Futter, Spuren, Gefahren und der Sicherheits-Hinweis. Neue Fachangaben mit `TODO fachlich prüfen` markieren.
+2. Eine Figur zeichnen (in `src/components/tier/figuren/`) und in `TierFigur.tsx` eintragen: Bildausschnitt und Schulterhöhe bzw. Körperlänge.
 3. Fehlen Symbole (Futter, Spuren), in `TierSymbol.tsx` ergänzen.
 4. Einen Render-Test in `src/app/__tests__/screens.test.tsx` anlegen.
 

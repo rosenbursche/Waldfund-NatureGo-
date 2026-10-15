@@ -6,7 +6,7 @@ import { baumById } from '@/data/baumarten';
 import { zufall } from '@/logic/lichtung';
 import type { Detail } from '@/logic/lichtungDetails';
 import type { Stimmung } from '@/logic/tageszeit';
-import type { Umgebung } from '@/data/tierSeiten';
+import type { Extra, Umgebung } from '@/data/tierSeiten';
 
 import { Baum3D } from './Baum3D';
 import { blattTextur } from './blattTexturen';
@@ -24,9 +24,12 @@ import { FORM, matt } from './material';
 import { leuchtTextur } from './texturen';
 
 /**
- * Lebensraum hinter dem Tier auf der Artenseite (Hero): ein Waldrand.
- * Vorne Wiese mit Gras und Blumen, dahinter eine Hecke aus Sträuchern, dann zwei Reihen
- * Laubbäume aus dem Baum-Generator, alles im Nebel der aktuellen Tageszeit.
+ * Lebensraum hinter dem Tier auf der Artenseite (Hero), passend zum Tier:
+ * - waldrand: vorne Wiese mit Gras und Blumen, dahinter Hecke, dann zwei Reihen Laubbäume
+ * - wald: Waldboden mit Farnen und Unterholz, Bäume rundherum und dichter
+ * - feld: Getreidereihen und Wiese, hinten eine Hecke, nur wenige Bäume
+ * - ufer: Wiese am Ufer, Schilf, dahinter ein Wasserlauf, am anderen Ufer Weiden, Pappeln und Erlen
+ * Dazu Extras wie Fuchsbau, Suhle, Biberburg, Kobel oder Laubnest. Alles im Nebel der aktuellen Tageszeit.
  *
  * Kamera der Bühne (mit Umgebung): bei (0, 1,7, 7,2), schaut auf (0, 1,1, 0). Das Tier steht in der Mitte;
  * +z ist vorn (zur Kamera), −z ist hinten (Waldrand).
@@ -43,12 +46,24 @@ const FARBE = {
   hecke: ['#22402C', '#2A4A30', '#1E3826', '#30543A'],
   beere: '#8E2F2F',
   stein: ['#4B514C', '#585E57'],
+  acker: '#3A3524',
+  getreide: ['#8A7A44', '#9A8A50', '#7A6C3C'],
+  schilf: ['#5A6B3E', '#4E5E36'],
+  kolben: '#4A3424',
+  wasser: '#16282C',
+  laub: ['#5A3E2A', '#6B4A2E', '#7A5A30', '#4E3A26'],
 };
 
-/** Bäume am Waldrand: heimische Laubbäume (passt zum Lebensraum Waldrand/Hecke) */
-const WALDRAND_BAEUME = ['rotbuche', 'stieleiche', 'hainbuche', 'sandbirke', 'bergahorn', 'vogelkirsche'];
+/** Bäume je Umgebung: heimische Arten, die dort typisch wachsen */
+const BAEUME: Record<Umgebung, string[]> = {
+  waldrand: ['rotbuche', 'stieleiche', 'hainbuche', 'sandbirke', 'bergahorn', 'vogelkirsche'],
+  wald: ['rotbuche', 'stieleiche', 'traubeneiche', 'hainbuche', 'waldkiefer', 'bergahorn'],
+  feld: ['stieleiche', 'vogelkirsche', 'feldahorn'],
+  ufer: ['silberweide', 'salweide', 'zitterpappel', 'schwarzerle'],
+};
 
 export function Lebensraum3D({
+  umgebung,
   stimmung,
   ruhig,
   extras = [],
@@ -56,11 +71,11 @@ export function Lebensraum3D({
   umgebung: Umgebung;
   stimmung: Stimmung;
   ruhig: boolean;
-  extras?: 'bau'[];
+  extras?: Extra[];
 }) {
   const gruppe = useRef<THREE.Group>(null);
-  const teile = useMemo(() => baueWaldrand(), []);
-  const baeume = useMemo(() => baumPlaetze(), []);
+  const teile = useMemo(() => baueUmgebung(umgebung), [umgebung]);
+  const baeume = useMemo(() => baumPlaetze(umgebung), [umgebung]);
 
   // Deko soll das Drehen des Tiers nicht stören
   useEffect(() => {
@@ -92,25 +107,45 @@ export function Lebensraum3D({
           antippbar={false}
         />
       ))}
+      {umgebung === 'ufer' && <Wasser />}
       {extras.includes('bau') && <Fuchsbau />}
+      {extras.includes('suhle') && <Suhle />}
+      {extras.includes('burg') && <Biberburg />}
+      {extras.includes('kobel') && <Kobel />}
+      {extras.includes('laubnest') && <Laubnest />}
       <Schwebelichter anteil={stimmung.gluehwuermchen} farbe={stimmung.licht} ruhig={ruhig} />
     </group>
   );
 }
 
-/** Zwei Baumreihen hinter der Hecke, die Mitte etwas lichter (dort steht das Tier im Bild) */
-function baumPlaetze() {
+/** Baumreihen je Umgebung; die Mitte bleibt frei (dort steht das Tier im Bild) */
+function baumPlaetze(umgebung: Umgebung) {
   const rnd = zufall(4711);
+  const arten = BAEUME[umgebung];
+  // [Abstand nach hinten, Anzahl, Größe, Breite der Reihe, Mitte frei bis |x|]
+  const reihen: Record<Umgebung, [number, number, number, number, number][]> = {
+    waldrand: [
+      [-8.5, 9, 1.5, 26, 0],
+      [-13.5, 13, 2, 34, 0],
+    ],
+    wald: [
+      [-4.5, 6, 1.3, 20, 3.2],
+      [-8, 10, 1.6, 28, 0],
+      [-12.5, 13, 2, 34, 0],
+    ],
+    feld: [[-14, 6, 1.6, 36, 0]],
+    ufer: [
+      [-10.5, 10, 1.5, 30, 0],
+      [-14.5, 12, 1.9, 36, 0],
+    ],
+  };
   const liste: { id: string; x: number; z: number; skala: number; drehung: number }[] = [];
-  for (const [z0, anzahl, skala] of [
-    [-8.5, 9, 1.5],
-    [-13.5, 13, 2],
-  ] as const) {
+  for (const [z0, anzahl, skala, breite, frei] of reihen[umgebung]) {
     for (let i = 0; i < anzahl; i++) {
-      const breite = z0 < -10 ? 34 : 26;
       const x = -breite / 2 + (breite * (i + 0.5)) / anzahl + (rnd() - 0.5) * 1.6;
+      if (Math.abs(x) < frei) continue;
       liste.push({
-        id: WALDRAND_BAEUME[Math.floor(rnd() * WALDRAND_BAEUME.length)],
+        id: arten[Math.floor(rnd() * arten.length)],
         x,
         z: z0 + (rnd() - 0.5) * 1.8,
         skala: skala * (0.8 + rnd() * 0.4),
@@ -147,8 +182,8 @@ function streue(
   return liste;
 }
 
-/** Boden: Wiese vorne, nach hinten dunkler Waldboden, sanfte Wellen */
-function bodenGeometrie() {
+/** Boden: Wiese bzw. Acker vorne, nach hinten dunkler Waldboden, sanfte Wellen */
+function bodenGeometrie(umgebung: Umgebung) {
   const g = new THREE.CircleGeometry(30, 64, 0, Math.PI * 2);
   g.rotateX(-Math.PI / 2);
   const pos = g.attributes.position as THREE.BufferAttribute;
@@ -156,16 +191,18 @@ function bodenGeometrie() {
   const wiese = new THREE.Color(FARBE.wiese);
   const hell = new THREE.Color(FARBE.wieseHell);
   const wald = new THREE.Color(FARBE.waldboden);
+  const acker = new THREE.Color(FARBE.acker);
   const c = new THREE.Color();
   for (let i = 0; i < pos.count; i++) {
     const x = pos.getX(i);
     const z = pos.getZ(i);
     pos.setY(i, Math.sin(x * 0.4) * Math.cos(z * 0.35) * 0.08 + (z < -4 ? (-z - 4) * 0.04 : 0));
-    // 0 = Wiese, 1 = Waldboden (Übergang an der Hecke)
-    const t = Math.min(1, Math.max(0, (-z - 2.5) / 3));
+    // 0 = Wiese, 1 = Waldboden (Übergang an der Hecke); im Wald überall Waldboden, im Feld Acker hinten
+    const t = umgebung === 'wald' ? 0.85 : umgebung === 'feld' ? 0 : Math.min(1, Math.max(0, (-z - 2.5) / 3));
     c.copy(wiese)
       .lerp(hell, Math.max(0, Math.sin(x * 0.7 + z * 0.5)) * 0.4)
       .lerp(wald, t);
+    if (umgebung === 'feld' && z < -1) c.lerp(acker, Math.min(1, (-z - 1) / 2) * (0.7 + 0.3 * Math.sin(x * 6)));
     farben.set([c.r, c.g, c.b], i * 3);
   }
   g.setAttribute('color', new THREE.BufferAttribute(farben, 3));
@@ -173,13 +210,31 @@ function bodenGeometrie() {
   return g;
 }
 
-function baueWaldrand() {
+function baueUmgebung(umgebung: Umgebung) {
   const mitteFrei = (x: number, z: number) => Math.hypot(x, z) > 1.05; // dort stehen die Hufe
-  const wiese = (x: number, z: number) => z > -4 && z < 5 && mitteFrei(x, z);
-  const gras = streue(11, 1100, wiese, [0.6, 1.3]);
-  const blumen = streue(12, 160, (x, z) => wiese(x, z) && Math.abs(x) > 0.6, [0.8, 1.2]);
-  const farne = streue(13, 70, (x, z) => z < -3 && z > -5, [0.9, 1.6]);
-  const hecke = streue(14, 70, (x, z) => z < -4 && z > -6.5, [0.5, 1]);
+  const wald = umgebung === 'wald';
+  const feld = umgebung === 'feld';
+  const ufer = umgebung === 'ufer';
+  // Wiese: im Feld nur vorn (dahinter Getreide), am Ufer bis ans Wasser
+  const wiesenEnde = feld ? -1 : ufer ? -2.2 : -4;
+  const wiese = (x: number, z: number) => z > wiesenEnde && z < 5 && mitteFrei(x, z);
+  const gras = streue(11, wald ? 260 : 1100, wiese, [0.6, 1.3]);
+  const blumen = streue(12, wald ? 30 : 160, (x, z) => wiese(x, z) && Math.abs(x) > 0.6, [0.8, 1.2]);
+  const farne = streue(
+    13,
+    wald ? 170 : ufer ? 0 : 70,
+    (x, z) => (wald ? mitteFrei(x, z) && z < 4 : z < -3 && z > -5),
+    [0.9, 1.6],
+  );
+  const hecke = streue(
+    14,
+    wald ? 34 : ufer ? 0 : 70,
+    (x, z) => (feld ? z < -6.5 && z > -8.5 : wald ? z < -2.5 && Math.abs(x) > 2.5 : z < -4 && z > -6.5),
+    [0.5, 1],
+  );
+  const getreide = feld ? streue(16, 1400, (x, z) => z < -1.2 && z > -6.4, [0.8, 1.1]) : [];
+  const schilf = ufer ? streue(17, 260, (x, z) => z < -1.6 && z > -2.8, [0.8, 1.3]) : [];
+  const laub = wald ? streue(18, 500, mitteFrei, [0.06, 0.11]) : [];
   const steine = streue(15, 14, (x, z) => wiese(x, z) && Math.hypot(x, z) > 1.8, [0.1, 0.28]);
   const beeren = hecke.filter((_, i) => i % 3 === 0);
 
@@ -217,6 +272,62 @@ function baueWaldrand() {
       o.position.set(d.x + d.groesse * 0.6, d.groesse * 0.8, d.z + d.groesse * 0.7);
       o.scale.setScalar(0.9);
     }),
+    // Getreide: Halme mit Ähren, in Reihen leicht schwankend
+    instanzen(
+      HALM,
+      windMaterial(0.6),
+      getreide.map((d) => ({ ...d, x: Math.round(d.x * 3) / 3 })),
+      (d, o) => {
+        o.position.y = 0.45 * d.groesse;
+        o.scale.set(1.6, 0.9 * d.groesse, 1.6);
+      },
+      FARBE.getreide,
+    ),
+    instanzen(
+      FORM.kegel,
+      windMaterial(0.6),
+      getreide.map((d) => ({ ...d, x: Math.round(d.x * 3) / 3 })),
+      (d, o) => {
+        o.position.y = 0.92 * d.groesse;
+        o.scale.set(0.02, 0.1, 0.02);
+      },
+      FARBE.getreide,
+    ),
+    // Schilf mit Rohrkolben am Wasser
+    instanzen(
+      HALM,
+      windMaterial(0.35),
+      schilf,
+      (d, o) => {
+        o.position.y = 0.7 * d.groesse;
+        o.scale.set(2, 1.4 * d.groesse, 2);
+        o.rotation.set(d.neigung * 0.4, 0, d.neigung * 0.3);
+      },
+      FARBE.schilf,
+    ),
+    instanzen(
+      FORM.stamm,
+      windMaterial(0.35),
+      schilf.filter((_, i) => i % 4 === 0),
+      (d, o) => {
+        o.position.y = 1.25 * d.groesse;
+        o.scale.set(0.035, 0.22, 0.035);
+        o.rotation.set(d.neigung * 0.4, 0, d.neigung * 0.3);
+      },
+      [FARBE.kolben],
+    ),
+    // Falllaub im Wald
+    instanzen(
+      FORM.flach,
+      new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide }),
+      laub,
+      (d, o) => {
+        o.position.y = 0.02;
+        o.rotation.set(-Math.PI / 2 + d.neigung * 0.3, 0, d.drehung);
+        o.scale.set(d.groesse, d.groesse * 1.6, 1);
+      },
+      FARBE.laub,
+    ),
     instanzen(
       FELS,
       new THREE.MeshLambertMaterial({ color: '#ffffff' }),
@@ -229,7 +340,11 @@ function baueWaldrand() {
     ),
   ];
 
-  return { boden: bodenGeometrie(), bodenMaterial: new THREE.MeshLambertMaterial({ vertexColors: true }), meshes };
+  return {
+    boden: bodenGeometrie(umgebung),
+    bodenMaterial: new THREE.MeshLambertMaterial({ vertexColors: true }),
+    meshes,
+  };
 }
 
 /** Blattzweige rund um jeden Heckenstrauch: ein InstancedMesh mit gemalter Laub-Textur */
@@ -301,6 +416,154 @@ function Fuchsbau() {
   );
 }
 const HALBKREIS = new THREE.CircleGeometry(1, 16, 0, Math.PI);
+
+/** Wasserlauf hinter dem Ufer: dunkle, glänzende Fläche */
+function Wasser() {
+  return (
+    <mesh
+      rotation={[-Math.PI / 2, 0, 0]}
+      position={[0, 0.03, -5.8]}
+      geometry={WASSER_FLAECHE}
+      material={WASSER_MATERIAL}
+    />
+  );
+}
+const WASSER_FLAECHE = new THREE.PlaneGeometry(60, 6.4);
+const WASSER_MATERIAL = new THREE.MeshPhongMaterial({ color: FARBE.wasser, specular: '#9FB3AD', shininess: 90 });
+
+/** Suhle: Schlammloch mit glänzender Oberfläche und aufgewühltem Rand */
+const SCHLAMM = '#2E241C';
+function Suhle() {
+  return (
+    <group position={[2.4, 0.02, -1.6]}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} scale={[1.6, 1, 1]} geometry={HALBKREIS_VOLL} material={matt(BAU_ERDE)} />
+      <mesh
+        rotation={[-Math.PI / 2, 0, 0]}
+        position={[0, 0.01, 0]}
+        scale={[1.3, 0.75, 1]}
+        geometry={HALBKREIS_VOLL}
+        material={SCHLAMM_GLANZ}
+      />
+      {[-1.2, 1.3, 0.2].map((x) => (
+        <mesh
+          key={x}
+          geometry={FORM.kugelFein}
+          material={matt(SCHLAMM)}
+          position={[x, 0, 0.9 - Math.abs(x) * 0.3]}
+          scale={[0.3, 0.08, 0.2]}
+        />
+      ))}
+    </group>
+  );
+}
+const HALBKREIS_VOLL = new THREE.CircleGeometry(1, 24);
+const SCHLAMM_GLANZ = new THREE.MeshPhongMaterial({ color: '#2A2018', specular: '#5A5048', shininess: 60 });
+
+/** Biberburg: Kuppel aus Schlamm, darüber kreuz und quer Äste – am Wasserrand */
+const BURG_AESTE = (() => {
+  const rnd = zufall(5150);
+  return Array.from({ length: 46 }, () => {
+    const w = rnd() * Math.PI * 2;
+    const h = rnd();
+    return {
+      x: Math.cos(w) * (1 - h * 0.7) * 1.3,
+      y: h * 0.75 + 0.1,
+      z: Math.sin(w) * (1 - h * 0.7) * 1.1,
+      ry: rnd() * Math.PI,
+      rz: (rnd() - 0.5) * 1.2,
+      l: 0.8 + rnd() * 0.8,
+    };
+  });
+})();
+function Biberburg() {
+  return (
+    <group position={[2.6, 0, -3.4]}>
+      <mesh geometry={FORM.kugelFein} material={matt(BAU_ERDE)} position={[0, -0.1, 0]} scale={[1.5, 0.95, 1.25]} />
+      {BURG_AESTE.map((a, i) => (
+        <mesh
+          key={i}
+          geometry={FORM.stamm}
+          material={matt(i % 3 ? '#4A3A2A' : '#6A5640')}
+          position={[a.x, a.y, a.z]}
+          rotation={[Math.PI / 2, a.ry, a.rz]}
+          scale={[0.035, a.l, 0.035]}
+        />
+      ))}
+    </group>
+  );
+}
+
+/** Kobel: Stamm mit Astgabel, darin ein Kugelnest aus Zweigen */
+function Kobel() {
+  return (
+    <group position={[-2.4, 0, -2.6]}>
+      <mesh geometry={FORM.stamm} material={matt('#3A2C22')} position={[0, 2, 0]} scale={[0.22, 4, 0.22]} />
+      <mesh
+        geometry={FORM.stamm}
+        material={matt('#3A2C22')}
+        position={[0.45, 2.9, 0]}
+        rotation={[0, 0, -0.9]}
+        scale={[0.07, 1.2, 0.07]}
+      />
+      <mesh
+        geometry={FORM.kugelFein}
+        material={matt('#3E3024')}
+        position={[0.35, 2.85, 0.15]}
+        scale={[0.42, 0.36, 0.4]}
+      />
+      {BURG_AESTE.slice(0, 18).map((a, i) => (
+        <mesh
+          key={i}
+          geometry={FORM.stamm}
+          material={matt('#5A4632')}
+          position={[0.35 + a.x * 0.25, 2.85 + (a.y - 0.45) * 0.5, 0.15 + a.z * 0.25]}
+          rotation={[Math.PI / 2, a.ry, a.rz]}
+          scale={[0.015, a.l * 0.35, 0.015]}
+        />
+      ))}
+    </group>
+  );
+}
+
+/** Laubnest: Haufen aus Falllaub unter der Hecke, vorn ein dunkler Eingang */
+const NEST_BLAETTER = (() => {
+  const rnd = zufall(808);
+  return Array.from({ length: 60 }, () => {
+    const w = rnd() * Math.PI * 2;
+    const h = rnd();
+    return {
+      x: Math.cos(w) * (1 - h * 0.6) * 0.6,
+      y: h * 0.32,
+      z: Math.sin(w) * (1 - h * 0.6) * 0.5,
+      r: rnd() * Math.PI,
+      f: Math.floor(rnd() * 4),
+    };
+  });
+})();
+function Laubnest() {
+  return (
+    <group position={[-2.1, 0, -1.4]}>
+      <mesh geometry={FORM.kugelFein} material={matt('#4E3A26')} position={[0, 0, 0]} scale={[0.62, 0.3, 0.52]} />
+      {NEST_BLAETTER.map((b, i) => (
+        <mesh
+          key={i}
+          geometry={FORM.flach}
+          material={matt(FARBE.laub[b.f])}
+          position={[b.x, b.y, b.z]}
+          rotation={[b.r, b.r * 2, 0]}
+          scale={[0.09, 0.14, 1]}
+        />
+      ))}
+      <mesh
+        rotation={[-0.3, 0, 0]}
+        position={[0, 0.1, 0.5]}
+        geometry={HALBKREIS}
+        material={matt(BAU_LOCH)}
+        scale={0.14}
+      />
+    </group>
+  );
+}
 
 /** Glühwürmchen bzw. Lichtstaub, der über der Wiese schwebt (je nach Tageszeit) */
 const LICHTER = 18;
