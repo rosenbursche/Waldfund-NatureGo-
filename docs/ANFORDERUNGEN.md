@@ -139,7 +139,21 @@ Konzept: `docs/KONZEPT-WETTKAMPF.md` (Entwurf). Offene Entscheidungen dort in Ab
 | W2: Zoo-Flächen aus OpenStreetMap (Lizenz prüfen), Plausibilität über Verbreitung, Jahreszeit, Tageszeit | ⬜ |
 | W3: Server mit Konten, Ranglisten, Bild-Fingerabdruck, Community-Prüfung, Vertrauenswert | ⬜ 🔒 Cloudflare-Konto, Datenschutz |
 | W4: Kurzvideo mit Sensoren und Parallaxe-Prüfung für sehr seltene/legendäre Wildfunde, Geräteprüfung | ⬜ 🔒 Development Build, Recherche |
-| Kampfsystem | ⬜ eigenes Konzept folgt |
+| Kampfsystem | ⬜ Konzept, siehe 2.8 |
+
+### 2.8 Spielsystem wie Pokémon GO: Kämpfe, Fähigkeiten, Pflanzen und Pilze
+Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in Abschnitt 7.
+
+| Anforderung | Stand |
+|---|---|
+| Aufbau wie Pokémon GO: Spuren (je Art), Humus (Währung), Füttern, Heranwachsen über Alters-Stufen | ⬜ Konzept |
+| Kämpfe 3 gegen 3: Sofortangriff, Spezialangriff, Ausdauer, 2× Tarnen, Ligen nach Größenklasse | ⬜ Konzept |
+| Sechs Lebensweisen statt Typen, Tag/Nacht-Bonus nach echter Uhrzeit | ⬜ Konzept |
+| Angriffe aus echtem Verhalten (Mäusesprung, Trommelwirbel, Stachelkugel …) | ⬜ Konzept |
+| Pflanzen = Futter nach Nahrungsnetz, Pilze = Humus, Bäume = Heimat und Hüterbäume | ⬜ Konzept |
+| Besondere Gegenstände aus seltenen Funden (Leuchtholz, Arnika-Salbe, Myzel-Band, Essenzen) | ⬜ Konzept |
+| Kampfanimationen (7 je Tier) für 6 Start-Tiere, gemeinsame Skelette | ⬜ 🔒 Modelle |
+| K1: Kampf-Rechenlogik `src/logic/kampf.ts` mit Tests | ⬜ |
 
 ---
 

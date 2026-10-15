@@ -40,7 +40,7 @@ Nur Funde, die eindeutig gefälscht sind (Bildschirm, Ausdruck, doppeltes Foto),
 
 ## 2. Kämpfe (erster Entwurf)
 
-Nur die Richtung, Details folgen in einem eigenen Konzept.
+Nur die Richtung. Ausgearbeitet in `docs/KONZEPT-SPIELSYSTEM.md`.
 
 - Werte eines Tiers (z. B. Kraft, Tempo, Ausdauer, Tarnung) leiten sich aus **echten Eigenschaften** der Art ab, damit man beim Spielen etwas lernt. `// TODO fachlich prüfen` für jede Zuordnung.
 - **Wild-Bonus** für Wildformen, z. B. etwas höhere Werte oder eine Zusatzfähigkeit. Werte später im Spieltest abstimmen.
