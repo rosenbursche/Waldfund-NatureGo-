@@ -33,6 +33,36 @@ export const colors = {
   wasser: '#5D8FA3',
   waldSymbol: '#3A6B48',
   shadow: '#000000',
+
+  // Lebensbäume im Katalog – jede Kategorie hat ihre eigene Farbwelt
+  // Pflanzen: Silberner Blütenbaum
+  silberLaub: '#7E9C88',
+  silberLaubHell: '#B4CDBD',
+  silberLaubDunkel: '#2C4236',
+  // Pilze: Myzelbaum in Bernstein und Rost
+  myzelStiel: '#E6D2AE',
+  myzelStielMitte: '#B8946A',
+  myzelStielDunkel: '#5E4630',
+  pilzHut: '#A4532F',
+  pilzHutDunkel: '#3D2016',
+  pilzLamelle: '#E9D7B5',
+  myzelLicht: '#F1C978',
+  // Vögel: Federbaum in Mondblau
+  federHolz: '#E4ECF2',
+  federHolzMitte: '#9DB4C6',
+  federHolzDunkel: '#3B5266',
+  feder: '#6F93AE',
+  federHell: '#BFD3E2',
+  federDunkel: '#24394A',
+  ei: '#CFE0E6',
+  // Säugetiere: Uralter Baumhirte in Rinde und Moos
+  rindeHell: '#9B805E',
+  rinde: '#6A543C',
+  rindeDunkel: '#2F2419',
+  eichenLaub: '#4F6A3A',
+  eichenLaubHell: '#8AA05A',
+  eichenLaubDunkel: '#1F2D1A',
+  eichel: '#A57A44',
 } as const;
 
 export type ColorToken = keyof typeof colors;

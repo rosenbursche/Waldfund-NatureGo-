@@ -42,7 +42,13 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
 
       {ast && (
         <View onLayout={(e) => onBereich?.(e.nativeEvent.layout.y)}>
-          <AstPanel key={ast.name} ast={ast} gefunden={gefunden} onSchliessen={() => setOffen(null)} />
+          <AstPanel
+            key={ast.name}
+            kategorie={kategorie}
+            ast={ast}
+            gefunden={gefunden}
+            onSchliessen={() => setOffen(null)}
+          />
         </View>
       )}
 

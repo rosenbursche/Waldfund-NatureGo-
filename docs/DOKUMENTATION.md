@@ -217,7 +217,7 @@ Alle Module sind reine Rechenfunktionen ohne Bildschirm und deshalb testbar. Die
 | `ortsuche.ts` | Offline-Suche nach Ort/PLZ; Umlaute egal („lueneburg“ = „Lüneburg“) |
 | `fortschritt.ts` | Punkte, Level, Serie, Erfolge, Hüttenstufe, Belohnung eines Fundes |
 | `katalog.ts` | Arten je Kategorie, Gruppen, Lebensbaum (Äste/Sterne/Wurzeln), Mystery, Wald-Plätze, Gefahr-Einträge |
-| `baumForm.ts` | Geometrie des Lebensbaums: Stamm, Äste, Ranken, Wurzeln, Runenring, Sternplätze |
+| `baum/` | Geometrie der vier Lebensbäume (`pflanzen.ts`, `pilze.ts`, `voegel.ts`, `saeuger.ts`), Gerüst (`rahmen.ts`), Zeichenwerkzeuge (`werkzeug.ts`), Einstieg `stil.ts` |
 | `validierung.ts` | Foto-Prüfung: Demo oder echt (über eigenen Server), Mindest-Sicherheit 0,6, Foto-Tipps |
 | `foto.ts` | Foto aufnehmen, verkleinern, auf dem Handy ablegen (EXIF/GPS wird dabei entfernt) |
 | `tageszeit.ts` | Lichtstimmung nach echter Uhrzeit (siehe 7.4) |
@@ -386,12 +386,18 @@ Er setzt sich zusammen aus 55 % Verbreitung (Anteil der Rasterfelder ohne Nachwe
 - Die Flächen sind gröber als Rasterfelder. **Fundorte seltener Arten werden nie genauer gezeigt.**
 
 ### 8.4 Katalog
-- **Stammbaum** (`Stammbaum.tsx`, Bausteine in `components/stammbaum/`): ein mystischer **Lebensbaum** im Stil alter Wappenbäume (eigene Zeichnung, keine Kopie bekannter Motive). Die Form berechnet `logic/baumForm.ts` aus einem festen Startwert je Kategorie; welche Art wohin gehört, bestimmt `lebensbaum()` in `logic/katalog.ts`.
+- **Stammbaum** (`Stammbaum.tsx`, Bausteine in `components/stammbaum/`): ein mystischer **Lebensbaum** (eigene Zeichnung, keine Kopie bekannter Motive). **Jede Kategorie hat ihren eigenen Baum** mit eigener Form und Farbwelt; die Geometrie liegt in `logic/baum/` (eine Datei je Baum), die Farben in `components/stammbaum/baumStile.ts` (Tokens in `theme.ts`):
+  - **Pflanzen – Silberner Blütenbaum:** geflochtener Stamm, silbergrünes Laub, weiße Blüten, Frühblüher am Boden, fallende Blütenblätter.
+  - **Pilze – Myzelbaum:** Pilzstiel mit Knolle und Manschette, Äste enden in Hüten (Kuppel, Schirm, Glocke, Trichter) mit Lamellen, Baumschwämme, leuchtendes Myzel, aufsteigende Sporen.
+  - **Vögel – Federbaum im Wind:** Birkenstamm, Federn statt Blätter, Nest mit Eiern, sitzende Vögel, schwebende Federn.
+  - **Säugetiere – Uralter Baumhirte:** knorrige Eiche mit Gesicht (Brauen, Augen, die sich öffnen, Nase, Moosbart), Eichenlaub, Eicheln, Farne, Glühwürmchen.
+  - Jeder Ast ist mit Schattenseite, Lichtkante und Rindenfurchen gezeichnet. Welche Art wohin gehört, bestimmt `lebensbaum()` in `logic/katalog.ts`.
+  - **Knöpfe** an den Astspitzen: gruseliges Symbol je Gruppe mit glimmenden, blinzelnden Augen (`GruppenIcon.tsx`, z. B. Hirschschädel für „Wald“, Totenkopf mit Wurzeln für die Schattenwurzeln) und Fortschrittsring.
   - **Hauptäste = Gruppen** (Bäume, Büsche, Eulen …). An der Astspitze steht der Fortschritt (z. B. „1/4“). Antippen zoomt auf den Ast, darunter wächst er mit seinen Arten heraus (`AstPanel.tsx`). Häufige Arten sitzen nah am Ast, seltene an der Zweigspitze. Es ist immer nur ein Ast offen.
   - **Sterne über der Krone** = Arten ab „sehr selten“ (Mystery). Matt, bis man sie findet, dann leuchten und funkeln sie.
   - **Schattenwurzeln** = „Gefährlich & tödlich“. Antippen öffnet die Gefahren-Sektion.
-  - **Runenring** (selbst erfundene Zeichen) leuchtet anteilig mit dem Fortschritt der Kategorie. Im Stamm öffnet sich ab und zu ein Augenpaar.
-  - Jede Art hat eine eigene Miniatur (`ArtMiniatur.tsx`). Bei „Bewegung reduzieren“ entfallen Zoom, Wachsen, Funkeln und Augen.
+  - **Runenring** (selbst erfundene Zeichen) leuchtet in der Farbe des Baums anteilig mit dem Fortschritt der Kategorie.
+  - Jede Art hat eine eigene Miniatur (`ArtMiniatur.tsx`). Bei „Bewegung reduzieren“ entfallen Zoom, Wachsen, Funkeln, Teilchen und Augen-Animationen.
 - **Mystery-Zone:** Arten ab „sehr selten“ erscheinen als Rätselkarte, bis man sie findet.
 - **„Gefährlich & tödlich“** (`GefahrSektion.tsx`, geöffnet über die Schattenwurzeln): dunkle Sektion mit Animation (Dornen wachsen, Augen öffnen sich, Herzschlag-Vibration). Höchstens zwei sanfte Flacker-Blitze, bei „Bewegung reduzieren“ still.
 - Die gewählte Ansicht (Wald oder Stammbaum) wird gemerkt.

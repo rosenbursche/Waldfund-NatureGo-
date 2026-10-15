@@ -12,19 +12,26 @@ import Animated, {
 import Svg, { Defs, LinearGradient, Path, Stop } from 'react-native-svg';
 
 import { SELTENHEIT } from '@/data/spiel';
-import { ranke, verjuengt, type Kurve } from '@/logic/baumForm';
+import type { KategorieId } from '@/data/artTypen';
+import { astPanelForm } from '@/logic/baum/stil';
 import type { KatalogEintrag, KatalogGruppe } from '@/logic/katalog';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { ArtMiniatur } from '../ArtMiniatur';
 import { Schrift } from '../Schrift';
+import { BAUM_STILE } from './baumStile';
 
 /**
  * Ein geöffneter Ast: wächst von oben nach unten aus dem Baum heraus.
  * Links und rechts zweigen Zweige ab, an jedem hängt eine Art.
  * Häufige Arten sitzen nah am Ast, seltene außen an der Zweigspitze.
  */
-type Props = { ast: KatalogGruppe; gefunden: Record<string, unknown>; onSchliessen: () => void };
+type Props = {
+  kategorie: KategorieId;
+  ast: KatalogGruppe;
+  gefunden: Record<string, unknown>;
+  onSchliessen: () => void;
+};
 
 const REIHE = 112;
 const OBEN = 24;
@@ -32,7 +39,7 @@ const KNOTEN = 62;
 
 type Platz = { e: KatalogEintrag; x: number; y: number; seite: 1 | -1 };
 
-export function AstPanel({ ast, gefunden, onSchliessen }: Props) {
+export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
   const ruhig = useReducedMotion();
   const [breite, setBreite] = useState(0);
   const W = breite || 340;
@@ -40,56 +47,18 @@ export function AstPanel({ ast, gefunden, onSchliessen }: Props) {
   const hoehe = OBEN + n * REIHE + 24;
   const anzahl = ast.eintraege.filter((e) => e.id in gefunden).length;
 
-  const { plaetze, holz, ranken, blaetter } = useMemo(() => {
-    const plaetze: Platz[] = [];
-    const holz: string[] = [];
-    const ranken: string[] = [];
-    const blaetter: string[] = [];
+  const { plaetze, ebenen } = useMemo(() => {
     const m = W / 2;
-    // Hauptast senkrecht, leicht geschwungen
-    holz.push(
-      verjuengt(
-        [
-          { x: m, y: 0 },
-          { x: m - W * 0.03, y: hoehe * 0.35 },
-          { x: m + W * 0.03, y: hoehe * 0.7 },
-          { x: m, y: hoehe - 8 },
-        ],
-        W * 0.045,
-        W * 0.006,
-        30,
-      ),
-    );
-    ast.eintraege.forEach((e, i) => {
+    const plaetze: Platz[] = ast.eintraege.map((e, i) => {
       const seite: 1 | -1 = i % 2 ? 1 : -1;
       const reichweite = Math.min(W * (e.seltenheit === 1 ? 0.25 : 0.34), m - 50);
-      const y = OBEN + i * REIHE + 40;
-      const x = m + seite * reichweite;
-      plaetze.push({ e, x, y, seite });
-      // Zweig vom Ast zum Knoten, schwingt nach oben
-      const start = { x: m, y: y + 34 };
-      const ende = { x: x - seite * (KNOTEN / 2 + 2), y: y + 6 };
-      const k: Kurve = [
-        start,
-        { x: m + seite * reichweite * 0.35, y: y + 34 },
-        { x: ende.x - seite * reichweite * 0.25, y: ende.y + 6 },
-        ende,
-      ];
-      holz.push(verjuengt(k, W * 0.018, W * 0.004, 14));
-      // eingerollte Ranke unter dem Zweig
-      ranken.push(ranke({ x: m + seite * reichweite * 0.45, y: y + 31 }, Math.PI / 2 + seite * 0.4, W * 0.007, seite));
-      // zwei Blätter am Zweig
-      for (const t of [0.4, 0.7]) {
-        const bx = m + seite * reichweite * t;
-        const by = y + 30 - t * 22;
-        const l = 13;
-        blaetter.push(
-          `M${bx} ${by} Q${bx + seite * 4} ${by - l * 0.8} ${bx + seite * l * 0.2} ${by - l} Q${bx - seite * 5} ${by - l * 0.5} ${bx} ${by} Z`,
-        );
-      }
+      return { e, x: m + seite * reichweite, y: OBEN + i * REIHE + 40, seite };
     });
-    return { plaetze, holz: holz.join(' '), ranken: ranken.join(' '), blaetter: blaetter.join(' ') };
-  }, [ast.eintraege, W, hoehe]);
+    return { plaetze, ebenen: astPanelForm(kategorie, W, hoehe, plaetze, KNOTEN / 2) };
+  }, [ast.eintraege, W, hoehe, kategorie]);
+  const stil = BAUM_STILE[kategorie];
+  const farbe = (rolle: string) =>
+    rolle === 'holz' ? 'url(#astHolz)' : stil.farben[rolle as keyof typeof stil.farben];
 
   // Ast wächst nach unten
   const wachsen = useSharedValue(ruhig ? 1 : 0);
@@ -130,14 +99,27 @@ export function AstPanel({ ast, gefunden, onSchliessen }: Props) {
           <Svg width={W} height={hoehe} style={StyleSheet.absoluteFill} pointerEvents="none">
             <Defs>
               <LinearGradient id="astHolz" gradientUnits="userSpaceOnUse" x1={0} y1={0} x2={0} y2={hoehe}>
-                <Stop offset={0} stopColor={colors.moon} />
-                <Stop offset={0.6} stopColor={colors.fog} />
-                <Stop offset={1} stopColor={colors.moss} />
+                <Stop offset={0} stopColor={stil.holz[2]} />
+                <Stop offset={0.6} stopColor={stil.holz[1]} />
+                <Stop offset={1} stopColor={stil.holz[0]} />
               </LinearGradient>
             </Defs>
-            <Path d={blaetter} fill={colors.moss} stroke={colors.fog} strokeWidth={0.6} opacity={0.85} />
-            <Path d={holz} fill="url(#astHolz)" />
-            <Path d={ranken} stroke={colors.fog} strokeWidth={1.2} strokeLinecap="round" fill="none" />
+            {ebenen.map((e, i) =>
+              e.strich === undefined ? (
+                <Path key={i} d={e.d} fill={farbe(e.rolle)} opacity={e.deckkraft} />
+              ) : (
+                <Path
+                  key={i}
+                  d={e.d}
+                  fill="none"
+                  stroke={farbe(e.rolle)}
+                  strokeWidth={e.strich}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  opacity={e.deckkraft}
+                />
+              ),
+            )}
           </Svg>
           {plaetze.map((p, i) => (
             <Knoten key={p.e.id} p={p} ok={p.e.id in gefunden} index={i} />
