@@ -37,7 +37,10 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 ### 2.2 Stammbaum, Gruppen, Gefahr, Punkte
 | Anforderung | Stand |
 |---|---|
-| Stammbaum nach Seltenheit: Krone (legendär) → Äste → Stamm → Wurzeln (häufig) | ✅ |
+| ~~Stammbaum nach Seltenheit: Krone (legendär) → Äste → Stamm → Wurzeln (häufig)~~ | ersetzt durch Lebensbaum (unten) |
+| **Lebensbaum**: mystischer Baum (Herr-der-Ringe-Stimmung), Äste = Gruppen, per Antippen aufklappbar, nicht alles auf einmal sichtbar | ✅ |
+| Seltenheit im Lebensbaum: Sterne über der Krone (Mystery), seltene Arten an der Zweigspitze, Runenring zeigt Fortschritt | ✅ |
+| Gefährliche Arten in den Schattenwurzeln (öffnen die Gefahren-Sektion) | ✅ |
 | Punkte je Stufe und je Art sichtbar | ✅ |
 | Sinnvolle Gruppen je Kategorie (Pflanzen: Bäume, Büsche, Frühblüher …) | ✅ |
 | Individuelle Miniatur je Art (statt allgemeiner Symbole) | ✅ |

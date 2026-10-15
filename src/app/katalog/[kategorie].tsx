@@ -1,13 +1,6 @@
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
-import { useCallback, useMemo, useState } from 'react';
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  View,
-  type NativeScrollEvent,
-  type NativeSyntheticEvent,
-} from 'react-native';
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,13 +8,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
-import { GefahrSektion } from '@/components/GefahrSektion';
 import { Schrift } from '@/components/Schrift';
 import { Stammbaum } from '@/components/Stammbaum';
 import type { KategorieId } from '@/data/artTypen';
 import { naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN } from '@/data/spiel';
-import { fortschrittDerKategorie, gefahrEintraege, istVerborgen, stammbaumStufen } from '@/logic/katalog';
+import { fortschrittDerKategorie, istVerborgen, lebensbaum } from '@/logic/katalog';
 import { stimmungJetzt } from '@/logic/tageszeit';
 import { KategorieWald } from '@/scene/KategorieWald';
 import { Steuerung, type Ziel } from '@/scene/steuerZustand';
@@ -32,7 +24,7 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
 /**
  * Katalog einer Kategorie – zwei Ansichten, umschaltbar:
  * - Wald: alle Arten als 3D-Figuren an ihrem natürlichen Platz (gefunden farbig, sonst grau mit Schloss)
- * - Stammbaum: Gruppen als handgezeichneter Baum, darunter die Mystery-Zone
+ * - Stammbaum: mystischer Lebensbaum – Äste = Gruppen (aufklappbar), Sterne = Mystery, Wurzeln = Gefahr
  */
 export default function Katalog() {
   const { kategorie } = useLocalSearchParams<{ kategorie: KategorieId }>();
@@ -171,50 +163,27 @@ const LEER_TEXT: Partial<Record<KategorieId, string>> = {
     'Keine heimische Vogelart ist für Menschen gefährlich. Aber: Fass Vögel, Nester und tote Vögel nie an – sie können Krankheitserreger tragen. Und störe keine brütenden Vögel.',
 };
 
-/** Stammbaum nach Seltenheit, darunter die Sektion "Gefährlich & tödlich" */
+/** Stammbaum als Lebensbaum: Äste = Gruppen, Sterne = Mystery-Arten, Schattenwurzeln = Gefahr */
 function StammbaumAnsicht({ kategorie }: { kategorie: KategorieId }) {
   const naturraumId = useEinstellungen((s) => s.naturraumId);
   const gefunden = useSammlung((s) => s.gefunden);
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
-  const stufen = stammbaumStufen(kategorie, naturraum);
-  const gefahr = gefahrEintraege(kategorie, naturraum);
+  const baum = lebensbaum(kategorie, naturraum);
   const verborgen = (id: string) => istVerborgen(id, gefunden);
-
-  // Gruselige Animation, sobald die Gefahren-Sektion ins Bild scrollt (einmal pro Besuch)
-  const [gefahrY, setGefahrY] = useState<number | null>(null);
-  const [ausloeser, setAusloeser] = useState(0);
-  const [hoehe, setHoehe] = useState(0);
-  function beimScrollen(e: NativeSyntheticEvent<NativeScrollEvent>) {
-    const sichtbarBis = e.nativeEvent.contentOffset.y + e.nativeEvent.layoutMeasurement.height;
-    if (ausloeser === 0 && gefahrY !== null && sichtbarBis > gefahrY + 120) setAusloeser(1);
-  }
+  const scroll = useRef<ScrollView>(null);
+  const [baumY, setBaumY] = useState(0);
 
   return (
-    <ScrollView
-      contentContainerStyle={stile.inhalt}
-      onScroll={beimScrollen}
-      scrollEventThrottle={100}
-      onLayout={(e) => setHoehe(e.nativeEvent.layout.height)}
-    >
-      <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Je höher im Baum, desto seltener – und desto mehr Punkte.
-      </Schrift>
-      <Stammbaum stufen={stufen} gefunden={gefunden} verborgen={verborgen} />
-
-      <View
-        onLayout={(e) => {
-          const y = e.nativeEvent.layout.y;
-          setGefahrY(y);
-          // passt die Sektion schon ohne Scrollen ins Bild? Dann gleich auslösen
-          if (ausloeser === 0 && hoehe > 0 && y + 120 < hoehe) setAusloeser(1);
-        }}
-      >
-        <GefahrSektion
-          eintraege={gefahr}
+    <ScrollView ref={scroll} contentContainerStyle={stile.inhalt}>
+      <View onLayout={(e) => setBaumY(e.nativeEvent.layout.y)}>
+        <Stammbaum
+          kategorie={kategorie}
+          baum={baum}
           gefunden={gefunden}
           verborgen={verborgen}
-          ausloeser={ausloeser}
           leerText={LEER_TEXT[kategorie]}
+          // geöffneten Ast ins Bild holen – das untere Stück des Baums bleibt sichtbar
+          onBereich={(y) => scroll.current?.scrollTo({ y: Math.max(0, baumY + y - 220), animated: true })}
         />
       </View>
 
