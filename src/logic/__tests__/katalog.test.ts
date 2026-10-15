@@ -5,8 +5,8 @@ import {
   gefahrEintraege,
   istVerborgen,
   katalogGruppen,
+  lebensbaum,
   mysteryArten,
-  stammbaumStufen,
   vitrinenArten,
   waldPlaetze,
 } from '@/logic/katalog';
@@ -85,32 +85,37 @@ describe('Vitrine am Runenstein und Plätze im Wald', () => {
   });
 });
 
-describe('Stammbaum nach Seltenheit und Gefahren-Sektion', () => {
-  test('Stufen von legendär (Krone) bis häufig (Wurzeln)', () => {
-    const stufen = stammbaumStufen('pflanzen', heide);
-    expect(stufen.map((s) => s.seltenheit)).toEqual([4, 3, 2, 1]);
-    const ids = (s: number) =>
-      stufen.find((x) => x.seltenheit === s)!.gruppen.flatMap((g) => g.eintraege.map((e) => e.id));
-    expect(ids(4)).toContain('frauenschuh');
-    expect(ids(1)).toEqual(expect.arrayContaining(['stieleiche', 'hasel']));
-  });
-
-  test('Pflanzen sind sinnvoll eingeteilt: Bäume vor Büschen', () => {
-    const haeufig = stammbaumStufen('pflanzen', heide).find((s) => s.seltenheit === 1)!;
-    const namen = haeufig.gruppen.map((g) => g.name);
-    expect(namen.indexOf('Bäume')).toBeLessThan(namen.indexOf('Büsche'));
-    expect(haeufig.gruppen.find((g) => g.name === 'Büsche')!.eintraege.map((e) => e.id)).toEqual(
+describe('Lebensbaum: Äste, Sterne, Schattenwurzeln', () => {
+  test('Äste sind die Gruppen, Mystery-Arten werden zu Sternen', () => {
+    const baum = lebensbaum('pflanzen', heide);
+    const aeste = baum.aeste.map((a) => a.name);
+    expect(aeste.indexOf('Bäume')).toBeLessThan(aeste.indexOf('Büsche'));
+    expect(baum.aeste.find((a) => a.name === 'Büsche')!.eintraege.map((e) => e.id)).toEqual(
       expect.arrayContaining(['hasel', 'holunder', 'schlehe', 'weissdorn']),
     );
+    expect(baum.sterne.map((e) => e.id)).toContain('frauenschuh');
+    expect(baum.sterne[0].seltenheit).toBe(4); // legendäre zuerst
+    for (const a of baum.aeste) for (const e of a.eintraege) expect(e.seltenheit).toBeLessThan(MYSTERY_AB);
   });
 
-  test('gefährliche Arten stehen nur in ihrer eigenen Sektion', () => {
-    const gefahr = gefahrEintraege('pflanzen', heide).map((e) => e.id);
-    expect(gefahr).toEqual(expect.arrayContaining(['eisenhut', 'tollkirsche', 'herbstzeitlose', 'seidelbast', 'eibe']));
-    const imBaum = stammbaumStufen('pflanzen', heide).flatMap((s) =>
-      s.gruppen.flatMap((g) => g.eintraege.map((e) => e.id)),
+  test('am Ast: häufige zuerst, seltene an der Zweigspitze', () => {
+    for (const a of lebensbaum('pflanzen', heide).aeste) {
+      const s = a.eintraege.map((e) => e.seltenheit);
+      expect(s).toEqual([...s].sort());
+    }
+  });
+
+  test('jede Art steht genau einmal im Baum, gefährliche nur in den Wurzeln', () => {
+    for (const k of ['pflanzen', 'pilze', 'voegel', 'saeuger'] as const) {
+      const baum = lebensbaum(k, heide);
+      const imBaum = [...baum.aeste.flatMap((a) => a.eintraege), ...baum.sterne].map((e) => e.id);
+      const wurzeln = baum.wurzeln.map((e) => e.id);
+      expect(new Set([...imBaum, ...wurzeln]).size).toBe(imBaum.length + wurzeln.length);
+      expect(imBaum.length + wurzeln.length).toBe(fortschrittDerKategorie(k, {}, heide).gesamt);
+    }
+    expect(lebensbaum('pflanzen', heide).wurzeln.map((e) => e.id)).toEqual(
+      expect.arrayContaining(['eisenhut', 'tollkirsche', 'herbstzeitlose', 'seidelbast', 'eibe']),
     );
-    for (const id of gefahr) expect(imBaum).not.toContain(id);
   });
 
   test('Gefahren-Sektion: Pilze und Säugetiere haben Einträge, Vögel keine', () => {

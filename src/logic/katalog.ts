@@ -166,10 +166,6 @@ export function waldPlaetze(kategorie: KategorieId, naturraum?: Naturraum): Wald
   });
 }
 
-// ---------- Stammbaum nach Seltenheit ----------
-
-export type Stufe = { seltenheit: Seltenheit; gruppen: KatalogGruppe[] };
-
 function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): KatalogGruppe[] {
   const reihenfolge = GRUPPEN_REIHENFOLGE[kategorie];
   const rang = (g: string) => (reihenfolge.includes(g) ? reihenfolge.indexOf(g) : reihenfolge.length);
@@ -182,23 +178,37 @@ function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): Katal
   return gruppen.sort((a, b) => rang(a.name) - rang(b.name));
 }
 
+// ---------- Lebensbaum (Stammbaum-Ansicht) ----------
+
+export type Lebensbaum = {
+  /** Hauptäste = Gruppen der Kategorie, jeweils von häufig bis selten sortiert */
+  aeste: KatalogGruppe[];
+  /** Sterne über der Krone = die seltensten Arten (ab "sehr selten"), legendäre zuerst */
+  sterne: KatalogEintrag[];
+  /** Schattenwurzeln = "Gefährlich & tödlich" */
+  wurzeln: KatalogEintrag[];
+};
+
 /**
- * Stufen des Stammbaums: Krone (legendär) → Äste (sehr selten) → Stamm (selten) → Wurzeln (häufig).
- * Gefährliche Arten stehen nicht hier, sondern in der eigenen Sektion. Leere Stufen fallen weg.
+ * Aufbau des Lebensbaums einer Kategorie:
+ * - Äste: die Gruppen (Bäume, Büsche, Eulen …) mit allen häufigen und seltenen Arten
+ * - Sterne: sehr seltene und legendäre Arten (Mystery) – leuchten erst, wenn gefunden
+ * - Wurzeln: gefährliche Arten
+ * Jede Art steht genau einmal im Baum. Gruppen, die nur Mystery-Arten haben, bilden keinen Ast.
  */
-export function stammbaumStufen(kategorie: KategorieId, naturraum?: Naturraum): Stufe[] {
+export function lebensbaum(kategorie: KategorieId, naturraum?: Naturraum): Lebensbaum {
   const alle = artIdsDerKategorie(kategorie, naturraum)
     .map(katalogEintrag)
-    .filter((e): e is KatalogEintrag => !!e && !e.gefahr);
-  return ([4, 3, 2, 1] as Seltenheit[])
-    .map((seltenheit) => ({
-      seltenheit,
-      gruppen: nachGruppen(
-        alle.filter((e) => e.seltenheit === seltenheit),
-        kategorie,
-      ),
-    }))
-    .filter((st) => st.gruppen.length > 0);
+    .filter((e): e is KatalogEintrag => !!e);
+  const ungefaehrlich = alle.filter((e) => !e.gefahr);
+  const aeste = nachGruppen(
+    ungefaehrlich.filter((e) => e.seltenheit < MYSTERY_AB),
+    kategorie,
+  );
+  // stabile Sortierung: häufige nah am Ast, seltene an der Zweigspitze
+  for (const a of aeste) a.eintraege.sort((x, y) => x.seltenheit - y.seltenheit);
+  const sterne = ungefaehrlich.filter((e) => e.seltenheit >= MYSTERY_AB).sort((a, b) => b.seltenheit - a.seltenheit);
+  return { aeste, sterne, wurzeln: gefahrEintraege(kategorie, naturraum) };
 }
 
 /** Arten der Sektion "Gefährlich & tödlich" – die seltensten zuerst */

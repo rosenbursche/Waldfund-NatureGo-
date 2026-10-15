@@ -2,7 +2,7 @@
  * Render-Tests: Jeder Screen wird einmal komplett dargestellt.
  * So fallen Laufzeitfehler auf, die beim reinen Bauen nicht sichtbar sind.
  */
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import ArtSeite from '@/app/art/[id]';
 import { ARTEN } from '@/data/arten';
@@ -147,32 +147,43 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
   });
 
-  test('Katalog Pilze: Stammbaum nach Seltenheit und Gefahren-Sektion', async () => {
+  test('Katalog Pilze: Lebensbaum mit Ästen, Stern und Schattenwurzeln', async () => {
     mockParams.kategorie = 'pilze';
     useSammlung.setState({ gefunden: {} });
     useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
-    expect(screen.getByText('Blätterpilze')).toBeTruthy();
-    expect(screen.getByText('1000 AP')).toBeTruthy(); // Krone: legendär
+    expect(screen.getByLabelText('Ast Blätterpilze, 0 von 2 gefunden')).toBeTruthy();
+    // Mystery-Art ist ein matter Stern und bleibt verborgen
+    expect(screen.getByLabelText(/Unbekannter Stern, Legendär, 1000 Punkte/)).toBeTruthy();
+    expect(screen.queryByText('Igel-Stachelbart')).toBeNull();
+    // Arten erscheinen erst, wenn der Ast geöffnet wird
+    expect(screen.queryByLabelText(/Fichten-Steinpilz/)).toBeNull();
+    await fireEvent.press(screen.getByLabelText(/Ast Röhrlinge/));
+    expect(screen.getByLabelText(/Fichten-Steinpilz/)).toBeTruthy();
+    // Schattenwurzeln öffnen "Gefährlich & tödlich"
+    expect(screen.queryByText('☠ Gefährlich & tödlich ☠')).toBeNull();
+    await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
     expect(screen.getByText('☠ Gefährlich & tödlich ☠')).toBeTruthy();
     expect(screen.getByLabelText(/Grüner Knollenblätterpilz, tödlich giftig/)).toBeTruthy();
-    // Mystery-Arten bleiben verborgen
-    expect(screen.queryByText('Igel-Stachelbart')).toBeNull();
   });
 
-  test('Katalog Pflanzen: Bäume und Büsche, giftige Pflanzen nur in der Gefahren-Sektion', async () => {
+  test('Katalog Pflanzen: Äste Bäume und Büsche, giftige Pflanzen nur in den Wurzeln', async () => {
     mockParams.kategorie = 'pflanzen';
     useEinstellungen.setState({ naturraumId: 'lueneburger-heide', katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
     expect(screen.getByText('Bäume')).toBeTruthy();
-    expect(screen.getByText('Büsche')).toBeTruthy();
+    await fireEvent.press(screen.getByLabelText(/Ast Büsche/));
+    expect(screen.getByLabelText(/^Gewöhnliche Hasel,/)).toBeTruthy();
+    expect(screen.queryAllByLabelText(/Blauer Eisenhut/)).toHaveLength(0);
+    await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
     expect(screen.getAllByLabelText(/Blauer Eisenhut/)).toHaveLength(1);
   });
 
-  test('Katalog Vögel: Gefahren-Sektion erklärt ehrlich, dass keine Vogelart gefährlich ist', async () => {
+  test('Katalog Vögel: Schattenwurzeln erklären ehrlich, dass keine Vogelart gefährlich ist', async () => {
     mockParams.kategorie = 'voegel';
     useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
+    await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
     expect(screen.getByText(/Keine heimische Vogelart ist für Menschen gefährlich/)).toBeTruthy();
   });
 

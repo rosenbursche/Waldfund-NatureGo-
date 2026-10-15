@@ -216,7 +216,8 @@ Alle Module sind reine Rechenfunktionen ohne Bildschirm und deshalb testbar. Die
 | `geo.ts` | Punkt-in-Polygon, Naturraum zu einem Standort finden, Standort **vergröbern** (0,1° ≈ 7–11 km) |
 | `ortsuche.ts` | Offline-Suche nach Ort/PLZ; Umlaute egal („lueneburg“ = „Lüneburg“) |
 | `fortschritt.ts` | Punkte, Level, Serie, Erfolge, Hüttenstufe, Belohnung eines Fundes |
-| `katalog.ts` | Arten je Kategorie, Gruppen, Stammbaum-Stufen, Mystery, Wald-Plätze, Gefahr-Einträge |
+| `katalog.ts` | Arten je Kategorie, Gruppen, Lebensbaum (Äste/Sterne/Wurzeln), Mystery, Wald-Plätze, Gefahr-Einträge |
+| `baumForm.ts` | Geometrie des Lebensbaums: Stamm, Äste, Ranken, Wurzeln, Runenring, Sternplätze |
 | `validierung.ts` | Foto-Prüfung: Demo oder echt (über eigenen Server), Mindest-Sicherheit 0,6, Foto-Tipps |
 | `foto.ts` | Foto aufnehmen, verkleinern, auf dem Handy ablegen (EXIF/GPS wird dabei entfernt) |
 | `tageszeit.ts` | Lichtstimmung nach echter Uhrzeit (siehe 7.4) |
@@ -360,9 +361,14 @@ Er setzt sich zusammen aus 55 % Verbreitung (Anteil der Rasterfelder ohne Nachwe
 - Die Flächen sind gröber als Rasterfelder. **Fundorte seltener Arten werden nie genauer gezeigt.**
 
 ### 8.4 Katalog
-- **Stammbaum** (`Stammbaum.tsx`): gebaut nach Seltenheit. Oben die Krone (legendär), dann Äste (sehr selten), Stamm (selten) und unten die Wurzeln (häufig). Jede Stufe zeigt ihre Punkte, jede Art hat eine eigene Miniatur (`ArtMiniatur.tsx`).
+- **Stammbaum** (`Stammbaum.tsx`, Bausteine in `components/stammbaum/`): ein mystischer **Lebensbaum** im Stil alter Wappenbäume (eigene Zeichnung, keine Kopie bekannter Motive). Die Form berechnet `logic/baumForm.ts` aus einem festen Startwert je Kategorie; welche Art wohin gehört, bestimmt `lebensbaum()` in `logic/katalog.ts`.
+  - **Hauptäste = Gruppen** (Bäume, Büsche, Eulen …). An der Astspitze steht der Fortschritt (z. B. „1/4“). Antippen zoomt auf den Ast, darunter wächst er mit seinen Arten heraus (`AstPanel.tsx`). Häufige Arten sitzen nah am Ast, seltene an der Zweigspitze. Es ist immer nur ein Ast offen.
+  - **Sterne über der Krone** = Arten ab „sehr selten“ (Mystery). Matt, bis man sie findet, dann leuchten und funkeln sie.
+  - **Schattenwurzeln** = „Gefährlich & tödlich“. Antippen öffnet die Gefahren-Sektion.
+  - **Runenring** (selbst erfundene Zeichen) leuchtet anteilig mit dem Fortschritt der Kategorie. Im Stamm öffnet sich ab und zu ein Augenpaar.
+  - Jede Art hat eine eigene Miniatur (`ArtMiniatur.tsx`). Bei „Bewegung reduzieren“ entfallen Zoom, Wachsen, Funkeln und Augen.
 - **Mystery-Zone:** Arten ab „sehr selten“ erscheinen als Rätselkarte, bis man sie findet.
-- **„Gefährlich & tödlich“** (`GefahrSektion.tsx`): dunkle Sektion mit Animation (Dornen wachsen, Augen öffnen sich, Herzschlag-Vibration). Höchstens zwei sanfte Flacker-Blitze, bei „Bewegung reduzieren“ still.
+- **„Gefährlich & tödlich“** (`GefahrSektion.tsx`, geöffnet über die Schattenwurzeln): dunkle Sektion mit Animation (Dornen wachsen, Augen öffnen sich, Herzschlag-Vibration). Höchstens zwei sanfte Flacker-Blitze, bei „Bewegung reduzieren“ still.
 - Die gewählte Ansicht (Wald oder Stammbaum) wird gemerkt.
 
 ---
