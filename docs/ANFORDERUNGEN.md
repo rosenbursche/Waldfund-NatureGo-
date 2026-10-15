@@ -41,6 +41,8 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 | **Lebensbaum**: mystischer Baum (Herr-der-Ringe-Stimmung), Äste = Gruppen, per Antippen aufklappbar, nicht alles auf einmal sichtbar | ✅ |
 | Seltenheit im Lebensbaum: Sterne über der Krone (Mystery), seltene Arten an der Zweigspitze, Runenring zeigt Fortschritt | ✅ |
 | Gefährliche Arten in den Schattenwurzeln (öffnen die Gefahren-Sektion) | ✅ |
+| Jede Kategorie mit eigenem, sehr detailliertem Baum und eigener Farbe (Blütenbaum, Myzelbaum, Federbaum, Baumhirte) | ✅ |
+| Gruselig-schöne Symbole für die Knöpfe im Baum | ✅ |
 | Punkte je Stufe und je Art sichtbar | ✅ |
 | Sinnvolle Gruppen je Kategorie (Pflanzen: Bäume, Büsche, Frühblüher …) | ✅ |
 | Individuelle Miniatur je Art (statt allgemeiner Symbole) | ✅ |
