@@ -153,7 +153,8 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Pflanzen = Futter nach Nahrungsnetz, Pilze = Humus, Bäume = Heimat und Hüterbäume | ⬜ Konzept |
 | Besondere Gegenstände aus seltenen Funden (Leuchtholz, Arnika-Salbe, Myzel-Band, Essenzen) | ⬜ Konzept |
 | Kampfanimationen (7 je Tier) für 6 Start-Tiere, gemeinsame Skelette | ⬜ 🔒 Modelle |
-| K1: Kampf-Rechenlogik `src/logic/kampf.ts` mit Tests | ⬜ |
+| K1: Kampf-Rechenlogik `src/logic/kampf.ts` mit Tests | 🟡 Grundregeln + Kampfwerte Reh (`src/data/kampfwerte.ts`), weitere 5 Start-Tiere fehlen |
+| Kampf-Arena als Test: Reh gegen Reh gegen den Computer, 3D-Arena mit Platzhalter-Modell (Einstellungen → Darstellung) | ✅ `src/app/kampf.tsx`, `src/scene/KampfArena.tsx` · Mini-Spiel beim Spezialangriff fehlt noch |
 
 ---
 

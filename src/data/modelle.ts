@@ -18,6 +18,8 @@ export type ModellEintrag = {
   datei: number;
   animiert: boolean;
   dreiecke: number;
+  /** Drehung um die Hochachse, damit das Modell nach +Z schaut (Vorgabe aus docs/3D-PIPELINE.md) */
+  blick: number;
 };
 
 export const MODELLE: ModellEintrag[] = [
@@ -32,6 +34,7 @@ export const MODELLE: ModellEintrag[] = [
     datei: weisswedelhirsch,
     animiert: false,
     dreiecke: 9754,
+    blick: -Math.PI / 2, // Kopf zeigt in der Datei nach +X
   },
 ];
 
