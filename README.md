@@ -45,7 +45,7 @@ npx expo lint         # Code-Regeln
 | `server/` | Erkennungsserver für Pl@ntNet (siehe `server/README.md`) |
 | `scripts/` | Skripte zum Erzeugen von Naturräumen, Ortsliste und Icons |
 
-Anforderungen und Stand: `docs/ANFORDERUNGEN.md` · 3D-Modelle: `docs/3D-PIPELINE.md` · Projektregeln: `CLAUDE.md` · Datenquellen und Lizenzen: `DATENQUELLEN.md` · Auftrag: `wildfund-prompt.md`
+**Ausführliche Dokumentation: `docs/DOKUMENTATION.md`** · Anforderungen und Stand: `docs/ANFORDERUNGEN.md` · 3D-Modelle: `docs/3D-PIPELINE.md` · Projektregeln: `CLAUDE.md` · Datenquellen und Lizenzen: `DATENQUELLEN.md` · Auftrag: `wildfund-prompt.md`
 
 ## Daten und Lizenzen
 
