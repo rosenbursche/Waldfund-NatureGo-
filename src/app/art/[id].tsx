@@ -27,6 +27,8 @@ import { MONATE, MONATE_LANG, zustandImMonat } from '@/logic/jahreszeit';
 import { herkunftsText, istHeimisch } from '@/logic/regelEngine';
 import { wachstum, wachstumsBereich } from '@/logic/wachstum';
 import { ArtBuehne } from '@/scene/ArtBuehne';
+import { TierSeiteInhalt } from '@/components/tier/TierSeiteInhalt';
+import { tierSeite } from '@/data/tierSeiten';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
@@ -84,6 +86,9 @@ export default function ArtSeite() {
   const realistisch = modellFuerArt(id);
   const steckbrief = STECKBRIEFE[id];
   const fressfeinde = wirdGefressenVon(id);
+  // Grafische Seite (Vorlage Reh): Bilder statt Text, sobald die Art nicht mehr verborgen ist
+  const tier = tierSeite(id);
+  const grafisch = !!tier && !verborgen;
 
   return (
     <Hintergrund>
@@ -142,7 +147,7 @@ export default function ArtSeite() {
             <Schrift style={stile.latein}>{verborgen ? 'Species incognita' : eintrag.lat}</Schrift>
           </View>
 
-          <WildWertAnzeige id={id} />
+          {!grafisch && <WildWertAnzeige id={id} />}
 
           <View style={stile.chips}>
             <Pille farbe={s.farbe} voll>
@@ -249,7 +254,18 @@ export default function ArtSeite() {
             </Kasten>
           )}
 
-          {!verborgen && (
+          {grafisch && tier && (
+            <TierSeiteInhalt
+              id={id}
+              tier={tier}
+              art={art}
+              sammlung={sammlung}
+              ruhig={ruhig}
+              futterArten={<ArtVerweise ids={steckbrief?.nahrungIds ?? []} sammlung={sammlung} />}
+            />
+          )}
+
+          {!verborgen && !grafisch && (
             <Abschnitt titel="Steckbrief">
               {art ? (
                 <>
@@ -284,7 +300,7 @@ export default function ArtSeite() {
             </Abschnitt>
           )}
 
-          {steckbrief && !verborgen && (
+          {steckbrief && !verborgen && !grafisch && (
             <>
               <Abschnitt titel="Key Features">
                 {steckbrief.merkmale.map((m) => (
@@ -335,7 +351,7 @@ export default function ArtSeite() {
             </>
           )}
 
-          {!verborgen && fressfeinde.length > 0 && (
+          {!verborgen && !grafisch && fressfeinde.length > 0 && (
             <Abschnitt titel={art?.kategorie === 'pflanzen' || !art ? 'Wer frisst mich?' : 'Fressfeinde'}>
               <ArtVerweise ids={fressfeinde} sammlung={sammlung} />
             </Abschnitt>
@@ -364,7 +380,7 @@ export default function ArtSeite() {
             ) : null}
           </Abschnitt>
 
-          {art && !verborgen && (
+          {art && !verborgen && !grafisch && (
             <View style={stile.status}>
               <Kasten style={{ flex: 1 }}>
                 <Schrift art="ueberschrift" style={{ fontSize: 19, color: SCHUTZ_FARBE[art.schutz] }}>
@@ -391,7 +407,7 @@ export default function ArtSeite() {
             </Kasten>
           )}
 
-          {art && !verborgen && (
+          {art && !verborgen && !grafisch && (
             <Kasten>
               <Schrift art="etikett">Wusstest du?</Schrift>
               <Schrift style={{ marginTop: spacing.xs }}>{art.wusstestDu}</Schrift>

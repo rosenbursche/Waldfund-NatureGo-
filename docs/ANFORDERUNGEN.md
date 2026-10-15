@@ -58,6 +58,7 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 **Tiere (Säugetiere)**
 | Anforderung | Stand |
 |---|---|
+| **Grafische Tierseite (Vorlage Reh):** fast ohne Text, jeder Abschnitt eine Grafik zum Antippen/Ziehen: Wild-Wert-Zeiger, Größenvergleich mit eigener Größe, Körper erkunden (Bock/Ricke, Leuchtpunkte), Jahresrad (Fell, Geweih, Kitz, Brunft, Keimruhe), Tagesuhr (äst/ruht), Lebensraum Tag/Dämmerung, Speiseplan je Monat, Spuren-Karten mit Trittsiegel 1:1, Gefahren, Kitz-Regel | 🟡 Design-Entwurf für das Reh (`src/components/tier/`, Daten `src/data/tierSeiten.ts`) · ⬜ auf andere Tiere übertragen |
 | Key Features | ✅ |
 | Nahrung, verknüpft mit Arten in der App | ✅ |
 | Spuren (Trittsiegel, Losung, Fraßspuren) | ✅ Text · ⬜ eigene Spuren-Zeichnungen |

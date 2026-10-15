@@ -352,6 +352,20 @@ Von oben nach unten:
 9. **Lehrbuch-Zeichnung** im Stil „Tinte auf altem Papier“ (`LehrbuchZeichnung.tsx`).
 10. **Verbreitung in Deutschland**. Bei Mystery-Arten heißt der Abschnitt „Hier könntest du suchen“.
 
+**Grafische Tierseite (Vorlage Reh):** Gibt es für eine Art einen Eintrag in `src/data/tierSeiten.ts`, ersetzt eine Bild-Seite die Text-Abschnitte (Steckbrief, Key Features, Nahrung, Spuren, Wohnen, Fressfeinde, Wusstest du). Bausteine in `src/components/tier/`:
+
+| Datei | Abschnitte |
+|---|---|
+| `RehFigur.tsx` | Reh als Zeichnung aus Code: steht, äst oder liegt; Sommer-/Winterfell; Geweih blank, im Bast oder keins; Kitz mit Flecken |
+| `TierSymbol.tsx` | kleine Strich-Symbole und Spuren-Zeichnungen |
+| `TierTafel.tsx` | Rahmen je Abschnitt, Symbol-Umschalter, pulsierender Leuchtpunkt, Fingerfläche für Drehräder |
+| `KoerperTafeln.tsx` | „So groß“ (Reh neben dir, eigene Größe per Regler), „Erkunden“ (Leuchtpunkte, Bock/Ricke) |
+| `ZeitTafeln.tsx` | „Ein Jahr“ (Jahresrad zum Drehen), „Ein Tag“ (Tagesuhr zum Drehen) |
+| `UmweltTafeln.tsx` | „Zuhause“ (Wald/Waldrand/Wiese, Tag/Dämmerung), „Speiseplan“ (je Monat), „Spuren lesen“ (Karten, Trittsiegel 1 : 1), „Gefahren“, „Kitz gefunden?“ |
+| `TierSeiteInhalt.tsx` | setzt alles zusammen, Wild-Wert als Zeiger |
+
+Die Rechenlogik (Monat, Uhrzeit, Fingerposition, Zentimeter → Bildschirmpunkte) steht in `src/logic/tierJahr.ts`. Eine neue Tierart bekommt eine eigene Seite, indem man in `tierSeiten.ts` einen Eintrag ergänzt (und für ihre Gestalt eine eigene Figur zeichnet).
+
 ### 8.2 Wild-Wert (`src/logic/wildwert.ts`)
 Er setzt sich zusammen aus 55 % Verbreitung (Anteil der Rasterfelder ohne Nachweis), 30 % Seltenheitsstufe und 15 % Rote Liste. Ergebnis ist eine Zahl von 1 bis 100. Weil die Verbreitung Demo-Daten sind, ist auch der Wild-Wert ein **Demo-Wert** und wird so angezeigt.
 

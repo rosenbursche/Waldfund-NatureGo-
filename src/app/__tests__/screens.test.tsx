@@ -2,7 +2,7 @@
  * Render-Tests: Jeder Screen wird einmal komplett dargestellt.
  * So fallen Laufzeitfehler auf, die beim reinen Bauen nicht sichtbar sind.
  */
-import { render, screen } from '@testing-library/react-native';
+import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import ArtSeite from '@/app/art/[id]';
 import { ARTEN } from '@/data/arten';
@@ -90,17 +90,38 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 
-  test('Artenseite eines Tieres: Wild-Wert, Key Features, Nahrung mit Verknüpfungen, Spuren, Wohnen', async () => {
-    mockParams.id = 'reh';
+  test('Artenseite eines Tieres (Text-Aufbau): Wild-Wert, Key Features, Nahrung, Spuren, Wohnen', async () => {
+    mockParams.id = 'dachs';
     useSammlung.setState({ gefunden: {} });
     await render(<ArtSeite />);
     expect(screen.getByText('Wild-Wert · 1–100')).toBeTruthy();
     expect(screen.getByText('Key Features')).toBeTruthy();
-    expect(screen.getByLabelText('Stieleiche')).toBeTruthy(); // verknüpfte Nahrung
     expect(screen.getByText('Spuren')).toBeTruthy();
     expect(screen.getByText('Wohnen & Schlafen')).toBeTruthy();
-    expect(screen.getByText('Fressfeinde')).toBeTruthy(); // der Luchs jagt Rehe
+  });
+
+  test('Grafische Reh-Seite: alle Bild-Abschnitte, verknüpftes Futter, Gefahren', async () => {
+    mockParams.id = 'reh';
+    useSammlung.setState({ gefunden: {} });
+    await render(<ArtSeite />);
+    for (const titel of [
+      'So groß',
+      'Erkunden',
+      'Ein Jahr',
+      'Ein Tag',
+      'Zuhause',
+      'Speiseplan',
+      'Spuren lesen',
+      'Gefahren',
+    ]) {
+      expect(screen.getByText(titel)).toBeTruthy();
+    }
+    expect(screen.getByLabelText('Stieleiche')).toBeTruthy(); // verknüpfte Nahrung
+    expect(screen.getByLabelText('Wolf')).toBeTruthy();
     expect(screen.getByText(/Realistisches 3D-Modell \(Platzhalter\)/)).toBeTruthy();
+    // Antippen eines Körperpunkts zeigt die Beschriftung
+    await fireEvent.press(screen.getByLabelText('Spiegel: weißes Warnsignal'));
+    expect(screen.getByText('Spiegel: weißes Warnsignal')).toBeTruthy();
   });
 
   test('Artenseite eines Vogels: Füße, Nest, Warum so gebaut', async () => {
