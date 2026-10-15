@@ -127,6 +127,20 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 | Tageszeit-Varianten der Bilder (Morgen, Tag, goldene Stunde, Nacht) | ⬜ später |
 | Eigene Szene je Naturraum (Mittelgebirge, Alpen, Küste …) | ⬜ nach dem Pilot |
 
+### 2.7 Wettkampf, Zoo-Funde und Echtheitsprüfung
+Konzept: `docs/KONZEPT-WETTKAMPF.md` (Entwurf). Offene Entscheidungen dort in Abschnitt 6, u. a. Konto nur für den Wettkampf (berührt Regel 4.5).
+
+| Anforderung | Stand |
+|---|---|
+| Wettkampf gegen andere Spieler: Rangliste „Sammeln“ und Rangliste „Kämpfe“ | ⬜ Konzept |
+| Zoo-Tiere sind erwünscht: **Zoofund → Gehegeform**, für Kämpfe nutzbar · **Wildfund → Wildform** mit Wild-Bonus und vollen Punkten | ⬜ Konzept |
+| Unsichere Wildfunde zählen erst als Gehegeform, nach Bestätigung als Wildform | ⬜ Konzept |
+| W1: Nur Fotos aus der App-Kamera zählen für den Wettkampf; Quelle, Zeit und grober Ort je Fund | ⬜ |
+| W2: Zoo-Flächen aus OpenStreetMap (Lizenz prüfen), Plausibilität über Verbreitung, Jahreszeit, Tageszeit | ⬜ |
+| W3: Server mit Konten, Ranglisten, Bild-Fingerabdruck, Community-Prüfung, Vertrauenswert | ⬜ 🔒 Cloudflare-Konto, Datenschutz |
+| W4: Kurzvideo mit Sensoren und Parallaxe-Prüfung für sehr seltene/legendäre Wildfunde, Geräteprüfung | ⬜ 🔒 Development Build, Recherche |
+| Kampfsystem | ⬜ eigenes Konzept folgt |
+
 ---
 
 ## 3. Vorgeschlagene Reihenfolge
