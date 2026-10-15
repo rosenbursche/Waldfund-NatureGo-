@@ -12,19 +12,24 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-import Svg, { Circle, Defs, Ellipse, G, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, Defs, Ellipse, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';
 
+import type { KategorieId } from '@/data/artTypen';
 import { SELTENHEIT } from '@/data/spiel';
-import { baumForm, seedAus, sternPfad, type Punkt } from '@/logic/baumForm';
+import { baumForm, sternPfad, type Punkt } from '@/logic/baum/stil';
 import type { KatalogEintrag, Lebensbaum as LebensbaumDaten } from '@/logic/katalog';
 import { colors, fonts } from '@/theme/theme';
 
 import { Schrift } from '../Schrift';
+import { BAUM_STILE } from './baumStile';
+import { GruppenIcon, SCHATTENWURZELN } from './GruppenIcon';
+import { Partikel } from './Partikel';
 
 /**
- * Der Lebensbaum einer Kategorie – mystisch wie ein alter Wappenbaum:
- * - Hauptäste = Gruppen. An der Astspitze sitzt ein Knopf mit dem Fortschritt; antippen öffnet den Ast.
- * - Sterne über der Krone = die seltensten Arten. Matt mit "?", bis man sie findet – dann leuchten sie.
+ * Der Lebensbaum einer Kategorie – jede Kategorie hat ihren eigenen Baum (siehe `logic/baum/`):
+ * Pflanzen = Silberner Blütenbaum, Pilze = Myzelbaum, Vögel = Federbaum im Wind, Säugetiere = Uralter Baumhirte.
+ * - Hauptäste = Gruppen. An der Astspitze sitzt ein Knopf mit gruseligem Symbol und Fortschrittsring.
+ * - Sterne über der Krone = die seltensten Arten. Matt, bis man sie findet – dann leuchten sie.
  * - Schattenwurzeln unter der Erde = "Gefährlich & tödlich".
  * - Runenring: leuchtet anteilig mit dem Fortschritt der ganzen Kategorie.
  * Beim Öffnen zoomt der Baum sanft auf den gewählten Ast.
@@ -34,7 +39,7 @@ import { Schrift } from '../Schrift';
 export const WURZELN = '__wurzeln__';
 
 type Props = {
-  kategorie: string;
+  kategorie: KategorieId;
   baum: LebensbaumDaten;
   gefunden: Record<string, unknown>;
   /** Name des offenen Asts, WURZELN oder null */
@@ -43,14 +48,15 @@ type Props = {
 };
 
 const AnimierteEllipse = Animated.createAnimatedComponent(Ellipse);
-const KNOPF = 36;
+const KNOPF = 46;
 
 export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props) {
   const ruhig = useReducedMotion();
   const [breite, setBreite] = useState(0);
   const W = breite || 360;
+  const stil = BAUM_STILE[kategorie];
   const form = useMemo(
-    () => baumForm(W, baum.aeste.length, baum.sterne.length, seedAus(kategorie)),
+    () => baumForm(W, baum.aeste.length, baum.sterne.length, kategorie),
     [W, baum.aeste.length, baum.sterne.length, kategorie],
   );
   const H = form.hoehe;
@@ -91,27 +97,30 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
     };
   });
 
-  // --- Augen im Astloch: öffnen sich ab und zu ---
-  const augen = useSharedValue(ruhig ? 0.35 : 0);
+  // --- Augen im Stamm (Baumhirte): öffnen sich ab und zu ---
+  const augen = useSharedValue(ruhig ? 0.5 : 0.15);
   useEffect(() => {
-    if (ruhig) return;
+    if (ruhig || !form.augen) return;
     augen.value = withRepeat(
       withSequence(
-        withDelay(5200, withTiming(1, { duration: 500 })),
-        withDelay(1600, withTiming(0.15, { duration: 90 })),
-        withTiming(1, { duration: 110 }),
-        withDelay(900, withTiming(0, { duration: 600 })),
+        withDelay(3500, withTiming(1, { duration: 700 })),
+        withDelay(1800, withTiming(0.1, { duration: 90 })),
+        withTiming(1, { duration: 120 }),
+        withDelay(1400, withTiming(0.15, { duration: 900 })),
       ),
       -1,
     );
-  }, [ruhig, augen]);
-  const augenProps = useAnimatedProps(() => ({ ry: W * 0.0045 * augen.value }));
+  }, [ruhig, augen, form.augen]);
+  const augenGroesse = form.augen?.groesse ?? 0;
+  const augenProps = useAnimatedProps(() => ({ ry: augenGroesse * 0.75 * augen.value }));
+
+  const farbe = (rolle: string) => (rolle === 'holz' ? 'url(#holz)' : stil.farben[rolle as keyof typeof stil.farben]);
 
   return (
     <View
       style={{ height: H, overflow: 'hidden' }}
       onLayout={(e) => setBreite(e.nativeEvent.layout.width)}
-      accessibilityLabel={`Lebensbaum: ${anzahlGefunden} von ${alle.length} Arten gefunden`}
+      accessibilityLabel={`${stil.name}: ${anzahlGefunden} von ${alle.length} Arten gefunden`}
     >
       <Animated.View style={[{ width: W, height: H }, zoomStil]}>
         <Svg width={W} height={H} style={StyleSheet.absoluteFill} pointerEvents="none">
@@ -124,9 +133,9 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
               x2={0}
               y2={form.mitte.y - form.ringRadius * 0.6}
             >
-              <Stop offset={0} stopColor={colors.moss} />
-              <Stop offset={0.3} stopColor={colors.fog} />
-              <Stop offset={1} stopColor={colors.moon} />
+              <Stop offset={0} stopColor={stil.holz[0]} />
+              <Stop offset={0.35} stopColor={stil.holz[1]} />
+              <Stop offset={1} stopColor={stil.holz[2]} />
             </LinearGradient>
             <RadialGradient
               id="schein"
@@ -135,20 +144,24 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
               cy={form.mitte.y - W * 0.08}
               r={form.ringRadius}
             >
-              <Stop offset={0} stopColor={colors.moon} stopOpacity={0.16} />
-              <Stop offset={1} stopColor={colors.moon} stopOpacity={0} />
+              <Stop offset={0} stopColor={stil.schein} stopOpacity={0.17} />
+              <Stop offset={1} stopColor={stil.schein} stopOpacity={0} />
             </RadialGradient>
             <RadialGradient id="astSchein">
-              <Stop offset={0} stopColor={colors.rune} stopOpacity={0.55} />
-              <Stop offset={1} stopColor={colors.rune} stopOpacity={0} />
+              <Stop offset={0} stopColor={stil.ring} stopOpacity={0.55} />
+              <Stop offset={1} stopColor={stil.ring} stopOpacity={0} />
             </RadialGradient>
             <RadialGradient id="glut">
               <Stop offset={0} stopColor={colors.blut} stopOpacity={0.6} />
               <Stop offset={1} stopColor={colors.blut} stopOpacity={0} />
             </RadialGradient>
+            <RadialGradient id="augenGlut">
+              <Stop offset={0} stopColor={colors.amber} stopOpacity={0.7} />
+              <Stop offset={1} stopColor={colors.amber} stopOpacity={0} />
+            </RadialGradient>
           </Defs>
 
-          {/* Mondschein hinter dem Baum */}
+          {/* Lichtschein hinter dem Baum */}
           <Circle cx={form.mitte.x} cy={form.mitte.y - W * 0.08} r={form.ringRadius} fill="url(#schein)" />
 
           {/* Runenring */}
@@ -157,7 +170,7 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
               key={i}
               d={r.d}
               transform={`translate(${r.x} ${r.y}) rotate(${r.winkel})`}
-              stroke={i < runenAn ? colors.rune : colors.fog}
+              stroke={i < runenAn ? stil.ring : colors.fog}
               strokeWidth={1.4}
               strokeLinecap="round"
               fill="none"
@@ -166,51 +179,56 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
           ))}
 
           {/* Erdboden als Nebelband, darunter die Schattenwurzeln */}
-          <Ellipse cx={W / 2} cy={form.boden + 4} rx={W * 0.32} ry={7} fill={colors.fog} opacity={0.07} />
+          <Ellipse cx={W / 2} cy={form.boden + 4} rx={W * 0.34} ry={8} fill={colors.fog} opacity={0.07} />
           <Circle cx={form.wurzelPlatz.x} cy={form.wurzelPlatz.y} r={W * 0.16} fill="url(#glut)" />
           <Path d={form.schatten} fill={colors.blut} opacity={0.5} />
 
           {/* Leuchten hinter dem offenen Ast */}
           {fokus && offen !== WURZELN && <Circle cx={fokus.x} cy={fokus.y} r={W * 0.13} fill="url(#astSchein)" />}
 
-          {/* Holz, Rinde, Ranken, Moos */}
-          <Path d={form.holz} fill="url(#holz)" />
-          <Path d={form.rinde} stroke={colors.night} strokeWidth={1} fill="none" opacity={0.35} />
-          <Path
-            d={form.ranken}
-            stroke={colors.moon}
-            strokeWidth={1.3}
-            strokeLinecap="round"
-            fill="none"
-            opacity={0.9}
-          />
-          <Path d={form.bart} fill={colors.moss} opacity={0.8} />
-          {form.moos.map((m, i) => (
-            <Ellipse key={i} cx={m.x} cy={m.y} rx={m.rx} ry={m.ry} fill={colors.moss} opacity={0.7} />
-          ))}
+          {/* der Baum selbst: alle Ebenen von hinten nach vorn */}
+          {form.ebenen.map((e, i) =>
+            e.strich === undefined ? (
+              <Path key={i} d={e.d} fill={farbe(e.rolle)} opacity={e.deckkraft} />
+            ) : (
+              <Path
+                key={i}
+                d={e.d}
+                fill="none"
+                stroke={farbe(e.rolle)}
+                strokeWidth={e.strich}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity={e.deckkraft}
+              />
+            ),
+          )}
 
-          {/* Astloch mit Augen */}
-          <G>
-            <Ellipse
-              cx={form.augen.x}
-              cy={form.augen.y}
-              rx={W * 0.02}
-              ry={W * 0.008}
-              fill={colors.night}
-              opacity={0.3}
-            />
-            {[-1, 1].map((s) => (
+          {/* Augen im Stamm */}
+          {form.augen &&
+            [-1, 1].map((s) => (
+              <Circle
+                key={`g${s}`}
+                cx={form.augen!.punkt.x + s * form.augen!.abstand}
+                cy={form.augen!.punkt.y}
+                r={form.augen!.groesse * 3}
+                fill="url(#augenGlut)"
+              />
+            ))}
+          {form.augen &&
+            [-1, 1].map((s) => (
               <AnimierteEllipse
                 key={s}
-                cx={form.augen.x + s * W * 0.009}
-                cy={form.augen.y}
-                rx={W * 0.0045}
+                cx={form.augen!.punkt.x + s * form.augen!.abstand}
+                cy={form.augen!.punkt.y}
+                rx={form.augen!.groesse}
                 fill={colors.amber}
                 animatedProps={augenProps}
               />
             ))}
-          </G>
         </Svg>
+
+        <Partikel art={stil.partikel} breite={W} hoehe={H} farbe={stil.farben.akzentHell} />
 
         {/* Sterne */}
         {baum.sterne.map((e, i) => (
@@ -218,30 +236,31 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
         ))}
 
         {/* Astspitzen */}
-        {baum.aeste.map((a, i) => {
-          const n = a.eintraege.filter((e) => e.id in gefunden).length;
-          return (
-            <AstKnopf
-              key={a.name}
-              name={a.name}
-              gefunden={n}
-              gesamt={a.eintraege.length}
-              punkt={form.astSpitzen[i]}
-              aktiv={offen === a.name}
-              gedimmt={offen !== null && offen !== a.name}
-              onPress={() => onWaehle(offen === a.name ? null : a.name)}
-            />
-          );
-        })}
+        {baum.aeste.map((a, i) => (
+          <AstKnopf
+            key={a.name}
+            name={a.name}
+            gefunden={a.eintraege.filter((e) => e.id in gefunden).length}
+            gesamt={a.eintraege.length}
+            punkt={form.astSpitzen[i]}
+            aktiv={offen === a.name}
+            gedimmt={offen !== null && offen !== a.name}
+            farbe={stil.ring}
+            index={i}
+            onPress={() => onWaehle(offen === a.name ? null : a.name)}
+          />
+        ))}
 
         {/* Schattenwurzeln */}
         <AstKnopf
-          name="Schattenwurzeln"
+          name={SCHATTENWURZELN}
           gefunden={baum.wurzeln.filter((e) => e.id in gefunden).length}
           gesamt={baum.wurzeln.length}
           punkt={form.wurzelPlatz}
           aktiv={offen === WURZELN}
           gedimmt={offen !== null && offen !== WURZELN}
+          farbe={colors.warn}
+          index={baum.aeste.length}
           gefahr
           onPress={() => onWaehle(offen === WURZELN ? null : WURZELN)}
         />
@@ -250,6 +269,9 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
   );
 }
 
+const RING_R = KNOPF / 2 - 2;
+const RING_U = 2 * Math.PI * RING_R;
+
 function AstKnopf({
   name,
   gefunden,
@@ -257,6 +279,8 @@ function AstKnopf({
   punkt,
   aktiv,
   gedimmt,
+  farbe,
+  index,
   gefahr,
   onPress,
 }: {
@@ -266,12 +290,14 @@ function AstKnopf({
   punkt: Punkt;
   aktiv: boolean;
   gedimmt: boolean;
+  farbe: string;
+  index: number;
   gefahr?: boolean;
   onPress: () => void;
 }) {
   const voll = gesamt > 0 && gefunden === gesamt;
-  const farbe = gefahr ? colors.blut : voll ? colors.legend : gefunden > 0 ? colors.rune : colors.fog;
-  const zahl = gefahr && gesamt === 0 ? '☠' : `${gefunden}/${gesamt}`;
+  const ringFarbe = voll ? colors.legend : farbe;
+  const anteil = gesamt ? gefunden / gesamt : 0;
   return (
     <Pressable
       onPress={onPress}
@@ -292,17 +318,51 @@ function AstKnopf({
         style={[
           stile.kugel,
           {
-            borderColor: farbe,
-            shadowColor: farbe,
-            shadowOpacity: aktiv || voll ? 0.9 : 0.45,
-            backgroundColor: aktiv ? colors.forest : colors.night,
+            borderColor: gefahr ? colors.blut : colors.moss,
+            shadowColor: ringFarbe,
+            shadowOpacity: aktiv || voll ? 0.95 : 0.5,
+            backgroundColor: aktiv ? colors.forest : gefahr ? colors.abgrund : colors.night,
           },
         ]}
       >
-        <Schrift style={[stile.zahl, { color: farbe }]}>{zahl}</Schrift>
+        {/* Fortschrittsring */}
+        <Svg width={KNOPF} height={KNOPF} style={StyleSheet.absoluteFill}>
+          <Circle
+            cx={KNOPF / 2}
+            cy={KNOPF / 2}
+            r={RING_R}
+            stroke={ringFarbe}
+            strokeWidth={1}
+            opacity={0.25}
+            fill="none"
+          />
+          {anteil > 0 && (
+            <Circle
+              cx={KNOPF / 2}
+              cy={KNOPF / 2}
+              r={RING_R}
+              stroke={ringFarbe}
+              strokeWidth={2.4}
+              strokeLinecap="round"
+              fill="none"
+              strokeDasharray={`${RING_U * anteil} ${RING_U}`}
+              transform={`rotate(-90 ${KNOPF / 2} ${KNOPF / 2})`}
+            />
+          )}
+        </Svg>
+        <GruppenIcon
+          name={name}
+          farbe={aktiv ? colors.moon : ringFarbe}
+          augenFarbe={gefahr ? colors.warn : colors.amber}
+          groesse={30}
+          phase={index}
+        />
       </View>
       <Schrift style={[stile.astName, aktiv && { color: colors.moon }]} numberOfLines={2}>
         {name}
+      </Schrift>
+      <Schrift style={[stile.zahl, { color: ringFarbe }]}>
+        {gefahr && gesamt === 0 ? '☠' : `${gefunden}/${gesamt}`}
       </Schrift>
     </Pressable>
   );
@@ -366,24 +426,24 @@ const stile = StyleSheet.create({
     width: KNOPF,
     height: KNOPF,
     borderRadius: KNOPF / 2,
-    borderWidth: 1.6,
+    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowRadius: 10,
+    shadowRadius: 12,
     shadowOffset: { width: 0, height: 0 },
   },
-  zahl: { fontFamily: fonts.type, fontSize: 11 },
   astName: {
     maxWidth: 132,
     fontFamily: fonts.handBold,
     fontSize: 14,
     lineHeight: 17,
-    color: colors.fog,
+    color: colors.moon,
     textAlign: 'center',
     marginTop: 2,
     textShadowColor: colors.night,
     textShadowRadius: 6,
   },
+  zahl: { fontFamily: fonts.type, fontSize: 10, textShadowColor: colors.night, textShadowRadius: 4 },
   stern: { position: 'absolute', width: 90, alignItems: 'center' },
   sternName: { fontFamily: fonts.type, fontSize: 9.5, marginTop: -6, textAlign: 'center' },
 });
