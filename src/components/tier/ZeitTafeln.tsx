@@ -9,6 +9,7 @@ import { aktivitaetUm, jahresZustand, monatAmKreis, stundeAmKreis } from '@/logi
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { TierFigur } from './TierFigur';
+import { TierFoto } from './TierFoto';
 import { Fingerflaeche, SymbolSchalter, TierTafel } from './TierTafel';
 import { TierSymbol, type SymbolName } from './TierSymbol';
 
@@ -51,6 +52,11 @@ export function Jahresrad({
   const g = tier.geschlechter;
   // Männchen nur zeigen, wenn es sich sichtbar unterscheidet (Reh: Geweih)
   const zeigeMaennlich = !!g && maennlich;
+  // Fotos: nicht beim Männchen (das Geweih ändert sich jeden Monat – das zeigt die Zeichnung)
+  const fo = tier.fotos;
+  const fotoMitte =
+    fo && !zeigeMaennlich ? ((z.fell >= 0.5 ? fo.sommer : fo.winter) ?? fo.sommer ?? fo.winter) : undefined;
+  const fotoJung = z.jung ? fo?.jung : undefined;
   const fellName = z.fell >= 1 ? 'Sommerfell' : z.fell <= 0 ? 'Winterfell' : 'Fellwechsel';
 
   return (
@@ -151,27 +157,40 @@ export function Jahresrad({
             </View>
           );
         })}
+        {/* Echtes Foto in der Mitte (Sommer- bzw. Winterfell, dazu das Jungtier), sonst die Zeichnung */}
+        {fotoMitte ? (
+          <View style={stile.fotoKreis} pointerEvents="none">
+            <TierFoto id={fotoMitte} style={StyleSheet.absoluteFill} />
+          </View>
+        ) : null}
+        {fotoMitte && fotoJung ? (
+          <View style={stile.fotoJung} pointerEvents="none">
+            <TierFoto id={fotoJung} style={StyleSheet.absoluteFill} />
+          </View>
+        ) : null}
         {/* Tier in der Mitte – ändert sich mit dem Monat; zur Geburtszeit liegt die Mutter bei den Jungen */}
-        <View style={stile.radMitte} pointerEvents="none">
-          <TierFigur
-            tier={tier}
-            fell={z.fell}
-            geweih={zeigeMaennlich ? z.geweih : undefined}
-            pose={z.ruhe || (!zeigeMaennlich && z.geburt && !z.jung) ? 'liegt' : 'steht'}
-          />
-          {!zeigeMaennlich && z.jung && (
-            <View style={stile.kitz}>
-              <TierFigur
-                tier={tier}
-                fell={z.fell}
-                flecken={z.flecken}
-                streifen={z.streifen}
-                dunkel={z.jungDunkel}
-                pose={z.ruhe ? 'liegt' : 'steht'}
-              />
-            </View>
-          )}
-        </View>
+        {!fotoMitte && (
+          <View style={stile.radMitte} pointerEvents="none">
+            <TierFigur
+              tier={tier}
+              fell={z.fell}
+              geweih={zeigeMaennlich ? z.geweih : undefined}
+              pose={z.ruhe || (!zeigeMaennlich && z.geburt && !z.jung) ? 'liegt' : 'steht'}
+            />
+            {!zeigeMaennlich && z.jung && (
+              <View style={stile.kitz}>
+                <TierFigur
+                  tier={tier}
+                  fell={z.fell}
+                  flecken={z.flecken}
+                  streifen={z.streifen}
+                  dunkel={z.jungDunkel}
+                  pose={z.ruhe ? 'liegt' : 'steht'}
+                />
+              </View>
+            )}
+          </View>
+        )}
         <Fingerflaeche
           label={`Jahresrad, ${MONATE_LANG[monat - 1]}`}
           onPunkt={(x, y, b, h) => setMonat(monatAmKreis(x, y, b / 2, h / 2))}
@@ -218,6 +237,7 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
   const a = aktivitaetUm(tier, stunde);
   const zeit = `${String(Math.floor(stunde)).padStart(2, '0')}:${String(Math.round((stunde % 1) * 60)).padStart(2, '0')}`;
   const [zx, zy] = punkt(132, stunde / 24);
+  const uhrFoto = a > 0 ? tier.fotos?.aktiv : tier.fotos?.ruhe;
 
   return (
     <TierTafel symbol="uhr" titel="Ein Tag" geste="ziehen">
@@ -276,9 +296,15 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
         <View style={[stile.symbolUnten]} pointerEvents="none">
           <TierSymbol name="sonne" groesse={18} farbe={colors.amber} />
         </View>
-        <View style={stile.radMitte} pointerEvents="none">
-          <TierFigur tier={tier} pose={a > 0 ? 'aktiv' : 'liegt'} />
-        </View>
+        {uhrFoto ? (
+          <View style={stile.fotoKreis} pointerEvents="none">
+            <TierFoto id={uhrFoto} style={StyleSheet.absoluteFill} />
+          </View>
+        ) : (
+          <View style={stile.radMitte} pointerEvents="none">
+            <TierFigur tier={tier} pose={a > 0 ? 'aktiv' : 'liegt'} />
+          </View>
+        )}
         <Fingerflaeche
           label={`Tagesuhr, ${zeit} Uhr`}
           onPunkt={(x, y, b, h) => setStunde(stundeAmKreis(x, y, b / 2, h / 2))}
@@ -301,6 +327,28 @@ const stile = StyleSheet.create({
   radMitte: { position: 'absolute', left: '27%', top: '34%', width: '46%', height: '42%' },
   kitz: { position: 'absolute', left: '-14%', bottom: '-2%', width: '55%', height: '55%' },
   ringFinger: { borderRadius: 1000 },
+  fotoKreis: {
+    position: 'absolute',
+    left: '28%',
+    top: '35%',
+    width: '44%',
+    height: '44%',
+    borderRadius: 1000,
+    overflow: 'hidden',
+    borderWidth: 2,
+    borderColor: colors.moss,
+  },
+  fotoJung: {
+    position: 'absolute',
+    left: '22%',
+    top: '62%',
+    width: '20%',
+    height: '20%',
+    borderRadius: 1000,
+    overflow: 'hidden',
+    borderWidth: 2,
+    borderColor: colors.rune,
+  },
   jahreszeit: { position: 'absolute', marginLeft: -7, marginTop: -7 },
   symbolOben: { position: 'absolute', top: '1%', left: '50%', marginLeft: -9 },
   symbolUnten: { position: 'absolute', bottom: '1%', left: '50%', marginLeft: -9 },

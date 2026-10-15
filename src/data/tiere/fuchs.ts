@@ -5,6 +5,23 @@ export const FUCHS: TierSeite = {
   figur: 'fuchs',
   umgebung: 'waldrand',
   extras: ['bau'],
+  fotos: {
+    hero: 'fuchs/sitzt-sommer',
+    erkunden: {
+      // Foto schaut nach links
+      alle: {
+        foto: 'fuchs/steht',
+        punkte: { lunte: [84, 74], ohr: [25, 13], auge: [21, 24], nase: [16, 28.5], bein: [34, 76] },
+      },
+    },
+    sommer: 'fuchs/sitzt-sommer',
+    winter: 'fuchs/ruht',
+    jung: 'fuchs/welpe',
+    aktiv: 'fuchs/maeusesprung',
+    ruhe: 'fuchs/ruht',
+    spuren: { tritt: 'fuchs/spur', kot: 'fuchs/losung' },
+    hinweis: 'fuchs/sitzt-sommer',
+  },
   farben: {
     sommer: '#C9621F', // wie das 3D-Modell
     winter: '#C2551A', // Winterfell dichter und kräftiger gefärbt

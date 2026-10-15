@@ -5,9 +5,11 @@ import Svg, { G, Line, Path, Rect, Text as SvgText } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
 import type { TierSeite } from '@/data/tierSeiten';
-import { colors, fonts, spacing } from '@/theme/theme';
+import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { FIGUR_MASS, TierFigur } from './TierFigur';
+import { TierFoto } from './TierFoto';
+import { FOTOS } from '@/data/fotos';
 import { Leuchtpunkt, SymbolSchalter, TierTafel } from './TierTafel';
 import { TierSymbol } from './TierSymbol';
 
@@ -155,7 +157,17 @@ export function KoerperErkunden({ tier, ruhig }: { tier: TierSeite; ruhig: boole
   const [wahl, setWahl] = useState<string | null>(null);
   const g = tier.geschlechter;
   const box = FIGUR_MASS[tier.figur].ausschnitt;
-  const punkte = tier.koerper.filter((p) => maennlich || !p.nurMaennlich);
+  // Echtes Foto mit Punkten, falls vorhanden (Bock/Ricke bzw. ein Foto für alle)
+  const e = tier.fotos?.erkunden;
+  const blick = g ? (maennlich ? e?.maennlich : e?.weiblich) : e?.alle;
+  const punkte = tier.koerper
+    .filter((p) => maennlich || !p.nurMaennlich)
+    .filter((p) => !blick || blick.punkte[p.id])
+    .map((p) =>
+      blick
+        ? { ...p, links: blick.punkte[p.id][0], oben: blick.punkte[p.id][1] }
+        : { ...p, links: (p.x / 200) * 100, oben: ((p.y - box.y0) / box.hoehe) * 100 },
+    );
   const gewaehlt = punkte.find((p) => p.id === wahl);
 
   return (
@@ -174,8 +186,19 @@ export function KoerperErkunden({ tier, ruhig }: { tier: TierSeite; ruhig: boole
           }}
         />
       )}
-      <View style={[stile.figur, { aspectRatio: 200 / box.hoehe }]}>
-        <TierFigur tier={tier} geweih={g && maennlich ? { art: 'blank', groesse: 1 } : undefined} />
+      <View
+        style={[
+          stile.figur,
+          blick
+            ? [stile.foto, { aspectRatio: FOTOS[blick.foto].breite / FOTOS[blick.foto].hoehe }]
+            : { aspectRatio: 200 / box.hoehe },
+        ]}
+      >
+        {blick ? (
+          <TierFoto id={blick.foto} style={StyleSheet.absoluteFill} nachweis />
+        ) : (
+          <TierFigur tier={tier} geweih={g && maennlich ? { art: 'blank', groesse: 1 } : undefined} />
+        )}
         {punkte.map((p) => (
           <Pressable
             key={p.id}
@@ -183,7 +206,7 @@ export function KoerperErkunden({ tier, ruhig }: { tier: TierSeite; ruhig: boole
             accessibilityRole="button"
             accessibilityLabel={p.kurz}
             hitSlop={8}
-            style={[stile.punktOrt, { left: `${(p.x / 200) * 100}%`, top: `${((p.y - box.y0) / box.hoehe) * 100}%` }]}
+            style={[stile.punktOrt, { left: `${p.links}%`, top: `${p.oben}%` }]}
           >
             <Leuchtpunkt an={p.id === wahl} ruhig={ruhig} />
           </Pressable>
@@ -205,6 +228,7 @@ const stile = StyleSheet.create({
   wert: { flexDirection: 'row', alignItems: 'center', gap: 6 },
   wertText: { fontFamily: fonts.type, fontSize: 14 },
   figur: { width: '100%', aspectRatio: 200 / 180 },
+  foto: { borderRadius: radius.m, overflow: 'hidden' },
   punktOrt: { position: 'absolute', marginLeft: -15, marginTop: -15 },
   hinweis: {
     flexDirection: 'row',

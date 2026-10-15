@@ -4,6 +4,23 @@ import type { TierSeite } from '../tierSeiten';
 export const REH: TierSeite = {
   figur: 'reh',
   umgebung: 'waldrand',
+  fotos: {
+    hero: 'reh/bock',
+    heroX: 45,
+    erkunden: {
+      maennlich: {
+        foto: 'reh/bock',
+        punkte: { spiegel: [18.5, 49], geweih: [64, 18.5], ohr: [61.8, 27], nase: [71.5, 39.8], bein: [24, 75] },
+      },
+      weiblich: { foto: 'reh/ricke-sommer', punkte: { ohr: [46, 20], nase: [36, 36] } },
+    },
+    sommer: 'reh/ricke-sommer',
+    winter: 'reh/bock-aest-winter',
+    jung: 'reh/kitz',
+    aktiv: 'reh/bock-aest-winter',
+    spuren: { tritt: 'reh/trittsiegel', losung: 'reh/losung' },
+    hinweis: 'reh/kitz',
+  },
   farben: {
     sommer: '#9B5E32', // rotbraunes Sommerfell (wie das 3D-Modell)
     winter: '#6B5D4F', // graubraunes Winterfell

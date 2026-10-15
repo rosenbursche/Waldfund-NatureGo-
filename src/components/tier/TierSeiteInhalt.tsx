@@ -13,6 +13,8 @@ import { GroessenVergleich, KoerperErkunden } from './KoerperTafeln';
 import { TierSymbol } from './TierSymbol';
 import { Gefahren, Hinweis, LebensraumBild, SpurenKarten, Speiseplan } from './UmweltTafeln';
 import { Jahresrad, TagesUhr } from './ZeitTafeln';
+import { Bildnachweis } from './TierFoto';
+import type { FotoId } from '@/data/fotos';
 
 /**
  * Grafische Tierseite (Reh, Fuchs …): Jeder Abschnitt ist ein Bild zum Antippen oder Ziehen –
@@ -60,8 +62,29 @@ export function TierSeiteInhalt({
               : art?.wusstestDu
         }
       />
+      <Bildnachweis ids={alleFotos(tier)} />
     </View>
   );
+}
+
+/** Alle Fotos einer Tierseite (für den Bildnachweis) */
+function alleFotos(tier: TierSeite): FotoId[] {
+  const f = tier.fotos;
+  if (!f) return [];
+  const liste: (FotoId | undefined)[] = [
+    f.hero,
+    f.erkunden?.maennlich?.foto,
+    f.erkunden?.weiblich?.foto,
+    f.erkunden?.alle?.foto,
+    f.sommer,
+    f.winter,
+    f.jung,
+    f.aktiv,
+    f.ruhe,
+    f.hinweis,
+    ...Object.values(f.spuren ?? {}),
+  ];
+  return liste.filter((x): x is FotoId => !!x);
 }
 
 // ---------- Wild-Wert als Zeiger ----------

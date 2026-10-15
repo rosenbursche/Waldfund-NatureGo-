@@ -1,3 +1,4 @@
+import type { FotoId } from './fotos';
 import { BIBER } from './tiere/biber';
 import { DACHS } from './tiere/dachs';
 import { EICHHOERNCHEN } from './tiere/eichhoernchen';
@@ -103,10 +104,30 @@ export type Extra = 'bau' | 'suhle' | 'burg' | 'kobel' | 'laubnest';
 /** Zone im Lebensraum-Bild: 0 = links, 1 = Mitte, 2 = rechts (Bedeutung je Landschaft) */
 export type Zone = 0 | 1 | 2;
 
+/** Foto mit antippbaren Punkten (Prozent von links/oben), Schlüssel = id aus `koerper` */
+export type FotoBlick = { foto: FotoId; punkte: Record<string, [number, number]> };
+
+/** Echte Fotos einer Tierseite (alle optional außer dem Hero-Foto) */
+export type TierFotos = {
+  hero: FotoId;
+  /** waagerechter Bildausschnitt im Hero in Prozent (0 = linker Rand, 100 = rechter Rand) */
+  heroX?: number;
+  erkunden?: { maennlich?: FotoBlick; weiblich?: FotoBlick; alle?: FotoBlick };
+  sommer?: FotoId;
+  winter?: FotoId;
+  jung?: FotoId;
+  aktiv?: FotoId;
+  ruhe?: FotoId;
+  spuren?: Partial<Record<SpurIcon, FotoId>>;
+  hinweis?: FotoId;
+};
+
 export type TierSeite = {
   figur: FigurName;
   umgebung: Umgebung;
   extras?: Extra[];
+  /** echte Fotos (Wikimedia Commons, siehe src/data/fotos.ts) */
+  fotos?: TierFotos;
   /** Fellfarben (Daten, keine UI-Farben). `jung`: Fell junger Tiere (dunkle Welpen, braune Frischlinge) */
   farben: {
     sommer: string;

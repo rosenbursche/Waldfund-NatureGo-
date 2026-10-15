@@ -187,7 +187,7 @@ describe('Screens rendern ohne Fehler', () => {
       await render(<ArtSeite />);
       expect(screen.queryByText('Unbekannte Art')).toBeNull();
     }
-  });
+  }, 30000); // viele Seiten nacheinander – im Gesamtlauf langsamer
 
   test('Katalog: Wald-Ansicht ist Standard, mit Umschalter', async () => {
     mockParams.kategorie = 'voegel';

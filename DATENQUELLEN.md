@@ -31,6 +31,29 @@ Stand der Recherche: 11.10.2026
 
 Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in der Test-Ansicht. Liste im Code: `src/data/modelle.ts`.
 
+### Fotos der Tierseiten (Wikimedia Commons)
+- **Was:** echte Fotos für die Tierseiten von Reh und Fuchs (Hero, Erkunden, Jahresrad, Tagesuhr, Spuren, Hinweis).
+- **Lizenzen:** CC0, gemeinfrei, CC BY oder CC BY-SA – jeweils auf der Dateiseite geprüft. Gemeinfreie Fotos nur mit nachvollziehbarem Grund (z. B. „PD-self“: vom Fotografen freigegeben).
+- **Bearbeitung:** nur verkleinert (max. 1200 px) und als JPEG gespeichert, **nicht beschnitten oder verändert**. Die Anzeige in der App schneidet nur den sichtbaren Ausschnitt zu (wie ein Bilderrahmen).
+- **Pflicht:** Urheber und Lizenz sichtbar – in der App am Foto (kleiner Hinweis) und im Abschnitt „Fotos“ jeder Tierseite mit Link zur Quelle. Liste im Code: `src/data/fotos.ts`.
+- Ein zunächst gewähltes gemeinfreies Fuchsfoto (US Fish & Wildlife Service) wurde ersetzt, weil es die nordamerikanische Unterart zeigt.
+
+| Datei | Zeigt | Urheber | Lizenz | Quelle |
+|---|---|---|---|---|
+| `assets/fotos/reh/bock.jpg` | Rehbock mit Geweih | Uoaei1 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Capreolus_capreolus_Wien_Zentralfriedhof_20221021_05.jpg) |
+| `assets/fotos/reh/ricke-sommer.jpg` | Ricke im Sommerfell | caroline legg | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Roe_Deer_-_Doe.jpg) |
+| `assets/fotos/reh/bock-aest-winter.jpg` | äsender Rehbock, Winterfell | W.carter | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Roe_deer_in_Brastad_3.jpg) |
+| `assets/fotos/reh/kitz.jpg` | Rehkitz im Gras | Gilles San Martin from Namur, Belgium | CC BY-SA 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Roe_deer_fawn_(3722431080).jpg) |
+| `assets/fotos/reh/trittsiegel.jpg` | Reh-Trittsiegel im Schnee | Tomasz Kuran aka Meteor2017 | CC BY 2.5 | [Commons](https://commons.wikimedia.org/wiki/File:Roe_deer_track01.jpg) |
+| `assets/fotos/reh/losung.jpg` | Reh-Losung | Ejdzej | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Roe_deer_droppings.jpg) |
+| `assets/fotos/fuchs/sitzt-sommer.jpg` | sitzender Rotfuchs | Malene Thyssen | CC BY 2.5 | [Commons](https://commons.wikimedia.org/wiki/File:R%C3%B8d_r%C3%A6v_(Vulpes_vulpes).jpg) |
+| `assets/fotos/fuchs/maeusesprung.jpg` | Rotfuchs beim Mäusesprung | Justin Jensen | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Redfox_Pounce_(4453887453).jpg) |
+| `assets/fotos/fuchs/ruht.jpg` | ruhender Rotfuchs im Winter | Böhringer Friedrich | CC BY-SA 2.5 | [Commons](https://commons.wikimedia.org/wiki/File:Rotfuchs,_Vulpes_vulpes_1.JPG) |
+| `assets/fotos/fuchs/welpe.jpg` | Fuchswelpe | Karl Pinnow | CC BY 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_puppy_Naturschutzgebiet_Z%C3%BClowgrabenniederung_11.05.25.jpg) |
+| `assets/fotos/fuchs/spur.jpg` | Fuchsspur im Schnee | BorealFox | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Red_fox_track_in_snow.jpg) |
+| `assets/fotos/fuchs/losung.jpg` | Fuchs-Losung | gailhampshire from Cradley, Malvern, U.K | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Scat...Fox_-_Flickr_-_gailhampshire.jpg) |
+| `assets/fotos/fuchs/steht.jpg` | stehender Rotfuchs (Alpen) | Uoaei1 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg) |
+
 ### Artendaten aus dem Prototyp
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.
 - Verbreitungskarten sind **Demo-Daten** (`src/data/verbreitung.ts`), keine echten Funde.

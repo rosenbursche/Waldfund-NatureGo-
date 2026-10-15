@@ -372,7 +372,9 @@ Von oben nach unten:
 
 **Hero:** Oben steht das Tier in einer 3D-Umgebung passend zu seinem Lebensraum (`src/scene/Lebensraum3D.tsx`, beim Reh ein Waldrand: Wiese mit Gras und Blumen, Hecke aus gemalten Blattzweigen mit Beeren, zwei Reihen heimischer Laubbäume aus dem Baum-Generator, Glühwürmchen). Licht und Nebel folgen der Uhrzeit. Der Name steht groß auf dem Bild, darunter ein weicher Übergang in die Seite.
 
-Die Rechenlogik (Monat, Uhrzeit, Fingerposition, Zentimeter → Bildschirmpunkte) steht in `src/logic/tierJahr.ts`. **Jedes Tier ist anders** – die Daten (`src/data/tiere/<art>.ts`) steuern die Besonderheiten:
+Die Rechenlogik (Monat, Uhrzeit, Fingerposition, Zentimeter → Bildschirmpunkte) steht in `src/logic/tierJahr.ts`. **Echte Fotos (Reh, Fuchs):** In `src/data/fotos.ts` stehen die Fotos mit Urheber und Lizenz (Wikimedia Commons), in den Tierdaten unter `fotos` steht, wo sie gezeigt werden: Hero (mit Umschalter „3D“ zum Modell), Erkunden (Leuchtpunkte in Prozent auf dem Foto), Jahresrad (Sommer, Winter, Jungtier), Tagesuhr (aktiv, Ruhe), Spuren-Karten und Hinweis. Der Abschnitt „Fotos“ am Ende listet alle Urheber mit Link. Ohne Foto zeigt die Seite automatisch die Zeichnung. Neue Fotos: Lizenz prüfen, nur verkleinern, in `fotos.ts` und `DATENQUELLEN.md` eintragen.
+
+**Jedes Tier ist anders** – die Daten (`src/data/tiere/<art>.ts`) steuern die Besonderheiten:
 - Größe über Schulterhöhe (große Tiere) oder Körperlänge (kleine Tiere), Gewicht in kg oder g
 - Lebensraum-Landschaft `waldrand`, `wald`, `feld` oder `ufer` – als Bild (Abschnitt „Zuhause“) und als 3D-Hero; Extras im Hero: Bau, Suhle, Biberburg, Kobel, Laubnest
 - Winterschlaf/Winterruhe (`ruhe`): das Tier liegt im Jahresrad eingerollt

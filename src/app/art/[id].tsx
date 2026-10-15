@@ -11,6 +11,7 @@ import { Hintergrund } from '@/components/Hintergrund';
 import { Icon } from '@/components/Icon';
 import { TierHintergrund } from '@/components/tier/TierHintergrund';
 import { TierTafel } from '@/components/tier/TierTafel';
+import { FotoHero } from '@/components/tier/TierFoto';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { ArtMiniatur } from '@/components/ArtMiniatur';
@@ -67,6 +68,7 @@ export default function ArtSeite() {
   // Grafische Seite: Scrollweg für die Parallaxe des Hintergrunds, Licht im Hero nach Uhrzeit
   const [scroll] = useState(() => new Animated.Value(0));
   const [stimmung] = useState(() => stimmungJetzt());
+  const [zeige3d, setZeige3d] = useState(false);
 
   const eintrag = katalogEintrag(id);
   const art = artById[id];
@@ -106,17 +108,23 @@ export default function ArtSeite() {
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scroll } } }], { useNativeDriver: true })}
       >
         {grafisch && tier ? (
-          /* Hero: das Tier in seinem Lebensraum (3D), Name groß auf dem Bild */
+          /* Hero: echtes Foto (falls vorhanden) oder das Tier in seinem Lebensraum (3D), Name groß auf dem Bild */
           <View style={stile.hero}>
-            <ArtBuehne
-              glb={realistisch?.datei}
-              melden={realistisch ? setModellStatus : undefined}
-              modell={art?.modell}
-              silhouette={!gefunden}
-              ruhig={ruhig}
-              hoehe={470}
-              umgebung={{ art: tier.umgebung, stimmung, extras: tier.extras }}
-            />
+            {tier.fotos && !zeige3d ? (
+              <View style={{ height: 470 }}>
+                <FotoHero id={tier.fotos.hero} x={tier.fotos.heroX} gefunden={gefunden} ruhig={ruhig} />
+              </View>
+            ) : (
+              <ArtBuehne
+                glb={realistisch?.datei}
+                melden={realistisch ? setModellStatus : undefined}
+                modell={art?.modell}
+                silhouette={!gefunden}
+                ruhig={ruhig}
+                hoehe={470}
+                umgebung={{ art: tier.umgebung, stimmung, extras: tier.extras }}
+              />
+            )}
             <LinearGradient pointerEvents="none" colors={['transparent', colors.night]} style={stile.heroVerlauf} />
             <View style={stile.heroOben} pointerEvents="box-none">
               <Pressable
@@ -134,6 +142,19 @@ export default function ArtSeite() {
                 </Schrift>
               </View>
             </View>
+            {/* Umschalter Foto ↔ 3D-Modell */}
+            {tier.fotos && (
+              <Pressable
+                onPress={() => setZeige3d(!zeige3d)}
+                accessibilityRole="button"
+                accessibilityLabel={zeige3d ? 'Foto zeigen' : '3D-Modell zeigen'}
+                style={({ pressed }) => [stile.hero3d, pressed && { opacity: 0.6 }]}
+              >
+                <Schrift art="etikett" style={{ color: colors.night }}>
+                  {zeige3d ? 'Foto' : '3D'}
+                </Schrift>
+              </Pressable>
+            )}
             <View style={stile.heroUnten} pointerEvents="none">
               {!gefunden && (
                 <Schrift art="notiz" style={stile.heroHinweis}>
@@ -768,6 +789,15 @@ const stile = StyleSheet.create({
     backgroundColor: colors.night,
     borderWidth: 1,
     borderColor: colors.moss,
+  },
+  hero3d: {
+    position: 'absolute',
+    right: spacing.m,
+    bottom: spacing.m,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: radius.l,
+    backgroundColor: colors.amber,
   },
   heroUnten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.m },
   heroName: { fontSize: 56, lineHeight: 62 },

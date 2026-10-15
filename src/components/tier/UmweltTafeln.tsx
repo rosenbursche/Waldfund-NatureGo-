@@ -27,6 +27,8 @@ import { TierFigur } from './TierFigur';
 import { SymbolSchalter, TierTafel } from './TierTafel';
 import { SpurBild, TierSymbol, type SpurFarben, type SymbolName } from './TierSymbol';
 import { TrittsiegelForm } from './Trittsiegel';
+import { TierFoto } from './TierFoto';
+import type { FotoId } from '@/data/fotos';
 import { Chip } from './ZeitTafeln';
 
 // ---------- Lebensraum ----------
@@ -638,9 +640,18 @@ export function SpurenKarten({ tier }: { tier: TierSeite }) {
               accessibilityLabel={s.kurz}
               style={[stile.karte, auf && { borderColor: colors.amber }]}
             >
-              <View style={auf ? stile.spurKlein : stile.spurGross}>
-                <SpurBild name={s.icon} form={tier.tritt} farben={spurFarben(tier)} />
-              </View>
+              {tier.fotos?.spuren?.[s.icon] ? (
+                // echtes Foto der Spur füllt die Karte
+                <TierFoto
+                  id={tier.fotos.spuren[s.icon]!}
+                  style={auf ? stile.spurFotoKlein : stile.spurFoto}
+                  nachweis={!auf}
+                />
+              ) : (
+                <View style={auf ? stile.spurKlein : stile.spurGross}>
+                  <SpurBild name={s.icon} form={tier.tritt} farben={spurFarben(tier)} />
+                </View>
+              )}
               {auf && <Schrift style={stile.karteText}>{s.kurz}</Schrift>}
               {auf && s.cm && <Schrift style={stile.karteZahl}>{`${s.cm[0]}–${s.cm[1]} cm`}</Schrift>}
             </Pressable>
@@ -854,6 +865,7 @@ function JungFigur({ tier, pose }: { tier: TierSeite; pose?: 'steht' | 'liegt' }
 // ---------- Sicherheits-Hinweis (Kitz nicht anfassen, Fuchs nicht füttern …) ----------
 
 export function Hinweis({ tier, text }: { tier: TierSeite; text?: string }) {
+  if (tier.fotos?.hinweis) return <FotoHinweis tier={tier} foto={tier.fotos.hinweis} text={text} />;
   if (tier.hinweis.bild === 'abstand') return <AbstandHinweis tier={tier} text={text} />;
   return (
     <TierTafel symbol="stopp" titel={tier.hinweis.titel}>
@@ -897,6 +909,21 @@ export function Hinweis({ tier, text }: { tier: TierSeite; text?: string }) {
         </Svg>
         <View style={stile.kitzStopp}>
           <TierSymbol name="stopp" groesse={64} farbe={colors.warn} dicke={1.8} />
+        </View>
+      </View>
+      {text ? <Schrift style={stile.kitzText}>{text}</Schrift> : null}
+    </TierTafel>
+  );
+}
+
+/** Hinweis mit echtem Foto (Kitz im Gras, Fuchs) und Stopp-Hand */
+function FotoHinweis({ tier, foto, text }: { tier: TierSeite; foto: FotoId; text?: string }) {
+  return (
+    <TierTafel symbol="stopp" titel={tier.hinweis.titel}>
+      <View style={stile.hinweisFoto}>
+        <TierFoto id={foto} style={StyleSheet.absoluteFill} nachweis />
+        <View style={stile.hinweisStopp}>
+          <TierSymbol name="stopp" groesse={56} farbe={colors.warn} dicke={2} />
         </View>
       </View>
       {text ? <Schrift style={stile.kitzText}>{text}</Schrift> : null}
@@ -970,6 +997,7 @@ const stile = StyleSheet.create({
   faehrte: { width: '100%', aspectRatio: 5, borderRadius: radius.m, backgroundColor: colors.night, overflow: 'hidden' },
   karten: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
   karte: {
+    overflow: 'hidden',
     width: '48.5%',
     aspectRatio: 1.15,
     borderRadius: radius.m,
@@ -982,6 +1010,17 @@ const stile = StyleSheet.create({
     padding: spacing.s,
   },
   spurGross: { width: '100%', height: '80%' },
+  spurFoto: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 },
+  spurFotoKlein: { width: '100%', height: '55%', borderRadius: radius.s },
+  hinweisFoto: { width: '100%', aspectRatio: 1.5, borderRadius: radius.m, overflow: 'hidden' },
+  hinweisStopp: {
+    position: 'absolute',
+    right: spacing.s,
+    top: spacing.s,
+    padding: 6,
+    borderRadius: 40,
+    backgroundColor: `${colors.night}CC`,
+  },
   spurKlein: { width: '70%', height: '50%' },
   karteText: { fontFamily: fonts.hand, fontSize: 17, lineHeight: 21, color: colors.amber, textAlign: 'center' },
   karteZahl: { fontFamily: fonts.type, fontSize: 13, color: colors.moon },

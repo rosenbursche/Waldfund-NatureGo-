@@ -227,6 +227,10 @@ export default function Einstellungen() {
               </Schrift>
             ))}
             <Schrift art="klein">Orte und Postleitzahlen: GeoNames (geonames.org), CC BY 4.0.</Schrift>
+            <Schrift art="klein">
+              Tierfotos: Wikimedia Commons (CC0, gemeinfrei, CC BY, CC BY-SA) – Urheber und Lizenz stehen auf der
+              jeweiligen Artenseite.
+            </Schrift>
             {pruefModus === 'echt' && (
               <Schrift art="klein">
                 The image-based plant species identification service used, is based on the Pl@ntNet recognition API.
