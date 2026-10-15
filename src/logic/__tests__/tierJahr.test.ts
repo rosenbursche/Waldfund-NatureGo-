@@ -17,15 +17,30 @@ describe('Grafische Tierseite (Reh)', () => {
   it('Daten sind vollständig: 12 Monate Fell und Geweih', () => {
     expect(reh.fell).toHaveLength(12);
     expect(reh.geweih).toHaveLength(12);
+    for (const t of Object.values(TIER_SEITEN)) {
+      expect(t.fell).toHaveLength(12);
+      expect(t.jahr.some((e) => e.id === t.geburt)).toBe(true);
+    }
   });
 
   it('Jahreslauf: Sommerfell im Juli, Winterfell im Januar, Kitz mit Flecken im Juni', () => {
     expect(jahresZustand(reh, 7).fell).toBe(1);
     expect(jahresZustand(reh, 1).fell).toBe(0);
-    expect(jahresZustand(reh, 6)).toMatchObject({ kitz: true, flecken: true });
-    expect(jahresZustand(reh, 2).kitz).toBe(false);
+    expect(jahresZustand(reh, 6)).toMatchObject({ jung: true, flecken: true });
+    expect(jahresZustand(reh, 2).jung).toBe(false);
     expect(jahresZustand(reh, 7).ereignisse).toContain('brunft');
-    expect(jahresZustand(reh, 11).geweih.art).toBe('keins');
+    expect(jahresZustand(reh, 11).geweih?.art).toBe('keins');
+  });
+
+  it('Fuchs: Welpen im Frühjahr erst im Bau, dann dunkel draußen; kein Geweih; nachts aktiv', () => {
+    const fuchs = TIER_SEITEN.fuchs;
+    expect(jahresZustand(fuchs, 3)).toMatchObject({ jung: false, geburt: true });
+    expect(jahresZustand(fuchs, 5)).toMatchObject({ jung: true, jungDunkel: true });
+    expect(jahresZustand(fuchs, 7).jungDunkel).toBe(false);
+    expect(jahresZustand(fuchs, 7).geweih).toBeUndefined();
+    expect(aktivitaetUm(fuchs, 23)).toBe(2);
+    expect(aktivitaetUm(fuchs, 14)).toBe(0);
+    expect(nahrungIm(fuchs, 1).map((n) => n.icon)).toContain('maus');
   });
 
   it('Tagesrhythmus: in der Dämmerung aktiv, mittags meist Ruhe', () => {

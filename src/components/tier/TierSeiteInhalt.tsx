@@ -11,11 +11,11 @@ import { colors, fonts, spacing } from '@/theme/theme';
 
 import { GroessenVergleich, KoerperErkunden } from './KoerperTafeln';
 import { TierSymbol } from './TierSymbol';
-import { Gefahren, KitzRegel, LebensraumBild, SpurenKarten, Speiseplan } from './UmweltTafeln';
+import { Gefahren, Hinweis, LebensraumBild, SpurenKarten, Speiseplan } from './UmweltTafeln';
 import { Jahresrad, TagesUhr } from './ZeitTafeln';
 
 /**
- * Grafische Tierseite (Vorlage: Reh): Jeder Abschnitt ist ein Bild zum Antippen oder Ziehen –
+ * Grafische Tierseite (Reh, Fuchs …): Jeder Abschnitt ist ein Bild zum Antippen oder Ziehen –
  * Größe, Körper, Jahr, Tag, Zuhause, Futter, Spuren, Gefahren. Text nur als kurze Beschriftung.
  *
  * `futterArten`: Verweise auf Futterpflanzen in der App (wird unter dem Speiseplan gezeigt).
@@ -50,7 +50,7 @@ export function TierSeiteInhalt({
       </Speiseplan>
       <SpurenKarten tier={tier} />
       <Gefahren tier={tier} sammlung={sammlung} />
-      <KitzRegel tier={tier} text={art?.wusstestDu} />
+      <Hinweis tier={tier} text={tier.hinweis.text === 'gefahr' ? art?.gefahr : art?.wusstestDu} />
     </View>
   );
 }

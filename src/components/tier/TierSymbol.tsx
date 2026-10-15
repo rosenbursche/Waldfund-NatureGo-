@@ -43,7 +43,16 @@ export type SymbolName =
   | 'schnee'
   | 'bluete'
   | 'karte'
-  | 'buch';
+  | 'buch'
+  | 'lunte'
+  | 'pfote'
+  | 'maus'
+  | 'wurm'
+  | 'kaefer'
+  | 'beere'
+  | 'knochen'
+  | 'bau'
+  | 'auto';
 
 type Props = { name: SymbolName; groesse?: number; farbe?: string; dicke?: number };
 
@@ -323,6 +332,91 @@ function zeichnen(name: SymbolName, s: Strich, f: { fill: string }) {
           />
         </G>
       );
+    case 'lunte':
+      return (
+        <G>
+          <Path d="M20 4 C14 6 6 12 3 19 C2 21 4 22 6 21 C12 18 18 12 21 7 Z" {...s} />
+          <Path d="M3 19 C2 21 4 22 6 21 C5 20 4.5 19.5 4.8 18 Z" {...f} />
+        </G>
+      );
+    case 'pfote':
+      return (
+        <G>
+          <Ellipse cx={12} cy={16} rx={4.5} ry={3.8} {...f} />
+          {[
+            [8.5, 9],
+            [15.5, 9],
+            [6, 13.5],
+            [18, 13.5],
+          ].map(([x, y]) => (
+            <Ellipse key={`${x}-${y}`} cx={x} cy={y} rx={1.8} ry={2.4} {...f} />
+          ))}
+          <Path d="M8.5 6 L8.5 4.5 M15.5 6 L15.5 4.5" {...s} />
+        </G>
+      );
+    case 'maus':
+      return (
+        <G>
+          <Path d="M4 16 C4 11 9 9 13 10 C16 10.5 19 12 20 15 L21 16 C17 17 8 18 4 16 Z" {...s} />
+          <Circle cx={10} cy={9.5} r={2} {...s} />
+          <Circle cx={17.5} cy={13.5} r={0.8} {...f} />
+          <Path d="M4 16 C2 16 1.5 18 3 19.5 C5 21 8 19.5 9 21" {...s} />
+        </G>
+      );
+    case 'wurm':
+      return (
+        <Path
+          d="M3 15 C5 10 8 10 10 14 C12 18 15 18 17 13 C18.5 10 21 10 21.5 12"
+          {...s}
+          strokeWidth={s.strokeWidth * 1.4}
+        />
+      );
+    case 'kaefer':
+      return (
+        <G>
+          <Ellipse cx={12} cy={14} rx={5} ry={6.5} {...s} />
+          <Circle cx={12} cy={6.5} r={2.2} {...s} />
+          <Path
+            d="M12 8.7 L12 20.5 M7 11 L3 9 M7 14 L3 14 M7 17 L3.5 19 M17 11 L21 9 M17 14 L21 14 M17 17 L20.5 19 M11 4.5 L9 2 M13 4.5 L15 2"
+            {...s}
+            strokeWidth={s.strokeWidth * 0.8}
+          />
+        </G>
+      );
+    case 'beere':
+      return (
+        <G>
+          <Path d="M12 3 C12 6 11 8 9 10 M12 3 C13 6 15 8 16 9 M12 3 L16 2" {...s} />
+          <Circle cx={8} cy={14} r={3.4} {...f} />
+          <Circle cx={15.5} cy={13} r={3.4} {...f} />
+          <Circle cx={12} cy={19} r={3.2} {...f} />
+        </G>
+      );
+    case 'knochen':
+      return (
+        <Path
+          d="M7 8 C5 6 2.5 7.5 4 9.5 C2 10.5 3.5 13 5.5 11.5 L12.5 18.5 C11 20.5 13.5 22 14.5 20 C16.5 21.5 18 19 16 17.5 C18 16.5 16.5 14 14.5 15.5 L7.5 8.5 Z"
+          {...s}
+        />
+      );
+    case 'bau':
+      return (
+        <G>
+          <Path d="M2 19 C4 11 9 8 12 8 C16 8 20 11 22 19 Z" {...s} />
+          <Path d="M8 19 C8 15 10 13 12 13 C14 13 16 15 16 19 Z" {...f} />
+        </G>
+      );
+    case 'auto':
+      return (
+        <G>
+          <Path
+            d="M3 16 L3 12 L6 11 L8 7 L16 7 L18.5 11 L21 12 L21 16 Z M8.5 8.5 L7.2 11 L16.8 11 L15.5 8.5 Z"
+            {...s}
+          />
+          <Circle cx={7} cy={17} r={2} {...f} />
+          <Circle cx={17} cy={17} r={2} {...f} />
+        </G>
+      );
     case 'keim':
       return (
         <G>
@@ -337,7 +431,7 @@ function zeichnen(name: SymbolName, s: Strich, f: { fill: string }) {
  * Größere Spuren-Zeichnungen für die Karten (Raster 100 × 80): Trittsiegel im Boden,
  * Losung, verbissener Zweig mit ausgefranster Bissstelle, gefegtes Bäumchen.
  */
-export function SpurBild({ name, farben }: { name: 'tritt' | 'losung' | 'verbiss' | 'fegen'; farben: SpurFarben }) {
+export function SpurBild({ name, farben }: { name: SpurName; farben: SpurFarben }) {
   return (
     <Svg width="100%" height="100%" viewBox="0 0 100 80">
       {name === 'tritt' && (
@@ -352,6 +446,85 @@ export function SpurBild({ name, farben }: { name: 'tritt' | 'losung' | 'verbiss
               <Path d="M2 -14 C8 -10 9 4 6 12 C3 13 1 10 1 6 Z" fill={farben.tief} />
               <Path d="M-2 -14 C-8 -10 -9 4 -6 12" stroke={farben.kante} strokeWidth={0.8} fill="none" />
               <Path d="M2 -14 C8 -10 9 4 6 12" stroke={farben.kante} strokeWidth={0.8} fill="none" />
+            </G>
+          ))}
+        </G>
+      )}
+      {name === 'pfote' && (
+        <G>
+          <Ellipse cx={50} cy={44} rx={40} ry={26} fill={farben.boden} />
+          {/* Fuchs-Trittsiegel: schmal-oval, vier Zehen mit Krallen, Ballen; die beiden vorderen Zehen ragen weit vor */}
+          <G transform="translate(50 46)">
+            <Path d="M-7 6 C-7 0 7 0 7 6 C7 12 -7 12 -7 6 Z" fill={farben.tief} />
+            {[
+              [-4, -9],
+              [4, -9],
+              [-8.5, -1],
+              [8.5, -1],
+            ].map(([x, y]) => (
+              <G key={`${x}-${y}`}>
+                <Ellipse cx={x} cy={y} rx={2.8} ry={3.8} fill={farben.tief} />
+                <Path
+                  d={`M${x} ${y - 4} l${x / 10} -3.5`}
+                  stroke={farben.tief}
+                  strokeWidth={1.3}
+                  strokeLinecap="round"
+                />
+              </G>
+            ))}
+            <Path
+              d="M-7 -14 L7 -14 M0 -14 L0 2"
+              stroke={farben.markierung}
+              strokeWidth={0.6}
+              strokeDasharray="1.5 1.5"
+              opacity={0.6}
+            />
+          </G>
+        </G>
+      )}
+      {name === 'kot' && (
+        <G>
+          <Ellipse cx={50} cy={60} rx={34} ry={8} fill={farben.boden} />
+          {/* wurstförmig, an einem Ende gedreht und spitz, auf einem Stein als Markierung */}
+          <Ellipse cx={50} cy={57} rx={18} ry={7} fill={farben.kante} opacity={0.7} />
+          <Path
+            d="M30 46 C30 40 40 38 52 40 C62 42 70 44 76 40 C74 46 66 49 56 48 C46 47 38 50 30 46 Z"
+            fill={farben.tief}
+          />
+          <Path d="M76 40 C78 38 80 36 83 35" stroke={farben.tief} strokeWidth={1.6} strokeLinecap="round" />
+          <Path d="M40 41 l2 4 M50 41 l1.5 4 M60 43 l1 3.5" stroke={farben.glanz} strokeWidth={0.7} opacity={0.35} />
+        </G>
+      )}
+      {name === 'bau' && (
+        <G>
+          <Path d="M4 70 C14 40 34 28 50 28 C66 28 86 40 96 70 Z" fill={farben.boden} />
+          {/* zwei Röhren, davor ausgescharrte Erde */}
+          <Path d="M26 70 C26 58 32 52 38 52 C44 52 48 58 48 70 Z" fill={farben.tief} />
+          <Path d="M60 70 C60 61 64 57 69 57 C74 57 77 61 77 70 Z" fill={farben.tief} />
+          <Path d="M16 72 C26 66 44 66 54 72 Z" fill={farben.holz} opacity={0.8} />
+          <Path
+            d="M30 30 l-3 -8 M50 27 l0 -9 M70 31 l3 -8"
+            stroke={farben.kante}
+            strokeWidth={1.4}
+            strokeLinecap="round"
+          />
+        </G>
+      )}
+      {name === 'rupfung' && (
+        <G>
+          <Ellipse cx={50} cy={60} rx={36} ry={9} fill={farben.boden} />
+          {/* Federn mit abgebissenen, gequetschten Kielen */}
+          {[
+            [30, 54, -25],
+            [48, 50, 10],
+            [64, 56, 40],
+            [40, 62, -60],
+            [58, 63, 75],
+          ].map(([x, y, w]) => (
+            <G key={`${x}-${y}`} transform={`translate(${x} ${y}) rotate(${w})`}>
+              <Path d="M0 0 C-4 -6 -4 -16 0 -22 C4 -16 4 -6 0 0 Z" fill={farben.hell} opacity={0.9} />
+              <Path d="M0 2 L0 -20" stroke={farben.holz} strokeWidth={0.8} />
+              <Path d="M-1.2 2 L0 4.5 L1.2 2" stroke={farben.markierung} strokeWidth={1} fill="none" />
             </G>
           ))}
         </G>
@@ -436,6 +609,8 @@ export function SpurBild({ name, farben }: { name: 'tritt' | 'losung' | 'verbiss
     </Svg>
   );
 }
+
+export type SpurName = 'tritt' | 'losung' | 'verbiss' | 'fegen' | 'pfote' | 'kot' | 'bau' | 'rupfung';
 
 export type SpurFarben = {
   boden: string;

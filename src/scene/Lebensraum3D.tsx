@@ -48,7 +48,16 @@ const FARBE = {
 /** Bäume am Waldrand: heimische Laubbäume (passt zum Lebensraum Waldrand/Hecke) */
 const WALDRAND_BAEUME = ['rotbuche', 'stieleiche', 'hainbuche', 'sandbirke', 'bergahorn', 'vogelkirsche'];
 
-export function Lebensraum3D({ stimmung, ruhig }: { umgebung: Umgebung; stimmung: Stimmung; ruhig: boolean }) {
+export function Lebensraum3D({
+  stimmung,
+  ruhig,
+  extras = [],
+}: {
+  umgebung: Umgebung;
+  stimmung: Stimmung;
+  ruhig: boolean;
+  extras?: 'bau'[];
+}) {
   const gruppe = useRef<THREE.Group>(null);
   const teile = useMemo(() => baueWaldrand(), []);
   const baeume = useMemo(() => baumPlaetze(), []);
@@ -83,6 +92,7 @@ export function Lebensraum3D({ stimmung, ruhig }: { umgebung: Umgebung; stimmung
           antippbar={false}
         />
       ))}
+      {extras.includes('bau') && <Fuchsbau />}
       <Schwebelichter anteil={stimmung.gluehwuermchen} farbe={stimmung.licht} ruhig={ruhig} />
     </group>
   );
@@ -267,6 +277,30 @@ function heckenLaub(hecke: Detail[]) {
     FARBE.hecke,
   );
 }
+
+/** Fuchsbau rechts hinten am Waldrand: Erdhügel mit zwei dunklen Röhren und ausgescharrter Erde davor */
+const BAU_ERDE = '#3A2E24';
+const BAU_LOCH = '#0B0C0A';
+
+function Fuchsbau() {
+  return (
+    <group position={[2.1, 0, -2.3]} rotation={[0, -0.4, 0]}>
+      <mesh geometry={FORM.kugelFein} material={matt(BAU_ERDE)} position={[0, -0.05, 0]} scale={[1.4, 0.55, 1.1]} />
+      {[
+        [-0.45, 0.32],
+        [0.4, 0.26],
+      ].map(([x, r]) => (
+        <group key={x} position={[x, 0.16, 0.95]} rotation={[-0.35, 0, 0]}>
+          <mesh geometry={HALBKREIS} material={matt(BAU_LOCH)} scale={r} />
+        </group>
+      ))}
+      {/* ausgescharrte Erde vor den Röhren */}
+      <mesh geometry={FORM.kugelFein} material={matt(BAU_ERDE)} position={[-0.3, 0, 1.3]} scale={[0.7, 0.08, 0.4]} />
+      <mesh geometry={FORM.kugelFein} material={matt(BAU_ERDE)} position={[0.5, 0, 1.25]} scale={[0.5, 0.06, 0.35]} />
+    </group>
+  );
+}
+const HALBKREIS = new THREE.CircleGeometry(1, 16, 0, Math.PI);
 
 /** Glühwürmchen bzw. Lichtstaub, der über der Wiese schwebt (je nach Tageszeit) */
 const LICHTER = 18;

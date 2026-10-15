@@ -124,6 +124,29 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Spiegel: weißes Warnsignal')).toBeTruthy();
   });
 
+  test('Grafische Fuchs-Seite: gleiche Bild-Abschnitte, Fuchs-Daten und Sicherheits-Hinweis', async () => {
+    mockParams.id = 'fuchs';
+    useSammlung.setState({ gefunden: {} });
+    await render(<ArtSeite />);
+    for (const titel of [
+      'So groß',
+      'Erkunden',
+      'Ein Jahr',
+      'Ein Tag',
+      'Zuhause',
+      'Speiseplan',
+      'Spuren lesen',
+      'Gefahren',
+    ]) {
+      expect(screen.getByText(titel)).toBeTruthy();
+    }
+    expect(screen.getByText('Fuchs getroffen?')).toBeTruthy();
+    expect(screen.getByLabelText('Straßen')).toBeTruthy();
+    expect(screen.getByLabelText('Lunte, oft mit weißer Spitze')).toBeTruthy();
+    // kein Bock/Ricke-Umschalter beim Fuchs
+    expect(screen.queryByText('Bock')).toBeNull();
+  });
+
   test('Artenseite eines Vogels: Füße, Nest, Warum so gebaut', async () => {
     mockParams.id = 'buntspecht';
     await render(<ArtSeite />);

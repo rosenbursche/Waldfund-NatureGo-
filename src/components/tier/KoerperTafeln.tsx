@@ -7,17 +7,16 @@ import { Schrift } from '@/components/Schrift';
 import type { TierSeite } from '@/data/tierSeiten';
 import { colors, fonts, spacing } from '@/theme/theme';
 
-import { RehFigur } from './RehFigur';
+import { AUSSCHNITT, SCHULTER_Y, TierFigur } from './TierFigur';
 import { Leuchtpunkt, SymbolSchalter, TierTafel } from './TierTafel';
 import { TierSymbol } from './TierSymbol';
 
-// ---------- Größe: Reh neben dir ----------
+// ---------- Größe: Tier neben dir ----------
 
 /** Zeichenfläche 300 × 200, Boden bei y = 185, 0,85 Einheiten pro Zentimeter */
 const BODEN = 185;
 const PRO_CM = 0.85;
-// Reh-Zeichnung: Schulter bei y = 60, Boden bei y = 150 → 90 Einheiten ≙ mittlere Schulterhöhe
-const REH_X = 150;
+const TIER_X = 150;
 
 /** Mensch als schlichte Silhouette, Höhe 1 (Füße bei 0, Scheitel bei −1), Breite ca. 0,3 */
 const MENSCH =
@@ -27,11 +26,13 @@ export function GroessenVergleich({ tier }: { tier: TierSeite }) {
   const [du, setDu] = useState(160);
   const [s1, s2] = tier.groesse.schulterCm;
   const mitte = (s1 + s2) / 2;
-  // Reh so skalieren, dass seine mittlere Schulterhöhe stimmt
-  const rehMass = (mitte * PRO_CM) / 90; // Einheiten pro Zeichen-Einheit
-  const rehBreite = 200 * rehMass;
-  const rehHoehe = 180 * rehMass;
-  const rehOben = BODEN + 6 * rehMass - rehHoehe;
+  // Figur so skalieren, dass ihre mittlere Schulterhöhe stimmt (Boden der Zeichnung bei y = 150)
+  const mass = (mitte * PRO_CM) / (150 - SCHULTER_Y[tier.figur]); // Einheiten pro Zeichen-Einheit
+  const figurBreite = 200 * mass;
+  const box = AUSSCHNITT[tier.figur];
+  const figurHoehe = box.hoehe * mass;
+  // Unterkante des Ausschnitts liegt (y0 + hoehe − 150) Zeichen-Einheiten unter dem Boden
+  const figurOben = BODEN + (box.y0 + box.hoehe - 150) * mass - figurHoehe;
   const y = (cm: number) => BODEN - cm * PRO_CM;
 
   return (
@@ -70,13 +71,13 @@ export function GroessenVergleich({ tier }: { tier: TierSeite }) {
           pointerEvents="none"
           style={{
             position: 'absolute',
-            left: `${(REH_X / 300) * 100}%`,
-            top: `${(rehOben / 200) * 100}%`,
-            width: `${(rehBreite / 300) * 100}%`,
-            height: `${(rehHoehe / 200) * 100}%`,
+            left: `${(TIER_X / 300) * 100}%`,
+            top: `${(figurOben / 200) * 100}%`,
+            width: `${(figurBreite / 300) * 100}%`,
+            height: `${(figurHoehe / 200) * 100}%`,
           }}
         >
-          <RehFigur farben={tier.farben} geweih={{ art: 'blank', groesse: 1 }} />
+          <TierFigur tier={tier} geweih={tier.geweih ? { art: 'blank', groesse: 1 } : undefined} />
         </View>
       </View>
       <View style={stile.zahlen}>
@@ -115,26 +116,31 @@ function Wert({ symbol, text, farbe }: { symbol: 'lineal' | 'waage' | 'tippen'; 
 // ---------- Körper erkunden ----------
 
 export function KoerperErkunden({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
-  const [bock, setBock] = useState(true);
+  const [maennlich, setMaennlich] = useState(true);
   const [wahl, setWahl] = useState<string | null>(null);
-  const punkte = tier.koerper.filter((p) => bock || !p.nurBock);
+  const g = tier.geschlechter;
+  const box = AUSSCHNITT[tier.figur];
+  const punkte = tier.koerper.filter((p) => maennlich || !p.nurMaennlich);
   const gewaehlt = punkte.find((p) => p.id === wahl);
 
   return (
     <TierTafel symbol="auge" titel="Erkunden" geste="tippen">
-      <SymbolSchalter
-        wahl={bock ? 'bock' : 'ricke'}
-        optionen={[
-          { wert: 'bock', symbol: 'geweih', name: 'Bock' },
-          { wert: 'ricke', symbol: 'herz', name: 'Ricke' },
-        ]}
-        onWahl={(w) => {
-          setBock(w === 'bock');
-          setWahl(null);
-        }}
-      />
-      <View style={stile.figur}>
-        <RehFigur farben={tier.farben} geweih={bock ? { art: 'blank', groesse: 1 } : undefined} />
+      {/* Umschalter nur, wenn sich die Geschlechter sichtbar unterscheiden (Reh: Geweih) */}
+      {g && (
+        <SymbolSchalter
+          wahl={maennlich ? 'm' : 'w'}
+          optionen={[
+            { wert: 'm', symbol: 'geweih', name: g.maennlich },
+            { wert: 'w', symbol: 'herz', name: g.weiblich },
+          ]}
+          onWahl={(w) => {
+            setMaennlich(w === 'm');
+            setWahl(null);
+          }}
+        />
+      )}
+      <View style={[stile.figur, { aspectRatio: 200 / box.hoehe }]}>
+        <TierFigur tier={tier} geweih={g && maennlich ? { art: 'blank', groesse: 1 } : undefined} />
         {punkte.map((p) => (
           <Pressable
             key={p.id}
@@ -142,7 +148,7 @@ export function KoerperErkunden({ tier, ruhig }: { tier: TierSeite; ruhig: boole
             accessibilityRole="button"
             accessibilityLabel={p.kurz}
             hitSlop={8}
-            style={[stile.punktOrt, { left: `${(p.x / 200) * 100}%`, top: `${((p.y + 24) / 180) * 100}%` }]}
+            style={[stile.punktOrt, { left: `${(p.x / 200) * 100}%`, top: `${((p.y - box.y0) / box.hoehe) * 100}%` }]}
           >
             <Leuchtpunkt an={p.id === wahl} ruhig={ruhig} />
           </Pressable>

@@ -23,7 +23,7 @@ import { cmZuPunkten, farbMix, nahrungIm } from '@/logic/tierJahr';
 import { SELTENHEIT } from '@/data/spiel';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
-import { RehFigur } from './RehFigur';
+import { TierFigur } from './TierFigur';
 import { SymbolSchalter, TierTafel } from './TierTafel';
 import { SpurBild, TierSymbol, type SpurFarben, type SymbolName } from './TierSymbol';
 import { Chip } from './ZeitTafeln';
@@ -35,7 +35,7 @@ const ZONEN: { ort: Ort; von: number; bis: number; symbol: SymbolName }[] = [
   { ort: 'rand', von: 100, bis: 190, symbol: 'gebuesch' },
   { ort: 'wiese', von: 190, bis: 300, symbol: 'wiese' },
 ];
-const REH_IN: Record<Ort, number> = { wald: 52, rand: 146, wiese: 246 };
+const TIER_IN: Record<Ort, number> = { wald: 52, rand: 146, wiese: 246 };
 
 /** Landschaft im Querschnitt: Wald – Waldrand mit Hecke – Wiese (300 × 170, Boden bei y = 140) */
 function Landschaft({ nacht }: { nacht: boolean }) {
@@ -275,8 +275,8 @@ export function LebensraumBild({ tier }: { tier: TierSeite }) {
             { left: `${(zone.von / 300) * 100}%`, width: `${((zone.bis - zone.von) / 300) * 100}%` },
           ]}
         />
-        <View pointerEvents="none" style={[stile.reh, { left: `${((REH_IN[ort] - 34) / 300) * 100}%` }]}>
-          <RehFigur farben={tier.farben} pose={ort === 'wiese' ? 'aest' : 'steht'} licht={nacht} />
+        <View pointerEvents="none" style={[stile.reh, { left: `${((TIER_IN[ort] - 34) / 300) * 100}%` }]}>
+          <TierFigur tier={tier} pose={ort === 'wiese' ? 'aktiv' : 'steht'} licht={nacht} />
         </View>
         {ZONEN.map((z) => (
           <Pressable
@@ -371,7 +371,8 @@ export function Speiseplan({
 export function SpurenKarten({ tier }: { tier: TierSeite }) {
   const [offen, setOffen] = useState<string | null>(null);
   const [echt, setEcht] = useState(false);
-  const tritt = tier.spuren.find((s) => s.icon === 'tritt');
+  // die Spur mit Zentimeter-Angabe ist das Trittsiegel (Huf oder Pfote)
+  const tritt = tier.spuren.find((s) => s.cm);
 
   return (
     <TierTafel symbol="tritt" titel="Spuren lesen" geste="tippen">
@@ -406,14 +407,25 @@ export function SpurenKarten({ tier }: { tier: TierSeite }) {
           <Schrift style={[stile.echtText, echt && { color: colors.night }]}>1 : 1</Schrift>
         </Pressable>
       )}
-      {echt && tritt?.cm && <Originalgroesse cm={(tritt.cm[0] + tritt.cm[1]) / 2} />}
-      {offen === 'tritt' && <Faehrte />}
+      {echt && tritt?.cm && <Originalgroesse cm={(tritt.cm[0] + tritt.cm[1]) / 2} symbol={tritt.icon} />}
+      {offen === tritt?.icon && <Faehrte art={tier.faehrte} pfote={tritt?.icon === 'pfote'} />}
     </TierTafel>
   );
 }
 
-/** Fährte: mehrere Trittsiegel hintereinander, leicht versetzt (so sieht eine Spur im Schnee oder Matsch aus) */
-function Faehrte() {
+/** Pfotenabdruck (vier Zehen mit Krallen, Ballen) für die Fährte – Spitze zeigt nach oben */
+const PFOTE_ZEHEN: [number, number][] = [
+  [-4, -8],
+  [4, -8],
+  [-7, -1],
+  [7, -1],
+];
+
+/**
+ * Fährte: mehrere Trittsiegel hintereinander – paarig versetzt (Reh) oder „geschnürt“,
+ * also wie auf einer Perlenkette auf einer Linie (Fuchs). So sieht eine Spur im Schnee oder Matsch aus.
+ */
+function Faehrte({ art, pfote }: { art: 'versetzt' | 'geschnuert'; pfote: boolean }) {
   return (
     <View style={stile.faehrte} accessibilityLabel="Fährte">
       <Svg width="100%" height="100%" viewBox="0 0 300 60">
@@ -426,11 +438,25 @@ function Faehrte() {
         />
         {Array.from({ length: 9 }, (_, k) => {
           const x = 18 + k * 33;
-          const y = 42 + (k % 2 === 0 ? -7 : 7) + Math.sin(k) * 1.5;
+          const y = 42 + (art === 'versetzt' ? (k % 2 === 0 ? -7 : 7) : 0) + Math.sin(k) * 1.5;
           return (
             <G key={k} transform={`translate(${x} ${y}) rotate(90) scale(0.55)`}>
-              <Path d="M-2 -14 C-8 -10 -9 4 -6 12 C-3 13 -1 10 -1 6 Z" fill={colors.night} />
-              <Path d="M2 -14 C8 -10 9 4 6 12 C3 13 1 10 1 6 Z" fill={colors.night} />
+              {pfote ? (
+                <G>
+                  <Ellipse cx={0} cy={6} rx={6} ry={5} fill={colors.night} />
+                  {PFOTE_ZEHEN.map(([zx, zy]) => (
+                    <G key={`${zx}-${zy}`}>
+                      <Ellipse cx={zx} cy={zy} rx={2.6} ry={3.4} fill={colors.night} />
+                      <Path d={`M${zx} ${zy - 3.5} l0 -3`} stroke={colors.night} strokeWidth={1.2} />
+                    </G>
+                  ))}
+                </G>
+              ) : (
+                <G>
+                  <Path d="M-2 -14 C-8 -10 -9 4 -6 12 C-3 13 -1 10 -1 6 Z" fill={colors.night} />
+                  <Path d="M2 -14 C8 -10 9 4 6 12 C3 13 1 10 1 6 Z" fill={colors.night} />
+                </G>
+              )}
             </G>
           );
         })}
@@ -447,16 +473,17 @@ function Faehrte() {
 }
 
 /** Trittsiegel in (ungefähr) echter Größe mit Zentimeter-Lineal – zum Vergleichen im Wald */
-function Originalgroesse({ cm }: { cm: number }) {
+function Originalgroesse({ cm, symbol }: { cm: number; symbol: 'tritt' | 'pfote' | string }) {
   const hoehe = cmZuPunkten(cm);
-  // Das Symbol füllt im 24er-Raster die Höhe 3 … 20 (17 Einheiten)
-  const groesse = (hoehe * 24) / 17;
+  // Das Symbol füllt im 24er-Raster die Höhe 3 … 20 (Huf) bzw. 4,5 … 19,8 (Pfote)
+  const [oben, spanne] = symbol === 'pfote' ? [4.5, 15.3] : [3, 17];
+  const groesse = (hoehe * 24) / spanne;
   const lineal = cmZuPunkten(6);
   return (
     <View style={stile.echt}>
       <View style={{ width: groesse, height: hoehe, overflow: 'visible', alignItems: 'center' }}>
-        <View style={{ marginTop: (-3 / 24) * groesse }}>
-          <TierSymbol name="tritt" groesse={groesse} farbe={colors.moon} dicke={1} />
+        <View style={{ marginTop: (-oben / 24) * groesse }}>
+          <TierSymbol name={symbol === 'pfote' ? 'pfote' : 'tritt'} groesse={groesse} farbe={colors.moon} dicke={1} />
         </View>
       </View>
       <Svg width={34} height={lineal + 4}>
@@ -502,13 +529,13 @@ function spurFarben(t: TierSeite): SpurFarben {
 
 export function Gefahren({ tier, sammlung }: { tier: TierSeite; sammlung: Record<string, unknown> }) {
   const reihen = [
-    { kitz: false, liste: tier.gefahren.filter((g) => !g.nurKitz) },
-    { kitz: true, liste: tier.gefahren.filter((g) => g.nurKitz) },
-  ];
+    { jung: false, liste: tier.gefahren.filter((g) => !g.nurJung) },
+    { jung: true, liste: tier.gefahren.filter((g) => g.nurJung) },
+  ].filter((r) => r.liste.length > 0);
   return (
     <TierTafel symbol="wolf" titel="Gefahren" geste="tippen">
       {reihen.map((r) => (
-        <View key={String(r.kitz)} style={stile.gefahrReihe}>
+        <View key={String(r.jung)} style={stile.gefahrReihe}>
           <View style={stile.gefahrQuellen}>
             {r.liste.map((g) => (
               <Gefahr key={g.kurz} gefahr={g} sammlung={sammlung} />
@@ -523,8 +550,8 @@ export function Gefahren({ tier, sammlung }: { tier: TierSeite; sammlung: Record
               fill="none"
             />
           </Svg>
-          <View style={[stile.gefahrZiel, r.kitz && stile.gefahrKitz]}>
-            <RehFigur farben={tier.farben} flecken={r.kitz} />
+          <View style={[stile.gefahrZiel, r.jung && stile.gefahrKitz]}>
+            <TierFigur tier={tier} flecken={r.jung} dunkel={r.jung} />
           </View>
         </View>
       ))}
@@ -570,11 +597,12 @@ function Gefahr({ gefahr, sammlung }: { gefahr: TierSeite['gefahren'][number]; s
   );
 }
 
-// ---------- Kitz-Regel ----------
+// ---------- Sicherheits-Hinweis (Kitz nicht anfassen, Fuchs nicht füttern …) ----------
 
-export function KitzRegel({ tier, text }: { tier: TierSeite; text?: string }) {
+export function Hinweis({ tier, text }: { tier: TierSeite; text?: string }) {
+  if (tier.hinweis.bild === 'fuchs') return <FuchsHinweis tier={tier} text={text} />;
   return (
-    <TierTafel symbol="stopp" titel="Kitz gefunden?">
+    <TierTafel symbol="stopp" titel={tier.hinweis.titel}>
       <View style={stile.kitzBild}>
         <Svg width="100%" height="100%" viewBox="0 0 300 120" style={StyleSheet.absoluteFill}>
           {Array.from({ length: 60 }, (_, i) => {
@@ -594,7 +622,7 @@ export function KitzRegel({ tier, text }: { tier: TierSeite; text?: string }) {
           })}
         </Svg>
         <View style={stile.kitzFigur}>
-          <RehFigur farben={tier.farben} pose="liegt" flecken />
+          <TierFigur tier={tier} pose="liegt" flecken />
         </View>
         {/* ein paar Halme vor dem Kitz: es liegt gut versteckt */}
         <Svg width="100%" height="100%" viewBox="0 0 300 120" style={StyleSheet.absoluteFill} pointerEvents="none">
@@ -614,6 +642,34 @@ export function KitzRegel({ tier, text }: { tier: TierSeite; text?: string }) {
           })}
         </Svg>
         <View style={stile.kitzStopp}>
+          <TierSymbol name="stopp" groesse={64} farbe={colors.warn} dicke={1.8} />
+        </View>
+      </View>
+      {text ? <Schrift style={stile.kitzText}>{text}</Schrift> : null}
+    </TierTafel>
+  );
+}
+
+/** Fuchs mit Abstand: er steht am Rand, dazwischen eine Linie, davor die Stopp-Hand */
+function FuchsHinweis({ tier, text }: { tier: TierSeite; text?: string }) {
+  return (
+    <TierTafel symbol="stopp" titel={tier.hinweis.titel}>
+      <View style={stile.kitzBild}>
+        <Svg width="100%" height="100%" viewBox="0 0 300 120" style={StyleSheet.absoluteFill}>
+          <Line x1={0} y1={112} x2={300} y2={112} stroke={colors.moss} strokeWidth={1.5} />
+          {/* Abstand halten: gestrichelte Linie mit Pfeilen */}
+          <Path d="M96 100 L196 100" stroke={colors.amber} strokeWidth={1.4} strokeDasharray="5 4" />
+          <Path
+            d="M102 95 L96 100 L102 105 M190 95 L196 100 L190 105"
+            stroke={colors.amber}
+            strokeWidth={1.4}
+            fill="none"
+          />
+        </Svg>
+        <View style={stile.fuchsFigur}>
+          <TierFigur tier={tier} />
+        </View>
+        <View style={stile.fuchsStopp}>
           <TierSymbol name="stopp" groesse={64} farbe={colors.warn} dicke={1.8} />
         </View>
       </View>
@@ -713,5 +769,7 @@ const stile = StyleSheet.create({
   kitzBild: { width: '100%', aspectRatio: 300 / 120 },
   kitzFigur: { position: 'absolute', left: '18%', top: '8%', width: '48%', height: '100%' },
   kitzStopp: { position: 'absolute', right: '6%', top: '14%' },
+  fuchsFigur: { position: 'absolute', right: '2%', top: '-14%', width: '42%', height: '110%' },
+  fuchsStopp: { position: 'absolute', left: '6%', top: '14%' },
   kitzText: { fontFamily: fonts.hand, fontSize: 19, lineHeight: 25, color: colors.amber, textAlign: 'center' },
 });

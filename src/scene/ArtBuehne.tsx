@@ -36,7 +36,7 @@ type Props = {
   /** Ladezustand eines GLB-Modells melden (für die Test-Ansicht) */
   melden?: (s: string) => void;
   /** Lebensraum als 3D-Umgebung hinter dem Tier (statt Runenkreis), Licht nach Tageszeit */
-  umgebung?: { art: Umgebung; stimmung: Stimmung };
+  umgebung?: { art: Umgebung; stimmung: Stimmung; extras?: 'bau'[] };
 };
 
 export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze, melden, umgebung }: Props) {
@@ -76,7 +76,7 @@ export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, p
           {/* türkises Gegenlicht für einen weichen Leuchtrand */}
           <directionalLight position={[-4, 2, -4]} color={colors.rune} intensity={1.4} />
           {umgebung ? (
-            <Lebensraum3D umgebung={umgebung.art} stimmung={umgebung.stimmung} ruhig={ruhig} />
+            <Lebensraum3D umgebung={umgebung.art} stimmung={umgebung.stimmung} ruhig={ruhig} extras={umgebung.extras} />
           ) : (
             <Runenkreis />
           )}

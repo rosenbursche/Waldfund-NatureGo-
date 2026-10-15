@@ -115,7 +115,7 @@ export default function ArtSeite() {
               silhouette={!gefunden}
               ruhig={ruhig}
               hoehe={470}
-              umgebung={{ art: tier.umgebung, stimmung }}
+              umgebung={{ art: tier.umgebung, stimmung, extras: tier.extras }}
             />
             <LinearGradient pointerEvents="none" colors={['transparent', colors.night]} style={stile.heroVerlauf} />
             <View style={stile.heroOben} pointerEvents="box-none">

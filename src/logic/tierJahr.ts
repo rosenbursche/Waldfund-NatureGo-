@@ -8,9 +8,14 @@ import type { GeweihZustand, TierSeite } from '@/data/tierSeiten';
 export type JahresZustand = {
   /** 0 = Winterfell, 1 = Sommerfell */
   fell: number;
-  geweih: GeweihZustand;
-  kitz: boolean;
+  /** nur bei Arten mit Geweih */
+  geweih?: GeweihZustand;
+  /** Jungtier draußen zu sehen, mit Flecken (Kitz) bzw. noch dunklem Fell (Welpe) */
+  jung: boolean;
   flecken: boolean;
+  jungDunkel: boolean;
+  /** Geburtszeit: Die Mutter liegt bei den Jungen */
+  geburt: boolean;
   /** IDs der Ereignisse in diesem Monat (z. B. 'brunft') */
   ereignisse: string[];
 };
@@ -19,12 +24,15 @@ export type JahresZustand = {
 export function jahresZustand(t: TierSeite, monat: number): JahresZustand {
   const i = (((monat - 1) % 12) + 12) % 12;
   const m = i + 1;
+  const ereignisse = t.jahr.filter((e) => e.monate.includes(m)).map((e) => e.id);
   return {
     fell: t.fell[i],
-    geweih: t.geweih[i],
-    kitz: t.kitz.sichtbar.includes(m),
-    flecken: t.kitz.flecken.includes(m),
-    ereignisse: t.jahr.filter((e) => e.monate.includes(m)).map((e) => e.id),
+    geweih: t.geweih?.[i],
+    jung: t.jung.sichtbar.includes(m),
+    flecken: !!t.jung.flecken?.includes(m),
+    jungDunkel: !!t.jung.dunkel?.includes(m),
+    geburt: ereignisse.includes(t.geburt),
+    ereignisse,
   };
 }
 

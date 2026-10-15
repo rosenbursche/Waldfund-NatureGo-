@@ -8,7 +8,7 @@ import { MONATE, MONATE_LANG } from '@/logic/jahreszeit';
 import { aktivitaetUm, jahresZustand, monatAmKreis, stundeAmKreis } from '@/logic/tierJahr';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
-import { RehFigur } from './RehFigur';
+import { TierFigur } from './TierFigur';
 import { Fingerflaeche, SymbolSchalter, TierTafel } from './TierTafel';
 import { TierSymbol, type SymbolName } from './TierSymbol';
 
@@ -34,12 +34,6 @@ function bogen(r: number, a0: number, a1: number) {
 }
 
 const EREIGNIS_FARBE = { amber: colors.amber, rune: colors.rune, fog: colors.fog, rare: colors.rare };
-const EREIGNIS_SYMBOL: Record<string, SymbolName> = {
-  setzzeit: 'mulde',
-  brunft: 'herz',
-  keimruhe: 'keim',
-  abwurf: 'geweih',
-};
 
 // ---------- Jahresrad ----------
 
@@ -52,20 +46,25 @@ export function Jahresrad({
   monat: number;
   setMonat: (m: number) => void;
 }) {
-  const [bock, setBock] = useState(false);
+  const [maennlich, setMaennlich] = useState(false);
   const z = jahresZustand(tier, monat);
+  const g = tier.geschlechter;
+  // Männchen nur zeigen, wenn es sich sichtbar unterscheidet (Reh: Geweih)
+  const zeigeMaennlich = !!g && maennlich;
   const fellName = z.fell >= 1 ? 'Sommerfell' : z.fell <= 0 ? 'Winterfell' : 'Fellwechsel';
 
   return (
     <TierTafel symbol="rad" titel="Ein Jahr" geste="ziehen">
-      <SymbolSchalter
-        wahl={bock ? 'bock' : 'ricke'}
-        optionen={[
-          { wert: 'ricke', symbol: 'herz', name: 'Ricke & Kitz' },
-          { wert: 'bock', symbol: 'geweih', name: 'Bock' },
-        ]}
-        onWahl={(w) => setBock(w === 'bock')}
-      />
+      {g && (
+        <SymbolSchalter
+          wahl={maennlich ? 'm' : 'w'}
+          optionen={[
+            { wert: 'w', symbol: 'herz', name: `${g.weiblich} & ${tier.jungName}` },
+            { wert: 'm', symbol: 'geweih', name: g.maennlich },
+          ]}
+          onWahl={(w) => setMaennlich(w === 'm')}
+        />
+      )}
       <View style={stile.rad}>
         <Svg width="100%" height="100%" viewBox="0 0 300 300">
           {/* Monatsring */}
@@ -152,17 +151,17 @@ export function Jahresrad({
             </View>
           );
         })}
-        {/* Reh in der Mitte – ändert sich mit dem Monat */}
+        {/* Tier in der Mitte – ändert sich mit dem Monat; zur Geburtszeit liegt die Mutter bei den Jungen */}
         <View style={stile.radMitte} pointerEvents="none">
-          <RehFigur
-            farben={tier.farben}
+          <TierFigur
+            tier={tier}
             fell={z.fell}
-            geweih={bock ? z.geweih : undefined}
-            pose={!bock && z.ereignisse.includes('setzzeit') && !z.kitz ? 'liegt' : 'steht'}
+            geweih={zeigeMaennlich ? z.geweih : undefined}
+            pose={!zeigeMaennlich && z.geburt && !z.jung ? 'liegt' : 'steht'}
           />
-          {!bock && z.kitz && (
+          {!zeigeMaennlich && z.jung && (
             <View style={stile.kitz}>
-              <RehFigur farben={tier.farben} fell={z.fell} flecken={z.flecken} />
+              <TierFigur tier={tier} fell={z.fell} flecken={z.flecken} dunkel={z.jungDunkel} />
             </View>
           )}
         </View>
@@ -177,9 +176,9 @@ export function Jahresrad({
         {tier.jahr
           .filter((e) => z.ereignisse.includes(e.id))
           .map((e) => (
-            <Chip key={e.id} symbol={EREIGNIS_SYMBOL[e.id] ?? 'rad'} text={e.kurz} farbe={EREIGNIS_FARBE[e.farbe]} />
+            <Chip key={e.id} symbol={e.symbol as SymbolName} text={e.kurz} farbe={EREIGNIS_FARBE[e.farbe]} />
           ))}
-        {bock && <Chip symbol="geweih" text={geweihText(z.geweih.art)} farbe={colors.fog} />}
+        {zeigeMaennlich && z.geweih && <Chip symbol="geweih" text={geweihText(z.geweih.art)} farbe={colors.fog} />}
       </View>
     </TierTafel>
   );
@@ -264,7 +263,7 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
           <TierSymbol name="sonne" groesse={18} farbe={colors.amber} />
         </View>
         <View style={stile.radMitte} pointerEvents="none">
-          <RehFigur farben={tier.farben} pose={a > 0 ? 'aest' : 'liegt'} />
+          <TierFigur tier={tier} pose={a > 0 ? 'aktiv' : 'liegt'} />
         </View>
         <Fingerflaeche
           label={`Tagesuhr, ${zeit} Uhr`}
@@ -274,8 +273,8 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
       </View>
       <View style={stile.chips}>
         <Chip
-          symbol={a > 0 ? 'kraut' : 'mulde'}
-          text={a === 2 ? 'Viel unterwegs, frisst' : a === 1 ? 'Kurz fressen' : 'Ruht und kaut wieder'}
+          symbol={a > 0 ? tier.aktivSymbol : 'mulde'}
+          text={tier.aktivTexte[a]}
           farbe={a === 2 ? colors.amber : a === 1 ? colors.rune : colors.fog}
         />
       </View>
