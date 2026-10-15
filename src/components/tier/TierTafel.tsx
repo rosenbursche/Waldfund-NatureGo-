@@ -23,6 +23,10 @@ export function TierTafel({
 }) {
   return (
     <View style={stile.tafel}>
+      {/* großes, kaum sichtbares Symbol als Wasserzeichen */}
+      <View style={stile.wasserzeichen} pointerEvents="none">
+        <TierSymbol name={symbol} groesse={170} farbe={colors.moon} dicke={0.8} />
+      </View>
       <View style={stile.kopf} accessibilityRole="header">
         <View style={stile.siegel}>
           <TierSymbol name={symbol} groesse={20} farbe={colors.amber} />
@@ -33,6 +37,12 @@ export function TierTafel({
             <TierSymbol name={geste} groesse={22} farbe={colors.fog} dicke={1.3} />
           </View>
         )}
+      </View>
+      {/* Zierlinie mit Rune in der Mitte */}
+      <View style={stile.zier} pointerEvents="none">
+        <View style={stile.zierLinie} />
+        <View style={stile.zierRaute} />
+        <View style={stile.zierLinie} />
       </View>
       {children}
     </View>
@@ -153,7 +163,8 @@ export function Fingerflaeche({ onPunkt, style, label }: { onPunkt: Melder; styl
 
 const stile = StyleSheet.create({
   tafel: {
-    backgroundColor: colors.forest,
+    // leicht durchscheinend: der gezeichnete Wald dahinter schimmert durch
+    backgroundColor: `${colors.forest}E6`,
     borderRadius: radius.l,
     borderWidth: 1,
     borderColor: colors.moss,
@@ -162,6 +173,10 @@ const stile = StyleSheet.create({
     overflow: 'hidden',
   },
   kopf: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
+  wasserzeichen: { position: 'absolute', right: -30, bottom: -30, opacity: 0.045 },
+  zier: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: -spacing.s },
+  zierLinie: { flex: 1, height: 1, backgroundColor: colors.moss, opacity: 0.7 },
+  zierRaute: { width: 7, height: 7, transform: [{ rotate: '45deg' }], borderWidth: 1, borderColor: colors.amber },
   siegel: {
     width: 34,
     height: 34,

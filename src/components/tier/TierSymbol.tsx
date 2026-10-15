@@ -39,7 +39,11 @@ export type SymbolName =
   | 'baum'
   | 'wiese'
   | 'gebuesch'
-  | 'keim';
+  | 'keim'
+  | 'schnee'
+  | 'bluete'
+  | 'karte'
+  | 'buch';
 
 type Props = { name: SymbolName; groesse?: number; farbe?: string; dicke?: number };
 
@@ -287,6 +291,37 @@ function zeichnen(name: SymbolName, s: Strich, f: { fill: string }) {
     case 'gebuesch':
       return (
         <Path d="M3 20 C1 15 4 11 8 12 C8 7 14 6 15 10 C19 9 22 13 20 17 C21 19 20 20 19 20 Z M3 20 L21 20" {...s} />
+      );
+    case 'schnee':
+      return (
+        <G>
+          <Path d="M12 2 L12 22 M3.3 7 L20.7 17 M3.3 17 L20.7 7" {...s} />
+          <Path d="M9.5 3.5 L12 6 L14.5 3.5 M9.5 20.5 L12 18 L14.5 20.5" {...s} strokeWidth={s.strokeWidth * 0.7} />
+        </G>
+      );
+    case 'bluete':
+      return (
+        <G>
+          {[0, 72, 144, 216, 288].map((w) => (
+            <Ellipse key={w} cx={12} cy={6.5} rx={3} ry={4.5} {...s} transform={`rotate(${w} 12 12)`} />
+          ))}
+          <Circle cx={12} cy={12} r={2} {...f} />
+        </G>
+      );
+    case 'karte':
+      return (
+        <G>
+          <Path d="M3 6 L9 3 L15 6 L21 3 L21 18 L15 21 L9 18 L3 21 Z M9 3 L9 18 M15 6 L15 21" {...s} />
+        </G>
+      );
+    case 'buch':
+      return (
+        <G>
+          <Path
+            d="M12 6 C9 4 5 4 3 5 L3 19 C5 18 9 18 12 20 C15 18 19 18 21 19 L21 5 C19 4 15 4 12 6 Z M12 6 L12 20"
+            {...s}
+          />
+        </G>
       );
     case 'keim':
       return (

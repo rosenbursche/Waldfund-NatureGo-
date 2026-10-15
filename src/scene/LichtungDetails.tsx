@@ -59,12 +59,17 @@ const FARBE = {
 };
 
 /** Gemeinsamer Wind für alle Pflanzen (wird einmal pro Bild weitergezählt) */
-const WIND = { value: 0 };
+export const WIND = { value: 0 };
+
+/** Wind weiterzählen – für Szenen ohne LichtungDetails (z. B. die Bühne der Artenseite) */
+export function windWeiter(dt: number) {
+  WIND.value += dt;
+}
 
 const windMaterialien = new Map<string, THREE.MeshLambertMaterial>();
 
 /** Mattes Material, das Pflanzen-Instanzen sanft im Wind wiegt (je höher der Punkt, desto mehr) */
-function windMaterial(staerke: number): THREE.MeshLambertMaterial {
+export function windMaterial(staerke: number): THREE.MeshLambertMaterial {
   const schluessel = String(staerke);
   let m = windMaterialien.get(schluessel);
   if (m) return m;
@@ -91,7 +96,7 @@ function windMaterial(staerke: number): THREE.MeshLambertMaterial {
 // ---------- Geometrien (einmal gebaut, von allen geteilt) ----------
 
 /** Grasbüschel: fünf schmale, schräge Halme */
-function grasGeometrie() {
+export function grasGeometrie() {
   const teile = Array.from({ length: 5 }, (_, i) => {
     const h = new THREE.ConeGeometry(0.022, 0.42 - (i % 2) * 0.1, 3);
     h.translate(0, (0.42 - (i % 2) * 0.1) / 2, 0);
@@ -103,7 +108,7 @@ function grasGeometrie() {
 }
 
 /** Farn: sieben gebogene Wedel, die nach außen fallen */
-function farnGeometrie() {
+export function farnGeometrie() {
   const wedel = Array.from({ length: 7 }, (_, i) => {
     const w = new THREE.PlaneGeometry(0.16, 0.75, 1, 5);
     w.translate(0, 0.375, 0);
@@ -121,10 +126,10 @@ function farnGeometrie() {
 }
 
 /** Pilzhut: halbe Kugel */
-const HUT = new THREE.SphereGeometry(1, 8, 4, 0, Math.PI * 2, 0, Math.PI / 2);
-const STIEL = new THREE.CylinderGeometry(0.16, 0.22, 1, 6);
-const BLUETE = new THREE.IcosahedronGeometry(0.05, 0);
-const HALM = new THREE.CylinderGeometry(0.008, 0.01, 1, 3);
+export const HUT = new THREE.SphereGeometry(1, 8, 4, 0, Math.PI * 2, 0, Math.PI / 2);
+export const STIEL = new THREE.CylinderGeometry(0.16, 0.22, 1, 6);
+export const BLUETE = new THREE.IcosahedronGeometry(0.05, 0);
+export const HALM = new THREE.CylinderGeometry(0.008, 0.01, 1, 3);
 const PLATTE = new THREE.CylinderGeometry(1, 1.05, 0.12, 7);
 const SCHEIBE = new THREE.CircleGeometry(1, 10);
 /** Laubblatt: flache Raute */
@@ -137,7 +142,7 @@ const BLATT = (() => {
 })();
 
 /** Feldstein: verbeulte Kugel mit weichen Kanten und Kerben (statt glatter Low-Poly-Form) */
-const FELS = (() => {
+export const FELS = (() => {
   const g = new THREE.IcosahedronGeometry(1, 2);
   const pos = g.attributes.position as THREE.BufferAttribute;
   const v = new THREE.Vector3();
@@ -165,7 +170,7 @@ const HILFE = new THREE.Object3D();
 const FARB_HILFE = new THREE.Color();
 
 /** Baut ein InstancedMesh aus einer Liste von Details. `farben` = Palette, `ton` wählt daraus. */
-function instanzen(
+export function instanzen(
   geo: THREE.BufferGeometry,
   mat: THREE.Material,
   liste: Detail[],

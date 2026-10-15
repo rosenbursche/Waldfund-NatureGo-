@@ -93,6 +93,22 @@ export function Jahresrad({
               </G>
             );
           })}
+          {/* Jahreszeiten außen am Ring: Winter, Frühling, Sommer, Herbst */}
+          {(
+            [
+              ['schnee', 0.04],
+              ['bluete', 0.29],
+              ['sonne', 0.54],
+              ['blatt', 0.79],
+            ] as const
+          ).map(([name, a]) => {
+            const [x, y] = punkt(150, a);
+            return (
+              <G key={name} transform={`translate(${x - 7} ${y - 7})`}>
+                <Circle cx={7} cy={7} r={9} fill={colors.night} />
+              </G>
+            );
+          })}
           {/* Ereignis-Spuren innen am Ring */}
           {tier.jahr.map((e, k) =>
             e.monate.map((m) => (
@@ -116,6 +132,26 @@ export function Jahresrad({
             {MONATE_LANG[monat - 1]}
           </SvgText>
         </Svg>
+        {/* Jahreszeiten-Symbole (über den kleinen Kreisen am Ring) */}
+        {(
+          [
+            ['schnee', 0.04],
+            ['bluete', 0.29],
+            ['sonne', 0.54],
+            ['blatt', 0.79],
+          ] as const
+        ).map(([name, a]) => {
+          const [x, y] = punkt(150, a);
+          return (
+            <View
+              key={name}
+              pointerEvents="none"
+              style={[stile.jahreszeit, { left: `${(x / 300) * 100}%`, top: `${(y / 300) * 100}%` }]}
+            >
+              <TierSymbol name={name} groesse={14} farbe={colors.fog} dicke={1.4} />
+            </View>
+          );
+        })}
         {/* Reh in der Mitte – ändert sich mit dem Monat */}
         <View style={stile.radMitte} pointerEvents="none">
           <RehFigur
@@ -177,6 +213,11 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
           {/* Nacht oben (Mitternacht), Tag unten (Mittag) */}
           <Path d={ringstueck(120, 143, -0.25, 0.25)} fill={colors.night} />
           <Path d={ringstueck(120, 143, 0.25, 0.75)} fill={colors.moss} opacity={0.5} />
+          {/* Sterne in der Nachthälfte */}
+          {[0.82, 0.86, 0.9, 0.95, 0.99, 0.04, 0.08, 0.12, 0.16].map((a, i) => {
+            const [x, y] = punkt(126 + (i % 3) * 6, a);
+            return <Circle key={a} cx={x} cy={y} r={i % 2 ? 0.9 : 1.3} fill={colors.moon} opacity={0.8} />;
+          })}
           {Array.from({ length: 24 }, (_, h) => {
             const [x0, y0] = punkt(120, h / 24);
             const [x1, y1] = punkt(h % 6 === 0 ? 131 : 125, h / 24);
@@ -247,6 +288,7 @@ const stile = StyleSheet.create({
   radMitte: { position: 'absolute', left: '27%', top: '34%', width: '46%', height: '42%' },
   kitz: { position: 'absolute', left: '-14%', bottom: '-2%', width: '55%', height: '55%' },
   ringFinger: { borderRadius: 1000 },
+  jahreszeit: { position: 'absolute', marginLeft: -7, marginTop: -7 },
   symbolOben: { position: 'absolute', top: '1%', left: '50%', marginLeft: -9 },
   symbolUnten: { position: 'absolute', bottom: '1%', left: '50%', marginLeft: -9 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s, justifyContent: 'center' },

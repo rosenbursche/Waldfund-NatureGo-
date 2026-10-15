@@ -1,14 +1,25 @@
 import { router } from 'expo-router';
 import { useState, type ReactNode } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import Svg, { Defs, Ellipse, G, Line, LinearGradient, Path, Rect, Stop, Text as SvgText } from 'react-native-svg';
+import Svg, {
+  Defs,
+  Ellipse,
+  G,
+  Line,
+  LinearGradient,
+  Path,
+  RadialGradient,
+  Rect,
+  Stop,
+  Text as SvgText,
+} from 'react-native-svg';
 
 import { ArtMiniatur } from '@/components/ArtMiniatur';
 import { Schrift } from '@/components/Schrift';
 import type { Ort, TierSeite } from '@/data/tierSeiten';
 import { MONATE } from '@/logic/jahreszeit';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
-import { cmZuPunkten, nahrungIm } from '@/logic/tierJahr';
+import { cmZuPunkten, farbMix, nahrungIm } from '@/logic/tierJahr';
 import { SELTENHEIT } from '@/data/spiel';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
@@ -30,6 +41,8 @@ const REH_IN: Record<Ort, number> = { wald: 52, rand: 146, wiese: 246 };
 function Landschaft({ nacht }: { nacht: boolean }) {
   const himmelOben = nacht ? colors.night : colors.forest;
   const himmelUnten = nacht ? colors.forest : colors.moss;
+  const fern = farbMix(colors.forest, colors.fog, nacht ? 0.08 : 0.25);
+  const hinten = farbMix(colors.night, colors.forest, 0.5);
   return (
     <Svg width="100%" height="100%" viewBox="0 0 300 170">
       <Defs>
@@ -37,63 +50,204 @@ function Landschaft({ nacht }: { nacht: boolean }) {
           <Stop offset="0" stopColor={himmelOben} />
           <Stop offset="1" stopColor={himmelUnten} />
         </LinearGradient>
+        <RadialGradient id="dunst" cx="50%" cy="50%" rx="50%" ry="50%">
+          <Stop offset="0" stopColor={colors.fog} stopOpacity={nacht ? 0.16 : 0.22} />
+          <Stop offset="1" stopColor={colors.fog} stopOpacity={0} />
+        </RadialGradient>
+        <RadialGradient id="schein" cx="50%" cy="50%" rx="50%" ry="50%">
+          <Stop offset="0" stopColor={nacht ? colors.moon : colors.amber} stopOpacity={0.35} />
+          <Stop offset="1" stopColor={nacht ? colors.moon : colors.amber} stopOpacity={0} />
+        </RadialGradient>
       </Defs>
       <Rect x={0} y={0} width={300} height={170} fill="url(#himmel)" />
+      <Ellipse cx={262} cy={30} rx={34} ry={34} fill="url(#schein)" />
       {nacht ? (
         <G>
-          <Ellipse cx={262} cy={30} rx={11} ry={11} fill={colors.moon} opacity={0.9} />
-          {[
-            [40, 20],
-            [120, 14],
-            [180, 34],
-            [215, 12],
-            [90, 40],
-          ].map(([x, y]) => (
-            <Ellipse key={`${x}-${y}`} cx={x} cy={y} rx={1} ry={1} fill={colors.moon} />
+          <Ellipse cx={262} cy={30} rx={10} ry={10} fill={colors.moon} opacity={0.95} />
+          {STERNE.map(([x, y], k) => (
+            <Ellipse key={k} cx={x} cy={y} rx={k % 3 ? 0.7 : 1.1} ry={k % 3 ? 0.7 : 1.1} fill={colors.moon} />
           ))}
         </G>
       ) : (
-        <Ellipse cx={262} cy={30} rx={13} ry={13} fill={colors.amber} opacity={0.85} />
+        <G>
+          <Ellipse cx={262} cy={30} rx={12} ry={12} fill={colors.amber} opacity={0.9} />
+          {/* Wolken */}
+          <Path
+            d="M40 34 C40 26 52 24 56 30 C60 22 76 24 76 33 C84 32 86 40 78 41 L44 41 C36 41 34 35 40 34 Z"
+            fill={colors.fog}
+            opacity={0.18}
+          />
+          <Path
+            d="M170 22 C170 16 180 14 183 19 C186 13 198 15 198 22 C204 22 205 28 199 28 L173 28 C167 28 166 23 170 22 Z"
+            fill={colors.fog}
+            opacity={0.14}
+          />
+        </G>
       )}
-      {/* Wald: Fichten und Laubbäume als Schattenriss */}
-      {[10, 34, 58, 82].map((x, i) => (
-        <Path
-          key={x}
-          d={
-            i % 2 === 0
-              ? `M${x} 140 L${x} 120 L${x - 14} 120 L${x} 60 L${x + 14} 120 L${x} 120 Z`
-              : `M${x} 140 L${x} 108 C${x - 22} 108 ${x - 20} 68 ${x} 66 C${x + 20} 68 ${x + 22} 108 ${x} 108 Z`
-          }
-          fill={colors.night}
-          opacity={0.95}
-        />
-      ))}
-      {/* Hecke am Waldrand */}
-      <Path
-        d="M100 140 C96 124 108 114 118 120 C120 106 138 104 142 116 C150 108 166 112 166 124 C176 120 188 128 186 140 Z"
-        fill={colors.night}
-        opacity={0.75}
-      />
-      {/* Wiese */}
-      <Rect x={0} y={140} width={300} height={30} fill={colors.night} />
-      {Array.from({ length: 34 }, (_, i) => {
-        const x = 192 + i * 3.2;
-        return (
-          <Line
-            key={i}
-            x1={x}
-            y1={141}
-            x2={x + ((i % 3) - 1) * 1.5}
-            y2={133 - (i % 4) * 2}
-            stroke={colors.moss}
-            strokeWidth={1}
+      {/* ferne Hügel */}
+      <Path d="M0 112 C40 96 80 104 120 98 C170 90 220 100 300 92 L300 140 L0 140 Z" fill={fern} opacity={0.6} />
+      {/* hintere Baumreihe */}
+      {Array.from({ length: 16 }, (_, k) => {
+        const x = k * 8 - 2;
+        const h = 34 + ((k * 7) % 11);
+        return k % 3 === 1 ? (
+          <Path
+            key={k}
+            d={`M${x} 140 L${x} 126 C${x - 9} 126 ${x - 8} ${140 - h} ${x} ${140 - h} C${x + 8} ${140 - h} ${x + 9} 126 ${x} 126 Z`}
+            fill={hinten}
+          />
+        ) : (
+          <Path
+            key={k}
+            d={`M${x} 140 L${x - 6} 132 L${x - 2} 132 L${x - 5} 124 L${x - 1} 124 L${x} ${140 - h} L${x + 1} 124 L${x + 5} 124 L${x + 2} 132 L${x + 6} 132 Z`}
+            fill={hinten}
           />
         );
       })}
+      {/* vordere Waldbäume mit Stamm und Krone */}
+      {[
+        [14, 70, 'n'],
+        [38, 58, 'l'],
+        [64, 66, 'n'],
+        [88, 60, 'l'],
+      ].map(([x, top, art]) => {
+        const xx = x as number;
+        const t = top as number;
+        return art === 'n' ? (
+          <G key={xx}>
+            <Path d={`M${xx - 1.5} 140 L${xx - 1.5} 124 L${xx + 1.5} 124 L${xx + 1.5} 140 Z`} fill={colors.night} />
+            {[0, 1, 2, 3, 4].map((k) => {
+              const y = 126 - k * ((126 - t) / 5);
+              const w = 15 - k * 2.6;
+              return (
+                <Path
+                  key={k}
+                  d={`M${xx - w} ${y} L${xx} ${y - 22 + k * 1.5} L${xx + w} ${y} Z`}
+                  fill={colors.night}
+                  opacity={0.96}
+                />
+              );
+            })}
+          </G>
+        ) : (
+          <G key={xx}>
+            <Path
+              d={`M${xx - 2} 140 L${xx - 1.2} ${t + 26} L${xx + 1.2} ${t + 26} L${xx + 2} 140 Z M${xx} ${t + 40} L${xx - 9} ${t + 24} M${xx} ${t + 34} L${xx + 8} ${t + 22}`}
+              fill={colors.night}
+              stroke={colors.night}
+              strokeWidth={1.4}
+            />
+            {[
+              [0, 14, 13],
+              [-10, 22, 10],
+              [10, 21, 10],
+              [-5, 6, 9],
+              [6, 8, 9],
+              [0, 28, 9],
+            ].map(([dx, dy, r], k) => (
+              <Ellipse key={k} cx={xx + dx} cy={t + dy} rx={r} ry={r * 0.9} fill={colors.night} />
+            ))}
+          </G>
+        );
+      })}
+      {/* Nebel am Waldfuß */}
+      <Ellipse cx={90} cy={136} rx={120} ry={10} fill="url(#dunst)" />
+      {/* Hecke am Waldrand mit Beeren */}
+      <Path
+        d="M100 140 C96 124 108 114 118 120 C120 106 138 104 142 116 C150 108 166 112 166 124 C176 120 188 128 186 140 Z"
+        fill={colors.night}
+        opacity={0.85}
+      />
+      {HECKEN_BLAETTER.map(([x, y], k) => (
+        <Ellipse
+          key={k}
+          cx={x}
+          cy={y}
+          rx={2.6}
+          ry={1.5}
+          fill={colors.moss}
+          opacity={0.55}
+          transform={`rotate(${(k * 47) % 180} ${x} ${y})`}
+        />
+      ))}
+      {[
+        [118, 126],
+        [146, 120],
+        [162, 128],
+        [132, 132],
+      ].map(([x, y]) => (
+        <Ellipse key={x} cx={x} cy={y} rx={1.4} ry={1.4} fill={colors.blut} />
+      ))}
+      {/* Wiese mit Gräsern und Blumen */}
+      <Rect x={0} y={140} width={300} height={30} fill={colors.night} />
+      {Array.from({ length: 48 }, (_, k) => {
+        const x = 188 + k * 2.4;
+        return (
+          <Line
+            key={k}
+            x1={x}
+            y1={141}
+            x2={x + ((k % 3) - 1) * 1.6}
+            y2={132 - (k % 5) * 1.6}
+            stroke={colors.moss}
+            strokeWidth={0.9}
+          />
+        );
+      })}
+      {BLUMEN.map(([x, y, f], k) => (
+        <G key={k}>
+          <Line x1={x} y1={141} x2={x} y2={y} stroke={colors.moss} strokeWidth={0.7} />
+          <Ellipse
+            cx={x}
+            cy={y}
+            rx={1.5}
+            ry={1.5}
+            fill={[colors.amber, colors.moon, colors.rare][f]}
+            opacity={nacht ? 0.5 : 0.9}
+          />
+        </G>
+      ))}
+      {nacht &&
+        GLUEHWUERMCHEN.map(([x, y], k) => (
+          <G key={k}>
+            <Ellipse cx={x} cy={y} rx={4} ry={4} fill="url(#schein)" />
+            <Ellipse cx={x} cy={y} rx={0.9} ry={0.9} fill={colors.amber} />
+          </G>
+        ))}
       <Line x1={0} y1={140} x2={300} y2={140} stroke={colors.moss} strokeWidth={1.5} />
     </Svg>
   );
 }
+
+const STERNE: [number, number][] = [
+  [40, 20],
+  [120, 14],
+  [180, 34],
+  [215, 12],
+  [90, 40],
+  [24, 48],
+  [150, 22],
+  [236, 52],
+  [70, 12],
+  [200, 46],
+];
+const HECKEN_BLAETTER: [number, number][] = Array.from({ length: 30 }, (_, k) => [
+  104 + ((k * 29) % 80),
+  116 + ((k * 13) % 22),
+]);
+const BLUMEN: [number, number, number][] = Array.from({ length: 14 }, (_, k) => [
+  194 + ((k * 37) % 100),
+  130 - ((k * 7) % 8),
+  k % 3,
+]);
+const GLUEHWUERMCHEN: [number, number][] = [
+  [196, 112],
+  [222, 120],
+  [250, 104],
+  [176, 98],
+  [276, 116],
+  [120, 96],
+];
 
 export function LebensraumBild({ tier }: { tier: TierSeite }) {
   const [nacht, setNacht] = useState(false);
@@ -190,6 +344,19 @@ export function Speiseplan({
                 <TierSymbol name={n.icon} groesse={30} farbe={da ? colors.amber : colors.fog} />
               </View>
               <Schrift style={stile.tellerText}>{n.kurz}</Schrift>
+              {/* in welchen Monaten es das gibt */}
+              <View style={stile.balken}>
+                {MONATE.map((m, k) => (
+                  <View
+                    key={m}
+                    style={[
+                      stile.strich,
+                      n.monate.includes(k + 1) && { backgroundColor: colors.amber },
+                      k + 1 === monat && stile.strichJetzt,
+                    ]}
+                  />
+                ))}
+              </View>
             </View>
           );
         })}
@@ -240,7 +407,42 @@ export function SpurenKarten({ tier }: { tier: TierSeite }) {
         </Pressable>
       )}
       {echt && tritt?.cm && <Originalgroesse cm={(tritt.cm[0] + tritt.cm[1]) / 2} />}
+      {offen === 'tritt' && <Faehrte />}
     </TierTafel>
+  );
+}
+
+/** Fährte: mehrere Trittsiegel hintereinander, leicht versetzt (so sieht eine Spur im Schnee oder Matsch aus) */
+function Faehrte() {
+  return (
+    <View style={stile.faehrte} accessibilityLabel="Fährte">
+      <Svg width="100%" height="100%" viewBox="0 0 300 60">
+        <Path
+          d="M0 46 C60 40 120 50 180 42 C230 36 270 44 300 40"
+          stroke={colors.moss}
+          strokeWidth={22}
+          opacity={0.35}
+          fill="none"
+        />
+        {Array.from({ length: 9 }, (_, k) => {
+          const x = 18 + k * 33;
+          const y = 42 + (k % 2 === 0 ? -7 : 7) + Math.sin(k) * 1.5;
+          return (
+            <G key={k} transform={`translate(${x} ${y}) rotate(90) scale(0.55)`}>
+              <Path d="M-2 -14 C-8 -10 -9 4 -6 12 C-3 13 -1 10 -1 6 Z" fill={colors.night} />
+              <Path d="M2 -14 C8 -10 9 4 6 12 C3 13 1 10 1 6 Z" fill={colors.night} />
+            </G>
+          );
+        })}
+        <Path
+          d="M262 16 L290 16 M282 10 L290 16 L282 22"
+          stroke={colors.fog}
+          strokeWidth={1.5}
+          fill="none"
+          strokeLinecap="round"
+        />
+      </Svg>
+    </View>
   );
 }
 
@@ -321,7 +523,7 @@ export function Gefahren({ tier, sammlung }: { tier: TierSeite; sammlung: Record
               fill="none"
             />
           </Svg>
-          <View style={stile.gefahrZiel}>
+          <View style={[stile.gefahrZiel, r.kitz && stile.gefahrKitz]}>
             <RehFigur farben={tier.farben} flecken={r.kitz} />
           </View>
         </View>
@@ -451,6 +653,10 @@ const stile = StyleSheet.create({
     backgroundColor: colors.night,
   },
   tellerText: { fontFamily: fonts.hand, fontSize: 13, lineHeight: 16, color: colors.moon, textAlign: 'center' },
+  balken: { flexDirection: 'row', gap: 1, marginTop: 2 },
+  strich: { width: 3, height: 5, borderRadius: 1, backgroundColor: colors.moss },
+  strichJetzt: { height: 8, marginTop: -1.5, borderWidth: 0.5, borderColor: colors.moon },
+  faehrte: { width: '100%', aspectRatio: 5, borderRadius: radius.m, backgroundColor: colors.night, overflow: 'hidden' },
   karten: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
   karte: {
     width: '48.5%',
@@ -503,6 +709,7 @@ const stile = StyleSheet.create({
   },
   gefahrText: { fontFamily: fonts.hand, fontSize: 14, lineHeight: 17, color: colors.moon, textAlign: 'center' },
   gefahrZiel: { width: 96, height: 86 },
+  gefahrKitz: { width: 66, height: 60, marginHorizontal: 15 },
   kitzBild: { width: '100%', aspectRatio: 300 / 120 },
   kitzFigur: { position: 'absolute', left: '18%', top: '8%', width: '48%', height: '100%' },
   kitzStopp: { position: 'absolute', right: '6%', top: '14%' },

@@ -14,9 +14,12 @@ export type NahrungIcon = 'knospe' | 'trieb' | 'kraut' | 'blatt' | 'eichel';
 export type SpurIcon = 'tritt' | 'losung' | 'verbiss' | 'fegen';
 export type GeweihZustand = { art: 'keins' | 'bast' | 'blank'; groesse: number };
 export type Ort = 'wald' | 'rand' | 'wiese';
+/** 3D-Umgebung im Hero (passend zum Lebensraum) */
+export type Umgebung = 'waldrand';
 
 export type TierSeite = {
   figur: 'reh';
+  umgebung: Umgebung;
   /** Fellfarben (Daten, keine UI-Farben): Sommer, Winter, Bauch/Kinn, Spiegel, Hufe/Nase, Geweih */
   farben: { sommer: string; winter: string; hell: string; spiegel: string; dunkel: string; geweih: string };
   /** Schulterhöhe in cm (von–bis) und Gewicht in kg (von–bis) */
@@ -43,6 +46,7 @@ export type TierSeite = {
 export const TIER_SEITEN: Record<string, TierSeite> = {
   reh: {
     figur: 'reh',
+    umgebung: 'waldrand',
     farben: {
       sommer: '#9B5E32', // rotbraunes Sommerfell (wie das 3D-Modell)
       winter: '#6B5D4F', // graubraunes Winterfell

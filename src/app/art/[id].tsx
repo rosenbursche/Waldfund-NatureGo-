@@ -1,12 +1,16 @@
 import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { router, useLocalSearchParams } from 'expo-router';
 import Slider from '@react-native-community/slider';
 import { useState, type ReactNode } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Animated, Pressable, StyleSheet, View } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Hintergrund } from '@/components/Hintergrund';
+import { Icon } from '@/components/Icon';
+import { TierHintergrund } from '@/components/tier/TierHintergrund';
+import { TierTafel } from '@/components/tier/TierTafel';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { ArtMiniatur } from '@/components/ArtMiniatur';
@@ -26,6 +30,7 @@ import { berechneWildWert } from '@/logic/wildwert';
 import { MONATE, MONATE_LANG, zustandImMonat } from '@/logic/jahreszeit';
 import { herkunftsText, istHeimisch } from '@/logic/regelEngine';
 import { wachstum, wachstumsBereich } from '@/logic/wachstum';
+import { stimmungJetzt } from '@/logic/tageszeit';
 import { ArtBuehne } from '@/scene/ArtBuehne';
 import { TierSeiteInhalt } from '@/components/tier/TierSeiteInhalt';
 import { tierSeite } from '@/data/tierSeiten';
@@ -59,6 +64,9 @@ export default function ArtSeite() {
   const [monat, setMonat] = useState(() => new Date().getMonth() + 1);
   const [wuchsWert, setWuchsWert] = useState(() => standardWuchs(id));
   const [modellStatus, setModellStatus] = useState('');
+  // Grafische Seite: Scrollweg für die Parallaxe des Hintergrunds, Licht im Hero nach Uhrzeit
+  const [scroll] = useState(() => new Animated.Value(0));
+  const [stimmung] = useState(() => stimmungJetzt());
 
   const eintrag = katalogEintrag(id);
   const art = artById[id];
@@ -90,13 +98,60 @@ export default function ArtSeite() {
   const tier = tierSeite(id);
   const grafisch = !!tier && !verborgen;
 
-  return (
-    <Hintergrund>
-      <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
-        <ScrollView contentContainerStyle={stile.inhalt}>
+  const seite = (
+    <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
+      <Animated.ScrollView
+        contentContainerStyle={stile.inhalt}
+        scrollEventThrottle={16}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scroll } } }], { useNativeDriver: true })}
+      >
+        {grafisch && tier ? (
+          /* Hero: das Tier in seinem Lebensraum (3D), Name groß auf dem Bild */
+          <View style={stile.hero}>
+            <ArtBuehne
+              glb={realistisch?.datei}
+              melden={realistisch ? setModellStatus : undefined}
+              modell={art?.modell}
+              silhouette={!gefunden}
+              ruhig={ruhig}
+              hoehe={470}
+              umgebung={{ art: tier.umgebung, stimmung }}
+            />
+            <LinearGradient pointerEvents="none" colors={['transparent', colors.night]} style={stile.heroVerlauf} />
+            <View style={stile.heroOben} pointerEvents="box-none">
+              <Pressable
+                onPress={() => router.back()}
+                accessibilityRole="button"
+                accessibilityLabel="Zurück"
+                hitSlop={8}
+                style={({ pressed }) => [stile.heroZurueck, pressed && { opacity: 0.6 }]}
+              >
+                <Icon name="zurueck" groesse={20} />
+              </Pressable>
+              <View style={stile.heroEtikett}>
+                <Schrift art="etikett" style={{ color: colors.moon }}>
+                  {kategorie.name} · {gruppe}
+                </Schrift>
+              </View>
+            </View>
+            <View style={stile.heroUnten} pointerEvents="none">
+              {!gefunden && (
+                <Schrift art="notiz" style={stile.heroHinweis}>
+                  Fotografiere die Art, um sie in Farbe freizuschalten
+                </Schrift>
+              )}
+              <Schrift art="titel" accessibilityRole="header" style={stile.heroName}>
+                {eintrag.name}
+              </Schrift>
+              <Schrift style={stile.latein}>{eintrag.lat}</Schrift>
+            </View>
+          </View>
+        ) : (
           <Kopfzeile etikett={`${kategorie.name} · ${gruppe}`} titel={verborgen ? '???' : eintrag.name} />
+        )}
 
-          {/* 3D-Modell: Silhouette, solange nicht gesammelt */}
+        {/* 3D-Modell: Silhouette, solange nicht gesammelt */}
+        {!grafisch && (
           <View style={stile.buehne}>
             <ArtBuehne
               glb={realistisch?.datei}
@@ -115,40 +170,38 @@ export default function ArtSeite() {
               </Schrift>
             )}
           </View>
+        )}
 
-          {realistisch && (
-            <View style={stile.platzhalter}>
-              <Schrift art="klein">
-                Realistisches 3D-Modell (Platzhalter): zeigt einen Weißwedelhirsch, kein Reh – ein echtes Reh-Modell
-                folgt. Modell: {namensnennung(realistisch)}.
+        {realistisch && (
+          <View style={stile.platzhalter}>
+            <Schrift art="klein">
+              Realistisches 3D-Modell (Platzhalter): zeigt einen Weißwedelhirsch, kein Reh – ein echtes Reh-Modell
+              folgt. Modell: {namensnennung(realistisch)}.
+            </Schrift>
+            {modellStatus.startsWith('Fehler') || modellStatus.includes('geladen …') ? (
+              <Schrift art="klein" style={{ color: modellStatus.startsWith('Fehler') ? colors.warn : colors.fog }}>
+                {modellStatus}
               </Schrift>
-              {modellStatus.startsWith('Fehler') || modellStatus.includes('geladen …') ? (
-                <Schrift art="klein" style={{ color: modellStatus.startsWith('Fehler') ? colors.warn : colors.fog }}>
-                  {modellStatus}
-                </Schrift>
-              ) : null}
-            </View>
-          )}
+            ) : null}
+          </View>
+        )}
 
-          {istPflanze && !verborgen && (
-            <PflanzenRegler
-              id={id}
-              monat={monat}
-              setMonat={setMonat}
-              wuchsWert={wuchsWert}
-              setWuchsWert={setWuchsWert}
-            />
-          )}
+        {istPflanze && !verborgen && (
+          <PflanzenRegler id={id} monat={monat} setMonat={setMonat} wuchsWert={wuchsWert} setWuchsWert={setWuchsWert} />
+        )}
 
+        {!grafisch && (
           <View>
             <Schrift art="titel" accessibilityRole="header">
               {verborgen ? 'Mystery-Art' : eintrag.name}
             </Schrift>
             <Schrift style={stile.latein}>{verborgen ? 'Species incognita' : eintrag.lat}</Schrift>
           </View>
+        )}
 
-          {!grafisch && <WildWertAnzeige id={id} />}
+        {!grafisch && <WildWertAnzeige id={id} />}
 
+        {!grafisch && (
           <View style={stile.chips}>
             <Pille farbe={s.farbe} voll>
               {s.name} · {s.punkte} AP
@@ -161,265 +214,293 @@ export default function ArtSeite() {
             )}
             {art?.giftig && <Pille farbe={colors.warn}>{art.giftig}</Pille>}
           </View>
+        )}
 
-          {gefunden ? (
-            <Kasten>
-              <View style={{ flexDirection: 'row', gap: spacing.m, alignItems: 'center' }}>
-                {fund.foto ? (
-                  <Image
-                    source={{ uri: fund.foto }}
-                    style={stile.fundFoto}
-                    contentFit="cover"
-                    accessibilityLabel="Dein Foto"
-                  />
-                ) : null}
-                <View style={{ flex: 1 }}>
-                  <Schrift art="ueberschrift" style={{ color: colors.amber, fontSize: 21 }}>
-                    Gesammelt
-                  </Schrift>
-                  <Schrift art="klein">
-                    am {datumText(fund.datum)}
-                    {fund.beispiel
-                      ? ' · Beispielfund'
-                      : fund.geprueft === 'plantnet'
-                        ? ' · geprüft mit Pl@ntNet'
-                        : fund.geprueft === 'demo'
-                          ? ' · Demo-Prüfung'
-                          : ''}
-                  </Schrift>
-                </View>
-              </View>
-              {fund.beispiel && (
-                <Knopf
-                  titel="Selbst fotografieren"
-                  art="leise"
-                  onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
-                  style={{ marginTop: spacing.s }}
+        {gefunden ? (
+          <Kasten>
+            <View style={{ flexDirection: 'row', gap: spacing.m, alignItems: 'center' }}>
+              {fund.foto ? (
+                <Image
+                  source={{ uri: fund.foto }}
+                  style={stile.fundFoto}
+                  contentFit="cover"
+                  accessibilityLabel="Dein Foto"
                 />
-              )}
-            </Kasten>
-          ) : (
-            <Knopf
-              titel="Foto machen & sammeln"
-              untertitel={`${s.punkte} AP · nur fotografieren, nichts mitnehmen`}
-              symbol="pfeil"
-              onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
-            />
-          )}
-
-          {verborgen && art?.raetsel && (
-            <Kasten>
-              <Schrift art="notiz" style={{ color: colors.moon, fontSize: 21, lineHeight: 28 }}>
-                „{art.raetsel}“
-              </Schrift>
-            </Kasten>
-          )}
-
-          {/* Pilze: immer warnen – auch bei Speisepilzen */}
-          {istPilz && (
-            <Kasten farbe={colors.warn}>
-              <Schrift>
-                <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>Achtung: </Schrift>
-                {art?.giftig === 'tödlich giftig' ? 'Tödlich giftig. ' : art?.giftig ? 'Giftig. ' : ''}
-                Iss niemals Pilze, die nicht von einer Pilzsachverständigen oder einem Pilzsachverständigen geprüft
-                wurden. Sammeln nur mit Erwachsenen.
-              </Schrift>
-            </Kasten>
-          )}
-
-          {/* Giftige Pflanzen */}
-          {art?.giftig && art.kategorie === 'pflanzen' && (
-            <Kasten farbe={colors.blut}>
-              <Schrift>
-                <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>☠ {art.giftig}: </Schrift>
-                Nichts davon in den Mund nehmen – auch keine Beeren oder Blätter. Am besten gar nicht anfassen und
-                danach die Hände waschen. Bei Verdacht auf Vergiftung sofort den Giftnotruf oder 112 anrufen.
-              </Schrift>
-            </Kasten>
-          )}
-
-          {/* Gefährliche Tiere */}
-          {art?.gefahr && (
-            <Kasten farbe={colors.blut}>
-              <Schrift>
-                <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>☠ Vorsicht: </Schrift>
-                {art.gefahr}
-              </Schrift>
-            </Kasten>
-          )}
-
-          {art && art.schutz > 0 && !verborgen && (
-            <Kasten farbe={SCHUTZ_FARBE[art.schutz]}>
-              <Schrift>Geschützte Art: Nur fotografieren – nicht pflücken, nicht fangen, nicht stören.</Schrift>
-            </Kasten>
-          )}
-
-          {grafisch && tier && (
-            <TierSeiteInhalt
-              id={id}
-              tier={tier}
-              art={art}
-              sammlung={sammlung}
-              ruhig={ruhig}
-              futterArten={<ArtVerweise ids={steckbrief?.nahrungIds ?? []} sammlung={sammlung} />}
-            />
-          )}
-
-          {!verborgen && !grafisch && (
-            <Abschnitt titel="Steckbrief">
-              {art ? (
-                <>
-                  <Zeile name="Lebensraum" wert={art.lebensraum} />
-                  <Zeile name="Saison" wert={art.saison} />
-                  <Zeile name="Größe" wert={art.groesse} />
-                  <Zeile name="Gruppe" wert={gruppe} />
-                </>
               ) : null}
-              {baum && (
-                <>
-                  <Zeile
-                    name="Höhenstufen"
-                    wert={baum.hoehenstufen.map((h) => HOEHENSTUFE_NAME[h].split(' ')[0]).join(', ') || '–'}
-                  />
-                  <Zeile name="Böden" wert={baum.boeden.map((b) => BODEN_NAME[b]).join('; ') || '–'} />
-                  <Zeile
-                    name="Von Natur aus"
-                    wert={
-                      baum.status === 'eingefuehrt'
-                        ? 'nicht in Deutschland heimisch'
-                        : baum.grosslandschaften.map((g) => GROSSLANDSCHAFT_NAME[g]).join(', ')
-                    }
-                  />
-                </>
-              )}
-              {baum && naturraum && (
-                <Schrift art="notiz" style={{ marginTop: spacing.s }}>
-                  {herkunftsText(baum, naturraum)} ({naturraum.name})
-                </Schrift>
-              )}
-            </Abschnitt>
-          )}
-
-          {steckbrief && !verborgen && !grafisch && (
-            <>
-              <Abschnitt titel="Key Features">
-                {steckbrief.merkmale.map((m) => (
-                  <View key={m} style={stile.merkmal}>
-                    <Schrift style={stile.rune}>ᛟ</Schrift>
-                    <Schrift style={{ flex: 1 }}>{m}</Schrift>
-                  </View>
-                ))}
-              </Abschnitt>
-
-              <Abschnitt titel="Lebensraum">
-                <Schrift art="notiz" style={{ color: colors.moon }}>
-                  {art?.lebensraum}
-                </Schrift>
-                <Schrift>
-                  <Schrift style={{ color: colors.rune }}>Warum gerade dort? </Schrift>
-                  {steckbrief.lebensraumWarum}
-                </Schrift>
-              </Abschnitt>
-
-              <Abschnitt titel="Nahrung">
-                <Schrift>{steckbrief.nahrung}</Schrift>
-                <ArtVerweise ids={steckbrief.nahrungIds} titel="Davon in Wildfund:" sammlung={sammlung} />
-              </Abschnitt>
-
-              {art?.kategorie === 'voegel' && (
-                <>
-                  <Abschnitt titel="Füße & Krallen">
-                    <Schrift>{steckbrief.fuesse}</Schrift>
-                  </Abschnitt>
-                  <Abschnitt titel="Nest">
-                    <Schrift>{steckbrief.nest}</Schrift>
-                  </Abschnitt>
-                  <Kasten farbe={colors.rune}>
-                    <Schrift art="etikett">Warum so gebaut?</Schrift>
-                    <Schrift>{steckbrief.warumSoGebaut}</Schrift>
-                  </Kasten>
-                </>
-              )}
-
-              <Abschnitt titel="Spuren">
-                <Schrift>{steckbrief.spuren}</Schrift>
-              </Abschnitt>
-
-              <Abschnitt titel={art?.kategorie === 'voegel' ? 'Schlafen' : 'Wohnen & Schlafen'}>
-                <Schrift>{steckbrief.wohnen}</Schrift>
-              </Abschnitt>
-            </>
-          )}
-
-          {!verborgen && !grafisch && fressfeinde.length > 0 && (
-            <Abschnitt titel={art?.kategorie === 'pflanzen' || !art ? 'Wer frisst mich?' : 'Fressfeinde'}>
-              <ArtVerweise ids={fressfeinde} sammlung={sammlung} />
-            </Abschnitt>
-          )}
-
-          <Abschnitt titel="">
-            <LehrbuchKarte
-              id={id}
-              name={eintrag.name}
-              zeichnung={art?.zeichnung ?? { t: 'tree' }}
-              modell={art?.modell}
-              gesperrt={verborgen}
-            />
-          </Abschnitt>
-
-          <Abschnitt titel={verborgen ? 'Hier könntest du suchen' : 'Verbreitung in Deutschland'}>
-            {art ? (
-              <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
-            ) : baum ? (
-              <VerbreitungsKarte
-                art="naturraeume"
-                naturraeume={NATURRAEUME.filter((n) => istHeimisch(baum.id, n))}
-                farbe={colors.rune}
-                eigenerId={naturraumId ?? undefined}
-              />
-            ) : null}
-          </Abschnitt>
-
-          {art && !verborgen && !grafisch && (
-            <View style={stile.status}>
-              <Kasten style={{ flex: 1 }}>
-                <Schrift art="ueberschrift" style={{ fontSize: 19, color: SCHUTZ_FARBE[art.schutz] }}>
-                  {SCHUTZ_NAME[art.schutz]}
-                </Schrift>
-                <Schrift art="klein">{SCHUTZ_HINWEIS[art.schutz]}</Schrift>
-              </Kasten>
-              <Kasten style={{ flex: 1 }}>
-                <Schrift art="ueberschrift" style={{ fontSize: 19 }}>
-                  {art.roteListe ? ROTE_LISTE_NAME[art.roteListe] : 'Nicht bewertet'}
+              <View style={{ flex: 1 }}>
+                <Schrift art="ueberschrift" style={{ color: colors.amber, fontSize: 21 }}>
+                  Gesammelt
                 </Schrift>
                 <Schrift art="klein">
-                  {art.roteListe ? `Rote Liste Deutschland, Kategorie ${art.roteListe}` : 'Noch nicht hinterlegt'}
+                  am {datumText(fund.datum)}
+                  {fund.beispiel
+                    ? ' · Beispielfund'
+                    : fund.geprueft === 'plantnet'
+                      ? ' · geprüft mit Pl@ntNet'
+                      : fund.geprueft === 'demo'
+                        ? ' · Demo-Prüfung'
+                        : ''}
                 </Schrift>
-              </Kasten>
+              </View>
             </View>
-          )}
-          {baum && (
-            <Kasten>
+            {fund.beispiel && (
+              <Knopf
+                titel="Selbst fotografieren"
+                art="leise"
+                onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
+                style={{ marginTop: spacing.s }}
+              />
+            )}
+          </Kasten>
+        ) : (
+          <Knopf
+            titel="Foto machen & sammeln"
+            untertitel={`${s.punkte} AP · nur fotografieren, nichts mitnehmen`}
+            symbol="pfeil"
+            onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
+          />
+        )}
+
+        {verborgen && art?.raetsel && (
+          <Kasten>
+            <Schrift art="notiz" style={{ color: colors.moon, fontSize: 21, lineHeight: 28 }}>
+              „{art.raetsel}“
+            </Schrift>
+          </Kasten>
+        )}
+
+        {/* Pilze: immer warnen – auch bei Speisepilzen */}
+        {istPilz && (
+          <Kasten farbe={colors.warn}>
+            <Schrift>
+              <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>Achtung: </Schrift>
+              {art?.giftig === 'tödlich giftig' ? 'Tödlich giftig. ' : art?.giftig ? 'Giftig. ' : ''}
+              Iss niemals Pilze, die nicht von einer Pilzsachverständigen oder einem Pilzsachverständigen geprüft
+              wurden. Sammeln nur mit Erwachsenen.
+            </Schrift>
+          </Kasten>
+        )}
+
+        {/* Giftige Pflanzen */}
+        {art?.giftig && art.kategorie === 'pflanzen' && (
+          <Kasten farbe={colors.blut}>
+            <Schrift>
+              <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>☠ {art.giftig}: </Schrift>
+              Nichts davon in den Mund nehmen – auch keine Beeren oder Blätter. Am besten gar nicht anfassen und danach
+              die Hände waschen. Bei Verdacht auf Vergiftung sofort den Giftnotruf oder 112 anrufen.
+            </Schrift>
+          </Kasten>
+        )}
+
+        {/* Gefährliche Tiere */}
+        {art?.gefahr && (
+          <Kasten farbe={colors.blut}>
+            <Schrift>
+              <Schrift style={{ color: colors.warn, fontFamily: fonts.bodySemiBold }}>☠ Vorsicht: </Schrift>
+              {art.gefahr}
+            </Schrift>
+          </Kasten>
+        )}
+
+        {art && art.schutz > 0 && !verborgen && (
+          <Kasten farbe={SCHUTZ_FARBE[art.schutz]}>
+            <Schrift>Geschützte Art: Nur fotografieren – nicht pflücken, nicht fangen, nicht stören.</Schrift>
+          </Kasten>
+        )}
+
+        {grafisch && tier && (
+          <TierSeiteInhalt
+            id={id}
+            tier={tier}
+            art={art}
+            sammlung={sammlung}
+            ruhig={ruhig}
+            futterArten={<ArtVerweise ids={steckbrief?.nahrungIds ?? []} sammlung={sammlung} />}
+          />
+        )}
+
+        {!verborgen && !grafisch && (
+          <Abschnitt titel="Steckbrief">
+            {art ? (
+              <>
+                <Zeile name="Lebensraum" wert={art.lebensraum} />
+                <Zeile name="Saison" wert={art.saison} />
+                <Zeile name="Größe" wert={art.groesse} />
+                <Zeile name="Gruppe" wert={gruppe} />
+              </>
+            ) : null}
+            {baum && (
+              <>
+                <Zeile
+                  name="Höhenstufen"
+                  wert={baum.hoehenstufen.map((h) => HOEHENSTUFE_NAME[h].split(' ')[0]).join(', ') || '–'}
+                />
+                <Zeile name="Böden" wert={baum.boeden.map((b) => BODEN_NAME[b]).join('; ') || '–'} />
+                <Zeile
+                  name="Von Natur aus"
+                  wert={
+                    baum.status === 'eingefuehrt'
+                      ? 'nicht in Deutschland heimisch'
+                      : baum.grosslandschaften.map((g) => GROSSLANDSCHAFT_NAME[g]).join(', ')
+                  }
+                />
+              </>
+            )}
+            {baum && naturraum && (
+              <Schrift art="notiz" style={{ marginTop: spacing.s }}>
+                {herkunftsText(baum, naturraum)} ({naturraum.name})
+              </Schrift>
+            )}
+          </Abschnitt>
+        )}
+
+        {steckbrief && !verborgen && !grafisch && (
+          <>
+            <Abschnitt titel="Key Features">
+              {steckbrief.merkmale.map((m) => (
+                <View key={m} style={stile.merkmal}>
+                  <Schrift style={stile.rune}>ᛟ</Schrift>
+                  <Schrift style={{ flex: 1 }}>{m}</Schrift>
+                </View>
+              ))}
+            </Abschnitt>
+
+            <Abschnitt titel="Lebensraum">
+              <Schrift art="notiz" style={{ color: colors.moon }}>
+                {art?.lebensraum}
+              </Schrift>
+              <Schrift>
+                <Schrift style={{ color: colors.rune }}>Warum gerade dort? </Schrift>
+                {steckbrief.lebensraumWarum}
+              </Schrift>
+            </Abschnitt>
+
+            <Abschnitt titel="Nahrung">
+              <Schrift>{steckbrief.nahrung}</Schrift>
+              <ArtVerweise ids={steckbrief.nahrungIds} titel="Davon in Wildfund:" sammlung={sammlung} />
+            </Abschnitt>
+
+            {art?.kategorie === 'voegel' && (
+              <>
+                <Abschnitt titel="Füße & Krallen">
+                  <Schrift>{steckbrief.fuesse}</Schrift>
+                </Abschnitt>
+                <Abschnitt titel="Nest">
+                  <Schrift>{steckbrief.nest}</Schrift>
+                </Abschnitt>
+                <Kasten farbe={colors.rune}>
+                  <Schrift art="etikett">Warum so gebaut?</Schrift>
+                  <Schrift>{steckbrief.warumSoGebaut}</Schrift>
+                </Kasten>
+              </>
+            )}
+
+            <Abschnitt titel="Spuren">
+              <Schrift>{steckbrief.spuren}</Schrift>
+            </Abschnitt>
+
+            <Abschnitt titel={art?.kategorie === 'voegel' ? 'Schlafen' : 'Wohnen & Schlafen'}>
+              <Schrift>{steckbrief.wohnen}</Schrift>
+            </Abschnitt>
+          </>
+        )}
+
+        {!verborgen && !grafisch && fressfeinde.length > 0 && (
+          <Abschnitt titel={art?.kategorie === 'pflanzen' || !art ? 'Wer frisst mich?' : 'Fressfeinde'}>
+            <ArtVerweise ids={fressfeinde} sammlung={sammlung} />
+          </Abschnitt>
+        )}
+
+        {grafisch ? (
+          <>
+            <TierTafel symbol="buch" titel="Skizzenbuch">
+              <LehrbuchKarte
+                id={id}
+                name={eintrag.name}
+                zeichnung={art?.zeichnung ?? { t: 'tree' }}
+                modell={art?.modell}
+              />
+            </TierTafel>
+            {art && (
+              <TierTafel symbol="karte" titel="Wo in Deutschland">
+                <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
+              </TierTafel>
+            )}
+          </>
+        ) : (
+          <>
+            <Abschnitt titel="">
+              <LehrbuchKarte
+                id={id}
+                name={eintrag.name}
+                zeichnung={art?.zeichnung ?? { t: 'tree' }}
+                modell={art?.modell}
+                gesperrt={verborgen}
+              />
+            </Abschnitt>
+
+            <Abschnitt titel={verborgen ? 'Hier könntest du suchen' : 'Verbreitung in Deutschland'}>
+              {art ? (
+                <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
+              ) : baum ? (
+                <VerbreitungsKarte
+                  art="naturraeume"
+                  naturraeume={NATURRAEUME.filter((n) => istHeimisch(baum.id, n))}
+                  farbe={colors.rune}
+                  eigenerId={naturraumId ?? undefined}
+                />
+              ) : null}
+            </Abschnitt>
+          </>
+        )}
+
+        {art && !verborgen && !grafisch && (
+          <View style={stile.status}>
+            <Kasten style={{ flex: 1 }}>
+              <Schrift art="ueberschrift" style={{ fontSize: 19, color: SCHUTZ_FARBE[art.schutz] }}>
+                {SCHUTZ_NAME[art.schutz]}
+              </Schrift>
+              <Schrift art="klein">{SCHUTZ_HINWEIS[art.schutz]}</Schrift>
+            </Kasten>
+            <Kasten style={{ flex: 1 }}>
+              <Schrift art="ueberschrift" style={{ fontSize: 19 }}>
+                {art.roteListe ? ROTE_LISTE_NAME[art.roteListe] : 'Nicht bewertet'}
+              </Schrift>
               <Schrift art="klein">
-                {/* TODO fachlich prüfen: Schutzstatus und Rote Liste der Baumarten ergänzen */}
-                Schutzstatus und Rote Liste für Baumarten sind noch nicht hinterlegt.
+                {art.roteListe ? `Rote Liste Deutschland, Kategorie ${art.roteListe}` : 'Noch nicht hinterlegt'}
               </Schrift>
             </Kasten>
-          )}
+          </View>
+        )}
+        {baum && (
+          <Kasten>
+            <Schrift art="klein">
+              {/* TODO fachlich prüfen: Schutzstatus und Rote Liste der Baumarten ergänzen */}
+              Schutzstatus und Rote Liste für Baumarten sind noch nicht hinterlegt.
+            </Schrift>
+          </Kasten>
+        )}
 
-          {art && !verborgen && !grafisch && (
-            <Kasten>
-              <Schrift art="etikett">Wusstest du?</Schrift>
-              <Schrift style={{ marginTop: spacing.xs }}>{art.wusstestDu}</Schrift>
-            </Kasten>
-          )}
+        {art && !verborgen && !grafisch && (
+          <Kasten>
+            <Schrift art="etikett">Wusstest du?</Schrift>
+            <Schrift style={{ marginTop: spacing.xs }}>{art.wusstestDu}</Schrift>
+          </Kasten>
+        )}
 
-          <Schrift art="klein" style={{ opacity: 0.7 }}>
-            Verbreitung und Schutzstatus sind vereinfacht (Demo-Daten).
-          </Schrift>
-        </ScrollView>
-      </SafeAreaView>
-    </Hintergrund>
+        <Schrift art="klein" style={{ opacity: 0.7 }}>
+          Verbreitung und Schutzstatus sind vereinfacht (Demo-Daten).
+        </Schrift>
+      </Animated.ScrollView>
+    </SafeAreaView>
+  );
+
+  return grafisch ? (
+    <TierHintergrund scroll={scroll} ruhig={ruhig}>
+      {seite}
+    </TierHintergrund>
+  ) : (
+    <Hintergrund>{seite}</Hintergrund>
   );
 }
 
@@ -659,6 +740,38 @@ const stile = StyleSheet.create({
   },
   inhalt: { padding: spacing.m, gap: spacing.m, paddingBottom: spacing.xxl },
   buehne: { marginHorizontal: -spacing.m },
+  hero: { marginHorizontal: -spacing.m, marginTop: -spacing.m, marginBottom: -spacing.s },
+  heroVerlauf: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 190 },
+  heroOben: {
+    position: 'absolute',
+    top: spacing.m,
+    left: spacing.m,
+    right: spacing.m,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  heroZurueck: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 1.5,
+    borderColor: colors.moss,
+    backgroundColor: colors.night,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroEtikett: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: radius.l,
+    backgroundColor: colors.night,
+    borderWidth: 1,
+    borderColor: colors.moss,
+  },
+  heroUnten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.m },
+  heroName: { fontSize: 56, lineHeight: 62 },
+  heroHinweis: { color: colors.fog, fontSize: 16, marginBottom: spacing.xs },
   sperre: { position: 'absolute', left: 0, right: 0, bottom: 10, textAlign: 'center', color: colors.fog, fontSize: 15 },
   latein: { fontFamily: fonts.type, color: colors.fog, fontSize: 14 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },

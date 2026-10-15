@@ -363,6 +363,9 @@ Von oben nach unten:
 | `ZeitTafeln.tsx` | „Ein Jahr“ (Jahresrad zum Drehen), „Ein Tag“ (Tagesuhr zum Drehen) |
 | `UmweltTafeln.tsx` | „Zuhause“ (Wald/Waldrand/Wiese, Tag/Dämmerung), „Speiseplan“ (je Monat), „Spuren lesen“ (Karten, Trittsiegel 1 : 1), „Gefahren“, „Kitz gefunden?“ |
 | `TierSeiteInhalt.tsx` | setzt alles zusammen, Wild-Wert als Zeiger |
+| `TierHintergrund.tsx` | gezeichneter Nachtwald hinter der Seite (Sterne, Mond, Höhenzug, Waldsaum, Nebel, Stämme, Glühwürmchen) mit Parallaxe beim Scrollen |
+
+**Hero:** Oben steht das Tier in einer 3D-Umgebung passend zu seinem Lebensraum (`src/scene/Lebensraum3D.tsx`, beim Reh ein Waldrand: Wiese mit Gras und Blumen, Hecke aus gemalten Blattzweigen mit Beeren, zwei Reihen heimischer Laubbäume aus dem Baum-Generator, Glühwürmchen). Licht und Nebel folgen der Uhrzeit. Der Name steht groß auf dem Bild, darunter ein weicher Übergang in die Seite.
 
 Die Rechenlogik (Monat, Uhrzeit, Fingerposition, Zentimeter → Bildschirmpunkte) steht in `src/logic/tierJahr.ts`. Eine neue Tierart bekommt eine eigene Seite, indem man in `tierSeiten.ts` einen Eintrag ergänzt (und für ihre Gestalt eine eigene Figur zeichnet).
 

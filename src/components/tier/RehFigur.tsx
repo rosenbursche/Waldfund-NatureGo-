@@ -36,6 +36,9 @@ const KOERPER =
 const BAUCH = 'M70 97 C84 101 108 101 124 97 C111 94 86 93 70 92 Z';
 const HALS_KOPF =
   'M118 66 C127 57 134 43 141 31 C144 24 150 21 156 23 C163 27 171 33 176 39 C179 43 176 47 169 46 C161 45 154 45 150 48 C145 57 142 70 138 84 L122 84 Z';
+/** sichtbare Umrisslinie von Hals und Kopf (ohne die Kante, die im Körper verschwindet) */
+const HALS_UMRISS =
+  'M118 66 C127 57 134 43 141 31 C144 24 150 21 156 23 C163 27 171 33 176 39 C179 43 176 47 169 46 C161 45 154 45 150 48 C145 57 142 70 138 84';
 const OHR_HINTEN = 'M151 25 C152 15 156 7 162 4 C163 11 160 19 155 27 Z';
 const OHR_VORN = 'M146 27 C140 16 139 8 142 3 C148 7 151 16 151 25 Z';
 const OHR_INNEN = 'M145 22 C142 15 142 10 143 7 C147 11 148 16 148 22 Z';
@@ -49,6 +52,33 @@ const HUF = 'M-2.5 0 L2.5 0 L3 4 L-3 4 Z';
 
 // Spiegel (weißer Fleck am Hinterteil)
 const SPIEGEL = 'M50 67 C45 75 45 86 52 92 C57 86 58 75 55 67 Z';
+
+// Feine Details: Fellstriche, Muskelschatten, Gesicht
+/** kurze Haarstriche entlang Rücken und Flanke (Richtung: nach hinten unten) */
+const FELLSTRICHE: string[] = [];
+for (let i = 0; i < 26; i++) {
+  const x = 58 + (i % 13) * 5.6 + (i > 12 ? 2.5 : 0);
+  const y = (i > 12 ? 74 : 66) + Math.sin(i * 1.7) * 2;
+  FELLSTRICHE.push(`M${x} ${y} q-2 2.5 -3.5 4.5`);
+}
+for (let i = 0; i < 9; i++) {
+  const x = 66 + i * 7;
+  FELLSTRICHE.push(`M${x} ${86 + Math.sin(i) * 1.5} q-1.5 2 -2.5 3.5`);
+}
+const SCHULTER = 'M112 66 C122 64 130 70 132 80 C128 88 120 90 114 86 C110 80 109 72 112 66 Z';
+const KEULE = 'M50 70 C58 64 70 68 72 80 C72 90 66 98 58 98 C52 94 48 84 50 70 Z';
+const KEULE_LICHT = 'M58 70 C64 70 69 75 70 82';
+const OHR_RAND_VORN = 'M146 27 C140 16 139 8 142 3 C148 7 151 16 151 25';
+const OHR_RAND_HINTEN = 'M151 25 C152 15 156 7 162 4 C163 11 160 19 155 27';
+const OHR_HAARE = 'M144 20 l2 -1 M143.5 16 l2 -1 M143.5 12 l1.8 -0.8';
+const AUGENLID = 'M154 29.6 C155.6 28.2 158.4 28.2 160 29.8';
+const TRAENENGRUBE = 'M161 33 C163 34 164.5 35.5 165 37';
+const MUFFEL = 'M171 37 C174 37.5 177 39.5 178 42 C176 44.5 173 44.5 171 43.5 C170 41.5 170 39 171 37 Z';
+const MAUL = 'M171.5 45.6 C168 46.4 165 46.2 162.5 45.4';
+const KEHLFLECK_OBEN = 'M141 53 C144 52 147 54 146 57 C143 58 140 56 141 53 Z';
+const KEHLFLECK_UNTEN = 'M134 66 C138 64 142 67 140 71 C136 72 133 70 134 66 Z';
+/** Afterklauen: kleine Zehen hinten über dem Huf */
+const AFTERKLAUE = 'M0 0 C-1.6 0.4 -2.2 2 -1.4 3.2 C-0.4 3 0.4 1.6 0 0 Z';
 
 // Flecken des Kitzes (Reihen entlang des Rückens)
 const FLECKEN: [number, number][] = [
@@ -129,6 +159,25 @@ export function RehFigur({ farben, pose = 'steht', fell = 1, geweih, flecken, um
         {/* Körper */}
         <Path d={KOERPER} fill={verlauf} stroke={dunkel} strokeWidth={0.8} strokeOpacity={0.5} />
         {!umriss && <Path d={BAUCH} fill={hell} opacity={0.3} />}
+        {!umriss && (
+          <G>
+            {/* Muskelschatten an Schulter und Keule, darüber feine Fellstriche */}
+            <Path d={SCHULTER} fill={farben.dunkel} opacity={0.13} />
+            <Path d={KEULE} fill={farben.dunkel} opacity={0.12} />
+            <Path d={KEULE_LICHT} stroke={hell} strokeWidth={1} opacity={0.18} fill="none" strokeLinecap="round" />
+            {FELLSTRICHE.map((d, i) => (
+              <Path
+                key={i}
+                d={d}
+                stroke={farben.dunkel}
+                strokeWidth={0.6}
+                opacity={0.2}
+                fill="none"
+                strokeLinecap="round"
+              />
+            ))}
+          </G>
+        )}
         {flecken &&
           !umriss &&
           FLECKEN.map(([x, y]) => (
@@ -150,15 +199,39 @@ export function RehFigur({ farben, pose = 'steht', fell = 1, geweih, flecken, um
             <Path d={HINTERLAUF} fill={verlauf} />
             <Path d={HUF} fill={dunkel} transform="translate(124.3 146)" />
             <Path d={HUF} fill={dunkel} transform="translate(60.8 146)" />
+            {!umriss && (
+              <G>
+                <Path d={AFTERKLAUE} fill={dunkel} transform="translate(122.4 139)" />
+                <Path d={AFTERKLAUE} fill={dunkel} transform="translate(58.6 139)" />
+                {/* Fesselgelenke etwas dunkler */}
+                <Ellipse cx={124.3} cy={141} rx={2.4} ry={1.2} fill={farben.dunkel} opacity={0.25} />
+                <Ellipse cx={60.8} cy={141} rx={2.4} ry={1.2} fill={farben.dunkel} opacity={0.25} />
+              </G>
+            )}
           </G>
         )}
 
         {/* Hals und Kopf – drehen sich beim Äsen um den Halsansatz */}
         <G transform={`rotate(${kopfDrehung} 126 70)`}>
           <Path d={OHR_HINTEN} fill={ferne} />
-          <Path d={HALS_KOPF} fill={verlauf} stroke={dunkel} strokeWidth={0.8} strokeOpacity={0.5} />
+          <Path d={HALS_KOPF} fill={verlauf} />
+          <Path d={HALS_UMRISS} stroke={dunkel} strokeWidth={0.8} strokeOpacity={0.5} fill="none" />
           <Path d={OHR_VORN} fill={verlauf} stroke={dunkel} strokeWidth={0.7} strokeOpacity={0.5} />
-          {!umriss && <Path d={OHR_INNEN} fill={hell} opacity={0.35} />}
+          {!umriss && (
+            <G>
+              <Path d={OHR_INNEN} fill={hell} opacity={0.35} />
+              <Path d={OHR_HAARE} stroke={hell} strokeWidth={0.5} opacity={0.6} />
+              <Path d={OHR_RAND_VORN} stroke={farben.dunkel} strokeWidth={1.1} fill="none" opacity={0.7} />
+              <Path d={OHR_RAND_HINTEN} stroke={farben.dunkel} strokeWidth={1} fill="none" opacity={0.6} />
+              {/* im Winterfell zwei helle Flecken an der Kehle */}
+              {fell < 0.5 && (
+                <G>
+                  <Path d={KEHLFLECK_OBEN} fill={hell} opacity={0.85} />
+                  <Path d={KEHLFLECK_UNTEN} fill={hell} opacity={0.8} />
+                </G>
+              )}
+            </G>
+          )}
           {licht && !umriss && (
             <Path d={HALS_LICHT} stroke={colors.moon} strokeWidth={1.1} strokeOpacity={0.4} fill="none" />
           )}
@@ -169,6 +242,11 @@ export function RehFigur({ farben, pose = 'steht', fell = 1, geweih, flecken, um
               <Ellipse cx={175.4} cy={41.6} rx={2.7} ry={2.3} fill={dunkel} />
               <Circle cx={157} cy={31} r={2.4} fill={dunkel} />
               <Circle cx={157.8} cy={30.2} r={0.8} fill={colors.moon} />
+              <Path d={AUGENLID} stroke={farben.dunkel} strokeWidth={0.8} fill="none" />
+              <Path d={TRAENENGRUBE} stroke={farben.dunkel} strokeWidth={0.7} fill="none" opacity={0.5} />
+              <Path d={MUFFEL} fill={farben.dunkel} opacity={0.85} />
+              <Ellipse cx={175.6} cy={41.4} rx={0.9} ry={0.6} fill={colors.moon} opacity={0.35} />
+              <Path d={MAUL} stroke={farben.dunkel} strokeWidth={0.7} fill="none" opacity={0.7} />
             </G>
           )}
           {geweih && geweih.art !== 'keins' && (

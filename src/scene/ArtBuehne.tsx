@@ -6,11 +6,14 @@ import * as THREE from 'three';
 
 import type { ModellParameter } from '@/data/artTypen';
 import type { BaumModell } from '@/data/typen';
+import type { Stimmung } from '@/logic/tageszeit';
+import type { Umgebung } from '@/data/tierSeiten';
 import { colors } from '@/theme/theme';
 
 import { baueArtModell, einpassen, type Jahreszeit } from './artModell';
 import { Baum3D } from './Baum3D';
 import { GlbModell } from './GlbModell';
+import { Lebensraum3D } from './Lebensraum3D';
 import { FehlerFaenger, MeldeLaden } from './LadeStatus';
 import { Lidar } from './Lidar';
 import { Drehung } from './steuerZustand';
@@ -32,9 +35,11 @@ type Props = {
   pflanze?: Jahreszeit & { wuchs: number };
   /** Ladezustand eines GLB-Modells melden (für die Test-Ansicht) */
   melden?: (s: string) => void;
+  /** Lebensraum als 3D-Umgebung hinter dem Tier (statt Runenkreis), Licht nach Tageszeit */
+  umgebung?: { art: Umgebung; stimmung: Stimmung };
 };
 
-export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze, melden }: Props) {
+export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, pflanze, melden, umgebung }: Props) {
   const [drehung] = useState(() => new Drehung());
   const gesten = useMemo(
     () =>
@@ -51,12 +56,30 @@ export function ArtBuehne({ glb, modell, baum, silhouette, ruhig, hoehe = 300, p
   return (
     <GestureDetector gesture={gesten}>
       <View style={{ height: hoehe }}>
-        <Canvas style={StyleSheet.absoluteFill} camera={{ fov: 35, position: [0, 2.2, 5.4] }}>
+        <Canvas
+          style={StyleSheet.absoluteFill}
+          camera={umgebung ? { fov: 38, position: [0, 1.7, 7.2] } : { fov: 35, position: [0, 2.2, 5.4] }}
+        >
+          {umgebung && (
+            <>
+              <color attach="background" args={[umgebung.stimmung.himmel]} />
+              <fog attach="fog" args={[umgebung.stimmung.nebel, 7, 24]} />
+              <ambientLight color={umgebung.stimmung.umgebung} intensity={umgebung.stimmung.umgebungStaerke * 0.6} />
+            </>
+          )}
           <hemisphereLight args={[colors.moon, colors.night, silhouette ? 0.5 : 1.1]} />
-          <directionalLight position={[3, 5, 4]} intensity={silhouette ? 0.3 : 1.2} />
+          <directionalLight
+            position={[3, 5, 4]}
+            color={umgebung ? umgebung.stimmung.licht : colors.moon}
+            intensity={silhouette ? 0.3 : 1.2}
+          />
           {/* türkises Gegenlicht für einen weichen Leuchtrand */}
           <directionalLight position={[-4, 2, -4]} color={colors.rune} intensity={1.4} />
-          <Runenkreis />
+          {umgebung ? (
+            <Lebensraum3D umgebung={umgebung.art} stimmung={umgebung.stimmung} ruhig={ruhig} />
+          ) : (
+            <Runenkreis />
+          )}
           <Drehteller drehung={drehung} ruhig={ruhig}>
             <Lidar key={`${silhouette}-${glb ?? ''}`} ruhig={ruhig}>
               {glb ? (
