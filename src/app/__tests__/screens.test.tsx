@@ -74,6 +74,7 @@ describe('Screens rendern ohne Fehler', () => {
     // alle vier Runensteine sind als Knöpfe erreichbar (auch für Screenreader)
     expect(screen.getByLabelText(/^Pflanzen: \d+ von \d+ gesammelt/)).toBeTruthy();
     expect(screen.getByLabelText(/^Säugetiere: \d+ von \d+ gesammelt/)).toBeTruthy();
+    expect(screen.getByLabelText('Kampf-Arena')).toBeTruthy();
   });
 
   test('Startseite mit 3D-Lichtung', async () => {
