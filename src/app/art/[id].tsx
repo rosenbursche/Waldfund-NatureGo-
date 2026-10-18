@@ -19,6 +19,10 @@ import {
   SeltenheitAbzeichen,
 } from '@/components/ui/Abzeichen';
 import { Kapitelkopf } from '@/components/ui/Kapitelkopf';
+import { WappenReihe } from '@/components/ui/Wappen';
+import { Kapitel } from '@/components/lebendig/Kapitel';
+import { LebendigHero } from '@/components/lebendig/LebendigHero';
+import { LebendigInhalt } from '@/components/lebendig/LebendigInhalt';
 import { FotoHero } from '@/components/tier/TierFoto';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
@@ -35,7 +39,6 @@ import { KATEGORIEN, ROTE_LISTE_NAME, SCHUTZ_NAME, SELTENHEIT } from '@/data/spi
 import { BODEN_NAME, GROSSLANDSCHAFT_NAME, HOEHENSTUFE_NAME } from '@/data/typen';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
 import { wirdGefressenVon } from '@/logic/nahrungsnetz';
-import { berechneWildWert } from '@/logic/wildwert';
 import { MONATE, MONATE_LANG, zustandImMonat } from '@/logic/jahreszeit';
 import { herkunftsText, istHeimisch } from '@/logic/regelEngine';
 import { wachstum, wachstumsBereich } from '@/logic/wachstum';
@@ -106,6 +109,8 @@ export default function ArtSeite() {
   // Grafische Seite (Vorlage Reh): Bilder statt Text, sobald die Art nicht mehr verborgen ist
   const tier = tierSeite(id);
   const grafisch = !!tier && !verborgen;
+  // Lebendige Seite (Kapitel, Panorama, Wappen) für Tiere mit echten Fotos – Vorlage Reh
+  const lebendig = grafisch && !!tier?.fotos && !!art;
 
   const seite = (
     <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
@@ -115,24 +120,49 @@ export default function ArtSeite() {
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scroll } } }], { useNativeDriver: true })}
       >
         {grafisch && tier ? (
-          /* Hero: echtes Foto (falls vorhanden) oder das Tier in seinem Lebensraum (3D), Name groß auf dem Bild */
+          /* Hero: lebendig (echtes Foto mit Nebel, Name und Wappen) – oder Foto/3D-Bühne für Tiere ohne Fotos */
           <View style={stile.hero}>
-            {tier.fotos && !zeige3d ? (
-              <View style={{ height: 470 }}>
-                <FotoHero id={tier.fotos.hero} x={tier.fotos.heroX} gefunden={gefunden} ruhig={ruhig} />
-              </View>
-            ) : (
-              <ArtBuehne
-                glb={realistisch?.datei}
-                melden={realistisch ? setModellStatus : undefined}
-                modell={art?.modell}
-                silhouette={!gefunden}
+            {lebendig && art && tier.fotos && !zeige3d ? (
+              <LebendigHero
+                foto={tier.fotos.hero}
+                x={tier.fotos.heroX}
+                name={eintrag.name}
+                latein={eintrag.lat}
+                etikett={kategorie.name}
+                wappen={<WappenReihe id={id} seltenheit={eintrag.seltenheit} art={art} />}
+                gefunden={gefunden}
+                scroll={scroll}
                 ruhig={ruhig}
-                hoehe={470}
-                umgebung={{ art: tier.umgebung, stimmung, extras: tier.extras }}
               />
+            ) : (
+              <>
+                {tier.fotos && !zeige3d ? (
+                  <View style={{ height: 470 }}>
+                    <FotoHero id={tier.fotos.hero} x={tier.fotos.heroX} gefunden={gefunden} ruhig={ruhig} />
+                  </View>
+                ) : (
+                  <ArtBuehne
+                    glb={realistisch?.datei}
+                    melden={realistisch ? setModellStatus : undefined}
+                    modell={art?.modell}
+                    silhouette={!gefunden}
+                    ruhig={ruhig}
+                    hoehe={470}
+                    umgebung={{ art: tier.umgebung, stimmung, extras: tier.extras }}
+                  />
+                )}
+                <LinearGradient pointerEvents="none" colors={['transparent', colors.night]} style={stile.heroVerlauf} />
+                <View style={stile.heroUnten} pointerEvents="none">
+                  {!gefunden && (
+                    <Schrift art="notiz" style={stile.heroHinweis}>
+                      Fotografiere die Art, um sie in Farbe freizuschalten
+                    </Schrift>
+                  )}
+                  <Kapitelkopf etikett={gruppe} titel={eintrag.name} unter={eintrag.lat} groesse="gross" />
+                  <WappenReihe id={id} seltenheit={eintrag.seltenheit} art={art} groesse={46} ausrichtung="links" />
+                </View>
+              </>
             )}
-            <LinearGradient pointerEvents="none" colors={['transparent', colors.night]} style={stile.heroVerlauf} />
             <View style={stile.heroOben} pointerEvents="box-none">
               <Pressable
                 onPress={() => router.back()}
@@ -143,25 +173,14 @@ export default function ArtSeite() {
               >
                 <Icon name="zurueck" groesse={20} />
               </Pressable>
-              <View style={stile.heroEtikett}>
-                <Schrift art="etikett" style={{ color: colors.moon }}>
-                  {kategorie.name}
-                </Schrift>
-              </View>
+              {!(lebendig && !zeige3d) && (
+                <View style={stile.heroEtikett}>
+                  <Schrift art="etikett" style={{ color: colors.moon }}>
+                    {kategorie.name}
+                  </Schrift>
+                </View>
+              )}
             </View>
-            {/* KONZEPT: zur lebendigen Tierseite (nur auf dem Branch feature/tierseite-lebendig) */}
-            {tier.fotos && (
-              <Pressable
-                onPress={() => router.push({ pathname: '/konzept', params: { id } })}
-                accessibilityRole="button"
-                accessibilityLabel="Lebendige Seite ansehen (Konzept)"
-                style={({ pressed }) => [stile.hero3d, stile.heroKonzept, pressed && { opacity: 0.6 }]}
-              >
-                <Schrift art="etikett" style={{ color: colors.night }}>
-                  Lebendig ✦
-                </Schrift>
-              </Pressable>
-            )}
             {/* Umschalter Foto ↔ 3D-Modell */}
             {tier.fotos && (
               <Pressable
@@ -175,19 +194,6 @@ export default function ArtSeite() {
                 </Schrift>
               </Pressable>
             )}
-            <View style={stile.heroUnten} pointerEvents="none">
-              {!gefunden && (
-                <Schrift art="notiz" style={stile.heroHinweis}>
-                  Fotografiere die Art, um sie in Farbe freizuschalten
-                </Schrift>
-              )}
-              <Kapitelkopf etikett={gruppe} titel={eintrag.name} unter={eintrag.lat} groesse="gross" />
-              <View style={stile.chips}>
-                <SeltenheitAbzeichen stufe={eintrag.seltenheit} punkte />
-                {art && art.schutz > 0 && <SchutzAbzeichen schutz={art.schutz} />}
-                {gefunden && <Abzeichen text="Gesammelt" farbe={colors.amber} art="voll" />}
-              </View>
-            </View>
           </View>
         ) : (
           <Kopfzeile etikett={`${kategorie.name} · ${gruppe}`} titel={verborgen ? '???' : eintrag.name} />
@@ -242,7 +248,9 @@ export default function ArtSeite() {
           </View>
         )}
 
-        {!grafisch && <WildWertAnzeige id={id} />}
+        {!grafisch && (
+          <WappenReihe id={id} seltenheit={eintrag.seltenheit} art={art} verborgen={verborgen} ausrichtung="links" />
+        )}
 
         {!grafisch && (
           <View style={stile.chips}>
@@ -345,7 +353,39 @@ export default function ArtSeite() {
           </Kasten>
         )}
 
-        {grafisch && tier && (
+        {lebendig && tier && art && (
+          <LebendigInhalt
+            id={id}
+            tier={tier}
+            art={art}
+            sammlung={sammlung}
+            scroll={scroll}
+            ruhig={ruhig}
+            weitere={
+              <>
+                <Kapitel
+                  nummer={8}
+                  titel="Wo in Deutschland"
+                  zeile="Nur grob: Rasterfelder, nie genaue Fundorte"
+                  scroll={scroll}
+                  ruhig={ruhig}
+                >
+                  <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
+                </Kapitel>
+                <Kapitel nummer={9} titel="Skizzenbuch" zeile="Aus dem Bestimmungsbuch" scroll={scroll} ruhig={ruhig}>
+                  <LehrbuchKarte
+                    id={id}
+                    name={eintrag.name}
+                    zeichnung={art.zeichnung ?? { t: 'tree' }}
+                    modell={art.modell}
+                  />
+                </Kapitel>
+              </>
+            }
+          />
+        )}
+
+        {grafisch && !lebendig && tier && (
           <TierSeiteInhalt
             id={id}
             tier={tier}
@@ -448,7 +488,7 @@ export default function ArtSeite() {
           </Abschnitt>
         )}
 
-        {grafisch ? (
+        {lebendig ? null : grafisch ? (
           <>
             <TierTafel symbol="buch" titel="Skizzenbuch">
               <LehrbuchKarte
@@ -629,32 +669,6 @@ function PflanzenRegler({
   );
 }
 
-/** Wild-Wert: 1–100, wie selten die Art ist – dazu der Hinweis, ob sie bedroht ist */
-function WildWertAnzeige({ id }: { id: string }) {
-  const w = berechneWildWert(id);
-  const farbe = w.wert >= 80 ? colors.legend : w.wert >= 55 ? colors.rare : w.wert >= 30 ? colors.rune : colors.fog;
-  return (
-    <View
-      style={stile.wild}
-      accessible
-      accessibilityLabel={`Wild-Wert ${w.wert} von 100. ${w.bedroht ?? (w.vorwarnung ? 'Auf der Vorwarnliste' : 'Nicht bedroht')}`}
-    >
-      <View style={[stile.wildKreis, { borderColor: farbe, shadowColor: farbe }]}>
-        <Schrift style={[stile.wildZahl, { color: farbe }]}>{w.wert}</Schrift>
-      </View>
-      <View style={{ flex: 1 }}>
-        <Schrift art="etikett">Wild-Wert · 1–100</Schrift>
-        <Schrift art="klein" style={{ color: w.bedroht ? colors.warn : colors.fog }}>
-          {w.bedroht ? `⚠ ${w.bedroht}` : w.vorwarnung ? 'Auf der Vorwarnliste' : 'Nicht bedroht'}
-        </Schrift>
-        <Schrift art="klein" style={{ fontSize: 11, opacity: 0.7 }}>
-          aus Verbreitung, Seltenheit und Roter Liste (Demo-Daten)
-        </Schrift>
-      </View>
-    </View>
-  );
-}
-
 function Kasten({ farbe = colors.moss, style, children }: { farbe?: string; style?: object; children: ReactNode }) {
   return <View style={[stile.kasten, { borderColor: farbe }, style]}>{children}</View>;
 }
@@ -695,19 +709,6 @@ const stile = StyleSheet.create({
   },
   monate: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 6 },
   monat: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog, width: 14, textAlign: 'center' },
-  wild: { flexDirection: 'row', alignItems: 'center', gap: spacing.m },
-  wildKreis: {
-    width: 62,
-    height: 62,
-    borderRadius: 31,
-    borderWidth: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.night,
-    shadowOpacity: 0.6,
-    shadowRadius: 12,
-  },
-  wildZahl: { fontFamily: fonts.titel, fontSize: 26, lineHeight: 32 },
   merkmal: { flexDirection: 'row', gap: spacing.s, alignItems: 'flex-start' },
   rune: { color: colors.rune, fontSize: 15, lineHeight: 23 },
   inhalt: { padding: spacing.m, gap: spacing.m, paddingBottom: spacing.xxl },
@@ -750,7 +751,6 @@ const stile = StyleSheet.create({
     borderRadius: radius.l,
     backgroundColor: colors.amber,
   },
-  heroKonzept: { bottom: spacing.m + 40, backgroundColor: colors.rune },
   heroUnten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.m },
   heroHinweis: { color: colors.fog, fontSize: 16, marginBottom: spacing.xs },
   sperre: { position: 'absolute', left: 0, right: 0, bottom: 10, textAlign: 'center', color: colors.fog, fontSize: 15 },

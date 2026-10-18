@@ -253,16 +253,37 @@ export function GiftWappen({ text, groesse }: Props & { text: string }) {
   );
 }
 
-/** Alle Wappen einer Art in einer Reihe: Wild-Wert, Seltenheit, Schutz, Rote Liste (nur gefährdet), Gift */
-export function WappenReihe({ id, art, groesse = 58 }: { id: string; art: Art; groesse?: number }) {
+/**
+ * Alle Wappen einer Art in einer Reihe: Wild-Wert, Seltenheit, Schutz, Rote Liste (nur gefährdet), Gift.
+ * `verborgen`: Rätsel-Art – dann nur Wild-Wert und Seltenheit (verrät nichts über die Art).
+ * `ausrichtung`: mittig (Hero) oder linksbündig (Seitenkopf).
+ */
+export function WappenReihe({
+  id,
+  seltenheit,
+  art,
+  verborgen = false,
+  groesse = 58,
+  ausrichtung = 'mitte',
+}: {
+  id: string;
+  seltenheit: Seltenheit;
+  art?: Art;
+  verborgen?: boolean;
+  groesse?: number;
+  ausrichtung?: 'mitte' | 'links';
+}) {
   const w = berechneWildWert(id);
+  const zeigen = art && !verborgen;
   return (
-    <View style={stile.reihe}>
+    <View style={[stile.reihe, ausrichtung === 'links' && { justifyContent: 'flex-start' }]}>
       <WildWertWappen wert={w.wert} groesse={groesse} />
-      <SeltenheitWappen stufe={art.seltenheit} groesse={groesse} />
-      {art.schutz > 0 && <SchutzWappen schutz={art.schutz} groesse={groesse} />}
-      {art.roteListe && '123'.includes(art.roteListe) && <RoteListeWappen stufe={art.roteListe} groesse={groesse} />}
-      {art.giftig && <GiftWappen text={art.giftig} groesse={groesse} />}
+      <SeltenheitWappen stufe={seltenheit} groesse={groesse} />
+      {zeigen && art.schutz > 0 && <SchutzWappen schutz={art.schutz} groesse={groesse} />}
+      {zeigen && art.roteListe && '123'.includes(art.roteListe) && (
+        <RoteListeWappen stufe={art.roteListe} groesse={groesse} />
+      )}
+      {art?.giftig && <GiftWappen text={art.giftig} groesse={groesse} />}
     </View>
   );
 }

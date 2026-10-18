@@ -5,7 +5,6 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import ArtSeite from '@/app/art/[id]';
-import Konzept from '@/app/konzept';
 import { ARTEN } from '@/data/arten';
 import { BAUMARTEN } from '@/data/baumarten';
 import Einstellungen from '@/app/einstellungen';
@@ -103,48 +102,53 @@ describe('Screens rendern ohne Fehler', () => {
     },
   );
 
-  test('Grafische Reh-Seite: alle Bild-Abschnitte, verknüpftes Futter, Gefahren', async () => {
+  test('Lebendige Reh-Seite: alle Kapitel, Wappen, verknüpftes Futter, Fressfeinde, Lupe', async () => {
     mockParams.id = 'reh';
     useSammlung.setState({ gefunden: {} });
     await render(<ArtSeite />);
     for (const titel of [
-      'So groß',
       'Erkunden',
       'Ein Jahr',
       'Ein Tag',
       'Zuhause',
       'Speiseplan',
-      'Spuren lesen',
-      'Gefahren',
+      'Spuren',
+      'Fressfeinde',
+      'Wo in Deutschland',
+      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
+    expect(screen.getAllByText('Wild-Wert').length).toBeGreaterThan(0); // Wappen im Hero
     expect(screen.getByLabelText('Stieleiche')).toBeTruthy(); // verknüpfte Nahrung
-    expect(screen.getByLabelText('Wolf')).toBeTruthy();
-    expect(screen.getByText(/Realistisches 3D-Modell \(Platzhalter\)/)).toBeTruthy();
-    // Antippen eines Körperpunkts zeigt die Beschriftung
+    expect(screen.getByLabelText(/Wolf/)).toBeTruthy();
+    expect(screen.getByText('Winter')).toBeTruthy(); // Jahreszeiten
+    expect(screen.getAllByText('Schnee').length).toBeGreaterThan(0); // Spuren-Untergrund
+    // Antippen eines Leuchtpunkts öffnet die Lupe mit Erklärung
     await fireEvent.press(screen.getByLabelText('Spiegel: weißes Warnsignal'));
     expect(screen.getByText('Spiegel: weißes Warnsignal')).toBeTruthy();
   });
 
-  test('Grafische Fuchs-Seite: gleiche Bild-Abschnitte, Fuchs-Daten und Sicherheits-Hinweis', async () => {
+  test('Lebendige Fuchs-Seite: gleiche Kapitel, Fuchs-Daten und Sicherheits-Hinweis', async () => {
     mockParams.id = 'fuchs';
     useSammlung.setState({ gefunden: {} });
     await render(<ArtSeite />);
     for (const titel of [
-      'So groß',
       'Erkunden',
       'Ein Jahr',
       'Ein Tag',
       'Zuhause',
       'Speiseplan',
-      'Spuren lesen',
-      'Gefahren',
+      'Spuren',
+      'Fressfeinde',
+      'Wo in Deutschland',
+      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
+    expect(screen.getAllByText('Wild-Wert').length).toBeGreaterThan(0); // Wappen im Hero
     expect(screen.getByText('Fuchs getroffen?')).toBeTruthy();
-    expect(screen.getByLabelText('Straßen')).toBeTruthy();
+    expect(screen.getByLabelText(/Straßen/)).toBeTruthy();
     expect(screen.getByLabelText('Lunte, oft mit weißer Spitze')).toBeTruthy();
     // kein Bock/Ricke-Umschalter beim Fuchs
     expect(screen.queryByText('Bock')).toBeNull();
@@ -276,18 +280,6 @@ describe('Screens rendern ohne Fehler', () => {
     await render(<Modelltest />);
     expect(screen.getByText(/Platzhalter, kein echtes Reh/)).toBeTruthy();
     expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
-  });
-
-  test.each(['reh', 'fuchs'])('Konzept: lebendige Tierseite (%s)', async (id) => {
-    mockParams.id = id;
-    await render(<Konzept />);
-    expect(screen.getByText('Erkunden')).toBeTruthy();
-    expect(screen.getByText('Ein Jahr')).toBeTruthy();
-    expect(screen.getByText('Spuren')).toBeTruthy();
-    expect(screen.getByText('Winter')).toBeTruthy();
-    for (const t of ['Ein Tag', 'Zuhause', 'Speiseplan', 'Fressfeinde', 'Wild-Wert', 'Schnee', 'Gehen']) {
-      expect(screen.getAllByText(t).length).toBeGreaterThan(0);
-    }
   });
 
   test('Bausteine zeigt alle Seltenheits-Abzeichen', async () => {

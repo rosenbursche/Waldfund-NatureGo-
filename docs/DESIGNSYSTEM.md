@@ -78,7 +78,7 @@ Kurzer Status in Cinzel, gesperrt, mit Rahmen.
 - `leuchten` nur für Legendäres und Belohnungen
 
 ### Wappen (`Wappen.tsx`)
-Gezeichnete Medaillons für den Kopf einer Artenseite: `WildWertWappen`, `SeltenheitWappen`, `SchutzWappen`, `RoteListeWappen`, `GiftWappen`. `WappenReihe` zeigt alle passenden auf einmal. Jede Art hat eine eigene Form (Kreis, Sechseck, Schild, Stern, Dreieck, Raute), damit sie auch ohne Farbe unterscheidbar ist.
+Gezeichnete Medaillons. Sie stehen auf **jeder Artenseite** (Hero bzw. Seitenkopf) und beim **Sammeln** nach einem Fund: `WildWertWappen`, `SeltenheitWappen`, `SchutzWappen`, `RoteListeWappen`, `GiftWappen`. `WappenReihe` zeigt alle passenden auf einmal. Jede Art hat eine eigene Form (Kreis, Sechseck, Schild, Stern, Dreieck, Raute), damit sie auch ohne Farbe unterscheidbar ist.
 ```tsx
 <WappenReihe id="reh" art={artById.reh} />
 ```

@@ -1,7 +1,6 @@
 # Konzept: die lebendige Tierseite
 
-Branch: `feature/tierseite-lebendig` · Stand 18.10.2026 · Code: `src/app/konzept.tsx`, Bausteine in `src/components/lebendig/`
-Ansehen: Reh oder Rotfuchs öffnen → Knopf **„Lebendig ✦“** im Foto oben.
+**Umgesetzt** (18.10.2026): Die lebendige Seite ist jetzt die Artenseite für alle Tiere mit echten Fotos (Reh, Rotfuchs). Code: `src/components/lebendig/` (`LebendigInhalt`, `LebendigHero`), eingebunden in `src/app/art/[id].tsx`.
 
 ## Problem
 Die grafische Tierseite ist informativ, wirkt aber statisch: Jede Sektion ist ein gleicher Kasten, Fotos sind klein darin eingesetzt, Bewegung gibt es kaum. Man liest die Seite eher, als sie zu erleben.

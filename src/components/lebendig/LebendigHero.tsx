@@ -25,6 +25,7 @@ export function LebendigHero({
   latein,
   etikett,
   wappen,
+  gefunden = true,
   scroll,
   ruhig,
 }: {
@@ -35,6 +36,8 @@ export function LebendigHero({
   etikett: string;
   /** Wappen-Reihe (Wild-Wert, Seltenheit …) unter dem Namen */
   wappen?: ReactNode;
+  /** noch nicht gesammelt: Foto verschwommen und abgedunkelt, Hinweis zum Sammeln */
+  gefunden?: boolean;
   scroll: Animated.Value;
   ruhig: boolean;
 }) {
@@ -81,8 +84,10 @@ export function LebendigHero({
           style={StyleSheet.absoluteFill}
           contentFit="cover"
           contentPosition={x !== undefined ? { left: `${x}%`, top: '50%' } : undefined}
+          blurRadius={gefunden ? 0 : 22}
           accessibilityLabel={name}
         />
+        {!gefunden && <View style={stile.abdunkeln} />}
       </Animated.View>
 
       {/* Nebel vor dem Tier */}
@@ -173,6 +178,7 @@ export function LebendigHero({
             {wappen}
           </Animated.View>
         )}
+        {!gefunden && <Schrift style={stile.hinweis}>Fotografiere die Art, um sie in Farbe freizuschalten</Schrift>}
         <Pfeil ruhig={ruhig} />
       </View>
     </View>
@@ -275,6 +281,8 @@ function Pfeil({ ruhig }: { ruhig: boolean }) {
 
 const stile = StyleSheet.create({
   hero: { overflow: 'hidden', backgroundColor: colors.night },
+  abdunkeln: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: `${colors.night}8C` },
+  hinweis: { fontFamily: fonts.notiz, fontSize: 15, color: colors.fog, textAlign: 'center', marginTop: spacing.xs },
   oben: { position: 'absolute', left: 0, right: 0, top: 0, height: 120 },
   nachweis: { position: 'absolute', right: spacing.s, top: 64, maxWidth: '70%' },
   nachweisText: { fontFamily: fonts.body, fontSize: 9.5, color: colors.moon, opacity: 0.7 },
