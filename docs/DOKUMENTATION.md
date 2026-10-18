@@ -228,6 +228,7 @@ Alle Module sind reine Rechenfunktionen ohne Bildschirm und deshalb testbar. Die
 | `nahrungsnetz.ts` | „Wer frisst wen?“ und rückwärts „Wer frisst mich?“ |
 | `lichtung.ts` | Zufall mit Startwert (mulberry32), Bäume im Ring um die Hütte verteilen |
 | `lichtungDetails.ts` | Weg, Tümpel, Ausstattung, freie Flächen, Streuen von Gras/Steinen/…, Sichtachse zur Hütte |
+| `zauberwald.ts` | Zauberwald im Katalog: Bodenhöhe mit Moospolstern und Hohlweg, Wegverlauf, Licht am Ende, Ring der Moosbäume, hohe Stämme, Streuen ohne Arten und Weg zu treffen |
 | `verborgenes.ts` | versteckte Kleinigkeiten: Dunkelheit, Augen-Plätze, Blinzeln, Maus, Eulenkopf |
 | `konfiguration.ts` | öffentliche Server-Adresse aus `app.json → extra` |
 
@@ -315,10 +316,14 @@ Jede Stimmung legt diese Werte fest: Himmel, Nebel und Nebeldichte, Umgebungslic
 
 Wichtig: Diese Dinge sind **nicht antippbar und bringen keine Punkte**. Das folgt aus der Regel „keine Mechanik, die belohnt, Tiere zu verfolgen“. Bei „Bewegung reduzieren“ leuchtet ein Teil der Augen still, alles andere bleibt stehen.
 
-### 7.7 Kategorie-Wald (`KategorieWald.tsx`, `ArtFigur.tsx`)
-- Im Katalog in der Ansicht „Wald“ stehen alle Arten an ihrem natürlichen Platz: Pflanzen und Pilze am Boden, Vögel auf Baumstümpfen, Säugetiere zwischen den Bäumen.
-- Gefundene Arten erscheinen in Farbe, nicht gefundene grau mit grauem Schloss.
-- Gefährliche Arten bekommen eine rote Markierung (Ring, Nebel, Dornen).
+### 7.7 Kategorie-Wald als Zauberwald (`KategorieWald.tsx`, `Zauberwald.tsx`, `logic/zauberwald.ts`)
+- Im Katalog in der Ansicht „Wald“ stehen alle Arten auf einer moosigen Lichtung in einem verwunschenen Nebelwald: Pflanzen und Pilze am Boden, Vögel auf bemoosten Baumstümpfen, Säugetiere zwischen den Moospolstern.
+- **Kulisse:** Ring aus uralten, knorrigen Moosbäumen (eigener Bauplan „uralt“ im Baum-Generator, Moos auf allen nach oben zeigenden Flächen und am Stammfuß), hohe schlanke Stämme im Nebel, ferner Wald, Farne, Gras, bemooste Steine, umgestürzte Stämme. Ein **Hohlweg** mit Böschungen und Laub führt von der Lichtung nach hinten auf ein **helles Licht im Nebel** zu. Dazu schräge Lichtstrahlen, Bodennebel und schwebende Lichtpunkte (Farbe je Kategorie). Ein dunkler Rand (Vignette) lenkt den Blick in die Mitte.
+- Beim Öffnen schaut die Kamera den Hohlweg entlang ins Licht. Ziehen dreht wie gewohnt um die Lichtung.
+- **Gefunden:** Art in Farbe, ein warmer Lichtkegel fällt von oben, kleine Funken steigen auf.
+- **Noch nicht gefunden:** dunkler Schatten, darüber schwebt ein flackerndes Irrlicht, am Boden ein schwacher Runenkreis.
+- Gefährliche Arten bekommen weiter eine rote Markierung (Ring, Nebel, Dornen).
+- Bei „Bewegung reduzieren“ stehen Wind, Irrlichter, Funken, Nebel und Lichtpunkte still.
 
 ### 7.8 Artmodelle (`artModell.ts`, `ArtBuehne.tsx`, `Lidar.tsx`, `GlbModell.tsx`)
 - **Low-Poly-Modelle** aus den Parametern des Prototyps. Jedes hat eine eigene Bewegung, zum Beispiel Flügelschlag, wippende Blüte oder Ohrenzucken.

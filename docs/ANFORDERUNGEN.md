@@ -30,7 +30,9 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 |---|---|
 | Antippen einer Rune: Kamera zoomt hinein, dann öffnet sich die Kategorie | ✅ |
 | Umschalter **Wald / Stammbaum** in jeder Kategorie (Auswahl wird gemerkt) | ✅ |
-| Wald-Ansicht: Arten an ihrem natürlichen Platz, gefunden farbig, sonst **grau mit grauem Schloss** | ✅ |
+| ~~Wald-Ansicht: gefunden farbig, sonst grau mit grauem Schloss~~ | ersetzt durch Zauberwald (unten) |
+| Wald-Ansicht als **Zauberwald**: viel mehr 3D, mysteriöser, sehr detailliert (Vorbild: Nebelwald, uralte Moosbäume, Hohlweg mit Licht am Ende) | ✅ |
+| Zauberwald: gefunden = farbig im warmen Lichtkegel, nicht gefunden = dunkler Schatten mit schwebendem Irrlicht | ✅ |
 | Um jede Rune kreisen bis zu 3 gefundene Arten (seltenste zuerst) | ✅ |
 | Gefährliche Arten im Wald rot hervorgehoben (Ring, Nebel, Dornen) | ✅ |
 

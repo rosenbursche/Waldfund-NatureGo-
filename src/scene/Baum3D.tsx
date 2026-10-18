@@ -146,10 +146,14 @@ function holzMaterial(farbe: string) {
 
 /** Gemeinsamer Wind für alle Blätter */
 const BLATT_WIND = { value: 0 };
+/** Blätter-Wind für Bäume außerhalb von Baum3D (z. B. Moosbäume im Zauberwald) */
+export function blattWind(zeit: number) {
+  BLATT_WIND.value = zeit;
+}
 const blattMaterialien = new Map<string, THREE.MeshLambertMaterial>();
 
 /** Blattbüschel: gemalte Textur mit Ausschnitt (alphaTest), Farbe der Art, sanftes Flattern im Wind */
-function blattMaterial(art: BlattArt, farbe: string) {
+export function blattMaterial(art: BlattArt, farbe: string) {
   const schluessel = `${art}-${farbe}`;
   let m = blattMaterialien.get(schluessel);
   if (m) return m;
@@ -175,7 +179,7 @@ function blattMaterial(art: BlattArt, farbe: string) {
 /** Blattkarte: Quadrat mit Unterkante im Ursprung (dort sitzt sie am Zweig) */
 const BLATT_KARTE = new THREE.PlaneGeometry(1, 1).translate(0, 0.5, 0);
 
-function blattMesh(daten: BaumDaten, material: THREE.Material) {
+export function blattMesh(daten: BaumDaten, material: THREE.Material) {
   const m = new THREE.InstancedMesh(BLATT_KARTE, material, Math.max(1, daten.anzahl));
   m.count = daten.anzahl;
   m.instanceMatrix.array.set(daten.blaetter);

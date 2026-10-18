@@ -63,6 +63,21 @@ export const colors = {
   eichenLaubHell: '#8AA05A',
   eichenLaubDunkel: '#1F2D1A',
   eichel: '#A57A44',
+
+  // Zauberwald (3D-Ansicht im Katalog): Moos, Nebel und ein Licht am Ende des Hohlwegs
+  zauberHimmel: '#141E19',
+  zauberNebel: '#4A5F56',
+  zauberNebelHell: '#8FA69A',
+  zauberLicht: '#E4E8C8',
+  zauberMoos: '#3E5A2A',
+  zauberMoosHell: '#6E8A40',
+  zauberMoosDunkel: '#16220F',
+  zauberErde: '#2E2A22',
+  zauberLaub: '#4A3B2A',
+  zauberRinde: '#3A3128',
+  zauberStamm: '#56605A',
+  zauberFarn: '#36552F',
+  zauberStumpf: '#4A3A2E',
 } as const;
 
 export type ColorToken = keyof typeof colors;

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 
 import type { BaumModell } from '@/data/typen';
 import { zufall } from '@/logic/lichtung';
+import { colors } from '@/theme/theme';
 
 import type { BlattArt } from './blattTexturen';
 
@@ -510,4 +511,102 @@ export function baueBaum(modell: BaumModell, variante: number): BaumDaten {
   };
   fertig.set(schluessel, daten);
   return daten;
+}
+
+// ---------- Uralte Moosbäume (Zauberwald im Katalog) ----------
+
+/** Uralter Baum: kurzer, sehr dicker Stamm, verdrehte, weit ausgreifende und durchhängende Äste, wenig Laub */
+const URALT: Bauplan = {
+  stamm: 0.24,
+  leittrieb: false,
+  aeste: 4,
+  winkel: 1.05,
+  zweigWinkel: 0.9,
+  biegung: -0.35,
+  knorrig: 0.85,
+  ebenen: 3,
+  dicke: 0.1,
+  astLaenge: 0.62,
+  blattArt: 'laub',
+  blattDichte: 2.2,
+  blattGroesse: 0.65,
+  rinde: 'furchen',
+};
+
+/**
+ * Uralter, knorriger Baum, über und über mit Moos bewachsen (wie in einem Nebelwald an der Küste).
+ * Moos wächst auf allen Flächen, die nach oben zeigen, und dicht am Stammfuß.
+ * Die Farben stecken fertig in den Eckpunkten (Material: weiß mit vertexColors).
+ */
+export function baueUraltBaum(variante: number): BaumDaten {
+  const schluessel = `uralt-${variante}`;
+  const vorhanden = fertig.get(schluessel);
+  if (vorhanden) return vorhanden;
+
+  const plan = URALT;
+  const hoehe = BAUM_GRUNDHOEHE * 1.15;
+  const rnd = zufall(4242 + variante * 104729);
+  const kronenMitte = new THREE.Vector3(0, hoehe * 0.5, 0);
+  const w = new Wachstum(plan, hoehe, rnd, kronenMitte);
+  // schief gewachsener Stamm
+  const neigung = new THREE.Vector3((rnd() - 0.5) * 0.5, 1, (rnd() - 0.5) * 0.5);
+  w.ast(new THREE.Vector3(0, 0, 0), neigung, hoehe * plan.stamm, hoehe * plan.dicke, 0);
+
+  // lange Brettwurzeln, die sich über den Boden schlängeln
+  const r = hoehe * plan.dicke;
+  for (let k = 0; k < 7; k++) {
+    const um = (k / 7) * Math.PI * 2 + rnd() * 0.6;
+    const laenge = 0.9 + rnd() * 1.3;
+    const punkte: THREE.Vector3[] = [];
+    const radien: number[] = [];
+    for (let i = 0; i <= 6; i++) {
+      const t = i / 6;
+      const a = r * 0.4 + t * laenge;
+      const krumm = um + Math.sin(t * 5 + k) * 0.25;
+      punkte.push(new THREE.Vector3(Math.cos(krumm) * a, 0.35 * (1 - t) ** 2 + 0.02 - t * 0.06, Math.sin(krumm) * a));
+      radien.push(r * (0.6 - t * 0.5));
+    }
+    w.aeste.push({ punkte, radien, ebene: 1 });
+  }
+
+  const holz = roehren(w.aeste, plan, rnd, hoehe);
+  moosFaerben(holz, rnd);
+  const daten: BaumDaten = {
+    holz,
+    blaetter: new Float32Array(w.blaetter),
+    blattFarben: new Float32Array(w.farben),
+    anzahl: w.blaetter.length / 16,
+    blattArt: plan.blattArt,
+    hoehe,
+  };
+  fertig.set(schluessel, daten);
+  return daten;
+}
+
+/** Färbt die Rinde ein: dunkles Holz, darauf Moos (oben liegende Flächen und Stammfuß) */
+function moosFaerben(g: THREE.BufferGeometry, rnd: () => number) {
+  const pos = g.attributes.position as THREE.BufferAttribute;
+  const nor = g.attributes.normal as THREE.BufferAttribute;
+  const col = g.attributes.color as THREE.BufferAttribute;
+  const rinde = new THREE.Color(colors.zauberRinde);
+  const moos = new THREE.Color(colors.zauberMoos);
+  const moosHell = new THREE.Color(colors.zauberMoosHell);
+  const c = new THREE.Color();
+  const m = new THREE.Color();
+  for (let i = 0; i < pos.count; i++) {
+    const ton = col.getX(i);
+    const y = pos.getY(i);
+    const x = pos.getX(i);
+    const z = pos.getZ(i);
+    // Flecken statt gleichmäßigem Überzug
+    const fleck = Math.sin(x * 4.1 + y * 2.3) * Math.sin(z * 3.7 - y * 1.9) * 0.5 + 0.5;
+    const oben = THREE.MathUtils.smoothstep(nor.getY(i), -0.15, 0.6);
+    const fuss = 1 - THREE.MathUtils.smoothstep(y, 0.2, 1.6);
+    const anteil = Math.min(1, oben * (0.55 + fleck * 0.6) + fuss * 0.7 + (rnd() - 0.5) * 0.1);
+    c.copy(rinde).multiplyScalar(0.55 + ton * 0.6);
+    m.copy(moos).lerp(moosHell, fleck * oben * 0.7);
+    c.lerp(m, anteil);
+    col.setXYZ(i, c.r, c.g, c.b);
+  }
+  col.needsUpdate = true;
 }
