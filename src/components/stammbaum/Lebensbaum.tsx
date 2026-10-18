@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, {
   Easing,
-  useAnimatedProps,
   useAnimatedStyle,
   useReducedMotion,
   useSharedValue,
@@ -47,7 +46,6 @@ type Props = {
   onWaehle: (ziel: string | null) => void;
 };
 
-const AnimierteEllipse = Animated.createAnimatedComponent(Ellipse);
 const KNOPF = 46;
 
 export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props) {
@@ -111,8 +109,8 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
       -1,
     );
   }, [ruhig, augen, form.augen]);
-  const augenGroesse = form.augen?.groesse ?? 0;
-  const augenProps = useAnimatedProps(() => ({ ry: augenGroesse * 0.75 * augen.value }));
+  // als normale Views statt animierter SVG-Ellipse: animierte SVG-Formen lassen die App auf dem Handy abstürzen
+  const augenStil = useAnimatedStyle(() => ({ transform: [{ scaleY: augen.value }] }));
 
   const farbe = (rolle: string) => (rolle === 'holz' ? 'url(#holz)' : stil.farben[rolle as keyof typeof stil.farben]);
 
@@ -215,18 +213,30 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
                 fill="url(#augenGlut)"
               />
             ))}
-          {form.augen &&
-            [-1, 1].map((s) => (
-              <AnimierteEllipse
-                key={s}
-                cx={form.augen!.punkt.x + s * form.augen!.abstand}
-                cy={form.augen!.punkt.y}
-                rx={form.augen!.groesse}
-                fill={colors.amber}
-                animatedProps={augenProps}
-              />
-            ))}
         </Svg>
+
+        {/* Augen im Stamm: öffnen sich ab und zu */}
+        {form.augen &&
+          [-1, 1].map((s) => {
+            const g = form.augen!.groesse;
+            return (
+              <Animated.View
+                key={s}
+                pointerEvents="none"
+                style={[
+                  stile.auge,
+                  {
+                    left: form.augen!.punkt.x + s * form.augen!.abstand - g,
+                    top: form.augen!.punkt.y - g * 0.75,
+                    width: g * 2,
+                    height: g * 1.5,
+                    borderRadius: g,
+                  },
+                  augenStil,
+                ]}
+              />
+            );
+          })}
 
         <Partikel art={stil.partikel} breite={W} hoehe={H} farbe={stil.farben.akzentHell} />
 
@@ -421,6 +431,7 @@ function SternKnopf({ e, punkt, ok, index }: { e: KatalogEintrag; punkt: Punkt; 
 }
 
 const stile = StyleSheet.create({
+  auge: { position: 'absolute', backgroundColor: colors.amber },
   astKnopf: { position: 'absolute', width: 140, alignItems: 'center' },
   kugel: {
     width: KNOPF,
