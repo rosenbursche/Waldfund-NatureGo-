@@ -187,11 +187,11 @@ const stile = StyleSheet.create({
     shadowRadius: 14,
     backgroundColor: colors.night,
   },
-  levelZahl: { fontFamily: fonts.handBold, fontSize: 28, lineHeight: 34, color: colors.amber },
+  levelZahl: { fontFamily: fonts.titel, fontSize: 28, lineHeight: 34, color: colors.amber },
   spur: { height: 6, borderRadius: 3, backgroundColor: colors.night, overflow: 'hidden' },
   fuellung: { height: '100%', backgroundColor: colors.amber },
   zahlen: { flexDirection: 'row', gap: spacing.s },
-  zahl: { fontFamily: fonts.handBold, fontSize: 24, lineHeight: 30, color: colors.moon },
+  zahl: { fontFamily: fonts.titel, fontSize: 24, lineHeight: 30, color: colors.moon },
   reiche: { flexDirection: 'row', gap: spacing.s },
   reich: {
     flex: 1,
@@ -203,7 +203,7 @@ const stile = StyleSheet.create({
     borderColor: colors.moss,
     backgroundColor: colors.forest,
   },
-  reichZahl: { fontFamily: fonts.type, fontSize: 13, color: colors.moon },
+  reichZahl: { fontFamily: fonts.etikett, fontSize: 13, color: colors.moon },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
   chip: {
     flexDirection: 'row',

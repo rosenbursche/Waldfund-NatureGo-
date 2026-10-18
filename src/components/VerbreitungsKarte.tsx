@@ -217,7 +217,7 @@ export function VerbreitungsKarte(props: Props) {
                   y={y + (g.hoch ? 16 : 13) + (g.dy ?? 0)}
                   fill={colors.moon}
                   fontSize={g.hoch ? 11 : 8.5}
-                  fontFamily={fonts.hand}
+                  fontFamily={fonts.notiz}
                   textAnchor="middle"
                   opacity={0.85}
                 >
@@ -232,7 +232,7 @@ export function VerbreitungsKarte(props: Props) {
             ['Nordsee', 40, 58],
             ['Ostsee', 230, 40],
           ].map(([t, x, y]) => (
-            <SvgText key={t} x={x} y={y} fill={colors.wasser} fontSize={13} fontFamily={fonts.hand}>
+            <SvgText key={t} x={x} y={y} fill={colors.wasser} fontSize={13} fontFamily={fonts.notiz}>
               {t}
             </SvgText>
           ))}
@@ -376,7 +376,7 @@ const stile = StyleSheet.create({
     top: 8,
     width: 110,
     textAlign: 'center',
-    fontFamily: fonts.hand,
+    fontFamily: fonts.notiz,
     fontSize: 12,
     color: colors.amber,
     textShadowColor: colors.night,

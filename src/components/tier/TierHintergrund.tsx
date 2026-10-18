@@ -3,6 +3,7 @@ import { useMemo, type ReactNode } from 'react';
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native';
 import Svg, { Circle, Defs, Ellipse, G, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
+import { Schleier } from '@/components/ui/Schleier';
 import { zufall } from '@/logic/lichtung';
 import { farbMix } from '@/logic/tierJahr';
 import { colors } from '@/theme/theme';
@@ -59,6 +60,7 @@ export function TierHintergrund({
       <Animated.View style={[stile.schicht, wandern(0.22, h * 0.6)]} pointerEvents="none">
         {schichten.nah}
       </Animated.View>
+      <Schleier />
       {children}
     </View>
   );

@@ -56,6 +56,6 @@ const stile = StyleSheet.create({
     borderStyle: 'dashed',
     backgroundColor: colors.forest,
   },
-  frage: { fontFamily: fonts.handBold, fontSize: 38, lineHeight: 42 },
-  stufe: { fontFamily: fonts.type, fontSize: 11, letterSpacing: 0.8, textTransform: 'uppercase' },
+  frage: { fontFamily: fonts.titel, fontSize: 38, lineHeight: 42 },
+  stufe: { fontFamily: fonts.etikett, fontSize: 11, letterSpacing: 0.8, textTransform: 'uppercase' },
 });

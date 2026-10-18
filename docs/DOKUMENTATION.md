@@ -478,7 +478,7 @@ Alles liegt nur auf dem Handy, in AsyncStorage über Zustand mit `persist`.
 | Animation/Gesten | react-native-reanimated 4, react-native-gesture-handler |
 | Zeichnungen/Karte | react-native-svg, roughjs |
 | Gerät | expo-image-picker, expo-location, expo-sensors, expo-haptics, expo-file-system |
-| Schriften | Kalam (Überschriften/Notizen), Lexend (Text), Special Elite (Etiketten/Zahlen) |
+| Schriften | Cinzel (Titel, Etiketten, Abzeichen), Alegreya Sans (Text, kursiv für Notizen), Kalam (nur Lehrbuch-Zeichnungen) |
 
 Pakete werden immer mit `npx expo install <paket>` installiert, damit die Version zu Expo passt.
 
@@ -486,6 +486,7 @@ Pakete werden immer mit `npx expo install <paket>` installiert, damit die Versio
 | Ordner | Inhalt |
 |---|---|
 | `src/app/` | Screens (nur Routen), Render-Tests in `__tests__/` |
+| `src/components/ui/` | Feste Bausteine des Designsystems: Sektion, Kapitelkopf, Abzeichen, Kennzahl, Schalter, Zierlinie, Schleier (siehe `docs/DESIGNSYSTEM.md`) |
 | `src/components/` | UI-Bausteine: Knopf, Schrift, Kopfzeile, Hintergrund, Icons, Miniaturen, Stammbaum, Karte, Lehrbuch-Zeichnung, Gefahr-Sektion |
 | `src/scene/` | 3D-Szenen und Diorama |
 | `src/logic/` | Rechenlogik mit Tests |
@@ -497,7 +498,7 @@ Pakete werden immer mit `npx expo install <paket>` installiert, damit die Versio
 | `assets/` | Icons, Splash, `modelle/` (GLB), `szene/` (Diorama-Bilder) |
 
 ### 11.3 Farben (Design-Tokens)
-night `#0B1414` · forest `#142420` · moss `#3D5A45` · fog `#9FB3AD` · moon `#D9E0E6` · amber `#E8B86A` · rune `#8FD1C4` · rare `#B79CE0` · legend `#E9C46A`. Für Lehrbuch-Seiten gibt es zusätzlich paper, paperDark, ink und inkFaded.
+Farbwelt „Hohlweg“: night `#060907` · forest `#101A13` · moss `#4F6B36` · rune (Mooslicht) `#A9BC6A` · fog `#A3B0A5` · moon `#DCE3D6` · amber (Laterne) `#D9A24E` · rare `#A595CC` · legend `#E2B85C`, dazu `nebel` und `sektion`. Für Lehrbuch-Seiten gibt es zusätzlich paper, paperDark, ink und inkFaded. Alle Regeln und Bausteine: **`docs/DESIGNSYSTEM.md`**.
 
 Regel: **Keine Farbwerte direkt in Komponenten**, sondern aus `src/theme/theme.ts`. In den 3D-Szenen stehen gedämpfte Naturfarben gesammelt als Konstante oben in der Datei. **Kein Neongrün.**
 

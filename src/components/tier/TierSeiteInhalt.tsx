@@ -128,7 +128,7 @@ function WildWertBogen({ id, art }: { id: string; art?: Art }) {
           })}
           <Line x1={100} y1={100} x2={zx} y2={zy} stroke={colors.moon} strokeWidth={3} strokeLinecap="round" />
           <Circle cx={100} cy={100} r={6} fill={colors.moon} />
-          <SvgText x={100} y={84} fontSize={30} fontFamily={fonts.handBold} fill={farbe} textAnchor="middle">
+          <SvgText x={100} y={84} fontSize={30} fontFamily={fonts.titel} fill={farbe} textAnchor="middle">
             {w.wert}
           </SvgText>
         </Svg>
@@ -168,5 +168,5 @@ const stile = StyleSheet.create({
   wildRechts: { flex: 1, gap: 6 },
   steine: { flexDirection: 'row', gap: 4 },
   zeile: { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  zustand: { fontFamily: fonts.hand, fontSize: 17, lineHeight: 22 },
+  zustand: { fontFamily: fonts.notiz, fontSize: 17, lineHeight: 22 },
 });

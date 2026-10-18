@@ -1,20 +1,22 @@
 /**
  * Design-Tokens für Wildfund.
- * Stimmung: Wald in der Dämmerung, altes Naturforscher-Tagebuch.
+ * Stimmung „Hohlweg“: fast schwarzes Waldgrün, Licht nur am Ende des Weges, Moos im Licht,
+ * warmes Laternenlicht. Schrift „Runenhain“: Cinzel (wie in Stein gemeißelt) + Alegreya Sans.
+ * Bausteine, die diese Tokens benutzen: siehe docs/DESIGNSYSTEM.md.
  * Alle Farben, Schriften und Abstände der App kommen von hier –
  * so lässt sich der Look später an einer einzigen Stelle ändern.
  */
 
 export const colors = {
-  night: '#0B1414', // tiefer Hintergrund
-  forest: '#142420', // Flächen, Karten
-  moss: '#3D5A45', // Linien, gedämpftes Grün
-  fog: '#9FB3AD', // Nebel, Nebentext
-  moon: '#D9E0E6', // Haupttext, Mondlicht
-  amber: '#E8B86A', // Laternenlicht, Belohnungen, Fenster
-  rune: '#8FD1C4', // gedämpftes Türkis für Leuchten und Runen
-  rare: '#B79CE0', // sehr selten
-  legend: '#E9C46A', // legendär
+  night: '#060907', // Nacht: tiefer Hintergrund
+  forest: '#101A13', // Tiefgrün: Flächen, Karten
+  moss: '#4F6B36', // Moos: Linien, Rahmen
+  fog: '#A3B0A5', // Nebel: Nebentext
+  moon: '#DCE3D6', // Haupttext
+  amber: '#D9A24E', // Laterne: wichtigste Aktion, Belohnungen, Fenster
+  rune: '#A9BC6A', // Mooslicht: Leuchten, Runen, „selten“
+  rare: '#A595CC', // sehr selten
+  legend: '#E2B85C', // legendär
 
   // Lehrbuch-Seiten (Tinte auf altem Papier, aus dem Prototyp übernommen)
   paper: '#EFE6CF',
@@ -22,17 +24,21 @@ export const colors = {
   ink: '#3A2A1C',
   inkFaded: '#6B5640', // Bildunterschriften auf Papier
   warn: '#E07A5F', // Warnungen (Gift), gedämpft statt grell
-  abgrund: '#050808', // Hintergrund der Sektion "Gefährlich & tödlich"
+  abgrund: '#030504', // Hintergrund der Sektion "Gefährlich & tödlich"
   blut: '#9E2F3A', // Dornen und Glut in der Gefahren-Sektion
 
   // Deutschlandkarte: Landschaften von tief (Tiefland) bis hoch (Alpen), Wasser, Wald
-  kartenTief: '#17271F',
-  kartenHuegel: '#1C2D24',
-  kartenBerg: '#24372B',
-  kartenAlpen: '#2F3D36',
-  wasser: '#5D8FA3',
-  waldSymbol: '#3A6B48',
+  kartenTief: '#0F1A12',
+  kartenHuegel: '#142017',
+  kartenBerg: '#1B2A1D',
+  kartenAlpen: '#263129',
+  wasser: '#5B8389',
+  waldSymbol: '#3F5E2E',
   shadow: '#000000',
+  /** heller Nebel für Schwaden, Lichtschein und Vignetten-Übergänge */
+  nebel: '#BAC5BB',
+  /** Fläche einer Sektion: Tiefgrün, leicht durchscheinend (über Hintergrund und Nebel) */
+  sektion: '#0C140FE6',
 
   // Lebensbäume im Katalog – jede Kategorie hat ihre eigene Farbwelt
   // Pflanzen: Silberner Blütenbaum
@@ -72,15 +78,19 @@ export type ColorToken = keyof typeof colors;
  * mit denen sie in `src/app/_layout.tsx` geladen werden.
  */
 export const fonts = {
-  /** Handschrift für Überschriften und Notizen (Tagebuch-Gefühl) */
+  /** Cinzel: Titel, Logo, Abschnitts-Überschriften (nur Großbuchstaben-Formen, sparsam einsetzen) */
+  titel: 'Cinzel_700Bold',
+  titelLeicht: 'Cinzel_600SemiBold',
+  /** Cinzel klein und gesperrt: Etiketten, Abzeichen, Zahlen */
+  etikett: 'Cinzel_600SemiBold',
+  /** Alegreya Sans: gut lesbarer Text */
+  body: 'AlegreyaSans_400Regular',
+  bodyMedium: 'AlegreyaSans_500Medium',
+  bodySemiBold: 'AlegreyaSans_700Bold',
+  /** Alegreya Sans kursiv: kurze Forscher-Notizen und Beschriftungen in Grafiken */
+  notiz: 'AlegreyaSans_400Regular_Italic',
+  /** Handschrift nur noch für Lehrbuch-Zeichnungen auf Papier */
   hand: 'Kalam_400Regular',
-  handBold: 'Kalam_700Bold',
-  /** Gut lesbare Textschrift */
-  body: 'Lexend_400Regular',
-  bodyMedium: 'Lexend_500Medium',
-  bodySemiBold: 'Lexend_600SemiBold',
-  /** Schreibmaschine für Etiketten, Zahlen, Fundnotizen */
-  type: 'SpecialElite_400Regular',
 } as const;
 
 export const spacing = {
@@ -92,4 +102,5 @@ export const spacing = {
   xxl: 64,
 } as const;
 
-export const radius = { s: 6, m: 14, l: 20 } as const;
+/** Kleine Radien: Kanten wirken eher geschnitzt als weich */
+export const radius = { s: 4, m: 8, l: 12 } as const;

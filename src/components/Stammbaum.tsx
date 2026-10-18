@@ -87,5 +87,5 @@ const stile = StyleSheet.create({
     borderColor: colors.blut,
     backgroundColor: colors.abgrund,
   },
-  schliessenText: { fontFamily: fonts.type, fontSize: 12, color: colors.fog },
+  schliessenText: { fontFamily: fonts.etikett, fontSize: 12, color: colors.fog },
 });
