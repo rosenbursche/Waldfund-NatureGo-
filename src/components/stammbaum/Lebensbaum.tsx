@@ -445,7 +445,7 @@ const stile = StyleSheet.create({
   },
   astName: {
     maxWidth: 132,
-    fontFamily: fonts.handBold,
+    fontFamily: fonts.titel,
     fontSize: 14,
     lineHeight: 17,
     color: colors.moon,
@@ -454,7 +454,7 @@ const stile = StyleSheet.create({
     textShadowColor: colors.night,
     textShadowRadius: 6,
   },
-  zahl: { fontFamily: fonts.type, fontSize: 10, textShadowColor: colors.night, textShadowRadius: 4 },
+  zahl: { fontFamily: fonts.etikett, fontSize: 10, textShadowColor: colors.night, textShadowRadius: 4 },
   stern: { position: 'absolute', width: 90, alignItems: 'center' },
-  sternName: { fontFamily: fonts.type, fontSize: 9.5, marginTop: -6, textAlign: 'center' },
+  sternName: { fontFamily: fonts.etikett, fontSize: 9.5, marginTop: -6, textAlign: 'center' },
 });

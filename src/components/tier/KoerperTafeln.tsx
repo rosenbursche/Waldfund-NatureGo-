@@ -53,7 +53,7 @@ export function GroessenVergleich({ tier }: { tier: TierSeite }) {
           {[0, 50, 100, 150, 200].map((cm) => (
             <G key={cm}>
               <Line x1={16} y1={y(cm)} x2={28} y2={y(cm)} stroke={colors.fog} strokeWidth={1} opacity={0.6} />
-              <SvgText x={12} y={y(cm) + 3} fontSize={8} fill={colors.fog} textAnchor="end" fontFamily={fonts.type}>
+              <SvgText x={12} y={y(cm) + 3} fontSize={8} fill={colors.fog} textAnchor="end" fontFamily={fonts.etikett}>
                 {cm}
               </SvgText>
             </G>
@@ -226,7 +226,7 @@ const stile = StyleSheet.create({
   flaeche: { width: '100%', aspectRatio: 1.5 },
   zahlen: { flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', gap: spacing.s },
   wert: { flexDirection: 'row', alignItems: 'center', gap: 6 },
-  wertText: { fontFamily: fonts.type, fontSize: 14 },
+  wertText: { fontFamily: fonts.etikett, fontSize: 14 },
   figur: { width: '100%', aspectRatio: 200 / 180 },
   foto: { borderRadius: radius.m, overflow: 'hidden' },
   punktOrt: { position: 'absolute', marginLeft: -15, marginTop: -15 },
@@ -242,5 +242,5 @@ const stile = StyleSheet.create({
     backgroundColor: colors.night,
   },
   hinweisSymbol: { width: 36, alignItems: 'center' },
-  hinweisText: { flex: 1, fontFamily: fonts.hand, fontSize: 20, lineHeight: 26, color: colors.amber },
+  hinweisText: { flex: 1, fontFamily: fonts.notiz, fontSize: 20, lineHeight: 26, color: colors.amber },
 });

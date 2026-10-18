@@ -228,6 +228,7 @@ Alle Module sind reine Rechenfunktionen ohne Bildschirm und deshalb testbar. Die
 | `nahrungsnetz.ts` | „Wer frisst wen?“ und rückwärts „Wer frisst mich?“ |
 | `lichtung.ts` | Zufall mit Startwert (mulberry32), Bäume im Ring um die Hütte verteilen |
 | `lichtungDetails.ts` | Weg, Tümpel, Ausstattung, freie Flächen, Streuen von Gras/Steinen/…, Sichtachse zur Hütte |
+| `zauberwald.ts` | Zauberwald im Katalog: Bodenhöhe mit Moospolstern und Hohlweg, Wegverlauf, Licht am Ende, Ring der Moosbäume, hohe Stämme, Streuen ohne Arten und Weg zu treffen |
 | `verborgenes.ts` | versteckte Kleinigkeiten: Dunkelheit, Augen-Plätze, Blinzeln, Maus, Eulenkopf |
 | `konfiguration.ts` | öffentliche Server-Adresse aus `app.json → extra` |
 
@@ -315,10 +316,14 @@ Jede Stimmung legt diese Werte fest: Himmel, Nebel und Nebeldichte, Umgebungslic
 
 Wichtig: Diese Dinge sind **nicht antippbar und bringen keine Punkte**. Das folgt aus der Regel „keine Mechanik, die belohnt, Tiere zu verfolgen“. Bei „Bewegung reduzieren“ leuchtet ein Teil der Augen still, alles andere bleibt stehen.
 
-### 7.7 Kategorie-Wald (`KategorieWald.tsx`, `ArtFigur.tsx`)
-- Im Katalog in der Ansicht „Wald“ stehen alle Arten an ihrem natürlichen Platz: Pflanzen und Pilze am Boden, Vögel auf Baumstümpfen, Säugetiere zwischen den Bäumen.
-- Gefundene Arten erscheinen in Farbe, nicht gefundene grau mit grauem Schloss.
-- Gefährliche Arten bekommen eine rote Markierung (Ring, Nebel, Dornen).
+### 7.7 Kategorie-Wald als Zauberwald (`KategorieWald.tsx`, `Zauberwald.tsx`, `logic/zauberwald.ts`)
+- Im Katalog in der Ansicht „Wald“ stehen alle Arten auf einer moosigen Lichtung in einem verwunschenen Nebelwald: Pflanzen und Pilze am Boden, Vögel auf bemoosten Baumstümpfen, Säugetiere zwischen den Moospolstern.
+- **Kulisse:** Ring aus uralten, knorrigen Moosbäumen (eigener Bauplan „uralt“ im Baum-Generator, Moos auf allen nach oben zeigenden Flächen und am Stammfuß), hohe schlanke Stämme im Nebel, ferner Wald, Farne, Gras, bemooste Steine, umgestürzte Stämme. Ein **Hohlweg** mit Böschungen und Laub führt von der Lichtung nach hinten auf ein **helles Licht im Nebel** zu. Dazu schräge Lichtstrahlen, Bodennebel und schwebende Lichtpunkte (Farbe je Kategorie). Ein dunkler Rand (Vignette) lenkt den Blick in die Mitte.
+- Beim Öffnen schaut die Kamera den Hohlweg entlang ins Licht. Ziehen dreht wie gewohnt um die Lichtung.
+- **Gefunden:** Art in Farbe, ein warmer Lichtkegel fällt von oben, kleine Funken steigen auf.
+- **Noch nicht gefunden:** dunkler Schatten, darüber schwebt ein flackerndes Irrlicht, am Boden ein schwacher Runenkreis.
+- Gefährliche Arten bekommen weiter eine rote Markierung (Ring, Nebel, Dornen).
+- Bei „Bewegung reduzieren“ stehen Wind, Irrlichter, Funken, Nebel und Lichtpunkte still.
 
 ### 7.8 Artmodelle (`artModell.ts`, `ArtBuehne.tsx`, `Lidar.tsx`, `GlbModell.tsx`)
 - **Low-Poly-Modelle** aus den Parametern des Prototyps. Jedes hat eine eigene Bewegung, zum Beispiel Flügelschlag, wippende Blüte oder Ohrenzucken.
@@ -478,7 +483,7 @@ Alles liegt nur auf dem Handy, in AsyncStorage über Zustand mit `persist`.
 | Animation/Gesten | react-native-reanimated 4, react-native-gesture-handler |
 | Zeichnungen/Karte | react-native-svg, roughjs |
 | Gerät | expo-image-picker, expo-location, expo-sensors, expo-haptics, expo-file-system |
-| Schriften | Kalam (Überschriften/Notizen), Lexend (Text), Special Elite (Etiketten/Zahlen) |
+| Schriften | Cinzel (Titel, Etiketten, Abzeichen), Alegreya Sans (Text, kursiv für Notizen), Kalam (nur Lehrbuch-Zeichnungen) |
 
 Pakete werden immer mit `npx expo install <paket>` installiert, damit die Version zu Expo passt.
 
@@ -486,6 +491,7 @@ Pakete werden immer mit `npx expo install <paket>` installiert, damit die Versio
 | Ordner | Inhalt |
 |---|---|
 | `src/app/` | Screens (nur Routen), Render-Tests in `__tests__/` |
+| `src/components/ui/` | Feste Bausteine des Designsystems: Sektion, Kapitelkopf, Abzeichen, Kennzahl, Schalter, Zierlinie, Schleier (siehe `docs/DESIGNSYSTEM.md`) |
 | `src/components/` | UI-Bausteine: Knopf, Schrift, Kopfzeile, Hintergrund, Icons, Miniaturen, Stammbaum, Karte, Lehrbuch-Zeichnung, Gefahr-Sektion |
 | `src/scene/` | 3D-Szenen und Diorama |
 | `src/logic/` | Rechenlogik mit Tests |
@@ -497,7 +503,7 @@ Pakete werden immer mit `npx expo install <paket>` installiert, damit die Versio
 | `assets/` | Icons, Splash, `modelle/` (GLB), `szene/` (Diorama-Bilder) |
 
 ### 11.3 Farben (Design-Tokens)
-night `#0B1414` · forest `#142420` · moss `#3D5A45` · fog `#9FB3AD` · moon `#D9E0E6` · amber `#E8B86A` · rune `#8FD1C4` · rare `#B79CE0` · legend `#E9C46A`. Für Lehrbuch-Seiten gibt es zusätzlich paper, paperDark, ink und inkFaded.
+Farbwelt „Hohlweg“: night `#060907` · forest `#101A13` · moss `#4F6B36` · rune (Mooslicht) `#A9BC6A` · fog `#A3B0A5` · moon `#DCE3D6` · amber (Laterne) `#D9A24E` · rare `#A595CC` · legend `#E2B85C`, dazu `nebel` und `sektion`. Für Lehrbuch-Seiten gibt es zusätzlich paper, paperDark, ink und inkFaded. Alle Regeln und Bausteine: **`docs/DESIGNSYSTEM.md`**.
 
 Regel: **Keine Farbwerte direkt in Komponenten**, sondern aus `src/theme/theme.ts`. In den 3D-Szenen stehen gedämpfte Naturfarben gesammelt als Konstante oben in der Datei. **Kein Neongrün.**
 

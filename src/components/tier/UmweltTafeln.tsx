@@ -749,7 +749,7 @@ function Originalgroesse({ cm, form }: { cm: number; form: TrittForm }) {
               stroke={colors.fog}
               strokeWidth={1.2}
             />
-            <SvgText x={18} y={6 + cmZuPunkten(i)} fontSize={9} fill={colors.fog} fontFamily={fonts.type}>
+            <SvgText x={18} y={6 + cmZuPunkten(i)} fontSize={9} fill={colors.fog} fontFamily={fonts.etikett}>
               {i}
             </SvgText>
           </G>
@@ -784,7 +784,7 @@ export function Gefahren({ tier, sammlung }: { tier: TierSeite; sammlung: Record
     { jung: true, liste: tier.gefahren.filter((g) => g.nurJung) },
   ].filter((r) => r.liste.length > 0);
   return (
-    <TierTafel symbol="wolf" titel="Gefahren" geste="tippen">
+    <TierTafel symbol="wolf" titel="Gefahren" geste="tippen" art="warnung">
       {reihen.map((r) => (
         <View key={String(r.jung)} style={stile.gefahrReihe}>
           <View style={stile.gefahrQuellen}>
@@ -977,7 +977,7 @@ const stile = StyleSheet.create({
     borderColor: colors.moss,
   },
   monatAn: { backgroundColor: colors.amber, borderColor: colors.amber },
-  monatText: { fontFamily: fonts.type, fontSize: 11, color: colors.fog },
+  monatText: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog },
   teller: { flexDirection: 'row', justifyContent: 'space-between' },
   tellerEintrag: { alignItems: 'center', gap: 4, width: '19%' },
   tellerKreis: {
@@ -990,7 +990,7 @@ const stile = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.night,
   },
-  tellerText: { fontFamily: fonts.hand, fontSize: 13, lineHeight: 16, color: colors.moon, textAlign: 'center' },
+  tellerText: { fontFamily: fonts.notiz, fontSize: 13, lineHeight: 16, color: colors.moon, textAlign: 'center' },
   balken: { flexDirection: 'row', gap: 1, marginTop: 2 },
   strich: { width: 3, height: 5, borderRadius: 1, backgroundColor: colors.moss },
   strichJetzt: { height: 8, marginTop: -1.5, borderWidth: 0.5, borderColor: colors.moon },
@@ -1022,8 +1022,8 @@ const stile = StyleSheet.create({
     backgroundColor: `${colors.night}CC`,
   },
   spurKlein: { width: '70%', height: '50%' },
-  karteText: { fontFamily: fonts.hand, fontSize: 17, lineHeight: 21, color: colors.amber, textAlign: 'center' },
-  karteZahl: { fontFamily: fonts.type, fontSize: 13, color: colors.moon },
+  karteText: { fontFamily: fonts.notiz, fontSize: 17, lineHeight: 21, color: colors.amber, textAlign: 'center' },
+  karteZahl: { fontFamily: fonts.etikett, fontSize: 13, color: colors.moon },
   echtKnopf: {
     flexDirection: 'row',
     alignSelf: 'center',
@@ -1035,7 +1035,7 @@ const stile = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.amber,
   },
-  echtText: { fontFamily: fonts.type, fontSize: 14, color: colors.amber },
+  echtText: { fontFamily: fonts.etikett, fontSize: 14, color: colors.amber },
   echt: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -1057,7 +1057,7 @@ const stile = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.night,
   },
-  gefahrText: { fontFamily: fonts.hand, fontSize: 14, lineHeight: 17, color: colors.moon, textAlign: 'center' },
+  gefahrText: { fontFamily: fonts.notiz, fontSize: 14, lineHeight: 17, color: colors.moon, textAlign: 'center' },
   gefahrZiel: { width: 96, height: 86 },
   gefahrKitz: { width: 66, height: 60, marginHorizontal: 15 },
   kitzBild: { width: '100%', aspectRatio: 300 / 120 },
@@ -1065,5 +1065,5 @@ const stile = StyleSheet.create({
   kitzStopp: { position: 'absolute', right: '6%', top: '14%' },
   fuchsFigur: { position: 'absolute', right: '2%', top: '-14%', width: '42%', height: '110%' },
   fuchsStopp: { position: 'absolute', left: '6%', top: '14%' },
-  kitzText: { fontFamily: fonts.hand, fontSize: 19, lineHeight: 25, color: colors.amber, textAlign: 'center' },
+  kitzText: { fontFamily: fonts.notiz, fontSize: 19, lineHeight: 25, color: colors.amber, textAlign: 'center' },
 });

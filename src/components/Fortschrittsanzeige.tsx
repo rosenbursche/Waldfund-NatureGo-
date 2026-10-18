@@ -65,9 +65,9 @@ const stile = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
   },
-  levelZahl: { fontFamily: fonts.handBold, fontSize: 19, color: colors.amber, lineHeight: 24 },
+  levelZahl: { fontFamily: fonts.titel, fontSize: 19, color: colors.amber, lineHeight: 24 },
   rang: {
-    fontFamily: fonts.hand,
+    fontFamily: fonts.notiz,
     fontSize: 17,
     lineHeight: 20,
     color: colors.moon,
@@ -76,5 +76,5 @@ const stile = StyleSheet.create({
   },
   spur: { height: 5, borderRadius: radius.s, backgroundColor: colors.forest, overflow: 'hidden', maxWidth: 180 },
   fuellung: { height: '100%', backgroundColor: colors.amber, borderRadius: radius.s },
-  klein: { fontFamily: fonts.type, fontSize: 11, color: colors.fog },
+  klein: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog },
 });

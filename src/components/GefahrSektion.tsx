@@ -199,7 +199,7 @@ const stile = StyleSheet.create({
     elevation: 10,
   },
   titel: {
-    fontFamily: fonts.handBold,
+    fontFamily: fonts.titel,
     fontSize: 26,
     lineHeight: 32,
     color: colors.warn,
@@ -235,8 +235,14 @@ const stile = StyleSheet.create({
     justifyContent: 'center',
   },
   name: { textAlign: 'center', fontSize: 12, lineHeight: 15, marginTop: 4 },
-  stufe: { fontFamily: fonts.type, fontSize: 10, color: colors.warn, textTransform: 'uppercase', letterSpacing: 0.6 },
-  punkte: { fontFamily: fonts.type, fontSize: 10.5 },
+  stufe: {
+    fontFamily: fonts.etikett,
+    fontSize: 10,
+    color: colors.warn,
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+  },
+  punkte: { fontFamily: fonts.etikett, fontSize: 10.5 },
   augenPaar: { position: 'absolute', flexDirection: 'row', gap: 7 },
   auge: {
     width: 9,

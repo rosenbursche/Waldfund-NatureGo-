@@ -6,9 +6,10 @@ import { Schrift } from './Schrift';
 import { Icon, type IconArt } from './Icon';
 
 /**
- * Knopf im Laternen-Stil.
- * - "haupt": warmes Bernstein-Licht, für die wichtigste Aktion auf dem Screen
- * - "leise": gedämpft, für Nebenaktionen
+ * Knopf im Laternen-Stil (fester Baustein, siehe docs/DESIGNSYSTEM.md).
+ * - "haupt": mit Laternenlicht gefüllt, dunkle Schrift – nur EINMAL pro Screen, für die wichtigste Aktion
+ * - "leise": dunkel mit Moos-Rahmen, für Nebenaktionen
+ * Titel in Cinzel (gesperrt), Untertitel in Alegreya Sans.
  */
 type Props = {
   titel: string;
@@ -39,12 +40,16 @@ export function Knopf({ titel, untertitel, symbol, art = 'haupt', onPress, deakt
     >
       {symbol && (
         <View style={[stile.symbol, haupt && stile.symbolHaupt]}>
-          <Icon name={symbol} farbe={haupt ? colors.amber : colors.rune} />
+          <Icon name={symbol} farbe={haupt ? colors.night : colors.rune} />
         </View>
       )}
       <View style={stile.texte}>
-        <Schrift style={[stile.titel, haupt && { color: colors.amber }]}>{titel}</Schrift>
-        {untertitel && <Schrift art="klein">{untertitel}</Schrift>}
+        <Schrift style={[stile.titel, haupt && { color: colors.night }]}>{titel}</Schrift>
+        {untertitel && (
+          <Schrift art="klein" style={haupt ? { color: colors.night, opacity: 0.75 } : undefined}>
+            {untertitel}
+          </Schrift>
+        )}
       </View>
     </Pressable>
   );
@@ -59,19 +64,19 @@ const stile = StyleSheet.create({
     paddingVertical: spacing.m - 2,
     paddingHorizontal: spacing.m + 2,
     borderRadius: radius.m,
-    borderWidth: 1.5,
+    borderWidth: 1,
   },
   haupt: {
-    backgroundColor: colors.forest,
+    backgroundColor: colors.amber,
     borderColor: colors.amber,
     // weiches Laternenleuchten statt harter Glow-Kante
     shadowColor: colors.amber,
-    shadowOpacity: 0.35,
-    shadowRadius: 14,
+    shadowOpacity: 0.4,
+    shadowRadius: 18,
     shadowOffset: { width: 0, height: 0 },
     elevation: 6,
   },
-  leise: { backgroundColor: colors.forest, borderColor: colors.moss },
+  leise: { backgroundColor: colors.sektion, borderColor: `${colors.moss}AA` },
   gedrueckt: { transform: [{ scale: 0.98 }], opacity: 0.85 },
   aus: { opacity: 0.45 },
   symbol: {
@@ -83,7 +88,7 @@ const stile = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  symbolHaupt: { borderColor: colors.amber },
+  symbolHaupt: { borderColor: `${colors.night}55` },
   texte: { flex: 1, gap: 2 },
-  titel: { fontFamily: fonts.bodySemiBold, fontSize: 16, color: colors.moon },
+  titel: { fontFamily: fonts.titel, fontSize: 14.5, lineHeight: 20, letterSpacing: 1.6, color: colors.moon },
 });

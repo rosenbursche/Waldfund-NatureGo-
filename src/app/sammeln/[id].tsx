@@ -365,8 +365,8 @@ const stile = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 10,
   },
-  zeile: { fontFamily: fonts.type, fontSize: 14, color: colors.fog },
-  stufe: { fontFamily: fonts.type, fontSize: 13, letterSpacing: 1.2, textTransform: 'uppercase' },
+  zeile: { fontFamily: fonts.etikett, fontSize: 14, color: colors.fog },
+  stufe: { fontFamily: fonts.etikett, fontSize: 13, letterSpacing: 1.2, textTransform: 'uppercase' },
   kreisPlatz: { width: 200, height: 200, alignItems: 'center', justifyContent: 'center' },
   ring: {
     position: 'absolute',
@@ -380,7 +380,7 @@ const stile = StyleSheet.create({
   },
   kreisFoto: { width: 160, height: 160, borderRadius: 80 },
   punkte: {
-    fontFamily: fonts.type,
+    fontFamily: fonts.etikett,
     fontSize: 32,
     color: colors.amber,
     textShadowColor: colors.amber,

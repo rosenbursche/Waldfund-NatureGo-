@@ -30,7 +30,9 @@ Legende: ✅ erledigt · 🟡 teilweise / vorbereitet · ⬜ offen · 🔒 warte
 |---|---|
 | Antippen einer Rune: Kamera zoomt hinein, dann öffnet sich die Kategorie | ✅ |
 | Umschalter **Wald / Stammbaum** in jeder Kategorie (Auswahl wird gemerkt) | ✅ |
-| Wald-Ansicht: Arten an ihrem natürlichen Platz, gefunden farbig, sonst **grau mit grauem Schloss** | ✅ |
+| ~~Wald-Ansicht: gefunden farbig, sonst grau mit grauem Schloss~~ | ersetzt durch Zauberwald (unten) |
+| Wald-Ansicht als **Zauberwald**: viel mehr 3D, mysteriöser, sehr detailliert (Vorbild: Nebelwald, uralte Moosbäume, Hohlweg mit Licht am Ende) | ✅ |
+| Zauberwald: gefunden = farbig im warmen Lichtkegel, nicht gefunden = dunkler Schatten mit schwebendem Irrlicht | ✅ |
 | Um jede Rune kreisen bis zu 3 gefundene Arten (seltenste zuerst) | ✅ |
 | Gefährliche Arten im Wald rot hervorgehoben (Ring, Nebel, Dornen) | ✅ |
 
@@ -181,6 +183,16 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 | Store-Einträge, Screenshots, Altersfreigabe, Datenschutz-Angaben | ⬜ |
 
 ---
+
+### 2.10 Branding und Designsystem (18.10.2026)
+| Wunsch | Stand |
+|---|---|
+| Epischer, geheimnisvoller Look nach Vorlagebildern (Nebelwald, bemooste Bäume, Hohlweg) | ✅ Entwurf mit drei Richtungen |
+| Farbwelt „Hohlweg“ + Schrift „Runenhain“ (Cinzel + Alegreya Sans) | ✅ |
+| Feste, wiederverwendbare Bausteine (Abzeichen, Sektionen, Kapitelkopf, Kennzahl, Schalter, Knopf) am Beispiel der Reh-Seite | ✅ `docs/DESIGNSYSTEM.md`, Übersicht unter Einstellungen → Bausteine |
+| Lichtschein und Vignette über allen Hintergründen | ✅ |
+| Filmkorn, „Nebel lichtet sich“ beim Freischalten, Logo als Siegel, 3D-Lichtung angleichen | offen |
+| Ältere Screens (Katalog, Tagebuch, Sammeln) auf die Bausteine umstellen | offen |
 
 ## 3. Vorgeschlagene Reihenfolge
 

@@ -225,7 +225,7 @@ export function zeichne({ id, name, zeichnung: e, modell }: Eingabe): { titel: s
       }
       b.L(150, 262, 258, 264, 'Myzel');
     }
-    b.text(14, 174, 'Sporen entstehen hier ↓', 'start', 12, fonts.type);
+    b.text(14, 174, 'Sporen entstehen hier ↓', 'start', 12, fonts.etikett);
   } else if (e.t === 'drosera') {
     titel = 'Abb. 1 – Fangblatt des Sonnentaus, stark vergrößert';
     b.linie(150, 280, 150, 170, { strokeWidth: 2 });
@@ -468,6 +468,6 @@ const stile = StyleSheet.create({
     elevation: 8,
   },
   gesperrt: { opacity: 0.45, alignItems: 'center', paddingVertical: spacing.xl },
-  ueberschrift: { fontFamily: fonts.handBold, fontSize: 20, color: colors.ink },
-  unterschrift: { fontFamily: fonts.type, fontSize: 11.5, color: colors.inkFaded },
+  ueberschrift: { fontFamily: fonts.titel, fontSize: 20, color: colors.ink },
+  unterschrift: { fontFamily: fonts.etikett, fontSize: 11.5, color: colors.inkFaded },
 });

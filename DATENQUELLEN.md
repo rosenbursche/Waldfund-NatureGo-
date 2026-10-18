@@ -58,6 +58,11 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.
 - Verbreitungskarten sind **Demo-Daten** (`src/data/verbreitung.ts`), keine echten Funde.
 
+### Schriften (Google Fonts)
+- **Was:** Cinzel (Natanael Gama), Alegreya Sans (Juan Pablo del Peral, Huerta Tipográfica), Kalam (Indian Type Foundry).
+- **Wo:** über die Expo-Pakete `@expo-google-fonts/cinzel`, `@expo-google-fonts/alegreya-sans` und `@expo-google-fonts/kalam`. Die Lizenzdatei liegt jeweils als `LICENSE_FONT` im Paket.
+- **Lizenz:** SIL Open Font License 1.1. Frei nutzbar, auch kommerziell und eingebettet in Apps. Die Schriften dürfen nur nicht einzeln verkauft werden.
+
 ### GBIF – nur Belastungstest (nicht für die Store-Version)
 - **Was:** Namensabgleich (Ordnung, Familie, gültiger Name) und Zahl der Beobachtungen in Deutschland für ca. 500 Testarten.
 - **Wo:** GBIF-API `https://api.gbif.org/v1/species/match` und `/occurrence/search?country=DE`, Abruf mit `scripts/testarten-bauen.mjs`, Ergebnis `src/data/testarten.json`.

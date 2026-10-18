@@ -31,7 +31,7 @@ export function ArtMiniatur({ modell, baumModell, stil, akzent, groesse = 40 }: 
   if (stil === 'verborgen') {
     return (
       <Svg width={groesse} height={groesse} viewBox="0 0 48 48">
-        <SvgText x={24} y={34} textAnchor="middle" fontSize={30} fontFamily={fonts.handBold} fill={akzent}>
+        <SvgText x={24} y={34} textAnchor="middle" fontSize={30} fontFamily={fonts.titel} fill={akzent}>
           ?
         </SvgText>
       </Svg>

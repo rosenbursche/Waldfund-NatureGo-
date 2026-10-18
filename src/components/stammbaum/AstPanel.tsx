@@ -195,7 +195,7 @@ const stile = StyleSheet.create({
     borderColor: colors.moss,
     backgroundColor: colors.forest,
   },
-  schliessenText: { fontFamily: fonts.type, fontSize: 12, color: colors.fog },
+  schliessenText: { fontFamily: fonts.etikett, fontSize: 12, color: colors.fog },
   knoten: { position: 'absolute', width: 100 },
   kreis: {
     width: KNOTEN,
@@ -216,5 +216,5 @@ const stile = StyleSheet.create({
     textShadowColor: colors.night,
     textShadowRadius: 6,
   },
-  punkte: { fontFamily: fonts.type, fontSize: 10.5, marginTop: 1 },
+  punkte: { fontFamily: fonts.etikett, fontSize: 10.5, marginTop: 1 },
 });

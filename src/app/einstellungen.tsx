@@ -198,6 +198,12 @@ export default function Einstellungen() {
               onPress={() => router.push('/modelltest')}
               style={{ marginTop: spacing.s }}
             />
+            <Knopf
+              titel="Bausteine"
+              untertitel="Farben, Schriften, Abzeichen und Sektionen der App"
+              art="leise"
+              onPress={() => router.push('/bausteine')}
+            />
           </View>
 
           {__DEV__ && (

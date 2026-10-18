@@ -10,6 +10,7 @@ import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { Stammbaum } from '@/components/Stammbaum';
+import { Vignette } from '@/components/Vignette';
 import type { KategorieId } from '@/data/artTypen';
 import { naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN } from '@/data/spiel';
@@ -95,7 +96,11 @@ function WaldAnsicht({ kategorie }: { kategorie: KategorieId }) {
   const naturraumId = useEinstellungen((s) => s.naturraumId);
   const gefunden = useSammlung((s) => s.gefunden);
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
-  const [steuer] = useState(() => new Steuerung());
+  const [steuer] = useState(() => {
+    const s = new Steuerung();
+    s.winkel = 0.12; // Start mit Blick den Hohlweg entlang ins Licht
+    return s;
+  });
   const [stimmung] = useState(() => stimmungJetzt());
 
   // Szene pausieren, wenn eine Artenseite darüber liegt
@@ -145,12 +150,13 @@ function WaldAnsicht({ kategorie }: { kategorie: KategorieId }) {
           />
         </View>
       </GestureDetector>
+      <Vignette />
       <SafeAreaView edges={['bottom']} style={stile.legende} pointerEvents="none">
         <Schrift art="notiz" style={stile.schatten}>
           Tippe eine Art an
         </Schrift>
         <Schrift art="klein" style={stile.schatten}>
-          Farbig: gefunden · Grau mit Schloss: noch zu entdecken · Rot glimmend: gefährlich
+          Im Lichtkegel: gefunden · Schatten mit Irrlicht: noch zu entdecken · Rot glimmend: gefährlich
         </Schrift>
       </SafeAreaView>
     </View>

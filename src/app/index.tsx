@@ -314,7 +314,7 @@ const stile = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.moss,
   },
-  fpsText: { fontFamily: fonts.type, fontSize: 12 },
+  fpsText: { fontFamily: fonts.etikett, fontSize: 12 },
   mystery: {
     width: 52,
     height: 52,
@@ -329,7 +329,7 @@ const stile = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 12,
   },
-  mysteryText: { fontFamily: fonts.handBold, fontSize: 20, color: colors.rare },
+  mysteryText: { fontFamily: fonts.titel, fontSize: 20, color: colors.rare },
   rund: {
     width: 44,
     height: 44,

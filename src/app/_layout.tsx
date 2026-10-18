@@ -1,6 +1,11 @@
-import { Kalam_400Regular, Kalam_700Bold } from '@expo-google-fonts/kalam';
-import { Lexend_400Regular, Lexend_500Medium, Lexend_600SemiBold } from '@expo-google-fonts/lexend';
-import { SpecialElite_400Regular } from '@expo-google-fonts/special-elite';
+import {
+  AlegreyaSans_400Regular,
+  AlegreyaSans_400Regular_Italic,
+  AlegreyaSans_500Medium,
+  AlegreyaSans_700Bold,
+} from '@expo-google-fonts/alegreya-sans';
+import { Cinzel_600SemiBold, Cinzel_700Bold } from '@expo-google-fonts/cinzel';
+import { Kalam_400Regular } from '@expo-google-fonts/kalam';
 import { useFonts } from 'expo-font';
 import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -32,12 +37,13 @@ const navTheme = {
 export default function RootLayout() {
   const ruhig = useReducedMotion();
   const [fontsLoaded, fontError] = useFonts({
-    Kalam_400Regular,
-    Kalam_700Bold,
-    Lexend_400Regular,
-    Lexend_500Medium,
-    Lexend_600SemiBold,
-    SpecialElite_400Regular,
+    Cinzel_600SemiBold,
+    Cinzel_700Bold,
+    AlegreyaSans_400Regular,
+    AlegreyaSans_400Regular_Italic,
+    AlegreyaSans_500Medium,
+    AlegreyaSans_700Bold,
+    Kalam_400Regular, // nur Lehrbuch-Zeichnungen
   });
 
   useEffect(() => {
