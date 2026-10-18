@@ -27,7 +27,8 @@ import { Partikel } from './Partikel';
 /**
  * Der Lebensbaum einer Kategorie – jede Kategorie hat ihren eigenen Baum (siehe `logic/baum/`):
  * Pflanzen = Silberner Blütenbaum, Pilze = Myzelbaum, Vögel = Federbaum im Wind, Säugetiere = Uralter Baumhirte.
- * - Hauptäste = Gruppen. An der Astspitze sitzt ein Knopf mit gruseligem Symbol und Fortschrittsring.
+ * - Hauptäste = Gruppen. An der Astspitze sitzt ein Knopf mit gruseligem Symbol und Fortschrittsring –
+ *   ohne Text, damit nichts überlappt. Die Namen stehen in der Ast-Liste unter dem Baum (`AstListe.tsx`).
  * - Sterne über der Krone = die seltensten Arten. Matt, bis man sie findet – dann leuchten sie.
  * - Schattenwurzeln unter der Erde = "Gefährlich & tödlich".
  * - Runenring: leuchtet anteilig mit dem Fortschritt der ganzen Kategorie.
@@ -47,8 +48,6 @@ type Props = {
 };
 
 const KNOPF = 46;
-/** Höhe von Name + Zahl unter (oder über) einem Ast-Knopf */
-const NAME_H = 32;
 
 export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props) {
   const ruhig = useReducedMotion();
@@ -253,9 +252,6 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
           <AstKnopf
             key={a.name}
             name={a.name}
-            kurz={`${a.mond ? '☾ ' : ''}${a.kurz}`}
-            // Knöpfe abwechselnd hoch und tief: die Namen der hohen stehen darüber, damit sich nichts überdeckt
-            oben={baum.aeste.length >= 4 && i % 2 === 0}
             gefunden={a.eintraege.filter((e) => e.id in gefunden).length}
             gesamt={a.eintraege.length}
             punkt={form.astSpitzen[i]}
@@ -290,8 +286,6 @@ const RING_U = 2 * Math.PI * RING_R;
 
 function AstKnopf({
   name,
-  kurz,
-  oben,
   gefunden,
   gesamt,
   punkt,
@@ -303,10 +297,6 @@ function AstKnopf({
   onPress,
 }: {
   name: string;
-  /** Anzeigename am Baum (sonst `name`) */
-  kurz?: string;
-  /** Name über dem Knopf statt darunter */
-  oben?: boolean;
   gefunden: number;
   gesamt: number;
   punkt: Punkt;
@@ -333,12 +323,7 @@ function AstKnopf({
       }
       style={({ pressed }) => [
         stile.astKnopf,
-        oben && { flexDirection: 'column-reverse' },
-        {
-          left: punkt.x - 70,
-          top: punkt.y - KNOPF / 2 - (oben ? NAME_H : 0),
-          opacity: gedimmt ? 0.4 : pressed ? 0.7 : 1,
-        },
+        { left: punkt.x - KNOPF / 2, top: punkt.y - KNOPF / 2, opacity: gedimmt ? 0.4 : pressed ? 0.7 : 1 },
       ]}
     >
       <View
@@ -384,14 +369,6 @@ function AstKnopf({
           groesse={30}
           phase={index}
         />
-      </View>
-      <View style={stile.astText}>
-        <Schrift style={[stile.astName, aktiv && { color: colors.moon }]} numberOfLines={2}>
-          {kurz ?? name}
-        </Schrift>
-        <Schrift style={[stile.zahl, { color: ringFarbe }]}>
-          {gefahr && gesamt === 0 ? '☠' : `${gefunden}/${gesamt}`}
-        </Schrift>
       </View>
     </Pressable>
   );
@@ -451,7 +428,7 @@ function SternKnopf({ e, punkt, ok, index }: { e: KatalogEintrag; punkt: Punkt; 
 
 const stile = StyleSheet.create({
   auge: { position: 'absolute', backgroundColor: colors.amber },
-  astKnopf: { position: 'absolute', width: 140, alignItems: 'center' },
+  astKnopf: { position: 'absolute', width: KNOPF, alignItems: 'center' },
   kugel: {
     width: KNOPF,
     height: KNOPF,
@@ -462,19 +439,6 @@ const stile = StyleSheet.create({
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 0 },
   },
-  astText: { minHeight: NAME_H, alignItems: 'center', justifyContent: 'center' },
-  astName: {
-    maxWidth: 132,
-    fontFamily: fonts.titel,
-    fontSize: 14,
-    lineHeight: 17,
-    color: colors.moon,
-    textAlign: 'center',
-    marginTop: 2,
-    textShadowColor: colors.night,
-    textShadowRadius: 6,
-  },
-  zahl: { fontFamily: fonts.etikett, fontSize: 10, textShadowColor: colors.night, textShadowRadius: 4 },
   stern: { position: 'absolute', width: 90, alignItems: 'center' },
   sternName: { fontFamily: fonts.etikett, fontSize: 9.5, marginTop: -6, textAlign: 'center' },
 });
