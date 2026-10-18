@@ -171,7 +171,8 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Anforderung | Stand |
 |---|---|
 | 500 echte Arten (91 Säugetiere, 152 Vögel, 108 Pilze, 149 Pflanzen) mit Ordnung und Familie von GBIF, um Stammbaum, Waldansicht und Katalog mit vielen Arten zu prüfen | ✅ nur Entwicklung (`__DEV__`), Einstellungen → Belastungstest |
-| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da, Entscheidung offen |
+| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da · Konzept `docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md` (Branch `feature/stammbaum-gliederung`), Entscheidungen E1–E7 offen |
+| Gliederung Rune → Ast (≤ 7) → Zweig (2–12 Arten) → Art, Knospe je Art (Gesamtgröße sichtbar), Zweige als Sammelsets mit Belohnung, Vorschläge „Als Nächstes“, Filter dimmen statt verstecken | ⬜ Konzept |
 | Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |
 | Seltenheit für die echte Datenbank: nicht nur aus GBIF-Beobachtungen ableiten | ⬜ |
 
