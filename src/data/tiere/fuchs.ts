@@ -21,6 +21,15 @@ export const FUCHS: TierSeite = {
     ruhe: 'fuchs/ruht',
     spuren: { tritt: 'fuchs/spur', kot: 'fuchs/losung' },
     hinweis: 'fuchs/sitzt-sommer',
+    // Waldrand-Panorama: Wald rechts, Waldkante, Wiese links
+    lebensraum: {
+      foto: 'landschaft/waldrand-wiese',
+      zonen: [
+        [90, 60],
+        [62, 61],
+        [30, 78],
+      ],
+    },
   },
   farben: {
     sommer: '#C9621F', // wie das 3D-Modell

@@ -22,7 +22,7 @@ import { Kapitelkopf } from '@/components/ui/Kapitelkopf';
 import { FotoHero } from '@/components/tier/TierFoto';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
-import { ArtMiniatur } from '@/components/ArtMiniatur';
+import { ArtVerweise } from '@/components/ArtVerweise';
 import { LehrbuchKarte } from '@/components/LehrbuchZeichnung';
 import { Schrift } from '@/components/Schrift';
 import { VerbreitungsKarte } from '@/components/VerbreitungsKarte';
@@ -655,49 +655,6 @@ function WildWertAnzeige({ id }: { id: string }) {
   );
 }
 
-/** Verknüpfte Arten als antippbare Chips mit Miniatur (Mystery-Arten bleiben verborgen) */
-function ArtVerweise({ ids, titel, sammlung }: { ids: string[]; titel?: string; sammlung: Record<string, unknown> }) {
-  if (ids.length === 0) return null;
-  return (
-    <View style={{ gap: spacing.s }}>
-      {titel && <Schrift art="etikett">{titel}</Schrift>}
-      <View style={stile.verweise}>
-        {ids.map((vid) => {
-          const e = katalogEintrag(vid);
-          if (!e) return null;
-          const versteckt = istVerborgen(vid, sammlung);
-          const ok = vid in sammlung;
-          const s = SELTENHEIT[e.seltenheit];
-          return (
-            <Pressable
-              key={vid}
-              onPress={() => router.push({ pathname: '/art/[id]', params: { id: vid } })}
-              accessibilityRole="button"
-              accessibilityLabel={versteckt ? 'Unbekannte Art' : e.name}
-              style={({ pressed }) => [
-                stile.verweis,
-                { borderColor: ok ? s.farbe : colors.moss },
-                pressed && { opacity: 0.6 },
-              ]}
-            >
-              <ArtMiniatur
-                modell={e.modell}
-                baumModell={e.baumModell}
-                stil={ok ? 'farbe' : versteckt ? 'verborgen' : 'umriss'}
-                akzent={s.farbe}
-                groesse={28}
-              />
-              <Schrift art="klein" style={{ color: ok ? colors.moon : colors.fog }}>
-                {versteckt ? '???' : e.name}
-              </Schrift>
-            </Pressable>
-          );
-        })}
-      </View>
-    </View>
-  );
-}
-
 function Kasten({ farbe = colors.moss, style, children }: { farbe?: string; style?: object; children: ReactNode }) {
   return <View style={[stile.kasten, { borderColor: farbe }, style]}>{children}</View>;
 }
@@ -753,18 +710,6 @@ const stile = StyleSheet.create({
   wildZahl: { fontFamily: fonts.titel, fontSize: 26, lineHeight: 32 },
   merkmal: { flexDirection: 'row', gap: spacing.s, alignItems: 'flex-start' },
   rune: { color: colors.rune, fontSize: 15, lineHeight: 23 },
-  verweise: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
-  verweis: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    paddingLeft: 4,
-    paddingRight: 10,
-    paddingVertical: 3,
-    borderRadius: radius.l,
-    borderWidth: 1.2,
-    backgroundColor: colors.forest,
-  },
   inhalt: { padding: spacing.m, gap: spacing.m, paddingBottom: spacing.xxl },
   buehne: { marginHorizontal: -spacing.m },
   hero: { marginHorizontal: -spacing.m, marginTop: -spacing.m, marginBottom: -spacing.s },

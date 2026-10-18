@@ -120,6 +120,8 @@ export type TierFotos = {
   ruhe?: FotoId;
   spuren?: Partial<Record<SpurIcon, FotoId>>;
   hinweis?: FotoId;
+  /** Landschaftsfoto für den Lebensraum: Lage der drei Zonen aus `lebensraum.orte` (Prozent links/oben) */
+  lebensraum?: { foto: FotoId; zonen: [[number, number], [number, number], [number, number]] };
 };
 
 export type TierSeite = {

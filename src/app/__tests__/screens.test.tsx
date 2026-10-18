@@ -285,6 +285,9 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Ein Jahr')).toBeTruthy();
     expect(screen.getByText('Spuren')).toBeTruthy();
     expect(screen.getByText('Winter')).toBeTruthy();
+    for (const t of ['Ein Tag', 'Zuhause', 'Speiseplan', 'Fressfeinde', 'Wild-Wert', 'Schnee', 'Gehen']) {
+      expect(screen.getAllByText(t).length).toBeGreaterThan(0);
+    }
   });
 
   test('Bausteine zeigt alle Seltenheits-Abzeichen', async () => {

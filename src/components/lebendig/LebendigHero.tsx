@@ -1,13 +1,11 @@
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, Easing, StyleSheet, useWindowDimensions, View } from 'react-native';
 import Svg, { Defs, Ellipse, RadialGradient, Stop } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
-import { SeltenheitAbzeichen } from '@/components/ui/Abzeichen';
 import { FOTOS, fotoNachweis, type FotoId } from '@/data/fotos';
-import type { Seltenheit } from '@/data/artTypen';
 import { colors, fonts, spacing } from '@/theme/theme';
 
 import { Partikel } from './Partikel';
@@ -26,7 +24,7 @@ export function LebendigHero({
   name,
   latein,
   etikett,
-  seltenheit,
+  wappen,
   scroll,
   ruhig,
 }: {
@@ -35,7 +33,8 @@ export function LebendigHero({
   name: string;
   latein: string;
   etikett: string;
-  seltenheit: Seltenheit;
+  /** Wappen-Reihe (Wild-Wert, Seltenheit …) unter dem Namen */
+  wappen?: ReactNode;
   scroll: Animated.Value;
   ruhig: boolean;
 }) {
@@ -156,8 +155,24 @@ export function LebendigHero({
           ]}
         >
           <Schrift style={stile.latein}>{latein}</Schrift>
-          <SeltenheitAbzeichen stufe={seltenheit} klein />
         </Animated.View>
+        {wappen && (
+          <Animated.View
+            style={[
+              stile.wappen,
+              {
+                opacity: auftritt.interpolate({ inputRange: [0.7, 1], outputRange: [0, 1], extrapolate: 'clamp' }),
+                transform: [
+                  {
+                    scale: auftritt.interpolate({ inputRange: [0.7, 1], outputRange: [0.85, 1], extrapolate: 'clamp' }),
+                  },
+                ],
+              },
+            ]}
+          >
+            {wappen}
+          </Animated.View>
+        )}
         <Pfeil ruhig={ruhig} />
       </View>
     </View>
@@ -278,7 +293,8 @@ const stile = StyleSheet.create({
   },
   zeile: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
   latein: { fontFamily: fonts.notiz, fontSize: 17, color: colors.fog },
-  pfeil: { marginTop: spacing.m, height: 16, alignItems: 'center' },
+  wappen: { marginTop: spacing.s },
+  pfeil: { marginTop: spacing.s, height: 16, alignItems: 'center' },
   pfeilSpitze: {
     width: 12,
     height: 12,

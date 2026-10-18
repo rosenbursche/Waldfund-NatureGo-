@@ -3,31 +3,44 @@ import { useState } from 'react';
 import { Animated, Pressable, StyleSheet, View } from 'react-native';
 import { useReducedMotion } from 'react-native-reanimated';
 
+import { ArtVerweise } from '@/components/ArtVerweise';
 import { Icon } from '@/components/Icon';
-import { Kapitel } from '@/components/lebendig/Kapitel';
+import { Fressfeinde } from '@/components/lebendig/Fressfeinde';
 import { Jahreszeiten } from '@/components/lebendig/Jahreszeiten';
+import { Kapitel } from '@/components/lebendig/Kapitel';
 import { LebendigHero } from '@/components/lebendig/LebendigHero';
+import { LebensraumPanorama } from '@/components/lebendig/LebensraumPanorama';
 import { Lupe } from '@/components/lebendig/Lupe';
 import { Spurensuche } from '@/components/lebendig/Spurensuche';
 import { Schrift } from '@/components/Schrift';
-import { alleFotos } from '@/components/tier/TierSeiteInhalt';
 import { Bildnachweis } from '@/components/tier/TierFoto';
 import { TierHintergrund } from '@/components/tier/TierHintergrund';
+import { alleFotos } from '@/components/tier/TierSeiteInhalt';
+import { Hinweis, Speiseplan } from '@/components/tier/UmweltTafeln';
+import { Jahresrad, TagesUhr } from '@/components/tier/ZeitTafeln';
+import { OhneRahmen } from '@/components/ui/Sektion';
+import { WappenReihe } from '@/components/ui/Wappen';
 import { artById } from '@/data/arten';
 import { KATEGORIEN } from '@/data/spiel';
+import { STECKBRIEFE } from '@/data/steckbriefe';
 import { tierSeite } from '@/data/tierSeiten';
+import { useSammlung } from '@/store/sammlung';
 import { colors, spacing } from '@/theme/theme';
 
 /**
  * KONZEPT (Branch feature/tierseite-lebendig): die lebendige Tierseite.
  * Gleiche Inhalte wie die grafische Tierseite, aber erzählt in Kapiteln über die volle Breite,
  * mit echten Fotos als Bühne und Bewegung, die etwas bedeutet (Spuren laufen, Schnee fällt im Winter …).
+ * Jahresrad, Tagesuhr und Speiseplan sind die bewährten Sektionen – hier ohne Rahmen (`OhneRahmen`).
  * Beschreibung und nächste Schritte: docs/KONZEPT-TIERSEITE.md
  */
 export default function Konzept() {
   const { id = 'reh' } = useLocalSearchParams<{ id?: string }>();
   const ruhig = useReducedMotion();
+  const sammlung = useSammlung((s) => s.gefunden);
   const [scroll] = useState(() => new Animated.Value(0));
+  // gemeinsamer Monat für Jahresrad und Speiseplan (Start: jetzt)
+  const [monat, setMonat] = useState(() => new Date().getMonth() + 1);
   const tier = tierSeite(id);
   const art = artById[id];
 
@@ -38,6 +51,14 @@ export default function Konzept() {
       </View>
     );
   }
+
+  const kapitel = { scroll, ruhig };
+  const hinweisText =
+    tier.hinweis.text === 'eigen'
+      ? tier.hinweis.eigenerText
+      : tier.hinweis.text === 'gefahr'
+        ? art.gefahr
+        : art.wusstestDu;
 
   return (
     <TierHintergrund scroll={scroll} ruhig={ruhig}>
@@ -53,32 +74,57 @@ export default function Konzept() {
             name={art.name}
             latein={art.lat}
             etikett={KATEGORIEN.find((k) => k.id === art.kategorie)?.name ?? ''}
-            seltenheit={art.seltenheit}
+            wappen={<WappenReihe id={id} art={art} />}
             scroll={scroll}
             ruhig={ruhig}
           />
         </View>
 
-        <Kapitel nummer={1} titel="Erkunden" zeile="Schau mit der Lupe genau hin" scroll={scroll} ruhig={ruhig} randlos>
+        <Kapitel nummer={1} titel="Erkunden" zeile="Schau mit der Lupe genau hin" randlos {...kapitel}>
           <Lupe tier={tier} ruhig={ruhig} />
         </Kapitel>
 
-        <Kapitel
-          nummer={2}
-          titel="Ein Jahr"
-          zeile="Wische durch die Jahreszeiten"
-          scroll={scroll}
-          ruhig={ruhig}
-          randlos
-        >
-          <Jahreszeiten tier={tier} ruhig={ruhig} />
+        <Kapitel nummer={2} titel="Ein Jahr" zeile="Wische durch die Jahreszeiten, dreh am Rad" {...kapitel}>
+          <View style={stile.randlos}>
+            <Jahreszeiten tier={tier} ruhig={ruhig} />
+          </View>
+          <OhneRahmen>
+            <Jahresrad tier={tier} monat={monat} setMonat={setMonat} />
+          </OhneRahmen>
         </Kapitel>
 
-        <Kapitel nummer={3} titel="Spuren" zeile="Wer ist hier entlanggelaufen?" scroll={scroll} ruhig={ruhig}>
+        <Kapitel nummer={3} titel="Ein Tag" zeile="Zieh den Zeiger: Was macht es gerade?" {...kapitel}>
+          <OhneRahmen>
+            <TagesUhr tier={tier} />
+          </OhneRahmen>
+        </Kapitel>
+
+        <Kapitel nummer={4} titel="Zuhause" zeile="Wisch durch die Landschaft" randlos {...kapitel}>
+          <LebensraumPanorama tier={tier} ruhig={ruhig} />
+        </Kapitel>
+
+        <Kapitel nummer={5} titel="Speiseplan" zeile="Was es im Lauf des Jahres frisst" {...kapitel}>
+          <OhneRahmen>
+            <Speiseplan tier={tier} monat={monat} setMonat={setMonat}>
+              <ArtVerweise
+                ids={STECKBRIEFE[id]?.nahrungIds ?? []}
+                titel="Futterpflanzen im Katalog"
+                sammlung={sammlung}
+              />
+            </Speiseplan>
+          </OhneRahmen>
+        </Kapitel>
+
+        <Kapitel nummer={6} titel="Spuren" zeile="Wer ist hier entlanggelaufen?" {...kapitel}>
           <Spurensuche tier={tier} ruhig={ruhig} />
         </Kapitel>
 
-        <View style={{ marginTop: spacing.xl }}>
+        <Kapitel nummer={7} titel="Fressfeinde" zeile="Wer lauert im Schatten? Tippe sie an" {...kapitel}>
+          <Fressfeinde tier={tier} ruhig={ruhig} />
+        </Kapitel>
+
+        <View style={stile.schluss}>
+          <Hinweis tier={tier} text={hinweisText} />
           <Bildnachweis ids={alleFotos(tier)} />
         </View>
       </Animated.ScrollView>
@@ -100,6 +146,7 @@ export default function Konzept() {
 const stile = StyleSheet.create({
   inhalt: { paddingHorizontal: spacing.m, paddingBottom: spacing.xxl },
   randlos: { marginHorizontal: -spacing.m },
+  schluss: { marginTop: spacing.xl, gap: spacing.m },
   leer: { flex: 1, backgroundColor: colors.night, padding: spacing.l, justifyContent: 'center' },
   zurueck: {
     position: 'absolute',

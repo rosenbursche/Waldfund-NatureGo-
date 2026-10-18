@@ -67,7 +67,7 @@ export function Kapitel({
         </Schrift>
         {zeile && <Schrift style={stile.zeile}>{zeile}</Schrift>}
       </View>
-      <View style={randlos ? stile.randlos : undefined}>{children}</View>
+      <View style={[stile.inhalt, randlos && stile.randlos]}>{children}</View>
     </Animated.View>
   );
 }
@@ -87,5 +87,6 @@ const stile = StyleSheet.create({
     textAlign: 'center',
   },
   zeile: { fontFamily: fonts.notiz, fontSize: 17, lineHeight: 23, color: colors.fog, textAlign: 'center' },
+  inhalt: { gap: spacing.m },
   randlos: { marginHorizontal: -spacing.m },
 });

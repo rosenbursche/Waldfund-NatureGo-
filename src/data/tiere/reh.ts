@@ -20,6 +20,15 @@ export const REH: TierSeite = {
     aktiv: 'reh/bock-aest-winter',
     spuren: { tritt: 'reh/trittsiegel', losung: 'reh/losung' },
     hinweis: 'reh/kitz',
+    // Waldrand-Panorama: Wald rechts, Waldkante, Wiese links
+    lebensraum: {
+      foto: 'landschaft/waldrand-wiese',
+      zonen: [
+        [88, 50],
+        [73, 60],
+        [35, 76],
+      ],
+    },
   },
   farben: {
     sommer: '#9B5E32', // rotbraunes Sommerfell (wie das 3D-Modell)

@@ -34,24 +34,39 @@ Alles steht bei „Bewegung reduzieren“ still und ist trotzdem vollständig si
 - **Fundkarten:** Antippen hebt die Karte vom Tisch und zeigt Name und Größe.
 - **Jahreszeiten wischen** statt ein Rad zu lesen.
 
-## Was im Konzept schon gebaut ist
+## Was im Konzept schon gebaut ist (Stand nach deinem Feedback)
 | Kapitel | Baustein | Inhalt |
 |---|---|---|
-| Hero | `LebendigHero` | Foto mit Parallaxe und Heranzoomen, Nebelschwaden, Glühwürmchen, Name erscheint Buchstabe für Buchstabe, Seltenheit, wippender Pfeil |
+| Hero | `LebendigHero` + `WappenReihe` | Foto mit Parallaxe und Heranzoomen, Nebelschwaden, Glühwürmchen, Name erscheint Buchstabe für Buchstabe. Darunter **Wappen**: Wild-Wert, Seltenheit, Schutz, Rote Liste, Gift |
 | I Erkunden | `Lupe` | echtes Foto über die volle Breite, Lupe mit 2,6-facher Vergrößerung, Bock/Ricke |
-| II Ein Jahr | `Jahreszeiten` | vier Jahreszeiten zum Wischen, Teilchen je Jahreszeit, Fell und Ereignisse aus den Tierdaten, startet bei der aktuellen Jahreszeit |
-| III Spuren | `Spurensuche` | laufende Fährte (versetzt oder geschnürt), Fundkarten mit echten Fotos bzw. Zeichnung |
-| – | `Kapitel`, `Partikel` | Kapitel-Rahmen mit Einblenden, wiederverwendbare Teilchen (Schnee, Pollen, Laub, Glühen) |
+| II Ein Jahr | `Jahreszeiten` + `Jahresrad` | vier Jahreszeiten zum Wischen (Teilchen je Jahreszeit), darunter das **bewährte Jahresrad** |
+| III Ein Tag | `TagesUhr` | die **bewährte Tagesuhr** |
+| IV Zuhause | `LebensraumPanorama` | **echtes Landschafts-Panorama** zum Verschieben, Orte als Marken im Foto, das Tier als Foto-Porträt wandert bei Tag ↔ Dämmerung mit Punktespur, Dämmerung färbt die Landschaft dunkel |
+| V Speiseplan | `Speiseplan` + `ArtVerweise` | bewährter Speiseplan mit **Links zu den Futterpflanzen** im Katalog, Monat gemeinsam mit dem Jahresrad |
+| VI Spuren | `Spurensuche` | laufende Fährte mit **Untergrund** (Schnee, Matsch, Sand), **Gangart** (Gehen, Flucht mit gespreizten Schalen) und **Alttier / Jungtier**; Fundkarten mit echten Fotos |
+| VII Fressfeinde | `Fressfeinde` | dunkles Kapitel: Gefahren warten als **Schatten mit leuchtenden, blinzelnden Augen**, Antippen holt sie ins Licht (Foto/Zeichnung, Name, Link zur Art); getrennt nach „für alle“ und „nur Jungtiere“ |
+| Schluss | `Hinweis`, `Bildnachweis` | Sicherheits-Hinweis und Fotonachweis |
 
-## Nächste Kapitel (Vorschlag, noch nicht gebaut)
-| Kapitel | Idee |
-|---|---|
-| So groß | Ein Kind (Umriss) steht neben dem Tier. Beim Ziehen läuft das Tier heran, bis beide gleich nah stehen. Das Maßband wächst mit. |
-| Ein Tag | Der ganze Abschnitt ist ein Himmel. Beim Ziehen der Sonne wird es Morgen, Mittag, Dämmerung, Nacht. Das Foto wechselt zwischen aktiv und ruhend, nachts leuchten Augen im Gebüsch. |
-| Zuhause | Die Landschaft in drei Ebenen mit Parallaxe beim Scrollen. Das Tier wandert je nach Tageszeit zwischen Deckung und Futterplatz. |
-| Speiseplan | Futter wächst je Monat aus dem Boden (Knospen, Kräuter, Eicheln) und kann angetippt werden. |
-| Gefahren | dunkleres Kapitel. Der Schatten des Fressfeinds zieht durchs Bild, ein Tippen zeigt ihn. |
-| Hinweis | ruhiger Abschluss: großes Foto (Kitz im Gras), ein Satz, Stopp-Hand |
+Bewährte Sektionen werden mit `<OhneRahmen>` ohne Kasten und ohne eigenen Kopf in ein Kapitel gesetzt.
+
+### Wappen (`src/components/ui/Wappen.tsx`)
+Gezeichnete Medaillons. Jede Art hat eine eigene **Form**, nicht nur eine eigene Farbe:
+- Wild-Wert: runde Skala mit Zahl
+- häufig: Kreis mit Blatt
+- selten: Sechseck mit zwei Edelsteinen
+- sehr selten: Schild mit Stern
+- legendär: achtzackiger Stern mit Krone und Strahlen
+- geschützt: Schild mit Haken (streng geschützt: doppelt umrandet)
+- gefährdet: Dreieck mit Ausrufezeichen
+- giftig: Raute mit Tropfen
+
+Alle zu sehen unter Einstellungen → Bausteine.
+
+## Noch offen
+- „So groß“ als lebendiges Kapitel (Kind neben dem Tier)
+- Lebensraum-Panoramen für Wald, Feld und Ufer (bisher nur Waldrand)
+- Fotos für die übrigen acht Säugetiere
+- Unterschied Bock/Ricke bei den Spuren: Dafür habe ich keine gesicherte Quelle gefunden. Deshalb ist er nicht eingebaut (keine erfundenen Fakten).
 
 ## Technik
 - Nur React-Native-`Animated` mit `useNativeDriver` (flüssig, kein neues Paket, läuft in Expo Go).

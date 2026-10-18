@@ -82,6 +82,7 @@ export function alleFotos(tier: TierSeite): FotoId[] {
     f.aktiv,
     f.ruhe,
     f.hinweis,
+    f.lebensraum?.foto,
     ...Object.values(f.spuren ?? {}),
   ];
   return liste.filter((x): x is FotoId => !!x);

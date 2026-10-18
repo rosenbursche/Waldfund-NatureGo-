@@ -8,13 +8,15 @@ import { SpurBild } from '@/components/tier/TierSymbol';
 import { TierFoto } from '@/components/tier/TierFoto';
 import { TrittsiegelForm } from '@/components/tier/Trittsiegel';
 import { spurFarben } from '@/components/tier/UmweltTafeln';
+import { Schalter } from '@/components/ui/Schalter';
 import type { TierSeite } from '@/data/tierSeiten';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
  * Spurensuche:
  * 1. Eine Fährte läuft über den Bildschirm: Abdruck für Abdruck erscheint, als wäre das Tier
- *    gerade vorbeigegangen – danach verblasst sie und beginnt von vorn.
+ *    gerade vorbeigegangen – danach verblasst sie und beginnt von vorn. Untergrund, Gangart und
+ *    Alter lassen sich umschalten.
  * 2. Darunter liegen Fundkarten wie Fotos auf dem Forschertisch (leicht schräg).
  *    Antippen hebt eine Karte an und zeigt, was man sieht. Echte Fotos, wo es sie gibt.
  */
@@ -23,7 +25,7 @@ export function Spurensuche({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }
   const gewaehlt = tier.spuren.find((s) => s.icon === wahl);
   return (
     <View style={{ gap: spacing.l }}>
-      <LaufendeFaehrte tier={tier} ruhig={ruhig} />
+      <SpurenSpiel tier={tier} ruhig={ruhig} />
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={stile.karten}>
         {tier.spuren.map((s, i) => (
           <Fundkarte
@@ -51,40 +53,140 @@ export function Spurensuche({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }
   );
 }
 
+/** Untergrund der Fährte: Farbe des Bodens, des Abdrucks und eines feinen Randes (nasser Glanz, Sandkörner) */
+type Untergrund = 'schnee' | 'matsch' | 'sand';
+const BODEN: Record<Untergrund, { boden: string; abdruck: string; rand: string; name: string }> = {
+  schnee: { boden: colors.nebel, abdruck: colors.forest, rand: colors.moon, name: 'Schnee' },
+  matsch: { boden: colors.rinde, abdruck: colors.rindeDunkel, rand: colors.fog, name: 'Matsch' },
+  sand: { boden: colors.myzelStielMitte, abdruck: colors.myzelStielDunkel, rand: colors.myzelStiel, name: 'Sand' },
+};
+
+/**
+ * Laufende Fährte mit drei Schaltern:
+ * - Untergrund: Schnee, Matsch, Sand
+ * - Gangart: ruhiges Ziehen (Schritt für Schritt) oder Flucht (Sprünge in Vierergruppen, weite Abstände).
+ *   Bei Huftieren spreizen sich auf der Flucht die Schalen und die Afterklauen drücken sich ab.
+ *   TODO fachlich prüfen: Darstellung der Fluchtfährte vereinfacht
+ * - Alter: erwachsenes Tier oder Jungtier (kleinere Abdrücke, kürzere Schritte – ohne Zahlenangabe)
+ */
+function SpurenSpiel({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
+  const [boden, setBoden] = useState<Untergrund>('schnee');
+  const [flucht, setFlucht] = useState(false);
+  const [jung, setJung] = useState(false);
+  return (
+    <View style={{ gap: spacing.m }}>
+      <Schalter
+        wahl={boden}
+        onWahl={setBoden}
+        optionen={[
+          { wert: 'schnee', symbol: 'schnee', name: 'Schnee' },
+          { wert: 'matsch', symbol: 'mulde', name: 'Matsch' },
+          { wert: 'sand', symbol: 'sonne', name: 'Sand' },
+        ]}
+      />
+      {/* key: bei jeder Änderung läuft die Fährte von vorn */}
+      <LaufendeFaehrte
+        key={`${boden}-${flucht}-${jung}`}
+        tier={tier}
+        ruhig={ruhig}
+        boden={boden}
+        flucht={flucht}
+        jung={jung}
+      />
+      <View style={stile.schalterReihe}>
+        <Schalter
+          wahl={flucht ? 'flucht' : 'ziehen'}
+          onWahl={(w) => setFlucht(w === 'flucht')}
+          optionen={[
+            { wert: 'ziehen', symbol: 'tritt', name: 'Gehen' },
+            { wert: 'flucht', symbol: 'bein', name: 'Flucht' },
+          ]}
+        />
+        <Schalter
+          wahl={jung ? 'jung' : 'alt'}
+          onWahl={(w) => setJung(w === 'jung')}
+          optionen={[
+            { wert: 'alt', symbol: 'waage', name: 'Alt' },
+            { wert: 'jung', symbol: 'keim', name: tier.jungName },
+          ]}
+        />
+      </View>
+    </View>
+  );
+}
+
 /** Abdrücke erscheinen nacheinander von links nach rechts und verblassen am Ende gemeinsam */
-function LaufendeFaehrte({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
+function LaufendeFaehrte({
+  tier,
+  ruhig,
+  boden,
+  flucht,
+  jung,
+}: {
+  tier: TierSeite;
+  ruhig: boolean;
+  boden: Untergrund;
+  flucht: boolean;
+  jung: boolean;
+}) {
   const [t] = useState(() => new Animated.Value(ruhig ? 0.85 : 0));
   useEffect(() => {
     if (ruhig) return;
     const s = Animated.loop(
       Animated.sequence([
         Animated.timing(t, { toValue: 0, duration: 0, useNativeDriver: true }),
-        Animated.timing(t, { toValue: 1, duration: 7000, easing: Easing.linear, useNativeDriver: true }),
+        Animated.timing(t, {
+          toValue: 1,
+          duration: flucht ? 4200 : 7000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
         Animated.delay(600),
       ]),
     );
     s.start();
     return () => s.stop();
-  }, [ruhig, t]);
+  }, [ruhig, t, flucht]);
 
-  const anzahl = 9;
-  const tritte = Array.from({ length: anzahl }, (_, k) => ({
-    x: 4 + k * (92 / (anzahl - 1)),
-    // versetzt: links/rechts im Wechsel, geschnürt: auf einer Linie
-    y: 50 + (tier.faehrte === 'geschnuert' ? 0 : k % 2 === 0 ? -14 : 14) + Math.sin(k * 1.3) * 4,
-  }));
+  const b = BODEN[boden];
+  const groesse = jung ? 0.65 : 0.9;
+  // Huftiere auf der Flucht: gespreizte Schalen mit Afterklauen
+  const form = flucht && tier.tritt === 'huf' ? 'huf_af' : tier.tritt;
+  const tritte: { x: number; y: number }[] = [];
+  if (flucht) {
+    // Vierergruppen mit weiten Sprüngen dazwischen
+    const gruppen = jung ? 4 : 3;
+    for (let g = 0; g < gruppen; g++) {
+      const x0 = 6 + g * (88 / gruppen);
+      const d = jung ? 4 : 5.5;
+      tritte.push({ x: x0, y: 42 }, { x: x0 + d, y: 58 }, { x: x0 + d * 2.4, y: 40 }, { x: x0 + d * 3.2, y: 60 });
+    }
+  } else {
+    const anzahl = jung ? 12 : 9;
+    for (let k = 0; k < anzahl; k++) {
+      tritte.push({
+        x: 4 + k * (92 / (anzahl - 1)),
+        // versetzt: links/rechts im Wechsel, geschnürt: auf einer Linie
+        y:
+          50 + (tier.faehrte === 'geschnuert' ? 0 : k % 2 === 0 ? -12 : 12) * (jung ? 0.75 : 1) + Math.sin(k * 1.3) * 3,
+      });
+    }
+  }
 
   return (
-    <View style={stile.boden} accessibilityLabel="Fährte, Laufrichtung nach rechts">
-      {/* Boden: ein heller Schneestreifen, der zu den Rändern ins Dunkel ausläuft */}
+    <View
+      style={stile.boden}
+      accessibilityLabel={`Fährte im ${b.name}, ${flucht ? 'Flucht' : 'Gehen'}, ${jung ? tier.jungName : 'erwachsenes Tier'}`}
+    >
+      {/* Boden: ein Streifen Untergrund, der zu den Rändern ins Dunkel ausläuft */}
       <LinearGradient
         pointerEvents="none"
-        colors={['transparent', `${colors.nebel}8C`, `${colors.nebel}8C`, 'transparent']}
-        locations={[0, 0.3, 0.7, 1]}
+        colors={['transparent', `${b.boden}B3`, `${b.boden}B3`, 'transparent']}
+        locations={[0, 0.28, 0.72, 1]}
         style={StyleSheet.absoluteFill}
       />
       {tritte.map((p, k) => {
-        const a = (k / anzahl) * 0.75;
+        const a = (k / tritte.length) * 0.75;
         return (
           <Animated.View
             key={k}
@@ -105,8 +207,12 @@ function LaufendeFaehrte({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
             ]}
           >
             <Svg width={34} height={34} viewBox="-17 -17 34 34">
-              <G transform="rotate(90) scale(0.9)">
-                <TrittsiegelForm form={tier.tritt} farbe={colors.night} />
+              {/* heller Rand leicht versetzt: aufgeworfener Schnee, nasser Glanz bzw. Sandkörner */}
+              <G transform={`translate(-0.8 -0.8) rotate(90) scale(${groesse * 1.08})`} opacity={0.55}>
+                <TrittsiegelForm form={form} farbe={b.rand} />
+              </G>
+              <G transform={`rotate(90) scale(${groesse})`}>
+                <TrittsiegelForm form={form} farbe={b.abdruck} />
               </G>
             </Svg>
           </Animated.View>
@@ -181,6 +287,7 @@ function Fundkarte({
 const stile = StyleSheet.create({
   boden: { height: 150, marginHorizontal: -spacing.m, overflow: 'hidden' },
   tritt: { position: 'absolute', marginLeft: -17, marginTop: -17 },
+  schalterReihe: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: spacing.s },
   karten: { gap: spacing.m, paddingHorizontal: spacing.s, paddingVertical: spacing.m },
   // wie ein Abzug auf dem Forschertisch: heller Rand, unten breiter für die Beschriftung
   karte: {

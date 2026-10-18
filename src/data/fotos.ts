@@ -135,6 +135,16 @@ export const FOTOS = {
     lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
     seite: 'https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg',
   },
+  // Landschaften für das Lebensraum-Kapitel
+  'landschaft/waldrand-wiese': {
+    quelle: require('../../assets/fotos/landschaft/waldrand-wiese.jpg'),
+    breite: 1800,
+    hoehe: 675,
+    autor: 'Stephan van Helden',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Wiese_am_Waldrand_s%C3%BCdlich_von_Schweickershausen.jpg',
+  },
 } satisfies Record<string, Foto>;
 
 export type FotoId = keyof typeof FOTOS;

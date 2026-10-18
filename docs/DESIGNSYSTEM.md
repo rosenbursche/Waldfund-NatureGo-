@@ -77,6 +77,12 @@ Kurzer Status in Cinzel, gesperrt, mit Rahmen.
 - `art="rand"` (Standard) für Eigenschaften, `art="voll"` nur für den wichtigsten Status
 - `leuchten` nur für Legendäres und Belohnungen
 
+### Wappen (`Wappen.tsx`)
+Gezeichnete Medaillons für den Kopf einer Artenseite: `WildWertWappen`, `SeltenheitWappen`, `SchutzWappen`, `RoteListeWappen`, `GiftWappen`. `WappenReihe` zeigt alle passenden auf einmal. Jede Art hat eine eigene Form (Kreis, Sechseck, Schild, Stern, Dreieck, Raute), damit sie auch ohne Farbe unterscheidbar ist.
+```tsx
+<WappenReihe id="reh" art={artById.reh} />
+```
+
 ### Kennzahl (`Kennzahl.tsx`)
 Große Zahl in Cinzel, Einheit klein daneben, Etikett darunter.
 ```tsx

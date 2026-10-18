@@ -41,7 +41,7 @@ const ZONEN: { von: number; bis: number }[] = [
 ];
 const TIER_X = [52, 146, 246];
 /** Symbol je Zone und Landschaft */
-const ZONEN_SYMBOL: Record<Landschaft, [SymbolName, SymbolName, SymbolName]> = {
+export const ZONEN_SYMBOL: Record<Landschaft, [SymbolName, SymbolName, SymbolName]> = {
   waldrand: ['baum', 'gebuesch', 'wiese'],
   wald: ['gebuesch', 'baum', 'baum'],
   feld: ['gebuesch', 'wiese', 'mais'],

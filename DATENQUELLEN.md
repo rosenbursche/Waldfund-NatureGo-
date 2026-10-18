@@ -52,6 +52,7 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 | `assets/fotos/fuchs/welpe.jpg` | Fuchswelpe | Karl Pinnow | CC BY 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_puppy_Naturschutzgebiet_Z%C3%BClowgrabenniederung_11.05.25.jpg) |
 | `assets/fotos/fuchs/spur.jpg` | Fuchsspur im Schnee | BorealFox | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Red_fox_track_in_snow.jpg) |
 | `assets/fotos/fuchs/losung.jpg` | Fuchs-Losung | gailhampshire from Cradley, Malvern, U.K | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Scat...Fox_-_Flickr_-_gailhampshire.jpg) |
+| `assets/fotos/landschaft/waldrand-wiese.jpg` | Wiese am Waldrand (Panorama, Lebensraum) | Stephan van Helden | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Wiese_am_Waldrand_s%C3%BCdlich_von_Schweickershausen.jpg) |
 | `assets/fotos/fuchs/steht.jpg` | stehender Rotfuchs (Alpen) | Uoaei1 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg) |
 
 ### Artendaten aus dem Prototyp

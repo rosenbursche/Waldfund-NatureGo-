@@ -11,6 +11,7 @@ import { Kapitelkopf } from '@/components/ui/Kapitelkopf';
 import { Kennzahl } from '@/components/ui/Kennzahl';
 import { Schalter } from '@/components/ui/Schalter';
 import { Sektion } from '@/components/ui/Sektion';
+import { GiftWappen, RoteListeWappen, SchutzWappen, SeltenheitWappen, WildWertWappen } from '@/components/ui/Wappen';
 import { Zierlinie } from '@/components/ui/Zierlinie';
 import { colors, spacing } from '@/theme/theme';
 
@@ -86,6 +87,27 @@ export default function Bausteine() {
               <Abzeichen text="Gesammelt" farbe={colors.amber} art="voll" />
               <Abzeichen text="Neu" farbe={colors.rune} klein />
               <Abzeichen text="Giftig" farbe={colors.warn} klein />
+            </View>
+          </Sektion>
+
+          <Sektion symbol="schild" titel="Wappen">
+            <View style={stile.reihe}>
+              <WildWertWappen wert={12} />
+              <WildWertWappen wert={48} />
+              <WildWertWappen wert={72} />
+              <WildWertWappen wert={94} />
+            </View>
+            <View style={stile.reihe}>
+              <SeltenheitWappen stufe={1} />
+              <SeltenheitWappen stufe={2} />
+              <SeltenheitWappen stufe={3} />
+              <SeltenheitWappen stufe={4} />
+            </View>
+            <View style={stile.reihe}>
+              <SchutzWappen schutz={1} />
+              <SchutzWappen schutz={2} />
+              <RoteListeWappen stufe="2" />
+              <GiftWappen text="Sehr giftig" />
             </View>
           </Sektion>
 
