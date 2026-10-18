@@ -60,6 +60,8 @@ function Teilchen({
   const x0 = breite * (0.15 + pz(i, 3) * 0.7);
   const pendel = 10 + pz(i, 4) * 18;
   const groesse = art === 'feder' ? 12 : art === 'bluete' ? 5 : art === 'gluehwurm' ? 4 : 3;
+  // vorher ausrechnen: im Animations-Thread (Worklet) darf keine normale Funktion wie pz() aufgerufen werden
+  const hoehenAnteil = 0.35 + pz(i, 5) * 0.4;
 
   const stil = useAnimatedStyle(() => {
     const v = t.value;
@@ -80,9 +82,10 @@ function Teilchen({
       o = Math.sin(v * Math.PI) * 0.9;
     } else {
       // Glühwürmchen: schwirrt im Kreis und blinkt
-      y = hoehe * (0.35 + pz(i, 5) * 0.4) + Math.sin(v * Math.PI * 2) * 14;
+      y = hoehe * hoehenAnteil + Math.sin(v * Math.PI * 2) * 14;
       x = x0 + Math.cos(v * Math.PI * 2) * pendel;
-      o = Math.max(0, Math.sin(v * Math.PI * 6)) ** 2;
+      const b = Math.max(0, Math.sin(v * Math.PI * 6));
+      o = b * b;
     }
     return { opacity: o, transform: [{ translateX: x }, { translateY: y }, { rotate: `${dreh}deg` }] };
   });
