@@ -34,8 +34,8 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
   return (
     <View style={{ gap: spacing.m }}>
       <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Tippe einen Ast an, um seine Arten zu sehen. Die Sterne sind die seltensten Arten – und in den Schattenwurzeln
-        lauert Gefahr.
+        Tippe einen Ast an: Seine Zweige sind kleine Sammelsets, jedes mit einem Schatz. Die Sterne sind die legendären
+        Arten – und in den Schattenwurzeln lauert Gefahr.
       </Schrift>
 
       <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />

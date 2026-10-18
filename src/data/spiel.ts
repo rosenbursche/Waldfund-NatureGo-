@@ -15,6 +15,13 @@ export const SELTENHEIT: Record<Seltenheit, { name: string; punkte: number; farb
 /** Ab dieser Seltenheit erscheint eine Art nur als Rätsel (Mystery-Zone), bis man sie findet. */
 export const MYSTERY_AB: Seltenheit = 3;
 
+/** Ab dieser Seltenheit hängt eine Art zusätzlich als Stern über der Krone des Lebensbaums. */
+export const STERN_AB: Seltenheit = 4;
+
+/** Bonus für einen vollständigen Zweig bzw. Ast im Lebensbaum (bewusst klein: Seltenheit bleibt der größte Reiz) */
+export const ZWEIG_BONUS = 25;
+export const AST_BONUS = 150;
+
 export const SCHUTZ_NAME: Record<Schutz, string> = {
   0: 'Nicht geschützt',
   1: 'Besonders geschützt',

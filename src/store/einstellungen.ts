@@ -78,7 +78,7 @@ export const useEinstellungen = create<EinstellungenState>()(
       // in der Entwicklung (Expo Go) standardmäßig an, in den automatischen Tests und der Store-Version aus
       belastungstest: __DEV__ && process.env.NODE_ENV !== 'test',
       setBelastungstest: (an) => set({ belastungstest: an }),
-      testGruppierung: 'vorschlag',
+      testGruppierung: 'konzept',
       setTestGruppierung: (g) => set({ testGruppierung: g }),
 
       setNaturraum: (id, per, grobStandort = null) => set({ naturraumId: id, gewaehltPer: per, grobStandort }),
@@ -88,13 +88,15 @@ export const useEinstellungen = create<EinstellungenState>()(
     {
       name: 'wildfund-einstellungen',
       storage: createJSONStorage(() => AsyncStorage),
-      version: 3,
+      version: 4,
       // Version 2: Startszene wieder standardmäßig 3D (das Diorama war kurz Standard)
       // Version 3: Belastungstest in der Entwicklung einmalig einschalten
+      // Version 4: neue Gliederung (Ast → Zweig) im Belastungstest als Standard
       migrate: (alt, version) => {
         const s = alt as Partial<EinstellungenState>;
         if (version < 2) s.startSzene = '3d';
         if (version < 3) s.belastungstest = __DEV__;
+        if (version < 4) s.testGruppierung = 'konzept';
         return s as EinstellungenState;
       },
     },

@@ -1,14 +1,19 @@
 import { naturraumById } from '@/data/naturraeume';
+import { GLIEDERUNG } from '@/data/gliederung';
 import { MYSTERY_AB } from '@/data/spiel';
 import {
+  alleImBaum,
   fortschrittDerKategorie,
   gefahrEintraege,
   istVerborgen,
   katalogGruppen,
   lebensbaum,
   mysteryArten,
+  schatzkammer,
   vitrinenArten,
   waldPlaetze,
+  zweigFortschritt,
+  zweigSchatz,
 } from '@/logic/katalog';
 
 const heide = naturraumById['lueneburger-heide'];
@@ -85,37 +90,78 @@ describe('Vitrine am Runenstein und Plätze im Wald', () => {
   });
 });
 
-describe('Lebensbaum: Äste, Sterne, Schattenwurzeln', () => {
-  test('Äste sind die Gruppen, Mystery-Arten werden zu Sternen', () => {
+describe('Lebensbaum: Äste, Zweige, Sterne, Schattenwurzeln', () => {
+  test('Äste und Zweige folgen der Gliederung, Bäume zuerst', () => {
     const baum = lebensbaum('pflanzen', heide);
     const aeste = baum.aeste.map((a) => a.name);
-    expect(aeste.indexOf('Bäume')).toBeLessThan(aeste.indexOf('Büsche'));
-    expect(baum.aeste.find((a) => a.name === 'Büsche')!.eintraege.map((e) => e.id)).toEqual(
-      expect.arrayContaining(['hasel', 'holunder', 'schlehe', 'weissdorn']),
+    expect(aeste[0]).toBe('Bäume');
+    const plan = GLIEDERUNG.pflanzen.map((a) => a.name);
+    expect(aeste).toEqual(plan.filter((n) => aeste.includes(n)));
+    const baeume = baum.aeste[0].zweige.map((z) => z.name);
+    expect(baeume).toEqual(['Laubbäume', 'Nadelbäume']);
+    expect(baum.aeste[0].zweige[1].eintraege.map((e) => e.id)).toEqual(expect.arrayContaining(['eibe', 'waldkiefer']));
+    const strauch = baum.aeste.find((a) => a.name === 'Sträucher & Ranken')!;
+    expect(strauch.eintraege.map((e) => e.id)).toEqual(
+      expect.arrayContaining(['hasel', 'holunder', 'schlehe', 'weissdorn', 'seidelbast']),
     );
-    expect(baum.sterne.map((e) => e.id)).toContain('frauenschuh');
-    expect(baum.sterne[0].seltenheit).toBe(4); // legendäre zuerst
-    for (const a of baum.aeste) for (const e of a.eintraege) expect(e.seltenheit).toBeLessThan(MYSTERY_AB);
   });
 
-  test('am Ast: häufige zuerst, seltene an der Zweigspitze', () => {
+  test('Sterne sind nur die legendären Arten – sie hängen auch an ihrem Zweig', () => {
+    const baum = lebensbaum('pflanzen', heide);
+    expect(baum.sterne.length).toBeGreaterThan(0);
+    for (const e of baum.sterne) expect(e.seltenheit).toBe(4);
+    const imBaum = alleImBaum(baum).map((e) => e.id);
+    for (const e of baum.sterne) expect(imBaum).toContain(e.id);
+  });
+
+  test('am Zweig: häufige zuerst, seltene an der Zweigspitze', () => {
     for (const a of lebensbaum('pflanzen', heide).aeste) {
-      const s = a.eintraege.map((e) => e.seltenheit);
-      expect(s).toEqual([...s].sort());
+      for (const z of a.zweige) {
+        const s = z.eintraege.map((e) => e.seltenheit);
+        expect(s).toEqual([...s].sort());
+      }
     }
   });
 
-  test('jede Art steht genau einmal im Baum, gefährliche nur in den Wurzeln', () => {
+  test('jede Art steht genau einmal an einem Zweig, gefährliche zusätzlich in den Wurzeln', () => {
     for (const k of ['pflanzen', 'pilze', 'voegel', 'saeuger'] as const) {
       const baum = lebensbaum(k, heide);
-      const imBaum = [...baum.aeste.flatMap((a) => a.eintraege), ...baum.sterne].map((e) => e.id);
-      const wurzeln = baum.wurzeln.map((e) => e.id);
-      expect(new Set([...imBaum, ...wurzeln]).size).toBe(imBaum.length + wurzeln.length);
-      expect(imBaum.length + wurzeln.length).toBe(fortschrittDerKategorie(k, {}, heide).gesamt);
+      const anZweigen = baum.aeste.flatMap((a) => a.zweige.flatMap((z) => z.eintraege)).map((e) => e.id);
+      expect(new Set(anZweigen).size).toBe(anZweigen.length);
+      expect(anZweigen.length).toBe(fortschrittDerKategorie(k, {}, heide).gesamt);
+      for (const w of baum.wurzeln) expect(anZweigen).toContain(w.id);
     }
-    expect(lebensbaum('pflanzen', heide).wurzeln.map((e) => e.id)).toEqual(
-      expect.arrayContaining(['eisenhut', 'tollkirsche', 'herbstzeitlose', 'seidelbast', 'eibe']),
-    );
+    const knolli = lebensbaum('pilze')
+      .aeste.flatMap((a) => a.zweige)
+      .find((z) => z.eintraege.some((e) => e.id === 'knolli'));
+    expect(knolli?.name).toBe('Wulstlinge, Schirmlinge & Champignons');
+  });
+
+  test('Zweig-Schatz: sehr seltene Art zuerst, sonst besondere, sonst die seltenste', () => {
+    const e = (id: string, seltenheit: 1 | 2 | 3 | 4, besonders?: string) =>
+      ({ id, name: id, lat: id, seltenheit, icon: 'bird', gruppe: 'x', besonders }) as const;
+    expect(zweigSchatz([e('a', 1), e('b', 3), e('c', 4)])).toBe('c');
+    expect(zweigSchatz([e('a', 2), e('b', 1, 'Rote Liste')])).toBe('b');
+    expect(zweigSchatz([e('a', 1), e('b', 2), e('c', 1)])).toBe('b');
+    expect(zweigSchatz([])).toBeUndefined();
+  });
+
+  test('Zweig-Fortschritt: voll, fehlt und Schatz', () => {
+    const z = lebensbaum('voegel').aeste.find((a) => a.name === 'Spechte, Tauben & Juwelen')!.zweige[0];
+    expect(z.name).toBe('Spechte');
+    expect(zweigFortschritt(z, {})).toMatchObject({ gefunden: 0, voll: false, schatzGefunden: false });
+    const alle = Object.fromEntries(z.eintraege.map((x) => [x.id, {}]));
+    expect(zweigFortschritt(z, alle)).toMatchObject({ fehlt: 0, voll: true, schatzGefunden: true });
+  });
+
+  test('Schatzkammer: seltenste zuerst, gefährlichste nach Stufe', () => {
+    const k = schatzkammer('pilze');
+    expect(k.seltenste.length).toBeGreaterThan(0);
+    expect(k.seltenste[0].seltenheit).toBeGreaterThanOrEqual(k.seltenste[k.seltenste.length - 1].seltenheit);
+    expect(k.gefaehrlichste[0].id).toBe('knolli');
+    expect(k.gefaehrlichste[0].gefahrStufe).toBe(3);
+    expect(schatzkammer('voegel').gefaehrlichste).toEqual([]);
+    expect(schatzkammer('saeuger').gefaehrlichste[0].id).toBe('wildschwein');
   });
 
   test('Gefahren-Sektion: Pilze und Säugetiere haben Einträge, Vögel keine', () => {

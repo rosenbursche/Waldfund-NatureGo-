@@ -1,5 +1,6 @@
 import type { Art, IconName, KategorieId, ModellParameter, ZeichnungParameter } from './artTypen';
 import ROH from './testarten.json';
+import { TEST_BESONDERS, TEST_ZWEIG } from './testGliederung';
 
 /**
  * BELASTUNGSTEST: 500 echte heimische Arten, um Stammbaum, Waldansicht und Katalog
@@ -29,8 +30,12 @@ type Roh = {
   vorlage: ModellParameter;
 };
 
-/** Wonach der Stammbaum im Test gruppiert wird */
-export type TestGruppierung = 'vorschlag' | 'familie' | 'ordnung';
+/** Wonach der Stammbaum im Test gruppiert wird – „konzept“ = Ast und Zweig nach docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md */
+export type TestGruppierung = 'konzept' | 'vorschlag' | 'familie' | 'ordnung';
+
+/** grobe Gefahrenstufe der Testarten: aus der Giftigkeit, bei Tieren von Hand (TODO fachlich prüfen) */
+const TIER_GEFAHR: Record<string, 1 | 2 | 3> = { 'Ursus arctos': 3, 'Sus scrofa': 2, 'Vulpes vulpes': 1 };
+const besonders = new Set(TEST_BESONDERS);
 
 const ICON: Record<KategorieId, IconName> = { saeuger: 'mammal', voegel: 'bird', pilze: 'shroom', pflanzen: 'flower' };
 
@@ -47,7 +52,17 @@ function alsArt(r: Roh, gruppierung: TestGruppierung): Art {
   return {
     id: r.id,
     kategorie: r.kategorie,
-    gruppe: gruppierung === 'familie' ? r.familie : gruppierung === 'ordnung' ? r.ordnung : r.gruppe,
+    gruppe:
+      gruppierung === 'konzept'
+        ? TEST_ZWEIG[r.id][0]
+        : gruppierung === 'familie'
+          ? r.familie
+          : gruppierung === 'ordnung'
+            ? r.ordnung
+            : r.gruppe,
+    zweig: gruppierung === 'konzept' ? TEST_ZWEIG[r.id][1] : undefined,
+    besonders: besonders.has(r.id) ? 'Testwert: die seltenste Art ihres Zweigs (wenigste Beobachtungen)' : undefined,
+    gefahrStufe: TIER_GEFAHR[r.lat],
     name: r.name,
     lat: r.lat,
     icon: r.vorlage.t === 'shrub' ? 'tree' : ICON[r.kategorie],
@@ -70,6 +85,7 @@ const roh = ROH as unknown as Roh[];
 
 /** Testarten je Gruppierung (einmal vorbereitet, damit das Umschalten nichts kostet) */
 export const TESTARTEN: Record<TestGruppierung, Art[]> = {
+  konzept: roh.map((r) => alsArt(r, 'konzept')),
   vorschlag: roh.map((r) => alsArt(r, 'vorschlag')),
   familie: roh.map((r) => alsArt(r, 'familie')),
   ordnung: roh.map((r) => alsArt(r, 'ordnung')),

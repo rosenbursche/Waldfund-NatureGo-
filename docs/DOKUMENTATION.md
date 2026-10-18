@@ -101,7 +101,7 @@ Die Routen liegen in `src/app/` (expo-router: Der Dateiname ist der Pfad).
 | Sammlung | „Beispielfunde laden“ (zum Ausprobieren, ohne Punkte), „Sammlung leeren“ (löscht auch Fund-Fotos) |
 | Bilderkennung | „Echte Erkennung für Pflanzen (Pl@ntNet)“ (nur schaltbar, wenn ein Server eingetragen ist). Im Demo-Modus zusätzlich: „manche Fotos nicht erkennen“, um die Foto-Tipps zu testen |
 | Darstellung | „Startszene als Bild-Diorama (Test)“, „Bildrate auf der Lichtung anzeigen“, „3D-Test: realistisches Modell“ |
-| Belastungstest (nur Entwicklung) | „500 echte Testarten im Katalog“ und Gruppierung im Stammbaum nach Vorschlag, Familie oder Ordnung. In Expo Go standardmäßig an, in der Store-Version nicht vorhanden. Daten: `src/data/testarten.json`, neu bauen mit `node scripts/testarten-bauen.mjs` |
+| Belastungstest (nur Entwicklung) | „500 echte Testarten im Katalog“ und Gruppierung im Stammbaum nach **Konzept** (Ast → Zweig, Standard), Vorschlag, Familie oder Ordnung. Zuordnung der Testarten: `src/data/testGliederung.ts`. In Expo Go standardmäßig an, in der Store-Version nicht vorhanden. Daten: `src/data/testarten.json`, neu bauen mit `node scripts/testarten-bauen.mjs` |
 | Deine Daten | „Alles zurücksetzen“ |
 | Datenquellen | Pflicht-Namensnennungen (Thünen, Karte, 3D-Modell, GeoNames, ggf. Pl@ntNet) |
 
@@ -409,9 +409,13 @@ Er setzt sich zusammen aus 55 % Verbreitung (Anteil der Rasterfelder ohne Nachwe
   - **Säugetiere – Uralter Baumhirte:** knorrige Eiche mit Gesicht (Brauen, Augen, die sich öffnen, Nase, Moosbart), Eichenlaub, Eicheln, Farne, Glühwürmchen.
   - Jeder Ast ist mit Schattenseite, Lichtkante und Rindenfurchen gezeichnet. Welche Art wohin gehört, bestimmt `lebensbaum()` in `logic/katalog.ts`.
   - **Knöpfe** an den Astspitzen: gruseliges Symbol je Gruppe mit glimmenden, blinzelnden Augen (`GruppenIcon.tsx`, z. B. Hirschschädel für „Wald“, Totenkopf mit Wurzeln für die Schattenwurzeln) und Fortschrittsring.
-  - **Hauptäste = Gruppen** (Bäume, Büsche, Eulen …). An der Astspitze steht der Fortschritt (z. B. „1/4“). Antippen zoomt auf den Ast, darunter wächst er mit seinen Arten heraus (`AstPanel.tsx`). Häufige Arten sitzen nah am Ast, seltene an der Zweigspitze. Es ist immer nur ein Ast offen.
-  - **Sterne über der Krone** = Arten ab „sehr selten“ (Mystery). Matt, bis man sie findet, dann leuchten und funkeln sie.
-  - **Schattenwurzeln** = „Gefährlich & tödlich“. Antippen öffnet die Gefahren-Sektion.
+  - **Gliederung Rune → Ast → Zweig → Art** (Konzept: `docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md`, feste Reihenfolge in `src/data/gliederung.ts`): höchstens 7 Äste je Baum, jeder Zweig hat 2–12 Arten. Jede Art hängt genau einmal an einem Zweig – auch gefährliche und sehr seltene.
+  - **Hauptäste:** Am Knopf steht ein kurzer Name (z. B. „Sänger“ für „Kleine Sänger“) und der Fortschritt (z. B. „3/26“). Bei 4 und mehr Ästen stehen die Namen abwechselnd über und unter dem Knopf. ☾ = Meisterast (schwer zu finden, z. B. Fledermäuse). Antippen zoomt auf den Ast, darunter wächst er mit seinen **Zweigen** heraus (`AstPanel.tsx`). Es ist immer nur ein Ast offen.
+  - **Zweige:** Kopf mit Name, Fortschritt als Balken und einem Hinweis: „Schatz: …“, „Noch 2 – dann blüht der Zweig“ oder „✿ Zweig vollständig“. Darunter die Arten im Raster (4 je Reihe), häufige vorn, seltene hinten. Sehr seltene Arten erscheinen als „???“, bis man sie findet.
+  - **Zweig-Schatz** (✦, goldener Rand): die seltenste Art ab „sehr selten“; hat der Zweig keine, eine als besonders markierte Art (`Art.besonders`), sonst die seltenste Art (`zweigSchatz()` in `logic/katalog.ts`).
+  - **Sterne über der Krone** = nur noch die legendären Arten (zweite Sicht, sie hängen auch an ihrem Zweig). Matt, bis man sie findet, dann leuchten und funkeln sie.
+  - **Schattenwurzeln** = „Gefährlich & tödlich“ (zweite Sicht, die Arten hängen auch an ihrem Zweig, dort mit ☠). Antippen öffnet die Gefahren-Sektion.
+  - **Schatzkammer** (Logik fertig: `schatzkammer()`, Anzeige folgt): die 5 seltensten und die 3 gefährlichsten Arten der Rune, nach Gefahrenstufe 1–3 (`Art.gefahrStufe`, sonst aus der Giftigkeit).
   - **Runenring** (selbst erfundene Zeichen) leuchtet in der Farbe des Baums anteilig mit dem Fortschritt der Kategorie.
   - Jede Art hat eine eigene Miniatur (`ArtMiniatur.tsx`). Bei „Bewegung reduzieren“ entfallen Zoom, Wachsen, Funkeln, Teilchen und Augen-Animationen.
 - **Mystery-Zone:** Arten ab „sehr selten“ erscheinen als Rätselkarte, bis man sie findet.

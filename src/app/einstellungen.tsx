@@ -230,6 +230,7 @@ export default function Einstellungen() {
                   <View style={stile.auswahl}>
                     {(
                       [
+                        ['konzept', 'Konzept'],
                         ['vorschlag', 'Vorschlag'],
                         ['familie', 'Familie'],
                         ['ordnung', 'Ordnung'],

@@ -177,11 +177,37 @@ const ICONS: Record<string, Teil[]> = {
   ],
 };
 
+/**
+ * Äste der neuen Gliederung (src/data/gliederung.ts) nutzen vorerst das passendste vorhandene Symbol.
+ * TODO: eigene Symbole je Ast
+ */
+const ALIAS: Record<string, string> = {
+  'Sträucher & Ranken': 'Büsche',
+  Waldboden: 'Waldboden & Wiese',
+  'Wiese & Feld': 'Waldboden & Wiese',
+  'Wasser & Moor': 'Am Wasser',
+  'Orchideen & Farne': 'Besondere Formen',
+  'Wulstlinge, Champignons & Täublinge': 'Blätterpilze',
+  'Weitere Blätterpilze': 'Blätterpilze',
+  'Leisten, Stacheln & Porlinge': 'Besondere Formen',
+  'Wunderliche Formen': 'Besondere Formen',
+  'Kleine Sänger': 'Singvögel',
+  'Drosseln & Finken': 'Singvögel',
+  'Rabenvögel & Offenland': 'Offenland',
+  'Spechte, Tauben & Juwelen': 'Spechte',
+  'Jäger der Lüfte': 'Eulen',
+  Huftiere: 'Wald',
+  Raubtiere: 'Wald',
+  'Nagetiere & Hasen': 'Feld & Garten',
+  Insektenfresser: 'Feld & Garten',
+  'Meer & Küste': 'Am Wasser',
+};
+
 /** Ersatz, falls eine Gruppe (noch) kein eigenes Symbol hat: ein Runenauge */
 const ERSATZ: Teil[] = [l('M3.5 16 Q16 5.5 28.5 16 Q16 26.5 3.5 16 Z M16 5 L16 8 M16 24 L16 27'), k(16, 16, 2.6)];
 
 export function hatIcon(name: string) {
-  return name in ICONS;
+  return (ALIAS[name] ?? name) in ICONS;
 }
 
 export function GruppenIcon({
@@ -199,7 +225,7 @@ export function GruppenIcon({
   phase?: number;
 }) {
   const ruhig = useReducedMotion();
-  const teile = ICONS[name] ?? ERSATZ;
+  const teile = ICONS[ALIAS[name] ?? name] ?? ERSATZ;
   const linien = teile.filter((t): t is { d: string; art: 'linie' | 'flaeche' } => 'd' in t);
   const augen = teile.filter((t): t is { auge: [number, number, number] } => 'auge' in t);
 

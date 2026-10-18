@@ -16,7 +16,7 @@ import Svg, { Circle, Defs, Ellipse, LinearGradient, Path, RadialGradient, Stop 
 import type { KategorieId } from '@/data/artTypen';
 import { SELTENHEIT } from '@/data/spiel';
 import { baumForm, sternPfad, type Punkt } from '@/logic/baum/stil';
-import type { KatalogEintrag, Lebensbaum as LebensbaumDaten } from '@/logic/katalog';
+import { alleImBaum, type KatalogEintrag, type Lebensbaum as LebensbaumDaten } from '@/logic/katalog';
 import { colors, fonts } from '@/theme/theme';
 
 import { Schrift } from '../Schrift';
@@ -47,6 +47,8 @@ type Props = {
 };
 
 const KNOPF = 46;
+/** Höhe von Name + Zahl unter (oder über) einem Ast-Knopf */
+const NAME_H = 32;
 
 export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props) {
   const ruhig = useReducedMotion();
@@ -59,7 +61,8 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
   );
   const H = form.hoehe;
 
-  const alle = [...baum.aeste.flatMap((a) => a.eintraege), ...baum.sterne, ...baum.wurzeln];
+  // jede Art genau einmal (Sterne und Wurzeln sind nur eine zweite Sicht auf dieselben Arten)
+  const alle = alleImBaum(baum);
   const anzahlGefunden = alle.filter((e) => e.id in gefunden).length;
   const runenAn = alle.length ? Math.round((form.runen.length * anzahlGefunden) / alle.length) : 0;
 
@@ -250,6 +253,9 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
           <AstKnopf
             key={a.name}
             name={a.name}
+            kurz={`${a.mond ? '☾ ' : ''}${a.kurz}`}
+            // Knöpfe abwechselnd hoch und tief: die Namen der hohen stehen darüber, damit sich nichts überdeckt
+            oben={baum.aeste.length >= 4 && i % 2 === 0}
             gefunden={a.eintraege.filter((e) => e.id in gefunden).length}
             gesamt={a.eintraege.length}
             punkt={form.astSpitzen[i]}
@@ -284,6 +290,8 @@ const RING_U = 2 * Math.PI * RING_R;
 
 function AstKnopf({
   name,
+  kurz,
+  oben,
   gefunden,
   gesamt,
   punkt,
@@ -295,6 +303,10 @@ function AstKnopf({
   onPress,
 }: {
   name: string;
+  /** Anzeigename am Baum (sonst `name`) */
+  kurz?: string;
+  /** Name über dem Knopf statt darunter */
+  oben?: boolean;
   gefunden: number;
   gesamt: number;
   punkt: Punkt;
@@ -321,7 +333,12 @@ function AstKnopf({
       }
       style={({ pressed }) => [
         stile.astKnopf,
-        { left: punkt.x - 70, top: punkt.y - KNOPF / 2, opacity: gedimmt ? 0.4 : pressed ? 0.7 : 1 },
+        oben && { flexDirection: 'column-reverse' },
+        {
+          left: punkt.x - 70,
+          top: punkt.y - KNOPF / 2 - (oben ? NAME_H : 0),
+          opacity: gedimmt ? 0.4 : pressed ? 0.7 : 1,
+        },
       ]}
     >
       <View
@@ -368,12 +385,14 @@ function AstKnopf({
           phase={index}
         />
       </View>
-      <Schrift style={[stile.astName, aktiv && { color: colors.moon }]} numberOfLines={2}>
-        {name}
-      </Schrift>
-      <Schrift style={[stile.zahl, { color: ringFarbe }]}>
-        {gefahr && gesamt === 0 ? '☠' : `${gefunden}/${gesamt}`}
-      </Schrift>
+      <View style={stile.astText}>
+        <Schrift style={[stile.astName, aktiv && { color: colors.moon }]} numberOfLines={2}>
+          {kurz ?? name}
+        </Schrift>
+        <Schrift style={[stile.zahl, { color: ringFarbe }]}>
+          {gefahr && gesamt === 0 ? '☠' : `${gefunden}/${gesamt}`}
+        </Schrift>
+      </View>
     </Pressable>
   );
 }
@@ -443,6 +462,7 @@ const stile = StyleSheet.create({
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 0 },
   },
+  astText: { minHeight: NAME_H, alignItems: 'center', justifyContent: 'center' },
   astName: {
     maxWidth: 132,
     fontFamily: fonts.titel,

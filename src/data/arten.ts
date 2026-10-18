@@ -3,7 +3,8 @@ import { TESTARTEN } from './testarten';
 
 /**
  * Die 39 Arten aus dem Prototyp (prototyp-wildfund.html, Array "S") plus 9 ergänzte Pflanzen
- * (Büsche und giftige Arten). Gruppen neu eingeteilt; "Gefährlich & tödlich" gibt es in jeder Kategorie.
+ * (Büsche und giftige Arten). Ast (`gruppe`) und Zweig nach der Gliederung in src/data/gliederung.ts;
+ * gefährliche Arten stehen an ihrem Zweig und zusätzlich in den Schattenwurzeln.
  *
  * TODO fachlich prüfen: Schutzstatus (BArtSchV/BNatSchG), Rote-Liste-Kategorien,
  * Größen- und Saisonangaben. Der Prototyp hat diese Werte vereinfacht.
@@ -14,6 +15,7 @@ export const ARTEN: Art[] = [
     id: 'stieleiche',
     kategorie: 'pflanzen',
     gruppe: 'Bäume',
+    zweig: 'Laubbäume',
     name: 'Stieleiche',
     lat: 'Quercus robur',
     icon: 'tree',
@@ -33,6 +35,7 @@ export const ARTEN: Art[] = [
     id: 'rotbuche',
     kategorie: 'pflanzen',
     gruppe: 'Bäume',
+    zweig: 'Laubbäume',
     name: 'Rotbuche',
     lat: 'Fagus sylvatica',
     icon: 'tree',
@@ -51,6 +54,7 @@ export const ARTEN: Art[] = [
     id: 'buschwind',
     kategorie: 'pflanzen',
     gruppe: 'Frühblüher',
+    zweig: 'Weiße & gelbe Teppiche',
     name: 'Buschwindröschen',
     lat: 'Anemone nemorosa',
     icon: 'flower',
@@ -69,6 +73,7 @@ export const ARTEN: Art[] = [
     id: 'maerzenbecher',
     kategorie: 'pflanzen',
     gruppe: 'Frühblüher',
+    zweig: 'Glöckchen, Schlüsselblumen & Veilchen',
     name: 'Märzenbecher',
     lat: 'Leucojum vernum',
     icon: 'flower',
@@ -85,7 +90,8 @@ export const ARTEN: Art[] = [
   {
     id: 'sauerklee',
     kategorie: 'pflanzen',
-    gruppe: 'Waldboden & Wiese',
+    gruppe: 'Frühblüher',
+    zweig: 'Weiße & gelbe Teppiche',
     name: 'Wald-Sauerklee',
     lat: 'Oxalis acetosella',
     icon: 'flower',
@@ -103,7 +109,8 @@ export const ARTEN: Art[] = [
   {
     id: 'schluesselblume',
     kategorie: 'pflanzen',
-    gruppe: 'Waldboden & Wiese',
+    gruppe: 'Frühblüher',
+    zweig: 'Glöckchen, Schlüsselblumen & Veilchen',
     name: 'Echte Schlüsselblume',
     lat: 'Primula veris',
     icon: 'flower',
@@ -120,7 +127,8 @@ export const ARTEN: Art[] = [
   {
     id: 'tuerkenbund',
     kategorie: 'pflanzen',
-    gruppe: 'Waldboden & Wiese',
+    gruppe: 'Orchideen & Farne',
+    zweig: 'Orchideen & Türkenbund',
     name: 'Türkenbund-Lilie',
     lat: 'Lilium martagon',
     icon: 'flower',
@@ -137,7 +145,8 @@ export const ARTEN: Art[] = [
   {
     id: 'arnika',
     kategorie: 'pflanzen',
-    gruppe: 'Wiesen & Heiden',
+    gruppe: 'Wiese & Feld',
+    zweig: 'Korbblüten der Wiese',
     name: 'Arnika',
     lat: 'Arnica montana',
     icon: 'flower',
@@ -156,7 +165,8 @@ export const ARTEN: Art[] = [
   {
     id: 'sonnentau',
     kategorie: 'pflanzen',
-    gruppe: 'Moore',
+    gruppe: 'Wasser & Moor',
+    zweig: 'Moor',
     name: 'Rundblättriger Sonnentau',
     lat: 'Drosera rotundifolia',
     icon: 'flower',
@@ -176,7 +186,8 @@ export const ARTEN: Art[] = [
   {
     id: 'frauenschuh',
     kategorie: 'pflanzen',
-    gruppe: 'Orchideen',
+    gruppe: 'Orchideen & Farne',
+    zweig: 'Orchideen & Türkenbund',
     name: 'Gelber Frauenschuh',
     lat: 'Cypripedium calceolus',
     icon: 'flower',
@@ -196,7 +207,8 @@ export const ARTEN: Art[] = [
   {
     id: 'hasel',
     kategorie: 'pflanzen',
-    gruppe: 'Büsche',
+    gruppe: 'Sträucher & Ranken',
+    zweig: 'Holunder, Schneeball & Heckensträucher',
     name: 'Gewöhnliche Hasel',
     lat: 'Corylus avellana',
     icon: 'tree',
@@ -214,7 +226,8 @@ export const ARTEN: Art[] = [
   {
     id: 'holunder',
     kategorie: 'pflanzen',
-    gruppe: 'Büsche',
+    gruppe: 'Sträucher & Ranken',
+    zweig: 'Holunder, Schneeball & Heckensträucher',
     name: 'Schwarzer Holunder',
     lat: 'Sambucus nigra',
     icon: 'tree',
@@ -233,7 +246,8 @@ export const ARTEN: Art[] = [
   {
     id: 'schlehe',
     kategorie: 'pflanzen',
-    gruppe: 'Büsche',
+    gruppe: 'Sträucher & Ranken',
+    zweig: 'Beeren- & Dornsträucher',
     name: 'Schlehe',
     lat: 'Prunus spinosa',
     icon: 'tree',
@@ -252,7 +266,8 @@ export const ARTEN: Art[] = [
   {
     id: 'weissdorn',
     kategorie: 'pflanzen',
-    gruppe: 'Büsche',
+    gruppe: 'Sträucher & Ranken',
+    zweig: 'Beeren- & Dornsträucher',
     name: 'Eingriffeliger Weißdorn',
     lat: 'Crataegus monogyna',
     icon: 'tree',
@@ -272,7 +287,8 @@ export const ARTEN: Art[] = [
   {
     id: 'eisenhut',
     kategorie: 'pflanzen',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Waldboden',
+    zweig: 'Giftige Schönheiten',
     name: 'Blauer Eisenhut',
     lat: 'Aconitum napellus',
     icon: 'flower',
@@ -291,7 +307,8 @@ export const ARTEN: Art[] = [
   {
     id: 'tollkirsche',
     kategorie: 'pflanzen',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Waldboden',
+    zweig: 'Giftige Schönheiten',
     name: 'Tollkirsche',
     lat: 'Atropa belladonna',
     icon: 'flower',
@@ -309,7 +326,8 @@ export const ARTEN: Art[] = [
   {
     id: 'herbstzeitlose',
     kategorie: 'pflanzen',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Wiese & Feld',
+    zweig: 'Bunte Wiesenblumen',
     name: 'Herbstzeitlose',
     lat: 'Colchicum autumnale',
     icon: 'flower',
@@ -328,7 +346,8 @@ export const ARTEN: Art[] = [
   {
     id: 'seidelbast',
     kategorie: 'pflanzen',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Sträucher & Ranken',
+    zweig: 'Ranken, Immergrüne & Ginster',
     name: 'Echter Seidelbast',
     lat: 'Daphne mezereum',
     icon: 'tree',
@@ -346,7 +365,8 @@ export const ARTEN: Art[] = [
   {
     id: 'eibe',
     kategorie: 'pflanzen',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Bäume',
+    zweig: 'Nadelbäume',
     name: 'Eibe',
     lat: 'Taxus baccata',
     icon: 'tree',
@@ -365,7 +385,8 @@ export const ARTEN: Art[] = [
   {
     id: 'fliegenpilz',
     kategorie: 'pilze',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Wulstlinge, Champignons & Täublinge',
+    zweig: 'Wulstlinge, Schirmlinge & Champignons',
     name: 'Fliegenpilz',
     lat: 'Amanita muscaria',
     icon: 'shroom',
@@ -384,7 +405,8 @@ export const ARTEN: Art[] = [
   {
     id: 'knolli',
     kategorie: 'pilze',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Wulstlinge, Champignons & Täublinge',
+    zweig: 'Wulstlinge, Schirmlinge & Champignons',
     name: 'Grüner Knollenblätterpilz',
     lat: 'Amanita phalloides',
     icon: 'shroom',
@@ -403,7 +425,8 @@ export const ARTEN: Art[] = [
   {
     id: 'tintling',
     kategorie: 'pilze',
-    gruppe: 'Blätterpilze',
+    gruppe: 'Weitere Blätterpilze',
+    zweig: 'Tintlinge, Schwindlinge & Rüblinge',
     name: 'Schopf-Tintling',
     lat: 'Coprinus comatus',
     icon: 'shroom',
@@ -420,7 +443,8 @@ export const ARTEN: Art[] = [
   {
     id: 'hallimasch',
     kategorie: 'pilze',
-    gruppe: 'Blätterpilze',
+    gruppe: 'Weitere Blätterpilze',
+    zweig: 'Büschel am Holz',
     name: 'Hallimasch',
     lat: 'Armillaria mellea',
     icon: 'shroom',
@@ -440,6 +464,7 @@ export const ARTEN: Art[] = [
     id: 'steinpilz',
     kategorie: 'pilze',
     gruppe: 'Röhrlinge',
+    zweig: 'Steinpilze & Hexen',
     name: 'Fichten-Steinpilz',
     lat: 'Boletus edulis',
     icon: 'shroom',
@@ -457,7 +482,8 @@ export const ARTEN: Art[] = [
   {
     id: 'pfifferling',
     kategorie: 'pilze',
-    gruppe: 'Besondere Formen',
+    gruppe: 'Leisten, Stacheln & Porlinge',
+    zweig: 'Pfifferlinge, Stoppelpilze & Stachelbärte',
     name: 'Pfifferling',
     lat: 'Cantharellus cibarius',
     icon: 'shroom',
@@ -474,7 +500,8 @@ export const ARTEN: Art[] = [
   {
     id: 'glucke',
     kategorie: 'pilze',
-    gruppe: 'Besondere Formen',
+    gruppe: 'Leisten, Stacheln & Porlinge',
+    zweig: 'Porlinge & Baumschwämme',
     name: 'Krause Glucke',
     lat: 'Sparassis crispa',
     icon: 'shroom',
@@ -491,7 +518,8 @@ export const ARTEN: Art[] = [
   {
     id: 'satan',
     kategorie: 'pilze',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Röhrlinge',
+    zweig: 'Steinpilze & Hexen',
     name: 'Satans-Röhrling',
     lat: 'Rubroboletus satanas',
     icon: 'shroom',
@@ -510,7 +538,8 @@ export const ARTEN: Art[] = [
   {
     id: 'stachelbart',
     kategorie: 'pilze',
-    gruppe: 'Besondere Formen',
+    gruppe: 'Leisten, Stacheln & Porlinge',
+    zweig: 'Pfifferlinge, Stoppelpilze & Stachelbärte',
     name: 'Igel-Stachelbart',
     lat: 'Hericium erinaceus',
     icon: 'shroom',
@@ -530,7 +559,8 @@ export const ARTEN: Art[] = [
   {
     id: 'amsel',
     kategorie: 'voegel',
-    gruppe: 'Singvögel',
+    gruppe: 'Drosseln & Finken',
+    zweig: 'Drosseln',
     name: 'Amsel',
     lat: 'Turdus merula',
     icon: 'bird',
@@ -547,7 +577,8 @@ export const ARTEN: Art[] = [
   {
     id: 'kohlmeise',
     kategorie: 'voegel',
-    gruppe: 'Singvögel',
+    gruppe: 'Kleine Sänger',
+    zweig: 'Meisen, Kleiber & Baumläufer',
     name: 'Kohlmeise',
     lat: 'Parus major',
     icon: 'bird',
@@ -564,7 +595,8 @@ export const ARTEN: Art[] = [
   {
     id: 'rotkehlchen',
     kategorie: 'voegel',
-    gruppe: 'Singvögel',
+    gruppe: 'Drosseln & Finken',
+    zweig: 'Schnäpper & Rotschwänze',
     name: 'Rotkehlchen',
     lat: 'Erithacus rubecula',
     icon: 'bird',
@@ -581,7 +613,8 @@ export const ARTEN: Art[] = [
   {
     id: 'eichelhaeher',
     kategorie: 'voegel',
-    gruppe: 'Singvögel',
+    gruppe: 'Rabenvögel & Offenland',
+    zweig: 'Rabenvögel',
     name: 'Eichelhäher',
     lat: 'Garrulus glandarius',
     icon: 'bird',
@@ -598,7 +631,8 @@ export const ARTEN: Art[] = [
   {
     id: 'buntspecht',
     kategorie: 'voegel',
-    gruppe: 'Spechte',
+    gruppe: 'Spechte, Tauben & Juwelen',
+    zweig: 'Spechte',
     name: 'Buntspecht',
     lat: 'Dendrocopos major',
     icon: 'bird',
@@ -615,7 +649,8 @@ export const ARTEN: Art[] = [
   {
     id: 'schwarzspecht',
     kategorie: 'voegel',
-    gruppe: 'Spechte',
+    gruppe: 'Spechte, Tauben & Juwelen',
+    zweig: 'Spechte',
     name: 'Schwarzspecht',
     lat: 'Dryocopus martius',
     icon: 'bird',
@@ -632,7 +667,8 @@ export const ARTEN: Art[] = [
   {
     id: 'eisvogel',
     kategorie: 'voegel',
-    gruppe: 'Am Wasser',
+    gruppe: 'Spechte, Tauben & Juwelen',
+    zweig: 'Bunte Juwelen',
     name: 'Eisvogel',
     lat: 'Alcedo atthis',
     icon: 'bird',
@@ -649,7 +685,8 @@ export const ARTEN: Art[] = [
   {
     id: 'uhu',
     kategorie: 'voegel',
-    gruppe: 'Eulen',
+    gruppe: 'Jäger der Lüfte',
+    zweig: 'Eulen',
     name: 'Uhu',
     lat: 'Bubo bubo',
     icon: 'bird',
@@ -667,7 +704,8 @@ export const ARTEN: Art[] = [
   {
     id: 'wiedehopf',
     kategorie: 'voegel',
-    gruppe: 'Offenland',
+    gruppe: 'Spechte, Tauben & Juwelen',
+    zweig: 'Bunte Juwelen',
     name: 'Wiedehopf',
     lat: 'Upupa epops',
     icon: 'bird',
@@ -696,6 +734,7 @@ export const ARTEN: Art[] = [
     id: 'schwarzstorch',
     kategorie: 'voegel',
     gruppe: 'Am Wasser',
+    zweig: 'Reiher, Störche & Kraniche',
     name: 'Schwarzstorch',
     lat: 'Ciconia nigra',
     icon: 'bird',
@@ -723,7 +762,8 @@ export const ARTEN: Art[] = [
   {
     id: 'reh',
     kategorie: 'saeuger',
-    gruppe: 'Wald',
+    gruppe: 'Huftiere',
+    zweig: 'Hirsche',
     name: 'Reh',
     lat: 'Capreolus capreolus',
     icon: 'mammal',
@@ -740,7 +780,8 @@ export const ARTEN: Art[] = [
   {
     id: 'eichhoernchen',
     kategorie: 'saeuger',
-    gruppe: 'Wald',
+    gruppe: 'Nagetiere & Hasen',
+    zweig: 'Hörnchen & Biber',
     name: 'Eichhörnchen',
     lat: 'Sciurus vulgaris',
     icon: 'mammal',
@@ -757,7 +798,9 @@ export const ARTEN: Art[] = [
   {
     id: 'wildschwein',
     kategorie: 'saeuger',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Huftiere',
+    zweig: 'Wildrinder, Wildschafe & Wildschwein',
+    gefahrStufe: 2, // kann angreifen – TODO fachlich prüfen
     name: 'Wildschwein',
     lat: 'Sus scrofa',
     icon: 'mammal',
@@ -775,7 +818,8 @@ export const ARTEN: Art[] = [
   {
     id: 'dachs',
     kategorie: 'saeuger',
-    gruppe: 'Wald',
+    gruppe: 'Raubtiere',
+    zweig: 'Marder',
     name: 'Dachs',
     lat: 'Meles meles',
     icon: 'mammal',
@@ -792,7 +836,8 @@ export const ARTEN: Art[] = [
   {
     id: 'fuchs',
     kategorie: 'saeuger',
-    gruppe: 'Gefährlich & tödlich',
+    gruppe: 'Raubtiere',
+    zweig: 'Hunde & Waschbär',
     name: 'Rotfuchs',
     lat: 'Vulpes vulpes',
     icon: 'mammal',
@@ -811,7 +856,8 @@ export const ARTEN: Art[] = [
   {
     id: 'igel',
     kategorie: 'saeuger',
-    gruppe: 'Feld & Garten',
+    gruppe: 'Insektenfresser',
+    zweig: 'Igel, Maulwurf & Spitzmäuse',
     name: 'Braunbrustigel',
     lat: 'Erinaceus europaeus',
     icon: 'mammal',
@@ -828,7 +874,8 @@ export const ARTEN: Art[] = [
   {
     id: 'feldhase',
     kategorie: 'saeuger',
-    gruppe: 'Feld & Garten',
+    gruppe: 'Nagetiere & Hasen',
+    zweig: 'Hasen',
     name: 'Feldhase',
     lat: 'Lepus europaeus',
     icon: 'mammal',
@@ -846,7 +893,8 @@ export const ARTEN: Art[] = [
   {
     id: 'biber',
     kategorie: 'saeuger',
-    gruppe: 'Am Wasser',
+    gruppe: 'Nagetiere & Hasen',
+    zweig: 'Hörnchen & Biber',
     name: 'Biber',
     lat: 'Castor fiber',
     icon: 'mammal',
@@ -863,7 +911,8 @@ export const ARTEN: Art[] = [
   {
     id: 'wildkatze',
     kategorie: 'saeuger',
-    gruppe: 'Wald',
+    gruppe: 'Raubtiere',
+    zweig: 'Katzen & Bär',
     name: 'Europäische Wildkatze',
     lat: 'Felis silvestris',
     icon: 'mammal',
@@ -882,7 +931,8 @@ export const ARTEN: Art[] = [
   {
     id: 'luchs',
     kategorie: 'saeuger',
-    gruppe: 'Wald',
+    gruppe: 'Raubtiere',
+    zweig: 'Katzen & Bär',
     name: 'Eurasischer Luchs',
     lat: 'Lynx lynx',
     icon: 'mammal',

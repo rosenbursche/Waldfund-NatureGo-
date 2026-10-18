@@ -331,6 +331,8 @@ Die Seltenheit der Testarten stammt grob aus den GBIF-Beobachtungen und ist **ni
 
 ## 6. Umsetzung in kleinen Schritten
 
+Stand 18.10.2026: **Schritte 1 und 2 sind gebaut**, dazu der Zweig-Kopf mit Schatz und „Noch … dann blüht der Zweig“ aus Schritt 5/6.
+
 1. **Daten:** `Art` bekommt `ast` und `zweig` statt `gruppe`. `GRUPPEN_REIHENFOLGE` wird zu einer festen Gliederung je Kategorie in `src/data/gliederung.ts`: Äste, Zweige, Reihenfolge und Mond-Symbol, Zweig-Schatz (`schatz`, mit Grund) und Gefahrenstufe 1–3 (`gefahrStufe`). Die Testarten bekommen eine vierte Gruppierung „Konzept“ im Belastungstest-Umschalter, damit man die Einteilung neben „Vorschlag / Familie / Ordnung“ auf dem Handy vergleichen kann.
 2. **Logik:** `lebensbaum()` liefert `aeste: { name, zweige: { name, eintraege }[] }[]`. Sterne gibt es nur noch für „Legendär“, und gefährliche Arten bleiben in ihrem Zweig. Tests prüfen:
    - höchstens 7 Äste je Rune,
