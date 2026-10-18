@@ -167,6 +167,14 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | K1: Kampf-Rechenlogik `src/logic/kampf.ts` mit Tests | 🟡 geparkt auf Branch `feature/kampf-arena`: Grundregeln + Kampfwerte Reh, weitere 5 Start-Tiere fehlen |
 | Kampf-Arena als Test: Reh gegen Reh gegen den Computer, 3D-Arena mit Platzhalter-Modell | 🟡 **geparkt** auf Branch `feature/kampf-arena` (nicht in `main`, nicht in 1.0) · Mini-Spiel beim Spezialangriff fehlt noch |
 
+### 2.10 Belastungstest für die Ausgestaltung
+| Anforderung | Stand |
+|---|---|
+| 500 echte Arten (91 Säugetiere, 152 Vögel, 108 Pilze, 149 Pflanzen) mit Ordnung und Familie von GBIF, um Stammbaum, Waldansicht und Katalog mit vielen Arten zu prüfen | ✅ nur Entwicklung (`__DEV__`), Einstellungen → Belastungstest |
+| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da, Entscheidung offen |
+| Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |
+| Seltenheit für die echte Datenbank: nicht nur aus GBIF-Beobachtungen ableiten | ⬜ |
+
 ### 2.9 Veröffentlichung im App Store und bei Google Play
 Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 dort in Abschnitt 7.
 
