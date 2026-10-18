@@ -14,7 +14,13 @@ import Svg, { Defs, LinearGradient, Path, Stop } from 'react-native-svg';
 import { SELTENHEIT } from '@/data/spiel';
 import type { KategorieId } from '@/data/artTypen';
 import { astPanelForm } from '@/logic/baum/stil';
-import type { KatalogEintrag, KatalogGruppe } from '@/logic/katalog';
+import {
+  istVerborgen,
+  zweigFortschritt,
+  type KatalogEintrag,
+  type KatalogZweig,
+  type LebensAst,
+} from '@/logic/katalog';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { ArtMiniatur } from '../ArtMiniatur';
@@ -23,39 +29,48 @@ import { BAUM_STILE } from './baumStile';
 
 /**
  * Ein geöffneter Ast: wächst von oben nach unten aus dem Baum heraus.
- * Links und rechts zweigen Zweige ab, an jedem hängt eine Art.
- * Häufige Arten sitzen nah am Ast, seltene außen an der Zweigspitze.
+ * Er trägt seine Zweige – jeder Zweig ist ein kleines Sammelset mit Fortschritt und einem Schatz.
+ * Innerhalb eines Zweigs sitzen häufige Arten vorn, seltene an der Zweigspitze (hinten).
  */
-type Props = {
-  kategorie: KategorieId;
-  ast: KatalogGruppe;
-  gefunden: Record<string, unknown>;
-  onSchliessen: () => void;
-};
+type Props = { kategorie: KategorieId; ast: LebensAst; gefunden: Record<string, unknown>; onSchliessen: () => void };
 
-const REIHE = 112;
-const OBEN = 24;
-const KNOTEN = 62;
+const KOPF = 78; // Kopfzeile eines Zweigs
+const REIHE = 108;
+const OBEN = 8;
+const KNOTEN = 54;
 
-type Platz = { e: KatalogEintrag; x: number; y: number; seite: 1 | -1 };
+type Platz = { e: KatalogEintrag; x: number; y: number; schatz: boolean };
+type ZweigPlatz = { z: KatalogZweig; y: number };
 
 export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
   const ruhig = useReducedMotion();
   const [breite, setBreite] = useState(0);
   const W = breite || 340;
+  const spalten = W >= 330 ? 4 : 3;
   const n = ast.eintraege.length;
-  const hoehe = OBEN + n * REIHE + 24;
   const anzahl = ast.eintraege.filter((e) => e.id in gefunden).length;
 
-  const { plaetze, ebenen } = useMemo(() => {
-    const m = W / 2;
-    const plaetze: Platz[] = ast.eintraege.map((e, i) => {
-      const seite: 1 | -1 = i % 2 ? 1 : -1;
-      const reichweite = Math.min(W * (e.seltenheit === 1 ? 0.25 : 0.34), m - 50);
-      return { e, x: m + seite * reichweite, y: OBEN + i * REIHE + 40, seite };
-    });
-    return { plaetze, ebenen: astPanelForm(kategorie, W, hoehe, plaetze, KNOTEN / 2) };
-  }, [ast.eintraege, W, hoehe, kategorie]);
+  const { plaetze, zweige, hoehe } = useMemo(() => {
+    const plaetze: Platz[] = [];
+    const zweige: ZweigPlatz[] = [];
+    const spalte = W / spalten;
+    let y = OBEN;
+    for (const z of ast.zweige) {
+      zweige.push({ z, y });
+      y += KOPF;
+      z.eintraege.forEach((e, i) => {
+        plaetze.push({
+          e,
+          x: spalte * ((i % spalten) + 0.5),
+          y: y + Math.floor(i / spalten) * REIHE + KNOTEN / 2 + 4,
+          schatz: e.id === z.schatz,
+        });
+      });
+      y += Math.ceil(z.eintraege.length / spalten) * REIHE + 6;
+    }
+    return { plaetze, zweige, hoehe: y + 16 };
+  }, [ast.zweige, W, spalten]);
+  const ebenen = useMemo(() => astPanelForm(kategorie, W, hoehe, plaetze, KNOTEN / 2), [kategorie, W, hoehe, plaetze]);
   const stil = BAUM_STILE[kategorie];
   const farbe = (rolle: string) =>
     rolle === 'holz' ? 'url(#astHolz)' : stil.farben[rolle as keyof typeof stil.farben];
@@ -64,7 +79,7 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
   const wachsen = useSharedValue(ruhig ? 1 : 0);
   useEffect(() => {
     if (ruhig) return;
-    wachsen.value = withTiming(1, { duration: 450 + n * 120, easing: Easing.out(Easing.cubic) });
+    wachsen.value = withTiming(1, { duration: 450 + Math.min(n, 16) * 90, easing: Easing.out(Easing.cubic) });
   }, [ruhig, n, wachsen]);
   const wachsStil = useAnimatedStyle(() => ({ height: hoehe * wachsen.value }));
 
@@ -74,7 +89,7 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
         <View style={{ flex: 1 }}>
           <Schrift art="ueberschrift">{ast.name}</Schrift>
           <Schrift art="etikett">
-            {anzahl} von {n} gefunden
+            {anzahl} von {n} gefunden · {ast.zweige.length} {ast.zweige.length === 1 ? 'Zweig' : 'Zweige'}
           </Schrift>
         </View>
         <Pressable
@@ -87,8 +102,14 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
           <Schrift style={stile.schliessenText}>✕ schließen</Schrift>
         </Pressable>
       </View>
+      {ast.mond && (
+        <Schrift art="klein" style={stile.mond}>
+          ☾ Meisterast: schwer zu finden – nachts, sehr klein oder sehr scheu. Nur aus der Ferne beobachten, Quartiere
+          und Nester nie stören.
+        </Schrift>
+      )}
       <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Nah am Ast: häufig (+{SELTENHEIT[1].punkte} AP) · an der Zweigspitze: selten (+{SELTENHEIT[2].punkte} AP)
+        Vorn: häufig (+{SELTENHEIT[1].punkte} AP) · hinten: selten · ✦ = Schatz des Zweigs
       </Schrift>
 
       <Animated.View
@@ -121,8 +142,18 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
               ),
             )}
           </Svg>
+          {zweige.map(({ z, y }) => (
+            <ZweigKopf key={z.name} z={z} y={y} gefunden={gefunden} farbe={stil.ring} />
+          ))}
           {plaetze.map((p, i) => (
-            <Knoten key={p.e.id} p={p} ok={p.e.id in gefunden} index={i} />
+            <Knoten
+              key={p.e.id}
+              p={p}
+              ok={p.e.id in gefunden}
+              verborgen={istVerborgen(p.e.id, gefunden)}
+              breite={W / spalten}
+              index={i}
+            />
           ))}
         </View>
       </Animated.View>
@@ -130,18 +161,86 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
   );
 }
 
-function Knoten({ p, ok, index }: { p: Platz; ok: boolean; index: number }) {
+/** Kopf eines Zweigs: Name, Fortschritt, Schatz – und ein Hinweis, wenn nur noch wenig fehlt */
+function ZweigKopf({
+  z,
+  y,
+  gefunden,
+  farbe,
+}: {
+  z: KatalogZweig;
+  y: number;
+  gefunden: Record<string, unknown>;
+  farbe: string;
+}) {
+  const f = zweigFortschritt(z, gefunden);
+  const schatz = z.eintraege.find((e) => e.id === z.schatz);
+  const schatzName = schatz && (istVerborgen(schatz.id, gefunden) ? 'ein Rätsel' : schatz.name);
+  const hinweis = f.voll
+    ? '✿ Zweig vollständig'
+    : f.fehlt <= 2 && f.gesamt > 2
+      ? `Noch ${f.fehlt} – dann blüht der Zweig`
+      : `Schatz: ${schatzName}${f.schatzGefunden ? ' ✓' : ''}`;
+  return (
+    <View
+      style={[stile.zweigKopf, { top: y }, f.voll && { borderColor: colors.legend }]}
+      accessible
+      accessibilityLabel={`Zweig ${z.name}: ${f.gefunden} von ${f.gesamt} gefunden. ${hinweis}`}
+    >
+      <View style={stile.zweigZeile}>
+        <Schrift style={stile.zweigName} numberOfLines={1}>
+          {f.schatzGefunden ? '✦ ' : ''}
+          {z.name}
+        </Schrift>
+        <Schrift style={[stile.zweigZahl, { color: f.voll ? colors.legend : farbe }]}>
+          {f.gefunden}/{f.gesamt}
+        </Schrift>
+      </View>
+      <View style={stile.balken}>
+        <View
+          style={[
+            stile.balkenFuellung,
+            { width: `${(100 * f.gefunden) / f.gesamt}%`, backgroundColor: f.voll ? colors.legend : farbe },
+          ]}
+        />
+      </View>
+      <Schrift
+        style={[stile.zweigHinweis, (f.voll || f.fehlt <= 2) && f.gesamt > 2 && { color: colors.amber }]}
+        numberOfLines={1}
+      >
+        {hinweis}
+      </Schrift>
+    </View>
+  );
+}
+
+function Knoten({
+  p,
+  ok,
+  verborgen,
+  breite,
+  index,
+}: {
+  p: Platz;
+  ok: boolean;
+  verborgen: boolean;
+  breite: number;
+  index: number;
+}) {
   const s = SELTENHEIT[p.e.seltenheit];
-  const zeilen = p.e.namensZeilen ?? umbrechen(p.e.name);
+  const zeilen = verborgen ? ['???'] : (p.e.namensZeilen ?? umbrechen(p.e.name));
+  const b = Math.min(breite - 2, 96);
   return (
     <Animated.View
-      entering={FadeIn.delay(250 + index * 110).duration(450)}
-      style={[stile.knoten, { left: p.x - 50, top: p.y - KNOTEN / 2 }]}
+      entering={FadeIn.delay(200 + Math.min(index, 14) * 70).duration(400)}
+      style={[stile.knoten, { width: b, left: p.x - b / 2, top: p.y - KNOTEN / 2 }]}
     >
       <Pressable
         onPress={() => router.push({ pathname: '/art/[id]', params: { id: p.e.id } })}
         accessibilityRole="button"
-        accessibilityLabel={`${p.e.name}, ${s.name}, ${s.punkte} Punkte, ${ok ? 'gesammelt' : 'noch offen'}`}
+        accessibilityLabel={`${verborgen ? 'Rätsel' : p.e.name}, ${s.name}, ${s.punkte} Punkte, ${
+          ok ? 'gesammelt' : 'noch offen'
+        }${p.schatz ? ', Schatz des Zweigs' : ''}${p.e.gefahr ? ', gefährlich' : ''}`}
         style={({ pressed }) => [{ alignItems: 'center' }, pressed && { opacity: 0.6 }]}
       >
         <View
@@ -150,6 +249,7 @@ function Knoten({ p, ok, index }: { p: Platz; ok: boolean; index: number }) {
             ok
               ? { borderColor: s.farbe, backgroundColor: colors.forest, shadowColor: s.farbe, shadowOpacity: 0.8 }
               : { borderColor: s.farbe, borderStyle: 'dashed' },
+            p.schatz && { borderWidth: 2.2, borderColor: colors.legend },
           ]}
         >
           <ArtMiniatur
@@ -157,9 +257,19 @@ function Knoten({ p, ok, index }: { p: Platz; ok: boolean; index: number }) {
             baumModell={p.e.baumModell}
             stil={ok ? 'farbe' : 'umriss'}
             akzent={s.farbe}
-            groesse={44}
+            groesse={40}
           />
         </View>
+        {p.schatz && (
+          <Schrift style={[stile.krone, { opacity: ok ? 1 : 0.55 }]} accessible={false}>
+            ✦
+          </Schrift>
+        )}
+        {p.e.gefahr && (
+          <Schrift style={stile.dorn} accessible={false}>
+            ☠
+          </Schrift>
+        )}
         {zeilen.map((z) => (
           <Schrift key={z} art="klein" style={[stile.name, ok && { color: colors.moon }]} numberOfLines={1}>
             {z}
@@ -196,7 +306,30 @@ const stile = StyleSheet.create({
     backgroundColor: colors.forest,
   },
   schliessenText: { fontFamily: fonts.etikett, fontSize: 12, color: colors.fog },
-  knoten: { position: 'absolute', width: 100 },
+  mond: { textAlign: 'center', color: colors.rare },
+  zweigKopf: {
+    position: 'absolute',
+    left: spacing.s,
+    right: spacing.s,
+    minHeight: KOPF - 12,
+    paddingHorizontal: spacing.m,
+    paddingVertical: 6,
+    borderRadius: radius.m,
+    borderWidth: 1,
+    borderColor: colors.moss,
+    backgroundColor: colors.night,
+    opacity: 0.94,
+    gap: 3,
+  },
+  zweigZeile: { flexDirection: 'row', alignItems: 'baseline', gap: spacing.s },
+  zweigName: { flex: 1, fontFamily: fonts.titel, fontSize: 13.5, color: colors.moon },
+  zweigZahl: { fontFamily: fonts.etikett, fontSize: 11 },
+  balken: { height: 3, borderRadius: 2, backgroundColor: colors.forest, overflow: 'hidden' },
+  balkenFuellung: { height: 3, borderRadius: 2 },
+  zweigHinweis: { fontFamily: fonts.etikett, fontSize: 10.5, color: colors.fog },
+  knoten: { position: 'absolute' },
+  krone: { position: 'absolute', top: -12, fontSize: 15, color: colors.legend },
+  dorn: { position: 'absolute', top: -4, right: 6, fontSize: 12, color: colors.warn },
   kreis: {
     width: KNOTEN,
     height: KNOTEN,

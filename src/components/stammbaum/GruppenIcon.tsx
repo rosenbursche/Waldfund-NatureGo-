@@ -165,6 +165,83 @@ const ICONS: Record<string, Teil[]> = {
     l('M28 3.5 A3.4 3.4 0 1 0 29.4 9.4 A2.8 2.8 0 1 1 28 3.5 Z'),
     k(20.6, 16.2, 0.85),
   ],
+  // Wolfskopf mit schmalen, glühenden Augen
+  Raubtiere: [
+    l('M6 4 L11 12 C13 11 19 11 21 12 L26 4 L25 15 C25 20 20 23 18 27 L16 29 L14 27 C12 23 7 20 7 15 Z'),
+    l('M10.5 15 L14 16.4 M21.5 15 L18 16.4 M14.6 25 L16 26.4 L17.4 25 M9 8.6 L11 12 M23 8.6 L21 12'),
+    k(12.8, 17.6, 0.9),
+    k(19.2, 17.6, 0.9),
+  ],
+  // Igel mit gesträubten Stacheln
+  Insektenfresser: [
+    l('M4 25.4 C5 18 10 14 16 14 C21 14 25 17 27 21 L29.5 23 L27 24.6 C26 25.2 24 25.4 22 25.4 Z'),
+    l(
+      'M7 19 L5.2 15.4 M10 16.4 L8.8 12.4 M13.5 15 L13 10.8 M17 14.8 L17.8 10.8 M20.5 15.6 L22.4 12.2 M23.6 17.6 L26.2 15.2',
+    ),
+    l('M8 25.4 L8 27.8 M20 25.4 L20 27.8 M2.5 28 L29.5 28'),
+    k(24.4, 20.4, 0.85),
+  ],
+  // Fledermaus vor dem Mond
+  Fledermäuse: [
+    l(
+      'M16 12 C14 12 13 14 13 16 C10 14 6 14 2.5 17 C5 17.5 6.5 19 7 21 C8.5 19.5 10.5 19.5 12 21 C13 19.5 14.5 19.5 16 21 C17.5 19.5 19 19.5 20 21 C21.5 19.5 23.5 19.5 25 21 C25.5 19 27 17.5 29.5 17 C26 14 22 14 19 16 C19 14 18 12 16 12 Z',
+    ),
+    l('M14.4 12.4 L13.8 9.4 L15.4 11.6 M17.6 12.4 L18.2 9.4 L16.6 11.6'),
+    l('M24 2.5 A4 4 0 1 0 27.6 8.4 A3.2 3.2 0 1 1 24 2.5 Z'),
+    k(15, 15.2, 0.7),
+    k(17, 15.2, 0.7),
+  ],
+  // dicker Fink auf einem Zweig mit Beeren
+  'Drosseln & Finken': [
+    l('M7 20 C7 15 11 12 15.5 12 C18 9.5 22 9.5 23.6 12 L26.8 13 L23.8 14 C24 18 21 21.5 16 22 L11 22 L5 25 L8 21.4 Z'),
+    l('M3 26 L29 24 M22 24.4 L24.5 27.4 M14 22 L14 25.4 M17 21.8 L17.4 25.2 M10 16.5 C12.5 15.5 15 16 17 17.6'),
+    f('M24.5 28.6 a1.1 1.1 0 1 0 0.01 0 Z M27 27.4 a1 1 0 1 0 0.01 0 Z'),
+    k(21.2, 12.6, 0.85),
+  ],
+  // Büschel dünner Pilze, in jedem Hut ein Auge
+  'Weitere Blätterpilze': [
+    l(
+      'M4 15 Q8.5 9.5 13 15 Q8.5 14 4 15 Z M13.5 11 Q18 4.5 22.5 11 Q18 10 13.5 11 Z M20 17 Q24.5 12 29 17 Q24.5 16 20 17 Z',
+    ),
+    l('M8.5 14.6 C9 20 11 25 14 29 M18 10.4 C17 17 16 23 15 29 M24.5 16.6 C23 22 19 26 16 29 M10 29.5 L21 29.5'),
+    k(8.5, 13.2, 0.7),
+    k(18, 9, 0.8),
+    k(24.5, 15.7, 0.7),
+  ],
+  // Baumschwämme am Stamm, die herüberschauen
+  'Leisten, Stacheln & Porlinge': [
+    l('M4 2.5 L4 29.5 M9 2.5 L9 29.5'),
+    l(
+      'M9 8 C15 7 22 8.5 25 11 C20 12.5 14 12.5 9 12 M9 15.5 C16 14.5 25 16 28.5 19 C22 20.5 15 20.5 9 20 M9 23 C14 22.4 19 23.4 21 25 C17.6 26 13 26 9 25.8',
+    ),
+    l('M11.5 10.4 L19 10.7 M11.5 18 L23 18.3 M5 6 L7.5 7 M5 21 L7.5 20.4'),
+    k(21.8, 10.4, 0.8),
+    k(25.2, 17.9, 0.85),
+  ],
+  // Pusteblume mit Auge im Herzen, Gras am Boden
+  'Wiese & Feld': [
+    l('M16 29.5 C16 24 15.4 19 16 14'),
+    l('M16 9 L16 3 M16 9 L21 4.6 M16 9 L22.4 8.6 M16 9 L21 13 M16 9 L11 4.6 M16 9 L9.6 8.6 M16 9 L11 13 M16 9 L16 14'),
+    f(
+      'M16 2.6 a0.7 0.7 0 1 0 0.01 0 Z M21.4 4.2 a0.7 0.7 0 1 0 0.01 0 Z M10.6 4.2 a0.7 0.7 0 1 0 0.01 0 Z M22.8 8.6 a0.7 0.7 0 1 0 0.01 0 Z M9.2 8.6 a0.7 0.7 0 1 0 0.01 0 Z',
+    ),
+    l(
+      'M5 29.5 C6 25 6 23 5 20 M8 29.5 C8.5 26 10 24 11.5 23 M27 29.5 C26 26 26.5 23 28 21 M24 29.5 C23.5 27 22 25.5 20.5 25',
+    ),
+    k(16, 9, 1.2),
+  ],
+  // Frauenschuh-Orchidee: im Schuh glimmt ein Auge
+  'Orchideen & Farne': [
+    l('M16 29.5 C16 24 17 20 16 17.4'),
+    l(
+      'M16 12 C12 6 8 6 6 8 C9 9 12 11 16 12 Z M16 12 C20 6 24 6 26 8 C23 9 20 11 16 12 Z M16 12 C15 8 15.5 5 16 2.8 C16.5 5 17 8 16 12 Z',
+    ),
+    l('M12.5 13 C12 18.6 20 18.6 19.5 13 C18 14.4 14 14.4 12.5 13 Z'),
+    l(
+      'M16 24.5 C12 22.5 9 22.5 7 24.5 C10 26 13 26 16 24.5 Z M16.2 26.5 C19 25 22 25 24 26.5 C21.6 27.8 18.8 27.8 16.2 26.5 Z',
+    ),
+    k(16, 15.4, 1.05),
+  ],
   // Totenkopf, durch den Wurzeln wachsen
   [SCHATTENWURZELN]: [
     l('M9 13 C9 6 23 6 23 13 C23 16 21 17 21 19 L11 19 C11 17 9 16 9 13 Z'),
@@ -177,11 +254,30 @@ const ICONS: Record<string, Teil[]> = {
   ],
 };
 
+/**
+ * Äste der neuen Gliederung (src/data/gliederung.ts), die ein älteres Symbol mitbenutzen.
+ * Innerhalb einer Rune hat jeder Ast ein eigenes Symbol.
+ */
+const ALIAS: Record<string, string> = {
+  'Sträucher & Ranken': 'Büsche',
+  Waldboden: 'Waldboden & Wiese',
+  'Wasser & Moor': 'Am Wasser',
+  'Wulstlinge, Champignons & Täublinge': 'Blätterpilze',
+  'Wunderliche Formen': 'Besondere Formen',
+  'Kleine Sänger': 'Singvögel',
+  'Rabenvögel & Offenland': 'Offenland',
+  'Spechte, Tauben & Juwelen': 'Spechte',
+  'Jäger der Lüfte': 'Eulen',
+  Huftiere: 'Wald',
+  'Nagetiere & Hasen': 'Feld & Garten',
+  'Meer & Küste': 'Am Wasser',
+};
+
 /** Ersatz, falls eine Gruppe (noch) kein eigenes Symbol hat: ein Runenauge */
 const ERSATZ: Teil[] = [l('M3.5 16 Q16 5.5 28.5 16 Q16 26.5 3.5 16 Z M16 5 L16 8 M16 24 L16 27'), k(16, 16, 2.6)];
 
 export function hatIcon(name: string) {
-  return name in ICONS;
+  return (ALIAS[name] ?? name) in ICONS;
 }
 
 export function GruppenIcon({
@@ -199,7 +295,7 @@ export function GruppenIcon({
   phase?: number;
 }) {
   const ruhig = useReducedMotion();
-  const teile = ICONS[name] ?? ERSATZ;
+  const teile = ICONS[ALIAS[name] ?? name] ?? ERSATZ;
   const linien = teile.filter((t): t is { d: string; art: 'linie' | 'flaeche' } => 'd' in t);
   const augen = teile.filter((t): t is { auge: [number, number, number] } => 'auge' in t);
 

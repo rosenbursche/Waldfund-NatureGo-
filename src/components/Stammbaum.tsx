@@ -8,6 +8,7 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { GefahrSektion } from './GefahrSektion';
 import { Schrift } from './Schrift';
+import { AstListe } from './stammbaum/AstListe';
 import { AstPanel } from './stammbaum/AstPanel';
 import { Lebensbaum, WURZELN } from './stammbaum/Lebensbaum';
 
@@ -34,11 +35,12 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
   return (
     <View style={{ gap: spacing.m }}>
       <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Tippe einen Ast an, um seine Arten zu sehen. Die Sterne sind die seltensten Arten – und in den Schattenwurzeln
-        lauert Gefahr.
+        Tippe einen Ast an – am Baum oder in der Liste darunter. Seine Zweige sind kleine Sammelsets, jedes mit einem
+        Schatz. Die Sterne sind die legendären Arten.
       </Schrift>
 
       <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />
+      <AstListe kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />
 
       {ast && (
         <View onLayout={(e) => onBereich?.(e.nativeEvent.layout.y)}>

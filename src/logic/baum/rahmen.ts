@@ -108,13 +108,17 @@ export type Rahmen = {
 export function rahmen(W: number, anzahlAeste: number, anzahlSterne: number, rnd: Zufall, g: Gestalt): Rahmen {
   const mitte = { x: W / 2, y: W * 0.56 };
   const N = Math.max(1, anzahlAeste);
-  const spreizung = (Math.min(g.spreizung, 22 + N * 10) * Math.PI) / 180;
+  // ab 5 Ästen weiter auffächern und die langen Äste weiter hinausziehen, damit sich die Knöpfe nicht berühren
+  const viele = N >= 5;
+  const spreizung = ((viele ? Math.max(g.spreizung, 80) : Math.min(g.spreizung, 22 + N * 10)) * Math.PI) / 180;
+  const lang = viele ? g.lang + 0.07 : g.lang;
+  const kurz = viele ? g.kurz + 0.01 : g.kurz;
   const astSpitzen: Punkt[] = [];
   const astAnteile: number[] = [];
   for (let i = 0; i < N; i++) {
     const anteil = N === 1 ? 0 : lerp(-1, 1, i / (N - 1));
     const a = anteil * spreizung;
-    const r = W * (N >= 4 && i % 2 ? g.kurz : g.lang);
+    const r = W * (N >= 4 && i % 2 ? kurz : lang);
     astSpitzen.push({ x: mitte.x + Math.sin(a) * r, y: mitte.y + W * 0.01 - Math.cos(a) * r });
     astAnteile.push(anteil);
   }
@@ -123,7 +127,8 @@ export function rahmen(W: number, anzahlAeste: number, anzahlSterne: number, rnd
   const sw = (Math.min(58, 14 * anzahlSterne) * Math.PI) / 180;
   for (let i = 0; i < anzahlSterne; i++) {
     const a = anzahlSterne === 1 ? 0 : lerp(-sw, sw, i / (anzahlSterne - 1));
-    sternPlaetze.push({ x: mitte.x + Math.sin(a) * W * 0.415, y: mitte.y - Math.cos(a) * W * 0.415 });
+    const rs = W * (viele ? 0.455 : 0.415); // über den weiter hinausgezogenen Ästen
+    sternPlaetze.push({ x: mitte.x + Math.sin(a) * rs, y: mitte.y - Math.cos(a) * rs });
   }
 
   // Runenring, unten offen: dort brechen die Wurzeln hindurch

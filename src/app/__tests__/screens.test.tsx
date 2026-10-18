@@ -202,7 +202,7 @@ describe('Screens rendern ohne Fehler', () => {
     useSammlung.setState({ gefunden: {} });
     useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
-    expect(screen.getByLabelText('Ast Blätterpilze, 0 von 2 gefunden')).toBeTruthy();
+    expect(screen.getByLabelText('Ast Weitere Blätterpilze, 0 von 2 gefunden')).toBeTruthy();
     // Mystery-Art ist ein matter Stern und bleibt verborgen
     expect(screen.getByLabelText(/Unbekannter Stern, Legendär, 1000 Punkte/)).toBeTruthy();
     expect(screen.queryByText('Igel-Stachelbart')).toBeNull();
@@ -210,6 +210,8 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.queryByLabelText(/Fichten-Steinpilz/)).toBeNull();
     await fireEvent.press(screen.getByLabelText(/Ast Röhrlinge/));
     expect(screen.getByLabelText(/Fichten-Steinpilz/)).toBeTruthy();
+    // der Ast zeigt seine Zweige mit Fortschritt
+    expect(screen.getByLabelText(/Zweig Steinpilze & Hexen: 0 von 2 gefunden/)).toBeTruthy();
     // Schattenwurzeln öffnen "Gefährlich & tödlich"
     expect(screen.queryByText('☠ Gefährlich & tödlich ☠')).toBeNull();
     await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
@@ -217,12 +219,12 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText(/Grüner Knollenblätterpilz, tödlich giftig/)).toBeTruthy();
   });
 
-  test('Katalog Pflanzen: Äste Bäume und Büsche, giftige Pflanzen nur in den Wurzeln', async () => {
+  test('Katalog Pflanzen: Äste Bäume und Sträucher, giftige Pflanzen an ihrem Zweig und in den Wurzeln', async () => {
     mockParams.kategorie = 'pflanzen';
     useEinstellungen.setState({ naturraumId: 'lueneburger-heide', katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
     expect(screen.getByText('Bäume')).toBeTruthy();
-    await fireEvent.press(screen.getByLabelText(/Ast Büsche/));
+    await fireEvent.press(screen.getByLabelText(/Ast Sträucher & Ranken/));
     expect(screen.getByLabelText(/^Gewöhnliche Hasel,/)).toBeTruthy();
     expect(screen.queryAllByLabelText(/Blauer Eisenhut/)).toHaveLength(0);
     await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));

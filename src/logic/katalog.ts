@@ -1,7 +1,8 @@
 import { ARTEN, artById } from '@/data/arten';
 import type { Art, IconName, KategorieId, ModellParameter, Seltenheit } from '@/data/artTypen';
 import { baumById } from '@/data/baumarten';
-import { MYSTERY_AB } from '@/data/spiel';
+import { GEFAHR_REIHENFOLGE, GLIEDERUNG, NADELBAEUME } from '@/data/gliederung';
+import { MYSTERY_AB, STERN_AB } from '@/data/spiel';
 import { TESTARTEN, testGruppenReihenfolge } from '@/data/testarten';
 import type { BaumModell, Naturraum } from '@/data/typen';
 
@@ -62,7 +63,14 @@ export type KatalogEintrag = {
   lat: string;
   seltenheit: Seltenheit;
   icon: IconName;
+  /** Ast im Lebensbaum */
   gruppe: string;
+  /** Zweig am Ast (fehlt bei den Test-Gruppierungen Vorschlag/Familie/Ordnung) */
+  zweig?: string;
+  /** Grund, warum die Art der Schatz ihres Zweigs ist */
+  besonders?: string;
+  /** 1–3, nur bei gefährlichen Arten (siehe Art.gefahrStufe) */
+  gefahrStufe?: 1 | 2 | 3;
   namensZeilen?: string[];
   raetsel?: string;
   lebensraum?: string;
@@ -73,18 +81,14 @@ export type KatalogEintrag = {
   baumModell?: BaumModell;
 };
 
-/** Name der Sektion, die es in jeder Kategorie gibt */
-export const GEFAHR_GRUPPE = 'Gefährlich & tödlich';
-
-/** Sinnvolle Reihenfolge der Gruppen je Kategorie (unbekannte Gruppen kommen ans Ende) */
-export const GRUPPEN_REIHENFOLGE: Record<KategorieId, string[]> = {
-  pflanzen: ['Bäume', 'Büsche', 'Frühblüher', 'Waldboden & Wiese', 'Wiesen & Heiden', 'Moore', 'Orchideen'],
-  pilze: ['Blätterpilze', 'Röhrlinge', 'Besondere Formen'],
-  voegel: ['Singvögel', 'Spechte', 'Am Wasser', 'Eulen', 'Offenland'],
-  saeuger: ['Wald', 'Feld & Garten', 'Am Wasser'],
-};
-
 export type KatalogGruppe = { name: string; eintraege: KatalogEintrag[] };
+
+/** Gefahrenstufe aus der Angabe der Art – sonst aus der Giftigkeit */
+function gefahrStufeVon(a: Art): 1 | 2 | 3 | undefined {
+  if (a.gefahrStufe) return a.gefahrStufe;
+  if (a.giftig) return a.giftig.includes('tödlich') ? 3 : a.giftig.includes('sehr') ? 2 : 1;
+  return a.gefahr ? 1 : undefined;
+}
 
 function ausArt(a: Art): KatalogEintrag {
   return {
@@ -94,6 +98,9 @@ function ausArt(a: Art): KatalogEintrag {
     seltenheit: a.seltenheit,
     icon: a.icon,
     gruppe: a.gruppe,
+    zweig: a.zweig,
+    besonders: a.besonders,
+    gefahrStufe: gefahrStufeVon(a),
     namensZeilen: a.namensZeilen,
     raetsel: a.raetsel,
     lebensraum: a.lebensraum,
@@ -117,6 +124,7 @@ export function katalogEintrag(id: string): KatalogEintrag | undefined {
       seltenheit: 1,
       icon: 'tree',
       gruppe: 'Bäume',
+      zweig: NADELBAEUME.has(baum.id) ? 'Nadelbäume' : 'Laubbäume',
       baumModell: baum.modell,
     };
   return undefined;
@@ -192,10 +200,16 @@ export function waldPlaetze(kategorie: KategorieId, naturraum?: Naturraum): Wald
   });
 }
 
-function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): KatalogGruppe[] {
+/** Reihenfolge der Äste: feste Gliederung – nur die alten Test-Gruppierungen sortieren anders */
+function astReihenfolge(kategorie: KategorieId): string[] {
   const e = useEinstellungen.getState();
-  const reihenfolge =
-    __DEV__ && e.belastungstest ? testGruppenReihenfolge(kategorie, e.testGruppierung) : GRUPPEN_REIHENFOLGE[kategorie];
+  if (__DEV__ && e.belastungstest && e.testGruppierung !== 'konzept')
+    return testGruppenReihenfolge(kategorie, e.testGruppierung);
+  return GLIEDERUNG[kategorie].map((a) => a.name);
+}
+
+function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): KatalogGruppe[] {
+  const reihenfolge = astReihenfolge(kategorie);
   const rang = (g: string) => (reihenfolge.includes(g) ? reihenfolge.indexOf(g) : reihenfolge.length);
   const gruppen: KatalogGruppe[] = [];
   for (const e of eintraege) {
@@ -208,35 +222,102 @@ function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): Katal
 
 // ---------- Lebensbaum (Stammbaum-Ansicht) ----------
 
+/** Ein Zweig am Ast: ein kleines Sammelset mit seinem Schatz */
+export type KatalogZweig = {
+  name: string;
+  /** häufige zuerst, seltene an der Zweigspitze */
+  eintraege: KatalogEintrag[];
+  /** ID des Zweig-Schatzes (sehr seltene oder besondere Art) */
+  schatz?: string;
+};
+
+/** Ein Hauptast: alle Arten (flach, für Zählungen) und dieselben Arten nach Zweigen */
+export type LebensAst = KatalogGruppe & {
+  zweige: KatalogZweig[];
+  /** kurzer Name für den Knopf am Baum */
+  kurz: string;
+  /** Meisterast: schwer zu finden (nachts, sehr klein oder sehr scheu) */
+  mond?: boolean;
+};
+
 export type Lebensbaum = {
-  /** Hauptäste = Gruppen der Kategorie, jeweils von häufig bis selten sortiert */
-  aeste: KatalogGruppe[];
-  /** Sterne über der Krone = die seltensten Arten (ab "sehr selten"), legendäre zuerst */
+  /** Hauptäste in der Reihenfolge der Gliederung – jede Art steht genau einmal an einem Zweig */
+  aeste: LebensAst[];
+  /** Sterne über der Krone = die legendären Arten (zweite Sicht, sie hängen auch an ihrem Zweig) */
   sterne: KatalogEintrag[];
-  /** Schattenwurzeln = "Gefährlich & tödlich" */
+  /** Schattenwurzeln = alle gefährlichen Arten (zweite Sicht, sie hängen auch an ihrem Zweig) */
   wurzeln: KatalogEintrag[];
 };
 
 /**
- * Aufbau des Lebensbaums einer Kategorie:
- * - Äste: die Gruppen (Bäume, Büsche, Eulen …) mit allen häufigen und seltenen Arten
- * - Sterne: sehr seltene und legendäre Arten (Mystery) – leuchten erst, wenn gefunden
- * - Wurzeln: gefährliche Arten
- * Jede Art steht genau einmal im Baum. Gruppen, die nur Mystery-Arten haben, bilden keinen Ast.
+ * Der Schatz eines Zweigs: die seltenste Art ab „sehr selten“; gibt es keine,
+ * die als besonders markierte Art; sonst die seltenste Art des Zweigs.
+ */
+export function zweigSchatz(eintraege: KatalogEintrag[]): string | undefined {
+  if (!eintraege.length) return undefined;
+  const seltenste = eintraege.reduce((a, b) => (b.seltenheit > a.seltenheit ? b : a));
+  if (seltenste.seltenheit >= MYSTERY_AB) return seltenste.id;
+  return (eintraege.find((e) => e.besonders) ?? seltenste).id;
+}
+
+/** Fortschritt eines Zweigs */
+export function zweigFortschritt(z: KatalogZweig, gefunden: Record<string, unknown>) {
+  const n = z.eintraege.filter((e) => e.id in gefunden).length;
+  return {
+    gefunden: n,
+    gesamt: z.eintraege.length,
+    fehlt: z.eintraege.length - n,
+    voll: n === z.eintraege.length,
+    schatzGefunden: !!z.schatz && z.schatz in gefunden,
+  };
+}
+
+/** Teilt die Arten eines Astes in seine Zweige (Reihenfolge wie in der Gliederung) */
+function zweigeVon(kategorie: KategorieId, ast: KatalogGruppe): KatalogZweig[] {
+  const plan = GLIEDERUNG[kategorie].find((a) => a.name === ast.name)?.zweige ?? [];
+  const rang = (z: string) => (plan.includes(z) ? plan.indexOf(z) : plan.length);
+  const zweige: KatalogZweig[] = [];
+  for (const e of ast.eintraege) {
+    const name = e.zweig ?? ast.name;
+    let z = zweige.find((x) => x.name === name);
+    if (!z) zweige.push((z = { name, eintraege: [] }));
+    z.eintraege.push(e);
+  }
+  for (const z of zweige) {
+    // stabile Sortierung: häufige nah am Ast, seltene an der Zweigspitze
+    z.eintraege.sort((a, b) => a.seltenheit - b.seltenheit);
+    z.schatz = zweigSchatz(z.eintraege);
+  }
+  return zweige.sort((a, b) => rang(a.name) - rang(b.name));
+}
+
+/**
+ * Aufbau des Lebensbaums einer Kategorie (Konzept: docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md):
+ * - Äste → Zweige → Arten: jede Art genau einmal, auch gefährliche und sehr seltene
+ * - Sterne: die legendären Arten, zusätzlich über der Krone
+ * - Wurzeln: die gefährlichen Arten, zusätzlich als Schattenwurzeln
  */
 export function lebensbaum(kategorie: KategorieId, naturraum?: Naturraum): Lebensbaum {
   const alle = artIdsDerKategorie(kategorie, naturraum)
     .map(katalogEintrag)
     .filter((e): e is KatalogEintrag => !!e);
-  const ungefaehrlich = alle.filter((e) => !e.gefahr);
-  const aeste = nachGruppen(
-    ungefaehrlich.filter((e) => e.seltenheit < MYSTERY_AB),
-    kategorie,
-  );
-  // stabile Sortierung: häufige nah am Ast, seltene an der Zweigspitze
-  for (const a of aeste) a.eintraege.sort((x, y) => x.seltenheit - y.seltenheit);
-  const sterne = ungefaehrlich.filter((e) => e.seltenheit >= MYSTERY_AB).sort((a, b) => b.seltenheit - a.seltenheit);
+  const aeste = nachGruppen(alle, kategorie).map((g) => {
+    const plan = GLIEDERUNG[kategorie].find((a) => a.name === g.name);
+    return {
+      ...g,
+      eintraege: [...g.eintraege].sort((a, b) => a.seltenheit - b.seltenheit),
+      zweige: zweigeVon(kategorie, g),
+      kurz: plan?.kurz ?? g.name,
+      mond: plan?.mond,
+    };
+  });
+  const sterne = alle.filter((e) => e.seltenheit >= STERN_AB).sort((a, b) => b.seltenheit - a.seltenheit);
   return { aeste, sterne, wurzeln: gefahrEintraege(kategorie, naturraum) };
+}
+
+/** Alle Arten des Lebensbaums, jede genau einmal */
+export function alleImBaum(baum: Lebensbaum): KatalogEintrag[] {
+  return baum.aeste.flatMap((a) => a.eintraege);
 }
 
 /** Arten der Sektion "Gefährlich & tödlich" – die seltensten zuerst */
@@ -245,4 +326,38 @@ export function gefahrEintraege(kategorie: KategorieId, naturraum?: Naturraum): 
     .map(katalogEintrag)
     .filter((e): e is KatalogEintrag => !!e && !!e.gefahr)
     .sort((a, b) => b.seltenheit - a.seltenheit);
+}
+
+// ---------- Schatzkammer unter dem Baum ----------
+
+/** Rang in der festen Gefahren-Reihenfolge (unbekannt = hinten) */
+function gefahrRang(e: KatalogEintrag): number {
+  const i = GEFAHR_REIHENFOLGE.indexOf(e.lat);
+  return i < 0 ? GEFAHR_REIHENFOLGE.length : i;
+}
+
+/**
+ * Schatzkammer einer Rune: die seltensten Arten (legendäre zuerst) und die gefährlichsten
+ * (nach Gefahrenstufe, bei Gleichstand nach der festen Reihenfolge, dann nach Seltenheit).
+ */
+export function schatzkammer(
+  kategorie: KategorieId,
+  naturraum?: Naturraum,
+  anzahl = { selten: 5, gefahr: 3 },
+): { seltenste: KatalogEintrag[]; gefaehrlichste: KatalogEintrag[] } {
+  const alle = artIdsDerKategorie(kategorie, naturraum)
+    .map(katalogEintrag)
+    .filter((e): e is KatalogEintrag => !!e);
+  const seltenste = [...alle]
+    .filter((e) => e.seltenheit >= 2)
+    .sort((a, b) => b.seltenheit - a.seltenheit)
+    .slice(0, anzahl.selten);
+  const gefaehrlichste = alle
+    .filter((e) => e.gefahr)
+    .sort(
+      (a, b) =>
+        (b.gefahrStufe ?? 1) - (a.gefahrStufe ?? 1) || gefahrRang(a) - gefahrRang(b) || b.seltenheit - a.seltenheit,
+    )
+    .slice(0, anzahl.gefahr);
+  return { seltenste, gefaehrlichste };
 }

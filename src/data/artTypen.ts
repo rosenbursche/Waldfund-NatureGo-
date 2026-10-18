@@ -27,8 +27,12 @@ export type ZeichnungParameter = { t: string } & Record<string, string | number>
 export type Art = {
   id: string;
   kategorie: KategorieId;
-  /** Gruppe im Katalog, z. B. "Frühblüher" oder "Gefährlich & tödlich" */
+  /** Ast im Lebensbaum, z. B. "Frühblüher" (Reihenfolge: src/data/gliederung.ts) */
   gruppe: string;
+  /** Zweig am Ast, z. B. "Weiße & gelbe Teppiche" */
+  zweig?: string;
+  /** Grund, warum die Art der Schatz ihres Zweigs ist (nur nötig, wenn der Zweig keine sehr seltene Art hat) */
+  besonders?: string;
   name: string;
   lat: string;
   icon: IconName;
@@ -39,6 +43,8 @@ export type Art = {
   giftig?: string;
   /** Gefahr bei Tieren, die nicht giftig sind (z. B. Angriff, Krankheitserreger) – kurzer Warntext */
   gefahr?: string;
+  /** 3 = tödlich / lebensgefährlich, 2 = sehr giftig / kann angreifen, 1 = giftig / Vorsicht. Fehlt sie, gilt die Giftigkeit. */
+  gefahrStufe?: 1 | 2 | 3;
   lebensraum: string;
   saison: string;
   groesse: string;

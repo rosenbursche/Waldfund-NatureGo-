@@ -171,7 +171,13 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Anforderung | Stand |
 |---|---|
 | 500 echte Arten (91 Säugetiere, 152 Vögel, 108 Pilze, 149 Pflanzen) mit Ordnung und Familie von GBIF, um Stammbaum, Waldansicht und Katalog mit vielen Arten zu prüfen | ✅ nur Entwicklung (`__DEV__`), Einstellungen → Belastungstest |
-| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da, Entscheidung offen |
+| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da · Konzept `docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md` (Branch `feature/stammbaum-gliederung`), E1 + E3 entschieden |
+| Gliederung Rune → Ast (≤ 7) → Zweig (2–12 Arten) → Art: Daten, Logik, geöffneter Ast mit Zweigen | ✅ Schritt 1–2 (`src/data/gliederung.ts`, `lebensbaum()`, `AstPanel.tsx`) |
+| Übersichtlicher Baum: Knöpfe ohne Text und weiter aufgefächert, Ast-Liste mit Namen unter dem Baum, eigenes Symbol je Ast | ✅ (`AstListe.tsx`) |
+| Knospe je Art (Gesamtgröße sichtbar), Zweig blüht, Vorschläge „Als Nächstes“, Filter dimmen statt verstecken, Suche | ⬜ |
+| Jeder Zweig hat einen Schatz (sehr seltene oder besondere Art) | ✅ Logik + Krone im Zweig |
+| Schatzkammer unter dem Baum: die 5 seltensten und die 3 gefährlichsten Arten der Rune, Gefahrenstufe 1–3 | 🟡 Logik `schatzkammer()` fertig, Anzeige fehlt |
+| Bonuspunkte: +25 AP je voller Zweig, +150 AP je voller Ast | 🟡 Werte in `spiel.ts`, Vergabe fehlt |
 | Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |
 | Seltenheit für die echte Datenbank: nicht nur aus GBIF-Beobachtungen ableiten | ⬜ |
 
