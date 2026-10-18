@@ -62,6 +62,21 @@ export const BIBER: TierSeite = {
     { icon: 'auto', kurz: 'Straßen' },
     { icon: 'wolf', kurz: 'Wolf' },
   ],
-  lebensraum: { landschaft: 'ufer', tag: 1, nacht: 2, orte: ['Ufergehölz', 'Burg am Ufer', 'Wasser'] },
+  lebensraum: {
+    landschaft: 'ufer',
+    tag: 1,
+    nacht: 2,
+    orte: ['Ufergehölz', 'Burg am Ufer', 'Wasser'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/ufer-bach',
+      zonen: [
+        [45, 55],
+        [55, 76],
+        [30, 62],
+      ],
+      orte: [undefined, undefined, 'landschaft/biberdamm'],
+    },
+  },
   hinweis: { titel: 'Biberburg entdeckt?', bild: 'abstand', text: 'wusstestDu' },
 };

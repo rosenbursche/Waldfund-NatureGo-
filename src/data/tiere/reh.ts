@@ -20,15 +20,6 @@ export const REH: TierSeite = {
     aktiv: 'reh/bock-aest-winter',
     spuren: { tritt: 'reh/trittsiegel', losung: 'reh/losung' },
     hinweis: 'reh/kitz',
-    // Waldrand-Panorama: Wald rechts, Waldkante, Wiese links
-    lebensraum: {
-      foto: 'landschaft/waldrand-wiese',
-      zonen: [
-        [88, 50],
-        [73, 60],
-        [35, 76],
-      ],
-    },
   },
   farben: {
     sommer: '#9B5E32', // rotbraunes Sommerfell (wie das 3D-Modell)
@@ -108,6 +99,21 @@ export const REH: TierSeite = {
     { artId: 'fuchs', kurz: 'Fuchs', nurJung: true },
     { icon: 'maehen', kurz: 'Wiesenmahd', nurJung: true },
   ],
-  lebensraum: { landschaft: 'waldrand', tag: 1, nacht: 2, orte: ['Deckung', 'Lieblingsplatz', 'Futter'] },
+  lebensraum: {
+    landschaft: 'waldrand',
+    tag: 1,
+    nacht: 2,
+    orte: ['Deckung', 'Lieblingsplatz', 'Futter'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/waldrand-wiese',
+      zonen: [
+        [88, 50],
+        [73, 60],
+        [35, 76],
+      ],
+      orte: ['landschaft/dickicht', undefined, 'landschaft/wiese'],
+    },
+  },
   hinweis: { titel: 'Kitz gefunden?', bild: 'jung', text: 'wusstestDu' },
 };

@@ -67,10 +67,12 @@ export function TierSeiteInhalt({
   );
 }
 
-/** Alle Fotos einer Tierseite (für den Bildnachweis) */
-export function alleFotos(tier: TierSeite): FotoId[] {
+/** Alle Fotos einer Tierseite (für den Bildnachweis); `mitLandschaft`: auch Panorama und Nahfotos (lebendige Seite) */
+export function alleFotos(tier: TierSeite, mitLandschaft = false): FotoId[] {
   const f = tier.fotos;
-  if (!f) return [];
+  const p = tier.lebensraum.panorama;
+  const landschaft = p && mitLandschaft ? [p.foto, ...(p.orte ?? [])] : [];
+  if (!f) return landschaft.filter((x): x is FotoId => !!x);
   const liste: (FotoId | undefined)[] = [
     f.hero,
     f.erkunden?.maennlich?.foto,
@@ -82,8 +84,8 @@ export function alleFotos(tier: TierSeite): FotoId[] {
     f.aktiv,
     f.ruhe,
     f.hinweis,
-    f.lebensraum?.foto,
     ...Object.values(f.spuren ?? {}),
+    ...landschaft,
   ];
   return liste.filter((x): x is FotoId => !!x);
 }

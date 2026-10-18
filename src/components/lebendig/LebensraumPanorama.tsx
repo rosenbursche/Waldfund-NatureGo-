@@ -5,10 +5,12 @@ import { Animated, Easing, Pressable, ScrollView, StyleSheet, View } from 'react
 import Svg, { Circle } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
+import { TierFigur } from '@/components/tier/TierFigur';
+import { TierFoto } from '@/components/tier/TierFoto';
 import { TierSymbol } from '@/components/tier/TierSymbol';
 import { ZONEN_SYMBOL } from '@/components/tier/UmweltTafeln';
 import { Schalter } from '@/components/ui/Schalter';
-import { FOTOS, fotoNachweis } from '@/data/fotos';
+import { FOTOS, fotoNachweis, type FotoId } from '@/data/fotos';
 import type { TierSeite, Zone } from '@/data/tierSeiten';
 import { colors, fonts, spacing } from '@/theme/theme';
 
@@ -18,13 +20,15 @@ import { colors, fonts, spacing } from '@/theme/theme';
  * - Das Tier ist ein rundes Foto-Porträt. Beim Wechsel Tag ↔ Dämmerung wandert es zu seinem Ort
  *   und hinterlässt eine Spur aus Punkten; das Panorama fährt mit.
  * - In der Dämmerung wird die Landschaft dunkel und bläulich, das Porträt leuchtet.
+ * - Orte mit Punkt haben ein Nahfoto (Dickicht, Wiese …), das beim Antippen darunter erscheint.
+ * - Tiere ohne eigenes Foto zeigen im Porträt ihre Zeichnung.
  */
 const HOEHE = 300;
 const PORTRAET = 54;
 
 export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
-  const lr = tier.fotos?.lebensraum;
   const l = tier.lebensraum;
+  const lr = l.panorama;
   const [nacht, setNacht] = useState(false);
   const [wahl, setWahl] = useState<Zone | null>(null);
   const [fenster, setFenster] = useState(0);
@@ -121,13 +125,14 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
                   onPress={() => setWahl(wahl === z ? null : z)}
                   accessibilityRole="button"
                   accessibilityLabel={l.orte[z]}
-                  style={[stile.marke, { left: p.x - 60, top: p.y + PORTRAET / 2 + 6 }]}
+                  style={[stile.marke, { left: p.x - 60, top: Math.min(p.y + PORTRAET / 2 + 6, HOEHE - 30) }]}
                 >
                   <View style={[stile.markeInnen, aktiv && stile.markeAktiv]}>
                     <TierSymbol name={symbole[z]} groesse={15} farbe={aktiv ? colors.night : colors.moon} />
                     <Schrift style={[stile.markeText, aktiv && { color: colors.night }]} numberOfLines={1}>
                       {l.orte[z]}
                     </Schrift>
+                    {lr.orte?.[z] && <View style={[stile.fotoPunkt, aktiv && { backgroundColor: colors.night }]} />}
                   </View>
                 </Pressable>
               );
@@ -161,12 +166,19 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
             >
               <Animated.View style={[stile.leuchten, { opacity: dunkel }]} />
               <View style={stile.portraetBild}>
-                <Image
-                  source={FOTOS[tier.fotos!.hero].quelle}
-                  style={StyleSheet.absoluteFill}
-                  contentFit="cover"
-                  contentPosition={{ left: `${tier.fotos!.heroX ?? 50}%`, top: '40%' }}
-                />
+                {tier.fotos ? (
+                  <Image
+                    source={FOTOS[tier.fotos.hero].quelle}
+                    style={StyleSheet.absoluteFill}
+                    contentFit="cover"
+                    contentPosition={{ left: `${tier.fotos.heroX ?? 50}%`, top: '40%' }}
+                  />
+                ) : (
+                  // ohne Foto: die Zeichnung des Tieres
+                  <View style={stile.portraetFigur}>
+                    <TierFigur tier={tier} />
+                  </View>
+                )}
               </View>
             </Animated.View>
           </View>
@@ -180,7 +192,37 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
         <Zeile symbol="sonne" etikett="Tag" text={l.orte[l.tag]} an={!nacht} />
         <Zeile symbol="mond" etikett="Dämmerung" text={l.orte[l.nacht]} an={nacht} />
       </View>
+      {wahl !== null && lr.orte?.[wahl] && <Nahfoto key={wahl} id={lr.orte[wahl]!} name={l.orte[wahl]} ruhig={ruhig} />}
     </View>
+  );
+}
+
+/** Nahfoto eines Ortes (z. B. Dickicht, Wiese): gleitet beim Antippen der Marke herein */
+function Nahfoto({ id, name, ruhig }: { id: FotoId; name: string; ruhig: boolean }) {
+  const [t] = useState(() => new Animated.Value(ruhig ? 1 : 0));
+  useEffect(() => {
+    if (ruhig) return;
+    Animated.timing(t, { toValue: 1, duration: 450, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+  }, [ruhig, t]);
+  const f = FOTOS[id];
+  return (
+    <Animated.View
+      style={[
+        stile.nah,
+        { opacity: t, transform: [{ translateY: t.interpolate({ inputRange: [0, 1], outputRange: [20, 0] }) }] },
+      ]}
+    >
+      <View style={{ width: '100%', aspectRatio: f.breite / f.hoehe }}>
+        <TierFoto id={id} style={StyleSheet.absoluteFill} nachweis />
+        <LinearGradient
+          pointerEvents="none"
+          colors={[`${colors.night}CC`, 'transparent']}
+          locations={[0, 0.5]}
+          style={StyleSheet.absoluteFill}
+        />
+        <Schrift style={stile.nahName}>{name}</Schrift>
+      </View>
+    </Animated.View>
   );
 }
 
@@ -252,6 +294,27 @@ const stile = StyleSheet.create({
     borderColor: colors.amber,
     overflow: 'hidden',
     backgroundColor: colors.night,
+  },
+  // Zeichnung auf hellem Papier, damit sie vor der Landschaft lesbar ist
+  portraetFigur: { flex: 1, padding: 3, justifyContent: 'center', backgroundColor: colors.paper },
+  fotoPunkt: { width: 5, height: 5, borderRadius: 3, backgroundColor: colors.amber },
+  nah: {
+    marginHorizontal: spacing.m,
+    borderRadius: 8,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: `${colors.moss}AA`,
+  },
+  nahName: {
+    position: 'absolute',
+    left: spacing.m,
+    top: spacing.s,
+    fontFamily: fonts.titel,
+    fontSize: 18,
+    letterSpacing: 1.5,
+    color: colors.moon,
+    textShadowColor: colors.night,
+    textShadowRadius: 8,
   },
   nachweis: {
     position: 'absolute',

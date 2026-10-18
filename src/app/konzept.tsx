@@ -18,6 +18,7 @@ import { TierHintergrund } from '@/components/tier/TierHintergrund';
 import { alleFotos } from '@/components/tier/TierSeiteInhalt';
 import { Hinweis, Speiseplan } from '@/components/tier/UmweltTafeln';
 import { Jahresrad, TagesUhr } from '@/components/tier/ZeitTafeln';
+import { Kennzahl } from '@/components/ui/Kennzahl';
 import { OhneRahmen } from '@/components/ui/Sektion';
 import { WappenReihe } from '@/components/ui/Wappen';
 import { artById } from '@/data/arten';
@@ -82,6 +83,21 @@ export default function Konzept() {
 
         <Kapitel nummer={1} titel="Erkunden" zeile="Schau mit der Lupe genau hin" randlos {...kapitel}>
           <Lupe tier={tier} ruhig={ruhig} />
+          {/* „So groß“ nur noch kurz nebenbei: zwei Kennzahlen */}
+          <View style={stile.masse}>
+            <Kennzahl
+              wert={`${tier.groesse.cm[0]}–${tier.groesse.cm[1]}`}
+              einheit="cm"
+              etikett={tier.groesse.mass === 'schulter' ? 'Schulterhöhe' : 'Körperlänge'}
+              ausrichtung="mitte"
+            />
+            <Kennzahl
+              wert={`${tier.groesse.gewicht[0]}–${tier.groesse.gewicht[1]}`}
+              einheit={tier.groesse.einheit}
+              etikett="Gewicht"
+              ausrichtung="mitte"
+            />
+          </View>
         </Kapitel>
 
         <Kapitel nummer={2} titel="Ein Jahr" zeile="Wische durch die Jahreszeiten, dreh am Rad" {...kapitel}>
@@ -125,7 +141,7 @@ export default function Konzept() {
 
         <View style={stile.schluss}>
           <Hinweis tier={tier} text={hinweisText} />
-          <Bildnachweis ids={alleFotos(tier)} />
+          <Bildnachweis ids={alleFotos(tier, true)} />
         </View>
       </Animated.ScrollView>
 
@@ -146,6 +162,7 @@ export default function Konzept() {
 const stile = StyleSheet.create({
   inhalt: { paddingHorizontal: spacing.m, paddingBottom: spacing.xxl },
   randlos: { marginHorizontal: -spacing.m },
+  masse: { flexDirection: 'row', justifyContent: 'center', gap: spacing.xl, paddingTop: spacing.s },
   schluss: { marginTop: spacing.xl, gap: spacing.m },
   leer: { flex: 1, backgroundColor: colors.night, padding: spacing.l, justifyContent: 'center' },
   zurueck: {

@@ -41,7 +41,7 @@ Alles steht bei „Bewegung reduzieren“ still und ist trotzdem vollständig si
 | I Erkunden | `Lupe` | echtes Foto über die volle Breite, Lupe mit 2,6-facher Vergrößerung, Bock/Ricke |
 | II Ein Jahr | `Jahreszeiten` + `Jahresrad` | vier Jahreszeiten zum Wischen (Teilchen je Jahreszeit), darunter das **bewährte Jahresrad** |
 | III Ein Tag | `TagesUhr` | die **bewährte Tagesuhr** |
-| IV Zuhause | `LebensraumPanorama` | **echtes Landschafts-Panorama** zum Verschieben, Orte als Marken im Foto, das Tier als Foto-Porträt wandert bei Tag ↔ Dämmerung mit Punktespur, Dämmerung färbt die Landschaft dunkel |
+| IV Zuhause | `LebensraumPanorama` | **echte Landschaftsfotos** zum Verschieben (Waldrand, Buchenwald, Feld im Morgennebel, Bachaue), Orte als Marken im Foto, das Tier als Porträt wandert bei Tag ↔ Dämmerung mit Punktespur. Orte mit Punkt zeigen beim Antippen ein **Nahfoto** (Dickicht, Waldboden, Wiese, Hecke, Biberdamm). Tiere ohne eigenes Foto zeigen ihre Zeichnung. Daten: `lebensraum.panorama` je Tier |
 | V Speiseplan | `Speiseplan` + `ArtVerweise` | bewährter Speiseplan mit **Links zu den Futterpflanzen** im Katalog, Monat gemeinsam mit dem Jahresrad |
 | VI Spuren | `Spurensuche` | laufende Fährte mit **Untergrund** (Schnee, Matsch, Sand), **Gangart** (Gehen, Flucht mit gespreizten Schalen) und **Alttier / Jungtier**; Fundkarten mit echten Fotos |
 | VII Fressfeinde | `Fressfeinde` | dunkles Kapitel: Gefahren warten als **Schatten mit leuchtenden, blinzelnden Augen**, Antippen holt sie ins Licht (Foto/Zeichnung, Name, Link zur Art); getrennt nach „für alle“ und „nur Jungtiere“ |
@@ -63,8 +63,8 @@ Gezeichnete Medaillons. Jede Art hat eine eigene **Form**, nicht nur eine eigene
 Alle zu sehen unter Einstellungen → Bausteine.
 
 ## Noch offen
-- „So groß“ als lebendiges Kapitel (Kind neben dem Tier)
-- Lebensraum-Panoramen für Wald, Feld und Ufer (bisher nur Waldrand)
+- „So groß“ bleibt bewusst kurz: zwei Kennzahlen unter der Lupe
+- Igel: kein passendes Foto (Hecke, Wiese, Gärten), noch ohne Panorama
 - Fotos für die übrigen acht Säugetiere
 - Unterschied Bock/Ricke bei den Spuren: Dafür habe ich keine gesicherte Quelle gefunden. Deshalb ist er nicht eingebaut (keine erfundenen Fakten).
 

@@ -53,6 +53,14 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 | `assets/fotos/fuchs/spur.jpg` | Fuchsspur im Schnee | BorealFox | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Red_fox_track_in_snow.jpg) |
 | `assets/fotos/fuchs/losung.jpg` | Fuchs-Losung | gailhampshire from Cradley, Malvern, U.K | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Scat...Fox_-_Flickr_-_gailhampshire.jpg) |
 | `assets/fotos/landschaft/waldrand-wiese.jpg` | Wiese am Waldrand (Panorama, Lebensraum) | Stephan van Helden | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Wiese_am_Waldrand_s%C3%BCdlich_von_Schweickershausen.jpg) |
+| `assets/fotos/landschaft/wald-buchen.jpg` | Buchenwald (Panorama, Lebensraum Wald) | Chicken-foto | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Buchenwald_im_Nationalpark_Jasmund.jpg) |
+| `assets/fotos/landschaft/feld-morgen.jpg` | Feld mit Bäumen im Morgennebel (Lebensraum Feld) | Dietmar Rabich | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3220-6.jpg) |
+| `assets/fotos/landschaft/ufer-bach.jpg` | Bachaue mit Biberteich (Panorama, Lebensraum Ufer) | UuMUfQ | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Schlitz_Unter-Schwarz_Stream_Schwarzbach_Beaver_Dam_Pond_Pano_Cyl_2022_Mar.png) |
+| `assets/fotos/landschaft/dickicht.jpg` | Dickicht | Vollgenervt | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Naturschutzgebiet_W%C3%BCstn%C3%A4chstenbach_und_Haferbuckel_Dickicht.jpg) |
+| `assets/fotos/landschaft/waldboden.jpg` | Moos am Waldboden | Lisabeth08 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Die_Kleinigkeiten_haben_auch_Bedeutung_in_dem_Bayerischen_Wald.jpg) |
+| `assets/fotos/landschaft/wiese.jpg` | Blühende Wiese | Ulrike62 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Knabenkrautwiese_Gleistalhang.jpg) |
+| `assets/fotos/landschaft/hecke.jpg` | Feldhecke | Roman Eisele | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Heilbronn_-_Biberach_-_Michelbachtal_-_Feldhecke_an_Fr%C3%BChlingsabend_(1).jpg) |
+| `assets/fotos/landschaft/biberdamm.jpg` | Biberdamm | Lorbas76 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Biberdamm_im_NSG_Biesenthaler_Becken.jpg) |
 | `assets/fotos/fuchs/steht.jpg` | stehender Rotfuchs (Alpen) | Uoaei1 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg) |
 
 ### Artendaten aus dem Prototyp
