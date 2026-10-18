@@ -201,6 +201,7 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 | Lichtschein und Vignette über allen Hintergründen | ✅ |
 | Filmkorn, „Nebel lichtet sich“ beim Freischalten, Logo als Siegel, 3D-Lichtung angleichen | offen |
 | Ältere Screens (Katalog, Tagebuch, Sammeln) auf die Bausteine umstellen | offen |
+| Lebendige Tierseite: Kapitel statt Kästen, große echte Fotos, Bewegung mit Bedeutung | 🧪 Konzept auf `feature/tierseite-lebendig` (`docs/KONZEPT-TIERSEITE.md`) |
 
 ## 3. Vorgeschlagene Reihenfolge
 

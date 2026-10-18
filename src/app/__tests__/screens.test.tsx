@@ -5,6 +5,7 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
 import ArtSeite from '@/app/art/[id]';
+import Konzept from '@/app/konzept';
 import { ARTEN } from '@/data/arten';
 import { BAUMARTEN } from '@/data/baumarten';
 import Einstellungen from '@/app/einstellungen';
@@ -275,6 +276,15 @@ describe('Screens rendern ohne Fehler', () => {
     await render(<Modelltest />);
     expect(screen.getByText(/Platzhalter, kein echtes Reh/)).toBeTruthy();
     expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
+  });
+
+  test.each(['reh', 'fuchs'])('Konzept: lebendige Tierseite (%s)', async (id) => {
+    mockParams.id = id;
+    await render(<Konzept />);
+    expect(screen.getByText('Erkunden')).toBeTruthy();
+    expect(screen.getByText('Ein Jahr')).toBeTruthy();
+    expect(screen.getByText('Spuren')).toBeTruthy();
+    expect(screen.getByText('Winter')).toBeTruthy();
   });
 
   test('Bausteine zeigt alle Seltenheits-Abzeichen', async () => {

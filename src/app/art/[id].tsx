@@ -149,6 +149,19 @@ export default function ArtSeite() {
                 </Schrift>
               </View>
             </View>
+            {/* KONZEPT: zur lebendigen Tierseite (nur auf dem Branch feature/tierseite-lebendig) */}
+            {tier.fotos && (
+              <Pressable
+                onPress={() => router.push({ pathname: '/konzept', params: { id } })}
+                accessibilityRole="button"
+                accessibilityLabel="Lebendige Seite ansehen (Konzept)"
+                style={({ pressed }) => [stile.hero3d, stile.heroKonzept, pressed && { opacity: 0.6 }]}
+              >
+                <Schrift art="etikett" style={{ color: colors.night }}>
+                  Lebendig ✦
+                </Schrift>
+              </Pressable>
+            )}
             {/* Umschalter Foto ↔ 3D-Modell */}
             {tier.fotos && (
               <Pressable
@@ -792,6 +805,7 @@ const stile = StyleSheet.create({
     borderRadius: radius.l,
     backgroundColor: colors.amber,
   },
+  heroKonzept: { bottom: spacing.m + 40, backgroundColor: colors.rune },
   heroUnten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.m },
   heroHinweis: { color: colors.fog, fontSize: 16, marginBottom: spacing.xs },
   sperre: { position: 'absolute', left: 0, right: 0, bottom: 10, textAlign: 'center', color: colors.fog, fontSize: 15 },

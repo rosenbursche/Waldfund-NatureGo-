@@ -763,7 +763,7 @@ function Originalgroesse({ cm, form }: { cm: number; form: TrittForm }) {
 }
 
 /** Farben der Spuren-Zeichnungen: Boden und Holz aus dem Theme, Losung/Knospen aus den Fellfarben */
-function spurFarben(t: TierSeite): SpurFarben {
+export function spurFarben(t: TierSeite): SpurFarben {
   return {
     boden: colors.moss,
     tief: t.farben.dunkel,

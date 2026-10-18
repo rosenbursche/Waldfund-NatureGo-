@@ -68,7 +68,7 @@ export function TierSeiteInhalt({
 }
 
 /** Alle Fotos einer Tierseite (für den Bildnachweis) */
-function alleFotos(tier: TierSeite): FotoId[] {
+export function alleFotos(tier: TierSeite): FotoId[] {
   const f = tier.fotos;
   if (!f) return [];
   const liste: (FotoId | undefined)[] = [
