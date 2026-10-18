@@ -75,7 +75,8 @@ export const useEinstellungen = create<EinstellungenState>()(
       setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
       startSzene: '3d',
       setStartSzene: (sz) => set({ startSzene: sz }),
-      belastungstest: false,
+      // auf dem Branch „belastungstest“ in der App standardmäßig an, in den automatischen Tests aus
+      belastungstest: process.env.NODE_ENV !== 'test',
       setBelastungstest: (an) => set({ belastungstest: an }),
       testGruppierung: 'vorschlag',
       setTestGruppierung: (g) => set({ testGruppierung: g }),
@@ -87,11 +88,13 @@ export const useEinstellungen = create<EinstellungenState>()(
     {
       name: 'wildfund-einstellungen',
       storage: createJSONStorage(() => AsyncStorage),
-      version: 2,
+      version: 3,
       // Version 2: Startszene wieder standardmäßig 3D (das Diorama war kurz Standard)
+      // Version 3 (nur Branch „belastungstest“): Belastungstest einmalig einschalten
       migrate: (alt, version) => {
         const s = alt as Partial<EinstellungenState>;
         if (version < 2) s.startSzene = '3d';
+        if (version < 3) s.belastungstest = true;
         return s as EinstellungenState;
       },
     },

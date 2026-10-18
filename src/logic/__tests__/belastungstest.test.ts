@@ -30,6 +30,7 @@ describe('Testarten', () => {
 
 describe('Katalog im Belastungstest', () => {
   test('aus: nur die App-Arten', () => {
+    useEinstellungen.setState({ belastungstest: false });
     expect(fortschrittDerKategorie('saeuger', {}).gesamt).toBeLessThan(20);
   });
 
