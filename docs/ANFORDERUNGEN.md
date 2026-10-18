@@ -171,8 +171,11 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Anforderung | Stand |
 |---|---|
 | 500 echte Arten (91 Säugetiere, 152 Vögel, 108 Pilze, 149 Pflanzen) mit Ordnung und Familie von GBIF, um Stammbaum, Waldansicht und Katalog mit vielen Arten zu prüfen | ✅ nur Entwicklung (`__DEV__`), Einstellungen → Belastungstest |
-| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da · Konzept `docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md` (Branch `feature/stammbaum-gliederung`), Entscheidungen E1–E7 offen |
-| Gliederung Rune → Ast (≤ 7) → Zweig (2–12 Arten) → Art, Knospe je Art (Gesamtgröße sichtbar), Zweige als Sammelsets mit Belohnung, Vorschläge „Als Nächstes“, Filter dimmen statt verstecken | ⬜ Konzept |
+| Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da · Konzept `docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md` (Branch `feature/stammbaum-gliederung`), E1 + E3 entschieden |
+| Gliederung Rune → Ast (≤ 7) → Zweig (2–12 Arten) → Art, Knospe je Art (Gesamtgröße sichtbar), Zweige als Sammelsets mit Belohnung, Vorschläge „Als Nächstes“, Filter dimmen statt verstecken | ⬜ Konzept, Einteilung entschieden (E1) |
+| Jeder Zweig hat einen Schatz (sehr seltene oder besondere Art) | ⬜ Konzept, entschieden (E1) |
+| Schatzkammer unter dem Baum: die 5 seltensten und die 3 gefährlichsten Arten der Rune, Gefahrenstufe 1–3 | ⬜ Konzept, entschieden (E1) |
+| Bonuspunkte: +25 AP je voller Zweig, +150 AP je voller Ast | ⬜ entschieden (E3) |
 | Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |
 | Seltenheit für die echte Datenbank: nicht nur aus GBIF-Beobachtungen ableiten | ⬜ |
 
