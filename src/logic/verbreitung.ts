@@ -47,11 +47,16 @@ function startwert(text: string): number {
   return h % 9973;
 }
 
-/** Für jedes Rasterfeld: kommt die Art dort (laut Demo-Modell) vor? */
+const vorkommenCache = new Map<string, boolean[]>();
+
+/** Für jedes Rasterfeld: kommt die Art dort (laut Demo-Modell) vor? Einmal berechnet, dann gemerkt. */
 export function vorkommen(artId: string, modellName: string): boolean[] {
+  const schluessel = `${artId}|${modellName}`;
+  const da = vorkommenCache.get(schluessel);
+  if (da) return da;
   const m = VERBREITUNG[modellName] ?? VERBREITUNG.all;
   const sd = startwert(artId);
-  return rasterZellen().map(({ lon, lat, i, j }) => {
+  const occ = rasterZellen().map(({ lon, lat, i, j }) => {
     let p = m.bg;
     for (const [hx, hy, r, a] of m.hs ?? []) {
       const dx = (lon - hx) * 0.63;
@@ -60,6 +65,8 @@ export function vorkommen(artId: string, modellName: string): boolean[] {
     }
     return hash(i, j, sd) < p;
   });
+  vorkommenCache.set(schluessel, occ);
+  return occ;
 }
 
 /** Umrechnung Länge/Breite → Bildpunkte auf einer Karte 340 × 440 (wie im Prototyp) */

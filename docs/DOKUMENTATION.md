@@ -83,6 +83,7 @@ Die Routen liegen in `src/app/` (expo-router: Der Dateiname ist der Pfad).
 | Katalog | `katalog/[kategorie].tsx` | eine Kategorie, umschaltbar: **Wald** (3D) oder **Stammbaum** |
 | Artenseite | `art/[id].tsx` | Modell, Wild-Wert, Steckbrief, Lehrbuch-Zeichnung, Karte … (siehe 8.1) |
 | Sammeln | `sammeln/[id].tsx` | Foto machen → prüfen → freischalten |
+| Suchen & Entdecken | `suche.tsx` | Lupe oben auf der Lichtung. Suchfeld (deutsch oder lateinisch, Umlaute egal; nicht gefundene Mystery-Arten bleiben ein Rätsel, gefährliche findet man immer). Darunter: **Die Seltensten** im Naturraum als 4 × 2 3D-Modelle (eine 3D-Fläche, `scene/ArtGitter3D.tsx`), **Leicht zu finden**, **Gefährlich & tödlich** (tödlich giftig zuerst), **Zuletzt entdeckt**. Jede Art mit Name, Wild-Wert und Punkten. Logik: `logic/suche.ts` |
 | Mystery-Zone | `mystery.tsx` | die seltensten Arten aus allen vier Kategorien |
 | Feldtagebuch | `tagebuch.tsx` | Level, Rang, Hütte, Serie, Erfolge, letzte Funde |
 | Einstellungen | `einstellungen.tsx` | siehe 3.2 |

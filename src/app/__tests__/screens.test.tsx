@@ -14,6 +14,7 @@ import Modelltest from '@/app/modelltest';
 import Bausteine from '@/app/bausteine';
 import Mystery from '@/app/mystery';
 import Sammeln from '@/app/sammeln/[id]';
+import SucheEntdecken from '@/app/suche';
 import Tagebuch from '@/app/tagebuch';
 import Ergebnis from '@/app/onboarding/ergebnis';
 import Willkommen from '@/app/onboarding/index';
@@ -35,6 +36,7 @@ jest.mock('expo-location', () => ({}));
 jest.mock('@/scene/Lichtung', () => ({ Lichtung: () => null }));
 jest.mock('@/scene/ArtBuehne', () => ({ ArtBuehne: () => null }));
 jest.mock('@/scene/KategorieWald', () => ({ KategorieWald: () => null }));
+jest.mock('@/scene/ArtGitter3D', () => ({ ArtGitter3D: () => null }));
 jest.mock('@/logic/foto', () => ({ fotoAufnehmen: jest.fn(), fotoBehalten: jest.fn(), alleFotosLoeschen: jest.fn() }));
 
 describe('Screens rendern ohne Fehler', () => {
@@ -289,5 +291,17 @@ describe('Screens rendern ohne Fehler', () => {
     await render(<Einstellungen />);
     expect(screen.getAllByText(/Thünen-Institut/).length).toBeGreaterThanOrEqual(2); // Naturräume und Karte
     expect(screen.getByText(/Natural Earth/)).toBeTruthy();
+  });
+
+  test('Suchen & Entdecken: Seltenste, Gefahren und Suche', async () => {
+    useEinstellungen.setState({ naturraumId: 'hochharz' });
+    useSammlung.setState({ gefunden: {} });
+    await render(<SucheEntdecken />);
+    expect(screen.getByText('Die Seltensten')).toBeTruthy();
+    expect(screen.getByText('Gefährlich & tödlich')).toBeTruthy();
+    expect(screen.getAllByText(/Wild \d+/).length).toBeGreaterThan(8);
+    await fireEvent.changeText(screen.getByLabelText('Art suchen'), 'fuchs');
+    expect(screen.getByText('Treffer')).toBeTruthy();
+    expect(screen.getByText('Rotfuchs')).toBeTruthy();
   });
 });

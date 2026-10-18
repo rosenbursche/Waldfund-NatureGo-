@@ -153,6 +153,15 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
           </Schrift>
         </View>
         <Pressable
+          onPress={() => router.push('/suche')}
+          accessibilityRole="button"
+          accessibilityLabel="Suchen und Entdecken"
+          hitSlop={8}
+          style={({ pressed }) => [stile.rund, { marginRight: spacing.s }, pressed && { opacity: 0.6 }]}
+        >
+          <Icon name="lupe" groesse={20} />
+        </Pressable>
+        <Pressable
           onPress={() => router.push('/einstellungen')}
           accessibilityRole="button"
           accessibilityLabel="Einstellungen"

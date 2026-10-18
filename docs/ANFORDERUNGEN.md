@@ -175,6 +175,16 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |
 | Seltenheit für die echte Datenbank: nicht nur aus GBIF-Beobachtungen ableiten | ⬜ |
 
+### 2.11 Suchen & Entdecken
+| Anforderung | Stand |
+|---|---|
+| Suchfunktion über alle Arten (deutsch/lateinisch) | ✅ `src/app/suche.tsx`, Lupe auf der Lichtung |
+| Ganz oben die seltensten Arten im Naturraum als 3D-Modelle, 4 pro Reihe, 2 Reihen | ✅ noch nicht gefundene als Silhouette, Mystery-Namen als „???“ |
+| Pro Art nur Name, Wild-Wert und Punkte hervorgehoben | ✅ |
+| Darunter die gefährlichsten und tödlichsten Arten mit Wild-Wert und Punkten | ✅ |
+| Weitere Listen: „Leicht zu finden“, „Zuletzt entdeckt“ | ✅ |
+| Sinnvolle Reihenfolge braucht echte Verbreitungsdaten (Demo-Verbreitung macht die Wild-Werte der Testarten fast gleich) | ⬜ mit der Datenbank |
+
 ### 2.9 Veröffentlichung im App Store und bei Google Play
 Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 dort in Abschnitt 7.
 
