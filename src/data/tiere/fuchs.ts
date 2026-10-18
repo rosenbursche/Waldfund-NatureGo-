@@ -83,6 +83,21 @@ export const FUCHS: TierSeite = {
     { icon: 'auto', kurz: 'Straßen' },
     { artId: 'uhu', kurz: 'Uhu', nurJung: true },
   ],
-  lebensraum: { landschaft: 'waldrand', tag: 0, nacht: 2, orte: ['Bau & Versteck', 'Hecken', 'Mäusejagd'] },
+  lebensraum: {
+    landschaft: 'waldrand',
+    tag: 0,
+    nacht: 2,
+    orte: ['Bau & Versteck', 'Hecken', 'Mäusejagd'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/waldrand-wiese',
+      zonen: [
+        [90, 60],
+        [62, 61],
+        [30, 78],
+      ],
+      orte: ['landschaft/waldboden', 'landschaft/hecke', 'landschaft/wiese'],
+    },
+  },
   hinweis: { titel: 'Fuchs getroffen?', bild: 'abstand', text: 'gefahr' },
 };

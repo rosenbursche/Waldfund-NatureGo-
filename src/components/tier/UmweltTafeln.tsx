@@ -41,7 +41,7 @@ const ZONEN: { von: number; bis: number }[] = [
 ];
 const TIER_X = [52, 146, 246];
 /** Symbol je Zone und Landschaft */
-const ZONEN_SYMBOL: Record<Landschaft, [SymbolName, SymbolName, SymbolName]> = {
+export const ZONEN_SYMBOL: Record<Landschaft, [SymbolName, SymbolName, SymbolName]> = {
   waldrand: ['baum', 'gebuesch', 'wiese'],
   wald: ['gebuesch', 'baum', 'baum'],
   feld: ['gebuesch', 'wiese', 'mais'],
@@ -763,7 +763,7 @@ function Originalgroesse({ cm, form }: { cm: number; form: TrittForm }) {
 }
 
 /** Farben der Spuren-Zeichnungen: Boden und Holz aus dem Theme, Losung/Knospen aus den Fellfarben */
-function spurFarben(t: TierSeite): SpurFarben {
+export function spurFarben(t: TierSeite): SpurFarben {
   return {
     boden: colors.moss,
     tief: t.farben.dunkel,

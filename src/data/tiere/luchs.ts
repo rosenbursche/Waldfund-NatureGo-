@@ -64,6 +64,21 @@ export const LUCHS: TierSeite = {
   tritt: 'katze',
   faehrte: 'geschnuert',
   gefahren: [{ icon: 'auto', kurz: 'Straßen' }],
-  lebensraum: { landschaft: 'wald', tag: 0, nacht: 2, orte: ['Felsen & Dickicht', 'Wald', 'Waldrand'] },
+  lebensraum: {
+    landschaft: 'wald',
+    tag: 0,
+    nacht: 2,
+    orte: ['Felsen & Dickicht', 'Wald', 'Waldrand'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/wald-buchen',
+      zonen: [
+        [90, 72],
+        [60, 65],
+        [8, 70],
+      ],
+      orte: ['landschaft/dickicht', undefined, undefined],
+    },
+  },
   hinweis: { titel: 'Luchs gesehen?', bild: 'abstand', text: 'wusstestDu' },
 };

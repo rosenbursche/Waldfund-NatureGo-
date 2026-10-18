@@ -62,7 +62,22 @@ export const FELDHASE: TierSeite = {
     { icon: 'auto', kurz: 'Straßen' },
     { icon: 'maehen', kurz: 'Mähen', nurJung: true },
   ],
-  lebensraum: { landschaft: 'feld', tag: 1, nacht: 2, orte: ['Hecke', 'Sasse im Feld', 'Acker'] },
+  lebensraum: {
+    landschaft: 'feld',
+    tag: 1,
+    nacht: 2,
+    orte: ['Hecke', 'Sasse im Feld', 'Acker'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/feld-morgen',
+      zonen: [
+        [75, 58],
+        [55, 78],
+        [22, 80],
+      ],
+      orte: ['landschaft/hecke', undefined, undefined],
+    },
+  },
   hinweis: {
     titel: 'Junghase allein?',
     bild: 'jung',

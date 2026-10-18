@@ -358,6 +358,12 @@ Von oben nach unten:
 9. **Lehrbuch-Zeichnung** im Stil „Tinte auf altem Papier“ (`LehrbuchZeichnung.tsx`).
 10. **Verbreitung in Deutschland**. Bei Mystery-Arten heißt der Abschnitt „Hier könntest du suchen“.
 
+**Lebendige Tierseite (Reh, Rotfuchs – alle Tiere mit echten Fotos):** Erzählt in Kapiteln über die volle Breite statt in Kästen (`src/components/lebendig/`, Beschreibung `docs/KONZEPT-TIERSEITE.md`):
+- **Hero** (`LebendigHero`): großes Foto mit Parallaxe, Nebel und Glühwürmchen, Name Buchstabe für Buchstabe, darunter die **Wappen** (Wild-Wert, Seltenheit, Schutz, Rote Liste, Gift). Nicht gesammelt: Foto verschwommen. Knopf „3D“ wechselt zur 3D-Bühne.
+- **Kapitel** (`LebendigInhalt`): I Erkunden (Lupe auf dem Foto, Schulterhöhe und Gewicht) · II Ein Jahr (Jahreszeiten zum Wischen und Jahresrad) · III Ein Tag (Tagesuhr) · IV Zuhause (echtes Landschafts-Panorama mit Orten und Nahfotos, Tag/Dämmerung) · V Speiseplan (mit Links zu Futterpflanzen) · VI Spuren (laufende Fährte: Schnee/Matsch/Sand, Gehen/Flucht, Alt/Jungtier; Fundkarten) · VII Fressfeinde (Schatten mit leuchtenden Augen, Antippen holt sie ins Licht) · VIII Wo in Deutschland (Rasterkarte) · IX Skizzenbuch. Danach Sicherheits-Hinweis und Fotonachweis.
+- Kapitel blenden beim Scrollen ein. Bei „Bewegung reduzieren“ steht alles still. Im Test ist „Bewegung reduzieren“ an (`jest.setup.js`).
+- Die anderen Säugetiere behalten die grafische Seite unten, bis sie echte Fotos haben. Ihre Lebensraum-Panoramen sind schon eingetragen (`lebensraum.panorama`).
+
 **Grafische Tierseiten (alle 10 Säugetiere):** Gibt es für eine Art einen Eintrag in `src/data/tierSeiten.ts`, ersetzt eine Bild-Seite die Text-Abschnitte (Steckbrief, Key Features, Nahrung, Spuren, Wohnen, Fressfeinde, Wusstest du). Bausteine in `src/components/tier/`:
 
 | Datei | Abschnitte |

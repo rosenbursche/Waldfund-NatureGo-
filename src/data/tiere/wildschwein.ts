@@ -66,6 +66,21 @@ export const WILDSCHWEIN: TierSeite = {
     { icon: 'wolf', kurz: 'Wolf' },
     { icon: 'auto', kurz: 'Straßen' },
   ],
-  lebensraum: { landschaft: 'waldrand', tag: 0, nacht: 2, orte: ['Dickicht', 'Suhle', 'Feld & Wiese'] },
+  lebensraum: {
+    landschaft: 'waldrand',
+    tag: 0,
+    nacht: 2,
+    orte: ['Dickicht', 'Suhle', 'Feld & Wiese'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/waldrand-wiese',
+      zonen: [
+        [90, 52],
+        [78, 64],
+        [30, 78],
+      ],
+      orte: ['landschaft/dickicht', undefined, 'landschaft/wiese'],
+    },
+  },
   hinweis: { titel: 'Wildschweine gesehen?', bild: 'abstand', text: 'gefahr' },
 };

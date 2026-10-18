@@ -70,6 +70,16 @@ export const DACHS: TierSeite = {
     nacht: 2,
     orte: ['Bau im Hang', 'Waldrand', 'Wiese'],
     posen: ['liegt', 'aktiv'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/waldrand-wiese',
+      zonen: [
+        [90, 55],
+        [72, 60],
+        [35, 76],
+      ],
+      orte: ['landschaft/waldboden', undefined, 'landschaft/wiese'],
+    },
   },
   hinweis: { titel: 'Dachsbau entdeckt?', bild: 'abstand', text: 'wusstestDu' },
 };

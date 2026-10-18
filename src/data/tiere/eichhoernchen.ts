@@ -70,6 +70,16 @@ export const EICHHOERNCHEN: TierSeite = {
     orte: ['Waldboden', 'Stamm', 'Kobel in der Krone'],
     oben: [2],
     posen: ['steht', 'liegt'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/wald-buchen',
+      zonen: [
+        [40, 80],
+        [59, 50],
+        [60, 12],
+      ],
+      orte: ['landschaft/waldboden', undefined, undefined],
+    },
   },
   hinweis: { titel: 'Wusstest du?', bild: 'abstand', text: 'wusstestDu' },
 };
