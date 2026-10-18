@@ -84,28 +84,34 @@ export default function Suche() {
           </View>
 
           {suchtGerade ? (
-            <Sektion symbol="karte" titel="Treffer" rechts={<Abzeichen text={`${treffer.length}`} klein />}>
+            <Sektion
+              symbol="karte"
+              titel="Treffer"
+              info="Seltene Arten, die du noch nicht entdeckt hast, bleiben ein Rätsel – auch in der Suche."
+              rechts={<Abzeichen text={`${treffer.length}`} klein />}
+            >
               {treffer.length === 0 ? (
-                <Schrift art="notiz">
-                  Nichts gefunden. Seltene Arten, die du noch nicht entdeckt hast, bleiben ein Rätsel – auch in der
-                  Suche.
-                </Schrift>
+                <Schrift art="notiz">Nichts gefunden.</Schrift>
               ) : (
                 treffer.map((e) => <Zeile key={e.id} e={e} gefunden={gefunden} onPress={() => oeffnen(e.id)} />)
               )}
             </Sektion>
           ) : (
             <>
-              <Sektion symbol="auge" titel="Die Seltensten" geste="tippen">
-                <Schrift art="notiz">Die Arten mit dem höchsten Wild-Wert in deinem Naturraum.</Schrift>
+              <Sektion
+                symbol="auge"
+                titel="Die Seltensten"
+                info="Die Arten mit dem höchsten Wild-Wert in deinem Naturraum."
+              >
                 <Raster3D eintraege={seltenste} gefunden={gefunden} ruhig={ruhig} onPress={oeffnen} />
               </Sektion>
 
               {leicht.length > 0 && (
-                <Sektion symbol="tritt" titel="Leicht zu finden">
-                  <Schrift art="notiz">
-                    Häufig in deiner Nähe und noch nicht in deiner Sammlung – ein guter Anfang.
-                  </Schrift>
+                <Sektion
+                  symbol="tritt"
+                  titel="Leicht zu finden"
+                  info="Häufig in deiner Nähe und noch nicht in deiner Sammlung – ein guter Anfang."
+                >
                   <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={stile.reihe}>
                     {leicht.map((e) => (
                       <Karte key={e.id} e={e} gefunden={gefunden} onPress={() => oeffnen(e.id)} />
@@ -115,10 +121,12 @@ export default function Suche() {
               )}
 
               {gefahr.length > 0 && (
-                <Sektion symbol="stopp" titel="Gefährlich & tödlich" art="warnung" geste="tippen">
-                  <Schrift art="notiz">
-                    Die gefährlichsten Arten in deinem Naturraum. Nicht anfassen, nicht essen – nur fotografieren.
-                  </Schrift>
+                <Sektion
+                  symbol="stopp"
+                  titel="Gefährlich & tödlich"
+                  art="warnung"
+                  info="Die gefährlichsten Arten in deinem Naturraum. Nicht anfassen, nicht essen – nur fotografieren."
+                >
                   {gefahr.map((e, i) => (
                     <Zeile key={e.id} e={e} gefunden={gefunden} rang={i + 1} onPress={() => oeffnen(e.id)} />
                   ))}

@@ -7,6 +7,7 @@ import { ArtIcon } from '@/components/ArtIcon';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
+import { Info } from '@/components/ui/Info';
 import { naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN, LEVEL_SCHWELLEN, SELTENHEIT } from '@/data/spiel';
 import { erfolgeListe, HUETTEN_NAME, huettenStufe, levelInfo } from '@/logic/fortschritt';
@@ -59,12 +60,17 @@ export default function Tagebuch() {
               <Zahl wert={serie > 0 ? `${serie}` : '–'} name="Tage in Folge" />
               <Zahl wert={HUETTEN_NAME[stufe]} name="Deine Hütte" klein />
             </View>
-            <Schrift art="klein">
-              {stufe < 3
-                ? `Ab Level ${[3, 6, 9][stufe]} wird deine Hütte zum ${HUETTEN_NAME[(stufe + 1) as 1 | 2 | 3]}.`
-                : 'Deine Hütte ist voll ausgebaut – eine Sternwarte mitten im Wald.'}{' '}
-              Finde jeden Tag eine neue Art: Ab dem zweiten Tag gibt es 5 AP Serienbonus pro Tag (höchstens 50).
-            </Schrift>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+              <Schrift art="klein">
+                {stufe < 3
+                  ? `${HUETTEN_NAME[(stufe + 1) as 1 | 2 | 3]} ab Level ${[3, 6, 9][stufe]}`
+                  : 'Voll ausgebaut'}
+              </Schrift>
+              <Info
+                titel="Hütte & Serie"
+                text="Mit jedem Level wächst deine Hütte – bis zur Sternwarte. Finde jeden Tag eine neue Art: Ab dem zweiten Tag gibt es 5 AP Serienbonus pro Tag (höchstens 50)."
+              />
+            </View>
           </View>
 
           <Schrift art="ueberschrift" accessibilityRole="header">
@@ -117,7 +123,7 @@ export default function Tagebuch() {
             Zuletzt gefunden
           </Schrift>
           {zuletzt.length === 0 ? (
-            <Schrift art="klein">Noch nichts gefunden. Raus in die Natur! (Beispielfunde zählen hier nicht.)</Schrift>
+            <Schrift art="klein">Noch nichts gefunden.</Schrift>
           ) : (
             <View style={stile.funde}>
               {zuletzt.map(([id, f]) => {

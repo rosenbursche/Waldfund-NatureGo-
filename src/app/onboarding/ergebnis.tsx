@@ -8,19 +8,23 @@ import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { WaldStreifen } from '@/components/WaldStreifen';
+import { Info } from '@/components/ui/Info';
 import { naturraumById } from '@/data/naturraeume';
 import { BODEN_NAME, GROSSLANDSCHAFT_NAME, HOEHENSTUFE_NAME, type Rolle } from '@/data/typen';
 import { getAngepflanzteBaeume, getHeimischeBaeume } from '@/logic/regelEngine';
 import { useEinstellungen } from '@/store/einstellungen';
 import { colors, radius, spacing } from '@/theme/theme';
 
-const ROLLEN_TITEL: Record<Rolle, string> = {
-  haupt: 'Hauptbaumart',
-  neben: 'Nebenbaumarten',
-  begleiter: 'Begleiter',
-};
+const ROLLEN_TITEL: Record<Rolle, string> = { haupt: 'Hauptbaumart', neben: 'Nebenbaumarten', begleiter: 'Begleiter' };
 
-type Params = { id: string; per: 'standort' | 'suche' | 'liste'; km?: string; ort?: string; glon?: string; glat?: string };
+type Params = {
+  id: string;
+  per: 'standort' | 'suche' | 'liste';
+  km?: string;
+  ort?: string;
+  glon?: string;
+  glat?: string;
+};
 
 /** Onboarding, Schritt 3: "Dein Naturraum" mit den heimischen Bäumen */
 export default function Ergebnis() {
@@ -60,8 +64,8 @@ export default function Ergebnis() {
           {km > 0 && (
             <View style={stile.hinweis}>
               <Schrift art="text">
-                {p.ort ? `${p.ort} liegt` : 'Du bist'} noch außerhalb unserer 10 Demo-Naturräume. Der nächste ist
-                etwa {km} km entfernt. Du kannst ihn trotzdem wählen oder dir einen anderen aussuchen.
+                {p.ort ? `${p.ort} liegt` : 'Du bist'} noch außerhalb unserer 10 Demo-Naturräume. Der nächste ist etwa{' '}
+                {km} km entfernt. Du kannst ihn trotzdem wählen oder dir einen anderen aussuchen.
               </Schrift>
             </View>
           )}
@@ -80,19 +84,28 @@ export default function Ergebnis() {
 
           <WaldStreifen baeume={baeume} />
 
-          <Schrift art="notiz">
-            Diese {baeume.length} Baumarten würden hier wachsen, wenn der Mensch den Wald sich selbst überließe.
-          </Schrift>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+            <Schrift art="etikett">{baeume.length} heimische Baumarten</Schrift>
+            <Info
+              titel="Heimisch"
+              text="Diese Baumarten würden hier wachsen, wenn der Mensch den Wald sich selbst überließe. Demo-Daten: Höhenstufe und Boden sind vereinfacht und werden noch fachlich geprüft."
+            />
+          </View>
 
           {(['haupt', 'neben', 'begleiter'] as Rolle[]).map((rolle) => {
             const liste = baeume.filter((b) => b.rolle === rolle);
             if (liste.length === 0) return null;
             return (
               <View key={rolle} style={stile.gruppe}>
-                <Schrift art="etikett">{rolle === 'haupt' && liste.length > 1 ? 'Hauptbaumarten' : ROLLEN_TITEL[rolle]}</Schrift>
+                <Schrift art="etikett">
+                  {rolle === 'haupt' && liste.length > 1 ? 'Hauptbaumarten' : ROLLEN_TITEL[rolle]}
+                </Schrift>
                 {liste.map((b) => (
                   <View key={b.baumart.id} style={stile.baum}>
-                    <Schrift art={rolle === 'begleiter' ? 'text' : 'ueberschrift'} style={rolle === 'neben' && { fontSize: 21 }}>
+                    <Schrift
+                      art={rolle === 'begleiter' ? 'text' : 'ueberschrift'}
+                      style={rolle === 'neben' && { fontSize: 21 }}
+                    >
                       {b.baumart.name}
                     </Schrift>
                     <Schrift art="klein">
@@ -109,17 +122,16 @@ export default function Ergebnis() {
 
           {angepflanzt.length > 0 && (
             <View style={[stile.gruppe, stile.angepflanzt]}>
-              <Schrift art="etikett">Hier oft gepflanzt – aber nicht heimisch</Schrift>
-              <Schrift art="klein">
-                {angepflanzt.map((b) => b.name).join(', ')}. Diese Bäume findest du hier vielleicht trotzdem: Förster
-                haben sie angepflanzt.
-              </Schrift>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+                <Schrift art="etikett">Gepflanzt, nicht heimisch</Schrift>
+                <Info
+                  titel="Gepflanzt"
+                  text="Diese Bäume findest du hier vielleicht trotzdem: Förster haben sie angepflanzt."
+                />
+              </View>
+              <Schrift art="klein">{angepflanzt.map((b) => b.name).join(', ')}</Schrift>
             </View>
           )}
-
-          <Schrift art="klein" style={{ opacity: 0.7 }}>
-            Demo-Daten: Höhenstufe und Boden sind vereinfacht und werden noch fachlich geprüft.
-          </Schrift>
 
           <Knopf titel="Das ist mein Wald" symbol="pfeil" onPress={bestaetigen} style={{ marginTop: spacing.s }} />
           <Knopf titel="Anderen Naturraum wählen" art="leise" onPress={() => router.back()} />

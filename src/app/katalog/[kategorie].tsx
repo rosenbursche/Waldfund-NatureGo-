@@ -27,6 +27,11 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
  * - Wald: alle Arten als 3D-Figuren an ihrem natürlichen Platz (gefunden farbig, sonst grau mit Schloss)
  * - Stammbaum: mystischer Lebensbaum – Äste = Gruppen (aufklappbar), Sterne = Mystery, Wurzeln = Gefahr
  */
+const INFO_WALD =
+  'Tippe eine Art an. Im Lichtkegel: gefunden · Schatten mit Irrlicht: noch zu entdecken · rot glimmend: gefährlich.';
+const INFO_STAMMBAUM =
+  'Tippe einen Ast an – am Baum oder in der Liste darunter. Seine Zweige sind kleine Sammelsets, jedes mit einem Schatz. Die Sterne sind die legendären Arten.';
+
 export default function Katalog() {
   const { kategorie } = useLocalSearchParams<{ kategorie: KategorieId }>();
   const naturraumId = useEinstellungen((s) => s.naturraumId);
@@ -52,7 +57,11 @@ export default function Katalog() {
     <Hintergrund>
       <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
         <View style={stile.kopf}>
-          <Kopfzeile etikett={`Reich ${kat.tag} · ${f.gefunden}/${f.gesamt}`} titel={kat.name} />
+          <Kopfzeile
+            etikett={`Reich ${kat.tag} · ${f.gefunden}/${f.gesamt}`}
+            titel={kat.name}
+            info={ansicht === 'wald' ? INFO_WALD : INFO_STAMMBAUM}
+          />
           <Umschalter ansicht={ansicht} onWechsel={setAnsicht} />
         </View>
         {ansicht === 'wald' ? <WaldAnsicht kategorie={kat.id} /> : <StammbaumAnsicht kategorie={kat.id} />}
@@ -151,14 +160,6 @@ function WaldAnsicht({ kategorie }: { kategorie: KategorieId }) {
         </View>
       </GestureDetector>
       <Vignette />
-      <SafeAreaView edges={['bottom']} style={stile.legende} pointerEvents="none">
-        <Schrift art="notiz" style={stile.schatten}>
-          Tippe eine Art an
-        </Schrift>
-        <Schrift art="klein" style={stile.schatten}>
-          Im Lichtkegel: gefunden · Schatten mit Irrlicht: noch zu entdecken · Rot glimmend: gefährlich
-        </Schrift>
-      </SafeAreaView>
     </View>
   );
 }
@@ -226,6 +227,4 @@ const stile = StyleSheet.create({
   },
   tabAn: { backgroundColor: colors.rune },
   tabText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.fog },
-  legende: { position: 'absolute', left: 0, right: 0, bottom: spacing.m, alignItems: 'center', gap: 2 },
-  schatten: { textAlign: 'center', textShadowColor: colors.night, textShadowRadius: 8 },
 });

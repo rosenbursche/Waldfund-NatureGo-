@@ -99,6 +99,15 @@ Zwei bis vier Optionen mit Symbol. Die gewählte ist mit Laternenlicht gefüllt.
 - `art="haupt"`: mit Laternenlicht gefüllt, **höchstens einmal pro Screen**
 - `art="leise"`: dunkel mit Moos-Rahmen, für alles andere
 
+### Info (`Info.tsx`)
+Kleines „i“ neben einem Titel. Antippen öffnet einen Kasten mit der Erklärung, Antippen irgendwo schließt ihn.
+```tsx
+<Sektion symbol="auge" titel="Die Seltensten" info="Die Arten mit dem höchsten Wild-Wert in deinem Naturraum.">…</Sektion>
+<Kopfzeile titel="Säugetiere" info="Tippe eine Art an …" />
+<Info titel="Prüfung" text="…" />
+```
+- `Sektion`, `Kopfzeile`, `Kapitel` (Tierseite) und `Abschnitt` (Artenseite) haben dafür ein `info`-Feld.
+
 ### Zierlinie (`Zierlinie.tsx`)
 Linie – Raute – Punkt – Raute – Linie. Trennt Kopf und Inhalt oder zwei Teile einer Seite.
 
@@ -108,12 +117,17 @@ Lichtschein oben und Vignette an den Rändern. Liegt automatisch in `Hintergrund
 ### Weitere Bausteine der Tierseite (`src/components/tier/`)
 `Leuchtpunkt` (antippbarer Punkt mit Puls), `Fingerflaeche` (Tippen und Ziehen für Rad und Uhr), `TierFoto` / `FotoHero` / `Bildnachweis` (echte Fotos mit Namensnennung).
 
-## 6. Aufbau einer Seite (Vorlage Reh)
+## 6. So wenig Text wie möglich
+- **Keine Erklär- und Bedientexte auf der Seite** („Tippe …“, „Wische …“, „Vorn häufig, hinten selten“, „Die Arten mit …“). Wer sie braucht, findet sie hinter dem **„i“** am Titel.
+- Auf der Seite bleiben nur Inhalte (Namen, Werte, Daten) und kurze Statuszeilen (z. B. „Noch nichts gefunden.“).
+- Ausnahmen, immer sichtbar und so kurz wie möglich: **Schutz- und Sicherheitshinweise** („Nur fotografieren · Auf dem Weg bleiben · Pilze nie essen“) und **Pflicht-Namensnennungen** (Pl@ntNet, Bildnachweise, Datenquellen).
+
+## 7. Aufbau einer Seite (Vorlage Reh)
 1. **Hero** (470 hoch): Foto oder 3D. Unten ein Verlauf ins Dunkel, darauf `Kapitelkopf groesse="gross"` und eine Zeile Abzeichen (Seltenheit, Schutz, Gesammelt).
 2. **Sektionen** untereinander, Abstand 16. Jede Sektion hat ein Symbol, einen Titel aus 1–2 Wörtern und einen Gesten-Hinweis, wenn man etwas antippen oder ziehen kann.
 3. **Bildnachweis** als letzte Sektion, sobald Fotos vorkommen.
 
-## 7. Noch offen
+## 8. Noch offen
 - Feines Filmkorn über allen Seiten (braucht eine kleine Rausch-Textur)
 - „Der Nebel lichtet sich“ beim Freischalten einer Art
 - Logo und App-Icon als Siegel neu zeichnen

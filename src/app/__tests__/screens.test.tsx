@@ -70,7 +70,7 @@ describe('Screens rendern ohne Fehler', () => {
     useEinstellungen.setState({ naturraumId: 'hochharz', startSzene: 'diorama' });
     await render(<Start />);
     expect(screen.getByText(/Hochharz ·/)).toBeTruthy();
-    expect(screen.getByText('Kippe das Handy · tippe einen Runenstein an')).toBeTruthy();
+    expect(screen.queryByText(/tippe einen Runenstein an/)).toBeNull(); // keine Bedienhinweise mehr
     expect(screen.getByText('Entdecker')).toBeTruthy(); // Rang in der Fortschrittsanzeige
     // alle vier Runensteine sind als Knöpfe erreichbar (auch für Screenreader)
     expect(screen.getByLabelText(/^Pflanzen: \d+ von \d+ gesammelt/)).toBeTruthy();
@@ -80,7 +80,7 @@ describe('Screens rendern ohne Fehler', () => {
   test('Startseite mit 3D-Lichtung', async () => {
     useEinstellungen.setState({ naturraumId: 'hochharz', startSzene: '3d' });
     await render(<Start />);
-    expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
+    expect(screen.queryByText(/Tippe einen Baum/)).toBeNull();
   });
 
   test('Artenseite einer Baumart', async () => {
@@ -198,7 +198,8 @@ describe('Screens rendern ohne Fehler', () => {
     mockParams.kategorie = 'voegel';
     useEinstellungen.setState({ katalogAnsicht: 'wald' });
     await render(<Katalog />);
-    expect(screen.getByText('Tippe eine Art an')).toBeTruthy();
+    expect(screen.queryByText('Tippe eine Art an')).toBeNull();
+    expect(screen.getByLabelText(/^Info: /)).toBeTruthy(); // Erklärung hinter dem „i“
     expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
   });
 
@@ -261,7 +262,7 @@ describe('Screens rendern ohne Fehler', () => {
     mockParams.id = 'eisvogel';
     await render(<Sammeln />);
     expect(screen.getByText('Kamera öffnen')).toBeTruthy();
-    expect(screen.getByText(/Streng geschützt: Nur aus Abstand fotografieren/)).toBeTruthy();
+    expect(screen.getByText(/Streng geschützt · Abstand halten/)).toBeTruthy();
   });
 
   test('Sammeln einer Mystery-Art verrät den Namen nicht', async () => {

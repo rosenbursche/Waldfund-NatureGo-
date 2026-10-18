@@ -25,6 +25,7 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { ArtMiniatur } from '../ArtMiniatur';
 import { Schrift } from '../Schrift';
+import { Info } from '../ui/Info';
 import { BAUM_STILE } from './baumStile';
 
 /**
@@ -87,7 +88,17 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
     <View style={stile.rahmen}>
       <View style={stile.kopf}>
         <View style={{ flex: 1 }}>
-          <Schrift art="ueberschrift">{ast.name}</Schrift>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+            <Schrift art="ueberschrift">{ast.name}</Schrift>
+            <Info
+              titel={ast.name}
+              text={`Vorn sitzen die häufigen Arten (+${SELTENHEIT[1].punkte} AP), hinten die seltenen. ✦ ist der Schatz des Zweigs.${
+                ast.mond
+                  ? ' ☾ Meisterast: schwer zu finden – nachts, sehr klein oder sehr scheu. Quartiere und Nester nie stören.'
+                  : ''
+              }`}
+            />
+          </View>
           <Schrift art="etikett">
             {anzahl} von {n} gefunden · {ast.zweige.length} {ast.zweige.length === 1 ? 'Zweig' : 'Zweige'}
           </Schrift>
@@ -104,13 +115,9 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
       </View>
       {ast.mond && (
         <Schrift art="klein" style={stile.mond}>
-          ☾ Meisterast: schwer zu finden – nachts, sehr klein oder sehr scheu. Nur aus der Ferne beobachten, Quartiere
-          und Nester nie stören.
+          ☾ Nur aus der Ferne beobachten
         </Schrift>
       )}
-      <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Vorn: häufig (+{SELTENHEIT[1].punkte} AP) · hinten: selten · ✦ = Schatz des Zweigs
-      </Schrift>
 
       <Animated.View
         style={[{ overflow: 'hidden' }, wachsStil]}

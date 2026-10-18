@@ -34,11 +34,6 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
 
   return (
     <View style={{ gap: spacing.m }}>
-      <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Tippe einen Ast an – am Baum oder in der Liste darunter. Seine Zweige sind kleine Sammelsets, jedes mit einem
-        Schatz. Die Sterne sind die legendären Arten.
-      </Schrift>
-
       <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />
       <AstListe kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />
 

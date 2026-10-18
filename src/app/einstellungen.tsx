@@ -6,6 +6,7 @@ import { Hintergrund } from '@/components/Hintergrund';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
+import { Info } from '@/components/ui/Info';
 import { KARTEN_QUELLE } from '@/data/karte';
 import { MODELLE, namensnennung } from '@/data/modelle';
 import { NATURRAUM_QUELLE, naturraumById } from '@/data/naturraeume';
@@ -99,11 +100,16 @@ export default function Einstellungen() {
           </View>
 
           <View style={stile.karte}>
-            <Schrift art="etikett">Sammlung</Schrift>
-            <Schrift art="klein">
-              {anzahl === 0 ? 'Noch keine Funde.' : `${anzahl} Arten in deiner Sammlung.`} Zum Ausprobieren kannst du
-              Beispielfunde laden – dann stehen z. B. Stieleiche, Rotbuche und Sandbirke in Farbe auf der Lichtung.
-            </Schrift>
+            <View style={stile.kopfZeile}>
+              <Schrift art="etikett">Sammlung</Schrift>
+              <Info
+                titel="Sammlung"
+                text={
+                  'Zum Ausprobieren kannst du Beispielfunde laden – dann stehen z. B. Stieleiche, Rotbuche und Sandbirke in Farbe auf der Lichtung. Sie zählen nicht für Punkte.'
+                }
+              />
+            </View>
+            <Schrift art="klein">{anzahl === 0 ? 'Noch keine Funde' : `${anzahl} Arten`}</Schrift>
             <Knopf
               titel="Beispielfunde laden"
               art="leise"
@@ -124,7 +130,19 @@ export default function Einstellungen() {
           </View>
 
           <View style={stile.karte}>
-            <Schrift art="etikett">Bilderkennung</Schrift>
+            <View style={stile.kopfZeile}>
+              <Schrift art="etikett">Bilderkennung</Schrift>
+              <Info
+                titel="Bilderkennung"
+                text={
+                  !serverUrl
+                    ? 'Noch nicht eingerichtet – bis dahin wird die Erkennung simuliert (Demo).'
+                    : pruefModus === 'echt'
+                      ? 'Pflanzenfotos werden über den Wildfund-Server an Pl@ntNet geschickt und dort nicht gespeichert. Pilze, Vögel und Säugetiere werden weiter simuliert geprüft.'
+                      : 'Aus: Alle Fotos werden nur simuliert geprüft und verlassen dein Handy nie.'
+                }
+              />
+            </View>
             <View style={stile.schalter}>
               <Schrift art="text" style={{ flex: 1 }}>
                 Echte Erkennung für Pflanzen (Pl@ntNet)
@@ -137,17 +155,10 @@ export default function Einstellungen() {
                 accessibilityLabel="Echte Erkennung für Pflanzen"
               />
             </View>
-            <Schrift art="klein">
-              {!serverUrl
-                ? 'Noch nicht eingerichtet – bis dahin wird die Erkennung simuliert (Demo).'
-                : pruefModus === 'echt'
-                  ? 'Pflanzenfotos werden über den Wildfund-Server an Pl@ntNet geschickt und dort nicht gespeichert. Pilze, Vögel und Säugetiere werden weiter simuliert geprüft.'
-                  : 'Aus: Alle Fotos werden nur simuliert geprüft und verlassen dein Handy nie.'}
-            </Schrift>
             {pruefModus === 'demo' && (
               <View style={stile.schalter}>
                 <Schrift art="text" style={{ flex: 1 }}>
-                  Demo: manche Fotos „nicht erkennen“ (zum Testen der Foto-Tipps)
+                  Demo: manche Fotos „nicht erkennen“
                 </Schrift>
                 <Switch
                   value={demoFehlschlag}
@@ -160,7 +171,15 @@ export default function Einstellungen() {
           </View>
 
           <View style={stile.karte}>
-            <Schrift art="etikett">Darstellung</Schrift>
+            <View style={stile.kopfZeile}>
+              <Schrift art="etikett">Darstellung</Schrift>
+              <Info
+                titel="Darstellung"
+                text={
+                  'Diorama an: gemalte Bildebenen, die sich beim Kippen des Handys räumlich verschieben (noch mit Platzhalter-Bildern). Aus (Standard): die 3D-Lichtung zum Drehen. Bildrate: zeigt, wie flüssig die 3D-Szene läuft (Ziel: 60 Bilder pro Sekunde). Ist „Bewegung reduzieren“ eingeschaltet, steht die Szene still.'
+                }
+              />
+            </View>
             <View style={stile.schalter}>
               <Schrift art="text" style={{ flex: 1 }}>
                 Startszene als Bild-Diorama (Test)
@@ -172,10 +191,6 @@ export default function Einstellungen() {
                 accessibilityLabel="Startszene als Bild-Diorama"
               />
             </View>
-            <Schrift art="klein">
-              An: gemalte Bildebenen, die sich beim Kippen des Handys räumlich verschieben (noch mit
-              Platzhalter-Bildern). Aus (Standard): die 3D-Lichtung zum Drehen.
-            </Schrift>
             <View style={stile.schalter}>
               <Schrift art="text" style={{ flex: 1 }}>
                 Bildrate auf der Lichtung anzeigen
@@ -187,10 +202,6 @@ export default function Einstellungen() {
                 accessibilityLabel="Bildrate anzeigen"
               />
             </View>
-            <Schrift art="klein">
-              Zeigt, wie flüssig die 3D-Szene läuft (Ziel: 60 Bilder pro Sekunde). Ist auf deinem Handy „Bewegung
-              reduzieren“ eingeschaltet, steht die Szene still und alle Animationen werden abgeschwächt.
-            </Schrift>
             <Knopf
               titel="3D-Test: realistisches Modell"
               untertitel="Lädt ein echtes 3D-Modell mit LiDAR-Effekt"
@@ -208,7 +219,13 @@ export default function Einstellungen() {
 
           {__DEV__ && (
             <View style={stile.karte}>
-              <Schrift art="etikett">Belastungstest (nur Entwicklung)</Schrift>
+              <View style={stile.kopfZeile}>
+                <Schrift art="etikett">Belastungstest</Schrift>
+                <Info
+                  titel="Belastungstest"
+                  text="Nur in der Entwicklung. Ersetzt die Arten in Katalog, Stammbaum und Waldansicht durch rund 90–150 echte Arten je Kategorie. Verwandtschaft und Beobachtungen stammen von GBIF. Seltenheit und Gefahr sind nur grobe Testwerte."
+                />
+              </View>
               <View style={stile.schalter}>
                 <Schrift art="text" style={{ flex: 1 }}>
                   500 echte Testarten im Katalog
@@ -220,10 +237,6 @@ export default function Einstellungen() {
                   accessibilityLabel="Belastungstest mit 500 Testarten"
                 />
               </View>
-              <Schrift art="klein">
-                Ersetzt die Arten in Katalog, Stammbaum und Waldansicht durch rund 90–150 echte Arten je Kategorie.
-                Verwandtschaft und Beobachtungen stammen von GBIF. Seltenheit und Gefahr sind nur grobe Testwerte.
-              </Schrift>
               {belastungstest && (
                 <>
                   <Schrift art="text">Gruppen im Stammbaum</Schrift>
@@ -255,22 +268,30 @@ export default function Einstellungen() {
           )}
 
           <View style={stile.karte}>
-            <Schrift art="etikett">Deine Daten</Schrift>
-            <Schrift art="klein">
-              Wildfund braucht kein Konto. Alles bleibt auf diesem Handy
-              {pruefModus === 'echt'
-                ? ' – außer Pflanzenfotos, die du echt prüfen lässt'
-                : ' und wird nirgendwohin geschickt'}
-              .
-              {grobStandort
-                ? ` Gespeichert ist nur ein grober Standort (auf ca. 10 km gerundet): ${grobStandort.lat}° N, ${grobStandort.lon}° O.`
-                : ' Ein Standort ist nicht gespeichert.'}
-            </Schrift>
+            <View style={stile.kopfZeile}>
+              <Schrift art="etikett">Deine Daten</Schrift>
+              <Info
+                titel="Deine Daten"
+                text={`Wildfund braucht kein Konto. Alles bleibt auf diesem Handy${
+                  pruefModus === 'echt'
+                    ? ' – außer Pflanzenfotos, die du echt prüfen lässt'
+                    : ' und wird nirgendwohin geschickt'
+                }.${
+                  grobStandort
+                    ? ` Gespeichert ist nur ein grober Standort (auf ca. 10 km gerundet): ${grobStandort.lat}° N, ${grobStandort.lon}° O.`
+                    : ' Ein Standort ist nicht gespeichert.'
+                }`}
+              />
+            </View>
+            <Schrift art="klein">Kein Konto · alles auf diesem Handy</Schrift>
             <Knopf titel="Alles zurücksetzen" art="leise" onPress={zuruecksetzen} style={{ marginTop: spacing.s }} />
           </View>
 
           <View style={stile.karte}>
-            <Schrift art="etikett">Datenquellen</Schrift>
+            <View style={stile.kopfZeile}>
+              <Schrift art="etikett">Datenquellen</Schrift>
+              <Info titel="Datenquellen" text="Baumarten-Zuordnung: Demo-Stand, wird noch fachlich geprüft." />
+            </View>
             <Schrift art="klein">Grenzen der Naturräume: {NATURRAUM_QUELLE}.</Schrift>
             <Schrift art="klein">Karte: {KARTEN_QUELLE}.</Schrift>
             {MODELLE.map((m) => (
@@ -288,7 +309,6 @@ export default function Einstellungen() {
                 The image-based plant species identification service used, is based on the Pl@ntNet recognition API.
               </Schrift>
             )}
-            <Schrift art="klein">Baumarten-Zuordnung: Demo-Stand, wird noch fachlich geprüft.</Schrift>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -297,6 +317,7 @@ export default function Einstellungen() {
 }
 
 const stile = StyleSheet.create({
+  kopfZeile: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
   auswahl: { flexDirection: 'row', gap: spacing.s, flexWrap: 'wrap' },
   auswahlKnopf: {
     paddingVertical: spacing.xs + 2,

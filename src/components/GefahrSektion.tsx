@@ -128,7 +128,7 @@ export function GefahrSektion({ eintraege, gefunden, verborgen, ausloeser, leerT
           <Schrift style={stile.titel}>☠ Gefährlich & tödlich ☠</Schrift>
         </Animated.View>
         <Schrift art="klein" style={{ textAlign: 'center', color: colors.fog, paddingHorizontal: spacing.l }}>
-          Hier lauert Gefahr. Nur ansehen – nie anfassen, nie probieren.
+          Nur ansehen – nie anfassen, nie probieren.
         </Schrift>
       </Pressable>
 

@@ -5,9 +5,10 @@ import { colors, spacing } from '@/theme/theme';
 
 import { Schrift } from './Schrift';
 import { Icon } from './Icon';
+import { Info } from './ui/Info';
 
-/** Kopfzeile für Unterseiten: Zurück-Knopf, kleines Etikett und Überschrift. */
-export function Kopfzeile({ titel, etikett }: { titel: string; etikett?: string }) {
+/** Kopfzeile für Unterseiten: Zurück-Knopf, kleines Etikett, Überschrift und optional ein „i“ mit Erklärung. */
+export function Kopfzeile({ titel, etikett, info }: { titel: string; etikett?: string; info?: string }) {
   return (
     <View style={stile.zeile}>
       <Pressable
@@ -25,6 +26,7 @@ export function Kopfzeile({ titel, etikett }: { titel: string; etikett?: string 
           {titel}
         </Schrift>
       </View>
+      {info && <Info titel={titel} text={info} />}
     </View>
   );
 }

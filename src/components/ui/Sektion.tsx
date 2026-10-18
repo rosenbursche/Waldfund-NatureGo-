@@ -6,6 +6,7 @@ import { Schrift } from '@/components/Schrift';
 import { TierSymbol, type SymbolName } from '@/components/tier/TierSymbol';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
+import { Info } from './Info';
 import { Zierlinie } from './Zierlinie';
 
 /**
@@ -30,6 +31,7 @@ export function Sektion({
   titel,
   geste,
   rechts,
+  info,
   art = 'standard',
   children,
 }: {
@@ -37,6 +39,8 @@ export function Sektion({
   titel: string;
   geste?: 'tippen' | 'ziehen';
   rechts?: ReactNode;
+  /** Erklärung hinter einem „i“ neben dem Titel (statt Erklärtext in der Sektion) */
+  info?: string;
   art?: 'standard' | 'warnung';
   children: ReactNode;
 }) {
@@ -63,6 +67,7 @@ export function Sektion({
         <Schrift style={stile.titel} numberOfLines={1} adjustsFontSizeToFit>
           {titel}
         </Schrift>
+        {info && <Info titel={titel} text={info} />}
         {rechts}
         {geste && (
           <View accessibilityLabel={geste === 'tippen' ? 'Antippen' : 'Ziehen'}>

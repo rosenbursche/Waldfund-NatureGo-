@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native';
 
 import { Schrift } from '@/components/Schrift';
+import { Info } from '@/components/ui/Info';
 import { colors, fonts, spacing } from '@/theme/theme';
 
 /**
@@ -62,10 +63,13 @@ export function Kapitel({
           <Schrift style={stile.nummer}>{ROEMISCH[nummer - 1] ?? nummer}</Schrift>
           <View style={stile.strich} />
         </View>
-        <Schrift style={stile.titel} accessibilityRole="header">
-          {titel}
-        </Schrift>
-        {zeile && <Schrift style={stile.zeile}>{zeile}</Schrift>}
+        <View style={stile.titelZeile}>
+          <Schrift style={stile.titel} accessibilityRole="header">
+            {titel}
+          </Schrift>
+          {/* Bedienhinweis nur noch hinter dem „i“ */}
+          {zeile && <Info titel={titel} text={zeile} />}
+        </View>
       </View>
       <View style={[stile.inhalt, randlos && stile.randlos]}>{children}</View>
     </Animated.View>
@@ -86,7 +90,7 @@ const stile = StyleSheet.create({
     color: colors.moon,
     textAlign: 'center',
   },
-  zeile: { fontFamily: fonts.notiz, fontSize: 17, lineHeight: 23, color: colors.fog, textAlign: 'center' },
+  titelZeile: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.s },
   inhalt: { gap: spacing.m },
   randlos: { marginHorizontal: -spacing.m },
 });
