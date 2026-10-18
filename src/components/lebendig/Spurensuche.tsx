@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import Svg, { G } from 'react-native-svg';
+import Svg, { G, Path } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
 import { SpurBild } from '@/components/tier/TierSymbol';
@@ -9,7 +9,7 @@ import { TierFoto } from '@/components/tier/TierFoto';
 import { TrittsiegelForm } from '@/components/tier/Trittsiegel';
 import { spurFarben } from '@/components/tier/UmweltTafeln';
 import { Schalter } from '@/components/ui/Schalter';
-import type { TierSeite } from '@/data/tierSeiten';
+import type { TierSeite, TrittForm } from '@/data/tierSeiten';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
@@ -53,17 +53,25 @@ export function Spurensuche({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }
   );
 }
 
-/** Untergrund der Fährte: Farbe des Bodens, des Abdrucks und eines feinen Randes (nasser Glanz, Sandkörner) */
-type Untergrund = 'schnee' | 'matsch' | 'sand';
-const BODEN: Record<Untergrund, { boden: string; abdruck: string; rand: string; name: string }> = {
-  schnee: { boden: colors.nebel, abdruck: colors.forest, rand: colors.moon, name: 'Schnee' },
-  matsch: { boden: colors.rinde, abdruck: colors.rindeDunkel, rand: colors.fog, name: 'Matsch' },
-  sand: { boden: colors.myzelStielMitte, abdruck: colors.myzelStielDunkel, rand: colors.myzelStiel, name: 'Sand' },
+/**
+ * Untergrund der Fährte: Farbe des Bodens, des Abdrucks, des aufgeworfenen Randes und der Tiefe.
+ * Schnee: weiche, bläulich-graue Mulden mit hellem Rand. Matsch: dunkle, nasse Abdrücke mit Glanz.
+ */
+type Untergrund = 'schnee' | 'matsch';
+const BODEN: Record<Untergrund, { boden: string; abdruck: string; rand: string; tiefe: string; name: string }> = {
+  schnee: { boden: colors.nebel, abdruck: colors.fog, rand: colors.moon, tiefe: colors.wasser, name: 'Schnee' },
+  matsch: {
+    boden: colors.rinde,
+    abdruck: colors.rindeDunkel,
+    rand: colors.rindeHell,
+    tiefe: colors.shadow,
+    name: 'Matsch',
+  },
 };
 
 /**
  * Laufende Fährte mit drei Schaltern:
- * - Untergrund: Schnee, Matsch, Sand
+ * - Untergrund: Schnee oder Matsch
  * - Gangart: ruhiges Ziehen (Schritt für Schritt) oder Flucht (Sprünge in Vierergruppen, weite Abstände).
  *   Bei Huftieren spreizen sich auf der Flucht die Schalen und die Afterklauen drücken sich ab.
  *   TODO fachlich prüfen: Darstellung der Fluchtfährte vereinfacht
@@ -81,7 +89,6 @@ function SpurenSpiel({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
         optionen={[
           { wert: 'schnee', symbol: 'schnee', name: 'Schnee' },
           { wert: 'matsch', symbol: 'mulde', name: 'Matsch' },
-          { wert: 'sand', symbol: 'sonne', name: 'Sand' },
         ]}
       />
       {/* key: bei jeder Änderung läuft die Fährte von vorn */}
@@ -206,19 +213,65 @@ function LaufendeFaehrte({
               },
             ]}
           >
-            <Svg width={34} height={34} viewBox="-17 -17 34 34">
-              {/* heller Rand leicht versetzt: aufgeworfener Schnee, nasser Glanz bzw. Sandkörner */}
-              <G transform={`translate(-0.8 -0.8) rotate(90) scale(${groesse * 1.08})`} opacity={0.55}>
-                <TrittsiegelForm form={form} farbe={b.rand} />
-              </G>
-              <G transform={`rotate(90) scale(${groesse})`}>
-                <TrittsiegelForm form={form} farbe={b.abdruck} />
-              </G>
-            </Svg>
+            <Abdruck
+              form={form}
+              // echte, nachgezeichnete Form (Pipeline): beim Gehen abwechselnd Vorder- und Hinterfuß
+              pfad={
+                flucht
+                  ? (tier.trittPfad?.flucht ?? tier.trittPfad?.vorne)
+                  : k % 2 === 1
+                    ? (tier.trittPfad?.hinten ?? tier.trittPfad?.vorne)
+                    : tier.trittPfad?.vorne
+              }
+              boden={b}
+              groesse={groesse}
+              nass={boden === 'matsch'}
+            />
           </Animated.View>
         );
       })}
     </View>
+  );
+}
+
+/**
+ * Ein Abdruck in Schichten, damit er wie in den Boden gedrückt wirkt:
+ * aufgeworfener Rand (weich, hell) → Rand im Licht (oben links) → Abdruck → tiefste Stelle (unten rechts dunkler)
+ * → bei Matsch ein nasser Glanz. `pfad`: echte Form aus der Pipeline, sonst die vereinfachte `form`.
+ */
+function Abdruck({
+  form,
+  pfad,
+  boden,
+  groesse,
+  nass,
+}: {
+  form: TrittForm;
+  pfad?: string;
+  boden: (typeof BODEN)[Untergrund];
+  groesse: number;
+  nass: boolean;
+}) {
+  const flaeche = (farbe: string) =>
+    pfad ? <Path d={pfad} fill={farbe} fillRule="evenodd" /> : <TrittsiegelForm form={form} farbe={farbe} />;
+  return (
+    <Svg width={34} height={34} viewBox="-17 -17 34 34">
+      <G transform={`rotate(90) scale(${groesse * 1.22})`} opacity={0.22}>
+        {flaeche(boden.rand)}
+      </G>
+      <G transform={`translate(-0.9 -0.9) rotate(90) scale(${groesse * 1.07})`} opacity={0.6}>
+        {flaeche(boden.rand)}
+      </G>
+      <G transform={`rotate(90) scale(${groesse})`}>{flaeche(boden.abdruck)}</G>
+      <G transform={`translate(0.7 0.7) rotate(90) scale(${groesse * 0.72})`} opacity={0.45}>
+        {flaeche(boden.tiefe)}
+      </G>
+      {nass && (
+        <G transform={`translate(-1.2 -1) rotate(90) scale(${groesse * 0.4})`} opacity={0.18}>
+          {flaeche(colors.moon)}
+        </G>
+      )}
+    </Svg>
   );
 }
 

@@ -1,17 +1,18 @@
 import { useState, type ReactNode } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { Animated, Linking, Pressable, StyleSheet, View } from 'react-native';
 
 import { ArtVerweise } from '@/components/ArtVerweise';
+import { Schrift } from '@/components/Schrift';
 import { Bildnachweis } from '@/components/tier/TierFoto';
 import { alleFotos } from '@/components/tier/TierSeiteInhalt';
 import { Hinweis, Speiseplan } from '@/components/tier/UmweltTafeln';
 import { Jahresrad, TagesUhr } from '@/components/tier/ZeitTafeln';
 import { Kennzahl } from '@/components/ui/Kennzahl';
-import { OhneRahmen } from '@/components/ui/Sektion';
+import { OhneRahmen, Sektion } from '@/components/ui/Sektion';
 import type { Art } from '@/data/artTypen';
 import { STECKBRIEFE } from '@/data/steckbriefe';
 import type { TierSeite } from '@/data/tierSeiten';
-import { spacing } from '@/theme/theme';
+import { colors, spacing } from '@/theme/theme';
 
 import { Fressfeinde } from './Fressfeinde';
 import { Jahreszeiten } from './Jahreszeiten';
@@ -119,6 +120,23 @@ export function LebendigInhalt({
       <View style={stile.schluss}>
         <Hinweis tier={tier} text={hinweisText} />
         <Bildnachweis ids={alleFotos(tier, true)} />
+        {tier.quellen && tier.quellen.length > 0 && (
+          <Sektion symbol="buch" titel="Quellen">
+            {tier.quellen.map((q) => (
+              <Pressable
+                key={q.id}
+                onPress={() => Linking.openURL(q.url)}
+                accessibilityRole="link"
+                accessibilityLabel={`${q.titel}, Quelle öffnen`}
+                style={({ pressed }) => pressed && { opacity: 0.6 }}
+              >
+                <Schrift art="klein" style={{ color: colors.moon }}>
+                  {q.titel} ›
+                </Schrift>
+              </Pressable>
+            ))}
+          </Sektion>
+        )}
       </View>
     </View>
   );

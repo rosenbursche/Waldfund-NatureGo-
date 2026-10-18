@@ -78,6 +78,12 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 - **Lizenz:** Die GBIF-Backbone-Taxonomie gibt GBIF mit CC BY 4.0 an. Die Beobachtungen stammen aus vielen Datensätzen mit eigenen Lizenzen (CC0, CC BY, teils CC BY-NC). Wir nutzen nur die Gesamtzahl. **Vor einer Nutzung außerhalb des Tests Lizenz und Zitierregeln von GBIF prüfen** (Zitiervorgabe: „GBIF.org (Datum) GBIF Occurrence Download“).
 - **Wichtig:** Die Beobachtungszahl ist kein Maß für echte Seltenheit (Meldeverhalten, Kleinarten, Namenswechsel).
 
+### Verbreitung: Nachweise aus GBIF
+- **Was:** Beobachtungen von Wildtieren in Deutschland seit 2000 (nur freie Natur, keine Zoo-/Museumsbelege), zusammengefasst auf Messtischblatt-Rasterfelder (TK25). Genauere Orte werden nicht gespeichert.
+- **Wo:** GBIF-API (`https://api.gbif.org/v1/occurrence/search`), Skript `scripts/gbif-verbreitung.mjs`, Ergebnis `src/data/nachweise/<artId>.json`.
+- **Lizenz:** Nur Datensätze unter **CC0 1.0** oder **CC BY 4.0** (per Filter, NC-Datensätze ausgeschlossen). Namensnennung „GBIF.org“ steht unter jeder Karte in der App.
+- **Vor Veröffentlichung:** Über GBIF.org einen Download bzw. ein „Derived Dataset“ mit DOI anlegen und diese DOI in der App zitieren (GBIF-Zitierregeln).
+
 ## Geprüft, (noch) nicht verwendet
 
 | Quelle | Ergebnis |

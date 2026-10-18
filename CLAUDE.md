@@ -4,6 +4,11 @@
 
 Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtdokumentation (Bedienung, Spielregeln, Daten, 3D, Technik): `docs/DOKUMENTATION.md`** – bei Änderungen mitpflegen. **Alle Anforderungen mit Stand: `docs/ANFORDERUNGEN.md`** (bei neuen Wünschen dort ergänzen und Status pflegen). Vorgaben für realistische 3D-Modelle: `docs/3D-PIPELINE.md`. Klickbarer Web-Prototyp (Struktur, Daten, Punktelogik, Zeichnungen, Karte): `prototyp-wildfund.html`. Das **Farbschema des Prototyps nicht übernehmen**. Expo-spezifische Hinweise: `AGENTS.md`.
 
+## Tierseiten-Pipeline
+- Neue oder überarbeitete Tierseiten entstehen über **`/tierseite <artId>`** (Skill in `.claude/skills/tierseite/`) mit den Agenten in `.claude/agents/`: Recherche → Verbreitung (GBIF), Bilder (Commons), Spuren → Prüfer → Bauer. Beschreibung: **`docs/PIPELINE-TIERSEITEN.md`**.
+- Werkzeuge: `scripts/gbif-verbreitung.mjs`, `scripts/commons-suche.mjs`, `scripts/commons-laden.mjs`, `scripts/spur-vorschau.mjs`. Rechercheergebnisse liegen in `recherche/<artId>/`.
+- Jede Angabe braucht eine Quelle (`quellen` in der Tierseite). Fotos nur nach Ansicht und mit freier Lizenz.
+
 ## Zusammenarbeit
 - Der Nutzer ist Einsteiger. Jeden Schritt kurz in einfachem Deutsch erklären, genaue Befehle nennen und sagen, was auf dem Handy zu sehen sein soll.
 - **Phase für Phase** arbeiten (Phasen 0–9, siehe `wildfund-prompt.md` Abschnitt 9). Nach jeder Phase anhalten, berichten, auf OK warten.

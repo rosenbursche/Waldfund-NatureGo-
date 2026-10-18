@@ -1,5 +1,6 @@
 import { WUCHSGEBIETE } from '@/data/karte';
 import type { Geometrie } from '@/data/typen';
+import { ECHTE_VERBREITUNG } from '@/data/nachweise';
 import { DEUTSCHLAND_UMRISS, VERBREITUNG } from '@/data/verbreitung';
 
 import { punktInGeometrie, punktInRing } from './geo';
@@ -49,11 +50,23 @@ function startwert(text: string): number {
 
 const vorkommenCache = new Map<string, boolean[]>();
 
-/** Für jedes Rasterfeld: kommt die Art dort (laut Demo-Modell) vor? Einmal berechnet, dann gemerkt. */
+/** Gibt es echte Nachweise (GBIF) für diese Art? Dann zeigt die Karte sie statt des Demo-Modells. */
+export const hatEchteDaten = (artId: string) => artId in ECHTE_VERBREITUNG;
+
+/**
+ * Für jedes Rasterfeld: kommt die Art dort vor? Echte Nachweise (`src/data/nachweise/`, aus GBIF),
+ * sonst das Demo-Modell. Einmal berechnet, dann gemerkt.
+ */
 export function vorkommen(artId: string, modellName: string): boolean[] {
   const schluessel = `${artId}|${modellName}`;
   const da = vorkommenCache.get(schluessel);
   if (da) return da;
+  const echt = ECHTE_VERBREITUNG[artId];
+  if (echt) {
+    const occ = rasterZellen().map(({ i, j }) => (echt.zellen[`${i}-${j}`] ?? 0) > 0);
+    vorkommenCache.set(schluessel, occ);
+    return occ;
+  }
   const m = VERBREITUNG[modellName] ?? VERBREITUNG.all;
   const sd = startwert(artId);
   const occ = rasterZellen().map(({ lon, lat, i, j }) => {
@@ -81,6 +94,10 @@ export function projiziere(lon: number, lat: number): [number, number] {
 export type GebietsStufe = 'voll' | 'teil' | 'keine';
 export const SCHWELLE_VOLL = 0.45;
 export const SCHWELLE_TEIL = 0.12;
+/** Echte Nachweise decken nie jedes Feld ab (es wird nicht überall gesucht) – deshalb niedrigere Schwellen.
+ *  „vereinzelt“ erst ab 2 Feldern mit Nachweis, damit ein einzelner Ausreißer kein ganzes Gebiet färbt. */
+export const SCHWELLE_VOLL_ECHT = 0.2;
+export const SCHWELLE_TEIL_ECHT = 0.03;
 
 let zellGebiet: (number | null)[] | null = null;
 
@@ -134,9 +151,13 @@ export function gebietsAnteile(
     if (occ[i]) z.ja += 1;
     zaehler.set(id, z);
   });
+  const echt = hatEchteDaten(artId);
+  const voll = echt ? SCHWELLE_VOLL_ECHT : SCHWELLE_VOLL;
+  const teil = echt ? SCHWELLE_TEIL_ECHT : SCHWELLE_TEIL;
   return WUCHSGEBIETE.map((g) => {
     const z = zaehler.get(g.id);
     const anteil = z && z.alle > 0 ? z.ja / z.alle : 0;
-    return { id: g.id, anteil, stufe: anteil >= SCHWELLE_VOLL ? 'voll' : anteil >= SCHWELLE_TEIL ? 'teil' : 'keine' };
+    const genug = !echt || (z?.ja ?? 0) >= 2;
+    return { id: g.id, anteil, stufe: anteil >= voll && genug ? 'voll' : anteil >= teil && genug ? 'teil' : 'keine' };
   });
 }

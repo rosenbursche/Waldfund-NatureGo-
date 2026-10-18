@@ -84,6 +84,8 @@ export function alleFotos(tier: TierSeite, mitLandschaft = false): FotoId[] {
     f.aktiv,
     f.ruhe,
     f.hinweis,
+    f.fellwechsel,
+    ...Object.values(f.jahreszeiten ?? {}),
     ...Object.values(f.spuren ?? {}),
     ...landschaft,
   ];
