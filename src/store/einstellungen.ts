@@ -75,8 +75,8 @@ export const useEinstellungen = create<EinstellungenState>()(
       setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
       startSzene: '3d',
       setStartSzene: (sz) => set({ startSzene: sz }),
-      // auf dem Branch „belastungstest“ in der App standardmäßig an, in den automatischen Tests aus
-      belastungstest: process.env.NODE_ENV !== 'test',
+      // in der Entwicklung (Expo Go) standardmäßig an, in den automatischen Tests und der Store-Version aus
+      belastungstest: __DEV__ && process.env.NODE_ENV !== 'test',
       setBelastungstest: (an) => set({ belastungstest: an }),
       testGruppierung: 'vorschlag',
       setTestGruppierung: (g) => set({ testGruppierung: g }),
@@ -90,11 +90,11 @@ export const useEinstellungen = create<EinstellungenState>()(
       storage: createJSONStorage(() => AsyncStorage),
       version: 3,
       // Version 2: Startszene wieder standardmäßig 3D (das Diorama war kurz Standard)
-      // Version 3 (nur Branch „belastungstest“): Belastungstest einmalig einschalten
+      // Version 3: Belastungstest in der Entwicklung einmalig einschalten
       migrate: (alt, version) => {
         const s = alt as Partial<EinstellungenState>;
         if (version < 2) s.startSzene = '3d';
-        if (version < 3) s.belastungstest = true;
+        if (version < 3) s.belastungstest = __DEV__;
         return s as EinstellungenState;
       },
     },

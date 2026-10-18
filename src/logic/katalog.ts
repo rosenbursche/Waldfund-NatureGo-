@@ -14,7 +14,8 @@ import { getHeimischeBaeume } from './regelEngine';
 /** Die Arten, die der Katalog gerade zeigt: normal die App-Arten, im Belastungstest die 500 Testarten */
 function aktiveArten(): Art[] {
   const e = useEinstellungen.getState();
-  return e.belastungstest ? TESTARTEN[e.testGruppierung] : ARTEN;
+  // __DEV__: in der Store-Version gibt es den Belastungstest nicht
+  return __DEV__ && e.belastungstest ? TESTARTEN[e.testGruppierung] : ARTEN;
 }
 
 const testById = Object.fromEntries(
@@ -193,9 +194,8 @@ export function waldPlaetze(kategorie: KategorieId, naturraum?: Naturraum): Wald
 
 function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): KatalogGruppe[] {
   const e = useEinstellungen.getState();
-  const reihenfolge = e.belastungstest
-    ? testGruppenReihenfolge(kategorie, e.testGruppierung)
-    : GRUPPEN_REIHENFOLGE[kategorie];
+  const reihenfolge =
+    __DEV__ && e.belastungstest ? testGruppenReihenfolge(kategorie, e.testGruppierung) : GRUPPEN_REIHENFOLGE[kategorie];
   const rang = (g: string) => (reihenfolge.includes(g) ? reihenfolge.indexOf(g) : reihenfolge.length);
   const gruppen: KatalogGruppe[] = [];
   for (const e of eintraege) {
