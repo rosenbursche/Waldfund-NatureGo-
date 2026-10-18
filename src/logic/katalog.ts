@@ -16,7 +16,9 @@ import { getHeimischeBaeume } from './regelEngine';
 function aktiveArten(): Art[] {
   const e = useEinstellungen.getState();
   // __DEV__: in der Store-Version gibt es den Belastungstest nicht
-  return __DEV__ && e.belastungstest ? TESTARTEN[e.testGruppierung] : ARTEN;
+  if (!(__DEV__ && e.belastungstest)) return ARTEN;
+  // Absicherung: ein gespeicherter Wert aus einer anderen App-Version darf nie zum Absturz führen
+  return TESTARTEN[e.testGruppierung] ?? TESTARTEN.konzept;
 }
 
 const testById = Object.fromEntries(
@@ -25,7 +27,7 @@ const testById = Object.fromEntries(
 
 /** Art zu einer ID – Testarten mit der gerade gewählten Gruppierung */
 function artFuer(id: string): Art | undefined {
-  if (id.startsWith('t-')) return testById[useEinstellungen.getState().testGruppierung][id];
+  if (id.startsWith('t-')) return (testById[useEinstellungen.getState().testGruppierung] ?? testById.konzept)[id];
   return artById[id];
 }
 

@@ -1,4 +1,5 @@
 import { naturraumById } from '@/data/naturraeume';
+import { useEinstellungen } from '@/store/einstellungen';
 
 import {
   alleSuchEintraege,
@@ -10,6 +11,7 @@ import {
   sucheArten,
   zuletztEntdeckt,
 } from '../suche';
+import { fortschrittDerKategorie } from '../katalog';
 
 const harz = naturraumById['hochharz'];
 const alle = alleSuchEintraege(harz);
@@ -60,7 +62,9 @@ describe('Entdecken', () => {
     const g = gefaehrlichste(alle, harz);
     expect(g.length).toBeGreaterThan(0);
     for (let i = 1; i < g.length; i++)
-      expect(gefahrStufe(g[i - 1].gefahr)).toBeGreaterThanOrEqual(gefahrStufe(g[i].gefahr));
+      expect(g[i - 1].gefahrStufe ?? gefahrStufe(g[i - 1].gefahr)).toBeGreaterThanOrEqual(
+        g[i].gefahrStufe ?? gefahrStufe(g[i].gefahr),
+      );
     expect(gefahrStufe('tödlich giftig')).toBe(3);
     expect(gefahrStufe('sehr giftig')).toBe(2);
     expect(gefahrStufe('giftig')).toBe(1);
@@ -73,5 +77,14 @@ describe('Entdecken', () => {
 
   test('Bäume zählen nur, wenn sie im Naturraum heimisch sind', () => {
     expect(imNaturraum('fichte', harz)).toBe(true);
+  });
+});
+
+describe('Absicherung', () => {
+  test('unbekannte gespeicherte Gruppierung führt nicht zum Absturz', () => {
+    // @ts-expect-error absichtlich ein ungültiger, gespeicherter Wert
+    useEinstellungen.setState({ belastungstest: true, testGruppierung: 'gibt-es-nicht' });
+    expect(fortschrittDerKategorie('saeuger', {}).gesamt).toBeGreaterThan(50);
+    useEinstellungen.setState({ belastungstest: false, testGruppierung: 'konzept' });
   });
 });

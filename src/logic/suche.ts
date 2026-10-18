@@ -136,11 +136,14 @@ export function gefahrStufe(gefahr?: string): number {
   return 1;
 }
 
+/** Gefahrenstufe aus den Daten (falls gesetzt), sonst aus dem Gefahren-Text */
+const stufeVon = (e: SuchEintrag) => e.gefahrStufe ?? gefahrStufe(e.gefahr);
+
 /** Die gefährlichsten Arten im Naturraum – tödliche zuerst, bei Gleichstand die selteneren */
 export function gefaehrlichste(eintraege: SuchEintrag[], naturraum?: Naturraum, n = 10): SuchEintrag[] {
   return eintraege
     .filter((e) => e.gefahr && imNaturraum(e.id, naturraum))
-    .sort((a, b) => gefahrStufe(b.gefahr) - gefahrStufe(a.gefahr) || b.wildWert - a.wildWert)
+    .sort((a, b) => stufeVon(b) - stufeVon(a) || b.wildWert - a.wildWert)
     .slice(0, n);
 }
 
