@@ -184,6 +184,16 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 
 ---
 
+### 2.10 Branding und Designsystem (18.10.2026)
+| Wunsch | Stand |
+|---|---|
+| Epischer, geheimnisvoller Look nach Vorlagebildern (Nebelwald, bemooste Bäume, Hohlweg) | ✅ Entwurf mit drei Richtungen |
+| Farbwelt „Hohlweg“ + Schrift „Runenhain“ (Cinzel + Alegreya Sans) | ✅ |
+| Feste, wiederverwendbare Bausteine (Abzeichen, Sektionen, Kapitelkopf, Kennzahl, Schalter, Knopf) am Beispiel der Reh-Seite | ✅ `docs/DESIGNSYSTEM.md`, Übersicht unter Einstellungen → Bausteine |
+| Lichtschein und Vignette über allen Hintergründen | ✅ |
+| Filmkorn, „Nebel lichtet sich“ beim Freischalten, Logo als Siegel, 3D-Lichtung angleichen | offen |
+| Ältere Screens (Katalog, Tagebuch, Sammeln) auf die Bausteine umstellen | offen |
+
 ## 3. Vorgeschlagene Reihenfolge
 
 1. **Schritt 1 – jetziges System (ohne externe Modelle)**

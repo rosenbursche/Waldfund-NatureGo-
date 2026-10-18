@@ -58,6 +58,11 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.
 - Verbreitungskarten sind **Demo-Daten** (`src/data/verbreitung.ts`), keine echten Funde.
 
+### Schriften (Google Fonts)
+- **Was:** Cinzel (Natanael Gama), Alegreya Sans (Juan Pablo del Peral, Huerta Tipográfica), Kalam (Indian Type Foundry).
+- **Wo:** über die Expo-Pakete `@expo-google-fonts/cinzel`, `@expo-google-fonts/alegreya-sans` und `@expo-google-fonts/kalam`. Die Lizenzdatei liegt jeweils als `LICENSE_FONT` im Paket.
+- **Lizenz:** SIL Open Font License 1.1. Frei nutzbar, auch kommerziell und eingebettet in Apps. Die Schriften dürfen nur nicht einzeln verkauft werden.
+
 ## Geprüft, (noch) nicht verwendet
 
 | Quelle | Ergebnis |

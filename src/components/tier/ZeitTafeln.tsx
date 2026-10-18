@@ -89,7 +89,7 @@ export function Jahresrad({
                   x={tx}
                   y={ty + 4}
                   fontSize={11}
-                  fontFamily={fonts.type}
+                  fontFamily={fonts.etikett}
                   fill={an ? colors.night : colors.fog}
                   textAnchor="middle"
                 >
@@ -133,7 +133,7 @@ export function Jahresrad({
             const [x, y] = punkt(150, (monat - 0.5) / 12);
             return <Circle cx={x} cy={y} r={6} fill={colors.amber} stroke={colors.night} strokeWidth={2} />;
           })()}
-          <SvgText x={M} y={98} fontSize={22} fontFamily={fonts.handBold} fill={colors.moon} textAnchor="middle">
+          <SvgText x={M} y={98} fontSize={22} fontFamily={fonts.titel} fill={colors.moon} textAnchor="middle">
             {MONATE_LANG[monat - 1]}
           </SvgText>
         </Svg>
@@ -264,7 +264,7 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
                 x={x}
                 y={y + 3}
                 fontSize={9}
-                fontFamily={fonts.type}
+                fontFamily={fonts.etikett}
                 fill={colors.fog}
                 textAnchor="middle"
               >
@@ -286,7 +286,7 @@ export function TagesUhr({ tier }: { tier: TierSeite }) {
           {/* Zeiger */}
           <Line x1={M} y1={M} x2={zx} y2={zy} stroke={colors.moon} strokeWidth={1.5} opacity={0.35} />
           <Circle cx={zx} cy={zy} r={8} fill={colors.moon} stroke={colors.night} strokeWidth={2} />
-          <SvgText x={M} y={92} fontSize={22} fontFamily={fonts.type} fill={colors.moon} textAnchor="middle">
+          <SvgText x={M} y={92} fontSize={22} fontFamily={fonts.etikett} fill={colors.moon} textAnchor="middle">
             {zeit}
           </SvgText>
         </Svg>
@@ -363,7 +363,7 @@ const stile = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: colors.night,
   },
-  chipText: { fontFamily: fonts.hand, fontSize: 16, lineHeight: 20 },
+  chipText: { fontFamily: fonts.notiz, fontSize: 16, lineHeight: 20 },
 });
 
 export { Chip };

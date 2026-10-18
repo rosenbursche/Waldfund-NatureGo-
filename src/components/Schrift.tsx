@@ -14,10 +14,16 @@ export function Schrift({ art = 'text', style, ...rest }: TextProps & { art?: Ar
 }
 
 const stile = StyleSheet.create({
-  titel: { fontFamily: fonts.handBold, fontSize: 44, lineHeight: 52, color: colors.moon },
-  ueberschrift: { fontFamily: fonts.handBold, fontSize: 26, lineHeight: 32, color: colors.moon },
-  notiz: { fontFamily: fonts.hand, fontSize: 19, lineHeight: 27, color: colors.amber },
-  text: { fontFamily: fonts.body, fontSize: 15, lineHeight: 23, color: colors.moon },
-  klein: { fontFamily: fonts.body, fontSize: 13, lineHeight: 19, color: colors.fog },
-  etikett: { fontFamily: fonts.type, fontSize: 12, letterSpacing: 1.4, color: colors.fog, textTransform: 'uppercase' },
+  titel: { fontFamily: fonts.titel, fontSize: 34, lineHeight: 42, letterSpacing: 1.5, color: colors.moon },
+  ueberschrift: { fontFamily: fonts.titelLeicht, fontSize: 21, lineHeight: 28, letterSpacing: 0.8, color: colors.moon },
+  notiz: { fontFamily: fonts.notiz, fontSize: 18, lineHeight: 25, color: colors.amber },
+  text: { fontFamily: fonts.body, fontSize: 16.5, lineHeight: 24, color: colors.moon },
+  klein: { fontFamily: fonts.body, fontSize: 14, lineHeight: 20, color: colors.fog },
+  etikett: {
+    fontFamily: fonts.etikett,
+    fontSize: 11.5,
+    letterSpacing: 2,
+    color: colors.fog,
+    textTransform: 'uppercase',
+  },
 });

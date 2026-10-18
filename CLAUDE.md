@@ -48,9 +48,10 @@ Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtdokumentation (Bedienung, 
 - Anteile der Regel-Engine (haupt 6 / neben 3 / begleiter 1) sind eine Spiel-Vereinfachung, keine forstlichen Flächenanteile.
 
 ## Look & Feel: mystisch statt neon
-- Wald in der Dämmerung, altes Naturforscher-Tagebuch. **Kein Neongrün.** Leuchten weich (Bloom, Nebel, Licht in Schichten).
-- Tokens: night #0B1414, forest #142420, moss #3D5A45, fog #9FB3AD, moon #D9E0E6, amber #E8B86A, rune #8FD1C4, rare #B79CE0, legend #E9C46A.
-- Schriften: Kalam (Handschrift, Überschriften/Notizen), Lexend (Text), Special Elite (Etiketten/Zahlen).
+- Farbwelt „Hohlweg“: fast schwarzes Waldgrün, Licht nur von oben, Moos im Licht, warmes Laternenlicht. **Kein Neongrün, kein Türkis.** Leuchten weich (Nebel, Licht in Schichten, Vignette).
+- Tokens: night #060907, forest #101A13, moss #4F6B36, rune (Mooslicht) #A9BC6A, fog #A3B0A5, moon #DCE3D6, amber (Laterne) #D9A24E, rare #A595CC, legend #E2B85C.
+- Schriften: Cinzel (Titel, Etiketten, Abzeichen), Alegreya Sans (Text, kursiv für Notizen), Kalam nur in Lehrbuch-Zeichnungen.
+- **Designsystem: `docs/DESIGNSYSTEM.md`.** Neue Seiten nur aus den Bausteinen in `src/components/ui/` bauen (Sektion, Kapitelkopf, Abzeichen, Kennzahl, Schalter, Zierlinie, Knopf). Vorlage ist die Reh-Seite. Übersicht im Handy: Einstellungen → Bausteine.
 - Lehrbuch-Zeichnungen: Tinte auf altem Papier, handgezeichnet mit Beschriftungslinien, nicht „KI-artig“.
 - Alle Animationen bei „Bewegung reduzieren“ abschwächen.
 

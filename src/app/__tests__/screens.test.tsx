@@ -11,6 +11,7 @@ import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
 import Katalog from '@/app/katalog/[kategorie]';
 import Modelltest from '@/app/modelltest';
+import Bausteine from '@/app/bausteine';
 import Mystery from '@/app/mystery';
 import Sammeln from '@/app/sammeln/[id]';
 import Tagebuch from '@/app/tagebuch';
@@ -274,6 +275,13 @@ describe('Screens rendern ohne Fehler', () => {
     await render(<Modelltest />);
     expect(screen.getByText(/Platzhalter, kein echtes Reh/)).toBeTruthy();
     expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
+  });
+
+  test('Bausteine zeigt alle Seltenheits-Abzeichen', async () => {
+    await render(<Bausteine />);
+    for (const name of ['Häufig', 'Selten', 'Sehr selten', 'Legendär'])
+      expect(screen.getAllByText(name).length).toBeGreaterThan(0);
+    expect(screen.getByText('Fund aufnehmen')).toBeTruthy();
   });
 
   test('Einstellungen', async () => {

@@ -14,6 +14,8 @@ import Svg, { Defs, Ellipse, RadialGradient, Stop } from 'react-native-svg';
 
 import { colors } from '@/theme/theme';
 
+import { Schleier } from './ui/Schleier';
+
 /**
  * Mystischer Hintergrund: Dämmerungsverlauf, langsam ziehende Nebelbänke
  * und schwebende Sporen. Bei "Bewegung reduzieren" bleibt alles still.
@@ -32,6 +34,7 @@ export function Hintergrund({ children }: { children?: React.ReactNode }) {
       <Nebelbank y={0.62} dauer={52000} versatz={0.4} deckkraft={0.13} />
       <Nebelbank y={0.86} dauer={44000} versatz={0.7} deckkraft={0.16} />
       <Sporen />
+      <Schleier />
       {children}
     </View>
   );
@@ -48,9 +51,7 @@ function Nebelbank({ y, dauer, versatz, deckkraft }: { y: number; dauer: number;
     t.value = withRepeat(withTiming(1 + versatz, { duration: dauer, easing: Easing.inOut(Easing.sin) }), -1, true);
   }, [ruhig, dauer, versatz, t]);
 
-  const stil = useAnimatedStyle(() => ({
-    transform: [{ translateX: (t.value - 0.5) * width * 0.5 }],
-  }));
+  const stil = useAnimatedStyle(() => ({ transform: [{ translateX: (t.value - 0.5) * width * 0.5 }] }));
 
   const breite = width * 1.8;
   const hoehe = height * 0.28;
@@ -133,6 +134,4 @@ function Spore({ x, y, groesse, verzoegerung, farbe }: (typeof SPOREN)[number]) 
   );
 }
 
-const stile = StyleSheet.create({
-  flaeche: { flex: 1, backgroundColor: colors.night, overflow: 'hidden' },
-});
+const stile = StyleSheet.create({ flaeche: { flex: 1, backgroundColor: colors.night, overflow: 'hidden' } });

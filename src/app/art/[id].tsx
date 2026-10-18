@@ -11,6 +11,14 @@ import { Hintergrund } from '@/components/Hintergrund';
 import { Icon } from '@/components/Icon';
 import { TierHintergrund } from '@/components/tier/TierHintergrund';
 import { TierTafel } from '@/components/tier/TierTafel';
+import {
+  Abzeichen,
+  RoteListeAbzeichen,
+  SCHUTZ_FARBE,
+  SchutzAbzeichen,
+  SeltenheitAbzeichen,
+} from '@/components/ui/Abzeichen';
+import { Kapitelkopf } from '@/components/ui/Kapitelkopf';
 import { FotoHero } from '@/components/tier/TierFoto';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
@@ -44,7 +52,6 @@ const datumText = (d: string) => {
   return `${Number(t)}. ${MONATE[Number(m) - 1]} ${j}`;
 };
 
-const SCHUTZ_FARBE = [colors.fog, colors.rune, colors.legend] as const;
 const SCHUTZ_HINWEIS = [
   'Trotzdem: nur beobachten und fotografieren.',
   'Nicht pflücken oder fangen, Fundort schonen.',
@@ -138,7 +145,7 @@ export default function ArtSeite() {
               </Pressable>
               <View style={stile.heroEtikett}>
                 <Schrift art="etikett" style={{ color: colors.moon }}>
-                  {kategorie.name} · {gruppe}
+                  {kategorie.name}
                 </Schrift>
               </View>
             </View>
@@ -161,10 +168,12 @@ export default function ArtSeite() {
                   Fotografiere die Art, um sie in Farbe freizuschalten
                 </Schrift>
               )}
-              <Schrift art="titel" accessibilityRole="header" style={stile.heroName}>
-                {eintrag.name}
-              </Schrift>
-              <Schrift style={stile.latein}>{eintrag.lat}</Schrift>
+              <Kapitelkopf etikett={gruppe} titel={eintrag.name} unter={eintrag.lat} groesse="gross" />
+              <View style={stile.chips}>
+                <SeltenheitAbzeichen stufe={eintrag.seltenheit} punkte />
+                {art && art.schutz > 0 && <SchutzAbzeichen schutz={art.schutz} />}
+                {gefunden && <Abzeichen text="Gesammelt" farbe={colors.amber} art="voll" />}
+              </View>
             </View>
           </View>
         ) : (
@@ -224,16 +233,10 @@ export default function ArtSeite() {
 
         {!grafisch && (
           <View style={stile.chips}>
-            <Pille farbe={s.farbe} voll>
-              {s.name} · {s.punkte} AP
-            </Pille>
-            {art && !verborgen && <Pille farbe={SCHUTZ_FARBE[art.schutz]}>{SCHUTZ_NAME[art.schutz]}</Pille>}
-            {art?.roteListe && !verborgen && (
-              <Pille farbe={'123'.includes(art.roteListe) ? colors.warn : colors.fog}>
-                Rote Liste {art.roteListe} · {ROTE_LISTE_NAME[art.roteListe]}
-              </Pille>
-            )}
-            {art?.giftig && <Pille farbe={colors.warn}>{art.giftig}</Pille>}
+            <SeltenheitAbzeichen stufe={eintrag.seltenheit} punkte />
+            {art && !verborgen && <SchutzAbzeichen schutz={art.schutz} />}
+            {art?.roteListe && !verborgen && <RoteListeAbzeichen stufe={art.roteListe} />}
+            {art?.giftig && <Abzeichen text={art.giftig} farbe={colors.warn} />}
           </View>
         )}
 
@@ -682,16 +685,6 @@ function ArtVerweise({ ids, titel, sammlung }: { ids: string[]; titel?: string; 
   );
 }
 
-function Pille({ farbe, voll, children }: { farbe: string; voll?: boolean; children: ReactNode }) {
-  return (
-    <View style={[stile.pille, { borderColor: farbe }, voll && { backgroundColor: farbe }]}>
-      <Schrift art="klein" style={{ color: voll ? colors.night : farbe, fontSize: 12.5 }}>
-        {children}
-      </Schrift>
-    </View>
-  );
-}
-
 function Kasten({ farbe = colors.moss, style, children }: { farbe?: string; style?: object; children: ReactNode }) {
   return <View style={[stile.kasten, { borderColor: farbe }, style]}>{children}</View>;
 }
@@ -731,7 +724,7 @@ const stile = StyleSheet.create({
     gap: 4,
   },
   monate: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 6 },
-  monat: { fontFamily: fonts.type, fontSize: 11, color: colors.fog, width: 14, textAlign: 'center' },
+  monat: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog, width: 14, textAlign: 'center' },
   wild: { flexDirection: 'row', alignItems: 'center', gap: spacing.m },
   wildKreis: {
     width: 62,
@@ -744,7 +737,7 @@ const stile = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 12,
   },
-  wildZahl: { fontFamily: fonts.handBold, fontSize: 26, lineHeight: 32 },
+  wildZahl: { fontFamily: fonts.titel, fontSize: 26, lineHeight: 32 },
   merkmal: { flexDirection: 'row', gap: spacing.s, alignItems: 'flex-start' },
   rune: { color: colors.rune, fontSize: 15, lineHeight: 23 },
   verweise: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
@@ -762,7 +755,7 @@ const stile = StyleSheet.create({
   inhalt: { padding: spacing.m, gap: spacing.m, paddingBottom: spacing.xxl },
   buehne: { marginHorizontal: -spacing.m },
   hero: { marginHorizontal: -spacing.m, marginTop: -spacing.m, marginBottom: -spacing.s },
-  heroVerlauf: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 190 },
+  heroVerlauf: { position: 'absolute', left: 0, right: 0, bottom: 0, height: 260 },
   heroOben: {
     position: 'absolute',
     top: spacing.m,
@@ -800,12 +793,10 @@ const stile = StyleSheet.create({
     backgroundColor: colors.amber,
   },
   heroUnten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.m },
-  heroName: { fontSize: 56, lineHeight: 62 },
   heroHinweis: { color: colors.fog, fontSize: 16, marginBottom: spacing.xs },
   sperre: { position: 'absolute', left: 0, right: 0, bottom: 10, textAlign: 'center', color: colors.fog, fontSize: 15 },
-  latein: { fontFamily: fonts.type, color: colors.fog, fontSize: 14 },
+  latein: { fontFamily: fonts.etikett, color: colors.fog, fontSize: 14 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
-  pille: { borderWidth: 1.5, borderRadius: radius.l, paddingHorizontal: 10, paddingVertical: 3 },
   kasten: { borderWidth: 1.5, borderRadius: radius.m, padding: spacing.m, backgroundColor: colors.forest, gap: 4 },
   status: { flexDirection: 'row', gap: spacing.s },
   fundFoto: { width: 64, height: 64, borderRadius: radius.s },
