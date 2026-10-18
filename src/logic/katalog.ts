@@ -2,9 +2,30 @@ import { ARTEN, artById } from '@/data/arten';
 import type { Art, IconName, KategorieId, ModellParameter, Seltenheit } from '@/data/artTypen';
 import { baumById } from '@/data/baumarten';
 import { MYSTERY_AB } from '@/data/spiel';
+import { TESTARTEN, testGruppenReihenfolge } from '@/data/testarten';
 import type { BaumModell, Naturraum } from '@/data/typen';
 
+import { useEinstellungen } from '@/store/einstellungen';
+
 import { getHeimischeBaeume } from './regelEngine';
+
+// ---------- Belastungstest ----------
+
+/** Die Arten, die der Katalog gerade zeigt: normal die App-Arten, im Belastungstest die 500 Testarten */
+function aktiveArten(): Art[] {
+  const e = useEinstellungen.getState();
+  return e.belastungstest ? TESTARTEN[e.testGruppierung] : ARTEN;
+}
+
+const testById = Object.fromEntries(
+  Object.entries(TESTARTEN).map(([g, arten]) => [g, Object.fromEntries(arten.map((a) => [a.id, a]))]),
+) as Record<keyof typeof TESTARTEN, Record<string, Art>>;
+
+/** Art zu einer ID – Testarten mit der gerade gewählten Gruppierung */
+function artFuer(id: string): Art | undefined {
+  if (id.startsWith('t-')) return testById[useEinstellungen.getState().testGruppierung][id];
+  return artById[id];
+}
 
 /**
  * Welche Arten zählen in einer Kategorie?
@@ -12,7 +33,9 @@ import { getHeimischeBaeume } from './regelEngine';
  * (Stieleiche und Rotbuche gibt es in beiden Listen – sie zählen nur einmal.)
  */
 export function artIdsDerKategorie(kategorie: KategorieId, naturraum?: Naturraum): string[] {
-  const ids = ARTEN.filter((a) => a.kategorie === kategorie).map((a) => a.id);
+  const ids = aktiveArten()
+    .filter((a) => a.kategorie === kategorie)
+    .map((a) => a.id);
   if (kategorie === 'pflanzen' && naturraum) {
     for (const b of getHeimischeBaeume(naturraum)) if (!ids.includes(b.baumart.id)) ids.push(b.baumart.id);
   }
@@ -81,7 +104,7 @@ function ausArt(a: Art): KatalogEintrag {
 
 /** Findet einen Eintrag – egal ob Art aus dem Prototyp oder Baumart. */
 export function katalogEintrag(id: string): KatalogEintrag | undefined {
-  const art = artById[id];
+  const art = artFuer(id);
   if (art) return ausArt(art);
   const baum = baumById[id];
   // Baumarten ohne eigenen Steckbrief gelten im Spiel vorerst als "häufig"
@@ -117,7 +140,9 @@ export function katalogGruppen(kategorie: KategorieId, naturraum?: Naturraum): K
 
 /** Sehr seltene und legendäre Arten – sie erscheinen nur als Rätsel, bis man sie findet. */
 export function mysteryArten(kategorie?: KategorieId): KatalogEintrag[] {
-  return ARTEN.filter((a) => a.seltenheit >= MYSTERY_AB && (!kategorie || a.kategorie === kategorie)).map(ausArt);
+  return aktiveArten()
+    .filter((a) => a.seltenheit >= MYSTERY_AB && (!kategorie || a.kategorie === kategorie))
+    .map(ausArt);
 }
 
 /** Ist die Art (noch) ein Geheimnis? */
@@ -167,7 +192,10 @@ export function waldPlaetze(kategorie: KategorieId, naturraum?: Naturraum): Wald
 }
 
 function nachGruppen(eintraege: KatalogEintrag[], kategorie: KategorieId): KatalogGruppe[] {
-  const reihenfolge = GRUPPEN_REIHENFOLGE[kategorie];
+  const e = useEinstellungen.getState();
+  const reihenfolge = e.belastungstest
+    ? testGruppenReihenfolge(kategorie, e.testGruppierung)
+    : GRUPPEN_REIHENFOLGE[kategorie];
   const rang = (g: string) => (reihenfolge.includes(g) ? reihenfolge.indexOf(g) : reihenfolge.length);
   const gruppen: KatalogGruppe[] = [];
   for (const e of eintraege) {

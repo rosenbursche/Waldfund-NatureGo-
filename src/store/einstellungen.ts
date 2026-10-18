@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
+import type { TestGruppierung } from '@/data/testarten';
 import type { PruefModus } from '@/logic/validierung';
 
 /**
@@ -35,6 +36,11 @@ type EinstellungenState = {
   /** Startszene: gebaute 3D-Lichtung (Standard) oder Bild-Diorama (2,5D, Test) */
   startSzene: 'diorama' | '3d';
   setStartSzene: (s: 'diorama' | '3d') => void;
+  /** Belastungstest: Katalog mit 500 echten Testarten statt der App-Arten (nur Entwicklung) */
+  belastungstest: boolean;
+  setBelastungstest: (an: boolean) => void;
+  testGruppierung: TestGruppierung;
+  setTestGruppierung: (g: TestGruppierung) => void;
 
   setNaturraum: (
     id: string,
@@ -69,6 +75,10 @@ export const useEinstellungen = create<EinstellungenState>()(
       setLeistungAnzeigen: (an) => set({ leistungAnzeigen: an }),
       startSzene: '3d',
       setStartSzene: (sz) => set({ startSzene: sz }),
+      belastungstest: false,
+      setBelastungstest: (an) => set({ belastungstest: an }),
+      testGruppierung: 'vorschlag',
+      setTestGruppierung: (g) => set({ testGruppierung: g }),
 
       setNaturraum: (id, per, grobStandort = null) => set({ naturraumId: id, gewaehltPer: per, grobStandort }),
       allesZuruecksetzen: () =>

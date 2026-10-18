@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Alert, ScrollView, StyleSheet, Switch, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Switch, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Hintergrund } from '@/components/Hintergrund';
@@ -31,6 +31,10 @@ export default function Einstellungen() {
     setLeistungAnzeigen,
     startSzene,
     setStartSzene,
+    belastungstest,
+    setBelastungstest,
+    testGruppierung,
+    setTestGruppierung,
   } = useEinstellungen();
   const serverUrl = erkennungsServerUrl();
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
@@ -197,6 +201,51 @@ export default function Einstellungen() {
           </View>
 
           <View style={stile.karte}>
+            <Schrift art="etikett">Belastungstest (nur Entwicklung)</Schrift>
+            <View style={stile.schalter}>
+              <Schrift art="text" style={{ flex: 1 }}>
+                500 echte Testarten im Katalog
+              </Schrift>
+              <Switch
+                value={belastungstest}
+                onValueChange={setBelastungstest}
+                trackColor={{ true: colors.rune, false: colors.moss }}
+                accessibilityLabel="Belastungstest mit 500 Testarten"
+              />
+            </View>
+            <Schrift art="klein">
+              Ersetzt die Arten in Katalog, Stammbaum und Waldansicht durch rund 90–150 echte Arten je Kategorie.
+              Verwandtschaft und Beobachtungen stammen von GBIF. Seltenheit und Gefahr sind nur grobe Testwerte.
+            </Schrift>
+            {belastungstest && (
+              <>
+                <Schrift art="text">Gruppen im Stammbaum</Schrift>
+                <View style={stile.auswahl}>
+                  {(
+                    [
+                      ['vorschlag', 'Vorschlag'],
+                      ['familie', 'Familie'],
+                      ['ordnung', 'Ordnung'],
+                    ] as const
+                  ).map(([wert, text]) => (
+                    <Pressable
+                      key={wert}
+                      onPress={() => setTestGruppierung(wert)}
+                      accessibilityRole="radio"
+                      accessibilityState={{ selected: testGruppierung === wert }}
+                      style={[stile.auswahlKnopf, testGruppierung === wert && stile.auswahlAktiv]}
+                    >
+                      <Schrift art="klein" style={testGruppierung === wert ? { color: colors.amber } : undefined}>
+                        {text}
+                      </Schrift>
+                    </Pressable>
+                  ))}
+                </View>
+              </>
+            )}
+          </View>
+
+          <View style={stile.karte}>
             <Schrift art="etikett">Deine Daten</Schrift>
             <Schrift art="klein">
               Wildfund braucht kein Konto. Alles bleibt auf diesem Handy
@@ -239,6 +288,15 @@ export default function Einstellungen() {
 }
 
 const stile = StyleSheet.create({
+  auswahl: { flexDirection: 'row', gap: spacing.s, flexWrap: 'wrap' },
+  auswahlKnopf: {
+    paddingVertical: spacing.xs + 2,
+    paddingHorizontal: spacing.m,
+    borderRadius: radius.l,
+    borderWidth: 1.5,
+    borderColor: colors.moss,
+  },
+  auswahlAktiv: { borderColor: colors.amber },
   schalter: { flexDirection: 'row', alignItems: 'center', gap: spacing.m, marginTop: spacing.s },
   inhalt: { padding: spacing.m, gap: spacing.m },
   karte: {

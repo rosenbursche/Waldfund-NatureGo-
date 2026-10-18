@@ -58,6 +58,12 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.
 - Verbreitungskarten sind **Demo-Daten** (`src/data/verbreitung.ts`), keine echten Funde.
 
+### GBIF – nur Belastungstest (nicht für die Store-Version)
+- **Was:** Namensabgleich (Ordnung, Familie, gültiger Name) und Zahl der Beobachtungen in Deutschland für ca. 500 Testarten.
+- **Wo:** GBIF-API `https://api.gbif.org/v1/species/match` und `/occurrence/search?country=DE`, Abruf mit `scripts/testarten-bauen.mjs`, Ergebnis `src/data/testarten.json`.
+- **Lizenz:** Die GBIF-Backbone-Taxonomie gibt GBIF mit CC BY 4.0 an. Die Beobachtungen stammen aus vielen Datensätzen mit eigenen Lizenzen (CC0, CC BY, teils CC BY-NC). Wir nutzen nur die Gesamtzahl. **Vor einer Nutzung außerhalb des Tests Lizenz und Zitierregeln von GBIF prüfen** (Zitiervorgabe: „GBIF.org (Datum) GBIF Occurrence Download“).
+- **Wichtig:** Die Beobachtungszahl ist kein Maß für echte Seltenheit (Meldeverhalten, Kleinarten, Namenswechsel).
+
 ## Geprüft, (noch) nicht verwendet
 
 | Quelle | Ergebnis |

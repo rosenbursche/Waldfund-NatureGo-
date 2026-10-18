@@ -1,4 +1,5 @@
 import type { Art } from './artTypen';
+import { TESTARTEN } from './testarten';
 
 /**
  * Die 39 Arten aus dem Prototyp (prototyp-wildfund.html, Array "S") plus 9 ergänzte Pflanzen
@@ -899,4 +900,7 @@ export const ARTEN: Art[] = [
   },
 ];
 
-export const artById: Record<string, Art> = Object.fromEntries(ARTEN.map((a) => [a.id, a]));
+export const artById: Record<string, Art> = Object.fromEntries(
+  // Testarten (Belastungstest, IDs beginnen mit „t-“) sind immer auffindbar, erscheinen aber nur eingeschaltet im Katalog
+  [...ARTEN, ...TESTARTEN.vorschlag].map((a) => [a.id, a]),
+);

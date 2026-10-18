@@ -33,11 +33,13 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
 export default function Start() {
   const geladen = useGeladen();
   const naturraumId = useEinstellungen((s) => s.naturraumId);
+  // Belastungstest an/aus oder andere Gruppierung → Lichtung neu aufbauen, damit alle Zähler stimmen
+  const testStand = useEinstellungen((s) => (s.belastungstest ? s.testGruppierung : 'aus'));
 
   if (!geladen) return <Hintergrund />;
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
   if (!naturraum) return <Redirect href="/onboarding" />;
-  return <LichtungScreen naturraum={naturraum} />;
+  return <LichtungScreen key={testStand} naturraum={naturraum} />;
 }
 
 function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
