@@ -4,8 +4,10 @@ jest.mock('@react-native-async-storage/async-storage', () =>
 );
 
 // Animationen laufen im Test nicht wirklich – die Bibliothek liefert dafür eine Attrappe.
+// „Bewegung reduzieren“ ist im Test an: Die lebendige Tierseite hat viele Endlos-Animationen
+// (Teilchen, Nebel, Fährte), die sonst im Test ununterbrochen weiterlaufen und ihn sehr langsam machen.
 jest.mock('react-native-reanimated', () => ({
   ...require('react-native-reanimated/mock'),
-  useReducedMotion: () => false,
+  useReducedMotion: () => true,
 }));
 jest.mock('react-native-worklets', () => require('react-native-worklets/src/mock'));

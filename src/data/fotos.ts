@@ -135,6 +135,92 @@ export const FOTOS = {
     lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
     seite: 'https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg',
   },
+  // Landschaften für das Lebensraum-Kapitel
+  'landschaft/waldrand-wiese': {
+    quelle: require('../../assets/fotos/landschaft/waldrand-wiese.jpg'),
+    breite: 1800,
+    hoehe: 675,
+    autor: 'Stephan van Helden',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Wiese_am_Waldrand_s%C3%BCdlich_von_Schweickershausen.jpg',
+  },
+  'landschaft/wald-buchen': {
+    quelle: require('../../assets/fotos/landschaft/wald-buchen.jpg'),
+    breite: 1800,
+    hoehe: 608,
+    autor: 'Chicken-foto',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Buchenwald_im_Nationalpark_Jasmund.jpg',
+  },
+  'landschaft/feld-morgen': {
+    quelle: require('../../assets/fotos/landschaft/feld-morgen.jpg'),
+    breite: 1500,
+    hoehe: 1000,
+    autor: 'Dietmar Rabich',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite:
+      'https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3220-6.jpg',
+  },
+  'landschaft/ufer-bach': {
+    quelle: require('../../assets/fotos/landschaft/ufer-bach.jpg'),
+    breite: 1800,
+    hoehe: 597,
+    autor: 'UuMUfQ',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite:
+      'https://commons.wikimedia.org/wiki/File:Schlitz_Unter-Schwarz_Stream_Schwarzbach_Beaver_Dam_Pond_Pano_Cyl_2022_Mar.png',
+  },
+  'landschaft/dickicht': {
+    quelle: require('../../assets/fotos/landschaft/dickicht.jpg'),
+    breite: 1000,
+    hoehe: 563,
+    autor: 'Vollgenervt',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite:
+      'https://commons.wikimedia.org/wiki/File:Naturschutzgebiet_W%C3%BCstn%C3%A4chstenbach_und_Haferbuckel_Dickicht.jpg',
+  },
+  'landschaft/waldboden': {
+    quelle: require('../../assets/fotos/landschaft/waldboden.jpg'),
+    breite: 1000,
+    hoehe: 666,
+    autor: 'Lisabeth08',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Die_Kleinigkeiten_haben_auch_Bedeutung_in_dem_Bayerischen_Wald.jpg',
+  },
+  'landschaft/wiese': {
+    quelle: require('../../assets/fotos/landschaft/wiese.jpg'),
+    breite: 1000,
+    hoehe: 563,
+    autor: 'Ulrike62',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Knabenkrautwiese_Gleistalhang.jpg',
+  },
+  'landschaft/hecke': {
+    quelle: require('../../assets/fotos/landschaft/hecke.jpg'),
+    breite: 1000,
+    hoehe: 626,
+    autor: 'Roman Eisele',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite:
+      'https://commons.wikimedia.org/wiki/File:Heilbronn_-_Biberach_-_Michelbachtal_-_Feldhecke_an_Fr%C3%BChlingsabend_(1).jpg',
+  },
+  'landschaft/biberdamm': {
+    quelle: require('../../assets/fotos/landschaft/biberdamm.jpg'),
+    breite: 1000,
+    hoehe: 593,
+    autor: 'Lorbas76',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Biberdamm_im_NSG_Biesenthaler_Becken.jpg',
+  },
 } satisfies Record<string, Foto>;
 
 export type FotoId = keyof typeof FOTOS;

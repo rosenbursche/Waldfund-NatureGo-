@@ -181,6 +181,13 @@ export type TierSeite = {
     oben?: Zone[];
     /** Haltung am Tag und in der Dämmerung (Standard: steht, aktiv) – z. B. Igel schläft tagsüber */
     posen?: ['steht' | 'aktiv' | 'liegt', 'steht' | 'aktiv' | 'liegt'];
+    /** Echtes Landschaftsfoto (lebendige Seite): Lage der drei Orte in Prozent (links, oben)
+     *  und – falls vorhanden – ein Nahfoto je Ort (z. B. Dickicht, Wiese) */
+    panorama?: {
+      foto: FotoId;
+      zonen: [[number, number], [number, number], [number, number]];
+      orte?: [FotoId | undefined, FotoId | undefined, FotoId | undefined];
+    };
   };
   /** Hinweis am Ende: Titel, Bild (Jungtier im Gras oder Tier auf Abstand) und Text –
    *  aus arten.ts („wusstestDu“ bzw. „gefahr“) oder ein eigener Text */

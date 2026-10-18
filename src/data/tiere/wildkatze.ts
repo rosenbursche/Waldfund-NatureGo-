@@ -55,7 +55,22 @@ export const WILDKATZE: TierSeite = {
   tritt: 'katze',
   faehrte: 'geschnuert',
   gefahren: [{ icon: 'auto', kurz: 'Straßen' }],
-  lebensraum: { landschaft: 'wald', tag: 0, nacht: 1, orte: ['Dickicht', 'Lichtung', 'Waldwiese'] },
+  lebensraum: {
+    landschaft: 'wald',
+    tag: 0,
+    nacht: 1,
+    orte: ['Dickicht', 'Lichtung', 'Waldwiese'],
+    // echtes Foto mit den drei Orten (Prozent links/oben) und Nahfotos je Ort
+    panorama: {
+      foto: 'landschaft/wald-buchen',
+      zonen: [
+        [90, 72],
+        [8, 68],
+        [35, 78],
+      ],
+      orte: ['landschaft/dickicht', undefined, 'landschaft/wiese'],
+    },
+  },
   hinweis: {
     titel: 'Kätzchen im Wald?',
     bild: 'jung',

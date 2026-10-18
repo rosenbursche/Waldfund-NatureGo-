@@ -21,6 +21,7 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { artById } from '@/data/arten';
 import { SELTENHEIT } from '@/data/spiel';
+import { WappenReihe } from '@/components/ui/Wappen';
 import { HUETTEN_NAME, levelInfo, tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
@@ -207,6 +208,10 @@ export default function Sammeln() {
                 <Schrift art="titel" style={{ textAlign: 'center' }} accessibilityRole="header">
                   {eintrag.name}
                 </Schrift>
+              </Animated.View>
+              {/* Wappen der Art als Belohnung: Wild-Wert, Seltenheit, Schutz … */}
+              <Animated.View entering={FadeInDown.delay(700).duration(600)}>
+                <WappenReihe id={id} seltenheit={eintrag.seltenheit} art={art} groesse={54} />
               </Animated.View>
               <BelohnungsText b={schritt.belohnung} />
               <Schrift art="klein" style={{ textAlign: 'center', opacity: 0.75 }}>

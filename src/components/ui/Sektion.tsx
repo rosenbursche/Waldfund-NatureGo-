@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import type { ReactNode } from 'react';
+import { createContext, useContext, type ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { Schrift } from '@/components/Schrift';
@@ -16,6 +16,15 @@ import { Zierlinie } from './Zierlinie';
  * - oben ein schwacher Lichtschein, unten rechts das Symbol groß als Wasserzeichen
  * - art "warnung": rötlicher Rahmen für Gefahren
  */
+/**
+ * Ohne Rahmen: Innerhalb von <OhneRahmen> zeigt eine Sektion nur ihren Inhalt (kein Kasten, kein Kopf).
+ * So lassen sich fertige Sektionen (z. B. Jahresrad, Tagesuhr) in die Kapitel der lebendigen Tierseite setzen.
+ */
+const RahmenKontext = createContext(true);
+export function OhneRahmen({ children }: { children: ReactNode }) {
+  return <RahmenKontext.Provider value={false}>{children}</RahmenKontext.Provider>;
+}
+
 export function Sektion({
   symbol,
   titel,
@@ -31,7 +40,9 @@ export function Sektion({
   art?: 'standard' | 'warnung';
   children: ReactNode;
 }) {
+  const mitRahmen = useContext(RahmenKontext);
   const akzent = art === 'warnung' ? colors.warn : colors.amber;
+  if (!mitRahmen) return <View style={stile.ohne}>{children}</View>;
   return (
     <View style={[stile.sektion, art === 'warnung' && { borderColor: `${colors.warn}66` }]}>
       {/* Licht fällt von oben ein – wie am Ende eines Hohlwegs */}
@@ -99,4 +110,5 @@ const stile = StyleSheet.create({
   },
   titel: { flex: 1, fontFamily: fonts.titel, fontSize: 19, lineHeight: 26, letterSpacing: 1.4, color: colors.moon },
   zier: { marginTop: -spacing.s + 2 },
+  ohne: { gap: spacing.m },
 });

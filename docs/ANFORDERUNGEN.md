@@ -207,6 +207,9 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 | Lichtschein und Vignette über allen Hintergründen | ✅ |
 | Filmkorn, „Nebel lichtet sich“ beim Freischalten, Logo als Siegel, 3D-Lichtung angleichen | offen |
 | Ältere Screens (Katalog, Tagebuch, Sammeln) auf die Bausteine umstellen | offen |
+| Wappen (Wild-Wert, Seltenheit, Schutz, Rote Liste, Gift) auf allen Artenseiten und beim Sammeln | ✅ |
+| Lebensraum-Panoramen Waldrand, Wald, Feld, Ufer mit Nahfotos | ✅ (Igel noch offen) |
+| Lebendige Tierseite: Kapitel statt Kästen, große echte Fotos, Bewegung mit Bedeutung | ✅ umgesetzt für Reh und Fuchs (`docs/KONZEPT-TIERSEITE.md`); weitere Tiere sobald Fotos da sind |
 
 ## 3. Vorgeschlagene Reihenfolge
 
