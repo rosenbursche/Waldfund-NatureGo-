@@ -194,12 +194,6 @@ export default function Einstellungen() {
               onPress={() => router.push('/modelltest')}
               style={{ marginTop: spacing.s }}
             />
-            <Knopf
-              titel="Kampf-Arena (Test)"
-              untertitel="Reh gegen Reh mit 3D-Modell"
-              art="leise"
-              onPress={() => router.push('/kampf')}
-            />
           </View>
 
           <View style={stile.karte}>

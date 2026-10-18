@@ -6,7 +6,7 @@ import { colors } from '@/theme/theme';
  * Kleine, handgezeichnet wirkende Symbole (Strichzeichnungen).
  * Achtung: Nicht "Symbol" nennen – das ist ein eingebauter JavaScript-Name.
  */
-export type IconArt = 'standort' | 'lupe' | 'liste' | 'zurueck' | 'zahnrad' | 'pfeil' | 'kampf';
+export type IconArt = 'standort' | 'lupe' | 'liste' | 'zurueck' | 'zahnrad' | 'pfeil';
 
 const PFADE: Record<IconArt, React.ReactNode> = {
   standort: (
@@ -24,8 +24,6 @@ const PFADE: Record<IconArt, React.ReactNode> = {
   liste: <Path d="M8 6.5h12M8 12h12M8 17.5h12M4 6.5h.5M4 12h.5M4 17.5h.5" />,
   zurueck: <Path d="M15 5l-7 7 7 7" />,
   pfeil: <Path d="M5 12h14M13 6l6 6-6 6" />,
-  // zwei gekreuzte Klingen mit Griff (Kampf-Arena)
-  kampf: <Path d="M5 4l10.5 10.5M19 4L8.5 14.5M13 17l4-4M7 13l4 4M16.5 16.5L20 20M7.5 16.5L4 20" />,
   zahnrad: (
     <>
       <Circle cx={12} cy={12} r={3.2} />

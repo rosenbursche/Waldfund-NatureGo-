@@ -21,14 +21,14 @@ Regeln und Preise der Stores ändern sich. Alles, was hier zu Stores, Preisen un
 - Fotografieren, Punkte, Level, Serien, Erfolge, Feldtagebuch
 - Icon, Splash, „Bewegung reduzieren“, Barrierefreiheit (Phase 9)
 - Tests (186), Typprüfung, Lint, ausführliche Doku
-- Kampf-Arena als Test
+- Kampf-Arena als Test (geparkt auf Branch `feature/kampf-arena`)
 
 **Was vor dem Store fehlt (Überblick):**
 | Bereich | Problem heute |
 |---|---|
 | Erkennung | Pilze, Vögel und Säugetiere werden nur **simuliert**. Die App sagt das ehrlich („Simulierte Prüfung (Demo)“), aber eine Demo-Funktion gehört nicht in eine Store-Version. Echte Pflanzenerkennung ist vorbereitet, der Server läuft noch nicht. |
 | Fachinhalt | **62 Stellen** mit `TODO fachlich prüfen`, darunter Giftigkeit und Gefahren |
-| Platzhalter | Reh-Modell ist ein Weißwedelhirsch; Test-Ansichten (3D-Test, Kampf-Arena, Diorama-Schalter) sind für Nutzer sichtbar |
+| Platzhalter | Reh-Modell ist ein Weißwedelhirsch; Test-Ansichten (3D-Test, Diorama-Schalter) sind für Nutzer sichtbar |
 | Recht | keine Datenschutzerklärung, keine Datenschutz-Seite in der App, Erlaubnis-Text der Kamera stimmt nicht ganz |
 | Technik | keine App-IDs, kein `eas.json`, noch nie ein echter Build (nur Expo Go), keine automatischen Tests auf GitHub |
 | Stores | keine Konten, kein Store-Eintrag |
@@ -45,7 +45,7 @@ Regeln und Preise der Stores ändern sich. Alles, was hier zu Stores, Preisen un
 | Sammeln mit Foto, Punkte, Level, Tagebuch | Konten, Ranglisten, Server für Spieler |
 | Echte Erkennung für **Pflanzen** (Pl@ntNet) | Zoo-Funde, Wildform/Gehegeform |
 | Pilze und Tiere: **ehrlich selbst eintragen** (siehe 1.1) | Spuren, Humus, Füttern |
-| Kampf-Arena: ausgeblendet **oder** als „Vorschau“ gekennzeichnet (Entscheidung E4) | Realistische 3D-Modelle mit Skelett |
+| Kampf-Arena: **entschieden, nicht in 1.0** (geparkt auf `feature/kampf-arena`) | Realistische 3D-Modelle mit Skelett |
 
 ### 1.1 Ehrliche Erkennung statt Demo
 Die App kennzeichnet die simulierte Prüfung schon ehrlich. Trotzdem gehört sie nicht in die Store-Version: Apple lässt keine Demo-, Beta- oder Testfunktionen in Apps im Store zu, und eine Prüfung mit erfundener Sicherheit („86 %“) wirkt wie eine echte, auch mit Hinweis.
@@ -239,7 +239,7 @@ Vor Version 2.0 noch einmal eine Datenschutz-Prüfung, weil dann zum ersten Mal 
 | E1 | Name „Wildfund“ behalten? | ja, wenn die Prüfung in 2.1 frei ist |
 | E2 | App-ID und Domain | `de.wildfund.app` o. ä. |
 | E3 | Konto als Privatperson oder Organisation? | Privatperson für den Anfang. Eine Organisation (z. B. Verein) spart den 12-Tester-Test bei Google, braucht aber mehr Papierkram. |
-| E4 | Kampf-Arena in 1.0? | als „Vorschau“ drin lassen **oder** ausblenden. Vorschlag: ausblenden, bis mehr Tiere da sind. |
+| E4 | Kampf-Arena in 1.0? | ✅ entschieden: nicht in 1.0, geparkt auf Branch `feature/kampf-arena` |
 | E5 | Kategorie im Store | Bildung |
 | E6 | Pilze und Tiere ohne Prüfung eintragen (1.1)? | ja |
 | E7 | Nur Deutsch oder auch Englisch? | erst Deutsch, Englisch mit 1.1 |

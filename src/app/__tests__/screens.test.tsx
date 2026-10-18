@@ -9,7 +9,6 @@ import { ARTEN } from '@/data/arten';
 import { BAUMARTEN } from '@/data/baumarten';
 import Einstellungen from '@/app/einstellungen';
 import Start from '@/app/index';
-import Kampf from '@/app/kampf';
 import Katalog from '@/app/katalog/[kategorie]';
 import Modelltest from '@/app/modelltest';
 import Mystery from '@/app/mystery';
@@ -35,7 +34,6 @@ jest.mock('expo-location', () => ({}));
 jest.mock('@/scene/Lichtung', () => ({ Lichtung: () => null }));
 jest.mock('@/scene/ArtBuehne', () => ({ ArtBuehne: () => null }));
 jest.mock('@/scene/KategorieWald', () => ({ KategorieWald: () => null }));
-jest.mock('@/scene/KampfArena', () => ({ KampfArena: () => null }));
 jest.mock('@/logic/foto', () => ({ fotoAufnehmen: jest.fn(), fotoBehalten: jest.fn(), alleFotosLoeschen: jest.fn() }));
 
 describe('Screens rendern ohne Fehler', () => {
@@ -74,7 +72,6 @@ describe('Screens rendern ohne Fehler', () => {
     // alle vier Runensteine sind als Knöpfe erreichbar (auch für Screenreader)
     expect(screen.getByLabelText(/^Pflanzen: \d+ von \d+ gesammelt/)).toBeTruthy();
     expect(screen.getByLabelText(/^Säugetiere: \d+ von \d+ gesammelt/)).toBeTruthy();
-    expect(screen.getByLabelText('Kampf-Arena')).toBeTruthy();
   });
 
   test('Startseite mit 3D-Lichtung', async () => {
@@ -276,15 +273,6 @@ describe('Screens rendern ohne Fehler', () => {
   test('3D-Test-Ansicht zeigt Modell-Herkunft und Namensnennung', async () => {
     await render(<Modelltest />);
     expect(screen.getByText(/Platzhalter, kein echtes Reh/)).toBeTruthy();
-    expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
-  });
-
-  test('Kampf-Arena zeigt beide Rehe, Angriffe und Namensnennung', async () => {
-    await render(<Kampf />);
-    expect(screen.getByText('Dein Reh')).toBeTruthy();
-    expect(screen.getByText('Wildes Reh')).toBeTruthy();
-    expect(screen.getByText('Vorderlauf-Schlag')).toBeTruthy();
-    expect(screen.getByText('Geweihstoß')).toBeTruthy();
     expect(screen.getByText(/pighunt3r15/)).toBeTruthy();
   });
 

@@ -193,19 +193,6 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
           </Pressable>
         </View>
       </SafeAreaView>
-
-      {/* Kampf-Arena unten rechts */}
-      <SafeAreaView edges={['bottom', 'right']} style={stile.kampfEcke} pointerEvents="box-none">
-        <Pressable
-          onPress={() => router.push('/kampf')}
-          accessibilityRole="button"
-          accessibilityLabel="Kampf-Arena"
-          hitSlop={8}
-          style={({ pressed }) => [stile.kampf, pressed && { opacity: 0.6 }]}
-        >
-          <Icon name="kampf" groesse={24} farbe={colors.amber} />
-        </Pressable>
-      </SafeAreaView>
     </View>
   );
 }
@@ -353,18 +340,4 @@ const stile = StyleSheet.create({
     marginTop: spacing.s,
   },
   label: { position: 'absolute', width: 100, paddingVertical: 2, borderRadius: radius.s },
-  kampfEcke: { position: 'absolute', right: spacing.m, bottom: spacing.m },
-  kampf: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    borderWidth: 1.5,
-    borderColor: colors.amber,
-    backgroundColor: colors.night,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: colors.amber,
-    shadowOpacity: 0.5,
-    shadowRadius: 12,
-  },
 });

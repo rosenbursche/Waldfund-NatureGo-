@@ -100,7 +100,7 @@ Die Routen liegen in `src/app/` (expo-router: Der Dateiname ist der Pfad).
 | Dein Naturraum | anzeigen, „Naturraum ändern“ |
 | Sammlung | „Beispielfunde laden“ (zum Ausprobieren, ohne Punkte), „Sammlung leeren“ (löscht auch Fund-Fotos) |
 | Bilderkennung | „Echte Erkennung für Pflanzen (Pl@ntNet)“ (nur schaltbar, wenn ein Server eingetragen ist). Im Demo-Modus zusätzlich: „manche Fotos nicht erkennen“, um die Foto-Tipps zu testen |
-| Darstellung | „Startszene als Bild-Diorama (Test)“, „Bildrate auf der Lichtung anzeigen“, „3D-Test: realistisches Modell“, „Kampf-Arena (Test)“ |
+| Darstellung | „Startszene als Bild-Diorama (Test)“, „Bildrate auf der Lichtung anzeigen“, „3D-Test: realistisches Modell“ |
 | Deine Daten | „Alles zurücksetzen“ |
 | Datenquellen | Pflicht-Namensnennungen (Thünen, Karte, 3D-Modell, GeoNames, ggf. Pl@ntNet) |
 
@@ -230,7 +230,6 @@ Alle Module sind reine Rechenfunktionen ohne Bildschirm und deshalb testbar. Die
 | `lichtungDetails.ts` | Weg, Tümpel, Ausstattung, freie Flächen, Streuen von Gras/Steinen/…, Sichtachse zur Hütte |
 | `verborgenes.ts` | versteckte Kleinigkeiten: Dunkelheit, Augen-Plätze, Blinzeln, Maus, Eulenkopf |
 | `konfiguration.ts` | öffentliche Server-Adresse aus `app.json → extra` |
-| `kampf.ts` | Kampf-Regeln (Test): Runden, Sofort-/Spezialangriff, Kraft, Tarnen, Lebensweisen, Aktivzeit-Bonus, Computergegner. Werte in `src/data/kampfwerte.ts`, Konzept in `docs/KONZEPT-SPIELSYSTEM.md` |
 
 **Startwert-Prinzip:** Alles „Zufällige“ der Szene hängt am Naturraum (`startwertAus(naturraum.id)`). Derselbe Naturraum sieht deshalb immer gleich aus.
 
@@ -269,7 +268,6 @@ Die Hütte steht im Ursprung (0, 0, 0), ihre Tür zeigt nach vorn (+z). y ist di
 | `Runenstein.tsx` | schwebende Runensteine. Je mehr Arten der Kategorie gesammelt sind, desto heller leuchten sie. Bis zu 3 gefundene Arten kreisen darum. |
 | `Steuerung.tsx` + `steuerZustand.ts` | Kamera (Kreisen, Finger, Kippen), Antippen, Bildschirm-Positionen, Bildraten-Messer |
 | `material.ts`, `texturen.ts` | geteilte Materialien und Grundformen, weiche Leuchttextur |
-| `KampfArena.tsx` + `kampfRegie.ts` | eigene Szene für den Kampf-Test (`src/app/kampf.tsx`): Runenkreis, Feldsteine, Fichten im Nebel, Licht nach Uhrzeit; zwei Tiere, die nach der Regie angreifen, zurückzucken, sich tarnen, hinlegen und freuen. Ohne Skelett nur Verschieben und Kippen des ganzen Modells |
 
 ### 7.4 Tageszeit (`src/logic/tageszeit.ts`)
 Das Licht folgt der **echten Uhrzeit** des Handys. Zwischen festen Schlüsselzeiten wird weich übergeblendet:
