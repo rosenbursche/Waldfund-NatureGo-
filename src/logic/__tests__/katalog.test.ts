@@ -90,7 +90,7 @@ describe('Vitrine am Runenstein und Plätze im Wald', () => {
   });
 });
 
-describe('Lebensbaum: Äste, Zweige, Sterne, Schattenwurzeln', () => {
+describe('Lebensbaum: Äste, Zweige, Sterne, toter Ast', () => {
   test('Äste und Zweige folgen der Gliederung, Bäume zuerst', () => {
     const baum = lebensbaum('pflanzen', heide);
     const aeste = baum.aeste.map((a) => a.name);
@@ -129,7 +129,7 @@ describe('Lebensbaum: Äste, Zweige, Sterne, Schattenwurzeln', () => {
       const anZweigen = baum.aeste.flatMap((a) => a.zweige.flatMap((z) => z.eintraege)).map((e) => e.id);
       expect(new Set(anZweigen).size).toBe(anZweigen.length);
       expect(anZweigen.length).toBe(fortschrittDerKategorie(k, {}, heide).gesamt);
-      for (const w of baum.wurzeln) expect(anZweigen).toContain(w.id);
+      for (const w of baum.toterAst) expect(anZweigen).toContain(w.id);
     }
     const knolli = lebensbaum('pilze')
       .aeste.flatMap((a) => a.zweige)

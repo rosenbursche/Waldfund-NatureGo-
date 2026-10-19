@@ -4,7 +4,7 @@ import { TESTARTEN } from './testarten';
 /**
  * Die 39 Arten aus dem Prototyp (prototyp-wildfund.html, Array "S") plus 9 ergänzte Pflanzen
  * (Büsche und giftige Arten). Ast (`gruppe`) und Zweig nach der Gliederung in src/data/gliederung.ts;
- * gefährliche Arten stehen an ihrem Zweig und zusätzlich in den Schattenwurzeln.
+ * gefährliche Arten stehen an ihrem Zweig und zusätzlich am toten Ast.
  *
  * TODO fachlich prüfen: Schutzstatus (BArtSchV/BNatSchG), Rote-Liste-Kategorien,
  * Größen- und Saisonangaben. Der Prototyp hat diese Werte vereinfacht.

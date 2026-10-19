@@ -21,6 +21,7 @@ import Willkommen from '@/app/onboarding/index';
 import Liste from '@/app/onboarding/liste';
 import Suche from '@/app/onboarding/suche';
 import Waehlen from '@/app/onboarding/waehlen';
+import { GefahrAuftritt } from '@/components/gefahr/GefahrAuftritt';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 
@@ -202,7 +203,7 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
   });
 
-  test('Katalog Pilze: Lebensbaum mit Ästen, Stern und Schattenwurzeln', async () => {
+  test('Katalog Pilze: Lebensbaum mit Ästen, Stern und totem Ast', async () => {
     mockParams.kategorie = 'pilze';
     useSammlung.setState({ gefunden: {} });
     useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
@@ -217,9 +218,11 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText(/Fichten-Steinpilz/)).toBeTruthy();
     // der Ast zeigt seine Zweige mit Fortschritt
     expect(screen.getByLabelText(/Zweig Steinpilze & Hexen: 0 von 2 gefunden/)).toBeTruthy();
-    // Schattenwurzeln öffnen "Gefährlich & tödlich"
+    // der tote Ast öffnet "Gefährlich & tödlich"
     expect(screen.queryByText('☠ Gefährlich & tödlich ☠')).toBeNull();
-    await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
+    await fireEvent.press(screen.getByLabelText(/Toter Ast: Gefährlich/));
+    // in den Tests ist „Bewegung reduzieren“ an: kein Schreck-Auftritt, die Sektion öffnet sofort
+    expect(screen.queryByLabelText('Schreck-Animation überspringen')).toBeNull();
     expect(screen.getByText('☠ Gefährlich & tödlich ☠')).toBeTruthy();
     expect(screen.getByLabelText(/Grüner Knollenblätterpilz, tödlich giftig/)).toBeTruthy();
   });
@@ -232,15 +235,30 @@ describe('Screens rendern ohne Fehler', () => {
     await fireEvent.press(screen.getByLabelText(/Ast Sträucher & Ranken/));
     expect(screen.getByLabelText(/^Gewöhnliche Hasel,/)).toBeTruthy();
     expect(screen.queryAllByLabelText(/Blauer Eisenhut/)).toHaveLength(0);
-    await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
+    await fireEvent.press(screen.getByLabelText(/Toter Ast: Gefährlich/));
     expect(screen.getAllByLabelText(/Blauer Eisenhut/)).toHaveLength(1);
   });
 
-  test('Katalog Vögel: Schattenwurzeln erklären ehrlich, dass keine Vogelart gefährlich ist', async () => {
+  test.each(['saeuger', 'pflanzen', 'pilze'] as const)(
+    'Schreck-Auftritt %s: zeigt sich über den ganzen Bildschirm, ein Tipp überspringt ihn',
+    async (kategorie) => {
+      const hoehepunkt = jest.fn();
+      const ende = jest.fn();
+      await render(<GefahrAuftritt kategorie={kategorie} onHoehepunkt={hoehepunkt} onEnde={ende} />);
+      expect(screen.getByText('Tippen zum Überspringen')).toBeTruthy();
+      await fireEvent.press(screen.getByLabelText('Schreck-Animation überspringen'));
+      expect(hoehepunkt).toHaveBeenCalledTimes(1);
+      expect(ende).toHaveBeenCalledTimes(1);
+    },
+  );
+
+  test('Katalog Vögel: der tote Ast erklärt ehrlich, dass keine Vogelart gefährlich ist', async () => {
     mockParams.kategorie = 'voegel';
     useEinstellungen.setState({ katalogAnsicht: 'stammbaum' });
     await render(<Katalog />);
-    await fireEvent.press(screen.getByLabelText(/Schattenwurzeln: Gefährlich/));
+    await fireEvent.press(screen.getByLabelText(/Toter Ast: Gefährlich/));
+    // Vögel: kein Schreck-Auftritt, die Sektion öffnet sofort
+    expect(screen.queryByLabelText('Schreck-Animation überspringen')).toBeNull();
     expect(screen.getByText(/Keine heimische Vogelart ist für Menschen gefährlich/)).toBeTruthy();
   });
 

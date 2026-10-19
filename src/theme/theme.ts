@@ -26,6 +26,11 @@ export const colors = {
   warn: '#E07A5F', // Warnungen (Gift), gedämpft statt grell
   abgrund: '#030504', // Hintergrund der Sektion "Gefährlich & tödlich"
   blut: '#9E2F3A', // Dornen und Glut in der Gefahren-Sektion
+  augenRot: '#E0402F', // glühende Augen im Schreck-Auftritt (Säugetiere)
+  zahn: '#E8E0C8', // vergilbte Zähne im Schreck-Auftritt
+  gift: '#A4B23C', // fahles Giftgrün (gedämpft, kein Neon): Totenkopf und Nebel im Gift-Auftritt
+  giftNebel: '#4F6626', // dichter Giftnebel
+  giftDunkel: '#0A1207', // Hintergrund des Gift-Auftritts
 
   // Deutschlandkarte: Landschaften von tief (Tiefland) bis hoch (Alpen), Wasser, Wald
   kartenTief: '#0F1A12',

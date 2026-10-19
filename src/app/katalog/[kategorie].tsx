@@ -169,7 +169,7 @@ const LEER_TEXT: Partial<Record<KategorieId, string>> = {
     'Keine heimische Vogelart ist für Menschen gefährlich. Aber: Fass Vögel, Nester und tote Vögel nie an – sie können Krankheitserreger tragen. Und störe keine brütenden Vögel.',
 };
 
-/** Stammbaum als Lebensbaum: Äste = Gruppen, Sterne = Mystery-Arten, Schattenwurzeln = Gefahr */
+/** Stammbaum als Lebensbaum: Äste = Gruppen, Sterne = Mystery-Arten, toter Ast = Gefahr */
 function StammbaumAnsicht({ kategorie }: { kategorie: KategorieId }) {
   const naturraumId = useEinstellungen((s) => s.naturraumId);
   const gefunden = useSammlung((s) => s.gefunden);

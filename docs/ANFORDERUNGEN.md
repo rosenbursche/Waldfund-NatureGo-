@@ -178,6 +178,8 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Jeder Zweig hat einen Schatz (sehr seltene oder besondere Art) | ✅ Logik + Krone im Zweig |
 | Schatzkammer unter dem Baum: die 5 seltensten und die 3 gefährlichsten Arten der Rune, Gefahrenstufe 1–3 | 🟡 Logik `schatzkammer()` fertig, Anzeige fehlt |
 | Bonuspunkte: +25 AP je voller Zweig, +150 AP je voller Ast | 🟡 Werte in `spiel.ts`, Vergabe fehlt |
+| Gefahr am toten Ast über der Krone (statt Schattenwurzeln) | ✅ |
+| Schreck-Auftritt über den ganzen Bildschirm vor „Gefährlich & tödlich“: Säugetiere Maul schnappt zu, Pflanzen/Pilze Giftnebel mit Totenkopf und umkippender Maus; überspringbar, ohne Blitze, aus bei „Bewegung reduzieren“ | ✅ (`components/gefahr/`) |
 | Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |
 | Seltenheit für die echte Datenbank: nicht nur aus GBIF-Beobachtungen ableiten | ⬜ |
 

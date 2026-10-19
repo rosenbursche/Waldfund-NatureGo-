@@ -1,8 +1,19 @@
 /**
- * Gemeinsames Gerüst aller Lebensbäume: Platz für Äste, Sterne, Schattenwurzeln und Runenring.
+ * Gemeinsames Gerüst aller Lebensbäume: Platz für Äste, Sterne, den toten Ast (Gefahr), Wurzeln und Runenring.
  * Jeder Baum-Stil zeichnet seine eigene Gestalt in dieses Gerüst.
  */
-import { lerp, punktAuf, r1, verjuengt, zweigKurve, zwischen, type Kurve, type Punkt, type Zufall } from './werkzeug';
+import {
+  lerp,
+  punktAuf,
+  r1,
+  richtungAuf,
+  verjuengt,
+  zweigKurve,
+  zwischen,
+  type Kurve,
+  type Punkt,
+  type Zufall,
+} from './werkzeug';
 
 export type BaumArt = 'pflanzen' | 'pilze' | 'voegel' | 'saeuger';
 
@@ -102,6 +113,8 @@ export type Rahmen = {
   astAnteile: number[];
   sternPlaetze: Punkt[];
   wurzelPlatz: Punkt;
+  /** Spitze des toten Asts (gefährliche Arten), senkrecht über der Krone */
+  todesPlatz: Punkt;
   runen: Rune[];
 };
 
@@ -118,16 +131,26 @@ export function rahmen(W: number, anzahlAeste: number, anzahlSterne: number, rnd
   for (let i = 0; i < N; i++) {
     const anteil = N === 1 ? 0 : lerp(-1, 1, i / (N - 1));
     const a = anteil * spreizung;
-    const r = W * (N >= 4 && i % 2 ? kurz : lang);
+    // der mittlere Ast (bei ungerader Zahl) bleibt kurz – darüber steht der Knopf des toten Asts
+    const mittig = N % 2 === 1 && N > 1 && i === (N - 1) / 2;
+    const r = W * ((N >= 4 && i % 2) || mittig ? kurz : lang);
     astSpitzen.push({ x: mitte.x + Math.sin(a) * r, y: mitte.y + W * 0.01 - Math.cos(a) * r });
     astAnteile.push(anteil);
   }
 
+  // Sterne im Bogen über der Krone – in der Mitte bleibt eine Lücke für den toten Ast
   const sternPlaetze: Punkt[] = [];
-  const sw = (Math.min(58, 14 * anzahlSterne) * Math.PI) / 180;
+  const luft = (16 * Math.PI) / 180;
+  const sw = (Math.max(34, Math.min(62, 9 * anzahlSterne)) * Math.PI) / 180;
+  const links = Math.ceil(anzahlSterne / 2);
+  const rechts = anzahlSterne - links;
+  const rs = W * (viele ? 0.455 : 0.415); // über den weiter hinausgezogenen Ästen
   for (let i = 0; i < anzahlSterne; i++) {
-    const a = anzahlSterne === 1 ? 0 : lerp(-sw, sw, i / (anzahlSterne - 1));
-    const rs = W * (viele ? 0.455 : 0.415); // über den weiter hinausgezogenen Ästen
+    const seite = i < links ? -1 : 1;
+    const n = seite < 0 ? links : rechts;
+    const k = seite < 0 ? i : i - links;
+    const t = n === 1 ? 0.5 : seite < 0 ? k / (n - 1) : 1 - k / (n - 1);
+    const a = seite * lerp(sw, luft, t);
     sternPlaetze.push({ x: mitte.x + Math.sin(a) * rs, y: mitte.y - Math.cos(a) * rs });
   }
 
@@ -136,12 +159,13 @@ export function rahmen(W: number, anzahlAeste: number, anzahlSterne: number, rnd
   const runen: Rune[] = [];
   const anzahlRunen = 44;
   const luecke = (26 * Math.PI) / 180;
+  const lueckeOben = (12 * Math.PI) / 180; // oben Platz für den Knopf des toten Asts
   const gr = W / 300;
   for (let k = 0; k < anzahlRunen; k++) {
     const phi = -Math.PI / 2 + (k / anzahlRunen) * Math.PI * 2;
     const vonUnten = Math.abs(((phi - Math.PI / 2 + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
     const d = runenZeichen(rnd, gr);
-    if (vonUnten < luecke) continue;
+    if (vonUnten < luecke || Math.PI - vonUnten < lueckeOben) continue;
     runen.push({
       x: r1(mitte.x + Math.cos(phi) * ringRadius),
       y: r1(mitte.y + Math.sin(phi) * ringRadius),
@@ -160,6 +184,7 @@ export function rahmen(W: number, anzahlAeste: number, anzahlSterne: number, rnd
     astAnteile,
     sternPlaetze,
     wurzelPlatz: { x: W / 2, y: W * 0.915 },
+    todesPlatz: { x: W / 2, y: W * 0.1 },
     runen,
   };
 }
@@ -209,4 +234,60 @@ export function schattenWurzeln(W: number, boden: number, rnd: Zufall, fein = fa
     );
   }
   return teile.join(' ');
+}
+
+/**
+ * Der tote Ast: wächst schwarz, knorrig und dornig aus der Krone senkrecht nach oben zum Totenkopf-Knopf.
+ * `holz` ist die Fläche, `dornen` die Dornen als Flächen, `risse` helle Risse im toten Holz.
+ */
+export function toterAst(
+  mitte: Punkt,
+  ziel: Punkt,
+  W: number,
+  rnd: Zufall,
+): { holz: string; dornen: string; risse: string } {
+  const start = { x: mitte.x, y: mitte.y - W * 0.06 };
+  const ende = { x: ziel.x, y: ziel.y + W * 0.05 };
+  const h = start.y - ende.y;
+  const k: Kurve = [
+    start,
+    { x: start.x - W * 0.05, y: start.y - h * 0.35 },
+    { x: ende.x + W * 0.05, y: start.y - h * 0.7 },
+    ende,
+  ];
+  const holz = verjuengt(k, W * 0.05, W * 0.012, 24, 0.35, rnd);
+  let dornen = '';
+  let risse = '';
+  for (let i = 1; i < 9; i++) {
+    const t = i / 9.5;
+    const p = punktAuf(k, t);
+    const d = richtungAuf(k, t);
+    const seite = i % 2 ? 1 : -1;
+    const breite = lerp(W * 0.05, W * 0.012, t) / 2;
+    const fuss = { x: p.x + d.y * breite * seite, y: p.y - d.x * breite * seite };
+    const lang = W * (0.035 - t * 0.015) * zwischen(rnd, 0.8, 1.2);
+    // Dorn zeigt schräg nach außen oben
+    const spitze = { x: fuss.x + seite * lang, y: fuss.y - lang * 0.7 };
+    const b = W * 0.006;
+    dornen += `M${r1(fuss.x)} ${r1(fuss.y - b)} L${r1(spitze.x)} ${r1(spitze.y)} L${r1(fuss.x)} ${r1(fuss.y + b)} Z `;
+    if (i % 3 === 0) {
+      const q = punktAuf(k, t + 0.03);
+      risse += `M${r1(p.x - 1)} ${r1(p.y)} L${r1(q.x + 1)} ${r1(q.y)} `;
+    }
+  }
+  // zwei abgebrochene Seitenstummel
+  for (const [t, s] of [
+    [0.3, -1],
+    [0.55, 1],
+  ] as const) {
+    const p = punktAuf(k, t);
+    const stummel: Kurve = [
+      p,
+      { x: p.x + s * W * 0.03, y: p.y - W * 0.01 },
+      { x: p.x + s * W * 0.06, y: p.y - W * 0.03 },
+      { x: p.x + s * W * 0.075, y: p.y - W * 0.045 },
+    ];
+    dornen += verjuengt(stummel, W * 0.018, W * 0.004, 8) + ' ';
+  }
+  return { holz, dornen, risse };
 }

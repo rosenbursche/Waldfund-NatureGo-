@@ -21,7 +21,7 @@ import { colors, fonts } from '@/theme/theme';
 
 import { Schrift } from '../Schrift';
 import { BAUM_STILE } from './baumStile';
-import { GruppenIcon, SCHATTENWURZELN } from './GruppenIcon';
+import { GruppenIcon, TOTER_AST_NAME } from './GruppenIcon';
 import { Partikel } from './Partikel';
 
 /**
@@ -30,19 +30,19 @@ import { Partikel } from './Partikel';
  * - Hauptäste = Gruppen. An der Astspitze sitzt ein Knopf mit gruseligem Symbol und Fortschrittsring –
  *   ohne Text, damit nichts überlappt. Die Namen stehen in der Ast-Liste unter dem Baum (`AstListe.tsx`).
  * - Sterne über der Krone = die seltensten Arten. Matt, bis man sie findet – dann leuchten sie.
- * - Schattenwurzeln unter der Erde = "Gefährlich & tödlich".
+ * - toter Ast über der Krone (schwarz, dornig, Totenkopf-Knopf) = "Gefährlich & tödlich".
  * - Runenring: leuchtet anteilig mit dem Fortschritt der ganzen Kategorie.
  * Beim Öffnen zoomt der Baum sanft auf den gewählten Ast.
  */
 
-/** Kennung für die Schattenwurzeln (statt eines Astnamens) */
-export const WURZELN = '__wurzeln__';
+/** Kennung für den toten Ast (statt eines Astnamens) */
+export const TOTER_AST = '__toter_ast__';
 
 type Props = {
   kategorie: KategorieId;
   baum: LebensbaumDaten;
   gefunden: Record<string, unknown>;
-  /** Name des offenen Asts, WURZELN oder null */
+  /** Name des offenen Asts, TOTER_AST oder null */
   offen: string | null;
   onWaehle: (ziel: string | null) => void;
 };
@@ -67,7 +67,7 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
 
   // --- Zoom auf den offenen Ast ---
   const astIndex = baum.aeste.findIndex((a) => a.name === offen);
-  const fokus: Punkt | null = offen === WURZELN ? form.wurzelPlatz : astIndex >= 0 ? form.astSpitzen[astIndex] : null;
+  const fokus: Punkt | null = offen === TOTER_AST ? form.todesPlatz : astIndex >= 0 ? form.astSpitzen[astIndex] : null;
   const zoom = useSharedValue(0);
   const fx = useSharedValue(W / 2);
   const fy = useSharedValue(H / 2);
@@ -178,13 +178,12 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
             />
           ))}
 
-          {/* Erdboden als Nebelband, darunter die Schattenwurzeln */}
+          {/* Erdboden als Nebelband, darunter die Wurzeln */}
           <Ellipse cx={W / 2} cy={form.boden + 4} rx={W * 0.34} ry={8} fill={colors.fog} opacity={0.07} />
-          <Circle cx={form.wurzelPlatz.x} cy={form.wurzelPlatz.y} r={W * 0.16} fill="url(#glut)" />
-          <Path d={form.schatten} fill={colors.blut} opacity={0.5} />
+          <Path d={form.schatten} fill={stil.holz[0]} opacity={0.55} />
 
           {/* Leuchten hinter dem offenen Ast */}
-          {fokus && offen !== WURZELN && <Circle cx={fokus.x} cy={fokus.y} r={W * 0.13} fill="url(#astSchein)" />}
+          {fokus && offen !== TOTER_AST && <Circle cx={fokus.x} cy={fokus.y} r={W * 0.13} fill="url(#astSchein)" />}
 
           {/* der Baum selbst: alle Ebenen von hinten nach vorn */}
           {form.ebenen.map((e, i) =>
@@ -203,6 +202,12 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
               />
             ),
           )}
+
+          {/* der tote Ast: schwarz, dornig, mit roter Glut an der Spitze – hier lauert die Gefahr */}
+          <Circle cx={form.todesPlatz.x} cy={form.todesPlatz.y} r={W * 0.15} fill="url(#glut)" />
+          <Path d={form.todesAst.holz} fill={colors.abgrund} stroke={colors.blut} strokeWidth={0.8} opacity={0.97} />
+          <Path d={form.todesAst.dornen} fill={colors.abgrund} stroke={colors.blut} strokeWidth={0.6} />
+          <Path d={form.todesAst.risse} stroke={colors.blut} strokeWidth={0.9} strokeLinecap="round" opacity={0.8} />
 
           {/* Augen im Stamm */}
           {form.augen &&
@@ -263,18 +268,18 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
           />
         ))}
 
-        {/* Schattenwurzeln */}
+        {/* Totenkopf-Knopf an der Spitze des toten Asts */}
         <AstKnopf
-          name={SCHATTENWURZELN}
-          gefunden={baum.wurzeln.filter((e) => e.id in gefunden).length}
-          gesamt={baum.wurzeln.length}
-          punkt={form.wurzelPlatz}
-          aktiv={offen === WURZELN}
-          gedimmt={offen !== null && offen !== WURZELN}
+          name={TOTER_AST_NAME}
+          gefunden={baum.toterAst.filter((e) => e.id in gefunden).length}
+          gesamt={baum.toterAst.length}
+          punkt={form.todesPlatz}
+          aktiv={offen === TOTER_AST}
+          gedimmt={offen !== null && offen !== TOTER_AST}
           farbe={colors.warn}
           index={baum.aeste.length}
           gefahr
-          onPress={() => onWaehle(offen === WURZELN ? null : WURZELN)}
+          onPress={() => onWaehle(offen === TOTER_AST ? null : TOTER_AST)}
         />
       </Animated.View>
     </View>
@@ -318,7 +323,7 @@ function AstKnopf({
       accessibilityState={{ expanded: aktiv }}
       accessibilityLabel={
         gefahr
-          ? `Schattenwurzeln: Gefährlich und tödlich, ${gefunden} von ${gesamt} gefunden`
+          ? `Toter Ast: Gefährlich und tödlich, ${gefunden} von ${gesamt} gefunden`
           : `Ast ${name}, ${gefunden} von ${gesamt} gefunden`
       }
       style={({ pressed }) => [

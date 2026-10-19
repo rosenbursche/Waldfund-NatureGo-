@@ -1,46 +1,68 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import Animated, { FadeIn } from 'react-native-reanimated';
+import Animated, { FadeIn, useReducedMotion } from 'react-native-reanimated';
 
 import type { KategorieId } from '@/data/artTypen';
 import type { Lebensbaum as LebensbaumDaten } from '@/logic/katalog';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
+import { GefahrAuftritt, hatAuftritt } from './gefahr/GefahrAuftritt';
 import { GefahrSektion } from './GefahrSektion';
 import { Schrift } from './Schrift';
 import { AstListe } from './stammbaum/AstListe';
 import { AstPanel } from './stammbaum/AstPanel';
-import { Lebensbaum, WURZELN } from './stammbaum/Lebensbaum';
+import { Lebensbaum, TOTER_AST } from './stammbaum/Lebensbaum';
 
 /**
  * Stammbaum-Ansicht einer Kategorie als Lebensbaum (siehe `stammbaum/Lebensbaum.tsx`).
  * Es ist immer nur ein Ast offen: seine Arten wachsen darunter heraus (`AstPanel`).
- * Die Schattenwurzeln öffnen die Sektion "Gefährlich & tödlich".
+ * Der tote Ast über der Krone öffnet – nach einem Schreck-Auftritt – die Sektion "Gefährlich & tödlich".
  */
 type Props = {
   kategorie: KategorieId;
   baum: LebensbaumDaten;
   gefunden: Record<string, unknown>;
   verborgen: (id: string) => boolean;
-  /** Text für die Wurzeln, falls es keine gefährlichen Arten gibt */
+  /** Text für den toten Ast, falls es keine gefährlichen Arten gibt */
   leerText?: string;
   /** meldet die Lage des geöffneten Bereichs, damit der Screen dorthin scrollen kann */
   onBereich?: (y: number) => void;
 };
 
 export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBereich }: Props) {
+  const ruhig = useReducedMotion();
   const [offen, setOffen] = useState<string | null>(null);
+  const [auftritt, setAuftritt] = useState(false);
   const ast = baum.aeste.find((a) => a.name === offen);
+
+  // Der tote Ast öffnet sich mit einem Schreck-Auftritt über den ganzen Bildschirm
+  // (nicht bei „Bewegung reduzieren“ und nicht, wenn es in der Kategorie keine gefährlichen Arten gibt)
+  const waehle = (ziel: string | null) => {
+    if (ziel === TOTER_AST && offen !== TOTER_AST && !ruhig && hatAuftritt(kategorie) && baum.toterAst.length > 0) {
+      setOffen(null);
+      setAuftritt(true);
+      return;
+    }
+    setOffen(ziel);
+  };
 
   return (
     <View style={{ gap: spacing.m }}>
       <Schrift art="klein" style={{ textAlign: 'center' }}>
         Tippe einen Ast an – am Baum oder in der Liste darunter. Seine Zweige sind kleine Sammelsets, jedes mit einem
-        Schatz. Die Sterne sind die legendären Arten.
+        Schatz. Die Sterne sind die legendären Arten – und am toten Ast ganz oben lauert Gefahr.
       </Schrift>
 
-      <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />
-      <AstListe kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={setOffen} />
+      <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={waehle} />
+      <AstListe kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={waehle} />
+
+      {auftritt && (
+        <GefahrAuftritt
+          kategorie={kategorie}
+          onHoehepunkt={() => setOffen(TOTER_AST)}
+          onEnde={() => setAuftritt(false)}
+        />
+      )}
 
       {ast && (
         <View onLayout={(e) => onBereich?.(e.nativeEvent.layout.y)}>
@@ -54,19 +76,19 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
         </View>
       )}
 
-      {offen === WURZELN && (
+      {offen === TOTER_AST && (
         <Animated.View entering={FadeIn.duration(400)} onLayout={(e) => onBereich?.(e.nativeEvent.layout.y)}>
           <Pressable
             onPress={() => setOffen(null)}
             accessibilityRole="button"
-            accessibilityLabel="Schattenwurzeln schließen"
+            accessibilityLabel="Gefahren schließen"
             hitSlop={8}
             style={({ pressed }) => [stile.schliessen, pressed && { opacity: 0.6 }]}
           >
             <Schrift style={stile.schliessenText}>✕ schließen</Schrift>
           </Pressable>
           <GefahrSektion
-            eintraege={baum.wurzeln}
+            eintraege={baum.toterAst}
             gefunden={gefunden}
             verborgen={verborgen}
             ausloeser={1}

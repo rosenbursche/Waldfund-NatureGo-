@@ -6,8 +6,8 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { Schrift } from '../Schrift';
 import { BAUM_STILE } from './baumStile';
-import { GruppenIcon, SCHATTENWURZELN } from './GruppenIcon';
-import { WURZELN } from './Lebensbaum';
+import { GruppenIcon, TOTER_AST_NAME } from './GruppenIcon';
+import { TOTER_AST } from './Lebensbaum';
 
 /**
  * Die Äste als aufgeräumte Liste unter dem Lebensbaum: Symbol (wie am Knopf im Baum), Name,
@@ -24,7 +24,7 @@ type Props = {
 
 export function AstListe({ kategorie, baum, gefunden, offen, onWaehle }: Props) {
   const stil = BAUM_STILE[kategorie];
-  const wurzelnGefunden = baum.wurzeln.filter((e) => e.id in gefunden).length;
+  const totGefunden = baum.toterAst.filter((e) => e.id in gefunden).length;
   return (
     <View style={stile.raster}>
       {baum.aeste.map((a, i) => {
@@ -47,16 +47,16 @@ export function AstListe({ kategorie, baum, gefunden, offen, onWaehle }: Props) 
         );
       })}
       <Karte
-        name={SCHATTENWURZELN}
-        zeile={baum.wurzeln.length ? `${wurzelnGefunden}/${baum.wurzeln.length} · gefährlich` : 'keine Gefahr'}
-        anteil={baum.wurzeln.length ? wurzelnGefunden / baum.wurzeln.length : 0}
+        name={TOTER_AST_NAME}
+        zeile={baum.toterAst.length ? `${totGefunden}/${baum.toterAst.length} · gefährlich` : 'keine Gefahr'}
+        anteil={baum.toterAst.length ? totGefunden / baum.toterAst.length : 0}
         voll={false}
-        aktiv={offen === WURZELN}
+        aktiv={offen === TOTER_AST}
         farbe={colors.warn}
         index={baum.aeste.length}
         gefahr
-        beschreibung={`Gefährliche Arten in den Schattenwurzeln: ${wurzelnGefunden} von ${baum.wurzeln.length} gefunden`}
-        onPress={() => onWaehle(offen === WURZELN ? null : WURZELN)}
+        beschreibung={`Gefährliche Arten am toten Ast: ${totGefunden} von ${baum.toterAst.length} gefunden`}
+        onPress={() => onWaehle(offen === TOTER_AST ? null : TOTER_AST)}
       />
     </View>
   );
@@ -94,7 +94,7 @@ function Karte({
       accessibilityLabel={beschreibung}
       style={({ pressed }) => [
         stile.karte,
-        // die Schattenwurzeln immer über die ganze Breite, damit der lange Name nicht umbricht
+        // die Gefahr-Karte (toter Ast) immer über die ganze Breite
         gefahr && { flexBasis: '100%', borderColor: colors.blut, backgroundColor: colors.abgrund },
         aktiv && { borderColor: akzent, backgroundColor: colors.forest },
         pressed && { opacity: 0.7 },

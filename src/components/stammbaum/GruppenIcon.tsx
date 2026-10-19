@@ -23,7 +23,7 @@ const k = (x: number, y: number, r: number): Teil => ({ auge: [x, y, r] });
 const l = (d: string): Teil => ({ d, art: 'linie' });
 const f = (d: string): Teil => ({ d, art: 'flaeche' });
 
-export const SCHATTENWURZELN = 'Schattenwurzeln';
+export const TOTER_AST_NAME = 'Toter Ast';
 
 const ICONS: Record<string, Teil[]> = {
   // toter, knorriger Baum mit Gesicht im Stamm
@@ -243,7 +243,7 @@ const ICONS: Record<string, Teil[]> = {
     k(16, 15.4, 1.05),
   ],
   // Totenkopf, durch den Wurzeln wachsen
-  [SCHATTENWURZELN]: [
+  [TOTER_AST_NAME]: [
     l('M9 13 C9 6 23 6 23 13 C23 16 21 17 21 19 L11 19 C11 17 9 16 9 13 Z'),
     l('M12 19 L12 22 L20 22 L20 19 M14 19 L14 22 M16 19 L16 22 M18 19 L18 22 M16 15 L15 17.2 L17 17.2 Z'),
     l(

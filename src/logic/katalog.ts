@@ -247,8 +247,8 @@ export type Lebensbaum = {
   aeste: LebensAst[];
   /** Sterne über der Krone = die legendären Arten (zweite Sicht, sie hängen auch an ihrem Zweig) */
   sterne: KatalogEintrag[];
-  /** Schattenwurzeln = alle gefährlichen Arten (zweite Sicht, sie hängen auch an ihrem Zweig) */
-  wurzeln: KatalogEintrag[];
+  /** toter Ast über der Krone = alle gefährlichen Arten (zweite Sicht, sie hängen auch an ihrem Zweig) */
+  toterAst: KatalogEintrag[];
 };
 
 /**
@@ -297,7 +297,7 @@ function zweigeVon(kategorie: KategorieId, ast: KatalogGruppe): KatalogZweig[] {
  * Aufbau des Lebensbaums einer Kategorie (Konzept: docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md):
  * - Äste → Zweige → Arten: jede Art genau einmal, auch gefährliche und sehr seltene
  * - Sterne: die legendären Arten, zusätzlich über der Krone
- * - Wurzeln: die gefährlichen Arten, zusätzlich als Schattenwurzeln
+ * - toter Ast: die gefährlichen Arten, zusätzlich am toten Ast über der Krone
  */
 export function lebensbaum(kategorie: KategorieId, naturraum?: Naturraum): Lebensbaum {
   const alle = artIdsDerKategorie(kategorie, naturraum)
@@ -314,7 +314,7 @@ export function lebensbaum(kategorie: KategorieId, naturraum?: Naturraum): Leben
     };
   });
   const sterne = alle.filter((e) => e.seltenheit >= STERN_AB).sort((a, b) => b.seltenheit - a.seltenheit);
-  return { aeste, sterne, wurzeln: gefahrEintraege(kategorie, naturraum) };
+  return { aeste, sterne, toterAst: gefahrEintraege(kategorie, naturraum) };
 }
 
 /** Alle Arten des Lebensbaums, jede genau einmal */

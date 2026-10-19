@@ -10,6 +10,7 @@ import {
   Leinwand,
   rahmen,
   schattenWurzeln,
+  toterAst,
   type BaumArt,
   type Ebene,
   type Gestalt,
@@ -51,6 +52,10 @@ export type BaumForm = {
   astSpitzen: Punkt[];
   sternPlaetze: Punkt[];
   wurzelPlatz: Punkt;
+  /** Knopf an der Spitze des toten Asts (gefährliche Arten) */
+  todesPlatz: Punkt;
+  /** der tote Ast: Holz, Dornen, Risse */
+  todesAst: { holz: string; dornen: string; risse: string };
   runen: Rune[];
   /** Augen im Stamm (nur beim Baumhirten) */
   augen?: Augen;
@@ -81,6 +86,8 @@ export function baumForm(breite: number, anzahlAeste: number, anzahlSterne: numb
     astSpitzen: R.astSpitzen,
     sternPlaetze: R.sternPlaetze,
     wurzelPlatz: R.wurzelPlatz,
+    todesPlatz: R.todesPlatz,
+    todesAst: toterAst(R.mitte, R.todesPlatz, breite, zufall(seedAus(art + 'tot'))),
     runen: R.runen,
     augen: extra.augen,
   };
