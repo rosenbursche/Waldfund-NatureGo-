@@ -241,6 +241,15 @@ export function VerbreitungsKarte(props: Props) {
         {standort && <StandortPunkt x={standort.punkt[0]} y={standort.punkt[1]} text={standort.text} />}
       </View>
 
+      {/* Echte Daten = gemeldete Funde (GBIF). Leere Felder heißen oft nur: niemand hat dort etwas gemeldet. */}
+      {props.art === 'raster' && hatEchteDaten(props.artId) && (
+        <View style={stile.meldeHinweis} accessibilityRole="text">
+          <Schrift art="klein" style={stile.meldeHinweisText}>
+            Gemeldete Funde – nicht die ganze Verbreitung. Leere Felder heißen nicht, dass die Art dort fehlt.
+          </Schrift>
+        </View>
+      )}
+
       <View style={stile.legende}>
         <Kaestchen farbe={farbe} />
         <Schrift art="klein">{props.art === 'raster' ? 'häufig nachgewiesen' : 'dein Naturraum'}</Schrift>
@@ -353,6 +362,16 @@ const stile = StyleSheet.create({
   kaestchen: { width: 12, height: 12, borderRadius: 2, borderWidth: 1.5, marginLeft: 6 },
   punkt: { width: 10, height: 10, borderRadius: 5, marginLeft: 6 },
   fuss: { fontSize: 10, marginTop: 6, textTransform: 'none' },
+  meldeHinweis: {
+    marginTop: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.amber,
+    backgroundColor: colors.forest,
+    borderRadius: 4,
+  },
+  meldeHinweisText: { color: colors.amber },
   standort: { position: 'absolute', width: 0, height: 0, alignItems: 'center', justifyContent: 'center' },
   standortRing: {
     position: 'absolute',

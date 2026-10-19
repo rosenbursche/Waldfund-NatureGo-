@@ -126,7 +126,8 @@ function Schatten({
             <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={84} farbe={colors.moss} dicke={2.4} />
           )}
         </View>
-        {gefahr.icon !== 'maehen' && gefahr.icon !== 'auto' && (
+        {/* Augen nur bei Tieren – nicht bei Mähwiese, Straße oder Wetter */}
+        {gefahr.icon !== 'maehen' && gefahr.icon !== 'auto' && gefahr.icon !== 'schnee' && (
           <Animated.View style={[stile.augen, { transform: [{ scaleY: blinzeln }] }]}>
             <View style={stile.auge} />
             <View style={stile.auge} />

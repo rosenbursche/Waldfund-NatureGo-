@@ -56,7 +56,9 @@ export function Jahresrad({
   const fo = tier.fotos;
   const fotoMitte =
     fo && !zeigeMaennlich ? ((z.fell >= 0.5 ? fo.sommer : fo.winter) ?? fo.sommer ?? fo.winter) : undefined;
-  const fotoJung = z.jung ? fo?.jung : undefined;
+  // späteres Jugendkleid (z. B. rotbraune Frischlinge), wenn es kein Fleck-/Streifenmonat ist
+  const spaeter = z.jungDunkel && !z.streifen && !z.flecken;
+  const fotoJung = z.jung ? ((spaeter ? fo?.jungSpaeter : undefined) ?? fo?.jung) : undefined;
   const fellName = z.fell >= 1 ? 'Sommerfell' : z.fell <= 0 ? 'Winterfell' : 'Fellwechsel';
 
   return (
@@ -211,6 +213,9 @@ export function Jahresrad({
           .map((e) => (
             <Chip key={e.id} symbol={e.symbol as SymbolName} text={e.kurz} farbe={EREIGNIS_FARBE[e.farbe]} />
           ))}
+        {!zeigeMaennlich && z.jung && spaeter && tier.jung.dunkelKurz && (
+          <Chip symbol="keim" text={tier.jung.dunkelKurz} farbe={colors.rune} />
+        )}
         {zeigeMaennlich && z.geweih && <Chip symbol="geweih" text={geweihText(z.geweih.art)} farbe={colors.fog} />}
       </View>
     </TierTafel>
