@@ -117,7 +117,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
@@ -144,7 +143,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
@@ -169,7 +167,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
       'Quellen',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();

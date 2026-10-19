@@ -372,14 +372,6 @@ export default function ArtSeite() {
                 >
                   <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
                 </Kapitel>
-                <Kapitel nummer={9} titel="Skizzenbuch" zeile="Aus dem Bestimmungsbuch" scroll={scroll} ruhig={ruhig}>
-                  <LehrbuchKarte
-                    id={id}
-                    name={eintrag.name}
-                    zeichnung={art.zeichnung ?? { t: 'tree' }}
-                    modell={art.modell}
-                  />
-                </Kapitel>
               </>
             }
           />

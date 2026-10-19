@@ -172,6 +172,8 @@ export type TierSeite = {
   aktivitaet: { von: number; bis: number; staerke: 1 | 2 }[];
   /** Beschriftung der Tagesuhr: [ruht, kurz aktiv, sehr aktiv] und Symbol für „aktiv“ */
   aktivTexte: [string, string, string];
+  /** Hinweis unter der Tagesuhr: Warum ist das Tier zu dieser Zeit aktiv? Mit belegten Kernsätzen */
+  aktivHinweis?: { titel: string; saetze: string[] };
   aktivSymbol: NahrungIcon;
   /** Ereignisse im Jahr (Monate 1–12); `symbol` ist der Name eines Symbols aus TierSymbol */
   jahr: { id: string; kurz: string; monate: number[]; farbe: 'amber' | 'rune' | 'fog' | 'rare'; symbol: string }[];

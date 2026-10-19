@@ -22,7 +22,7 @@ export const WILDSCHWEIN: TierSeite = {
   // Fotos: Wikimedia Commons, ausgewählt in recherche/wildschwein/bilder.json, Nachweis in DATENQUELLEN.md
   fotos: {
     hero: 'wildschwein/hero',
-    heroX: 45,
+    heroX: 5,
     erkunden: {
       // kein frei lebender Keiler mit sichtbarem Gewaff gefunden → nur ein Foto für alle (Zahn und Afterklauen nicht sichtbar)
       alle: { foto: 'wildschwein/hero', punkte: { ruessel: [6, 47], borsten: [45, 13], ohr: [23, 14] } },
@@ -82,6 +82,16 @@ export const WILDSCHWEIN: TierSeite = {
     { von: 6, bis: 7.5, staerke: 1 },
   ],
   aktivTexte: ['Ruht im Dickicht', 'Kurz unterwegs', 'Wühlt nach Futter'],
+  // q7 (GPS-Studie Baden-Württemberg, 34 Tiere), q7 zitiert Podgórski et al. 2013 (Białowieża), q3 (LWF), q11 (Wallis)
+  aktivHinweis: {
+    titel: 'Von Natur aus kein Nachttier',
+    saetze: [
+      'Ursprünglich ist das Wildschwein auch tagsüber unterwegs.',
+      'Bei uns wird es nachtaktiv, weil Jagd und Menschen es stören.',
+      'Baden-Württemberg: nachts zu 66 % aktiv, tagsüber nur zu 19 %.',
+      'Im ungestörten Urwald Białowieża (Polen) ist es etwa die Hälfte seiner aktiven Zeit bei Tageslicht unterwegs.',
+    ],
+  },
   aktivSymbol: 'wurzel',
   jahr: [
     // q3, q6, q4, q1: Schwerpunkt Nov–Jan (Spanne Okt–März)

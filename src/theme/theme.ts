@@ -34,6 +34,9 @@ export const colors = {
   kartenAlpen: '#263129',
   wasser: '#5B8389',
   waldSymbol: '#3F5E2E',
+  /** Verbreitungskarte: Vorkommensgebiet (hell, gut sichtbar, aber kein Neongrün) und Gebiete mit Häufung */
+  vorkommen: '#9FCB7C',
+  haeufung: '#D2553F',
   shadow: '#000000',
   /** heller Nebel für Schwaden, Lichtschein und Vignetten-Übergänge */
   nebel: '#BAC5BB',

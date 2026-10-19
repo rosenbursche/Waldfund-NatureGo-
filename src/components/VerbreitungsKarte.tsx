@@ -14,7 +14,7 @@ import { FLUESSE, GEBIRGE, GROSSLANDSCHAFTEN, UMRISS, WALDGEBIETE, WUCHSGEBIETE 
 import { naturraumById } from '@/data/naturraeume';
 import type { Geometrie, Naturraum } from '@/data/typen';
 import { ECHTE_VERBREITUNG } from '@/data/nachweise';
-import { gebietsAnteile, hatEchteDaten, KARTE, projiziere } from '@/logic/verbreitung';
+import { gebietsAnteile, hatEchteDaten, KARTE, projiziere, rasterZellen } from '@/logic/verbreitung';
 import { useEinstellungen } from '@/store/einstellungen';
 import { colors, fonts } from '@/theme/theme';
 
@@ -136,16 +136,47 @@ export function VerbreitungsKarte(props: Props) {
       const stufen = new Map(gebietsAnteile(props.artId, props.modell).map((g) => [g.id, g.stufe]));
       const voll = ebenen.gebiete.filter((g) => stufen.get(g.id) === 'voll');
       const teil = ebenen.gebiete.filter((g) => stufen.get(g.id) === 'teil');
+      // Echte Daten: jedes Rasterfeld mit Fund als Kästchen (genauer wird nie gezeigt).
+      // Vorkommensgebiet = Felder mit Fund und ihre direkten Nachbarn (füllt kleine Meldelücken,
+      // bleibt bei seltenen Arten wie dem Luchs trotzdem eng um die bekannten Gebiete).
+      const echt = ECHTE_VERBREITUNG[props.artId];
+      const kaestchen = (i: number, j: number) => {
+        const [x0, y0] = projiziere(5.9 + i / 6, 47.3 + (j + 1) * 0.1);
+        const [x1, y1] = projiziere(5.9 + (i + 1) / 6, 47.3 + j * 0.1);
+        return `M${x0.toFixed(1)} ${y0.toFixed(1)}H${x1.toFixed(1)}V${y1.toFixed(1)}H${x0.toFixed(1)}Z`;
+      };
+      let zellen = '';
+      let gebiet = '';
+      if (echt) {
+        const mitFund = new Set(Object.keys(echt.zellen));
+        for (const z of rasterZellen()) {
+          const k = `${z.i}-${z.j}`;
+          if (mitFund.has(k)) zellen += kaestchen(z.i, z.j);
+          let nah = false;
+          for (let di = -1; di <= 1 && !nah; di++)
+            for (let dj = -1; dj <= 1 && !nah; dj++) nah = mitFund.has(`${z.i + di}-${z.j + dj}`);
+          if (nah) gebiet += kaestchen(z.i, z.j);
+        }
+      }
       return {
         voll: voll.map((g) => g.d).join(''),
         teil: teil.map((g) => g.d).join(''),
         nVoll: voll.length,
         nTeil: teil.length,
+        zellen,
+        gebiet,
       };
     }
     const eigene = props.naturraeume.filter((n) => n.id === props.eigenerId).map((n) => flaechenPfad(n.geometrie));
     const andere = props.naturraeume.filter((n) => n.id !== props.eigenerId).map((n) => flaechenPfad(n.geometrie));
-    return { voll: eigene.join(''), teil: andere.join(''), nVoll: eigene.length, nTeil: andere.length };
+    return {
+      voll: eigene.join(''),
+      teil: andere.join(''),
+      nVoll: eigene.length,
+      nTeil: andere.length,
+      zellen: '',
+      gebiet: '',
+    };
   }, [props, ebenen]);
 
   // Standort: grober Punkt (nur wenn gewählt) – sonst Mitte des eigenen Naturraums
@@ -181,9 +212,19 @@ export function VerbreitungsKarte(props: Props) {
             strokeOpacity={0.6}
           />
 
-          {/* Verbreitung der Art als Flächen */}
-          <Path d={flaechen.teil} fill="url(#teil)" stroke={farbe} strokeWidth={0.6} strokeOpacity={0.6} />
-          <Path d={flaechen.voll} fill={farbe} fillOpacity={0.38} stroke={farbe} strokeWidth={0.8} />
+          {flaechen.zellen ? (
+            <>
+              {/* Echte Daten: Vorkommensgebiet hellgrün, darauf die Rasterfelder mit Fund */}
+              <Path d={flaechen.gebiet} fill={colors.vorkommen} fillOpacity={0.3} />
+              <Path d={flaechen.zellen} fill={colors.vorkommen} fillOpacity={0.95} />
+            </>
+          ) : (
+            <>
+              {/* Verbreitung der Art als Flächen */}
+              <Path d={flaechen.teil} fill="url(#teil)" stroke={farbe} strokeWidth={0.6} strokeOpacity={0.6} />
+              <Path d={flaechen.voll} fill={farbe} fillOpacity={0.38} stroke={farbe} strokeWidth={0.8} />
+            </>
+          )}
 
           {/* Flüsse */}
           {ebenen.fluesse.map((d, i) => (
@@ -250,18 +291,29 @@ export function VerbreitungsKarte(props: Props) {
         </View>
       )}
 
-      <View style={stile.legende}>
-        <Kaestchen farbe={farbe} />
-        <Schrift art="klein">{props.art === 'raster' ? 'häufig nachgewiesen' : 'dein Naturraum'}</Schrift>
-        <Kaestchen farbe={farbe} schraffiert />
-        <Schrift art="klein">{props.art === 'raster' ? 'vereinzelt' : 'von Natur aus heimisch'}</Schrift>
-        <View style={[stile.punkt, { backgroundColor: colors.amber }]} />
-        <Schrift art="klein">{standort?.text ?? 'Standort'}</Schrift>
-      </View>
+      {flaechen.zellen ? (
+        <View style={stile.legende}>
+          <View style={[stile.kaestchenVoll, { backgroundColor: colors.vorkommen }]} />
+          <Schrift art="klein">Rasterfeld mit Fund</Schrift>
+          <View style={[stile.kaestchenVoll, { backgroundColor: `${colors.vorkommen}55` }]} />
+          <Schrift art="klein">Vorkommensgebiet</Schrift>
+          <View style={[stile.punkt, { backgroundColor: colors.amber }]} />
+          <Schrift art="klein">{standort?.text ?? 'Standort'}</Schrift>
+        </View>
+      ) : (
+        <View style={stile.legende}>
+          <Kaestchen farbe={farbe} />
+          <Schrift art="klein">{props.art === 'raster' ? 'häufig nachgewiesen' : 'dein Naturraum'}</Schrift>
+          <Kaestchen farbe={farbe} schraffiert />
+          <Schrift art="klein">{props.art === 'raster' ? 'vereinzelt' : 'von Natur aus heimisch'}</Schrift>
+          <View style={[stile.punkt, { backgroundColor: colors.amber }]} />
+          <Schrift art="klein">{standort?.text ?? 'Standort'}</Schrift>
+        </View>
+      )}
       <Schrift art="etikett" style={stile.fuss}>
         {props.art === 'raster'
           ? hatEchteDaten(props.artId)
-            ? `${flaechen.nVoll} Gebiete häufig · ${flaechen.nTeil} vereinzelt · Nachweise seit ${ECHTE_VERBREITUNG[props.artId].seit}: GBIF.org (CC0 / CC BY 4.0)`
+            ? `${Object.keys(ECHTE_VERBREITUNG[props.artId].zellen).length} Rasterfelder mit Fund · ${ECHTE_VERBREITUNG[props.artId].funde.toLocaleString('de-DE')} Funde seit ${ECHTE_VERBREITUNG[props.artId].seit} · GBIF.org (CC0 / CC BY 4.0)`
             : `${flaechen.nVoll} Gebiete häufig · ${flaechen.nTeil} vereinzelt · 82 Wuchsgebiete · Demo-Daten`
           : `${flaechen.nVoll + flaechen.nTeil} von 10 Demo-Naturräumen`}
       </Schrift>
@@ -358,6 +410,7 @@ function StandortPunkt({ x, y, text }: { x: number; y: number; text: string }) {
 
 const stile = StyleSheet.create({
   flaeche: { width: '100%', aspectRatio: KARTE.breite / KARTE.hoehe },
+  kaestchenVoll: { width: 12, height: 12, borderRadius: 2 },
   legende: { flexDirection: 'row', alignItems: 'center', gap: 6, flexWrap: 'wrap', marginTop: 6 },
   kaestchen: { width: 12, height: 12, borderRadius: 2, borderWidth: 1.5, marginLeft: 6 },
   punkt: { width: 10, height: 10, borderRadius: 5, marginLeft: 6 },
