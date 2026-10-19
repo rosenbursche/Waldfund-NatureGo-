@@ -1,0 +1,142 @@
+{
+  "artId": "reh",
+  "stand": "2026-10-19",
+  "hinweis": "Zusatzrecherche Tempo, Gefahr, Wildunfälle, Mähtod. Für das Reh gibt es noch keine fakten.json. Quellen-IDs ab q40, damit eine spätere fakten.json mit q1 … frei bleibt.",
+
+  "quellen": [
+    { "id": "q40", "titel": "Reh – Steckbrief", "herausgeber": "Deutsche Wildtier Stiftung", "url": "https://www.deutschewildtierstiftung.de/wildtiere/reh", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q41", "titel": "Wildtiere im Wallis – Das Reh (Infoblatt 2025)", "herausgeber": "Dienststelle für Jagd, Fischerei und Wildtiere, Kanton Wallis (CH)", "url": "https://www.vs.ch/documents/33024802/33033352/Infoblatt_Reh_2025/a86d0fad-c2c0-dd82-8c69-1eeef5514d77", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q42", "titel": "Reh-Steckbrief (Naturpark-Detektive)", "herausgeber": "Naturpark Schwarzwald Mitte/Nord e.V.", "url": "https://naturpark-detektive.de/wiki_material/reh-steckbrief/", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q43", "titel": "Wildunfall-Statistik 2024/2025 (Fallwild nach Bundesländern, DJV-Handbuch 2026)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2026-02/2026-02_Infografik_Wildunfall_Statistik_2024_2025.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q44", "titel": "Pressegrafik „Wildunfälle: Rehe am stärksten gefährdet“ (Tierfund-Kataster, 36.500 Datensätze 2021–2023)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2024-03/2024-03_Pressegrafik_Wildunfaelle_betroffene_Tierarten.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q45", "titel": "Wildunfallrisiko steigt ab April drastisch (21.03.2025, Tierfund-Kataster 2018–2023)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/wildunfallrisiko-steigt-ab-april-drastisch", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q46", "titel": "Die meisten Wildunfälle passieren im April und Mai (25.03.2024)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/die-meisten-wildunfaelle-passieren-im-april-und-mai", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q47", "titel": "Allgemeine Unfallursachen von Unfällen mit Personenschaden (Zeile „Wild auf der Fahrbahn“, Stand 7.7.2026)", "herausgeber": "Statistisches Bundesamt (Destatis)", "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Tabellen/allgemeine-unfallursachen-von-unfaellen-mit-personenschaden.html", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q48", "titel": "Wildunfälle in Baden-Württemberg 2024 (Pressemitteilung 7.11.2025, mit Bundeszahlen)", "herausgeber": "Statistisches Landesamt Baden-Württemberg", "url": "https://www.statistik-bw.de/presse/pressemitteilungen/pressemitteilung/wildunfaelle-in-baden-wuerttemberg-2024/", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q49", "titel": "Pressegrafik „Da wird der Hirsch zum Elefanten“ – Aufprallgewicht bei Tempo 60 (09/2024)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2024-10/2024-09_Pressegrafik_Wildunfall_Aufprallgewicht.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q50", "titel": "Wildunfall verhindern (Verhaltensregeln)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/forschung-aufklaerung/wildunfall/wildunfall-verhindern", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q51", "titel": "Stoppt den Mähtod! (16.07.2018)", "herausgeber": "Deutsche Wildtier Stiftung", "url": "https://www.deutschewildtierstiftung.de/aktuelles/artikel/stoppt-den-maehtod", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q52", "titel": "Rehkitzrettung: Förderung zur Anschaffung von Drohnen", "herausgeber": "Bundesministerium für Landwirtschaft, Ernährung und Heimat (BMLEH)", "url": "https://www.bmleh.de/DE/themen/digitalisierung/drohnenfoerderung-rehkitze.html", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q53", "titel": "Brut- und Setzzeit: Wildtier gefunden? Nicht vorschnell handeln (28.02.2025)", "herausgeber": "Land Nordrhein-Westfalen, Ministerium für Landwirtschaft und Verbraucherschutz", "url": "https://www.land.nrw/pressemitteilung/brut-und-setzzeit-wildtier-gefunden-nicht-vorschnell-handeln", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q54", "titel": "Zeller, Korn, Jehn, Gellrich (2021): Gesichtstrauma nach Wildtierangriff. Zahnärztliche Mitteilungen, 1.9.2021", "herausgeber": "zm-online (Bundeszahnärztekammer)", "url": "https://www.zm-online.de/artikel/2021/schwierigkeitsgrade-von-wurzelkanalbehandlungen/gesichtstrauma-nach-wildtierangriff", "art": "Fachartikel", "abgerufen": "2026-10-19" },
+    { "id": "q55", "titel": "Jahresstrecke Rehwild 2014/15–2024/25 nach Bundesländern (DJV-Handbuch 2026)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2026-03/2026-02_Infografik_Jahresjagdstrecke_Rehwild_2024_2025.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q56", "titel": "Wildunfälle: Kfz-Versicherung (Meldung 7.4.2026)", "herausgeber": "Gesamtverband der Deutschen Versicherungswirtschaft (GDV)", "url": "https://www.dieversicherer.de/versicherer/auto/news/wildunfaelle-kfz-versicherung-142424", "art": "Verband", "abgerufen": "2026-10-19" }
+  ],
+
+  "tempo": {
+    "flucht": {
+      "kmh": 60,
+      "text": "bis zu 60 km/h",
+      "belegStaerke": "schwach: nur ein Naturpark-Steckbrief für Kinder, ohne Messquelle; keine Behörde oder Studie gefunden",
+      "quelle": ["q42"]
+    },
+    "fluchtart": {
+      "text": "Kein Ausdauerläufer: Bei Gefahr schlüpft das Reh in Deckung („Schlüpfertyp“), der hinten erhöhte Körper passt dazu. Auf der Flucht läuft es oft ein Stück in der eigenen Spur zurück und springt dann seitlich ab, um Verfolger abzuschütteln (Widergang).",
+      "quelle": ["q41"]
+    }
+  },
+
+  "gefahrMensch": {
+    "einschaetzung": {
+      "text": "Für Menschen ist das Reh vor allem im Straßenverkehr gefährlich. Angriffe sind selten; ein dokumentierter Fall in Hannover ging von einem von Hand aufgezogenen Rehbock aus.",
+      "quelle": ["q54", "q43"]
+    },
+    "handaufzucht": {
+      "text": "Frühe Gewöhnung an Menschen kann zu einer Fehlprägung führen, die Angriffe begünstigt. Rehböcke verteidigen im Sommer ihr Revier. Fall: 78-jähriger Spaziergänger, mehrfach mit dem Gehörn von hinten gestoßen, Gesichtsverletzungen.",
+      "quelle": ["q54"]
+    },
+    "statistik": "Keine Statistik zu Reh-Angriffen auf Menschen gefunden. Laut q54 sind Wildtier-Angriffe in Deutschland selten."
+  },
+
+  "wildunfaelle": {
+    "fallwildArt": {
+      "jagdjahr": "2024/25",
+      "anzahl": 200970,
+      "text": "Als Fallwild gemeldete Rehe (überwiegend im Straßenverkehr gestorben). Meiste in Bayern (52.820), NRW (30.460) und Baden-Württemberg (24.010).",
+      "hinweis": "Zählt tote Tiere, nicht Unfälle. Die DWS nennt passend dazu fast 200.000 Rehe pro Jahr.",
+      "quelle": ["q43", "q40"]
+    },
+    "anteilArt": {
+      "tierfundKatasterProzent": 48,
+      "tierfundKatasterText": "Reh ist die häufigste Art bei gemeldeten Wildunfällen (Tierfund-Kataster 2021–2023).",
+      "tierfundKataster2018bis2023Prozent": 53,
+      "anteilHuftierFallwildProzent": 90.5,
+      "anteilHuftierFallwildHinweis": "berechnet aus q43: 200.970 von 222.130 gemeldeten Fallwild-Huftieren (Reh, Schwarz-, Dam-, Rotwild)",
+      "widerspruch": "48 % (q44, 2021–2023) und 53 % (q45, 2018–2023) – unterschiedliche Auswertungszeiträume des Tierfund-Katasters.",
+      "quelle": ["q44", "q45", "q43"]
+    },
+    "jahreszeit": {
+      "text": "Für alle Arten sind April und Mai die unfallreichsten Monate (über ein Fünftel aller Unfälle). Bei Rehböcken fallen 34 % der Unfälle in April und Mai: Sie verteidigen dann Reviere, junge Böcke werden vertrieben und suchen neue Gebiete.",
+      "monate": [4, 5],
+      "rehboeckeProzentAprilMai": 34,
+      "quelle": ["q45", "q46"]
+    },
+    "tageszeit": { "text": "Besonders riskant 6–8 Uhr und 21–23 Uhr; bei Rehen vor allem die Morgendämmerung.", "stunden": [[6, 8], [21, 23]], "quelle": ["q46", "q45"] },
+    "aufprall": { "tonnen": 0.8, "text": "Ein Reh wirkt bei Tempo 60 beim Aufprall wie etwa 0,8 t.", "quelle": ["q49"] },
+    "alleArten": {
+      "versicherteWildunfaelle2024": 276000,
+      "unfaelleMitPersonenschaden": [
+        { "jahr": 2022, "anzahl": 2268 },
+        { "jahr": 2023, "anzahl": 2351 },
+        { "jahr": 2024, "anzahl": 2412 },
+        { "jahr": 2025, "anzahl": 2549 }
+      ],
+      "verunglueckte2024": { "getoetet": 8, "schwerverletzt": 417, "leichtverletzt": 2355 },
+      "hinweis": "Destatis trennt nicht nach Tierart; ein Reh-Anteil an Verletzten/Getöteten ist nicht belegbar.",
+      "quelle": ["q56", "q47", "q48"]
+    },
+    "verhaltenAmSteuer": {
+      "punkte": [
+        "Tier am Straßenrand: abblenden, hupen, bremsen.",
+        "Lenkrad festhalten, nicht unkontrolliert ausweichen.",
+        "Nach dem Unfall: Warnweste, Warnblinker, Warndreieck; Polizei oder Jäger rufen; bei Verletzten 112.",
+        "Tote Tiere nicht ohne Handschuhe anfassen, Abstand zu lebenden Tieren."
+      ],
+      "quelle": ["q50"]
+    }
+  },
+
+  "maehtod": {
+    "zeitraum": { "monate": [5, 6], "text": "Gefahr bei der Wiesenmahd im Mai und Juni, wenn Kitze noch nicht fliehen können. Später mähen (nach dem 1. Juli) hilft.", "quelle": ["q40"] },
+    "warumKitzeBleiben": { "text": "Neugeborene Kitze ducken sich bei Gefahr und vertrauen auf ihre Tarnung, statt wegzulaufen.", "quelle": ["q41"] },
+    "zahlProJahr": {
+      "spanne": [50000, 100000],
+      "schaetzungDWS": 92000,
+      "rechenweg": "konservativ 4 Kitze je 100 ha auf rund 2,3 Mio. ha gemähtem Grünland und Grünfutter-Acker (in Mecklenburg-Vorpommern wurden 8 je 100 ha angenommen)",
+      "hinweis": "Schätzung, keine gesicherte Statistik: Ausgemähte Kitze werden nicht gemeldet. Behörden (q52) sprechen nur von „tausenden“ Kitzen pro Jahr.",
+      "quelle": ["q51", "q52"]
+    },
+    "kitzGefunden": {
+      "punkte": [
+        "Nicht anfassen, zügig weggehen.",
+        "Die Mutter ist meist in der Nähe und kommt erst zurück, wenn kein Mensch mehr da ist.",
+        "Nur wenn das Kitz verletzt ist oder die Mutter nicht zurückkommt: Untere Jagdbehörde oder Polizei verständigen.",
+        "Hunde in der Brut- und Setzzeit (1. März bis 31. Juli) anleinen und auf Wegen bleiben."
+      ],
+      "quelle": ["q53"]
+    }
+  },
+
+  "jagdstrecke": { "jagdjahr": "2024/25", "anzahl": 1265740, "vorjahr": 1328380, "hinweis": "inkl. Fallwild", "quelle": ["q55"] },
+
+  "kennzahlen": [
+    { "wert": "bis 60", "einheit": "km/h", "etikett": "Tempo auf der Flucht", "quelle": ["q42"], "belegStaerke": "schwach" },
+    { "wert": "200.970", "einheit": "Rehe", "etikett": "Fallwild 2024/25, meist Straße", "quelle": ["q43"] },
+    { "wert": "48", "einheit": "%", "etikett": "aller gemeldeten Wildunfälle", "quelle": ["q44"] },
+    { "wert": "9 von 10", "einheit": "", "etikett": "Huftier-Fallwild sind Rehe", "quelle": ["q43"] },
+    { "wert": "34", "einheit": "%", "etikett": "Bock-Unfälle im April/Mai", "quelle": ["q45"] },
+    { "wert": "0,8", "einheit": "t", "etikett": "Aufprall bei Tempo 60", "quelle": ["q49"] },
+    { "wert": "50.000–100.000", "einheit": "Kitze", "etikett": "Mähtod pro Jahr (geschätzt)", "quelle": ["q51"] },
+    { "wert": "1.265.740", "einheit": "Rehe", "etikett": "Jagdstrecke 2024/25", "quelle": ["q55"] },
+    { "wert": "8", "einheit": "Tote", "etikett": "Wildunfälle 2024, alle Arten", "quelle": ["q48"] }
+  ],
+
+  "offen": [
+    "Höchsttempo: nur schwache Quelle (q42, 60 km/h). Keine Behörde/Studie gefunden; vor Nutzung in der App besser weglassen oder als „bis etwa 60 km/h (Naturpark)“ kennzeichnen.",
+    "Sprunghöhe und Sprungweite: keine belastbare Quelle gefunden (nur Kinder-/Ratgeberseiten mit 4 bis über 6 m).",
+    "Schwimmen: keine Quelle geprüft.",
+    "Angriffe auf Menschen: keine Statistik, nur Einzelfall (q54).",
+    "Zahl geretteter Kitze (Drohnen) bundesweit: nicht gefunden.",
+    "Reh-Anteil an verletzten/getöteten Menschen bei Wildunfällen: Destatis trennt nicht nach Art."
+  ]
+}

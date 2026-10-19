@@ -172,6 +172,15 @@ export type TierSeite = {
   aktivitaet: { von: number; bis: number; staerke: 1 | 2 }[];
   /** Beschriftung der Tagesuhr: [ruht, kurz aktiv, sehr aktiv] und Symbol für „aktiv“ */
   aktivTexte: [string, string, string];
+  /** Kennzahlen für „Wie schnell?“ (z. B. Tempo, Hauer) – nur belegte Werte */
+  kennzahlen?: { wert: string; einheit?: string; etikett: string }[];
+  /** Gefahr für Menschen: Einschätzung, Situationen, Zahlen (Wildunfälle, Todesfälle), richtiges Verhalten */
+  gefahrMensch?: {
+    urteil: string;
+    wann: { titel: string; text: string }[];
+    zahlen: { wert: string; einheit?: string; etikett: string }[];
+    verhalten: string[];
+  };
   /** Hinweis unter der Tagesuhr: Warum ist das Tier zu dieser Zeit aktiv? Mit belegten Kernsätzen */
   aktivHinweis?: { titel: string; saetze: string[] };
   aktivSymbol: NahrungIcon;

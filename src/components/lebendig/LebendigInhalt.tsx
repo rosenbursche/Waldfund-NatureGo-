@@ -15,6 +15,7 @@ import type { TierSeite } from '@/data/tierSeiten';
 import { colors, fonts, spacing } from '@/theme/theme';
 
 import { Fressfeinde } from './Fressfeinde';
+import { GefahrTempo } from './GefahrTempo';
 import { Jahreszeiten } from './Jahreszeiten';
 import { Kapitel } from './Kapitel';
 import { LebensraumPanorama } from './LebensraumPanorama';
@@ -74,6 +75,7 @@ export function LebendigInhalt({
             ausrichtung="mitte"
           />
         </View>
+        <GefahrTempo tier={tier} />
       </Kapitel>
 
       <Kapitel nummer={2} titel="Ein Jahr" zeile="Wische durch die Jahreszeiten, dreh am Rad" {...k}>

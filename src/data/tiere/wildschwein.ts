@@ -75,6 +75,46 @@ export const WILDSCHWEIN: TierSeite = {
   // durch Störung nachtaktiv (q11, q3, q6).
   // TODO fachlich prüfen: Uhrzeiten gelten für Mitte Oktober in Oberschwaben (Dämmerung = Sonnenstand ±1,5 h),
   // sie verschieben sich mit der Jahreszeit.
+  // Gefahr und Tempo: recherche/wildschwein/gefahr-tempo.json (Quellen g40–g57)
+  // g42 (Bezirksamt Spandau) 50 km/h, g43 (Wildlife Online, Sekundärquelle) 40 km/h – TODO fachlich prüfen: keine Messstudie
+  kennzahlen: [
+    { wert: '40–50', einheit: 'km/h', etikett: 'Tempo auf der Flucht' }, // g42, g43
+    { wert: 'über 20', einheit: 'cm', etikett: 'Hauer des Keilers' }, // g40
+    { wert: '1/3', etikett: 'vom Hauer sichtbar' }, // g40
+    { wert: 'lebenslang', etikett: 'wachsen die Keilerhauer' }, // g45
+  ],
+  gefahrMensch: {
+    urteil: 'Greift Menschen kaum an – aber es kann sich wehren, wenn es sich bedrängt fühlt.', // g41
+    wann: [
+      {
+        titel: 'Bache mit Frischlingen',
+        text: 'Fühlt sich eine Bache mit ihren Frischlingen bedroht, kann sie angreifen.',
+      }, // g41, g44, g40
+      {
+        titel: 'Kein Fluchtweg',
+        text: 'Ein Tier ohne Ausweg, zum Beispiel in einer Zaun- oder Hausecke, kann angreifen.',
+      }, // g41
+      {
+        titel: 'Verletztes Tier',
+        text: 'Tödliche Angriffe gingen meist von angeschossenen oder verletzten Tieren aus – auch nach Autounfällen.',
+      }, // g46
+      { titel: 'Hund dabei', text: 'Hunde erhöhen das Risiko: Wildschweine sehen sie als Feind.' }, // g46
+      { titel: 'Hektik', text: 'Wegrennen und schnelle Bewegungen können ein Tier zum Angriff treiben.' }, // g41
+    ],
+    zahlen: [
+      { wert: '8,6', einheit: 'pro Jahr', etikett: 'Tote weltweit durch Angriffe (2000–2019)' }, // g46 (Studie, keine amtliche Statistik)
+      { wert: '13.210', etikett: 'tote Wildschweine 2024/25, meist Straße' }, // g47
+      { wert: '40', einheit: '%', etikett: 'der Unfälle Oktober–Dezember' }, // g53
+      { wert: '3,5', einheit: 't', etikett: 'Aufprall bei Tempo 60' }, // g55
+    ],
+    verhalten: [
+      'Ruhig bleiben und langsam zurückgehen – nicht wegrennen.', // g41
+      'Abstand halten und dem Tier einen Fluchtweg lassen.', // g41
+      'Bache mit Frischlingen in großem Bogen umgehen.', // g41
+      'Nie füttern.', // g41
+      'Auf der Straße: abblenden, hupen, bremsen – nicht ausweichen.', // g54
+    ],
+  },
   aktivitaet: [
     { von: 20, bis: 24, staerke: 2 },
     { von: 0, bis: 6, staerke: 2 },
@@ -311,6 +351,107 @@ export const WILDSCHWEIN: TierSeite = {
       id: 'q30',
       titel: 'Einheimische Paarhufer, Arbeitsblätter (Naturhistorisches Museum der Universität Zürich)',
       url: 'https://www.nmz.uzh.ch/dam/jcr:ff2e2ed8-0dba-4286-8702-9e3731c27692/2024_Paarhufer_Arbeitsblaetter.pdf',
+    },
+    {
+      id: 'g40',
+      titel: 'Wildschwein – Steckbrief (Deutsche Wildtier Stiftung)',
+      url: 'https://www.deutschewildtierstiftung.de/wildtiere/wildschwein',
+    },
+    {
+      id: 'g41',
+      titel:
+        'Das Wildschwein (Wildtiere im Stadtgebiet, mit Verhaltensregeln bei Begegnungen) (Senatsverwaltung für Mobilität, Verkehr, Klimaschutz und Umwelt Berlin)',
+      url: 'https://www.berlin.de/sen/uvk/natur-und-gruen/jagd-und-wildtiere/wildtiere-im-stadtgebiet/wildschwein/',
+    },
+    {
+      id: 'g42',
+      titel: 'Wildschwein (Naturschutz) (Bezirksamt Spandau von Berlin, Umwelt- und Naturschutzamt)',
+      url: 'https://www.berlin.de/ba-spandau/politik-und-verwaltung/aemter/umwelt-und-naturschutzamt/naturschutz/artikel.482206.php',
+    },
+    {
+      id: 'g43',
+      titel: 'Wild boar (Artportrait mit Literaturangaben) (Wildlife Online (M. Baldwin, UK))',
+      url: 'https://www.wildlifeonline.me.uk/animals/species/wild-boar',
+    },
+    {
+      id: 'g44',
+      titel: 'Tiersteckbrief Wildschwein (Sus scrofa) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/zahlen-fakten/tiersteckbriefe/wildschwein-sus-scrofa',
+    },
+    {
+      id: 'g45',
+      titel:
+        'Frischling oder Überläufer? Die Zahnformel zeigt’s! (E. Kauppert-Grun, 10.12.2023) (PIRSCH (Fachzeitschrift Jagd))',
+      url: 'https://www.pirsch.de/jagdwissen/wildbiologie/frischling-oder-ueberlaeufer-die-zahnformel-zeigts-38050',
+    },
+    {
+      id: 'g46',
+      titel:
+        'Mayer, Garabedian & Kilgo (2023): Human Fatalities Resulting from Wild Pig Attacks Worldwide: 2000–2019. Human–Wildlife Interactions 17(1), Art. 4, doi:10.26077/54d8-89fa (CC BY 4.0) (USDA Forest Service / Utah State University)',
+      url: 'https://research.fs.usda.gov/treesearch/68334',
+    },
+    {
+      id: 'g47',
+      titel:
+        'Wildunfall-Statistik 2024/2025 (Fallwild nach Bundesländern, DJV-Handbuch 2026) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/sites/default/files/2026-02/2026-02_Infografik_Wildunfall_Statistik_2024_2025.jpg',
+    },
+    {
+      id: 'g48',
+      titel:
+        'Allgemeine Unfallursachen von Unfällen mit Personenschaden (Zeile „Wild auf der Fahrbahn“, Stand 7.7.2026) (Statistisches Bundesamt (Destatis))',
+      url: 'https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Tabellen/allgemeine-unfallursachen-von-unfaellen-mit-personenschaden.html',
+    },
+    {
+      id: 'g49',
+      titel:
+        'Wildunfälle in Baden-Württemberg 2024 (Pressemitteilung 7.11.2025, mit Bundeszahlen) (Statistisches Landesamt Baden-Württemberg)',
+      url: 'https://www.statistik-bw.de/presse/pressemitteilungen/pressemitteilung/wildunfaelle-in-baden-wuerttemberg-2024/',
+    },
+    {
+      id: 'g50',
+      titel:
+        'Zehn Verkehrstote im Jahr 2017 bei Wildunfällen (Pressemitteilung PD18_410) (Statistisches Bundesamt (Destatis))',
+      url: 'https://www.destatis.de/DE/Presse/Pressemitteilungen/2018/10/PD18_410_46241.html',
+    },
+    {
+      id: 'g51',
+      titel:
+        'Wildunfälle: Kfz-Versicherung (Meldung 7.4.2026) (Gesamtverband der Deutschen Versicherungswirtschaft (GDV))',
+      url: 'https://www.dieversicherer.de/versicherer/auto/news/wildunfaelle-kfz-versicherung-142424',
+    },
+    {
+      id: 'g52',
+      titel:
+        'Pressegrafik „Wildunfälle: Rehe am stärksten gefährdet“ (Tierfund-Kataster, 36.500 Datensätze 2021–2023) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/sites/default/files/2024-03/2024-03_Pressegrafik_Wildunfaelle_betroffene_Tierarten.jpg',
+    },
+    {
+      id: 'g53',
+      titel: 'Hirsche und Wildschweine verursachen jetzt viele Wildunfälle (28.10.2021) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/hirsche-und-wildschweine-verursachen-jetzt-viele-wildunfaelle',
+    },
+    {
+      id: 'g54',
+      titel: 'Wildunfall verhindern (Verhaltensregeln) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/forschung-aufklaerung/wildunfall/wildunfall-verhindern',
+    },
+    {
+      id: 'g55',
+      titel:
+        'Pressegrafik „Da wird der Hirsch zum Elefanten“ – Aufprallgewicht bei Tempo 60 (09/2024) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/sites/default/files/2024-10/2024-09_Pressegrafik_Wildunfall_Aufprallgewicht.jpg',
+    },
+    {
+      id: 'g56',
+      titel: 'Die meisten Wildunfälle passieren im April und Mai (25.03.2024) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/die-meisten-wildunfaelle-passieren-im-april-und-mai',
+    },
+    {
+      id: 'g57',
+      titel:
+        'Jahresstrecke Schwarzwild 2014/15–2024/25 nach Bundesländern (DJV-Handbuch 2026) (Deutscher Jagdverband (DJV))',
+      url: 'https://www.jagdverband.de/sites/default/files/2026-03/2026-02_Infografik_Jahresjagdstrecke_Schwarzwild_2024_2025.jpg',
     },
   ],
 };

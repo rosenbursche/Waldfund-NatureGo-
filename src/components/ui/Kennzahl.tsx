@@ -28,7 +28,9 @@ export function Kennzahl({
       accessibilityLabel={`${etikett}: ${wert}${einheit ? ` ${einheit}` : ''}`}
     >
       <View style={stile.zeile}>
-        <Schrift style={[stile.wert, { color: farbe }]}>{wert}</Schrift>
+        <Schrift style={[stile.wert, { color: farbe }]} numberOfLines={1} adjustsFontSizeToFit>
+          {wert}
+        </Schrift>
         {einheit && <Schrift style={stile.einheit}>{einheit}</Schrift>}
       </View>
       <Schrift art="etikett" style={stile.etikett}>
@@ -40,8 +42,8 @@ export function Kennzahl({
 
 const stile = StyleSheet.create({
   kennzahl: { gap: 0 },
-  zeile: { flexDirection: 'row', alignItems: 'baseline', gap: 4 },
-  wert: { fontFamily: fonts.titel, fontSize: 26, lineHeight: 32, fontVariant: ['tabular-nums'] },
+  zeile: { flexDirection: 'row', alignItems: 'baseline', gap: 4, maxWidth: '100%' },
+  wert: { flexShrink: 1, fontFamily: fonts.titel, fontSize: 26, lineHeight: 32, fontVariant: ['tabular-nums'] },
   einheit: { fontFamily: fonts.body, fontSize: 14, color: colors.fog },
   etikett: { fontSize: 10, letterSpacing: 1.6 },
 });
