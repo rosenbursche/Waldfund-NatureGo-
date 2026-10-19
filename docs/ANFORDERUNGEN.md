@@ -219,6 +219,9 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 | Ältere Screens (Katalog, Tagebuch, Sammeln) auf die Bausteine umstellen | offen |
 | Wappen (Wild-Wert, Seltenheit, Schutz, Rote Liste, Gift) auf allen Artenseiten und beim Sammeln | ✅ |
 | Lebensraum-Panoramen Waldrand, Wald, Feld, Ufer mit Nahfotos | ✅ (Igel noch offen) |
+| Agenten-Pipeline für Tierseiten: Recherche mit Quellen, passende echte Fotos je Bildplatz, echte Verbreitung, echte Spurenform, Prüfung, Bau (`/tierseite`) | ✅ gebaut (`docs/PIPELINE-TIERSEITEN.md`); Probelauf offen |
+| Echte Verbreitung aus GBIF statt Demo-Modell (TK25, nur freie Daten) | ✅ für die 10 Säugetiere (noch ohne Abgleich durch den Verbreitungs-Agenten) |
+| Spuren nur Schnee und Matsch, realistischer gezeichnet, echte Form aus Referenzen | ✅ Darstellung; echte Formen kommen über den Spuren-Agenten |
 | Lebendige Tierseite: Kapitel statt Kästen, große echte Fotos, Bewegung mit Bedeutung | ✅ umgesetzt für Reh und Fuchs (`docs/KONZEPT-TIERSEITE.md`); weitere Tiere sobald Fotos da sind |
 
 ## 3. Vorgeschlagene Reihenfolge

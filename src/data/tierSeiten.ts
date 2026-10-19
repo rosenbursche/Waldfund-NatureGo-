@@ -120,10 +120,27 @@ export type TierFotos = {
   ruhe?: FotoId;
   spuren?: Partial<Record<SpurIcon, FotoId>>;
   hinweis?: FotoId;
+  /** Ein Foto je Jahreszeit (Tier genau in dieser Jahreszeit) – von der Bilder-Pipeline gesucht */
+  jahreszeiten?: Partial<Record<'fruehling' | 'sommer' | 'herbst' | 'winter', FotoId>>;
+  /** Tier sichtbar im Fellwechsel */
+  fellwechsel?: FotoId;
 };
+
+/** Belegquelle einer Angabe (aus der Recherche-Pipeline, siehe docs/PIPELINE-TIERSEITEN.md) */
+export type Quelle = { id: string; titel: string; url: string };
+
+/**
+ * Echte Trittsiegel-Form als SVG-Pfad im Raster −15 … 15 (Zehen oben, Länge = 30 Einheiten),
+ * nachgezeichnet nach echten Referenzen. `flucht`: Form auf der Flucht (z. B. gespreizte Schalen).
+ */
+export type TrittPfad = { vorne: string; hinten?: string; flucht?: string; laengeCm?: [number, number] };
 
 export type TierSeite = {
   figur: FigurName;
+  /** Belegquellen der Angaben (Pipeline). Fehlen sie, sind die Daten noch ungeprüft. */
+  quellen?: Quelle[];
+  /** Echte Trittsiegel-Form (Pipeline); sonst die vereinfachte Form aus `tritt` */
+  trittPfad?: TrittPfad;
   umgebung: Umgebung;
   extras?: Extra[];
   /** echte Fotos (Wikimedia Commons, siehe src/data/fotos.ts) */

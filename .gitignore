@@ -44,3 +44,8 @@ example
 
 # Rohdaten für Skripte
 .cache/
+
+# Vorschaubilder der Agenten-Pipeline (nur zum Ansehen, nicht ins Repo)
+recherche/*/bilder/
+recherche/*/spuren-ref/
+recherche/*/spuren-vorschau.png

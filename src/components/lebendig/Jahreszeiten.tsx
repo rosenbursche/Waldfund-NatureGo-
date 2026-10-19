@@ -23,11 +23,18 @@ const HOEHE = 440;
 
 function jahreszeiten(t: TierSeite): Zeit[] {
   const f = t.fotos;
+  const j = f?.jahreszeiten;
+  // Bevorzugt: ein echtes Foto genau dieser Jahreszeit (Pipeline). Sonst die bisherigen Fotos als Ersatz.
   return [
-    { name: 'Frühling', monate: [3, 4, 5], partikel: 'pollen', foto: f?.jung ?? f?.sommer ?? f?.hero },
-    { name: 'Sommer', monate: [6, 7, 8], partikel: 'gluehen', foto: f?.sommer ?? f?.hero },
-    { name: 'Herbst', monate: [9, 10, 11], partikel: 'laub', foto: f?.hero },
-    { name: 'Winter', monate: [12, 1, 2], partikel: 'schnee', foto: (t.ruhe ? f?.ruhe : f?.winter) ?? f?.hero },
+    { name: 'Frühling', monate: [3, 4, 5], partikel: 'pollen', foto: j?.fruehling ?? f?.jung ?? f?.sommer ?? f?.hero },
+    { name: 'Sommer', monate: [6, 7, 8], partikel: 'gluehen', foto: j?.sommer ?? f?.sommer ?? f?.hero },
+    { name: 'Herbst', monate: [9, 10, 11], partikel: 'laub', foto: j?.herbst ?? f?.hero },
+    {
+      name: 'Winter',
+      monate: [12, 1, 2],
+      partikel: 'schnee',
+      foto: j?.winter ?? (t.ruhe ? f?.ruhe : f?.winter) ?? f?.hero,
+    },
   ];
 }
 

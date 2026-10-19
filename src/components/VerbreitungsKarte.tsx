@@ -13,7 +13,8 @@ import Svg, { Defs, G, Line, Path, Pattern, Polygon, Rect, Text as SvgText } fro
 import { FLUESSE, GEBIRGE, GROSSLANDSCHAFTEN, UMRISS, WALDGEBIETE, WUCHSGEBIETE } from '@/data/karte';
 import { naturraumById } from '@/data/naturraeume';
 import type { Geometrie, Naturraum } from '@/data/typen';
-import { gebietsAnteile, KARTE, projiziere } from '@/logic/verbreitung';
+import { ECHTE_VERBREITUNG } from '@/data/nachweise';
+import { gebietsAnteile, hatEchteDaten, KARTE, projiziere } from '@/logic/verbreitung';
 import { useEinstellungen } from '@/store/einstellungen';
 import { colors, fonts } from '@/theme/theme';
 
@@ -250,7 +251,9 @@ export function VerbreitungsKarte(props: Props) {
       </View>
       <Schrift art="etikett" style={stile.fuss}>
         {props.art === 'raster'
-          ? `${flaechen.nVoll} Gebiete häufig · ${flaechen.nTeil} vereinzelt · 82 Wuchsgebiete · Demo-Daten`
+          ? hatEchteDaten(props.artId)
+            ? `${flaechen.nVoll} Gebiete häufig · ${flaechen.nTeil} vereinzelt · Nachweise seit ${ECHTE_VERBREITUNG[props.artId].seit}: GBIF.org (CC0 / CC BY 4.0)`
+            : `${flaechen.nVoll} Gebiete häufig · ${flaechen.nTeil} vereinzelt · 82 Wuchsgebiete · Demo-Daten`
           : `${flaechen.nVoll + flaechen.nTeil} von 10 Demo-Naturräumen`}
       </Schrift>
     </View>
