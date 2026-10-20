@@ -28,7 +28,6 @@ const DX = 1 / 6;
 const DY = 0.1;
 const LON0 = 5.9;
 const LAT0 = 47.3;
-const zelle = (lon, lat) => `${Math.floor((lon - LON0) / DX)}-${Math.floor((lat - LAT0) / DY)}`;
 
 const [artId, name, ...rest] = process.argv.slice(2);
 if (!artId || !name) {
@@ -40,15 +39,18 @@ const seit = Number(wert('--seit')) || 2000;
 const ohne = new Set((wert('--ohne') ?? '').split(',').filter(Boolean));
 const JAHR = new Date().getFullYear();
 
-async function holen(pfad, versuche = 5) {
+async function holen(pfad, versuche = 8) {
   for (let v = 0; v < versuche; v++) {
+    let warten = 2000 * (v + 1);
     try {
       const r = await fetch(API + pfad, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
       if (r.ok) return r.json();
+      // 429 = zu viele Anfragen: GBIF bremst – deutlich länger warten
+      if (r.status === 429) warten = 10000 * (v + 1);
     } catch {
-      // Netzwerkfehler – gleich nochmal
+      // Netzwerkfehler oder Zeitüberschreitung – gleich nochmal
     }
-    await new Promise((ok) => setTimeout(ok, 2000 * (v + 1)));
+    await new Promise((ok) => setTimeout(ok, warten));
   }
   throw new Error(`GBIF antwortet nicht: ${pfad}`);
 }
@@ -68,47 +70,61 @@ const filter = (box) =>
 
 const zaehlen = async (box) => (await holen(`/occurrence/search?${filter(box)}&limit=0`)).count;
 
-/** GBIF liefert höchstens 100 000 Treffer pro Suche – große Gebiete werden deshalb geviertelt */
-async function boxen(box) {
-  const n = await zaehlen(box);
-  if (n === 0) return [];
-  if (n <= 90000) return [{ box, n }];
-  const mx = (box[0] + box[2]) / 2;
-  const my = (box[1] + box[3]) / 2;
-  const teile = [
-    [box[0], box[1], mx, my],
-    [mx, box[1], box[2], my],
-    [box[0], my, mx, box[3]],
-    [mx, my, box[2], box[3]],
-  ];
-  return (await Promise.all(teile.map(boxen))).flat();
+/**
+ * Zählt die Nachweise je Rasterfeld, ohne Einzelfunde herunterzuladen (das wäre sehr langsam):
+ * Ein Bereich aus Rasterfeldern wird gezählt; ist er leer, fällt er weg, sonst wird er halbiert –
+ * bis hinunter zu einem einzelnen Rasterfeld. Seltene Arten brauchen so nur wenige Anfragen.
+ */
+const zellen = {};
+let anfragen = 0;
+const warteschlange = [];
+let laufend = 0;
+const GLEICHZEITIG = 6;
+function begrenzt(aufgabe) {
+  return new Promise((fertig, fehler) => {
+    const los = async () => {
+      laufend++;
+      try {
+        fertig(await aufgabe());
+      } catch (e) {
+        fehler(e);
+      } finally {
+        laufend--;
+        warteschlange.shift()?.();
+      }
+    };
+    if (laufend < GLEICHZEITIG) los();
+    else warteschlange.push(los);
+  });
 }
 
-const zellen = {};
-let funde = 0;
-const gebiete = await boxen([5.8, 47.2, 15.1, 55.1]);
-console.log(`${name} (GBIF ${taxonKey}): ${gebiete.reduce((s, g) => s + g.n, 0)} Nachweise seit ${seit}`);
-
-for (const { box, n } of gebiete) {
-  const seiten = Math.ceil(n / 300);
-  for (let start = 0; start < seiten; start += 4) {
-    const runde = [];
-    for (let s = start; s < Math.min(seiten, start + 4); s++) {
-      runde.push(holen(`/occurrence/search?${filter(box)}&limit=300&offset=${s * 300}`));
-    }
-    for (const seite of await Promise.all(runde)) {
-      for (const f of seite.results) {
-        if (typeof f.decimalLongitude !== 'number') continue;
-        const k = zelle(f.decimalLongitude, f.decimalLatitude);
-        if (ohne.has(k)) continue;
-        zellen[k] = (zellen[k] ?? 0) + 1;
-        funde++;
-      }
-    }
-    process.stdout.write(`\r  ${Math.min(funde, n)} / ${n}`);
+async function bereich(i0, i1, j0, j1) {
+  // Rasterfelder i0 … i1-1 (Länge) und j0 … j1-1 (Breite); kleiner Abstand am Rand gegen Doppelzählung
+  const box = [LON0 + i0 * DX, LAT0 + j0 * DY, LON0 + i1 * DX - 1e-6, LAT0 + j1 * DY - 1e-6];
+  const n = await begrenzt(() => zaehlen(box));
+  anfragen++;
+  if (anfragen % 50 === 0) process.stdout.write(`\r  ${anfragen} Anfragen, ${Object.keys(zellen).length} Felder`);
+  if (n === 0) return;
+  if (i1 - i0 === 1 && j1 - j0 === 1) {
+    const k = `${i0}-${j0}`;
+    if (!ohne.has(k)) zellen[k] = n;
+    return;
+  }
+  if (i1 - i0 >= j1 - j0) {
+    const m = Math.floor((i0 + i1) / 2);
+    await Promise.all([bereich(i0, m, j0, j1), bereich(m, i1, j0, j1)]);
+  } else {
+    const m = Math.floor((j0 + j1) / 2);
+    await Promise.all([bereich(i0, i1, j0, m), bereich(i0, i1, m, j1)]);
   }
 }
-console.log();
+
+// Deutschland: Länge 5.9 … 15.1 (56 Felder), Breite 47.3 … 55.1 (78 Felder)
+const gesamt = await zaehlen([LON0, LAT0, LON0 + 56 * DX, LAT0 + 78 * DY]);
+console.log(`${name} (GBIF ${taxonKey}): ${gesamt} Nachweise seit ${seit}`);
+await bereich(0, 56, 0, 78);
+const funde = Object.values(zellen).reduce((s, n) => s + n, 0);
+console.log(`\r  ${anfragen} Anfragen`);
 
 mkdirSync(ZIEL, { recursive: true });
 const daten = {
