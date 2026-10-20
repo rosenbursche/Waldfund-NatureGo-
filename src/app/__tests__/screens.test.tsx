@@ -234,9 +234,12 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Bäume')).toBeTruthy();
     await fireEvent.press(screen.getByLabelText(/Ast Sträucher & Ranken/));
     expect(screen.getByLabelText(/^Gewöhnliche Hasel,/)).toBeTruthy();
-    expect(screen.queryAllByLabelText(/Blauer Eisenhut/)).toHaveLength(0);
-    await fireEvent.press(screen.getByLabelText(/Toter Ast: Gefährlich/));
+    // die Schatzkammer unter dem Baum zeigt die gefährlichste Pflanze immer mit Namen
     expect(screen.getAllByLabelText(/Blauer Eisenhut/)).toHaveLength(1);
+    expect(screen.getByLabelText(/^Die gefährlichste Art: Blauer Eisenhut, tödlich/)).toBeTruthy();
+    expect(screen.getByText('✦ Die seltensten Pflanzen ✦')).toBeTruthy();
+    await fireEvent.press(screen.getByLabelText(/Toter Ast: Gefährlich/));
+    expect(screen.getAllByLabelText(/Blauer Eisenhut/)).toHaveLength(2);
   });
 
   test.each(['saeuger', 'pflanzen', 'pilze'] as const)(

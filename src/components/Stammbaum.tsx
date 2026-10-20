@@ -12,6 +12,7 @@ import { Schrift } from './Schrift';
 import { AstListe } from './stammbaum/AstListe';
 import { AstPanel } from './stammbaum/AstPanel';
 import { Lebensbaum, TOTER_AST } from './stammbaum/Lebensbaum';
+import { Schatzkammer } from './stammbaum/Schatzkammer';
 
 /**
  * Stammbaum-Ansicht einer Kategorie als Lebensbaum (siehe `stammbaum/Lebensbaum.tsx`).
@@ -54,6 +55,7 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
       </Schrift>
 
       <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={waehle} />
+      <Schatzkammer kategorie={kategorie} baum={baum} gefunden={gefunden} />
       <AstListe kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={waehle} />
 
       {auftritt && (

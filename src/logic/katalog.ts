@@ -350,6 +350,14 @@ export function schatzkammer(
   const alle = artIdsDerKategorie(kategorie, naturraum)
     .map(katalogEintrag)
     .filter((e): e is KatalogEintrag => !!e);
+  return schatzkammerAus(alle, anzahl);
+}
+
+/** Schatzkammer aus einer fertigen Artenliste (z. B. `alleImBaum(baum)`) */
+export function schatzkammerAus(
+  alle: KatalogEintrag[],
+  anzahl = { selten: 5, gefahr: 3 },
+): { seltenste: KatalogEintrag[]; gefaehrlichste: KatalogEintrag[] } {
   const seltenste = [...alle]
     .filter((e) => e.seltenheit >= 2)
     .sort((a, b) => b.seltenheit - a.seltenheit)
