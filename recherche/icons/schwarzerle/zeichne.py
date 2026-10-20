@@ -25,9 +25,6 @@ teile, info = blatt(R, Lk, 1.3, 2, 58, 100, GRUEN, ADER, adern=6, t0=0.14, t1=0.
                     saege={'abstand': 2.2, 'hoehe': 1.0, 'muster': (1, 0.5), 'von': 0.06, 'bis': 0.97},
                     stiel=[(0.8, 7), (0.3, 3), (0, -0.5)], stiel_farbe='#6A5A3A', licht_o=0.32, schatten_o=0.5)
 ebenen += teile
-T = info['T']
-# klebriger Glanz
-ebenen.append(linie(T([(-5, -12), (-9.5, -19), (-10, -26)]), '#C4E0A4', 1.6, 0.35))
 
 speichern('schwarzerle', ebenen, quellen=[
     {'titel': 'Referenzfoto: Alnus glutinosa 051 (Zäpfchen am Zweig)', 'url': 'https://commons.wikimedia.org/wiki/File:Alnus_glutinosa_051.jpg'},

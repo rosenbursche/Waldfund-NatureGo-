@@ -29,7 +29,8 @@ def schiebe(d, dx, dy):
 def kopf(liste, dx=0, dy=5):
     return [dict(e, d=schiebe(e['d'], dx, dy)) for e in liste]
 
-ebenen = hg_boden() + [
+ebenen = hg_boden() + kopf([
+    # Ohren um 7 nach unten gesetzt, damit die schwarzen Spitzen nicht am Scheibenrand abgeschnitten werden
     # hinteres Ohr (weiter weg, etwas dunkler), schwarze Spitze
     form('M57.5 56 C54.5 45 55.5 31 60.5 21.5 C65.5 25.5 67.5 38 66 56 Z', '#87653E'),
     E('M57.2 30.5 C58 27 59 24 60.5 21.5 C63.4 24 65.2 27.6 66.2 31.6 C63 30.2 60 30 57.2 30.5 Z', SPITZE, rolle='detail'),
@@ -38,7 +39,7 @@ ebenen = hg_boden() + [
     E('M67 47 C68 39 71.5 32 76.5 28 C78.5 35 76.5 42 71 49 Z', OHR_IN, o=0.85, rolle='licht'),
     E('M72.6 28.6 C74.4 27 76.2 25.6 78 24.5 C80.6 27.4 81.4 31.6 81.2 35.6 C78.8 32.8 75.8 30.2 72.6 28.6 Z', SPITZE, rolle='detail'),
     E('M68 46 C69 39 72 33.5 76 30', s=HELL, sw=0.8, o=0.8, rolle='detail'),
-] + kopf([
+], dy=7) + kopf([
     # Kopf und Hals (gegenüber den Ohren um 5 nach unten gesetzt)
     form('M92 106 C90 92 87 80 81 70 C79 61 75 53 67 49.5 C59 46.5 50 48 44 54 C38 60 34.5 65 32.5 70 C31.5 74 33 78 37 79.5 C42 81 47 81 51.5 82 C56 86 58 95 58 106 Z', FELL),
     # Schatten unten rechts

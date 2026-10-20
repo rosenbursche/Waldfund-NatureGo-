@@ -8,7 +8,7 @@ from baum_helfer import *  # noqa
 
 GRUEN = ('#4A7A34', '#284A1C', '#7AA854')
 ADER = '#B6CC88'
-LAPPEN = [(-112, 15), (-54, 26), (0, 30), (54, 26), (112, 15)]
+LAPPEN = [(-112, 14), (-54, 24), (0, 27), (54, 24), (112, 14)]  # kürzere Lappen = stumpfer
 BUCHTEN = [(1.5, 'k'), (9.5, 'c'), (11, 'c'), (11, 'c'), (9.5, 'c')]
 
 
@@ -23,7 +23,7 @@ def kante_fn(i, A, B, zur_spitze):
 
 def spitze_fn(i, w, L):
     # stumpfe, runde Lappenspitze
-    a, t, b = pol(w - 9, L - 2.2), pol(w, L + 0.6), pol(w + 9, L - 2.2)
+    a, t, b = pol(w - 19, L - 5.5), pol(w, L + 0.2), pol(w + 19, L - 5.5)  # breit gerundet
     return [(a[0], a[1], 'c'), (t[0], t[1], 'c'), (b[0], b[1], 'c')]
 
 

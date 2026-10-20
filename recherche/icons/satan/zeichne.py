@@ -21,7 +21,26 @@ for i in range(-10, 11):
         if im_stiel(x, y) and im_stiel(x + 1.3, y + 1.2) and im_stiel(x - 1.3, y + 1.2):
             netz += f' M{x} {y} l1.3 1.2 l-1.3 1.2 l-1.3 -1.2 Z'
 
-ebenen = hg_boden() + [
+
+
+def skaliere(d, k, cx=60, cy=60, dy=0):
+    """Skaliert einen Pfad um (cx, cy) mit Faktor k und verschiebt ihn um dy (absolute und relative Befehle, Bögen)."""
+    import re
+    aus = []
+    for cmd, zahlen in re.findall(r'([A-Za-z])([^A-Za-z]*)', d):
+        z = [float(v) for v in re.findall(r'-?\d*\.?\d+', zahlen)]
+        if cmd in 'MCLQT':
+            z = [cx + (v - cx) * k if i % 2 == 0 else cy + dy + (v - cy) * k for i, v in enumerate(z)]
+        elif cmd in 'HV':
+            z = [(cx + (v - cx) * k) if cmd == 'H' else (cy + dy + (v - cy) * k) for v in z]
+        elif cmd in 'aA':
+            z = [v * k if i % 7 in (0, 1) or (cmd == 'a' and i % 7 in (5, 6)) else v for i, v in enumerate(z)]
+        else:
+            z = [v * k for v in z]
+        aus.append(cmd + ' '.join(f'{round(v, 2):g}' for v in z))
+    return ' '.join(aus)
+
+motiv = [
     # bauchiger Stiel (oben gelb, Mitte/unten karminrot)
     form('M50 61 C45 67 38 76 38.5 86 C39 93 46 98 61 98 C76 98 83 93 83.5 86 C84 76 77 67 72 61 Z', ROT),
     # gelblicher Stielkopf, gut sichtbar unter den Poren
@@ -50,6 +69,8 @@ ebenen = hg_boden() + [
     E('M80 31.5 C83.5 35.5 85 40.5 84.5 45.5', s=HUT_D, sw=0.8, o=0.5, rolle='detail'),
     E('M44 36 l1.8 -0.9 M73 39.5 l1.2 1.2 M36 51 l1.6 0.2 M66 32.5 l1.4 -0.4', s='#6E5E46', sw=1.0, o=0.75, rolle='detail'),
 ]
+# Motiv etwas kleiner und höher, damit der Stielfuß nicht am Scheibenrand abgeschnitten wird
+ebenen = hg_boden() + [dict(e, d=skaliere(e['d'], 0.86, dy=-2)) for e in motiv]
 quellen = [
     {'titel': 'Referenzfoto Boletus satanas.JPG', 'url': 'https://commons.wikimedia.org/wiki/File:Boletus_satanas.JPG'},
     {'titel': "Referenzfoto Frankenwarte 10.08.2016 Satan's Bolete (29189044936).jpg", 'url': 'https://commons.wikimedia.org/wiki/File:Frankenwarte_10.08.2016_Satan%27s_Bolete_-_Rubroboletus_satanas_(29189044936).jpg'},

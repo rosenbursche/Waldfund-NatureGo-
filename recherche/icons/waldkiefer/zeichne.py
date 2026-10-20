@@ -54,7 +54,7 @@ g = richtung(ast[0], ast[-1])
 random.seed(5)
 # Nadelpaare strahlen pinselartig vom oberen Zweigstück nach allen Seiten (nach vorn geneigt)
 ansaetze = []
-for k, i in enumerate(range(8, 31, 3)):
+for k, i in enumerate(range(9, 31, 5)):  # weniger, klarere Nadelpaare
     p = q[min(i, 30)]
     for w in ((-62, 48) if k % 2 else (-40, 66)):
         ansaetze.append((p, g + w + random.uniform(-6, 6), 27 + random.uniform(-3, 3)))
@@ -64,7 +64,7 @@ for p, w, l in hinten:
     ebenen += nadelpaar((r1(p[0]), r1(p[1])), w, l, dreh=1)
 # Büschel an der Triebspitze
 spitze = q[-1]
-for w in (-34, -12, 10, 32):
+for w in (-28, 0, 28):
     ebenen += nadelpaar((r1(spitze[0]), r1(spitze[1])), g + w, 28)
 ebenen += zweig(ast, 5.2, 3.8, RINDE)
 ebenen.append(E('M96 85 l3 -1 M84 74 l3 -1.2 M74 64.5 l2.6 -1', s='#F2C29A', sw=0.6, o=0.8, rolle='detail'))  # Rindenschuppen
