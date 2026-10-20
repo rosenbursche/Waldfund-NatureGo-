@@ -26,6 +26,7 @@ import { LebendigInhalt } from '@/components/lebendig/LebendigInhalt';
 import { FotoHero } from '@/components/tier/TierFoto';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { ArtVerweise } from '@/components/ArtVerweise';
 import { LehrbuchKarte } from '@/components/LehrbuchZeichnung';
 import { Schrift } from '@/components/Schrift';
@@ -196,7 +197,20 @@ export default function ArtSeite() {
             )}
           </View>
         ) : (
-          <Kopfzeile etikett={`${kategorie.name} · ${gruppe}`} titel={verborgen ? '???' : eintrag.name} />
+          <>
+            <Kopfzeile etikett={`${kategorie.name} · ${gruppe}`} titel={verborgen ? '???' : eintrag.name} />
+            {/* der Taler der Art im Rang-Emblem */}
+            <View style={{ alignItems: 'center', marginTop: -spacing.s }}>
+              <ArtTaler
+                id={id}
+                seltenheit={eintrag.seltenheit}
+                zustand={gefunden ? 'gefunden' : verborgen ? 'verborgen' : 'umriss'}
+                groesse={110}
+                modell={art?.modell}
+                baumModell={eintrag.baumModell}
+              />
+            </View>
+          </>
         )}
 
         {/* 3D-Modell: Silhouette, solange nicht gesammelt */}

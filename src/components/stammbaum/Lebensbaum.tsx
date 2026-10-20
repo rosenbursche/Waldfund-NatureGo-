@@ -15,6 +15,7 @@ import Svg, { Circle, Defs, Ellipse, LinearGradient, Path, RadialGradient, Stop 
 
 import type { KategorieId } from '@/data/artTypen';
 import { SELTENHEIT } from '@/data/spiel';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { baumForm, sternPfad, type Punkt } from '@/logic/baum/stil';
 import { alleImBaum, type KatalogEintrag, type Lebensbaum as LebensbaumDaten } from '@/logic/katalog';
 import { colors, fonts } from '@/theme/theme';
@@ -399,24 +400,36 @@ function SternKnopf({ e, punkt, ok, index }: { e: KatalogEintrag; punkt: Punkt; 
       }
       style={({ pressed }) => [stile.stern, { left: punkt.x - 45, top: punkt.y - G2 / 2 }, pressed && { opacity: 0.6 }]}
     >
-      <Animated.View style={funkelStil}>
-        <Svg width={G2} height={G2}>
-          <Defs>
-            <RadialGradient id={`stern${index}`}>
-              <Stop offset={0} stopColor={s.farbe} stopOpacity={ok ? 0.65 : 0.12} />
-              <Stop offset={1} stopColor={s.farbe} stopOpacity={0} />
-            </RadialGradient>
-          </Defs>
-          <Circle cx={G2 / 2} cy={G2 / 2} r={G2 / 2} fill={`url(#stern${index})`} />
-          <Path
-            d={sternPfad(G2 / 2, G2 / 2, ok ? 11 : 9, ok ? 4.6 : 3.8)}
-            fill={ok ? s.farbe : 'none'}
-            stroke={ok ? s.farbe : colors.fog}
-            strokeWidth={1.2}
-            opacity={ok ? 1 : 0.6}
-          />
-        </Svg>
-      </Animated.View>
+      {ok ? (
+        // gefunden: der Taler der Art (im Rang-Emblem), noch nicht gefunden: matter Stern
+        <ArtTaler
+          id={e.id}
+          seltenheit={e.seltenheit}
+          zustand="gefunden"
+          groesse={58}
+          modell={e.modell}
+          baumModell={e.baumModell}
+        />
+      ) : (
+        <Animated.View style={funkelStil}>
+          <Svg width={G2} height={G2}>
+            <Defs>
+              <RadialGradient id={`stern${index}`}>
+                <Stop offset={0} stopColor={s.farbe} stopOpacity={ok ? 0.65 : 0.12} />
+                <Stop offset={1} stopColor={s.farbe} stopOpacity={0} />
+              </RadialGradient>
+            </Defs>
+            <Circle cx={G2 / 2} cy={G2 / 2} r={G2 / 2} fill={`url(#stern${index})`} />
+            <Path
+              d={sternPfad(G2 / 2, G2 / 2, ok ? 11 : 9, ok ? 4.6 : 3.8)}
+              fill={ok ? s.farbe : 'none'}
+              stroke={ok ? s.farbe : colors.fog}
+              strokeWidth={1.2}
+              opacity={ok ? 1 : 0.6}
+            />
+          </Svg>
+        </Animated.View>
+      )}
       {ok && (
         <Schrift style={[stile.sternName, { color: s.farbe }]} numberOfLines={1}>
           {e.name}

@@ -21,7 +21,7 @@ Zustände:
 - **gefunden:** Icon in Farbe.
 - **noch nicht gefunden:** nur die Umriss-Ebenen (`rolle: "form"`) als Silhouette. Das Emblem bleibt sichtbar, damit man den Wert erkennt.
 - **Mystery** (verborgen): „?“.
-- In der App: `<ArtTaler id seltenheit zustand groesse />` (`src/components/taler/ArtTaler.tsx`).
+- In der App: `<ArtTaler id seltenheit zustand groesse />` (`src/components/taler/ArtTaler.tsx`). Er steht überall, wo Arten erscheinen: Stammbaum (Äste, gefundene Sterne), Suche, Tagebuch (als Abzeichen auf dem eigenen Foto), Sammeln (nach dem Fund), Artenseite (unter dem Titel), Artverweise, Gefahren und Fressfeinde.
 
 ## 2. Icon-Stil (für alle Arten gleich)
 - **Raster** 120 × 120, Mitte 60/60. Das Icon liegt in der Scheibe mit Radius 41 (alles außerhalb wird abgeschnitten).

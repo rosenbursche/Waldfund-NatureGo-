@@ -21,6 +21,7 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { artById } from '@/data/arten';
 import { SELTENHEIT } from '@/data/spiel';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { WappenReihe } from '@/components/ui/Wappen';
 import { HUETTEN_NAME, levelInfo, tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
@@ -208,6 +209,17 @@ export default function Sammeln() {
                 <Schrift art="titel" style={{ textAlign: 'center' }} accessibilityRole="header">
                   {eintrag.name}
                 </Schrift>
+              </Animated.View>
+              {/* der Taler der Art: jetzt in Farbe freigeschaltet */}
+              <Animated.View entering={FadeInDown.delay(700).duration(700)}>
+                <ArtTaler
+                  id={id}
+                  seltenheit={eintrag.seltenheit}
+                  zustand="gefunden"
+                  groesse={120}
+                  modell={art?.modell}
+                  baumModell={eintrag.baumModell}
+                />
               </Animated.View>
               {/* Wappen der Art als Belohnung: Wild-Wert, Seltenheit, Schutz … */}
               <Animated.View entering={FadeInDown.delay(700).duration(600)}>
