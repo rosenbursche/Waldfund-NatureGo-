@@ -31,249 +31,263 @@ export function alsSvg(k: Knoten): string {
 }
 
 /**
- * Rang-Taler: der Rahmen um jedes Art-Icon, je nach Seltenheit.
- * Jede Stufe hat eine eigene FORM (nicht nur Farbe), damit man sie auch ohne Farbsehen erkennt:
- *
- *  1 häufig      – Rindentaler:   schlichter Holzring mit Kerben, Jahresring-Linie
- *  2 selten      – Moostaler:     Ring mit Blätterkranz, zwei Edelsteine links und rechts
- *  3 sehr selten – Kristalltaler: Doppelring mit Runenband, sechs Kristallzacken, Funkeln
- *  4 legendär    – Sonnentaler:   Strahlenkranz, Perlenring, Krone oben, Lorbeer unten, starker Schein
- *
- * Raster 120 × 120, Mitte 60/60. Das Icon liegt in der Scheibe mit Radius 41 (siehe ICON_RADIUS).
- * Farben kommen als Parameter (aus src/theme/theme.ts) – keine Farbwerte in dieser Datei.
+ * Rang-Embleme: der Rahmen um jedes Art-Icon, je nach Seltenheit (Gestaltung: docs/ICONS.md).
+ * Alle vier Ränge sind eine Familie – sie steigern sich über Metall, Email-Farbe und Edelstein:
+ *  1 häufig      – Kupfer und Patina:   Ring, kleines Blatt je Seite, kleiner Stein oben, Anhänger unten
+ *  2 selten      – Bronze und Smaragd:  drei Blätter je Seite, Blattkamm, Stein im Anhänger
+ *  3 sehr selten – Silber und Amethyst: vier Blätter je Seite, leiser violetter Schein, Funkeln
+ *  4 legendär    – Gold und Rubinfeuer: wie 3, größerer Rubin, warmer Schein
+ * Raster: Icon-Mitte 60/60, Icon-Scheibe Radius ICON_RADIUS. Das Emblem ragt darüber hinaus,
+ * deshalb gilt für die Darstellung TALER_VIEWBOX. Farben kommen als Parameter (src/theme/theme.ts).
  */
 export const TALER_GROESSE = 120;
 export const MITTE = 60;
 export const ICON_RADIUS = 41;
+export const TALER_VIEWBOX = { x: -10, y: -4, b: 140, h: 136 };
 
-export type TalerFarben = {
-  night: string;
-  forest: string;
-  moss: string;
-  rune: string;
-  fog: string;
-  moon: string;
-  amber: string;
-  rare: string;
-  legend: string;
-  rinde: string;
-  rindeHell: string;
-  rindeDunkel: string;
-  eichel: string;
-  eichenLaub: string;
-  eichenLaubHell: string;
+export type RangFarben = {
+  metall: readonly string[];
+  email: readonly string[];
+  stein: string;
+  schein: string;
+  glanz: number;
 };
+export type GrundFarben = { night: string; forest: string };
 
-const rad = (grad: number) => ((grad - 90) * Math.PI) / 180;
-const pol = (r: number, grad: number): [number, number] => [
-  MITTE + r * Math.cos(rad(grad)),
-  MITTE + r * Math.sin(rad(grad)),
-];
-const f1 = (n: number) => Math.round(n * 10) / 10;
+const f2 = (n: number) => Math.round(n * 100) / 100;
 
-/** Blatt (Spitze nach außen) an Winkel `grad` auf Radius r */
-function blatt(r: number, grad: number, laenge: number, breite: number, farbe: string, a: Knoten['a'] = {}): Knoten {
-  const [x, y] = pol(r, grad);
-  return pfad(
-    `M0 ${f1(laenge / 2)} C${f1(breite)} ${f1(laenge / 4)} ${f1(breite)} ${f1(-laenge / 4)} 0 ${f1(-laenge / 2)} C${f1(-breite)} ${f1(-laenge / 4)} ${f1(-breite)} ${f1(laenge / 4)} 0 ${f1(laenge / 2)} Z`,
-    { fill: farbe, transform: `translate(${f1(x)} ${f1(y)}) rotate(${f1(grad)})`, ...a },
-  );
+function verlaufLinear(id: string, stops: [string, string][]): Knoten {
+  return {
+    t: 'linearGradient',
+    a: { id, x1: '0', y1: '0', x2: '0.35', y2: '1' },
+    k: stops.map(([o, f]) => ({ t: 'stop', a: { offset: o, stopColor: f } })),
+  };
+}
+function verlaufRadial(id: string, stops: [string, string, number?][]): Knoten {
+  return {
+    t: 'radialGradient',
+    a: { id, cx: '50%', cy: '42%', r: '58%' },
+    k: stops.map(([o, f, op]) => ({ t: 'stop', a: { offset: o, stopColor: f, stopOpacity: op ?? 1 } })),
+  };
 }
 
-/** vierzackiger Funkelstern */
-function funkeln(x: number, y: number, r: number, farbe: string): Knoten {
-  const k = r * 0.28;
+/** geschwungenes Metallblatt: Basis bei (0,0), Spitze bei (L,0), Breite w, mit Mittelrippe, Adern und Glanzkante */
+function klinge(L: number, w: number, m: readonly string[], night: string, id: string, adern: number): Knoten[] {
+  const k = L * 0.25;
+  const unten = `C${f2(L * 0.72)} ${f2(w * 0.35 - k * 0.6)} ${f2(L * 0.3)} ${f2(w * 0.75)} 0 ${f2(w * 0.35)} Z`;
+  const teile: Knoten[] = [
+    pfad(
+      `M0 ${f2(-w * 0.35)} C${f2(L * 0.3)} ${f2(-w - k * 0.2)} ${f2(L * 0.7)} ${f2(-w * 0.8 - k)} ${f2(L)} ${f2(-k)} ${unten}`,
+      { fill: `url(#${id}-metall)`, stroke: night, strokeWidth: 1.1, strokeLinejoin: 'round' },
+    ),
+    pfad(`M0 0 C${f2(L * 0.35)} ${f2(-k * 0.1)} ${f2(L * 0.7)} ${f2(-k * 0.55)} ${f2(L)} ${f2(-k)} ${unten}`, {
+      fill: '#000000',
+      opacity: 0.28,
+    }),
+    pfad(`M1 0 C${f2(L * 0.35)} ${f2(-k * 0.1)} ${f2(L * 0.7)} ${f2(-k * 0.55)} ${f2(L - 1)} ${f2(-k)}`, {
+      fill: 'none',
+      stroke: '#FFFFFF',
+      strokeWidth: 0.8,
+      opacity: 0.55,
+    }),
+  ];
+  for (let i = 1; i <= adern; i++) {
+    const t = i / (adern + 1);
+    teile.push(
+      pfad(`M${f2(L * t)} ${f2(-k * t * t)} q${f2(L * 0.08)} ${f2(-w * 0.45)} ${f2(L * 0.16)} ${f2(-w * 0.55)}`, {
+        fill: 'none',
+        stroke: m[4],
+        strokeWidth: 0.6,
+        opacity: 0.6,
+      }),
+    );
+  }
+  teile.push(
+    pfad(
+      `M${f2(L * 0.12)} ${f2(-w * 0.55)} C${f2(L * 0.35)} ${f2(-w * 0.9)} ${f2(L * 0.6)} ${f2(-w * 0.8)} ${f2(L * 0.82)} ${f2(-k * 0.9 - w * 0.25)}`,
+      { fill: 'none', stroke: '#FFFFFF', strokeWidth: 1, opacity: 0.45, strokeLinecap: 'round' },
+    ),
+  );
+  return teile;
+}
+const setze = (x: number, y: number, w: number, teile: Knoten[], spiegeln = false): Knoten =>
+  spiegeln
+    ? g({ transform: `translate(${2 * MITTE} 0) scale(-1 1)` }, [
+        g({ transform: `translate(${x} ${y}) rotate(${w})` }, teile),
+      ])
+    : g({ transform: `translate(${x} ${y}) rotate(${w})` }, teile);
+const beidseitig = (x: number, y: number, w: number, teile: Knoten[]) => [
+  setze(x, y, w, teile),
+  setze(x, y, w, teile, true),
+];
+
+function edelstein(x: number, y: number, r: number, farbe: string, night: string, id: string): Knoten {
+  return g({ transform: `translate(${x} ${y})` }, [
+    kreis(0, 0, f2(r * 1.9), { fill: farbe, opacity: 0.22 }),
+    pfad(
+      `M0 ${-r} C${f2(r * 0.7)} ${f2(-r * 0.7)} ${f2(r * 0.95)} ${f2(-r * 0.2)} ${f2(r * 0.9)} 0 C${f2(r * 0.85)} ${f2(r * 0.5)} ${f2(r * 0.5)} ${f2(r * 0.9)} 0 ${r} C${f2(-r * 0.5)} ${f2(r * 0.9)} ${f2(-r * 0.85)} ${f2(r * 0.5)} ${f2(-r * 0.9)} 0 C${f2(-r * 0.95)} ${f2(-r * 0.2)} ${f2(-r * 0.7)} ${f2(-r * 0.7)} 0 ${-r} Z`,
+      { fill: `url(#${id}-stein)`, stroke: night, strokeWidth: 0.9 },
+    ),
+    pfad(`M0 ${f2(-r * 0.55)} L${f2(r * 0.5)} 0 L0 ${f2(r * 0.55)} L${f2(-r * 0.5)} 0 Z`, {
+      fill: '#FFFFFF',
+      opacity: 0.18,
+    }),
+    pfad(
+      `M${f2(-r * 0.5)} ${f2(-r * 0.5)} C${f2(-r * 0.3)} ${f2(-r * 0.8)} ${f2(r * 0.1)} ${f2(-r * 0.85)} ${f2(r * 0.25)} ${f2(-r * 0.7)}`,
+      { fill: 'none', stroke: '#FFFFFF', strokeWidth: f2(r * 0.22), opacity: 0.75, strokeLinecap: 'round' },
+    ),
+    kreis(f2(r * 0.35), f2(r * 0.35), f2(r * 0.12), { fill: '#FFFFFF', opacity: 0.6 }),
+  ]);
+}
+function funkeln(x: number, y: number, r: number): Knoten {
+  const k = r * 0.22;
   return pfad(
-    `M${f1(x)} ${f1(y - r)} L${f1(x + k)} ${f1(y - k)} L${f1(x + r)} ${f1(y)} L${f1(x + k)} ${f1(y + k)} L${f1(x)} ${f1(y + r)} L${f1(x - k)} ${f1(y + k)} L${f1(x - r)} ${f1(y)} L${f1(x - k)} ${f1(y - k)} Z`,
-    { fill: farbe },
+    `M${x} ${y - r} Q${f2(x + k)} ${f2(y - k)} ${x + r} ${y} Q${f2(x + k)} ${f2(y + k)} ${x} ${y + r} Q${f2(x - k)} ${f2(y + k)} ${x - r} ${y} Q${f2(x - k)} ${f2(y - k)} ${x} ${y - r} Z`,
+    { fill: '#FFFFFF', opacity: 0.95 },
   );
 }
 
 /**
- * Teile des Talers:
- * - `defs`: Verläufe (mit eindeutigem Präfix, damit mehrere Taler auf einer Seite nicht kollidieren)
- * - `hinten`: Schein und Strahlen hinter der Münze
- * - `scheibe`: Hintergrund der Icon-Scheibe
- * - `rand`: Ring und Schmuck über dem Icon
+ * Teile des Emblems (id: eindeutiges Präfix für Verläufe):
+ * - defs: Verläufe · hinten: Schein und Seitenblätter · scheibe: Grund der Icon-Scheibe
+ * - innen: farbiges Leuchten am Rand der Scheibe (über dem Icon) · vorn: Ring, Kamm, Anhänger, Funkeln
  */
-export function talerRahmen(stufe: 1 | 2 | 3 | 4, c: TalerFarben, id: string) {
-  const v = (n: string) => `url(#${id}-${n})`;
+export function talerRahmen(stufe: 1 | 2 | 3 | 4, rang: RangFarben, grund: GrundFarben, id: string) {
+  const m = rang.metall;
+  const e = rang.email;
+  const night = grund.night;
   const defs: Knoten[] = [
-    {
-      t: 'radialGradient',
-      a: { id: `${id}-scheibe`, cx: '50%', cy: '38%', r: '62%' },
-      k: [
-        { t: 'stop', a: { offset: '0', stopColor: c.forest } },
-        { t: 'stop', a: { offset: '1', stopColor: c.night } },
-      ],
-    },
-    {
-      t: 'radialGradient',
-      a: { id: `${id}-schein`, cx: '50%', cy: '50%', r: '50%' },
-      k: [
-        {
-          t: 'stop',
-          a: {
-            offset: '0.62',
-            stopColor: [c.fog, c.rune, c.rare, c.legend][stufe - 1],
-            stopOpacity: [0, 0.35, 0.5, 0.75][stufe - 1],
-          },
-        },
-        { t: 'stop', a: { offset: '1', stopColor: [c.fog, c.rune, c.rare, c.legend][stufe - 1], stopOpacity: 0 } },
-      ],
-    },
-    {
-      t: 'linearGradient',
-      a: { id: `${id}-ring`, x1: '0', y1: '0', x2: '0', y2: '1' },
-      k: (
-        [
-          [c.rindeHell, c.rinde, c.rindeDunkel],
-          [c.eichenLaubHell, c.eichel, c.eichenLaub],
-          [c.moon, c.rare, c.night],
-          [c.moon, c.legend, c.amber],
-        ][stufe - 1] as string[]
-      ).map((farbe, i) => ({ t: 'stop' as const, a: { offset: String(i / 2), stopColor: farbe } })),
-    },
+    verlaufLinear(`${id}-metall`, [
+      ['0', m[0]],
+      ['0.22', m[1]],
+      ['0.42', m[2]],
+      ['0.55', m[3]],
+      ['0.78', m[1]],
+      ['1', m[4]],
+    ]),
+    verlaufRadial(`${id}-email`, [
+      ['0', e[0]],
+      ['0.6', e[1]],
+      ['1', e[2]],
+    ]),
+    verlaufRadial(`${id}-stein`, [
+      ['0', '#FFFFFF'],
+      ['0.25', rang.stein],
+      ['1', e[2]],
+    ]),
+    verlaufRadial(`${id}-schein`, [
+      ['0.25', rang.schein, rang.glanz],
+      ['0.6', rang.schein, rang.glanz * 0.4],
+      ['1', rang.schein, 0],
+    ]),
+    verlaufRadial(`${id}-innen`, [
+      ['0.7', e[1], 0],
+      ['1', e[0], 0.55],
+    ]),
   ];
+  const hinten: Knoten[] = [kreis(MITTE, MITTE, 66, { fill: `url(#${id}-schein)` })];
+  const vorn: Knoten[] = [];
+  const y = (n: number) => n - 6; // Entwurf war für Mitte 60/66 gezeichnet
 
-  const hinten: Knoten[] = [
-    kreis(MITTE, MITTE, 60, { fill: v('schein') }),
-    kreis(MITTE, MITTE + 2, 51, { fill: c.night, opacity: 0.55 }),
-  ];
-  const rand: Knoten[] = [];
-
-  if (stufe === 1) {
-    rand.push(
-      kreis(MITTE, MITTE, 46.5, { fill: 'none', stroke: v('ring'), strokeWidth: 7 }),
-      kreis(MITTE, MITTE, 50, { fill: 'none', stroke: c.rindeDunkel, strokeWidth: 1 }),
-      kreis(MITTE, MITTE, 42.8, { fill: 'none', stroke: c.rindeDunkel, strokeWidth: 1.2 }),
-      // Jahresring-Linie im Holz
-      kreis(MITTE, MITTE, 47.6, {
-        fill: 'none',
-        stroke: c.rindeDunkel,
-        strokeWidth: 0.5,
-        opacity: 0.6,
-        strokeDasharray: '9 4 3 5',
-      }),
-      // Kerben wie in Rinde geschnitzt
-      ...Array.from({ length: 12 }, (_, i) => {
-        const [x0, y0] = pol(43.6, i * 30 + 15);
-        const [x1, y1] = pol(49.4, i * 30 + 15);
-        return pfad(`M${f1(x0)} ${f1(y0)} L${f1(x1)} ${f1(y1)}`, {
-          stroke: c.rindeDunkel,
-          strokeWidth: 1.1,
-          opacity: 0.7,
-        });
-      }),
-    );
-  }
-
+  // Seitenblätter
+  if (stufe === 1) hinten.push(...beidseitig(98, y(70), -16, klinge(20, 7, m, night, id, 2)));
   if (stufe === 2) {
-    // Blätterkranz hinter dem Ring
-    hinten.push(
-      ...Array.from({ length: 16 }, (_, i) =>
-        blatt(51, i * 22.5 + 11, 11, 3.6, i % 2 ? c.eichenLaubHell : c.eichenLaub, { opacity: 0.95 }),
-      ),
-    );
-    rand.push(
-      kreis(MITTE, MITTE, 46.5, { fill: 'none', stroke: v('ring'), strokeWidth: 6.5 }),
-      kreis(MITTE, MITTE, 49.8, { fill: 'none', stroke: c.eichenLaub, strokeWidth: 1 }),
-      kreis(MITTE, MITTE, 43, { fill: 'none', stroke: c.rune, strokeWidth: 1, opacity: 0.8 }),
-      // zwei Edelsteine links und rechts
-      ...[270, 90].map((grad) => {
-        const [x, y] = pol(46.5, grad);
-        return g({ transform: `translate(${f1(x)} ${f1(y)})` }, [
-          pfad('M0 -6 L4.5 0 L0 6 L-4.5 0 Z', { fill: c.rune, stroke: c.night, strokeWidth: 0.8 }),
-          pfad('M0 -6 L4.5 0 L0 0 Z', { fill: c.moon, opacity: 0.55 }),
-        ]);
+    hinten.push(...beidseitig(96, y(56), -40, klinge(30, 9, m, night, id, 3)));
+    hinten.push(...beidseitig(100, y(72), -6, klinge(28, 8.5, m, night, id, 3)));
+    hinten.push(...beidseitig(96, y(88), 28, klinge(20, 7, m, night, id, 2)));
+  }
+  if (stufe >= 3) {
+    hinten.push(...beidseitig(96, y(54), -46, klinge(30, 9, m, night, id, 3)));
+    hinten.push(...beidseitig(100, y(68), -14, klinge(30, 9, m, night, id, 3)));
+    hinten.push(...beidseitig(99, y(82), 12, klinge(26, 8, m, night, id, 3)));
+    hinten.push(...beidseitig(94, y(94), 36, klinge(18, 6.5, m, night, id, 2)));
+  }
+
+  // Ring: dunkle Fassung, Metallrand außen, Email-Band, Metallrand innen
+  vorn.push(
+    kreis(MITTE, MITTE, 49, { fill: 'none', stroke: night, strokeWidth: 10 }),
+    kreis(MITTE, MITTE, 51, { fill: 'none', stroke: `url(#${id}-metall)`, strokeWidth: 3.2 }),
+    kreis(MITTE, MITTE, 46.8, { fill: 'none', stroke: `url(#${id}-email)`, strokeWidth: 3.6 }),
+    ...Array.from({ length: 16 }, (_, i) => {
+      const w0 = (i * 22.5 * Math.PI) / 180;
+      const [x, yy] = [MITTE + 46.5 * Math.cos(w0), MITTE + 46.5 * Math.sin(w0)];
+      return pfad(
+        `M${f2(x)} ${f2(yy)} q${f2(2.2 * Math.cos(w0 + 1.4))} ${f2(2.2 * Math.sin(w0 + 1.4))} ${f2(3.6 * Math.cos(w0 + 0.6))} ${f2(3.6 * Math.sin(w0 + 0.6))}`,
+        { fill: 'none', stroke: m[0], strokeWidth: 0.7, opacity: 0.55, strokeLinecap: 'round' },
+      );
+    }),
+    kreis(MITTE, MITTE, 44.3, { fill: 'none', stroke: `url(#${id}-metall)`, strokeWidth: 1.6 }),
+    pfad(`M${MITTE - 44} ${MITTE - 22} A50 50 0 0 1 ${MITTE + 6} ${MITTE - 51}`, {
+      fill: 'none',
+      stroke: '#FFFFFF',
+      strokeWidth: 1.4,
+      opacity: 0.6,
+      strokeLinecap: 'round',
+    }),
+  );
+  const perlen = stufe === 1 ? 8 : stufe === 2 ? 12 : 16;
+  for (let i = 0; i < perlen; i++) {
+    const w0 = ((i * 360) / perlen - 90) * (Math.PI / 180);
+    vorn.push(
+      kreis(f2(MITTE + 50.9 * Math.cos(w0)), f2(MITTE + 50.9 * Math.sin(w0)), stufe >= 3 ? 1.05 : 1.2, {
+        fill: m[0],
+        stroke: m[4],
+        strokeWidth: 0.4,
       }),
     );
   }
 
-  if (stufe === 3) {
-    // sechs Kristallzacken
-    hinten.push(
-      ...Array.from({ length: 6 }, (_, i) => {
-        const w = i * 60 + 30;
-        const [xa, ya] = pol(45, w - 7);
-        const [xs, ys] = pol(60, w);
-        const [xb, yb] = pol(45, w + 7);
-        const [xm, ym] = pol(52, w);
-        return g({}, [
-          pfad(`M${f1(xa)} ${f1(ya)} L${f1(xs)} ${f1(ys)} L${f1(xb)} ${f1(yb)} Z`, {
-            fill: c.rare,
-            stroke: c.night,
-            strokeWidth: 0.8,
-          }),
-          pfad(`M${f1(xa)} ${f1(ya)} L${f1(xs)} ${f1(ys)} L${f1(xm)} ${f1(ym)} Z`, { fill: c.moon, opacity: 0.45 }),
-        ]);
-      }),
-    );
-    rand.push(
-      kreis(MITTE, MITTE, 46.5, { fill: 'none', stroke: v('ring'), strokeWidth: 7 }),
-      kreis(MITTE, MITTE, 50.2, { fill: 'none', stroke: c.rare, strokeWidth: 1.2 }),
-      kreis(MITTE, MITTE, 42.6, { fill: 'none', stroke: c.rare, strokeWidth: 1.2 }),
-      // Runenband: kurze eingeritzte Zeichen rundherum
-      ...Array.from({ length: 24 }, (_, i) => {
-        const w = i * 15;
-        const [x0, y0] = pol(44.6, w);
-        const [x1, y1] = pol(48.4, w + (i % 3 === 0 ? 0 : i % 3 === 1 ? 3 : -3));
-        return pfad(`M${f1(x0)} ${f1(y0)} L${f1(x1)} ${f1(y1)}`, {
-          stroke: c.moon,
-          strokeWidth: 0.9,
-          opacity: 0.6,
-          strokeLinecap: 'round',
-        });
-      }),
-      funkeln(22, 20, 4.5, c.moon),
-      funkeln(100, 96, 3.6, c.moon),
-      funkeln(104, 28, 2.6, c.rare),
-    );
+  // Kamm oben
+  if (stufe === 1) vorn.push(setze(60, y(16), -90, klinge(10, 5, m, night, id, 1)));
+  if (stufe === 2) {
+    vorn.push(setze(60, y(18), -90, klinge(16, 6.5, m, night, id, 2)));
+    vorn.push(...beidseitig(62, y(18), -58, klinge(14, 5.5, m, night, id, 2)));
   }
-
-  if (stufe === 4) {
-    // Strahlenkranz
-    hinten.push(
-      ...Array.from({ length: 24 }, (_, i) => {
-        const w = i * 15;
-        const lang = i % 2 === 0 ? 60 : 55.5;
-        const [xa, ya] = pol(48, w - 4);
-        const [xs, ys] = pol(lang, w);
-        const [xb, yb] = pol(48, w + 4);
-        return pfad(`M${f1(xa)} ${f1(ya)} L${f1(xs)} ${f1(ys)} L${f1(xb)} ${f1(yb)} Z`, {
-          fill: i % 2 === 0 ? c.legend : c.amber,
-          opacity: 0.95,
-        });
-      }),
-      // Lorbeer unten links und rechts
-      ...[0, 1, 2, 3, 4].flatMap((n) => [
-        blatt(50, 205 - n * 13, 10, 3.4, n % 2 ? c.legend : c.amber, { stroke: c.night, strokeWidth: 0.5 }),
-        blatt(50, 155 + n * 13, 10, 3.4, n % 2 ? c.legend : c.amber, { stroke: c.night, strokeWidth: 0.5 }),
-      ]),
-    );
-    rand.push(
-      kreis(MITTE, MITTE, 46.5, { fill: 'none', stroke: v('ring'), strokeWidth: 7.5 }),
-      kreis(MITTE, MITTE, 50.4, { fill: 'none', stroke: c.amber, strokeWidth: 1.2 }),
-      kreis(MITTE, MITTE, 42.5, { fill: 'none', stroke: c.amber, strokeWidth: 1.2 }),
-      // Perlenring
-      ...Array.from({ length: 30 }, (_, i) => {
-        const [x, y] = pol(46.5, i * 12);
-        return kreis(f1(x), f1(y), 1.25, { fill: c.moon, opacity: 0.9 });
-      }),
-      // Krone oben
-      g({ transform: `translate(${MITTE} 9)` }, [
-        pfad('M-11 5 L-11 -3 L-6 1 L0 -7 L6 1 L11 -3 L11 5 Z', { fill: c.legend, stroke: c.night, strokeWidth: 1 }),
-        pfad('M-11 5 L11 5 L11 7.5 L-11 7.5 Z', { fill: c.amber, stroke: c.night, strokeWidth: 0.8 }),
-        kreis(0, -7, 1.6, { fill: c.moon }),
-        kreis(-11, -3, 1.3, { fill: c.moon }),
-        kreis(11, -3, 1.3, { fill: c.moon }),
-      ]),
-      funkeln(18, 30, 4, c.moon),
-      funkeln(104, 86, 3.2, c.moon),
-    );
+  if (stufe >= 3) {
+    vorn.push(setze(60, y(18), -90, klinge(18, 7, m, night, id, 2)));
+    vorn.push(...beidseitig(62, y(18), -54, klinge(16, 6, m, night, id, 2)));
   }
+  vorn.push(edelstein(60, y(14), [4, 5, 5.5, 6][stufe - 1], rang.stein, night, id));
 
-  return { defs, hinten, scheibe: [kreis(MITTE, MITTE, ICON_RADIUS + 2, { fill: v('scheibe') })], rand };
+  // Anhänger unten
+  const tief = y([120, 126, 128, 130][stufe - 1]);
+  vorn.push(
+    pfad(
+      `M48 ${y(112)} C52 ${y(116)} 54 ${tief - 6} 60 ${tief} C66 ${tief - 6} 68 ${y(116)} 72 ${y(112)} C66 ${y(117)} 54 ${y(117)} 48 ${y(112)} Z`,
+      { fill: `url(#${id}-metall)`, stroke: night, strokeWidth: 1.1 },
+    ),
+    pfad(`M51 ${y(113.5)} C55 ${y(116)} 65 ${y(116)} 69 ${y(113.5)}`, {
+      fill: 'none',
+      stroke: '#FFFFFF',
+      strokeWidth: 0.8,
+      opacity: 0.5,
+    }),
+  );
+  if (stufe >= 2) vorn.push(edelstein(60, tief - 12, 4, rang.stein, night, id));
+
+  // Funkeln
+  const funken: [number, number, number][] = [
+    [],
+    [[18, y(44), 3]],
+    [
+      [18, y(40), 3.2],
+      [104, y(100), 2.6],
+    ],
+    [
+      [16, y(38), 3.6],
+      [104, y(102), 3],
+      [100, y(28), 2.4],
+    ],
+  ][stufe - 1] as [number, number, number][];
+  for (const [x, yy, r] of funken) vorn.push(funkeln(x, yy, r));
+
+  return {
+    defs,
+    hinten,
+    scheibe: [kreis(MITTE, MITTE, ICON_RADIUS + 3, { fill: grund.forest })],
+    innen: [kreis(MITTE, MITTE, ICON_RADIUS + 2.5, { fill: `url(#${id}-innen)` })],
+    vorn,
+  };
 }
 
 // ---------- Art-Icons ----------

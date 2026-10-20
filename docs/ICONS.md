@@ -2,22 +2,26 @@
 
 Jede Art bekommt einen **Taler**: einen runden Rahmen nach Seltenheit, darin ein eigenes, lebendiges Icon.
 Code: `src/logic/taler/taler.ts` (Rahmen und Icon als Daten), Icons in `src/data/icons/<artId>.json`.
-Vorschau: `node scripts/taler-vorschau.mjs <artId> … [--gross] [--stufe 1-4]`.
+Vorschau: `node scripts/taler-vorschau.mjs <artId> … [--gross] [--stufe 1-4]` · Zeichenhilfe mit Vorbildern: `scripts/icon_helfer.py` · nach neuen Icons: `node scripts/icons-verzeichnis.mjs`.
 
-## 1. Rang-Hierarchie (Rahmen)
-Jede Stufe hat eine **eigene Form**, nicht nur eine eigene Farbe:
+## 1. Rang-Embleme (Rahmen)
+Alle vier Ränge bilden eine Familie. Sie steigern sich über **Metall, Email-Farbe und Edelstein**, nicht über immer mehr Schmuck.
+Farben: `talerRang` in `src/theme/theme.ts`.
 
-| Stufe | Name | Form | Farbe | Schein |
-|---|---|---|---|---|
-| 1 häufig | **Rindentaler** | schlichter Holzring, 12 geschnitzte Kerben, Jahresring-Linie | Rinde | keiner |
-| 2 selten | **Moostaler** | Ring mit Kranz aus 16 Blättern, zwei Edelsteine links/rechts | Moos, Bronze, Mooslicht | schwach grün |
-| 3 sehr selten | **Kristalltaler** | Doppelring mit Runenband, 6 Kristallzacken, Funkeln | Violett, Mondlicht | violett |
-| 4 legendär | **Sonnentaler** | Strahlenkranz (24 Strahlen), Perlenring, Krone oben, Lorbeer unten, Funkeln | Gold, Laterne | stark golden |
+| Stufe | Emblem | Schmuck |
+|---|---|---|
+| 1 häufig | **Kupfer und Patina** (Türkis-Email) | ein kleines Blatt je Seite, kleiner Stein oben, schlichter Anhänger |
+| 2 selten | **Bronze und Smaragd** (grünes Email) | drei Blätter je Seite, Blattkamm, Smaragd im Anhänger, leichter grüner Schein |
+| 3 sehr selten | **Silber und Amethyst** (violettes Email) | vier Blätter je Seite, Blattkamm, Amethyst, leiser violetter Schein, Funkeln |
+| 4 legendär | **Gold und Rubinfeuer** (rotes Email) | wie 3, größerer Rubin, warmer goldener Schein |
+
+Alle haben: geschwungene Metallblätter mit Mittelrippe und Glanzkante, Metallrand mit Glanzstreifen, ein Email-Band mit eingravierter Ranke, Perlen auf dem Rand und einen Innenrand, der in der Rangfarbe leuchtet.
 
 Zustände:
 - **gefunden:** Icon in Farbe.
-- **noch nicht gefunden:** nur die Umriss-Ebenen (`rolle: "form"`) in einer Farbe, also eine Silhouette. Der Rahmen bleibt sichtbar, damit man den Wert erkennt.
-- **Mystery** (verborgen): statt Icon ein „?“.
+- **noch nicht gefunden:** nur die Umriss-Ebenen (`rolle: "form"`) als Silhouette. Das Emblem bleibt sichtbar, damit man den Wert erkennt.
+- **Mystery** (verborgen): „?“.
+- In der App: `<ArtTaler id seltenheit zustand groesse />` (`src/components/taler/ArtTaler.tsx`).
 
 ## 2. Icon-Stil (für alle Arten gleich)
 - **Raster** 120 × 120, Mitte 60/60. Das Icon liegt in der Scheibe mit Radius 41 (alles außerhalb wird abgeschnitten).

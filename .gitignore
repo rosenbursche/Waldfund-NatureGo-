@@ -49,3 +49,7 @@ example
 recherche/*/bilder/
 recherche/*/spuren-ref/
 recherche/*/spuren-vorschau.png
+
+# Referenzbilder und Vorschauen der Icon-Agenten
+recherche/icons/*/ref*/
+recherche/icons/*/*.png

@@ -12,8 +12,8 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { colors } from '../src/theme/theme.ts';
-import { alsSvg, iconKnoten, talerRahmen, TALER_GROESSE } from '../src/logic/taler/taler.ts';
+import { colors, talerRang } from '../src/theme/theme.ts';
+import { alsSvg, iconKnoten, talerRahmen, TALER_VIEWBOX } from '../src/logic/taler/taler.ts';
 
 const WURZEL = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -46,11 +46,13 @@ function info(id) {
 }
 
 function taler(id, icon, stufe, gefunden, x, y, groesse) {
-  const r = talerRahmen(stufe, colors, `${id}-${gefunden ? 'a' : 'b'}-${groesse}`);
-  const innen = icon ? iconKnoten(icon, gefunden, colors.moss, `${id}-${gefunden ? 'a' : 'b'}-${groesse}`) : [];
-  const teile = [...r.hinten, ...r.scheibe, ...innen, ...r.rand].map(alsSvg).join('');
-  const k = groesse / TALER_GROESSE;
-  return `<g transform="translate(${x} ${y}) scale(${k})" opacity="${gefunden ? 1 : 0.85}"><defs>${r.defs.map(alsSvg).join('')}</defs>${teile}</g>`;
+  const schluessel = `${id}-${gefunden ? 'a' : 'b'}-${groesse}`;
+  const r = talerRahmen(stufe, talerRang[stufe], colors, schluessel);
+  const innen = icon ? iconKnoten(icon, gefunden, colors.moss, schluessel) : [];
+  const teile = [...r.hinten, ...r.scheibe, ...innen, ...r.innen, ...r.vorn].map(alsSvg).join('');
+  // groesse = Breite des ganzen Emblems
+  const k = groesse / TALER_VIEWBOX.b;
+  return `<g transform="translate(${x - TALER_VIEWBOX.x * k} ${y - TALER_VIEWBOX.y * k}) scale(${k})" opacity="${gefunden ? 1 : 0.85}"><defs>${r.defs.map(alsSvg).join('')}</defs>${teile}</g>`;
 }
 
 const GROSS = args.includes('--gross');
