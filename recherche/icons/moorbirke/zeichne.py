@@ -8,8 +8,9 @@ ZWEIG = ('#6A3E2C', '#43261A', '#97644C')
 KAETZCHEN = ('#8C8148', '#5C5428', '#B8AC70')
 HAAR = '#D8D2BC'
 # rechte Blatthälfte: Grund breit gerundet bis gestutzt, Spitze kurz (nicht lang ausgezogen wie Sandbirke)
-HALB = [(0, 0), (0.12, 0.02), (0.28, -0.06), (0.38, -0.2), (0.41, -0.38), (0.37, -0.56), (0.27, -0.72),
-        (0.15, -0.84), (0.06, -0.92), (0.02, -0.97), (0, -1)]
+# rhombisch-eiförmig: Grund breit keilig, breiteste Stelle unter der Mitte, kurze Spitze (birkentypisch, nicht rund wie Hasel)
+HALB = [(0, 0), (0.1, -0.03), (0.24, -0.12), (0.35, -0.26), (0.39, -0.38), (0.35, -0.52), (0.25, -0.68),
+        (0.14, -0.82), (0.06, -0.92), (0.02, -0.97), (0, -1)]
 
 
 def kaetzchen(cx, cy, grad, L=22, b=6.4):
@@ -47,6 +48,11 @@ def haare(pts, n=10, l=1.4, seite=1):
 
 
 ebenen = hg_licht()
+# Hintergrund: Birkenstamm links – Moorbirke: weißgrau, waagrechte Korkporen, ohne schwarze Rautenrisse (anders als Sandbirke)
+ebenen.append(E('M18 14 C22 40 21 80 20 110 L36 110 C35 80 36 40 33 14 Z', '#D9D6CC', o=0.55, rolle='detail'))
+ebenen.append(E('M29 14 C32 40 31 80 31 110 L36 110 C35 80 36 40 33 14 Z', '#9A9C92', o=0.4, rolle='detail'))
+ebenen.append(E('M21 28 l8 -0.6 M23 38 l7 0 M20 50 l9 -0.4 M22 62 l7 0 M21 74 l8 -0.5 M23 86 l6 0 M21 98 l8 -0.4',
+                s='#7E7A70', sw=0.9, o=0.6, rolle='detail'))
 # behaarter, rotbrauner Zweig
 zw = [(14, 100), (36, 92), (62, 84), (86, 76), (106, 70)]
 ebenen += zweig(zw, 4.0, 2.8, ZWEIG)

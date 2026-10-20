@@ -3,8 +3,8 @@
 import sys; sys.path.insert(0, 'scripts')
 from icon_helfer import *
 
-FELL, FELL_D, FELL_H = '#5A4B3E', '#33291F', '#8C7B66'
-SCHEIBE, SCHEIBE_H = '#3B302B', '#76665C'
+FELL, FELL_D, FELL_H = '#67584A', '#382D23', '#A3917A'
+SCHEIBE, SCHEIBE_H = '#4A3D37', '#9A8A80'
 
 def zack(pts):
     """Linienzug als Borstenkante (gerade Segmente)"""
@@ -30,15 +30,15 @@ ebenen = hg_wald() + [
     E('M32 68.2 C38.5 64 44 59 49.5 54.4 C54 50.6 58.5 48 62.5 47.5 C57 51 52 56 47 60.5 C42 64.6 37 67.4 32 68.2 Z', FELL_H, o=0.9, rolle='licht'),
     E('M66 50 C72 47 80 47 86 50 C80 50.5 74 52 68 55 Z', FELL_H, o=0.5, rolle='licht'),
     # helle Wangenpartie (typisch hellere Backen)
-    E('M46 72 C52 68 60 68 66 71 C62 76 55 78.5 48 77.5 Z', FELL_H, o=0.35, rolle='licht'),
+    E('M45 72 C51 67.5 60 67.5 67 70.5 C63 76.5 55 79 47 78 Z', FELL_H, o=0.6, rolle='licht'),
     # Rüsselscheibe von schräg vorn mit Nasenlöchern
-    E('M24.8 73 C24.4 68 27 65 30.6 65.6 C34.2 66.4 35.6 71 35 75.8 C34.4 80 31.2 81.6 28.4 80.4 C26 79.2 25.2 76.4 24.8 73 Z', SCHEIBE, s=INK, sw=1.6, rolle='form'),
-    E('M26.2 71.5 C26.2 68.8 27.8 67.2 29.8 67.4 C28.4 69.4 27.6 71.8 27.6 74.4 Z', SCHEIBE_H, o=0.8, rolle='detail'),
-    E(oval(28.8, 73, 0.85, 1.5), '#120D0A', rolle='detail'),
-    E(oval(32, 74.2, 0.85, 1.5), '#120D0A', rolle='detail'),
+    E('M22.4 73 C21.8 67 25.2 63.2 29.8 63.8 C34.6 64.6 36.6 70.2 36 75.8 C35.4 80.8 31.6 82.8 27.8 81.6 C24.4 80.4 22.8 77 22.4 73 Z', SCHEIBE, s=INK, sw=1.6, rolle='form'),
+    E('M23.8 71.5 C23.8 67.8 26 65.4 29 65.6 C27 68 25.8 71 25.6 74.6 Z', SCHEIBE_H, o=0.85, rolle='detail'),
+    E(oval(27.4, 73, 1.1, 1.9), '#120D0A', rolle='detail'),
+    E(oval(31.6, 74.4, 1.1, 1.9), '#120D0A', rolle='detail'),
     # Maulspalte und kleiner Hauer
     E('M33.5 78.6 C37 79.6 40.5 79.4 43.5 78', s='#1A120C', sw=0.9, o=0.85, rolle='detail'),
-    E('M39 79.2 C38.6 77 39 75 40.6 73.4 C40.6 75.4 40.8 77.4 41.4 79.2 Z', '#EDE5D2', s=INK, sw=0.6, rolle='detail'),
+    E('M38.4 79.6 C37.6 76.2 38.2 72.6 41 69.8 C41 73.2 41.4 76.4 42.2 79.6 Z', '#EDE5D2', s=INK, sw=0.7, rolle='detail'),
     # kleines Auge mit Glanzlicht, tief in Falten
     E('M51.5 60.4 C51.5 58 55.2 56.8 56.8 58.4 C56.4 60.4 53.4 61.4 51.5 60.4 Z', '#120C08', rolle='detail'),
     E(kreis(53.6, 58.9, 0.6), '#FFFFFF', o=0.9, rolle='detail'),

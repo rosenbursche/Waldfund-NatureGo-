@@ -9,7 +9,7 @@ GELB, PORE, PORE_D, NETZ = '#E2C25A', '#C23A28', '#86231A', '#6E1420'
 
 # Netz auf dem Stiel: Rauten innerhalb der bauchigen Form
 def im_stiel(x, y):
-    if not 70 <= y <= 97: return False
+    if not 76 <= y <= 95: return False
     # halbe Breite in Abhängigkeit von der Höhe (bauchig, Mitte bei y≈86)
     hb = 10.5 + 10 * math.sin(math.pi * (y - 66) / 36)
     return abs(x - 61) < hb - 2.5
@@ -22,30 +22,33 @@ for i in range(-10, 11):
             netz += f' M{x} {y} l1.3 1.2 l-1.3 1.2 l-1.3 -1.2 Z'
 
 ebenen = hg_boden() + [
-    # bauchiger Stiel
-    form('M51 64 C46 70 39 78 39.5 88 C40 95 46 99.5 61 99.5 C76 99.5 83 95 83.5 88 C84 78 76 70 71 64 Z', ROT),
-    # gelblicher Stielkopf
-    E('M48 70 C46 73 44.5 76 43.5 79 C50 81.5 72 81.5 78.5 79 C77.5 76 76 73 74 70 Z', GELB, o=0.85, rolle='licht'),
-    E('M74 70 C80 76 84 82 83.5 88 C83 95 76 99.5 63 99.5 C72 96 77 90 77 83 C77 78 76 74 74 70 Z', ROT_D, o=0.8, rolle='schatten'),
-    E('M44 80 C44 76 46.5 73 48.5 71.5 C47.5 76 47 82 48 88 C46 87 44.5 84 44 80 Z', ROT_H, o=0.8, rolle='licht'),
+    # bauchiger Stiel (oben gelb, Mitte/unten karminrot)
+    form('M50 61 C45 67 38 76 38.5 86 C39 93 46 98 61 98 C76 98 83 93 83.5 86 C84 76 77 67 72 61 Z', ROT),
+    # gelblicher Stielkopf, gut sichtbar unter den Poren
+    E('M50 61 C47.5 64 45.2 67.5 43.4 71.5 C47 74.5 54 76 61 76 C68 76 75 74.5 78.6 71.5 C76.8 67.5 74.5 64 72 61 Z', GELB, rolle='licht'),
+    E('M43.4 71.5 C47 74.5 54 76 61 76 C68 76 75 74.5 78.6 71.5 C79.6 73.5 80.3 75.5 80.8 77.5 C75 80 67 81 61 81 C55 81 47 80 41.2 77.5 C41.7 75.5 42.4 73.5 43.4 71.5 Z', '#D9783E', o=0.75, rolle='licht'),
+    E('M74 66 C80 73 84 80 83.5 86 C83 93 76 98 63 98 C72 95 77 89 77 82 C77 76 76 70 74 66 Z', ROT_D, o=0.8, rolle='schatten'),
+    E('M43.5 80 C44 77 45.5 75.5 47 75 C46.5 79.5 46.5 84 47.5 89 C45.5 87.5 43.8 84 43.5 80 Z', ROT_H, o=0.8, rolle='licht'),
     # rotes Netz
     E(netz.strip(), s=NETZ, sw=0.55, o=0.7, rolle='detail'),
-    # rote Poren unter dem Hut
-    form('M24 58 C34 64 48 65 61 65 C74 65 88 64 97 58 C94 68 80 75.5 61 75.5 C42 75.5 28 68 24 58 Z', PORE),
-    E('M31 65.5 l1 0.5 M35 68 l1 0.4 M40 69.6 l1 0.3 M45 71.2 l1 0.2 M50 72.4 h1 M56 73 h1 M62 73.2 h1 M68 72.8 h1 M74 72 l1 -0.2 M79 70.6 l1 -0.3 M84 68.8 l1 -0.4 M89 66.2 l1 -0.5 M42 72.2 h0.8 M53 74.2 h0.8 M65 74.4 h0.8 M76 73.2 h0.8', s=PORE_D, sw=1.0, rolle='detail'),
-    E('M80 69.5 C86 67 92 63 97 58 C94 68 86 73 74 75 Z', PORE_D, o=0.6, rolle='schatten'),
-    # dicker, buckliger Polsterhut
-    form('M22.5 56 C21 44 28 34.5 38 31 C44 27 52 26.5 58 28 C64 25.5 74 26 81 29.5 C91 34 98.5 43 97.5 55 C97.5 59 96 61 93 61.5 C82 64.5 70 66 60 66 C49 66 37 64.5 27 61.5 C24 60.5 22.5 58.5 22.5 56 Z', HUT),
-    E('M97.5 55 C97.5 59 96 61 93 61.5 C82 64.5 70 66 60 66 C49 66 37 64.5 27 61.5 C40 61 56 60 70 57.5 C82 55.5 90 51 94 43 C96.5 46.5 97.7 50.5 97.5 55 Z', HUT_D, o=0.6, rolle='schatten'),
-    E('M29 47 C31 38.5 39 33 48 31 C42 35 36 40 33.5 49 Z', HUT_H, rolle='licht'),
-    E('M56 31 C61 29.5 67 29.5 72 31 C66 31.5 61 32.5 57.5 34 Z', HUT_H, o=0.9, rolle='licht'),
-    # Buckel und leichte Flecken auf dem Hut
-    # Buckel (Einkerbung zwischen den Hutbeulen) und wenige Erdkrümel
-    E('M58 28.5 C57 33 58.5 38 61.5 41.5', s=HUT_D, sw=0.9, o=0.7, rolle='detail'),
-    E('M80 32 C83.5 36 85 41 84.5 46', s=HUT_D, sw=0.8, o=0.5, rolle='detail'),
-    E('M44 36.5 l1.8 -0.9 M73 40 l1.2 1.2 M36 52 l1.6 0.2 M66 33 l1.4 -0.4', s='#6E5E46', sw=1.0, o=0.75, rolle='detail'),
-    # Blatt am Boden
-    E('M84 100 C86 94 92 91 97 92 C95 97 90 100 84 100 Z', '#6E8A3E', o=0.8, rolle='detail'),
+    # Erde und Laub um den Stielfuß
+    E('M28 100 C36 94 48 95.5 61 96.5 C74 95.5 86 94 94 100 L94 103 L28 103 Z', '#3A2E1E', rolle='detail'),
+    E('M36 99 C38 95 43 93.5 47 94.5 C45 97.5 41 99.5 36 99 Z M76 97 C80 93.5 86 93 90 95 C87 98 82 99 76 97 Z', '#8A6534', o=0.9, rolle='detail'),
+    E('M36 99 C40 97 43.5 95.6 47 94.5 M76 97 C80.5 95.6 85 95 90 95', s='#4E3518', sw=0.6, o=0.8, rolle='detail'),
+    # rote Poren als schmale Sichel unter dem Hutrand
+    form('M28 57.5 C38 61 50 62.5 61 62.5 C72 62.5 84 61 93 57.5 C90 64 78 68.5 61 68.5 C44 68.5 32 64 28 57.5 Z', PORE),
+    E('M34 62.5 h1 M39 64.6 h1 M45 66 h1 M51 66.9 h1 M57 67.3 h1 M63 67.3 h1 M69 66.9 h1 M75 66 h1 M81 64.6 h1 M86 62.6 h1 M42 63.4 h0.8 M54 64.8 h0.8 M66 64.8 h0.8 M78 63.4 h0.8', s=PORE_D, sw=1.0, rolle='detail'),
+    E('M78 66.5 C84 64.5 89 61.5 93 57.5 C90 64 84 67 74 68 Z', PORE_D, o=0.6, rolle='schatten'),
+    # dicker, buckliger Polsterhut, schmutzig grauweiß
+    form('M22.5 54 C21 43 28 34 38 30.5 C44 26.5 52 26 58 27.5 C64 25 74 25.5 81 29 C91 33.5 98.5 42 97.5 53.5 C97.5 57 96 59 93 59.5 C82 61.5 70 62.5 60 62.5 C49 62.5 37 61.5 27 59.5 C24 58.5 22.5 56.5 22.5 54 Z', HUT),
+    E('M97.5 53.5 C97.5 57 96 59 93 59.5 C82 61.5 70 62.5 60 62.5 C49 62.5 37 61.5 27 59.5 C40 58.5 56 57.5 70 55 C82 53 90 49 94 42 C96.5 45.5 97.7 49.5 97.5 53.5 Z', HUT_D, o=0.6, rolle='schatten'),
+    E('M29 46 C31 37.5 39 32.5 48 30.5 C42 34.5 36 39 33.5 48 Z', HUT_H, rolle='licht'),
+    E('M56 30.5 C61 29 67 29 72 30.5 C66 31 61 32 57.5 33.5 Z', HUT_H, o=0.9, rolle='licht'),
+    # leichte Oliv-Flecken und Buckel (wie auf den Fotos)
+    E(oval(76, 40, 4, 2.2) + ' ' + oval(42, 49, 3, 1.6), '#B9B58E', o=0.5, rolle='detail'),
+    E('M58 28 C57 32.5 58.5 37.5 61.5 41', s=HUT_D, sw=0.9, o=0.7, rolle='detail'),
+    E('M80 31.5 C83.5 35.5 85 40.5 84.5 45.5', s=HUT_D, sw=0.8, o=0.5, rolle='detail'),
+    E('M44 36 l1.8 -0.9 M73 39.5 l1.2 1.2 M36 51 l1.6 0.2 M66 32.5 l1.4 -0.4', s='#6E5E46', sw=1.0, o=0.75, rolle='detail'),
 ]
 quellen = [
     {'titel': 'Referenzfoto Boletus satanas.JPG', 'url': 'https://commons.wikimedia.org/wiki/File:Boletus_satanas.JPG'},

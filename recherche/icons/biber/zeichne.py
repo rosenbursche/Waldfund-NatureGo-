@@ -44,6 +44,14 @@ ebenen = hg_wald() + [
     # Wasser vor dem Körper mit Ringwellen
     E('M19 92 C35 88 50 87 62 89.5 C76 92 90 89 101 90 L101 102 L19 102 Z', WASSER, o=0.95, rolle='detail'),
     E('M26 93 C36 90.5 46 90.5 54 92 M66 92.5 C76 94.5 86 92.5 95 93.5 M40 97 C48 95.8 56 96 62 97', s=WASSER_H, sw=0.9, o=0.75, rolle='detail'),
+    # flacher, beschuppter Kelle-Schwanz auf der Wasseroberfläche (unterscheidet den Biber sicher von Murmeltier und Nutria)
+    form('M54.5 91.6 C55.6 87.2 65 84.6 75.5 84.2 C83 84 87.6 85.8 87.2 88.6 C86.8 91.8 80.5 95.2 70.5 96 C61.5 96.6 54 95 54.5 91.6 Z', '#3B3A3A'),
+    E('M87.2 88.6 C86.8 91.8 80.5 95.2 70.5 96 C61.5 96.6 54 95 54.5 91.6 C62 93.5 74 93.2 87.2 88.6 Z', '#232222', o=0.8, rolle='schatten'),
+    E('M57.5 90 C61 87.4 68 86 75 85.8 C70 87 64 88.4 59.5 90.6 Z', '#6E6C68', o=0.8, rolle='licht'),
+    E(' '.join(f'M{x} {85.6 + abs(x - 71) * 0.05} L{x - 3.2} {95.4 - abs(x - 71) * 0.12}' for x in range(60, 88, 3)) + ' ' +
+      ' '.join(f'M{x} {85.6 + abs(x - 71) * 0.05} L{x + 3.2} {95.4 - abs(x - 71) * 0.12}' for x in range(55, 84, 3)),
+      s='#151414', sw=0.5, o=0.6, rolle='detail'),
+    E('M52 95 C56 97.6 66 98.4 76 97.4 M82 95.2 C86 94 89 92.4 90 91', s=WASSER_H, sw=0.9, o=0.8, rolle='detail'),
 ]
 
 speichern('biber', ebenen, quellen=[
