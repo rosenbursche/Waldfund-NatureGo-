@@ -41,6 +41,7 @@ export const ART_ICONS: Record<string, ArtIconDaten> = {
   'pfifferling': require('./pfifferling.json'),
   'reh': require('./reh.json'),
   'rotbuche': require('./rotbuche.json'),
+  'roteiche': require('./roteiche.json'),
   'rotkehlchen': require('./rotkehlchen.json'),
   'salweide': require('./salweide.json'),
   'sandbirke': require('./sandbirke.json'),

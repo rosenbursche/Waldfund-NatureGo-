@@ -63,8 +63,8 @@ def kaetzchen(cx, cy, L, W, grad, maennlich):
             e.append(E(kreis(px, py, 1.0), GELB[0], s=GELB[1], sw=0.4, rolle='detail'))
             e.append(E(kreis(round(px - 0.3, 1), round(py - 0.3, 1), 0.4), GELB[2], o=0.9, rolle='detail'))
     # Knospenschuppe am Grund
-    bs = T([(-w * 0.3, 0.02), (0, -0.12), (w * 0.3, 0.02), (0, 0.1)])
-    e.append(form(glatter_pfad(bs), ZWEIG[0]))
+    bs = T([(-w * 0.26, 0.03), (0, -0.08), (w * 0.26, 0.03), (0, 0.09)])
+    e.append(form(glatter_pfad(bs), ZWEIG[2]))
     return e
 
 

@@ -4,8 +4,8 @@ sys.path.insert(0, 'scripts'); sys.path.insert(0, 'recherche/icons/hasel')
 from icon_helfer import *
 from pflanzen_helfer import *
 
-BLATT = ('#6E9A3C', '#46692A', '#9DBF62')
-ADER = '#C9DB97'
+BLATT = ('#5E8A36', '#3C6024', '#8DB25A')
+ADER = '#B4CC80'
 STIEL = ('#9A5A3A', '#6A3A24', '#C08060')
 ZWEIG = ('#7A6A58', '#4E4236', '#A49482')
 KAETZ = ('#8E8A80', '#5E5A52', '#C9C4B6')
