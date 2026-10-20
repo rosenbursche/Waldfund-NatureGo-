@@ -53,3 +53,10 @@ recherche/*/spuren-vorschau.png
 # Referenzbilder und Vorschauen der Icon-Agenten
 recherche/icons/*/ref*/
 recherche/icons/*/*.png
+
+# Python-Zwischendateien der Zeichenskripte
+__pycache__/
+recherche/icons/**/*.png
+recherche/icons/**/*.jpg
+recherche/icons/**/*.jpeg
+recherche/icons/**/kandidaten.json
