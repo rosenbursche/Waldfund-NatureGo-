@@ -54,6 +54,12 @@ def _saege_seite(seite, aussen, abstand, hoehe, muster, von, bis, vor=0.72):
     ab = _abtasten(seite)
     S = ab[-1][0]
     pts = []
+    # glatter Abschnitt vom Stiel bis zum ersten Zahn (wichtig bei herzförmigem Grund)
+    u = 1.6
+    while u < S * von - 0.5:
+        x, y, _, _ = _bei(ab, u)
+        pts.append((x, y, 'c'))
+        u += 1.6
     s = S * von
     k = 0
     while s + abstand <= S * bis:
@@ -65,6 +71,12 @@ def _saege_seite(seite, aussen, abstand, hoehe, muster, von, bis, vor=0.72):
         pts.append((x2 + nx * h, y2 + ny * h, 'k'))
         s += abstand * (0.7 + 0.6 * muster[k % len(muster)]) if len(muster) > 1 else abstand
         k += 1
+    # glatter Abschnitt bis kurz vor die Spitze
+    u = s + 1.2
+    while u < S - 0.8:
+        x, y, _, _ = _bei(ab, u)
+        pts.append((x, y, 'c'))
+        u += 1.6
     return pts
 
 

@@ -48,10 +48,49 @@ def nadel(p, grad, l, b, farben, biegung=0.0, kerbe=False, spitz=True):
     t = [form(pfad(pts), f)]
     # Schatten auf der rechten Hälfte, Licht als feine Mittellinie
     sh = setzen(re + [q[-1]] + list(reversed(q)), p[0], p[1], l, grad)
-    t.append(E(pfad(sh), fd, o=0.45, rolle='schatten'))
+    t.append(E(pfad(sh), fd, o=0.35, rolle='schatten'))
     return t
 
 
 def zapfen_umriss(halb, cx, cy, L, grad):
     umr = halb + [(-x, y) for x, y in reversed(halb)][1:-1]
     return setzen(umr, cx, cy, L, grad)
+
+
+def nadelkamm(ansaetze, l, b, farben, kerbe=False, spitz=True, schatten=0.3):
+    """Mehrere nebeneinander stehende Nadeln als EINE Form (Kamm), damit sich Konturen nicht stapeln.
+    ansaetze: Liste (punkt, grad, länge-faktor). Gibt (ebenen, nadel_achsen) zurück."""
+    f, fd, fh = farben
+    umr, achsen = [], []
+    for p, grad, fk in ansaetze:
+        L = l * fk
+        a = math.radians(grad)
+        qx, qy = math.cos(a), math.sin(a)          # quer zur Nadel
+        bl, bt = b / 2, (b / 2 * 0.15 if spitz else b / 2 * 0.8)
+        tip = punkt(p, grad, L)
+        basis_l = (p[0] - qx * bl, p[1] - qy * bl)
+        basis_r = (p[0] + qx * bl, p[1] + qy * bl)
+        mid_l = punkt(basis_l, grad, L * 0.7)
+        mid_r = punkt(basis_r, grad, L * 0.7)
+        if spitz:
+            pts = [basis_l, mid_l, tip, mid_r, basis_r]
+        else:
+            tl = (tip[0] - qx * bt, tip[1] - qy * bt)
+            tr = (tip[0] + qx * bt, tip[1] + qy * bt)
+            kerb = punkt(tip, grad + 180, L * (0.07 if kerbe else 0))
+            pts = [basis_l, tl, kerb, tr, basis_r]
+        umr += pts
+        achsen.append((p, grad, L))
+    pts = [(r1(x), r1(y)) for x, y in umr]
+    ebenen = [form(pfad(pts), f)]
+    # Schatten: rechte Hälfte jeder Nadel
+    d = ''
+    for p, grad, L in achsen:
+        a = math.radians(grad)
+        qx, qy = math.cos(a), math.sin(a)
+        tip = punkt(p, grad, L * (0.98 if spitz else 0.93))
+        br = (p[0] + qx * b / 2, p[1] + qy * b / 2)
+        mr = punkt(br, grad, L * 0.7) if spitz else (tip[0] + qx * b * 0.4, tip[1] + qy * b * 0.4)
+        d += pfad([(r1(p[0]), r1(p[1])), (r1(tip[0]), r1(tip[1])), (r1(mr[0]), r1(mr[1])), (r1(br[0]), r1(br[1]))]) + ' '
+    ebenen.append(E(d.strip(), fd, o=schatten, rolle='schatten'))
+    return ebenen, achsen
