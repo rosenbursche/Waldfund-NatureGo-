@@ -81,6 +81,7 @@ export function alleFotos(tier: TierSeite, mitLandschaft = false): FotoId[] {
     f.sommer,
     f.winter,
     f.jung,
+    f.jungSpaeter,
     f.aktiv,
     f.ruhe,
     f.hinweis,

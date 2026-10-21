@@ -173,9 +173,6 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
       </SafeAreaView>
 
       <SafeAreaView edges={['bottom']} style={stile.unten} pointerEvents="box-none">
-        <Schrift art="notiz" style={[stile.zentriert, stile.schatten]} pointerEvents="none">
-          {diorama ? 'Kippe das Handy · tippe einen Runenstein an' : 'Tippe einen Baum oder Runenstein an'}
-        </Schrift>
         <View style={stile.knopfReihe}>
           {/* Alternative zur 3D-Szene: die Bäume der Lichtung als Liste (auch für Screenreader) */}
           <Pressable

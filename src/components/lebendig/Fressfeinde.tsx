@@ -110,7 +110,7 @@ function Schatten({
           </View>
         ) : (
           <View style={stile.zeichnung}>
-            <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={84} farbe={colors.moon} dicke={1.2} />
+            <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={130} farbe={colors.moon} dicke={1.2} />
           </View>
         )}
       </Animated.View>
@@ -123,10 +123,11 @@ function Schatten({
           {feind ? (
             <TierFigur tier={feind} umriss={colors.moss} />
           ) : (
-            <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={84} farbe={colors.moss} dicke={2.4} />
+            <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={130} farbe={colors.moss} dicke={2.4} />
           )}
         </View>
-        {gefahr.icon !== 'maehen' && gefahr.icon !== 'auto' && (
+        {/* Augen nur bei Tieren – nicht bei Mähwiese, Straße oder Wetter */}
+        {gefahr.icon !== 'maehen' && gefahr.icon !== 'auto' && gefahr.icon !== 'schnee' && (
           <Animated.View style={[stile.augen, { transform: [{ scaleY: blinzeln }] }]}>
             <View style={stile.auge} />
             <View style={stile.auge} />
@@ -164,11 +165,11 @@ const stile = StyleSheet.create({
     backgroundColor: colors.abgrund,
   },
   gruppenKopf: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
-  beute: { width: 34, height: 34, borderRadius: 17, overflow: 'hidden', borderWidth: 1.5, borderColor: colors.warn },
+  beute: { width: 44, height: 44, borderRadius: 22, overflow: 'hidden', borderWidth: 1.5, borderColor: colors.warn },
   reihe: { gap: spacing.m, paddingRight: spacing.m },
   karte: {
-    width: 150,
-    height: 200,
+    width: 230,
+    height: 310,
     borderRadius: radius.m,
     overflow: 'hidden',
     borderWidth: 1,
@@ -183,10 +184,10 @@ const stile = StyleSheet.create({
     backgroundColor: colors.forest,
   },
   schatten: { flex: 1, padding: spacing.s, alignItems: 'center', justifyContent: 'center', opacity: 0.45 },
-  augen: { position: 'absolute', top: '36%', alignSelf: 'center', flexDirection: 'row', gap: 12 },
+  augen: { position: 'absolute', top: '38%', alignSelf: 'center', flexDirection: 'row', gap: 18 },
   auge: {
-    width: 7,
-    height: 4,
+    width: 10,
+    height: 6,
     borderRadius: 3,
     backgroundColor: colors.amber,
     shadowColor: colors.amber,
@@ -215,6 +216,6 @@ const stile = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  name: { fontFamily: fonts.titel, fontSize: 13, letterSpacing: 1, color: colors.moon, flexShrink: 1 },
-  link: { fontFamily: fonts.notiz, fontSize: 14, color: colors.amber },
+  name: { fontFamily: fonts.titel, fontSize: 16, letterSpacing: 1, color: colors.moon, flexShrink: 1 },
+  link: { fontFamily: fonts.notiz, fontSize: 16, color: colors.amber },
 });

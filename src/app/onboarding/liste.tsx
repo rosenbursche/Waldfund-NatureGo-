@@ -18,10 +18,11 @@ export default function Liste() {
     <Hintergrund>
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={stile.inhalt}>
-          <Kopfzeile etikett="Liste" titel="Naturraum wählen" />
-          <Schrift art="klein">
-            Demo-Version mit 10 Naturräumen. Weitere folgen, sobald die Daten fachlich geprüft sind.
-          </Schrift>
+          <Kopfzeile
+            etikett="Liste"
+            titel="Naturraum wählen"
+            info="Demo-Version mit 10 Naturräumen. Weitere folgen, sobald die Daten fachlich geprüft sind."
+          />
 
           {REIHENFOLGE.map((gl) => {
             const raeume = NATURRAEUME.filter((n) => n.grosslandschaft === gl);
@@ -34,7 +35,9 @@ export default function Liste() {
                 {raeume.map((n) => (
                   <Pressable
                     key={n.id}
-                    onPress={() => router.push({ pathname: '/onboarding/ergebnis', params: { id: n.id, per: 'liste' } })}
+                    onPress={() =>
+                      router.push({ pathname: '/onboarding/ergebnis', params: { id: n.id, per: 'liste' } })
+                    }
                     accessibilityRole="button"
                     accessibilityLabel={n.name}
                     style={({ pressed }) => [stile.eintrag, pressed && { borderColor: colors.rune }]}

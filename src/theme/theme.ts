@@ -39,6 +39,9 @@ export const colors = {
   kartenAlpen: '#263129',
   wasser: '#5B8389',
   waldSymbol: '#3F5E2E',
+  /** Verbreitungskarte: Vorkommensgebiet (hell, gut sichtbar, aber kein Neongrün) und Gebiete mit Häufung */
+  vorkommen: '#9FCB7C',
+  haeufung: '#D2553F',
   shadow: '#000000',
   /** heller Nebel für Schwaden, Lichtschein und Vignetten-Übergänge */
   nebel: '#BAC5BB',
@@ -97,6 +100,45 @@ export type ColorToken = keyof typeof colors;
  * Schriften. Die Namen müssen genau zu den Schlüsseln passen,
  * mit denen sie in `src/app/_layout.tsx` geladen werden.
  */
+/**
+ * Rang-Embleme (Art-Taler): je Seltenheit Metall (5 Töne für Glanzstreifen), Email-Band, Edelstein, Schein.
+ * Gezeichnet in src/logic/taler/taler.ts, Gestaltung siehe docs/ICONS.md.
+ */
+export const talerRang = {
+  1: {
+    name: 'Kupfer und Patina',
+    metall: ['#F6C9A4', '#C9804F', '#7A3E1C', '#E8A97C', '#4A230E'],
+    email: ['#5FB3A1', '#2E6E62', '#163B34'],
+    stein: '#4FB3A0',
+    schein: '#5FB3A1',
+    glanz: 0.25,
+  },
+  2: {
+    name: 'Bronze und Smaragd',
+    metall: ['#FBE3B0', '#D7A55A', '#7C531F', '#F0C77E', '#47300F'],
+    email: ['#4CC07A', '#1F7A45', '#0C3A20'],
+    stein: '#3FD27E',
+    schein: '#4CC07A',
+    glanz: 0.45,
+  },
+  3: {
+    name: 'Silber und Amethyst',
+    metall: ['#FFFFFF', '#C9CCDA', '#6E7189', '#E9EBF5', '#3A3C52'],
+    email: ['#A57BEA', '#5B33A8', '#251248'],
+    stein: '#B98CFF',
+    schein: '#A57BEA',
+    glanz: 0.5,
+  },
+  4: {
+    name: 'Gold und Rubinfeuer',
+    metall: ['#FFF7D6', '#F2C14E', '#9A6510', '#FFE08A', '#5A3A06'],
+    email: ['#FF7A3D', '#C2271C', '#5E0E0A'],
+    stein: '#FF4A3A',
+    schein: '#FFB347',
+    glanz: 0.55,
+  },
+} as const;
+
 export const fonts = {
   /** Cinzel: Titel, Logo, Abschnitts-Überschriften (nur Großbuchstaben-Formen, sparsam einsetzen) */
   titel: 'Cinzel_700Bold',

@@ -1,0 +1,114 @@
+{
+  "vorne": {
+    "pfad": "M -1.3 -15 C -4.4 -14.2 -6.8 -8.5 -7.3 -1.5 C -7.6 2.8 -6.2 5.4 -3.9 5.5 C -1.8 5.4 -0.6 4 -0.6 1.5 L -0.6 -12.8 C -0.6 -14.3 -0.8 -15 -1.3 -15 Z M 1.3 -15 C 4.4 -14.2 6.8 -8.5 7.3 -1.5 C 7.6 2.8 6.2 5.4 3.9 5.5 C 1.8 5.4 0.6 4 0.6 1.5 L 0.6 -12.8 C 0.6 -14.3 0.8 -15 1.3 -15 Z M -9.8 8.4 C -8.2 9 -6 11.6 -5.6 13.6 C -5.3 15 -6.6 15.4 -7.6 14.6 C -9 13.4 -10.2 11.2 -10.2 9.4 C -10.2 8.8 -10.1 8.4 -9.8 8.4 Z M 9.8 8.4 C 8.2 9 6 11.6 5.6 13.6 C 5.3 15 6.6 15.4 7.6 14.6 C 9 13.4 10.2 11.2 10.2 9.4 C 10.2 8.8 10.1 8.4 9.8 8.4 Z",
+    "laengeCm": [
+      6,
+      10
+    ],
+    "breiteCm": [
+      5,
+      7
+    ],
+    "quelle": [
+      "q5",
+      "q8",
+      "q10",
+      "q30"
+    ]
+  },
+  "hinten": {
+    "pfad": "M -1.3 -15 C -4.4 -14.2 -6.8 -8.5 -7.3 -1.5 C -7.6 2.8 -6.2 5.4 -3.9 5.5 C -1.8 5.4 -0.6 4 -0.6 1.5 L -0.6 -12.8 C -0.6 -14.3 -0.8 -15 -1.3 -15 Z M 1.3 -15 C 4.4 -14.2 6.8 -8.5 7.3 -1.5 C 7.6 2.8 6.2 5.4 3.9 5.5 C 1.8 5.4 0.6 4 0.6 1.5 L 0.6 -12.8 C 0.6 -14.3 0.8 -15 1.3 -15 Z M -9.8 8.4 C -8.2 9 -6 11.6 -5.6 13.6 C -5.3 15 -6.6 15.4 -7.6 14.6 C -9 13.4 -10.2 11.2 -10.2 9.4 C -10.2 8.8 -10.1 8.4 -9.8 8.4 Z M 9.8 8.4 C 8.2 9 6 11.6 5.6 13.6 C 5.3 15 6.6 15.4 7.6 14.6 C 9 13.4 10.2 11.2 10.2 9.4 C 10.2 8.8 10.1 8.4 9.8 8.4 Z",
+    "laengeCm": [
+      6,
+      10
+    ],
+    "breiteCm": [
+      5,
+      7
+    ],
+    "quelle": [
+      "q5",
+      "q8",
+      "q10",
+      "q30"
+    ]
+  },
+  "faehrte": {
+    "muster": "versetzt",
+    "quelle": [
+      "q8",
+      "q5"
+    ],
+    "hinweis": "ANL-Zeichnung 'Wildschwein (ziehend)': Tritte links und rechts im Wechsel neben einer Mittellinie; DWS zeigt 'langsamer' und 'schneller Gang'. Schrittlänge und Spurbreite in cm nicht belegt (DWS-Maßleiste 140 cm ohne Erklärung)."
+  },
+  "hinweis": "30 Einheiten = ganzes Trittsiegel von den Schalenspitzen bis hinter die Afterklauen (so misst die DWS-Grafik: Längenleiste 6–10 cm schließt das Geäfter ein, Breitenleiste 5–7 cm reicht über die Afterklauen). Vorder- und Hinterfuß bisher gleich gezeichnet, weil keine Quelle getrennte Formen/Maße liefert. ANL nennt je nach Alter 9–12 cm, Freiburg 5–11 cm.",
+  "referenzen": [
+    {
+      "titel": "Empreinte de sanglier -4.jpg (Chris Le Jeune, CC BY-SA 4.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Empreinte_de_sanglier_-4.jpg",
+      "was": "Foto Trittsiegel im Schlamm (Frankreich): zwei lange Schalen, beide Afterklauen deutlich hinten-seitlich, etwas breiter gestellt als die Schalen"
+    },
+    {
+      "titel": "Empreinte de sanglier.jpg (Chris Le Jeune, CC BY-SA 4.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Empreinte_de_sanglier.jpg",
+      "was": "Foto Trittsiegel im Schlamm: Schalen, Afterklauen als zwei Gruben hinter den Ballen"
+    },
+    {
+      "titel": "Stopa dospelého diviaka.jpg (Spishunter, CC BY-SA 4.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Stopa_dospel%C3%A9ho_diviaka.jpg",
+      "was": "Foto Trittsiegel eines erwachsenen Keilers neben Hand (Slowakei), fester Lehm: Schalen tief, Afterklauen kaum sichtbar"
+    },
+    {
+      "titel": "Tracks of wild boar.jpg (Selmoval, CC BY-SA 4.0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Tracks_of_wild_boar.jpg",
+      "was": "Foto Trittsiegel im Sand (Frankreich), unscharfe Ränder, Afterklauen als Gruben"
+    },
+    {
+      "titel": "Ridinger: Wilde Schweins Spuhr oder Sau Faehrte (Rijksmuseum RP-P-OB-53.704, CC0)",
+      "url": "https://commons.wikimedia.org/wiki/File:Wild_zwijn_met_spoor_Dieren_met_hun_sporen_(serietitel)_Spuhren_und_Fahrten_der_Tiere_(serietitel),_RP-P-OB-53.704.jpg",
+      "was": "Kupferstich (18. Jh.) mit beschrifteten Teilen: Schalwände, Ballen, Afterklauen, Spitze der Schalen; weicher und harter Boden"
+    },
+    {
+      "titel": "DWS Ratgeber Fährten und Spuren, S. 4",
+      "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf",
+      "was": "Fachzeichnung mit Maßleisten 6–10 cm (Länge inkl. Afterklauen) und 5–7 cm (Breite über Afterklauen)"
+    },
+    {
+      "titel": "ANL Tierspuren Anlage A 1_2",
+      "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf",
+      "was": "Trittsiegel im Schnee mit cm-Skala (ca. 10 cm) und Fährtenbilder ziehend/flüchtend"
+    },
+    {
+      "titel": "UZH Naturhistorisches Museum, Arbeitsblätter Paarhufer (2024), S. 2",
+      "url": "https://www.nmz.uzh.ch/dam/jcr:ff2e2ed8-0dba-4286-8702-9e3731c27692/2024_Paarhufer_Arbeitsblaetter.pdf",
+      "was": "Zeichnung Wildschwein-Trittsiegel mit 1-cm-Maß: Afterklauen als schräge, nach außen gestellte Abdrücke"
+    }
+  ],
+  "quellen": [
+    {
+      "id": "q5",
+      "titel": "Ratgeber Fährten und Spuren (S. 4–5, Paarhufer), Deutsche Wildtier Stiftung",
+      "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+    },
+    {
+      "id": "q8",
+      "titel": "Tierspuren – Anlagen (Projekt Tiere live), ANL Bayern",
+      "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+    },
+    {
+      "id": "q10",
+      "titel": "Das Wildschwein (Infoblatt), Amt für Wald und Natur Kanton Freiburg",
+      "url": "https://www.fr.ch/de/document/76231"
+    },
+    {
+      "id": "q16",
+      "titel": "Fragen und Antworten schriftliche Jägerprüfung BW, Fach 1, Landesjagdverband Baden-Württemberg",
+      "url": "https://dev-1.v12.landesjagdverband.de/fileadmin/rootpages/1/Fach_1_Stand_12.07.2021_mit_L%C3%B6sungen.pdf"
+    },
+    {
+      "id": "q30",
+      "titel": "Unterrichtshilfe Einheimische Paarhufer, Arbeitsblätter (2024), Naturhistorisches Museum der Universität Zürich",
+      "url": "https://www.nmz.uzh.ch/dam/jcr:ff2e2ed8-0dba-4286-8702-9e3731c27692/2024_Paarhufer_Arbeitsblaetter.pdf"
+    }
+  ]
+}

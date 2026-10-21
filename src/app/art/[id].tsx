@@ -18,6 +18,7 @@ import {
   SchutzAbzeichen,
   SeltenheitAbzeichen,
 } from '@/components/ui/Abzeichen';
+import { Info } from '@/components/ui/Info';
 import { Kapitelkopf } from '@/components/ui/Kapitelkopf';
 import { WappenReihe } from '@/components/ui/Wappen';
 import { Kapitel } from '@/components/lebendig/Kapitel';
@@ -26,6 +27,7 @@ import { LebendigInhalt } from '@/components/lebendig/LebendigInhalt';
 import { FotoHero } from '@/components/tier/TierFoto';
 import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { ArtVerweise } from '@/components/ArtVerweise';
 import { LehrbuchKarte } from '@/components/LehrbuchZeichnung';
 import { Schrift } from '@/components/Schrift';
@@ -153,11 +155,6 @@ export default function ArtSeite() {
                 )}
                 <LinearGradient pointerEvents="none" colors={['transparent', colors.night]} style={stile.heroVerlauf} />
                 <View style={stile.heroUnten} pointerEvents="none">
-                  {!gefunden && (
-                    <Schrift art="notiz" style={stile.heroHinweis}>
-                      Fotografiere die Art, um sie in Farbe freizuschalten
-                    </Schrift>
-                  )}
                   <Kapitelkopf etikett={gruppe} titel={eintrag.name} unter={eintrag.lat} groesse="gross" />
                   <WappenReihe id={id} seltenheit={eintrag.seltenheit} art={art} groesse={46} ausrichtung="links" />
                 </View>
@@ -196,7 +193,20 @@ export default function ArtSeite() {
             )}
           </View>
         ) : (
-          <Kopfzeile etikett={`${kategorie.name} · ${gruppe}`} titel={verborgen ? '???' : eintrag.name} />
+          <>
+            <Kopfzeile etikett={`${kategorie.name} · ${gruppe}`} titel={verborgen ? '???' : eintrag.name} />
+            {/* der Taler der Art im Rang-Emblem */}
+            <View style={{ alignItems: 'center', marginTop: -spacing.s }}>
+              <ArtTaler
+                id={id}
+                seltenheit={eintrag.seltenheit}
+                zustand={gefunden ? 'gefunden' : verborgen ? 'verborgen' : 'umriss'}
+                groesse={110}
+                modell={art?.modell}
+                baumModell={eintrag.baumModell}
+              />
+            </View>
+          </>
         )}
 
         {/* 3D-Modell: Silhouette, solange nicht gesammelt */}
@@ -211,22 +221,18 @@ export default function ArtSeite() {
               ruhig={ruhig}
               pflanze={istPflanze ? pflanzenZustand(id, monat, wuchsWert) : undefined}
             />
-            {!gefunden && (
-              <Schrift art="notiz" style={stile.sperre} pointerEvents="none">
-                {verborgen
-                  ? 'Unbekannte Art – nur die Silhouette ist zu sehen'
-                  : 'Fotografiere die Art, um sie in Farbe freizuschalten'}
-              </Schrift>
-            )}
           </View>
         )}
 
         {realistisch && (
           <View style={stile.platzhalter}>
-            <Schrift art="klein">
-              Realistisches 3D-Modell (Platzhalter): zeigt einen Weißwedelhirsch, kein Reh – ein echtes Reh-Modell
-              folgt. Modell: {namensnennung(realistisch)}.
-            </Schrift>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+              <Schrift art="klein">Platzhalter-Modell</Schrift>
+              <Info
+                titel="3D-Modell"
+                text={`Zeigt einen Weißwedelhirsch, kein Reh – ein echtes Reh-Modell folgt. Modell: ${namensnennung(realistisch)}.`}
+              />
+            </View>
             {modellStatus.startsWith('Fehler') || modellStatus.includes('geladen …') ? (
               <Schrift art="klein" style={{ color: modellStatus.startsWith('Fehler') ? colors.warn : colors.fog }}>
                 {modellStatus}
@@ -372,14 +378,6 @@ export default function ArtSeite() {
                 >
                   <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
                 </Kapitel>
-                <Kapitel nummer={9} titel="Skizzenbuch" zeile="Aus dem Bestimmungsbuch" scroll={scroll} ruhig={ruhig}>
-                  <LehrbuchKarte
-                    id={id}
-                    name={eintrag.name}
-                    zeichnung={art.zeichnung ?? { t: 'tree' }}
-                    modell={art.modell}
-                  />
-                </Kapitel>
               </>
             }
           />
@@ -516,7 +514,10 @@ export default function ArtSeite() {
               />
             </Abschnitt>
 
-            <Abschnitt titel={verborgen ? 'Hier könntest du suchen' : 'Verbreitung in Deutschland'}>
+            <Abschnitt
+              titel={verborgen ? 'Hier könntest du suchen' : 'Verbreitung in Deutschland'}
+              info="Verbreitung und Schutzstatus sind vereinfacht (Demo-Daten)."
+            >
               {art ? (
                 <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
               ) : baum ? (
@@ -549,14 +550,7 @@ export default function ArtSeite() {
             </Kasten>
           </View>
         )}
-        {baum && (
-          <Kasten>
-            <Schrift art="klein">
-              {/* TODO fachlich prüfen: Schutzstatus und Rote Liste der Baumarten ergänzen */}
-              Schutzstatus und Rote Liste für Baumarten sind noch nicht hinterlegt.
-            </Schrift>
-          </Kasten>
-        )}
+        {/* TODO fachlich prüfen: Schutzstatus und Rote Liste der Baumarten ergänzen */}
 
         {art && !verborgen && !grafisch && (
           <Kasten>
@@ -564,10 +558,6 @@ export default function ArtSeite() {
             <Schrift style={{ marginTop: spacing.xs }}>{art.wusstestDu}</Schrift>
           </Kasten>
         )}
-
-        <Schrift art="klein" style={{ opacity: 0.7 }}>
-          Verbreitung und Schutzstatus sind vereinfacht (Demo-Daten).
-        </Schrift>
       </Animated.ScrollView>
     </SafeAreaView>
   );
@@ -639,11 +629,6 @@ function PflanzenRegler({
       <Schrift art="notiz" style={{ fontSize: 17, lineHeight: 23 }}>
         {z.text}
       </Schrift>
-      {!z.datenVorhanden && (
-        <Schrift art="klein">
-          Blüte- und Fruchtzeit sind für diese Art noch nicht hinterlegt – gezeigt wird das Laub.
-        </Schrift>
-      )}
 
       <Schrift art="etikett" style={{ marginTop: spacing.m }}>
         Wachstum
@@ -662,9 +647,8 @@ function PflanzenRegler({
       <Schrift art="notiz" style={{ fontSize: 17, lineHeight: 23 }}>
         {w.einheit === 'Jahre' ? `${wuchsWert} ${wuchsWert === 1 ? 'Jahr' : 'Jahre'} · ${w.stufe}` : w.stufe}
       </Schrift>
-      {w.einheit === 'Jahre' && (
-        <Schrift art="klein">Kann etwa {w.max} Jahre alt werden (ungefähr, noch fachlich zu prüfen).</Schrift>
-      )}
+      {/* TODO fachlich prüfen: Höchstalter (w.max) */}
+      {w.einheit === 'Jahre' && <Schrift art="klein">bis ca. {w.max} Jahre</Schrift>}
     </View>
   );
 }
@@ -673,13 +657,16 @@ function Kasten({ farbe = colors.moss, style, children }: { farbe?: string; styl
   return <View style={[stile.kasten, { borderColor: farbe }, style]}>{children}</View>;
 }
 
-function Abschnitt({ titel, children }: { titel: string; children: ReactNode }) {
+function Abschnitt({ titel, info, children }: { titel: string; info?: string; children: ReactNode }) {
   return (
     <View style={{ gap: spacing.s, marginTop: spacing.s }}>
       {titel ? (
-        <Schrift art="ueberschrift" accessibilityRole="header">
-          {titel}
-        </Schrift>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+          <Schrift art="ueberschrift" accessibilityRole="header">
+            {titel}
+          </Schrift>
+          {info && <Info titel={titel} text={info} />}
+        </View>
       ) : null}
       {children}
     </View>
@@ -752,8 +739,6 @@ const stile = StyleSheet.create({
     backgroundColor: colors.amber,
   },
   heroUnten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.m },
-  heroHinweis: { color: colors.fog, fontSize: 16, marginBottom: spacing.xs },
-  sperre: { position: 'absolute', left: 0, right: 0, bottom: 10, textAlign: 'center', color: colors.fog, fontSize: 15 },
   latein: { fontFamily: fonts.etikett, color: colors.fog, fontSize: 14 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
   kasten: { borderWidth: 1.5, borderRadius: radius.m, padding: spacing.m, backgroundColor: colors.forest, gap: 4 },

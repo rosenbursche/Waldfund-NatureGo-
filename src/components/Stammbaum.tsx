@@ -70,11 +70,6 @@ export function Stammbaum({ kategorie, baum, naturraum, gefunden, verborgen, lee
 
   return (
     <View style={{ gap: spacing.m }}>
-      <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Tippe einen Ast an – am Baum oder in der Liste darunter. Seine Zweige sind kleine Sammelsets, jedes mit einem
-        Schatz. Die Sterne sind die legendären Arten – und am toten Ast ganz oben lauert Gefahr.
-      </Schrift>
-
       {/* Filter: dunkeln im geöffneten Ast ab, verstecken nie – die ganze Sammlung bleibt sichtbar */}
       <View style={stile.filterReihe} accessibilityRole="radiogroup" accessibilityLabel="Filter für den Stammbaum">
         {FILTER.map(([wert, text]) => (

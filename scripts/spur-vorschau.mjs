@@ -42,7 +42,7 @@ const teile = formen.map(([name, f], i) => {
     <g stroke="#c9c2b0" stroke-width="0.06">${raster}</g>
     <path d="${f.pfad}" fill="#2a2119" fill-rule="evenodd" />
   </g>
-  <text x="${x0 + 12}" y="${FELD + 24}" font-size="18" fill="#222">${name}${laenge ? ` · Raster 1 cm (Länge ${f.laengeCm.join('–')} cm)` : ''}</text>`;
+  <text x="${x0 + 12}" y="${FELD + 24}" font-size="13" fill="#222">${name}${laenge ? ` · 1 cm-Raster · ${f.laengeCm.join("–")} cm` : ""}</text>`;
 });
 
 const breite = Math.max(1, formen.length) * FELD;

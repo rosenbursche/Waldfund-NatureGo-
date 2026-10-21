@@ -4,7 +4,7 @@ import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ArtMiniatur } from '@/components/ArtMiniatur';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Icon } from '@/components/Icon';
 import { Kopfzeile } from '@/components/Kopfzeile';
@@ -84,28 +84,34 @@ export default function Suche() {
           </View>
 
           {suchtGerade ? (
-            <Sektion symbol="karte" titel="Treffer" rechts={<Abzeichen text={`${treffer.length}`} klein />}>
+            <Sektion
+              symbol="karte"
+              titel="Treffer"
+              info="Seltene Arten, die du noch nicht entdeckt hast, bleiben ein Rätsel – auch in der Suche."
+              rechts={<Abzeichen text={`${treffer.length}`} klein />}
+            >
               {treffer.length === 0 ? (
-                <Schrift art="notiz">
-                  Nichts gefunden. Seltene Arten, die du noch nicht entdeckt hast, bleiben ein Rätsel – auch in der
-                  Suche.
-                </Schrift>
+                <Schrift art="notiz">Nichts gefunden.</Schrift>
               ) : (
                 treffer.map((e) => <Zeile key={e.id} e={e} gefunden={gefunden} onPress={() => oeffnen(e.id)} />)
               )}
             </Sektion>
           ) : (
             <>
-              <Sektion symbol="auge" titel="Die Seltensten" geste="tippen">
-                <Schrift art="notiz">Die Arten mit dem höchsten Wild-Wert in deinem Naturraum.</Schrift>
+              <Sektion
+                symbol="auge"
+                titel="Die Seltensten"
+                info="Die Arten mit dem höchsten Wild-Wert in deinem Naturraum."
+              >
                 <Raster3D eintraege={seltenste} gefunden={gefunden} ruhig={ruhig} onPress={oeffnen} />
               </Sektion>
 
               {leicht.length > 0 && (
-                <Sektion symbol="tritt" titel="Leicht zu finden">
-                  <Schrift art="notiz">
-                    Häufig in deiner Nähe und noch nicht in deiner Sammlung – ein guter Anfang.
-                  </Schrift>
+                <Sektion
+                  symbol="tritt"
+                  titel="Leicht zu finden"
+                  info="Häufig in deiner Nähe und noch nicht in deiner Sammlung – ein guter Anfang."
+                >
                   <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={stile.reihe}>
                     {leicht.map((e) => (
                       <Karte key={e.id} e={e} gefunden={gefunden} onPress={() => oeffnen(e.id)} />
@@ -115,10 +121,12 @@ export default function Suche() {
               )}
 
               {gefahr.length > 0 && (
-                <Sektion symbol="stopp" titel="Gefährlich & tödlich" art="warnung" geste="tippen">
-                  <Schrift art="notiz">
-                    Die gefährlichsten Arten in deinem Naturraum. Nicht anfassen, nicht essen – nur fotografieren.
-                  </Schrift>
+                <Sektion
+                  symbol="stopp"
+                  titel="Gefährlich & tödlich"
+                  art="warnung"
+                  info="Die gefährlichsten Arten in deinem Naturraum. Nicht anfassen, nicht essen – nur fotografieren."
+                >
                   {gefahr.map((e, i) => (
                     <Zeile key={e.id} e={e} gefunden={gefunden} rang={i + 1} onPress={() => oeffnen(e.id)} />
                   ))}
@@ -209,7 +217,6 @@ function Raster3D({
 
 /** Kleine Karte mit 2D-Miniatur (für waagerechte Reihen) */
 function Karte({ e, gefunden, onPress }: { e: SuchEintrag; gefunden: Record<string, unknown>; onPress: () => void }) {
-  const s = SELTENHEIT[e.seltenheit];
   return (
     <Pressable
       onPress={onPress}
@@ -217,12 +224,13 @@ function Karte({ e, gefunden, onPress }: { e: SuchEintrag; gefunden: Record<stri
       accessibilityLabel={`${anzeigeName(e, gefunden)}, Wild-Wert ${e.wildWert}, ${e.punkte} Punkte`}
       style={({ pressed }) => [stile.karte, pressed && { opacity: 0.6 }]}
     >
-      <ArtMiniatur
+      <ArtTaler
+        id={e.id}
+        seltenheit={e.seltenheit}
+        zustand={e.id in gefunden ? 'gefunden' : 'umriss'}
+        groesse={67}
         modell={e.modell}
         baumModell={e.baumModell}
-        stil={e.id in gefunden ? 'farbe' : 'umriss'}
-        akzent={s.farbe}
-        groesse={46}
       />
       <Schrift style={stile.gitterName} numberOfLines={2}>
         {anzeigeName(e, gefunden)}
@@ -244,7 +252,6 @@ function Zeile({
   rang?: number;
   onPress: () => void;
 }) {
-  const s = SELTENHEIT[e.seltenheit];
   const kat = KATEGORIEN.find((k) => k.id === e.kategorie);
   const raetsel = istRaetsel(e, gefunden) && !e.gefahr;
   return (
@@ -255,12 +262,13 @@ function Zeile({
       style={({ pressed }) => [stile.zeile, pressed && { opacity: 0.6 }]}
     >
       {rang !== undefined && <Schrift style={stile.rang}>{rang}</Schrift>}
-      <ArtMiniatur
+      <ArtTaler
+        id={e.id}
+        seltenheit={e.seltenheit}
+        zustand={raetsel ? 'verborgen' : e.id in gefunden ? 'gefunden' : 'umriss'}
+        groesse={58}
         modell={e.modell}
         baumModell={e.baumModell}
-        stil={raetsel ? 'verborgen' : e.id in gefunden ? 'farbe' : 'umriss'}
-        akzent={e.gefahr ? colors.warn : s.farbe}
-        groesse={40}
       />
       <View style={{ flex: 1, gap: 2 }}>
         <Schrift style={stile.zeileName} numberOfLines={1}>

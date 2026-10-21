@@ -1,10 +1,10 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useState } from 'react';
-import { Animated, Easing, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Animated, Easing, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import Svg, { G, Path } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
-import { SpurBild } from '@/components/tier/TierSymbol';
+import { SpurBild, TierSymbol } from '@/components/tier/TierSymbol';
 import { TierFoto } from '@/components/tier/TierFoto';
 import { TrittsiegelForm } from '@/components/tier/Trittsiegel';
 import { spurFarben } from '@/components/tier/UmweltTafeln';
@@ -17,38 +17,36 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
  * 1. Eine Fährte läuft über den Bildschirm: Abdruck für Abdruck erscheint, als wäre das Tier
  *    gerade vorbeigegangen – danach verblasst sie und beginnt von vorn. Untergrund, Gangart und
  *    Alter lassen sich umschalten.
- * 2. Darunter liegen Fundkarten wie Fotos auf dem Forschertisch (leicht schräg).
- *    Antippen hebt eine Karte an und zeigt, was man sieht. Echte Fotos, wo es sie gibt.
+ * 2. Darunter große Fundkarten zum Durchwischen (echte Fotos, wo es sie gibt).
+ *    Antippen dreht eine Karte um: hinten Zeichnung, Erklärung und Maß.
  */
 export function Spurensuche({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
-  const [wahl, setWahl] = useState<string>(tier.spuren[0]?.icon ?? '');
-  const gewaehlt = tier.spuren.find((s) => s.icon === wahl);
+  const { width } = useWindowDimensions();
+  const kartenBreite = Math.round(Math.min(340, width * 0.78));
+  const [seite, setSeite] = useState(0);
   return (
     <View style={{ gap: spacing.l }}>
       <SpurenSpiel tier={tier} ruhig={ruhig} />
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={stile.karten}>
+      {/* Große Fundkarten zum Durchwischen – Antippen dreht die Karte um */}
+      <View style={stile.randlos}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={kartenBreite + spacing.m}
+          decelerationRate="fast"
+          contentContainerStyle={[stile.karten, { paddingHorizontal: (width - kartenBreite) / 2 }]}
+          onMomentumScrollEnd={(e) => setSeite(Math.round(e.nativeEvent.contentOffset.x / (kartenBreite + spacing.m)))}
+        >
+          {tier.spuren.map((s) => (
+            <Fundkarte key={s.icon} tier={tier} spur={s} breite={kartenBreite} ruhig={ruhig} />
+          ))}
+        </ScrollView>
+      </View>
+      <View style={stile.punkte}>
         {tier.spuren.map((s, i) => (
-          <Fundkarte
-            key={s.icon}
-            tier={tier}
-            spur={s}
-            schraeg={i % 2 === 0 ? -4 : 3}
-            an={s.icon === wahl}
-            onPress={() => setWahl(s.icon)}
-            ruhig={ruhig}
-          />
+          <View key={s.icon} style={[stile.punkt, i === seite && stile.punktAn]} />
         ))}
-      </ScrollView>
-      {gewaehlt && (
-        <View style={stile.unterschrift}>
-          <Schrift style={stile.unterschriftText}>{gewaehlt.kurz}</Schrift>
-          {gewaehlt.cm && (
-            <Schrift style={stile.mass}>
-              {gewaehlt.cm[0]}–{gewaehlt.cm[1]} cm
-            </Schrift>
-          )}
-        </View>
-      )}
+      </View>
     </View>
   );
 }
@@ -275,63 +273,81 @@ function Abdruck({
   );
 }
 
+/**
+ * Große Fundkarte wie ein Abzug auf dem Forschertisch. Vorne: das echte Foto (oder die Zeichnung).
+ * Antippen dreht die Karte um: hinten Zeichnung, Erklärung und Maß.
+ */
 function Fundkarte({
   tier,
   spur,
-  schraeg,
-  an,
-  onPress,
+  breite,
   ruhig,
 }: {
   tier: TierSeite;
   spur: TierSeite['spuren'][number];
-  schraeg: number;
-  an: boolean;
-  onPress: () => void;
+  breite: number;
   ruhig: boolean;
 }) {
-  const [heben] = useState(() => new Animated.Value(an ? 1 : 0));
+  const [hinten, setHinten] = useState(false);
+  const [drehen] = useState(() => new Animated.Value(0));
   useEffect(() => {
-    const ziel = an ? 1 : 0;
+    const ziel = hinten ? 1 : 0;
     if (ruhig) {
-      heben.setValue(ziel);
+      drehen.setValue(ziel);
       return;
     }
-    Animated.spring(heben, { toValue: ziel, friction: 7, tension: 80, useNativeDriver: true }).start();
-  }, [an, ruhig, heben]);
+    Animated.spring(drehen, { toValue: ziel, friction: 8, tension: 60, useNativeDriver: true }).start();
+  }, [hinten, ruhig, drehen]);
   const foto = tier.fotos?.spuren?.[spur.icon];
+  const [titel, ...rest] = spur.kurz.split(':');
+  const seite = (vorne: boolean) => ({
+    transform: [
+      { perspective: 900 },
+      {
+        rotateY: drehen.interpolate({
+          inputRange: [0, 1],
+          outputRange: vorne ? ['0deg', '180deg'] : ['180deg', '360deg'],
+        }),
+      },
+    ],
+  });
   return (
     <Pressable
-      onPress={onPress}
+      onPress={() => setHinten(!hinten)}
       accessibilityRole="button"
-      accessibilityLabel={spur.kurz}
-      accessibilityState={{ selected: an }}
+      accessibilityLabel={`${spur.kurz}${spur.cm ? `, ${spur.cm[0]} bis ${spur.cm[1]} Zentimeter` : ''}. Antippen dreht die Karte um.`}
+      style={{ width: breite }}
     >
-      <Animated.View
-        style={[
-          stile.karte,
-          an && stile.karteAn,
-          {
-            transform: [
-              { rotate: heben.interpolate({ inputRange: [0, 1], outputRange: [`${schraeg}deg`, '0deg'] }) },
-              { translateY: heben.interpolate({ inputRange: [0, 1], outputRange: [0, -10] }) },
-              { scale: heben.interpolate({ inputRange: [0, 1], outputRange: [0.94, 1.04] }) },
-            ],
-          },
-        ]}
-      >
+      {/* Vorderseite */}
+      <Animated.View style={[stile.karte, seite(true), ruhig && hinten && { opacity: 0 }]}>
         <View style={stile.bild}>
           {foto ? (
-            <TierFoto id={foto} style={StyleSheet.absoluteFill} />
+            <TierFoto id={foto} style={StyleSheet.absoluteFill} nachweis />
           ) : (
             <View style={stile.zeichnung}>
               <SpurBild name={spur.icon} farben={spurFarben(tier)} form={tier.tritt} />
             </View>
           )}
         </View>
-        <Schrift style={stile.kartenText} numberOfLines={1}>
-          {spur.kurz.split(':')[0]}
-        </Schrift>
+        <View style={stile.kartenFuss}>
+          <Schrift style={stile.kartenTitel} numberOfLines={1}>
+            {titel}
+          </Schrift>
+          <TierSymbol name="tippen" groesse={20} farbe={colors.inkFaded} dicke={1.3} />
+        </View>
+      </Animated.View>
+      {/* Rückseite */}
+      <Animated.View style={[stile.karte, stile.rueckseite, seite(false), ruhig && !hinten && { opacity: 0 }]}>
+        <View style={stile.rueckZeichnung}>
+          <SpurBild name={spur.icon} farben={spurFarben(tier)} form={tier.tritt} />
+        </View>
+        <Schrift style={stile.rueckTitel}>{titel}</Schrift>
+        {rest.length > 0 && <Schrift style={stile.rueckText}>{rest.join(':').trim()}</Schrift>}
+        {spur.cm && (
+          <Schrift style={stile.rueckMass}>
+            {spur.cm[0]}–{spur.cm[1]} cm
+          </Schrift>
+        )}
       </Animated.View>
     </Pressable>
   );
@@ -341,25 +357,53 @@ const stile = StyleSheet.create({
   boden: { height: 150, marginHorizontal: -spacing.m, overflow: 'hidden' },
   tritt: { position: 'absolute', marginLeft: -17, marginTop: -17 },
   schalterReihe: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: spacing.s },
-  karten: { gap: spacing.m, paddingHorizontal: spacing.s, paddingVertical: spacing.m },
-  // wie ein Abzug auf dem Forschertisch: heller Rand, unten breiter für die Beschriftung
+  randlos: { marginHorizontal: -spacing.m },
+  karten: { gap: spacing.m, paddingVertical: spacing.m },
+  // wie ein großer Abzug auf dem Forschertisch: heller Rand, unten breiter für die Beschriftung
   karte: {
-    width: 150,
-    padding: 7,
-    paddingBottom: 4,
+    padding: 10,
+    paddingBottom: 6,
     backgroundColor: colors.paper,
     borderRadius: radius.s,
+    backfaceVisibility: 'hidden',
     shadowColor: colors.shadow,
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 6,
+    shadowOpacity: 0.55,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 8,
   },
-  karteAn: { shadowColor: colors.amber, shadowOpacity: 0.45, shadowRadius: 16 },
+  rueckseite: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    padding: spacing.m,
+    gap: spacing.s,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   bild: { width: '100%', aspectRatio: 1, backgroundColor: colors.night, overflow: 'hidden', borderRadius: 2 },
-  zeichnung: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: spacing.s },
-  kartenText: { fontFamily: fonts.notiz, fontSize: 16, lineHeight: 26, color: colors.ink, textAlign: 'center' },
-  unterschrift: { alignItems: 'center', gap: 2 },
-  unterschriftText: { fontFamily: fonts.notiz, fontSize: 20, lineHeight: 26, color: colors.moon, textAlign: 'center' },
-  mass: { fontFamily: fonts.etikett, fontSize: 13, letterSpacing: 1.5, color: colors.amber },
+  zeichnung: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: spacing.l,
+    backgroundColor: colors.paperDark,
+  },
+  kartenFuss: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 6,
+    paddingHorizontal: 4,
+  },
+  kartenTitel: { flex: 1, fontFamily: fonts.notiz, fontSize: 22, lineHeight: 30, color: colors.ink },
+  rueckZeichnung: { width: '70%', aspectRatio: 1.25 },
+  rueckTitel: { fontFamily: fonts.titel, fontSize: 20, letterSpacing: 1.2, color: colors.ink, textAlign: 'center' },
+  rueckText: { fontFamily: fonts.notiz, fontSize: 18, lineHeight: 24, color: colors.inkFaded, textAlign: 'center' },
+  rueckMass: { fontFamily: fonts.etikett, fontSize: 15, letterSpacing: 1.5, color: colors.ink },
+  punkte: { flexDirection: 'row', justifyContent: 'center', gap: 8, marginTop: -spacing.s },
+  punkt: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.moss },
+  punktAn: { width: 20, backgroundColor: colors.amber },
 });

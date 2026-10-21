@@ -358,10 +358,11 @@ Von oben nach unten:
 9. **Lehrbuch-Zeichnung** im Stil „Tinte auf altem Papier“ (`LehrbuchZeichnung.tsx`).
 10. **Verbreitung in Deutschland**. Bei Mystery-Arten heißt der Abschnitt „Hier könntest du suchen“.
 
-**Lebendige Tierseite (Reh, Rotfuchs – alle Tiere mit echten Fotos):** Erzählt in Kapiteln über die volle Breite statt in Kästen (`src/components/lebendig/`, Beschreibung `docs/KONZEPT-TIERSEITE.md`):
+**Lebendige Tierseite (Reh, Rotfuchs, Wildschwein – alle Tiere mit echten Fotos):** Erzählt in Kapiteln über die volle Breite statt in Kästen (`src/components/lebendig/`, Beschreibung `docs/KONZEPT-TIERSEITE.md`):
 - **Hero** (`LebendigHero`): großes Foto mit Parallaxe, Nebel und Glühwürmchen, Name Buchstabe für Buchstabe, darunter die **Wappen** (Wild-Wert, Seltenheit, Schutz, Rote Liste, Gift). Nicht gesammelt: Foto verschwommen. Knopf „3D“ wechselt zur 3D-Bühne.
 - **Kapitel** (`LebendigInhalt`): I Erkunden (Lupe auf dem Foto, Schulterhöhe und Gewicht) · II Ein Jahr (Jahreszeiten zum Wischen und Jahresrad) · III Ein Tag (Tagesuhr) · IV Zuhause (echtes Landschafts-Panorama mit Orten und Nahfotos, Tag/Dämmerung) · V Speiseplan (mit Links zu Futterpflanzen) · VI Spuren (laufende Fährte: Schnee/Matsch/Sand, Gehen/Flucht, Alt/Jungtier; Fundkarten) · VII Fressfeinde (Schatten mit leuchtenden Augen, Antippen holt sie ins Licht) · VIII Wo in Deutschland (Rasterkarte) · IX Skizzenbuch. Danach Sicherheits-Hinweis und Fotonachweis.
 - Kapitel blenden beim Scrollen ein. Bei „Bewegung reduzieren“ steht alles still. Im Test ist „Bewegung reduzieren“ an (`jest.setup.js`).
+- Wildschwein (Pipeline `docs/PIPELINE-TIERSEITEN.md`): alle Werte mit Quellen (`quellen`, unten auf der Seite), echte Trittsiegel-Form (`trittPfad`), im Jahresrad ab Herbst das rotbraune Jugendkleid (`fotos.jungSpaeter`, `jung.dunkelKurz`), Futter ohne belegte Monate erscheint mit „Monate offen“ (`monateOffen`).
 - Die anderen Säugetiere behalten die grafische Seite unten, bis sie echte Fotos haben. Ihre Lebensraum-Panoramen sind schon eingetragen (`lebensraum.panorama`).
 
 **Grafische Tierseiten (alle 10 Säugetiere):** Gibt es für eine Art einen Eintrag in `src/data/tierSeiten.ts`, ersetzt eine Bild-Seite die Text-Abschnitte (Steckbrief, Key Features, Nahrung, Spuren, Wohnen, Fressfeinde, Wusstest du). Bausteine in `src/components/tier/`:
@@ -405,6 +406,7 @@ Er setzt sich zusammen aus 55 % Verbreitung (Anteil der Rasterfelder ohne Nachwe
 ### 8.3 Deutschlandkarte (`VerbreitungsKarte.tsx`)
 - **Untergrund:** Großlandschaften (Tiefland bis Alpen), große Flüsse, Gebirge mit Namen und Waldgebiete.
 - **Verbreitung:** 82 Wuchsgebiete als Flächen. Voll gefüllt bedeutet häufig, schraffiert bedeutet vereinzelt.
+- **Echte Daten (GBIF):** Bei Arten mit echten Nachweisen steht unter der Karte gut sichtbar: „Gemeldete Funde – nicht die ganze Verbreitung. Leere Felder heißen nicht, dass die Art dort fehlt.“ (Leere Felder sind oft nur Meldelücken.)
 - **Eigener Standort:** pulsierender Punkt, nur **ungefähr** (ca. 10 km). Ohne gespeicherten Standort steht er in der Mitte des Naturraums.
 - Die Flächen sind gröber als Rasterfelder. **Fundorte seltener Arten werden nie genauer gezeigt.**
 

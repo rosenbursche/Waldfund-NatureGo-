@@ -14,13 +14,12 @@ import Svg, {
   Text as SvgText,
 } from 'react-native-svg';
 
-import { ArtMiniatur } from '@/components/ArtMiniatur';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { Schrift } from '@/components/Schrift';
 import type { Landschaft, TierSeite, TrittForm, Zone } from '@/data/tierSeiten';
 import { MONATE } from '@/logic/jahreszeit';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
 import { cmZuPunkten, farbMix, nahrungIm } from '@/logic/tierJahr';
-import { SELTENHEIT } from '@/data/spiel';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { TierFigur } from './TierFigur';
@@ -591,25 +590,31 @@ export function Speiseplan({
       <View style={stile.teller}>
         {tier.nahrung.map((n) => {
           const da = jetzt.includes(n.icon);
+          // Monate nicht belegt: halb sichtbar, ohne Monatsbalken (nicht als „nie“ darstellen)
+          const offen = !!n.monateOffen;
           return (
-            <View key={n.icon} style={[stile.tellerEintrag, !da && { opacity: 0.28 }]}>
+            <View key={n.icon} style={[stile.tellerEintrag, !da && { opacity: offen ? 0.6 : 0.28 }]}>
               <View style={[stile.tellerKreis, da && { borderColor: colors.amber }]}>
                 <TierSymbol name={n.icon} groesse={30} farbe={da ? colors.amber : colors.fog} />
               </View>
               <Schrift style={stile.tellerText}>{n.kurz}</Schrift>
               {/* in welchen Monaten es das gibt */}
-              <View style={stile.balken}>
-                {MONATE.map((m, k) => (
-                  <View
-                    key={m}
-                    style={[
-                      stile.strich,
-                      n.monate.includes(k + 1) && { backgroundColor: colors.amber },
-                      k + 1 === monat && stile.strichJetzt,
-                    ]}
-                  />
-                ))}
-              </View>
+              {offen ? (
+                <Schrift style={stile.monateOffen}>Monate offen</Schrift>
+              ) : (
+                <View style={stile.balken}>
+                  {MONATE.map((m, k) => (
+                    <View
+                      key={m}
+                      style={[
+                        stile.strich,
+                        n.monate.includes(k + 1) && { backgroundColor: colors.amber },
+                        k + 1 === monat && stile.strichJetzt,
+                      ]}
+                    />
+                  ))}
+                </View>
+              )}
             </View>
           );
         })}
@@ -816,12 +821,15 @@ function Gefahr({ gefahr, sammlung }: { gefahr: TierSeite['gefahren'][number]; s
     <>
       <View style={stile.gefahrKreis}>
         {e ? (
-          <ArtMiniatur
+          <ArtTaler
+            id={e.id}
+            seltenheit={e.seltenheit}
+            zustand={
+              gefahr.artId! in sammlung ? 'gefunden' : istVerborgen(gefahr.artId!, sammlung) ? 'verborgen' : 'umriss'
+            }
+            groesse={58}
             modell={e.modell}
             baumModell={e.baumModell}
-            stil={gefahr.artId! in sammlung ? 'farbe' : istVerborgen(gefahr.artId!, sammlung) ? 'verborgen' : 'umriss'}
-            akzent={SELTENHEIT[e.seltenheit].farbe}
-            groesse={40}
           />
         ) : (
           <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={32} farbe={colors.fog} />
@@ -980,6 +988,7 @@ const stile = StyleSheet.create({
   monatText: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog },
   teller: { flexDirection: 'row', justifyContent: 'space-between' },
   tellerEintrag: { alignItems: 'center', gap: 4, width: '19%' },
+  monateOffen: { fontFamily: fonts.etikett, fontSize: 9, letterSpacing: 0.5, color: colors.fog, textAlign: 'center' },
   tellerKreis: {
     width: 54,
     height: 54,

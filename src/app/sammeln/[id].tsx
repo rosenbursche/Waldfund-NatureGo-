@@ -21,7 +21,9 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { artById } from '@/data/arten';
 import { AST_BONUS, SELTENHEIT, ZWEIG_BONUS } from '@/data/spiel';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { WappenReihe } from '@/components/ui/Wappen';
+import { Info } from '@/components/ui/Info';
 import { HUETTEN_NAME, levelInfo, tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
@@ -136,21 +138,16 @@ export default function Sammeln() {
         <ScrollView contentContainerStyle={stile.inhalt}>
           {schritt.art === 'start' && (
             <>
-              <Kopfzeile etikett="Sammeln" titel={verborgen ? 'Mystery-Art' : eintrag.name} />
-              <Schrift>
-                Fotografiere die Art dort, wo sie lebt. Danach prüft Wildfund, ob auf dem Foto wirklich diese Art zu
-                sehen ist.
-              </Schrift>
+              <Kopfzeile
+                etikett="Sammeln"
+                titel={verborgen ? 'Mystery-Art' : eintrag.name}
+                info="Fotografiere die Art dort, wo sie lebt. Danach prüft Wildfund, ob auf dem Foto wirklich diese Art zu sehen ist."
+              />
               <View style={[stile.kasten, { borderColor: (art?.schutz ?? 0) > 0 ? colors.legend : colors.moss }]}>
-                <Schrift art="etikett">So bleibt die Natur geschützt</Schrift>
                 <Schrift art="klein">
-                  {(art?.schutz ?? 0) === 2
-                    ? 'Streng geschützt: Nur aus Abstand fotografieren, nicht stören, nichts anfassen.'
-                    : 'Nur fotografieren – nicht pflücken, nicht fangen, nicht stören.'}{' '}
-                  Bleib auf den Wegen und lauf Tieren nie hinterher.
-                  {kategorie === 'pilze'
-                    ? ' Pilze niemals essen, wenn sie nicht von Sachverständigen geprüft wurden.'
-                    : ''}
+                  {(art?.schutz ?? 0) === 2 ? 'Streng geschützt · Abstand halten' : 'Nur fotografieren'} · Auf dem Weg
+                  bleiben
+                  {kategorie === 'pilze' ? ' · Pilze nie essen' : ''}
                 </Schrift>
               </View>
               {schritt.meldung && (
@@ -161,26 +158,23 @@ export default function Sammeln() {
                   )}
                 </View>
               )}
-              <Knopf
-                titel="Kamera öffnen"
-                untertitel="Foto der Art machen"
-                symbol="pfeil"
-                onPress={() => los('kamera')}
-              />
-              <Knopf
-                titel="Foto aus der Galerie"
-                untertitel="Wenn du die Art schon fotografiert hast"
-                art="leise"
-                onPress={() => los('galerie')}
-              />
-              <Schrift art="klein" style={{ opacity: 0.75 }}>
-                {echt
-                  ? 'Echte Prüfung: Das Foto wird über den Wildfund-Server an Pl@ntNet geschickt und dort nicht gespeichert.'
-                  : pruefModus === 'echt' && !echtPruefbar(kategorie)
-                    ? 'Für diese Gruppe gibt es noch keine echte Erkennung – die Prüfung wird simuliert.'
-                    : 'Demo-Modus: Die Bilderkennung wird simuliert.'}{' '}
-                Deine Fotos bleiben auf deinem Handy, Standortdaten werden aus dem Bild entfernt.
-              </Schrift>
+              <Knopf titel="Kamera öffnen" symbol="pfeil" onPress={() => los('kamera')} />
+              <Knopf titel="Foto aus der Galerie" art="leise" onPress={() => los('galerie')} />
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+                <Schrift art="klein" style={{ opacity: 0.75 }}>
+                  {echt ? 'Echte Prüfung · Pl@ntNet' : 'Demo-Prüfung'}
+                </Schrift>
+                <Info
+                  titel="Prüfung"
+                  text={`${
+                    echt
+                      ? 'Echte Prüfung: Das Foto wird über den Wildfund-Server an Pl@ntNet geschickt und dort nicht gespeichert.'
+                      : pruefModus === 'echt' && !echtPruefbar(kategorie)
+                        ? 'Für diese Gruppe gibt es noch keine echte Erkennung – die Prüfung wird simuliert.'
+                        : 'Demo-Modus: Die Bilderkennung wird simuliert.'
+                  } Deine Fotos bleiben auf deinem Handy, Standortdaten werden aus dem Bild entfernt.`}
+                />
+              </View>
             </>
           )}
 
@@ -208,6 +202,17 @@ export default function Sammeln() {
                 <Schrift art="titel" style={{ textAlign: 'center' }} accessibilityRole="header">
                   {eintrag.name}
                 </Schrift>
+              </Animated.View>
+              {/* der Taler der Art: jetzt in Farbe freigeschaltet */}
+              <Animated.View entering={FadeInDown.delay(700).duration(700)}>
+                <ArtTaler
+                  id={id}
+                  seltenheit={eintrag.seltenheit}
+                  zustand="gefunden"
+                  groesse={120}
+                  modell={art?.modell}
+                  baumModell={eintrag.baumModell}
+                />
               </Animated.View>
               {/* Wappen der Art als Belohnung: Wild-Wert, Seltenheit, Schutz … */}
               <Animated.View entering={FadeInDown.delay(700).duration(600)}>
@@ -273,7 +278,7 @@ function BelohnungsText({ b }: { b: Belohnung }) {
   if (!b.neu) {
     return (
       <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Diese Art hattest du schon – dein neues Foto ist gespeichert. Punkte gibt es nur für neue Arten.
+        Foto aktualisiert · keine neuen Punkte
       </Schrift>
     );
   }

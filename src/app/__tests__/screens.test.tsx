@@ -71,7 +71,7 @@ describe('Screens rendern ohne Fehler', () => {
     useEinstellungen.setState({ naturraumId: 'hochharz', startSzene: 'diorama' });
     await render(<Start />);
     expect(screen.getByText(/Hochharz ·/)).toBeTruthy();
-    expect(screen.getByText('Kippe das Handy · tippe einen Runenstein an')).toBeTruthy();
+    expect(screen.queryByText(/tippe einen Runenstein an/)).toBeNull(); // keine Bedienhinweise mehr
     expect(screen.getByText('Entdecker')).toBeTruthy(); // Rang in der Fortschrittsanzeige
     // alle vier Runensteine sind als Knöpfe erreichbar (auch für Screenreader)
     expect(screen.getByLabelText(/^Pflanzen: \d+ von \d+ gesammelt/)).toBeTruthy();
@@ -81,7 +81,7 @@ describe('Screens rendern ohne Fehler', () => {
   test('Startseite mit 3D-Lichtung', async () => {
     useEinstellungen.setState({ naturraumId: 'hochharz', startSzene: '3d' });
     await render(<Start />);
-    expect(screen.getByText('Tippe einen Baum oder Runenstein an')).toBeTruthy();
+    expect(screen.queryByText(/Tippe einen Baum/)).toBeNull();
   });
 
   test('Artenseite einer Baumart', async () => {
@@ -92,7 +92,7 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 
-  test.each(['eichhoernchen', 'wildschwein', 'dachs', 'igel', 'feldhase', 'biber', 'wildkatze', 'luchs'])(
+  test.each(['eichhoernchen', 'dachs', 'igel', 'feldhase', 'biber', 'wildkatze', 'luchs'])(
     'Grafische Seite für jedes Säugetier: %s',
     async (id) => {
       mockParams.id = id;
@@ -118,7 +118,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
@@ -145,7 +144,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
@@ -155,6 +153,39 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText('Lunte, oft mit weißer Spitze')).toBeTruthy();
     // kein Bock/Ricke-Umschalter beim Fuchs
     expect(screen.queryByText('Bock')).toBeNull();
+  });
+
+  test('Lebendige Wildschwein-Seite: Kapitel, Quellen, Warnlaut, Fressfeinde, Lupe', async () => {
+    mockParams.id = 'wildschwein';
+    useSammlung.setState({ gefunden: { wildschwein: { datum: '2026-10-01' } } });
+    await render(<ArtSeite />);
+    for (const titel of [
+      'Erkunden',
+      'Ein Jahr',
+      'Ein Tag',
+      'Zuhause',
+      'Speiseplan',
+      'Spuren',
+      'Fressfeinde',
+      'Wo in Deutschland',
+      'Quellen',
+    ]) {
+      expect(screen.getByText(titel)).toBeTruthy();
+    }
+    expect(screen.getByText('Wildschweine gesehen?')).toBeTruthy();
+    expect(screen.getByText(/lautes Schnauben/)).toBeTruthy();
+    expect(screen.getByLabelText(/Nasskaltes Wetter/)).toBeTruthy();
+    expect(screen.getByText('Monate offen')).toBeTruthy(); // Würmer: keine Monate belegt
+    expect(screen.getByLabelText(/Bundesjagdgesetz/)).toBeTruthy(); // Quellenliste
+    await fireEvent.press(screen.getByLabelText('Rüssel: gräbt und riecht'));
+    expect(screen.getByText('Rüssel: gräbt und riecht')).toBeTruthy();
+  });
+
+  test('Karte mit echten GBIF-Daten sagt, dass leere Felder keine Abwesenheit bedeuten', async () => {
+    mockParams.id = 'luchs';
+    useSammlung.setState({ gefunden: { luchs: { datum: '2026-10-01' } } });
+    await render(<ArtSeite />);
+    expect(screen.getByText(/Gemeldete Funde – nicht die ganze Verbreitung/)).toBeTruthy();
   });
 
   test('Artenseite eines Vogels: Füße, Nest, Warum so gebaut', async () => {
@@ -199,7 +230,8 @@ describe('Screens rendern ohne Fehler', () => {
     mockParams.kategorie = 'voegel';
     useEinstellungen.setState({ katalogAnsicht: 'wald' });
     await render(<Katalog />);
-    expect(screen.getByText('Tippe eine Art an')).toBeTruthy();
+    expect(screen.queryByText('Tippe eine Art an')).toBeNull();
+    expect(screen.getByLabelText(/^Info: /)).toBeTruthy(); // Erklärung hinter dem „i“
     expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
   });
 
@@ -282,7 +314,7 @@ describe('Screens rendern ohne Fehler', () => {
     mockParams.id = 'eisvogel';
     await render(<Sammeln />);
     expect(screen.getByText('Kamera öffnen')).toBeTruthy();
-    expect(screen.getByText(/Streng geschützt: Nur aus Abstand fotografieren/)).toBeTruthy();
+    expect(screen.getByText(/Streng geschützt · Abstand halten/)).toBeTruthy();
   });
 
   test('Sammeln einer Mystery-Art verrät den Namen nicht', async () => {

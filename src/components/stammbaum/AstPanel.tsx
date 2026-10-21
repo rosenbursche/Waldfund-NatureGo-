@@ -23,8 +23,9 @@ import {
 } from '@/logic/katalog';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
-import { ArtMiniatur } from '../ArtMiniatur';
+import { ArtTaler } from '../taler/ArtTaler';
 import { Schrift } from '../Schrift';
+import { Info } from '../ui/Info';
 import { BAUM_STILE } from './baumStile';
 
 /**
@@ -94,7 +95,17 @@ export function AstPanel({ kategorie, ast, gefunden, passt, onSchliessen }: Prop
     <View style={stile.rahmen}>
       <View style={stile.kopf}>
         <View style={{ flex: 1 }}>
-          <Schrift art="ueberschrift">{ast.name}</Schrift>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.s }}>
+            <Schrift art="ueberschrift">{ast.name}</Schrift>
+            <Info
+              titel={ast.name}
+              text={`Vorn sitzen die häufigen Arten (+${SELTENHEIT[1].punkte} AP), hinten die seltenen. ✦ ist der Schatz des Zweigs.${
+                ast.mond
+                  ? ' ☾ Meisterast: schwer zu finden – nachts, sehr klein oder sehr scheu. Quartiere und Nester nie stören.'
+                  : ''
+              }`}
+            />
+          </View>
           <Schrift art="etikett">
             {anzahl} von {n} gefunden · {ast.zweige.length} {ast.zweige.length === 1 ? 'Zweig' : 'Zweige'}
           </Schrift>
@@ -111,13 +122,9 @@ export function AstPanel({ kategorie, ast, gefunden, passt, onSchliessen }: Prop
       </View>
       {ast.mond && (
         <Schrift art="klein" style={stile.mond}>
-          ☾ Meisterast: schwer zu finden – nachts, sehr klein oder sehr scheu. Nur aus der Ferne beobachten, Quartiere
-          und Nester nie stören.
+          ☾ Nur aus der Ferne beobachten
         </Schrift>
       )}
-      <Schrift art="klein" style={{ textAlign: 'center' }}>
-        Vorn: häufig (+{SELTENHEIT[1].punkte} AP) · hinten: selten · ✦ = Schatz des Zweigs
-      </Schrift>
 
       <Animated.View
         style={[{ overflow: 'hidden' }, wachsStil]}
@@ -253,21 +260,14 @@ function Knoten({
         }${p.schatz ? ', Schatz des Zweigs' : ''}${p.e.gefahr ? ', gefährlich' : ''}`}
         style={({ pressed }) => [{ alignItems: 'center' }, pressed && { opacity: 0.6 }]}
       >
-        <View
-          style={[
-            stile.kreis,
-            ok
-              ? { borderColor: s.farbe, backgroundColor: colors.forest, shadowColor: s.farbe, shadowOpacity: 0.8 }
-              : { borderColor: s.farbe, borderStyle: 'dashed' },
-            p.schatz && { borderWidth: 2.2, borderColor: colors.legend },
-          ]}
-        >
-          <ArtMiniatur
+        <View style={p.schatz ? stile.schatzTaler : undefined}>
+          <ArtTaler
+            id={p.e.id}
+            seltenheit={p.e.seltenheit}
+            zustand={ok ? 'gefunden' : verborgen ? 'verborgen' : 'umriss'}
+            groesse={68}
             modell={p.e.modell}
             baumModell={p.e.baumModell}
-            stil={ok ? 'farbe' : 'umriss'}
-            akzent={s.farbe}
-            groesse={40}
           />
         </View>
         {p.schatz && (
@@ -305,6 +305,13 @@ function umbrechen(name: string): string[] {
 }
 
 const stile = StyleSheet.create({
+  // Schatz des Zweigs: goldener Schein hinter dem Taler
+  schatzTaler: {
+    shadowColor: colors.legend,
+    shadowOpacity: 0.8,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 0 },
+  },
   rahmen: { gap: spacing.s },
   kopf: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
   schliessen: {
@@ -340,17 +347,6 @@ const stile = StyleSheet.create({
   knoten: { position: 'absolute' },
   krone: { position: 'absolute', top: -12, fontSize: 15, color: colors.legend },
   dorn: { position: 'absolute', top: -4, right: 6, fontSize: 12, color: colors.warn },
-  kreis: {
-    width: KNOTEN,
-    height: KNOTEN,
-    borderRadius: KNOTEN / 2,
-    borderWidth: 1.6,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.night,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 0 },
-  },
   name: {
     textAlign: 'center',
     fontSize: 12,

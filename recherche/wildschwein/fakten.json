@@ -1,0 +1,152 @@
+{
+  "artId": "wildschwein",
+  "quellen": [
+    { "id": "q1", "titel": "Schwarzwildbiologie – Frischlinge intensiv bejagen! (Rheinisch-Westfälischer Jäger 9/2016)", "herausgeber": "Forschungsstelle für Jagdkunde und Wildschadenverhütung NRW (Dr. Michael Petrak), LANUV NRW", "url": "https://www.lave.nrw.de/system/files/media/document/file/fo-st-rwj-9-16-saujagd.pdf", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q2", "titel": "Das Schwarzwild kehrt zurück (Petrak 2009, Säugetierkundliche Informationen 7/39)", "herausgeber": "waldwissen.net / Wald und Holz NRW", "url": "https://www.waldwissen.net/de/lebensraum-wald/wald-und-wild/wildtiermanagement/das-schwarzwild-kehrt-zurueck", "art": "Wissenschaft", "abgerufen": "2026-10-19" },
+    { "id": "q3", "titel": "Warum werden Wildschweine zum Problem? (Metzger 2002, LWF aktuell 35)", "herausgeber": "waldwissen.net / Bayerische Landesanstalt für Wald und Forstwirtschaft (LWF)", "url": "https://www.waldwissen.net/de/lebensraum-wald/wald-und-wild/wildtiermanagement/wildschweinproblem", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q4", "titel": "Wildschwein – Steckbrief", "herausgeber": "Deutsche Wildtier Stiftung", "url": "https://www.deutschewildtierstiftung.de/wildtiere/wildschwein", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q5", "titel": "Ratgeber Fährten und Spuren (S. 4–5, Paarhufer)", "herausgeber": "Deutsche Wildtier Stiftung", "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q6", "titel": "Das Wildschwein (Wildtiere im Stadtgebiet)", "herausgeber": "Senatsverwaltung für Mobilität, Verkehr, Klimaschutz und Umwelt Berlin", "url": "https://www.berlin.de/sen/uvk/natur-und-gruen/jagd-und-wildtiere/wildtiere-im-stadtgebiet/wildschwein/", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q7", "titel": "Projektbericht Schwarzwildproblematik im Umfeld von Schutzgebieten – Raum-Zeit-Verhalten und Aktivität von Wildschweinen (Wildforschung in Baden-Württemberg Bd. 14)", "herausgeber": "Wildforschungsstelle Baden-Württemberg (LAZBW)", "url": "https://fortbildung-lazbw.lgl-bw.de/lazbw/webbasys/download/Shop/WFS_Bd14_Projektbericht_Schwarzwildproblematik.pdf", "art": "Wissenschaft", "abgerufen": "2026-10-19" },
+    { "id": "q8", "titel": "Tierspuren – Anlagen (Projekt Tiere live)", "herausgeber": "Bayerische Akademie für Naturschutz und Landschaftspflege (ANL)", "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q9", "titel": "Mehr als ein Haufen: Was Kot verrät", "herausgeber": "waldwissen.net / Redaktion FVA Baden-Württemberg", "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q10", "titel": "Das Wildschwein (Infoblatt)", "herausgeber": "Amt für Wald und Natur (WNA), Kanton Freiburg (CH)", "url": "https://www.fr.ch/de/document/76231", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q11", "titel": "Wildtiere im Wallis – Das Wildschwein, Schwarzwild-Management 2025", "herausgeber": "Dienststelle für Jagd, Fischerei und Wildtiere, Kanton Wallis (CH)", "url": "https://www.vs.ch/documents/33024802/33033352/Infoblatt_Wildschwein_2025/32d68642-6fbc-c2c6-c24a-ecdf50452f86", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q12", "titel": "Wildschwein (Reiben) – Diagnose online", "herausgeber": "Waldschutz Schweiz, Eidg. Forschungsanstalt WSL", "url": "https://waldschutz.wsl.ch/fileadmin/user_upload/WSL/Microsite/Waldschutz-Schweiz/Diagnose_online/de/Wildschwein_Reiben_63.pdf", "art": "Wissenschaft", "abgerufen": "2026-10-19" },
+    { "id": "q13", "titel": "Review of wallowing in pigs: Description of the behaviour and its motivational basis (Bracke 2011, Applied Animal Behaviour Science 132)", "herausgeber": "Wageningen University & Research", "url": "https://research.wur.nl/en/publications/review-of-wallowing-in-pigs-description-of-the-behaviour-and-its-", "art": "Wissenschaft", "abgerufen": "2026-10-19" },
+    { "id": "q14", "titel": "Artensteckbrief Wildschwein (Rote Liste der Säugetiere Deutschlands, Meinig et al. 2020)", "herausgeber": "Rote-Liste-Zentrum / BfN", "url": "https://www.rote-liste-zentrum.de/detail/pdf/54013", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q15", "titel": "Bundesjagdgesetz § 2 Tierarten", "herausgeber": "Bundesministerium der Justiz (gesetze-im-internet.de)", "url": "https://www.gesetze-im-internet.de/bjagdg/__2.html", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q16", "titel": "Fragen und Antworten für die schriftliche Jägerprüfung in Baden-Württemberg, Prüfungsfach 1 (Stand 12.07.2021)", "herausgeber": "Landesjagdverband Baden-Württemberg", "url": "https://dev-1.v12.landesjagdverband.de/fileadmin/rootpages/1/Fach_1_Stand_12.07.2021_mit_L%C3%B6sungen.pdf", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q17", "titel": "Hirsche und Wildschweine verursachen jetzt viele Wildunfälle (28.10.2021)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/hirsche-und-wildschweine-verursachen-jetzt-viele-wildunfaelle", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q18", "titel": "Afrikanische Schweinepest", "herausgeber": "Friedrich-Loeffler-Institut (FLI)", "url": "https://www.fli.de/de/aktuelles/tierseuchengeschehen/afrikanische-schweinepest/", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q19", "titel": "Speisezettel der Wölfe (Senckenberg-Kotanalysen Lausitz)", "herausgeber": "NABU", "url": "https://www.nabu.de/tiere-und-pflanzen/saeugetiere/wolf/wissen/15572.html", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q20", "titel": "Meldung zum Wildschwein (04.12.2024)", "herausgeber": "Amt für Jagd und Fischerei Graubünden (CH)", "url": "https://www.gr.ch/DE/institutionen/verwaltung/diem/ajf/ueberuns/aktuelles/Seiten/202412042.aspx", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q21", "titel": "LIFEGENMON – Leitfaden für das genetische Monitoring der Eichen", "herausgeber": "Bayerische Landesanstalt für Wald und Forstwirtschaft (LWF)", "url": "https://lwf.bayern.de/mam/cms02/asp/dateien/lifegenmon_leitfaden_eichen.pdf", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q22", "titel": "LIFEGENMON – Leitfaden für das genetische Monitoring der Rotbuche", "herausgeber": "Bayerische Landesanstalt für Wald und Forstwirtschaft (LWF)", "url": "https://lwf.bayern.de/mam/cms02/asp/dateien/lifegenmon_leitfaden_rotbuche.pdf", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q23", "titel": "Wild boar (Artportrait mit Literaturangaben)", "herausgeber": "Wildlife Online (M. Baldwin, UK)", "url": "https://www.wildlifeonline.me.uk/animals/species/wild-boar", "art": "Fachbuch", "abgerufen": "2026-10-19" },
+    { "id": "q24", "titel": "Wildschwein (Sus scrofa) – Steckbrief", "herausgeber": "Wildpark Eekholt", "url": "https://www.wildpark-eekholt.de/download/Wildschw.pdf", "art": "Verband", "abgerufen": "2026-10-19" }
+  ],
+
+  "groesse": {
+    "mass": "schulter",
+    "cm": [55, 110],
+    "gewicht": [50, 200],
+    "einheit": "kg",
+    "maennlich": { "name": "Keiler", "gewicht": [100, 150], "gewichtMax": 200, "kopfRumpfCm": [150, 180], "schulterMaxCm": 110, "quelle": ["q6", "q4"] },
+    "weiblich": { "name": "Bache", "gewichtHinweis": "etwa 50–70 % des Keilergewichts; Schweizer Kantone: bis 90 kg", "quelle": ["q6", "q10", "q11"] },
+    "typisch": { "gewicht": 70, "hinweis": "DWS: meist etwa 70 kg", "quelle": ["q5"] },
+    "hinweis": "Schulterhöhe: Berlin bis 110 cm, Wildpark Eekholt 55–115 cm. Gewicht schwankt stark mit Lebensbedingungen. Untere Grenze 50 kg = 50 % von 100 kg (Bache, abgeleitet aus q6). Eekholt nennt deutlich höhere Werte (Keiler 100–300, Bache 100–170 kg), siehe fakten.md.",
+    "quelle": ["q6", "q4", "q24", "q10", "q11"]
+  },
+
+  "aktivitaet": {
+    "phasen": [
+      { "von": 20, "bis": 6, "staerke": 2 },
+      { "von": 18.5, "bis": 20, "staerke": 1 },
+      { "von": 6, "bis": 7.5, "staerke": 1 }
+    ],
+    "bezug": "Beispiel Mitte Oktober, Oberschwaben (Sonnenaufgang ca. 7:38, Untergang ca. 18:34 MESZ, berechnet). Phasen nach der Tagesphasen-Definition der Studie q7: Abenddämmerung = Sonnenuntergang bis 1,5 h danach, Nacht = bis 1,5 h vor Sonnenaufgang, Morgengrauen = 1,5 h vor Sonnenaufgang bis Sonnenaufgang. Die Uhrzeiten verschieben sich mit der Jahreszeit.",
+    "kennzahlen": {
+      "aktivAnteil24h": "41,3 % (rund 10–11 Stunden)",
+      "aktivNachts": "65,6 % der Nacht-Ortungen aktiv",
+      "aktivTags": "19,4 % der Tag-Ortungen aktiv",
+      "maximum": "ca. 80 % Aktivität um Mitternacht (Oktober)",
+      "minimum": "Mittag, 10–20 %",
+      "quelle": ["q7"]
+    },
+    "hinweis": "Von Natur aus tag- und dämmerungsaktiv. Durch Störung und Jagd fast nur nachts unterwegs, ruht tagsüber im Dickicht. Im ungestörten Urwald Białowieża fast die Hälfte der Aktivität bei Tageslicht, in der Stadt Krakau 90 % nachts und in der Dämmerung. Etwas mehr Tagaktivität im Sommer (kurze Nächte).",
+    "quelle": ["q7", "q6", "q11", "q3"]
+  },
+
+  "jahr": [
+    { "id": "rauschzeit", "kurz": "Paarungszeit (Rauschzeit)", "monate": [11, 12, 1], "spanne": [10, 11, 12, 1, 2, 3], "hinweis": "Schwerpunkt Nov–Jan; ohne Leitbache fast ganzjährig möglich", "quelle": ["q3", "q6", "q4", "q1"] },
+    { "id": "zweiteRausche", "kurz": "Zweite Paarungszeit", "monate": [9, 10], "hinweis": "Laut NRW-Forschungsstelle zusätzlich zur Hauptrauschzeit", "quelle": ["q1", "q2"] },
+    { "id": "frischzeit", "kurz": "Frischlinge kommen", "monate": [3, 4, 5], "spanne": [3, 4, 5, 6], "hinweis": "Meiste Geburten März–Mai (LWF), Schweiz März–Juni, NRW: April. Tragzeit 108–120 Tage (Mittel 114), rund 4 Monate", "quelle": ["q3", "q10", "q11", "q1", "q6"] },
+    { "id": "kessel", "kurz": "Bache im Wurfkessel", "monate": [3, 4, 5], "hinweis": "Bache sondert sich vor der Geburt ab und bleibt einige Tage im Kessel; Monate = Frischzeit", "quelle": ["q3", "q6", "q16"] },
+    { "id": "mast", "kurz": "Eicheln & Bucheckern", "monate": [9, 10, 11], "spanne": [9, 10, 11, 12, 1, 2], "hinweis": "Eicheln reifen Ende Sep–Okt, Bucheckern fallen Sep–Nov; im Winter frisst das Wildschwein heruntergefallene Früchte", "quelle": ["q21", "q22", "q20"] },
+    { "id": "suhlen", "kurz": "Suhlen gegen Hitze", "monate": [6, 7, 8], "hinweis": "Im Sommer vor allem zum Abkühlen; gesuhlt wird aber nicht nur im Sommer. Monate 6–8 = 'Sommer' (Zuordnung durch Recherche)", "quelle": ["q4", "q16", "q13"] },
+    { "id": "haarwechsel", "kurz": "Fellwechsel", "monate": [4, 8, 9], "hinweis": "Unterwolle fällt ab April aus, wächst ab Aug/Sep nach", "quelle": ["q23"] }
+  ],
+
+  "fell": {
+    "monate": [0, 0, 0, 0.5, 1, 1, 1, 0.5, 0.5, 0, 0, 0],
+    "beschreibung": "Winterfell: lange, dunkelgraue bis schwarze Borsten über dichter, wolliger Unterwolle (q4). Sommerfell: kurze Borsten ohne Unterwolle (q23). Wechsel: Unterwolle fällt ab April aus, Neuwuchs ab August/September (q23). Fellfarbe sehr variabel von hellgrau bis schwarz (q6).",
+    "hinweis": "Nur Beginn der beiden Wechsel ist belegt (April, Aug/Sep). Die Werte für Mai–Juli (1) und Okt–Dez (0) sind aus diesen zwei Punkten abgeleitet, nicht direkt belegt. Quelle q23 ist eine britische Sekundärquelle.",
+    "quelle": ["q23", "q4", "q6"]
+  },
+
+  "jung": {
+    "name": "Frischling",
+    "sichtbar": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2],
+    "merkmal": "streifen",
+    "merkmalMonate": [3, 4, 5, 6, 7, 8],
+    "merkmalDauer": "Streifen 3–4 Monate (DWS, Berlin, Kanton Freiburg), laut LJV-Prüfungsfragen 4–5 Monate",
+    "danach": { "merkmal": "rotbraun", "kurz": "Rotbraunes Jugendfell", "dauer": "ab ca. 4. Monat bis etwa 12. Monat", "quelle": ["q4", "q10", "q16"] },
+    "wurf": "meist 5–8 (Freiburg/Wallis 4–8, Berlin bis 12)",
+    "saeugezeit": "3–4 Monate",
+    "hinweis": "Sichtbar: Bache bleibt nach der Geburt nur einige Tage im Kessel (q3). Frischling heißt das Tier im ganzen ersten Lebensjahr (q10: 0–12 Monate; q1). merkmalMonate abgeleitet: Geburt März–Mai + 3–4 Monate Streifen = März bis August; bei späten Würfen oder 5 Monaten bis September/Oktober.",
+    "quelle": ["q4", "q6", "q10", "q3", "q16", "q1", "q11"]
+  },
+
+  "nahrung": [
+    { "kurz": "Eicheln & Bucheckern", "monate": [9, 10, 11, 12, 1, 2], "anteil": "hoch", "pflanzenIds": ["stieleiche", "rotbuche"], "pflanzenIdsBaumarten": ["traubeneiche"], "hinweis": "Lieblingsfutter; bis 5 kg am Tag; im Winter heruntergefallene Früchte. Anteil hängt von Mastjahren ab", "quelle": ["q3", "q2", "q1", "q21", "q22", "q20"] },
+    { "kurz": "Wurzeln & Knollen", "monate": [12, 1, 2], "anteil": "hoch", "hinweis": "Im Winter vorwiegend unterirdische Pflanzenteile und Ernterückstände", "quelle": ["q20", "q11"] },
+    { "kurz": "Getreide", "monate": [4, 5, 6], "anteil": "mittel", "hinweis": "Telemetrie BW: Getreidefelder April–Juni überdurchschnittlich genutzt (Aufenthalt, kein Mageninhalt)", "quelle": ["q7"] },
+    { "kurz": "Mais", "monate": [7, 8, 9], "anteil": "mittel", "hinweis": "Telemetrie BW: Maisfelder Juli–September überdurchschnittlich genutzt; LWF: Mais von Milch- bis Vollreife sehr beliebt", "quelle": ["q7", "q3"] },
+    { "kurz": "Würmer & Engerlinge", "anteil": "mittel", "hinweis": "Bricht Wiesen auf der Suche nach Regenwürmern und Engerlingen um (bis 900 Larven in einem Magen). Keine Monatsangabe belegt", "quelle": ["q1", "q7", "q11"] },
+    { "kurz": "Gras, Klee, Kräuter", "anteil": "mittel", "hinweis": "Grünfutter, auch Adlerfarn, Weidenröschen, Wegerich, Seggen, Binsen; keine Monatsangabe belegt", "quelle": ["q1", "q6"] },
+    { "kurz": "Pilze", "anteil": "gering", "hinweis": "Genannt, ohne Monate", "quelle": ["q4"] },
+    { "kurz": "Mäuse, Jungwild, Gelege", "anteil": "gering", "hinweis": "Kleinsäuger, Rehkitze, Junghasen, Gelege von Bodenbrütern, Aas; eher zufällig", "quelle": ["q1", "q6"] }
+  ],
+  "nahrungAnteil": { "pflanzlich": "überwiegend (Wallis, Freiburg)", "quelle": ["q11", "q10"] },
+
+  "spuren": [
+    { "art": "tritt", "kurz": "Trittsiegel mit Afterklauen", "cm": [6, 12], "breiteCm": [5, 7], "hinweis": "DWS: 6–10 cm lang, 5–7 cm breit (Durchschnitt Männchen); ANL: je nach Alter 9–12 cm; Freiburg: 5–11 cm. Afterklauen berühren fast immer den Boden und stehen seitlich hinter den Schalen. Getrennte Maße Vorder-/Hinterfuß nicht gefunden", "quelle": ["q5", "q8", "q10"] },
+    { "art": "faehrte", "kurz": "Fährte im Schritt und auf der Flucht", "hinweis": "Gangarten 'ziehend' und 'flüchtend' (ANL) bzw. 'langsamer' und 'schneller Gang' (DWS) gezeichnet; Schrittlänge und Spurbreite nicht belegt", "quelle": ["q8", "q5"] },
+    { "art": "losung", "kurz": "Wurstförmige Losung", "cm": [4, 7], "hinweis": "Dunkelbraun bis schwarz, zusammengeballte Kotbeeren, oft wurstförmig verbunden; Durchmesser 4–7 cm (Freiburg; Grafik dort 4,5–7 cm)", "quelle": ["q9", "q10"] },
+    { "art": "gebraech", "kurz": "Umgewühlter Boden", "hinweis": "Bricht mit dem Rüssel große Flächen auf (Brechen)", "quelle": ["q3", "q11", "q2"] },
+    { "art": "suhle", "kurz": "Schlammsuhle", "hinweis": "Nassstellen zum Wälzen", "quelle": ["q12", "q6"] },
+    { "art": "malbaum", "kurz": "Malbaum: Schlamm an Rinde", "cm": [0, 100], "hinweis": "Rinde bis 1 m Höhe abgerieben, Schlammspuren und Borsten; bevorzugt borkige, harzige Stämme nahe Suhlen", "quelle": ["q12", "q4"] },
+    { "art": "fraß", "kurz": "Angefressene Maiskolben", "hinweis": "Kolben in der oberen Hälfte zerbissen oder abgetrennt, nur etwa 30 % der Kolben am Boden verzehrt (Unterschied zum Dachs)", "quelle": ["q10"] },
+    { "art": "kessel", "kurz": "Wurfkessel aus Pflanzen", "cm": [0, 100], "hinweis": "Bis 1 m hoher Haufen aus Pflanzenmaterial. Nie aufsuchen!", "quelle": ["q3"] }
+  ],
+
+  "gefahren": [
+    { "kurz": "Wolf", "nurJung": false, "hinweis": "Einziger wirklich gefährlicher natürlicher Feind; Wildschwein 16,3 % der Wolfsbeute in der Lausitz", "quelle": ["q1", "q11", "q19"] },
+    { "kurz": "Fuchs", "hinweis": "Von DWS als Feind genannt, ohne Angabe, ob nur Frischlinge; nurJung daher offen", "quelle": ["q4"] },
+    { "kurz": "Jagd", "nurJung": false, "hinweis": "Frischlinge sollen vorrangig bejagt werden (70–80 % Frischlingsanteil an der Strecke empfohlen)", "quelle": ["q1"] },
+    { "kurz": "Straßenverkehr", "nurJung": false, "hinweis": "40 % der Wildschwein-Unfälle Oktober bis Dezember", "quelle": ["q17"] },
+    { "kurz": "Schweinepest (ASP)", "nurJung": false, "hinweis": "Tierseuche bei Haus- und Wildschweinen, in Deutschland seit 10.09.2020; für Menschen ungefährlich", "quelle": ["q18", "q1"] }
+  ],
+
+  "lebensraum": {
+    "landschaft": "waldrand",
+    "orte": ["Dickicht", "Suhle", "Feld & Wiese"],
+    "tag": 0,
+    "nacht": 2,
+    "beschreibung": "Laub- und Mischwälder mit dichtem Unterwuchs und feuchten Böden, gut gegliederte Feldlandschaften, Gewässer mit Röhricht. Meidet offenes Gelände ohne Deckung und Hochgebirge. Tagsüber in Dickungen und Schilf (Kessel), nachts Nahrungssuche, im Sommer auch in Feldern.",
+    "hinweis": "Telemetrie BW: Tiere ganzjährig überwiegend im Wald, Tageseinstände in Dickungen und Schilf; Feldnutzung ab April steigend, Gipfel im Juli (10–30 % der Ortungen je nach Gebiet). In Mecklenburg-Vorpommern verlegen viele Rotten im Sommer ihren Einstand ganz ins Feld. Streifgebiete je nach Gebiet sehr verschieden; Literaturwerte in q7: 39 ha (eine Bache, Stadt Rostock) bis 13.600 ha (Maillard et al. 1995, Frankreich).",
+    "quelle": ["q6", "q7", "q11", "q10"]
+  },
+
+  "schutz": {
+    "roteListeD": "ungefährdet (*), sehr häufig, deutliche Zunahme",
+    "jagdrecht": "unterliegt dem Jagdrecht (§ 2 BJagdG, Schwarzwild)",
+    "bnatschg": null,
+    "hinweis": "BNatSchG-Status (besonders/streng geschützt) nicht direkt in WISIA geprüft, siehe Offen",
+    "quelle": ["q14", "q15"]
+  },
+
+  "besonderheiten": [
+    { "titel": "Suhlen", "warum": "Wildschweine haben keine funktionierenden Schweißdrüsen. Der Schlamm kühlt beim Trocknen und hilft vermutlich auch gegen Parasiten. Gesuhlt wird auch im Winter.", "kapitelVorschlag": "Kapitel 'Schlammbad': Grafik 'Warum Schlamm?' mit drei Kreisen (kühlen, Parasiten, Duft), danach Übergang zum Malbaum", "bildplatz": "suhle", "quelle": ["q13", "q4", "q6", "q16"] },
+    { "titel": "Malbaum", "warum": "Nach dem Suhlen scheuern sie sich an immer denselben borkigen oder harzigen Bäumen. Man sieht Schlamm, Borsten und blanke Rinde bis 1 m Höhe.", "kapitelVorschlag": "Spurenkarte 'Malbaum' mit Höhenlinie bis 1 m im Vergleich zur Körpergröße", "bildplatz": "spuren.malbaum", "quelle": ["q12", "q4"] },
+    { "titel": "Rotte und Leitbache", "warum": "Familienverband aus Leitbache, Töchtern und Nachwuchs, bis 30–40 Tiere. Die Leitbache stimmt die Paarungsbereitschaft aller Bachen ab. Junge Keiler müssen spätestens mit 1,5 Jahren gehen, alte Keiler leben allein.", "kapitelVorschlag": "Kapitel 'Die Rotte': Familien-Grafik mit Leitbache, Bachen, Frischlingen, abwanderndem Überläuferkeiler und Einzelgänger-Keiler", "bildplatz": "rotte", "quelle": ["q1", "q6", "q3", "q10"] },
+    { "titel": "Vom Streifen-Frischling zum Schwarzkittel", "warum": "Drei sichtbare Jugendkleider: gestreift (0–4 Monate), rotbraun (4–12 Monate), dann Überläufer (12–24 Monate).", "kapitelVorschlag": "Zeitstrahl 'Wie ein Frischling sich umzieht' mit drei Fellstufen", "bildplatz": "jung + jung.rotbraun", "quelle": ["q10", "q4", "q16"] },
+    { "titel": "Wurfkessel", "warum": "Vor der Geburt baut die Bache einen bis 1 m hohen Haufen aus Pflanzen. Darin kommen die Frischlinge zur Welt.", "kapitelVorschlag": "Kleine Zeichnung im Kapitel Jungtiere mit deutlichem Hinweis 'Abstand halten'", "bildplatz": "kessel", "quelle": ["q3", "q6"] },
+    { "titel": "Wühlen mit dem Rüssel", "warum": "Der Rüssel bricht selbst harte Böden auf. Im Wald lockert das den Boden und hilft jungen Pflanzen, auf Wiesen entstehen Schäden. Sehr feine Nase ('Trüffelschwein', q1).", "kapitelVorschlag": "Querschnitt-Grafik Boden: Rüssel, Laub, Würmer, Engerlinge, Eicheln", "bildplatz": "aktiv (wühlend) + spuren.gebraech", "quelle": ["q4", "q1", "q2", "q11"] },
+    { "titel": "Tagtier, das nachts lebt", "warum": "Von Natur aus auch tagsüber aktiv. Wo Menschen stören, verlegen Wildschweine ihr Leben in die Nacht.", "kapitelVorschlag": "Zwei Tagesuhren nebeneinander: 'ungestört' vs. 'gestört'", "bildplatz": "ruhe", "quelle": ["q7", "q11", "q3", "q6"] },
+    { "titel": "Gewaff des Keilers", "warum": "Die unteren Eckzähne können über 20 cm lang werden, nur etwa ein Drittel ragt heraus.", "kapitelVorschlag": "Körperpunkt 'zahn' mit Röntgen-Skizze: sichtbarer und verborgener Teil", "bildplatz": "erkunden.maennlich", "quelle": ["q4"] },
+    { "titel": "Rekord-Nachwuchs", "warum": "Sehr hohe Zuwachsrate: 100–300 % pro Jahr je nach Gebiet und Mast (NRW 200–300 %, Wallis 100–150 %); Frischlinge können schon mit 8 Monaten selbst Junge bekommen.", "kapitelVorschlag": "Grafik 'Aus 10 werden 30' mit Mastjahr-Hinweis", "bildplatz": "keiner nötig", "quelle": ["q1", "q2", "q11"] },
+    { "titel": "Warnlaut 'Blasen'", "warum": "Bei Gefahr warnt die Bache mit einem lauten Schnauben ('Blasen').", "kapitelVorschlag": "Passt in den Sicherheits-Hinweis: 'Hörst du Schnauben? Ruhig zurückgehen.'", "bildplatz": "hinweis", "quelle": ["q16"] }
+  ]
+}

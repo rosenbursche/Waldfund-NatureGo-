@@ -12,9 +12,10 @@ import { OhneRahmen, Sektion } from '@/components/ui/Sektion';
 import type { Art } from '@/data/artTypen';
 import { STECKBRIEFE } from '@/data/steckbriefe';
 import type { TierSeite } from '@/data/tierSeiten';
-import { colors, spacing } from '@/theme/theme';
+import { colors, fonts, spacing } from '@/theme/theme';
 
 import { Fressfeinde } from './Fressfeinde';
+import { GefahrTempo } from './GefahrTempo';
 import { Jahreszeiten } from './Jahreszeiten';
 import { Kapitel } from './Kapitel';
 import { LebensraumPanorama } from './LebensraumPanorama';
@@ -74,6 +75,7 @@ export function LebendigInhalt({
             ausrichtung="mitte"
           />
         </View>
+        <GefahrTempo tier={tier} />
       </Kapitel>
 
       <Kapitel nummer={2} titel="Ein Jahr" zeile="Wische durch die Jahreszeiten, dreh am Rad" {...k}>
@@ -89,6 +91,17 @@ export function LebendigInhalt({
         <OhneRahmen>
           <TagesUhr tier={tier} />
         </OhneRahmen>
+        {/* Warum zu dieser Zeit? Belegte Kernsätze (z. B. Wildschwein: nachtaktiv wegen Störung) */}
+        {tier.aktivHinweis && (
+          <View style={stile.hinweisBox}>
+            <Schrift style={stile.hinweisTitel}>{tier.aktivHinweis.titel}</Schrift>
+            {tier.aktivHinweis.saetze.map((t) => (
+              <Schrift key={t} style={stile.hinweisSatz}>
+                · {t}
+              </Schrift>
+            ))}
+          </View>
+        )}
       </Kapitel>
 
       <Kapitel nummer={4} titel="Zuhause" zeile="Wisch durch die Landschaft" randlos {...k}>
@@ -145,5 +158,15 @@ export function LebendigInhalt({
 const stile = StyleSheet.create({
   randlos: { marginHorizontal: -spacing.m },
   masse: { flexDirection: 'row', justifyContent: 'center', gap: spacing.xl, paddingTop: spacing.s },
+  hinweisBox: {
+    gap: 4,
+    padding: spacing.m,
+    borderLeftWidth: 2,
+    borderLeftColor: colors.amber,
+    backgroundColor: colors.sektion,
+    borderRadius: 4,
+  },
+  hinweisTitel: { fontFamily: fonts.titel, fontSize: 16, letterSpacing: 1, color: colors.amber },
+  hinweisSatz: { fontFamily: fonts.body, fontSize: 15.5, lineHeight: 22, color: colors.moon },
   schluss: { marginTop: spacing.xl, gap: spacing.m },
 });

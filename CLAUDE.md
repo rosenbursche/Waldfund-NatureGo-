@@ -57,6 +57,7 @@ Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtdokumentation (Bedienung, 
 - Tokens: night #060907, forest #101A13, moss #4F6B36, rune (Mooslicht) #A9BC6A, fog #A3B0A5, moon #DCE3D6, amber (Laterne) #D9A24E, rare #A595CC, legend #E2B85C.
 - Schriften: Cinzel (Titel, Etiketten, Abzeichen), Alegreya Sans (Text, kursiv für Notizen), Kalam nur in Lehrbuch-Zeichnungen.
 - **Designsystem: `docs/DESIGNSYSTEM.md`.** Neue Seiten nur aus den Bausteinen in `src/components/ui/` bauen (Sektion, Kapitelkopf, Abzeichen, Kennzahl, Schalter, Zierlinie, Knopf). Vorlage ist die Reh-Seite. Übersicht im Handy: Einstellungen → Bausteine.
+- **So wenig Text wie möglich:** keine Erklär- oder Bedientexte auf den Seiten, Erklärungen nur hinter dem „i“ am Titel (`Info`, siehe `docs/DESIGNSYSTEM.md` Abschnitt 6). Immer sichtbar bleiben nur kurze Schutz-/Sicherheitshinweise und Pflicht-Namensnennungen.
 - Lehrbuch-Zeichnungen: Tinte auf altem Papier, handgezeichnet mit Beschriftungslinien, nicht „KI-artig“.
 - Alle Animationen bei „Bewegung reduzieren“ abschwächen.
 
