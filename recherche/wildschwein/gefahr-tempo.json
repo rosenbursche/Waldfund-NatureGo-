@@ -1,0 +1,175 @@
+{
+  "artId": "wildschwein",
+  "stand": "2026-10-19",
+  "hinweis": "Zusatzrecherche Tempo, Gewaff, Gefahr, Wildunfälle. Quellen-IDs ab q40, damit sie nicht mit q1–q24 aus fakten.json kollidieren. q40 = q4, q41 = q6, q43 = q23, q53 = q17 (gleiche Seiten).",
+
+  "quellen": [
+    { "id": "q40", "titel": "Wildschwein – Steckbrief", "herausgeber": "Deutsche Wildtier Stiftung", "url": "https://www.deutschewildtierstiftung.de/wildtiere/wildschwein", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q41", "titel": "Das Wildschwein (Wildtiere im Stadtgebiet, mit Verhaltensregeln bei Begegnungen)", "herausgeber": "Senatsverwaltung für Mobilität, Verkehr, Klimaschutz und Umwelt Berlin", "url": "https://www.berlin.de/sen/uvk/natur-und-gruen/jagd-und-wildtiere/wildtiere-im-stadtgebiet/wildschwein/", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q42", "titel": "Wildschwein (Naturschutz)", "herausgeber": "Bezirksamt Spandau von Berlin, Umwelt- und Naturschutzamt", "url": "https://www.berlin.de/ba-spandau/politik-und-verwaltung/aemter/umwelt-und-naturschutzamt/naturschutz/artikel.482206.php", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q43", "titel": "Wild boar (Artportrait mit Literaturangaben)", "herausgeber": "Wildlife Online (M. Baldwin, UK)", "url": "https://www.wildlifeonline.me.uk/animals/species/wild-boar", "art": "Fachbuch", "abgerufen": "2026-10-19" },
+    { "id": "q44", "titel": "Tiersteckbrief Wildschwein (Sus scrofa)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/zahlen-fakten/tiersteckbriefe/wildschwein-sus-scrofa", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q45", "titel": "Frischling oder Überläufer? Die Zahnformel zeigt's! (E. Kauppert-Grun, 10.12.2023)", "herausgeber": "PIRSCH (Fachzeitschrift Jagd)", "url": "https://www.pirsch.de/jagdwissen/wildbiologie/frischling-oder-ueberlaeufer-die-zahnformel-zeigts-38050", "art": "Fachartikel", "abgerufen": "2026-10-19" },
+    { "id": "q46", "titel": "Mayer, Garabedian & Kilgo (2023): Human Fatalities Resulting from Wild Pig Attacks Worldwide: 2000–2019. Human–Wildlife Interactions 17(1), Art. 4, doi:10.26077/54d8-89fa (CC BY 4.0)", "herausgeber": "USDA Forest Service / Utah State University", "url": "https://research.fs.usda.gov/treesearch/68334", "art": "Wissenschaft", "abgerufen": "2026-10-19" },
+    { "id": "q47", "titel": "Wildunfall-Statistik 2024/2025 (Fallwild nach Bundesländern, DJV-Handbuch 2026)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2026-02/2026-02_Infografik_Wildunfall_Statistik_2024_2025.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q48", "titel": "Allgemeine Unfallursachen von Unfällen mit Personenschaden (Zeile „Wild auf der Fahrbahn“, Stand 7.7.2026)", "herausgeber": "Statistisches Bundesamt (Destatis)", "url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Tabellen/allgemeine-unfallursachen-von-unfaellen-mit-personenschaden.html", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q49", "titel": "Wildunfälle in Baden-Württemberg 2024 (Pressemitteilung 7.11.2025, mit Bundeszahlen)", "herausgeber": "Statistisches Landesamt Baden-Württemberg", "url": "https://www.statistik-bw.de/presse/pressemitteilungen/pressemitteilung/wildunfaelle-in-baden-wuerttemberg-2024/", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q50", "titel": "Zehn Verkehrstote im Jahr 2017 bei Wildunfällen (Pressemitteilung PD18_410)", "herausgeber": "Statistisches Bundesamt (Destatis)", "url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2018/10/PD18_410_46241.html", "art": "Behörde", "abgerufen": "2026-10-19" },
+    { "id": "q51", "titel": "Wildunfälle: Kfz-Versicherung (Meldung 7.4.2026)", "herausgeber": "Gesamtverband der Deutschen Versicherungswirtschaft (GDV)", "url": "https://www.dieversicherer.de/versicherer/auto/news/wildunfaelle-kfz-versicherung-142424", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q52", "titel": "Pressegrafik „Wildunfälle: Rehe am stärksten gefährdet“ (Tierfund-Kataster, 36.500 Datensätze 2021–2023)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2024-03/2024-03_Pressegrafik_Wildunfaelle_betroffene_Tierarten.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q53", "titel": "Hirsche und Wildschweine verursachen jetzt viele Wildunfälle (28.10.2021)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/hirsche-und-wildschweine-verursachen-jetzt-viele-wildunfaelle", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q54", "titel": "Wildunfall verhindern (Verhaltensregeln)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/forschung-aufklaerung/wildunfall/wildunfall-verhindern", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q55", "titel": "Pressegrafik „Da wird der Hirsch zum Elefanten“ – Aufprallgewicht bei Tempo 60 (09/2024)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2024-10/2024-09_Pressegrafik_Wildunfall_Aufprallgewicht.jpg", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q56", "titel": "Die meisten Wildunfälle passieren im April und Mai (25.03.2024)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/die-meisten-wildunfaelle-passieren-im-april-und-mai", "art": "Verband", "abgerufen": "2026-10-19" },
+    { "id": "q57", "titel": "Jahresstrecke Schwarzwild 2014/15–2024/25 nach Bundesländern (DJV-Handbuch 2026)", "herausgeber": "Deutscher Jagdverband (DJV)", "url": "https://www.jagdverband.de/sites/default/files/2026-03/2026-02_Infografik_Jahresjagdstrecke_Schwarzwild_2024_2025.jpg", "art": "Verband", "abgerufen": "2026-10-19" }
+  ],
+
+  "tempo": {
+    "flucht": { "kmh": [40, 50], "hinweis": "Bezirksamt Spandau: bis zu 50 km/h; Wildlife Online: Flucht bis 40 km/h. Spanne aus beiden.", "quelle": ["q42", "q43"] },
+    "trab": { "kmh": [6, 10], "hinweis": "gemächlicher Trab bei der Nahrungssuche", "quelle": ["q43"] },
+    "schwimmen": { "text": "Sehr gute Schwimmer.", "quelle": ["q44", "q43"] },
+    "springen": { "m": 1.2, "text": "Kann aus dem Stand über etwa 1,2 m hohe Zäune springen.", "belegStaerke": "schwach (nur eine Sekundärquelle aus GB)", "quelle": ["q43"] }
+  },
+
+  "gewaff": {
+    "begriffe": {
+      "keiler": "Eckzähne im Unterkiefer heißen Gewehre (auch Hauer), im Oberkiefer Haderer; zusammen Gewaff.",
+      "bache": "Die Eckzähne der Bache heißen Haken.",
+      "quelle": ["q45"]
+    },
+    "laenge": {
+      "gesamtCm": "über 20",
+      "sichtbar": "etwa ein Drittel ragt aus dem Kiefer, der Rest steckt im Kiefer",
+      "quelle": ["q40"]
+    },
+    "laengeNachAlter": {
+      "text": "Mittlere Länge der unteren Hauer von Keilern in einer bulgarischen Untersuchung",
+      "werteCm": [
+        { "alterJahre": "4", "cm": 18.5 },
+        { "alterJahre": "5–6", "cm": 20 },
+        { "alterJahre": "7", "cm": 22 },
+        { "alterJahre": "8", "cm": 25.7 },
+        { "alterJahre": "10", "cm": 28.4 }
+      ],
+      "hinweis": "Nur über Wildlife Online belegt, Originalstudie nicht geöffnet.",
+      "quelle": ["q43"]
+    },
+    "wachstum": {
+      "keiler": "Die Zahnwurzel bleibt beim Keiler offen, die Eckzähne wachsen das ganze Leben weiter.",
+      "bache": "Bei der Bache schließt sich die Wurzel, die Haken hören auf zu wachsen und bleiben klein.",
+      "quelle": ["q45", "q43"]
+    },
+    "schaerfe": {
+      "text": "Gewehre und Haderer reiben beim Kauen gegeneinander. So schleifen sie sich gegenseitig und werden messerscharf. Die Schleifflächen eignen sich nicht zur Altersbestimmung.",
+      "quelle": ["q40", "q45"]
+    },
+    "zweck": {
+      "text": "Waffe zur Verteidigung und für Kämpfe der Keiler in der Paarungszeit (Rauschzeit). Können Menschen und Tiere schwer verletzen.",
+      "quelle": ["q40", "q44"]
+    }
+  },
+
+  "gefahrMensch": {
+    "einschaetzung": {
+      "text": "Wildschweine greifen Menschen kaum an. Gefährlich wird es, wenn sich ein Tier bedrängt fühlt.",
+      "quelle": ["q41"]
+    },
+    "wannGefaehrlich": [
+      { "situation": "Bache mit Frischlingen", "text": "Fühlt sich die Bache mit ihrem Nachwuchs bedroht, kann sie angreifen; am Wurfkessel verliert sie die Scheu.", "quelle": ["q41", "q44", "q40"] },
+      { "situation": "In die Enge getrieben", "text": "Tier ohne Fluchtweg, z. B. in einer Zaun- oder Hausecke oder in einem geschlossenen Raum.", "quelle": ["q41"] },
+      { "situation": "Verletzte Tiere", "text": "Bei der Jagd gingen tödliche Angriffe meist von angeschossenen oder gereizten Tieren aus; auch nach Autounfällen verletzte Tiere können angreifen.", "quelle": ["q46"] },
+      { "situation": "Hunde dabei", "text": "Hunde, ob angeleint oder nicht, erhöhen das Risiko; Wildschweine sehen sie als Feind.", "quelle": ["q46"] },
+      { "situation": "Hektik", "text": "Nervöses Wegrennen und schnelle Bewegungen können ein Tier zum Angriff treiben.", "quelle": ["q41"] }
+    ],
+    "todesfaelle": {
+      "weltweit": { "zeitraum": "2000–2019", "toedlicheAngriffe": 163, "tote": 172, "laender": 29, "totePROJahr": 8.6, "quelle": ["q46"] },
+      "deutschland": { "anteilProzent": 2, "text": "Deutschland gehört zu den Ländern mit je etwa 2 % der 163 dokumentierten tödlichen Angriffe (2000–2019), inkl. Jagd. Mehr als die Hälfte der Fälle weltweit in Indien.", "quelle": ["q46"] },
+      "statistik": "Eine amtliche Statistik zu Wildschwein-Angriffen oder dadurch Verletzten gibt es für Deutschland nach dieser Recherche nicht. Die Studie q46 sammelt Medien- und Fachberichte; die tatsächliche Zahl kann abweichen.",
+      "quelle": ["q46"]
+    },
+    "verhalten": {
+      "punkte": [
+        "Ruhig bleiben, langsam bewegen.",
+        "Abstand halten und dem Tier immer einen Fluchtweg lassen.",
+        "Bache mit Frischlingen in großem Bogen umgehen.",
+        "Bei plötzlicher Begegnung stehen bleiben oder langsam zurückgehen, nicht hektisch wegrennen.",
+        "Nie füttern (in Berlin verboten, Geldbuße bis 5.000 €)."
+      ],
+      "quelle": ["q41", "q42"]
+    }
+  },
+
+  "wildunfaelle": {
+    "fallwildArt": {
+      "jagdjahr": "2024/25",
+      "anzahl": 13210,
+      "text": "Als Fallwild gemeldete Wildschweine (überwiegend im Straßenverkehr gestorben). Meiste in Hessen (2.160) und Bayern (1.830, hochgerechnet).",
+      "hinweis": "Zählt tote Tiere, nicht Unfälle. Teils hochgerechnet (Bayern, Brandenburg, Sachsen).",
+      "quelle": ["q47"]
+    },
+    "anteilArt": {
+      "tierfundKatasterProzent": 3,
+      "text": "Anteil an allen im Tierfund-Kataster gemeldeten Wildunfällen 2021–2023 (Reh 48 %).",
+      "anteilHuftierFallwildProzent": 5.9,
+      "anteilHuftierFallwildHinweis": "berechnet aus q47: 13.210 von 222.130 gemeldeten Fallwild-Huftieren (Reh, Schwarz-, Dam-, Rotwild)",
+      "quelle": ["q52", "q47"]
+    },
+    "jahreszeit": {
+      "text": "40 % der jährlichen Unfälle mit Wildschweinen passieren von Oktober bis Dezember (Tierfund-Kataster, 4/2019–3/2021).",
+      "monate": [10, 11, 12],
+      "quelle": ["q53"]
+    },
+    "tageszeit": { "text": "Für alle Wildarten besonders riskant: 6–8 Uhr und 21–23 Uhr.", "stunden": [[6, 8], [21, 23]], "quelle": ["q56"] },
+    "aufprall": { "tonnen": 3.5, "text": "Ein Wildschwein wirkt bei Tempo 60 beim Aufprall wie etwa 3,5 t (Nashorn).", "quelle": ["q55"] },
+    "alleArten": {
+      "versicherteWildunfaelle2024": 276000,
+      "versicherteSchaedenEuro2024": "rund 1,1 Mrd.",
+      "unfaelleMitPersonenschaden": [
+        { "jahr": 2022, "anzahl": 2268 },
+        { "jahr": 2023, "anzahl": 2351 },
+        { "jahr": 2024, "anzahl": 2412 },
+        { "jahr": 2025, "anzahl": 2549 }
+      ],
+      "verunglueckte2024": { "getoetet": 8, "schwerverletzt": 417, "leichtverletzt": 2355 },
+      "verunglueckte2017": { "getoetet": 10, "schwerverletzt": 606, "leichtverletzt": 2308 },
+      "spanneGetoetete1991bis2017": { "min": 7, "minJahr": 2013, "max": 49, "maxJahr": 1994 },
+      "hinweis": "Destatis trennt nicht nach Tierart. Ein Anteil der Wildschweine an Verletzten/Getöteten ist daher nicht belegbar.",
+      "quelle": ["q51", "q48", "q49", "q50"]
+    },
+    "verhaltenAmSteuer": {
+      "punkte": [
+        "Tier am Straßenrand: abblenden, hupen, bremsen.",
+        "Lenkrad festhalten, nicht unkontrolliert ausweichen.",
+        "Nach dem Unfall: Warnweste, Warnblinker, Warndreieck; Polizei oder Jäger rufen; bei Verletzten 112.",
+        "Tote Tiere nicht ohne Handschuhe anfassen, Abstand zu lebenden Tieren."
+      ],
+      "quelle": ["q54"]
+    }
+  },
+
+  "jagdstrecke": { "jagdjahr": "2024/25", "anzahl": 568497, "vorjahr": 550551, "rekord": { "jagdjahr": "2019/20", "anzahl": 882231 }, "hinweis": "inkl. Fallwild", "quelle": ["q57"] },
+
+  "kennzahlen": [
+    { "wert": "40–50", "einheit": "km/h", "etikett": "Tempo auf der Flucht", "quelle": ["q42", "q43"] },
+    { "wert": "über 20", "einheit": "cm", "etikett": "Hauer des Keilers", "quelle": ["q40"] },
+    { "wert": "1/3", "einheit": "", "etikett": "vom Hauer sichtbar", "quelle": ["q40"] },
+    { "wert": "lebenslang", "einheit": "", "etikett": "Keilerhauer wachsen", "quelle": ["q45"] },
+    { "wert": "13.210", "einheit": "Tiere", "etikett": "Fallwild 2024/25, meist Straße", "quelle": ["q47"] },
+    { "wert": "3", "einheit": "%", "etikett": "aller gemeldeten Wildunfälle", "quelle": ["q52"] },
+    { "wert": "40", "einheit": "%", "etikett": "Unfälle Oktober bis Dezember", "quelle": ["q53"] },
+    { "wert": "3,5", "einheit": "t", "etikett": "Aufprall bei Tempo 60", "quelle": ["q55"] },
+    { "wert": "568.497", "einheit": "Tiere", "etikett": "Jagdstrecke 2024/25", "quelle": ["q57"] },
+    { "wert": "8", "einheit": "Tote", "etikett": "Wildunfälle 2024, alle Arten", "quelle": ["q49"] },
+    { "wert": "8,6", "einheit": "pro Jahr", "etikett": "Tote weltweit durch Angriffe", "quelle": ["q46"] }
+  ],
+
+  "offen": [
+    "Höchsttempo nur aus einer Behördenseite ohne Messquelle (q42) und einer britischen Sekundärquelle (q43); keine Messstudie gefunden.",
+    "Sprunghöhe 1,2 m nur aus q43.",
+    "Länge der Haken der Bache in cm: keine Quelle gefunden.",
+    "Bulgarische Studie zur Hauerlänge nach Alter: Original nicht geprüft.",
+    "Amtliche Zahl verletzter Menschen durch Wildschwein-Angriffe in Deutschland: keine Statistik gefunden.",
+    "Anteil der Wildschweine an Verletzten/Getöteten bei Wildunfällen: Destatis trennt nicht nach Art.",
+    "Destatis-Verunglückte für 2025 nicht geprüft (nur Unfallzahl 2.549)."
+  ]
+}

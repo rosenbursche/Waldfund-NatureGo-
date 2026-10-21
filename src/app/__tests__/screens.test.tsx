@@ -91,7 +91,7 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 
-  test.each(['eichhoernchen', 'wildschwein', 'dachs', 'igel', 'feldhase', 'biber', 'wildkatze', 'luchs'])(
+  test.each(['eichhoernchen', 'dachs', 'igel', 'feldhase', 'biber', 'wildkatze', 'luchs'])(
     'Grafische Seite für jedes Säugetier: %s',
     async (id) => {
       mockParams.id = id;
@@ -117,7 +117,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
@@ -144,7 +143,6 @@ describe('Screens rendern ohne Fehler', () => {
       'Spuren',
       'Fressfeinde',
       'Wo in Deutschland',
-      'Skizzenbuch',
     ]) {
       expect(screen.getByText(titel)).toBeTruthy();
     }
@@ -154,6 +152,39 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByLabelText('Lunte, oft mit weißer Spitze')).toBeTruthy();
     // kein Bock/Ricke-Umschalter beim Fuchs
     expect(screen.queryByText('Bock')).toBeNull();
+  });
+
+  test('Lebendige Wildschwein-Seite: Kapitel, Quellen, Warnlaut, Fressfeinde, Lupe', async () => {
+    mockParams.id = 'wildschwein';
+    useSammlung.setState({ gefunden: { wildschwein: { datum: '2026-10-01' } } });
+    await render(<ArtSeite />);
+    for (const titel of [
+      'Erkunden',
+      'Ein Jahr',
+      'Ein Tag',
+      'Zuhause',
+      'Speiseplan',
+      'Spuren',
+      'Fressfeinde',
+      'Wo in Deutschland',
+      'Quellen',
+    ]) {
+      expect(screen.getByText(titel)).toBeTruthy();
+    }
+    expect(screen.getByText('Wildschweine gesehen?')).toBeTruthy();
+    expect(screen.getByText(/lautes Schnauben/)).toBeTruthy();
+    expect(screen.getByLabelText(/Nasskaltes Wetter/)).toBeTruthy();
+    expect(screen.getByText('Monate offen')).toBeTruthy(); // Würmer: keine Monate belegt
+    expect(screen.getByLabelText(/Bundesjagdgesetz/)).toBeTruthy(); // Quellenliste
+    await fireEvent.press(screen.getByLabelText('Rüssel: gräbt und riecht'));
+    expect(screen.getByText('Rüssel: gräbt und riecht')).toBeTruthy();
+  });
+
+  test('Karte mit echten GBIF-Daten sagt, dass leere Felder keine Abwesenheit bedeuten', async () => {
+    mockParams.id = 'luchs';
+    useSammlung.setState({ gefunden: { luchs: { datum: '2026-10-01' } } });
+    await render(<ArtSeite />);
+    expect(screen.getByText(/Gemeldete Funde – nicht die ganze Verbreitung/)).toBeTruthy();
   });
 
   test('Artenseite eines Vogels: Füße, Nest, Warum so gebaut', async () => {

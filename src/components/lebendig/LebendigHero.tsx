@@ -36,7 +36,7 @@ export function LebendigHero({
   etikett: string;
   /** Wappen-Reihe (Wild-Wert, Seltenheit …) unter dem Namen */
   wappen?: ReactNode;
-  /** noch nicht gesammelt: Foto verschwommen und abgedunkelt, Hinweis zum Sammeln */
+  /** noch nicht gesammelt: Foto leicht abgedunkelt (gut erkennbar), Hinweis zum Sammeln */
   gefunden?: boolean;
   scroll: Animated.Value;
   ruhig: boolean;
@@ -56,6 +56,8 @@ export function LebendigHero({
   }, [ruhig, auftritt]);
 
   const buchstaben = name.split('');
+  // Name passt immer in eine Zeile: lange Namen werden kleiner statt mitten im Wort umzubrechen
+  const groesse = Math.min(54, Math.floor((b - spacing.m * 2) / (buchstaben.length * 0.92)));
   const f = FOTOS[foto];
 
   return (
@@ -84,7 +86,6 @@ export function LebendigHero({
           style={StyleSheet.absoluteFill}
           contentFit="cover"
           contentPosition={x !== undefined ? { left: `${x}%`, top: '50%' } : undefined}
-          blurRadius={gefunden ? 0 : 22}
           accessibilityLabel={name}
         />
         {!gefunden && <View style={stile.abdunkeln} />}
@@ -130,6 +131,7 @@ export function LebendigHero({
                 key={`${z}-${i}`}
                 style={[
                   stile.buchstabe,
+                  { fontSize: groesse, lineHeight: Math.round(groesse * 1.2), letterSpacing: groesse > 40 ? 4 : 2 },
                   {
                     opacity: auftritt.interpolate({
                       inputRange: [a, a + 0.25],
@@ -281,7 +283,7 @@ function Pfeil({ ruhig }: { ruhig: boolean }) {
 
 const stile = StyleSheet.create({
   hero: { overflow: 'hidden', backgroundColor: colors.night },
-  abdunkeln: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: `${colors.night}8C` },
+  abdunkeln: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: `${colors.night}40` },
   hinweis: { fontFamily: fonts.notiz, fontSize: 15, color: colors.fog, textAlign: 'center', marginTop: spacing.xs },
   oben: { position: 'absolute', left: 0, right: 0, top: 0, height: 120 },
   nachweis: { position: 'absolute', right: spacing.s, top: 64, maxWidth: '70%' },
@@ -289,7 +291,7 @@ const stile = StyleSheet.create({
   unten: { position: 'absolute', left: spacing.m, right: spacing.m, bottom: spacing.l, alignItems: 'center', gap: 6 },
   etikettZeile: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
   strich: { width: 22, height: 1, backgroundColor: colors.amber },
-  name: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center' },
+  name: { flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'center' },
   buchstabe: {
     fontFamily: fonts.titel,
     fontSize: 54,

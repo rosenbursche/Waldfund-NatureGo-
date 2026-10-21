@@ -62,6 +62,21 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 | `assets/fotos/landschaft/hecke.jpg` | Feldhecke | Roman Eisele | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Heilbronn_-_Biberach_-_Michelbachtal_-_Feldhecke_an_Fr%C3%BChlingsabend_(1).jpg) |
 | `assets/fotos/landschaft/biberdamm.jpg` | Biberdamm | Lorbas76 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Biberdamm_im_NSG_Biesenthaler_Becken.jpg) |
 | `assets/fotos/fuchs/steht.jpg` | stehender Rotfuchs (Alpen) | Uoaei1 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg) |
+| `assets/fotos/wildschwein/hero.jpg` | Wildschwein im Frühling (Mai) auf einer Wiese am Stadtrand von Łódź, ganz seitlich | Jerzy Strzelecki | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Locha(js).jpg) |
+| `assets/fotos/wildschwein/jahreszeit-fruehling.jpg` | Bache mit gestreiften Frischlingen im kahlen Birkenwald, März | Jerzy Strzelecki | CC BY-SA 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)41.jpg) |
+| `assets/fotos/wildschwein/jahreszeit-sommer.jpg` | Wildschwein im kurzen Sommerfell vor grünem Gebüsch, Juli | Jerzystrzelecki | CC BY 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)27.jpg) |
+| `assets/fotos/wildschwein/jahreszeit-herbst.jpg` | Rotte wühlt im Falllaub nach Futter, Bois de Roly (Belgien) | Trougnouf (Benoit Brummer) | CC BY 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Wild_boars_searching_for_food_under_dead_leaves,_cropped_(DSC07838).jpg) |
+| `assets/fotos/wildschwein/jahreszeit-winter.jpg` | Wildschwein im Winterfell läuft durch Schnee, Deelerwoud (Veluwe), Januar | Henk Monster | CC BY 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:When_they_did_smell_me_they_went_away_in_a_hurry._Deelerwoud_26_Januari_2013_-_panoramio.jpg) |
+| `assets/fotos/wildschwein/jung.jpg` | Gestreifter Frischling im Gras, Pfälzerwald, Juni | Fischer.H | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:IMG_Wildschwein_Frischling_0925.jpg) |
+| `assets/fotos/wildschwein/jung-rotbraun.jpg` | Zwei Frischlinge im rotbraunen Jugendkleid, Ardennen, August | Hikerbiker | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Ardennen-4.jpg) |
+| `assets/fotos/wildschwein/aktiv.jpg` | Wildschwein wühlt mit dem Rüssel im Schlamm, NSG Schellbruch Lübeck | Canaturephoto | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Dreckschwein.jpg) |
+| `assets/fotos/wildschwein/ruhe.jpg` | Wildschwein ruht sitzend am Rand eines Birkendickichts, April | Jerzy Strzelecki | CC BY 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)33.jpg) |
+| `assets/fotos/wildschwein/rotte.jpg` | Bache mit sechs gestreiften Frischlingen am Birkenwald, März | Jerzy Strzelecki | CC BY-SA 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)38.jpg) |
+| `assets/fotos/wildschwein/hinweis.jpg` | Bache mit Frischlingen in freier Natur, Hambach an der Weinstraße | Fischer.H | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Wildschwein.jpg) |
+| `assets/fotos/wildschwein/spur-tritt.jpg` | Trittsiegel im Schlamm mit beiden Afterklauen (Ort unbekannt, 2008) | Chris Le Jeune | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Empreinte_de_sanglier_-4.jpg) |
+| `assets/fotos/wildschwein/spur-suhle.jpg` | Wildschweinsuhle im Wald, Schorlenberg (Pfalz) | Hans Buch | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Schorlenberg,_Wildschweinsuhle.jpg) |
+| `assets/fotos/wildschwein/spur-malbaum.jpg` | Malbaum mit Schlammkruste am Stamm, Barnim (Brandenburg) | Rainer Altenkamp, Berlin | CC BY-SA 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Susscr_Malbaum_frei_Rehahn_BAR_070802.jpg) |
+| `assets/fotos/wildschwein/spur-gebraech.jpg` | Von einer Rotte umgebrochene Grasnarbe (Gebräch), Mammolshain (Taunus) | Dontworry | CC BY-SA 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Schweinerei-einer-schwarzkittelrotte-001.jpg) |
 
 ### Artendaten aus dem Prototyp
 - 39 Arten aus `prototyp-wildfund.html`, übernommen nach `src/data/arten.ts`.

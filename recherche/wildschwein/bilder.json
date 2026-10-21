@@ -1,0 +1,129 @@
+{
+  "plaetze": {
+    "hero": {
+      "foto": "wildschwein/hero",
+      "titel": "Locha(js).jpg",
+      "heroX": 45,
+      "warum": "Erwachsenes Wildschwein (Geschlecht unsicher) ganz seitlich und scharf auf einer Wiese am Stadtrand von Łódź (Polen), frei lebend, 10.05.2010 (Frühling), Querformat 2940 px"
+    },
+    "jahreszeiten.fruehling": {
+      "foto": "wildschwein/jahreszeit-fruehling",
+      "titel": "Sus scrofa, Lodz, Poland (js)41.jpg",
+      "warum": "15.03.2015, kahler Birkenwald, trockenes Altgras, Bache mit frisch gestreiften Frischlingen (Frischzeit März–Mai), frei lebend, Łódź"
+    },
+    "jahreszeiten.sommer": {
+      "foto": "wildschwein/jahreszeit-sommer",
+      "titel": "Sus scrofa, Lodz, Poland (js)27.jpg",
+      "warum": "17.07.2012, sattgrünes Laub, kurzes helleres Sommerfell ohne Unterwolle sichtbar, frei lebend, Łódź"
+    },
+    "jahreszeiten.herbst": {
+      "foto": "wildschwein/jahreszeit-herbst",
+      "titel": "Wild boars searching for food under dead leaves, cropped (DSC07838).jpg",
+      "warum": "Rotte wühlt im braunen Falllaub nach Futter (Mast), kahle Bäume, dichtes Fell; Bois de Roly (Belgien). Achtung: Aufnahmedatum 11.12.2022, also Spätherbst-Bild vom Kalenderbeginn des Winters, kein Schnee. Ausschnitt-Datei stammt vom Fotografen selbst auf Commons (Haus im Hintergrund weggeschnitten), von uns nicht beschnitten"
+    },
+    "jahreszeiten.winter": {
+      "foto": "wildschwein/jahreszeit-winter",
+      "titel": "When they did smell me they went away in a hurry. Deelerwoud 26 Januari 2013 - panoramio.jpg",
+      "warum": "26.01.2013, geschlossene Schneedecke auf Heide, dunkles dichtes Winterfell, ganzes Tier seitlich, frei lebend im Deelerwoud (Veluwe, Niederlande)"
+    },
+    "jung": {
+      "foto": "wildschwein/jung",
+      "titel": "IMG Wildschwein Frischling 0925.jpg",
+      "warum": "Frischling mit deutlichen hellen Längsstreifen, freie Wildbahn Pfälzerwald (Rheinland-Pfalz), 18.06.2014"
+    },
+    "jung.rotbraun": {
+      "foto": "wildschwein/jung-rotbraun",
+      "titel": "Ardennen-4.jpg",
+      "warum": "Zwei ältere Frischlinge im rotbraunen Jugendkleid, Streifen verblasst, Wald in den Ardennen (Belgien), 18.08.2013, zufällig unterwegs fotografiert"
+    },
+    "aktiv": {
+      "foto": "wildschwein/aktiv",
+      "titel": "Dreckschwein.jpg",
+      "warum": "Wildschwein bricht mit dem Rüssel im Schlamm am Schilfrand nach Futter (Wühlen), NSG Schellbruch Lübeck (Schleswig-Holstein), 18.06.2020, Wiki Loves Earth"
+    },
+    "ruhe": {
+      "foto": "wildschwein/ruhe",
+      "titel": "Sus scrofa, Lodz, Poland (js)33.jpg",
+      "warum": "Wildschwein ruht (sitzend) am Rand eines Birkendickichts, frei lebend, Łódź, 18.04.2013. Liegend-Fotos gab es nur aus Gehegen"
+    },
+    "rotte": {
+      "foto": "wildschwein/rotte",
+      "titel": "Sus scrofa, Lodz, Poland (js)38.jpg",
+      "warum": "Bache mit sechs gestreiften Frischlingen beim Wühlen am Birkenwald, Familienverband, frei lebend, Łódź, 15.03.2015"
+    },
+    "hinweis": {
+      "foto": "wildschwein/hinweis",
+      "titel": "Wildschwein.jpg",
+      "warum": "Bache mit mehreren Frischlingen in freier Natur bei Hambach an der Weinstraße (Pfalz), 13.06.2014 – genau die Situation, in der man weiträumig ausweichen soll"
+    },
+    "spuren.tritt": {
+      "foto": "wildschwein/spur-tritt",
+      "titel": "Empreinte de sanglier -4.jpg",
+      "warum": "Ersetzt nach Prüfung: Trittsiegel im Schlamm, zwei lange Schalen, beide Afterklauen deutlich seitlich-hinten und breiter gestellt (Kennzeichen gegenüber Reh/Hirsch). Ort unbekannt, 2008. Vorher: Empreinte de sanglier.jpg (Afterklauen weniger eindeutig)"
+    },
+    "spuren.suhle": {
+      "foto": "wildschwein/spur-suhle",
+      "titel": "Schorlenberg, Wildschweinsuhle.jpg",
+      "warum": "Typische Waldsuhle mit lehmigem Wasser und zertretenem Rand, Schorlenberg/Steinbruch Vorderes Köpfchen (Pfalz), 17.08.2007, gemeinfrei"
+    },
+    "spuren.malbaum": {
+      "foto": "wildschwein/spur-malbaum",
+      "titel": "Susscr Malbaum frei Rehahn BAR 070802.jpg",
+      "warum": "Malbaum mit dicker Schlammkruste und abgeriebener Rinde bis etwa Kniehöhe, Rehahn bei Blumberg, Barnim (Brandenburg), 02.08.2007"
+    },
+    "spuren.gebraech": {
+      "foto": "wildschwein/spur-gebraech",
+      "titel": "Schweinerei-einer-schwarzkittelrotte-001.jpg",
+      "warum": "Von einer Rotte umgebrochene Grasnarbe mit aufgeworfenen Erdschollen (Gebräch), Mammolshain (Taunus, Hessen), Januar 2010"
+    }
+  },
+  "verworfen": [
+    { "platz": "hero/winter", "titel": "Young wild boar.jpg", "grund": "Wisentgehege Springe (Gehege), trotz schönem Schneebild" },
+    { "platz": "winter", "titel": "Wild boar Finland.JPG", "grund": "Ranua Zoo" },
+    { "platz": "winter", "titel": "Prase-tabor.jpg", "grund": "Zoo Tábor, Zaun im Bild" },
+    { "platz": "winter", "titel": "Дикий кабан у зимовому лісі.jpg", "grund": "sehr schön, aber Ukraine; Mitteleuropa (Veluwe) bevorzugt" },
+    { "platz": "winter", "titel": "Sus scrofa, Lodz, Poland (js)32.jpg", "grund": "gute Alternative (Schnee, frei lebend), aber Tier kleiner und abgewandt; Ersatz falls Veluwe nicht gefällt" },
+    { "platz": "winter", "titel": "Winter in Moritzburg (23856246614).jpg", "grund": "Wildgehege Moritzburg" },
+    { "platz": "winter", "titel": "Winter-Diorama mit Wildschweinen.jpg", "grund": "Museumsdiorama, Präparate" },
+    { "platz": "hero", "titel": "Sus scrofa 1 - Otter, Owl, and Wildlife Park.jpg", "grund": "Wildpark in England" },
+    { "platz": "hero", "titel": "Wildschwein Bayern.jpg", "grund": "Bayerischer Wald, sehr wahrscheinlich Tierfreigelände (Gehege), Ort nicht eindeutig" },
+    { "platz": "hero", "titel": "Wildschweine im Nationalpark Bayerischer Wald *.jpg", "grund": "Tierfreigelände des Nationalparks (Gehege)" },
+    { "platz": "jung", "titel": "Sus scrofa piglet.jpg", "grund": "Wildpark in den Niederlanden (rotbraunes Herbstbild, sonst ideal)" },
+    { "platz": "jung", "titel": "Frischlinge Weissewarte.jpg", "grund": "Wildpark Weißewarte" },
+    { "platz": "jung", "titel": "Piglets *.jpg / Sus scrofa domesticus *", "grund": "Hausschwein-Ferkel" },
+    { "platz": "jung", "titel": "Spotted wild boars / łaciate dziki *", "grund": "gefleckte Tiere, vermutlich Hybriden mit Hausschwein" },
+    { "platz": "jung", "titel": "ES0000046.*.jpg (Sierra Espuña)", "grund": "Spanien; deutsches Foto vorhanden" },
+    { "platz": "jung", "titel": "Sus scrofa, Lodz, Poland (js)15–19", "grund": "gestreifte Frischlinge auf Rasen/Garten mit Wegen, wirkt wie Park" },
+    { "platz": "suhle", "titel": "Ausgewachsenes Wildschwein beim Suhlen.JPG", "grund": "Ort nicht angegeben, Teich mit Ästen wirkt wie Wildpark; im Zweifel verworfen" },
+    { "platz": "suhle", "titel": "Wild Boar Habbitat*.jpg / Wild Boar rubbing.jpg (Richard Bartz)", "grund": "aufgenommen im Wildpark (Bayern), nicht frei lebend" },
+    { "platz": "suhle", "titel": "Wildschwein in der Suhle ruhend mit Äpfeln.jpg", "grund": "Fütterung (Äpfel), Gehege" },
+    { "platz": "ruhe", "titel": "WildschweinSchlafend.jpg und alle 'Sleeping Sus scrofa'", "grund": "alle liegenden Tiere aus Gehegen/Zoos (Tannenbusch, Güstrow, Tripsdrill, Eberswalde …)" },
+    { "platz": "herbst", "titel": "Wildschwein-Sparbach *.JPG", "grund": "Naturpark Sparbach (eingezäunter Tiergarten mit Fütterung); Herbstlaub wäre ideal" },
+    { "platz": "herbst", "titel": "Wild boars searching for food under dead leaves (DSC07838).jpg", "grund": "Original mit rotem Haus im Hintergrund; Ausschnitt-Version genommen" },
+    { "platz": "herbst", "titel": "Sus scrofa, Lodz, Poland (js)30.jpg", "grund": "09.12.2011, ähnlich spätes Datum, Laub weniger deutlich" },
+    { "platz": "aktiv", "titel": "Junges Wildschwein sucht im Matsch nach Nahrung.jpg", "grund": "Wildgehege Leidenhausen (Köln)" },
+    { "platz": "hinweis", "titel": "Moederliefde op de Veluwe.JPG", "grund": "Hoge Veluwe (eingezäunter Park); deutsches Freiland-Foto vorhanden" },
+    { "platz": "spuren.tritt", "titel": "20180218Sus scrofa2.jpg", "grund": "Afterklauen nur schwach erkennbar" },
+    { "platz": "spuren.suhle", "titel": "Suhle von Wildschweinen in Birkenmischwald.JPG", "grund": "Tessin (Schweiz, Südseite der Alpen); deutsches Foto vorhanden" },
+    { "platz": "spuren.malbaum", "titel": "Wild boar tree trunk with mud.JPG", "grund": "Alternative aus Belgien; Brandenburg bevorzugt" }
+  ],
+  "leer": [
+    { "platz": "fellwechsel", "grund": "Kein freies Commons-Foto mit eindeutig sichtbarem Fellwechsel (Unterwolle in Fetzen, zweifarbig) eines frei lebenden Wildschweins gefunden. Suchen: 'Sus scrofa moulting', 'wild boar shedding', Kategorien Deutschland/Polen/Niederlande/Belgien" },
+    { "platz": "suhle", "grund": "Besonderheit 'Suhlen': Alle Fotos eines Wildschweins IN der Suhle stammen aus Wildparks oder ohne Ortsangabe. Ersatz: spuren.suhle (Suhle ohne Tier) und aktiv (Tier im Schlamm)" },
+    { "platz": "erkunden.maennlich", "grund": "Kein frei lebender Keiler mit sichtbaren Eckzähnen in seitlicher Ansicht gefunden (Keiler-Fotos mit Gewaff nur aus Gehegen). Daher nur erkunden.alle mit einer Bache, Punkt 'zahn' entfällt" },
+    { "platz": "kessel", "grund": "laut Recherche nur Zeichnung empfohlen (Schutz), nicht gesucht" }
+  ],
+  "erkunden": {
+    "alle": {
+      "foto": "wildschwein/hero",
+      "punkte": { "ruessel": [6, 47], "borsten": [45, 13], "ohr": [23, 14] },
+      "hinweis": "Bache: 'zahn' nicht sichtbar; 'huf' (Afterklauen) vom Gras verdeckt, daher weggelassen"
+    }
+  },
+  "lebensraum": {
+    "foto": "landschaft/waldrand-wiese",
+    "zonen": [[90, 52], [78, 64], [30, 78]],
+    "orte": ["landschaft/dickicht", "wildschwein/spur-suhle", "landschaft/wiese"],
+    "hinweis": "Panorama und Zonen wie bisher (Waldrand mit Laubwald rechts, Wiese/Feld links). Neu: echtes Suhlen-Nahfoto für den Ort 'Suhle'. Alternative für 'Feld & Wiese': wildschwein/spur-gebraech (umgebrochene Wiese)"
+  }
+}

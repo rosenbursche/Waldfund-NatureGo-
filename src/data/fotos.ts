@@ -221,6 +221,156 @@ export const FOTOS = {
     lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
     seite: 'https://commons.wikimedia.org/wiki/File:Biberdamm_im_NSG_Biesenthaler_Becken.jpg',
   },
+  // Wildschwein im Frühling (Mai) auf einer Wiese am Stadtrand von Łódź, ganz seitlich
+  'wildschwein/hero': {
+    quelle: require('../../assets/fotos/wildschwein/hero.jpg'),
+    breite: 1200,
+    hoehe: 826,
+    autor: 'Jerzy Strzelecki',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Locha(js).jpg',
+  },
+  // Bache mit gestreiften Frischlingen im kahlen Birkenwald, März
+  'wildschwein/jahreszeit-fruehling': {
+    quelle: require('../../assets/fotos/wildschwein/jahreszeit-fruehling.jpg'),
+    breite: 1200,
+    hoehe: 799,
+    autor: 'Jerzy Strzelecki',
+    lizenz: 'CC BY-SA 3.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)41.jpg',
+  },
+  // Wildschwein im kurzen Sommerfell vor grünem Gebüsch, Juli
+  'wildschwein/jahreszeit-sommer': {
+    quelle: require('../../assets/fotos/wildschwein/jahreszeit-sommer.jpg'),
+    breite: 1200,
+    hoehe: 800,
+    autor: 'Jerzystrzelecki',
+    lizenz: 'CC BY 3.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by/3.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)27.jpg',
+  },
+  // Rotte wühlt im Falllaub nach Futter, Bois de Roly (Belgien)
+  'wildschwein/jahreszeit-herbst': {
+    quelle: require('../../assets/fotos/wildschwein/jahreszeit-herbst.jpg'),
+    breite: 1200,
+    hoehe: 669,
+    autor: 'Trougnouf (Benoit Brummer)',
+    lizenz: 'CC BY 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Wild_boars_searching_for_food_under_dead_leaves,_cropped_(DSC07838).jpg',
+  },
+  // Wildschwein im Winterfell läuft durch Schnee, Deelerwoud (Veluwe), Januar
+  'wildschwein/jahreszeit-winter': {
+    quelle: require('../../assets/fotos/wildschwein/jahreszeit-winter.jpg'),
+    breite: 1200,
+    hoehe: 800,
+    autor: 'Henk Monster',
+    lizenz: 'CC BY 3.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by/3.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:When_they_did_smell_me_they_went_away_in_a_hurry._Deelerwoud_26_Januari_2013_-_panoramio.jpg',
+  },
+  // Gestreifter Frischling im Gras, Pfälzerwald, Juni
+  'wildschwein/jung': {
+    quelle: require('../../assets/fotos/wildschwein/jung.jpg'),
+    breite: 1200,
+    hoehe: 900,
+    autor: 'Fischer.H',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:IMG_Wildschwein_Frischling_0925.jpg',
+  },
+  // Zwei Frischlinge im rotbraunen Jugendkleid, Ardennen, August
+  'wildschwein/jung-rotbraun': {
+    quelle: require('../../assets/fotos/wildschwein/jung-rotbraun.jpg'),
+    breite: 1200,
+    hoehe: 797,
+    autor: 'Hikerbiker',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Ardennen-4.jpg',
+  },
+  // Wildschwein wühlt mit dem Rüssel im Schlamm, NSG Schellbruch Lübeck
+  'wildschwein/aktiv': {
+    quelle: require('../../assets/fotos/wildschwein/aktiv.jpg'),
+    breite: 1200,
+    hoehe: 800,
+    autor: 'Canaturephoto',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Dreckschwein.jpg',
+  },
+  // Wildschwein ruht sitzend am Rand eines Birkendickichts, April
+  'wildschwein/ruhe': {
+    quelle: require('../../assets/fotos/wildschwein/ruhe.jpg'),
+    breite: 1200,
+    hoehe: 800,
+    autor: 'Jerzy Strzelecki',
+    lizenz: 'CC BY 3.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by/3.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)33.jpg',
+  },
+  // Bache mit sechs gestreiften Frischlingen am Birkenwald, März
+  'wildschwein/rotte': {
+    quelle: require('../../assets/fotos/wildschwein/rotte.jpg'),
+    breite: 1200,
+    hoehe: 800,
+    autor: 'Jerzy Strzelecki',
+    lizenz: 'CC BY-SA 3.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Sus_scrofa,_Lodz,_Poland_(js)38.jpg',
+  },
+  // Bache mit Frischlingen in freier Natur, Hambach an der Weinstraße
+  'wildschwein/hinweis': {
+    quelle: require('../../assets/fotos/wildschwein/hinweis.jpg'),
+    breite: 1200,
+    hoehe: 800,
+    autor: 'Fischer.H',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Wildschwein.jpg',
+  },
+  // Trittsiegel im Schlamm: zwei Schalen, dahinter seitlich die Afterklauen (Ort unbekannt)
+  'wildschwein/spur-tritt': {
+    quelle: require('../../assets/fotos/wildschwein/spur-tritt.jpg'),
+    breite: 800,
+    hoehe: 1200,
+    autor: 'Chris Le Jeune',
+    lizenz: 'CC BY-SA 4.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Empreinte_de_sanglier_-4.jpg',
+  },
+  // Wildschweinsuhle im Wald, Schorlenberg (Pfalz)
+  'wildschwein/spur-suhle': {
+    quelle: require('../../assets/fotos/wildschwein/spur-suhle.jpg'),
+    breite: 1200,
+    hoehe: 900,
+    autor: 'Hans Buch',
+    lizenz: 'Public domain',
+    lizenzUrl: '',
+    seite: 'https://commons.wikimedia.org/wiki/File:Schorlenberg,_Wildschweinsuhle.jpg',
+  },
+  // Malbaum mit Schlammkruste am Stamm, Barnim (Brandenburg)
+  'wildschwein/spur-malbaum': {
+    quelle: require('../../assets/fotos/wildschwein/spur-malbaum.jpg'),
+    breite: 998,
+    hoehe: 1200,
+    autor: 'Rainer Altenkamp, Berlin',
+    lizenz: 'CC BY-SA 3.0',
+    lizenzUrl: 'http://creativecommons.org/licenses/by-sa/3.0/',
+    seite: 'https://commons.wikimedia.org/wiki/File:Susscr_Malbaum_frei_Rehahn_BAR_070802.jpg',
+  },
+  // Von einer Rotte umgebrochene Grasnarbe (Gebräch), Mammolshain (Taunus)
+  'wildschwein/spur-gebraech': {
+    quelle: require('../../assets/fotos/wildschwein/spur-gebraech.jpg'),
+    breite: 1200,
+    hoehe: 900,
+    autor: 'Dontworry',
+    lizenz: 'CC BY-SA 3.0',
+    lizenzUrl: 'https://creativecommons.org/licenses/by-sa/3.0',
+    seite: 'https://commons.wikimedia.org/wiki/File:Schweinerei-einer-schwarzkittelrotte-001.jpg',
+  },
 } satisfies Record<string, Foto>;
 
 export type FotoId = keyof typeof FOTOS;

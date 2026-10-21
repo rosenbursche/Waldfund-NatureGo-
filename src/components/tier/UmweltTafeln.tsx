@@ -591,25 +591,31 @@ export function Speiseplan({
       <View style={stile.teller}>
         {tier.nahrung.map((n) => {
           const da = jetzt.includes(n.icon);
+          // Monate nicht belegt: halb sichtbar, ohne Monatsbalken (nicht als „nie“ darstellen)
+          const offen = !!n.monateOffen;
           return (
-            <View key={n.icon} style={[stile.tellerEintrag, !da && { opacity: 0.28 }]}>
+            <View key={n.icon} style={[stile.tellerEintrag, !da && { opacity: offen ? 0.6 : 0.28 }]}>
               <View style={[stile.tellerKreis, da && { borderColor: colors.amber }]}>
                 <TierSymbol name={n.icon} groesse={30} farbe={da ? colors.amber : colors.fog} />
               </View>
               <Schrift style={stile.tellerText}>{n.kurz}</Schrift>
               {/* in welchen Monaten es das gibt */}
-              <View style={stile.balken}>
-                {MONATE.map((m, k) => (
-                  <View
-                    key={m}
-                    style={[
-                      stile.strich,
-                      n.monate.includes(k + 1) && { backgroundColor: colors.amber },
-                      k + 1 === monat && stile.strichJetzt,
-                    ]}
-                  />
-                ))}
-              </View>
+              {offen ? (
+                <Schrift style={stile.monateOffen}>Monate offen</Schrift>
+              ) : (
+                <View style={stile.balken}>
+                  {MONATE.map((m, k) => (
+                    <View
+                      key={m}
+                      style={[
+                        stile.strich,
+                        n.monate.includes(k + 1) && { backgroundColor: colors.amber },
+                        k + 1 === monat && stile.strichJetzt,
+                      ]}
+                    />
+                  ))}
+                </View>
+              )}
             </View>
           );
         })}
@@ -980,6 +986,7 @@ const stile = StyleSheet.create({
   monatText: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog },
   teller: { flexDirection: 'row', justifyContent: 'space-between' },
   tellerEintrag: { alignItems: 'center', gap: 4, width: '19%' },
+  monateOffen: { fontFamily: fonts.etikett, fontSize: 9, letterSpacing: 0.5, color: colors.fog, textAlign: 'center' },
   tellerKreis: {
     width: 54,
     height: 54,

@@ -91,7 +91,7 @@ Prüfregeln für jedes Foto:
 5. **Lizenz.** Nur CC0, gemeinfrei, CC BY, CC BY-SA. Fotos nur verkleinern, nie beschneiden oder verändern.
 
 ## Verbreitung
-- Quelle: **GBIF.org**, nur freie Datensätze (CC0, CC BY 4.0), nur Beobachtungen in freier Natur, ab dem Jahr 2000.
+- Quelle: **GBIF.org**, nur freie Datensätze (CC0, CC BY 4.0), ohne Museums- und Zoobelege (Filter `basisOfRecord`, einzelne Wildpark-Meldungen bleiben möglich), ab dem Jahr 2000.
 - Raster: TK25-Messtischblatt (10′ × 6′), genau wie die App-Karte. **Genauer wird nie gespeichert.**
 - Der Agent gleicht mit Fachkarten ab (BfN FFH-Bericht, Landesämter, Fachliteratur), schließt Ausreißer (Wildparks, Verwechslungen) mit `--ohne` aus und begründet das in `verbreitung.md`.
 - Vor einer Veröffentlichung: GBIF-Download mit DOI anlegen und in der App zitieren.

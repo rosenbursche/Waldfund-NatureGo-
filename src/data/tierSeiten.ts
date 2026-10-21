@@ -92,7 +92,8 @@ export type SpurIcon =
 
 /** Form des Trittsiegels: Huf (Reh), Huf mit Afterklauen (Wildschwein), Pfoten verschiedener Tiere */
 export type TrittForm = 'huf' | 'huf_af' | 'pfote' | 'katze' | 'pfote5' | 'hase' | 'nager' | 'biber';
-export type GefahrIcon = 'wolf' | 'maehen' | 'auto' | 'marder' | 'greif';
+/** Symbol einer Gefahr; `schnee` = Kälte und Nässe (z. B. nasskaltes Wetter für Frischlinge) */
+export type GefahrIcon = 'wolf' | 'maehen' | 'auto' | 'marder' | 'greif' | 'schnee';
 export type GeweihZustand = { art: 'keins' | 'bast' | 'blank'; groesse: number };
 
 /** Landschaft für Lebensraum-Bild und 3D-Hero */
@@ -116,6 +117,8 @@ export type TierFotos = {
   sommer?: FotoId;
   winter?: FotoId;
   jung?: FotoId;
+  /** Jungtier im späteren Jugendkleid (z. B. rotbraune Frischlinge) – im Jahresrad in den Monaten `jung.dunkel` */
+  jungSpaeter?: FotoId;
   aktiv?: FotoId;
   ruhe?: FotoId;
   spuren?: Partial<Record<SpurIcon, FotoId>>;
@@ -169,6 +172,17 @@ export type TierSeite = {
   aktivitaet: { von: number; bis: number; staerke: 1 | 2 }[];
   /** Beschriftung der Tagesuhr: [ruht, kurz aktiv, sehr aktiv] und Symbol für „aktiv“ */
   aktivTexte: [string, string, string];
+  /** Kennzahlen für „Wie schnell?“ (z. B. Tempo, Hauer) – nur belegte Werte */
+  kennzahlen?: { wert: string; einheit?: string; etikett: string }[];
+  /** Gefahr für Menschen: Einschätzung, Situationen, Zahlen (Wildunfälle, Todesfälle), richtiges Verhalten */
+  gefahrMensch?: {
+    urteil: string;
+    wann: { titel: string; text: string }[];
+    zahlen: { wert: string; einheit?: string; etikett: string }[];
+    verhalten: string[];
+  };
+  /** Hinweis unter der Tagesuhr: Warum ist das Tier zu dieser Zeit aktiv? Mit belegten Kernsätzen */
+  aktivHinweis?: { titel: string; saetze: string[] };
   aktivSymbol: NahrungIcon;
   /** Ereignisse im Jahr (Monate 1–12); `symbol` ist der Name eines Symbols aus TierSymbol */
   jahr: { id: string; kurz: string; monate: number[]; farbe: 'amber' | 'rune' | 'fog' | 'rare'; symbol: string }[];
@@ -181,8 +195,16 @@ export type TierSeite = {
   /** Geweih des Männchens je Monat (Index 0 = Januar) – nur beim Reh */
   geweih?: GeweihZustand[];
   /** Jungtier: wann es draußen zu sehen ist, wann mit Flecken (Kitz), Streifen (Frischling) oder dunklem Fell */
-  jung: { sichtbar: number[]; flecken?: number[]; streifen?: number[]; dunkel?: number[] };
-  nahrung: { icon: NahrungIcon; kurz: string; monate: number[] }[];
+  jung: {
+    sichtbar: number[];
+    flecken?: number[];
+    streifen?: number[];
+    dunkel?: number[];
+    /** Beschriftung für die Monate `dunkel` im Jahresrad (z. B. „Frischling: rotbraun“) */
+    dunkelKurz?: string;
+  };
+  /** `monateOffen`: Futter ist belegt, aber nicht, in welchen Monaten – dann ohne Monatsbalken */
+  nahrung: { icon: NahrungIcon; kurz: string; monate: number[]; monateOffen?: boolean }[];
   spuren: { icon: SpurIcon; kurz: string; cm?: [number, number] }[];
   tritt: TrittForm;
   /** Fährte: paarig versetzt (Reh), „geschnürt“ auf einer Linie (Fuchs, Katzen) oder Sprungspur in Vierergruppen */

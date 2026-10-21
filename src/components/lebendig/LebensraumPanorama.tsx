@@ -1,30 +1,31 @@
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useRef, useState } from 'react';
-import { Animated, Easing, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { Animated, Easing, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
 import { TierFigur } from '@/components/tier/TierFigur';
-import { TierFoto } from '@/components/tier/TierFoto';
 import { TierSymbol } from '@/components/tier/TierSymbol';
 import { ZONEN_SYMBOL } from '@/components/tier/UmweltTafeln';
 import { Schalter } from '@/components/ui/Schalter';
 import { FOTOS, fotoNachweis, type FotoId } from '@/data/fotos';
 import type { TierSeite, Zone } from '@/data/tierSeiten';
-import { colors, fonts, spacing } from '@/theme/theme';
+import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
- * Lebensraum als echtes Landschafts-Panorama zum Verschieben mit dem Finger.
- * - Die drei Orte (z. B. Deckung, Lieblingsplatz, Futter) sind als Marken in das Foto gesetzt.
- * - Das Tier ist ein rundes Foto-Porträt. Beim Wechsel Tag ↔ Dämmerung wandert es zu seinem Ort
- *   und hinterlässt eine Spur aus Punkten; das Panorama fährt mit.
- * - In der Dämmerung wird die Landschaft dunkel und bläulich, das Porträt leuchtet.
- * - Orte mit Punkt haben ein Nahfoto (Dickicht, Wiese …), das beim Antippen darunter erscheint.
+ * Zuhause: echtes Landschafts-Panorama und darunter große Karten für die drei Orte.
+ * - Panorama zum Verschieben; die Orte sind als Marken im Foto, das Tier als rundes Porträt.
+ * - Tag ↔ Dämmerung: Das Porträt wandert mit einer Punktespur zum anderen Ort, das Panorama fährt mit.
+ *   In der Dämmerung wird das Bild nur abendlich getönt – es bleibt gut sichtbar.
+ * - Ort-Karten: Nahfoto des Ortes (oder der Ausschnitt aus dem Panorama), Name und ob das Tier
+ *   tagsüber bzw. in der Dämmerung dort ist. Antippen springt im Panorama zu diesem Ort.
  * - Tiere ohne eigenes Foto zeigen im Porträt ihre Zeichnung.
  */
-const HOEHE = 300;
+const HOEHE = 250;
 const PORTRAET = 54;
+const KARTE_B = 230;
+const KARTE_FOTO = 170;
 
 export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: boolean }) {
   const l = tier.lebensraum;
@@ -34,7 +35,7 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
   const [fenster, setFenster] = useState(0);
   const blick = useRef<ScrollView>(null);
   const [weg] = useState(() => new Animated.Value(0)); // 0 = am Tagesort, 1 = am Dämmerungsort
-  const [dunkel] = useState(() => new Animated.Value(0));
+  const [abend] = useState(() => new Animated.Value(0));
 
   const f = lr ? FOTOS[lr.foto] : undefined;
   const breite = f ? Math.round(HOEHE * (f.breite / f.hoehe)) : 0;
@@ -43,27 +44,30 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
     lr ? { x: (lr.zonen[z][0] / 100) * breite, y: (lr.zonen[z][1] / 100) * HOEHE } : { x: 0, y: 0 };
   const von = punkt(l.tag);
   const nach = punkt(l.nacht);
+  // Ziel der Kamera: gewählter Ort, sonst der Ort des Tieres
+  const ziel = punkt(wahl ?? ort);
 
   useEffect(() => {
-    const ziel = nacht ? 1 : 0;
+    const z = nacht ? 1 : 0;
     if (ruhig) {
-      weg.setValue(ziel);
-      dunkel.setValue(ziel);
-    } else {
-      Animated.timing(weg, {
-        toValue: ziel,
-        duration: 1800,
-        easing: Easing.inOut(Easing.cubic),
-        useNativeDriver: true,
-      }).start();
-      Animated.timing(dunkel, { toValue: ziel, duration: 1200, useNativeDriver: true }).start();
+      weg.setValue(z);
+      abend.setValue(z);
+      return;
     }
-    // Panorama so verschieben, dass das Tier in der Mitte steht
+    Animated.timing(weg, {
+      toValue: z,
+      duration: 1800,
+      easing: Easing.inOut(Easing.cubic),
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(abend, { toValue: z, duration: 1200, useNativeDriver: true }).start();
+  }, [nacht, ruhig, weg, abend]);
+
+  useEffect(() => {
     if (fenster > 0) {
-      const x = nacht ? nach.x : von.x;
-      blick.current?.scrollTo({ x: Math.max(0, Math.min(breite - fenster, x - fenster / 2)), animated: !ruhig });
+      blick.current?.scrollTo({ x: Math.max(0, Math.min(breite - fenster, ziel.x - fenster / 2)), animated: !ruhig });
     }
-  }, [nacht, ruhig, weg, dunkel, fenster, breite, von.x, nach.x]);
+  }, [fenster, breite, ziel.x, ruhig]);
 
   if (!lr || !f) return null;
   const symbole = ZONEN_SYMBOL[l.landschaft];
@@ -81,7 +85,10 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
           { wert: 'tag', symbol: 'sonne', name: 'Tag' },
           { wert: 'nacht', symbol: 'mond', name: 'Dämmerung' },
         ]}
-        onWahl={(w) => setNacht(w === 'nacht')}
+        onWahl={(w) => {
+          setNacht(w === 'nacht');
+          setWahl(null);
+        }}
       />
       <View onLayout={(e) => setFenster(e.nativeEvent.layout.width)}>
         <ScrollView ref={blick} horizontal showsHorizontalScrollIndicator={false} bounces={false}>
@@ -92,31 +99,30 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
               contentFit="cover"
               accessibilityIgnoresInvertColors
             />
-            {/* Dämmerung: dunkelblauer Schleier über der Landschaft */}
-            <Animated.View pointerEvents="none" style={[stile.daemmerung, { opacity: dunkel }]} />
-            <LinearGradient
-              pointerEvents="none"
-              colors={[colors.night, 'transparent', 'transparent', colors.night]}
-              locations={[0, 0.18, 0.75, 1]}
-              style={StyleSheet.absoluteFill}
-            />
+            {/* Dämmerung: abendliche Tönung – oben bläulicher Himmel, unten etwas dunkler; das Bild bleibt erkennbar */}
+            <Animated.View pointerEvents="none" style={[StyleSheet.absoluteFill, { opacity: abend }]}>
+              <LinearGradient
+                colors={[`${colors.kartenTief}D9`, `${colors.night}66`, `${colors.night}80`]}
+                locations={[0, 0.5, 1]}
+                style={StyleSheet.absoluteFill}
+              />
+            </Animated.View>
             {/* Spur zwischen Tag- und Dämmerungsort */}
             <Animated.View
               pointerEvents="none"
               style={[
                 StyleSheet.absoluteFill,
-                { opacity: dunkel.interpolate({ inputRange: [0, 1], outputRange: [0.35, 1] }) },
+                { opacity: abend.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }) },
               ]}
             >
               <Svg width={breite} height={HOEHE}>
                 {spur.map((p, i) => (
-                  <Circle key={i} cx={p.x} cy={p.y} r={2.2} fill={colors.amber} opacity={0.85} />
+                  <Circle key={i} cx={p.x} cy={p.y} r={2.4} fill={colors.amber} opacity={0.9} />
                 ))}
               </Svg>
             </Animated.View>
             {/* Orte als Marken */}
-            {[0, 1, 2].map((i) => {
-              const z = i as Zone;
+            {([0, 1, 2] as Zone[]).map((z) => {
               const p = punkt(z);
               const aktiv = z === (wahl ?? ort);
               return (
@@ -132,12 +138,11 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
                     <Schrift style={[stile.markeText, aktiv && { color: colors.night }]} numberOfLines={1}>
                       {l.orte[z]}
                     </Schrift>
-                    {lr.orte?.[z] && <View style={[stile.fotoPunkt, aktiv && { backgroundColor: colors.night }]} />}
                   </View>
                 </Pressable>
               );
             })}
-            {/* das Tier als Foto-Porträt, wandert zwischen den Orten */}
+            {/* das Tier als Porträt, wandert zwischen den Orten */}
             <Animated.View
               pointerEvents="none"
               style={[
@@ -164,7 +169,7 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
                 },
               ]}
             >
-              <Animated.View style={[stile.leuchten, { opacity: dunkel }]} />
+              <Animated.View style={[stile.leuchten, { opacity: abend }]} />
               <View style={stile.portraetBild}>
                 {tier.fotos ? (
                   <Image
@@ -174,7 +179,6 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
                     contentPosition={{ left: `${tier.fotos.heroX ?? 50}%`, top: '40%' }}
                   />
                 ) : (
-                  // ohne Foto: die Zeichnung des Tieres
                   <View style={stile.portraetFigur}>
                     <TierFigur tier={tier} />
                   </View>
@@ -187,77 +191,109 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
           {fotoNachweis(f)}
         </Schrift>
       </View>
-      {/* Zusammenfassung: wo am Tag, wo in der Dämmerung */}
-      <View style={stile.legende}>
-        <Zeile symbol="sonne" etikett="Tag" text={l.orte[l.tag]} an={!nacht} />
-        <Zeile symbol="mond" etikett="Dämmerung" text={l.orte[l.nacht]} an={nacht} />
-      </View>
-      {wahl !== null && lr.orte?.[wahl] && <Nahfoto key={wahl} id={lr.orte[wahl]!} name={l.orte[wahl]} ruhig={ruhig} />}
+
+      {/* Die drei Orte als große Karten */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={stile.karten}>
+        {([0, 1, 2] as Zone[]).map((z) => (
+          <OrtKarte
+            key={z}
+            name={l.orte[z]}
+            symbol={symbole[z]}
+            nahfoto={lr.orte?.[z]}
+            panorama={lr.foto}
+            xProzent={lr.zonen[z][0]}
+            tag={l.tag === z}
+            daemmerung={l.nacht === z}
+            gewaehlt={z === (wahl ?? ort)}
+            onPress={() => setWahl(wahl === z ? null : z)}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }
 
-/** Nahfoto eines Ortes (z. B. Dickicht, Wiese): gleitet beim Antippen der Marke herein */
-function Nahfoto({ id, name, ruhig }: { id: FotoId; name: string; ruhig: boolean }) {
-  const [t] = useState(() => new Animated.Value(ruhig ? 1 : 0));
-  useEffect(() => {
-    if (ruhig) return;
-    Animated.timing(t, { toValue: 1, duration: 450, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
-  }, [ruhig, t]);
-  const f = FOTOS[id];
+/** Karte eines Ortes: Nahfoto oder Ausschnitt aus dem Panorama, Name, wann das Tier dort ist */
+function OrtKarte({
+  name,
+  symbol,
+  nahfoto,
+  panorama,
+  xProzent,
+  tag,
+  daemmerung,
+  gewaehlt,
+  onPress,
+}: {
+  name: string;
+  symbol: Parameters<typeof TierSymbol>[0]['name'];
+  nahfoto?: FotoId;
+  panorama: FotoId;
+  xProzent: number;
+  tag: boolean;
+  daemmerung: boolean;
+  gewaehlt: boolean;
+  onPress: () => void;
+}) {
+  const { width } = useWindowDimensions();
+  const b = Math.min(KARTE_B, width * 0.62);
+  const foto = FOTOS[nahfoto ?? panorama];
+  // ohne Nahfoto: Ausschnitt des Panoramas rund um den Ort
+  const pb = KARTE_FOTO * (foto.breite / foto.hoehe);
+  const links = nahfoto ? 0 : -Math.max(0, Math.min(pb - b, (xProzent / 100) * pb - b / 2));
   return (
-    <Animated.View
-      style={[
-        stile.nah,
-        { opacity: t, transform: [{ translateY: t.interpolate({ inputRange: [0, 1], outputRange: [20, 0] }) }] },
-      ]}
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={`${name}${tag ? ', tagsüber hier' : ''}${daemmerung ? ', in der Dämmerung hier' : ''}`}
+      accessibilityState={{ selected: gewaehlt }}
+      style={({ pressed }) => [stile.ortKarte, { width: b }, gewaehlt && stile.ortKarteAn, pressed && { opacity: 0.8 }]}
     >
-      <View style={{ width: '100%', aspectRatio: f.breite / f.hoehe }}>
-        <TierFoto id={id} style={StyleSheet.absoluteFill} nachweis />
+      <View style={[stile.ortFoto, { width: b }]}>
+        {nahfoto ? (
+          <Image source={foto.quelle} style={StyleSheet.absoluteFill} contentFit="cover" />
+        ) : (
+          <Image
+            source={foto.quelle}
+            style={{ position: 'absolute', left: links, top: 0, width: pb, height: KARTE_FOTO }}
+          />
+        )}
         <LinearGradient
           pointerEvents="none"
-          colors={[`${colors.night}CC`, 'transparent']}
-          locations={[0, 0.5]}
+          colors={['transparent', `${colors.night}E6`]}
+          locations={[0.45, 1]}
           style={StyleSheet.absoluteFill}
         />
-        <Schrift style={stile.nahName}>{name}</Schrift>
+        <View style={stile.ortKopf}>
+          <TierSymbol name={symbol} groesse={18} farbe={colors.amber} />
+          <Schrift style={stile.ortName} numberOfLines={1}>
+            {name}
+          </Schrift>
+        </View>
+        {nahfoto && (
+          <Schrift style={stile.ortNachweis} numberOfLines={1}>
+            {fotoNachweis(foto)}
+          </Schrift>
+        )}
       </View>
-    </Animated.View>
+      <View style={stile.ortZeiten}>
+        <Zeit symbol="sonne" text="Tagsüber" an={tag} />
+        <Zeit symbol="mond" text="Dämmerung" an={daemmerung} />
+      </View>
+    </Pressable>
   );
 }
 
-function Zeile({
-  symbol,
-  etikett,
-  text,
-  an,
-}: {
-  symbol: 'sonne' | 'mond';
-  etikett: string;
-  text: string;
-  an: boolean;
-}) {
+function Zeit({ symbol, text, an }: { symbol: 'sonne' | 'mond'; text: string; an: boolean }) {
   return (
-    <View style={[stile.zeile, !an && { opacity: 0.45 }]}>
-      <TierSymbol name={symbol} groesse={20} farbe={an ? colors.amber : colors.fog} />
-      <Schrift art="etikett" style={{ width: 112 }}>
-        {etikett}
-      </Schrift>
-      <Schrift style={stile.zeileText}>{text}</Schrift>
+    <View style={[stile.zeit, an ? stile.zeitAn : { opacity: 0.35 }]}>
+      <TierSymbol name={symbol} groesse={14} farbe={an ? colors.night : colors.fog} />
+      <Schrift style={[stile.zeitText, an && { color: colors.night }]}>{text}</Schrift>
     </View>
   );
 }
 
 const stile = StyleSheet.create({
-  daemmerung: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: colors.kartenTief,
-    opacity: 0.7,
-  },
   marke: { position: 'absolute', width: 120, alignItems: 'center' },
   markeInnen: {
     flexDirection: 'row',
@@ -265,7 +301,7 @@ const stile = StyleSheet.create({
     gap: 5,
     paddingHorizontal: 8,
     paddingVertical: 3,
-    borderRadius: 4,
+    borderRadius: radius.s,
     borderWidth: 1,
     borderColor: `${colors.moon}55`,
     backgroundColor: `${colors.night}B3`,
@@ -297,25 +333,6 @@ const stile = StyleSheet.create({
   },
   // Zeichnung auf hellem Papier, damit sie vor der Landschaft lesbar ist
   portraetFigur: { flex: 1, padding: 3, justifyContent: 'center', backgroundColor: colors.paper },
-  fotoPunkt: { width: 5, height: 5, borderRadius: 3, backgroundColor: colors.amber },
-  nah: {
-    marginHorizontal: spacing.m,
-    borderRadius: 8,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: `${colors.moss}AA`,
-  },
-  nahName: {
-    position: 'absolute',
-    left: spacing.m,
-    top: spacing.s,
-    fontFamily: fonts.titel,
-    fontSize: 18,
-    letterSpacing: 1.5,
-    color: colors.moon,
-    textShadowColor: colors.night,
-    textShadowRadius: 8,
-  },
   nachweis: {
     position: 'absolute',
     right: 6,
@@ -323,9 +340,58 @@ const stile = StyleSheet.create({
     fontFamily: fonts.body,
     fontSize: 9.5,
     color: colors.moon,
-    opacity: 0.8,
+    opacity: 0.85,
+    textShadowColor: colors.night,
+    textShadowRadius: 4,
   },
-  legende: { gap: 6, paddingHorizontal: spacing.m },
-  zeile: { flexDirection: 'row', alignItems: 'center', gap: spacing.s },
-  zeileText: { fontFamily: fonts.notiz, fontSize: 19, lineHeight: 24, color: colors.moon, flex: 1 },
+  karten: { gap: spacing.m, paddingHorizontal: spacing.m },
+  ortKarte: {
+    borderRadius: radius.m,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: `${colors.moss}AA`,
+    backgroundColor: colors.sektion,
+  },
+  ortKarteAn: { borderColor: colors.amber, borderWidth: 2 },
+  ortFoto: { height: KARTE_FOTO, overflow: 'hidden', backgroundColor: colors.night },
+  ortKopf: {
+    position: 'absolute',
+    left: spacing.s,
+    right: spacing.s,
+    bottom: spacing.s,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  ortName: { flex: 1, fontFamily: fonts.titel, fontSize: 16, letterSpacing: 1, color: colors.moon },
+  ortNachweis: {
+    position: 'absolute',
+    right: 4,
+    top: 3,
+    fontFamily: fonts.body,
+    fontSize: 8.5,
+    color: colors.moon,
+    opacity: 0.8,
+    textShadowColor: colors.night,
+    textShadowRadius: 4,
+  },
+  ortZeiten: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, padding: spacing.s },
+  zeit: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: radius.s,
+    borderWidth: 1,
+    borderColor: `${colors.moss}AA`,
+  },
+  zeitAn: { backgroundColor: colors.amber, borderColor: colors.amber },
+  zeitText: {
+    fontFamily: fonts.etikett,
+    fontSize: 10,
+    letterSpacing: 1.2,
+    color: colors.fog,
+    textTransform: 'uppercase',
+  },
 });
