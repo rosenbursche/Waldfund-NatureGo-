@@ -8,7 +8,9 @@ import type { BaumModell, Naturraum } from '@/data/typen';
 
 import { useEinstellungen } from '@/store/einstellungen';
 
+import { saisonMonate } from './jahreszeit';
 import { getHeimischeBaeume } from './regelEngine';
+import { kommtVorIn } from './verbreitung';
 
 // ---------- Belastungstest ----------
 
@@ -71,6 +73,9 @@ export type KatalogEintrag = {
   zweig?: string;
   /** Grund, warum die Art der Schatz ihres Zweigs ist */
   besonders?: string;
+  /** Saison-Text (z. B. "Blüte März–Mai") und Verbreitungs-Modell – für die Filter */
+  saison?: string;
+  verbreitung?: string;
   /** 1–3, nur bei gefährlichen Arten (siehe Art.gefahrStufe) */
   gefahrStufe?: 1 | 2 | 3;
   namensZeilen?: string[];
@@ -103,6 +108,8 @@ function ausArt(a: Art): KatalogEintrag {
     zweig: a.zweig,
     besonders: a.besonders,
     gefahrStufe: gefahrStufeVon(a),
+    saison: a.saison,
+    verbreitung: a.verbreitung,
     namensZeilen: a.namensZeilen,
     raetsel: a.raetsel,
     lebensraum: a.lebensraum,
@@ -328,6 +335,61 @@ export function gefahrEintraege(kategorie: KategorieId, naturraum?: Naturraum): 
     .map(katalogEintrag)
     .filter((e): e is KatalogEintrag => !!e && !!e.gefahr)
     .sort((a, b) => b.seltenheit - a.seltenheit);
+}
+
+// ---------- Filter im Stammbaum (dunkeln ab, verstecken nie) ----------
+
+export type StammbaumFilter = 'alle' | 'fehlt' | 'hier' | 'saison';
+
+/**
+ * Passt die Art zum Filter? Arten, die nicht passen, werden im Stammbaum nur abgedunkelt –
+ * so bleibt die ganze Größe der Sammlung sichtbar.
+ * - fehlt: noch nicht gefunden
+ * - hier: kommt im Naturraum vor (Baumarten im Katalog sind dort ohnehin heimisch)
+ * - saison: man findet sie im Monat `monat` (1–12); ohne Saison-Angabe gilt sie als passend
+ */
+export function passtZumFilter(
+  e: KatalogEintrag,
+  filter: StammbaumFilter,
+  gefunden: Record<string, unknown>,
+  naturraum: Naturraum | undefined,
+  monat: number,
+): boolean {
+  if (filter === 'fehlt') return !(e.id in gefunden);
+  if (filter === 'hier') return !naturraum || !!e.baumModell || kommtVorIn(e.id, e.verbreitung ?? 'all', naturraum);
+  if (filter === 'saison') {
+    const m = saisonMonate(e.saison);
+    return !m || m.includes(monat);
+  }
+  return true;
+}
+
+// ---------- Sammelsets: Zweige und Äste vollenden ----------
+
+/**
+ * Welche Zweige und Äste schließt der Fund `id` ab? (Für den Bonus: ZWEIG_BONUS / AST_BONUS in spiel.ts)
+ * `vorher` sind die bisher echt gesammelten Arten. War die Art schon dabei, gibt es nichts.
+ */
+export function vollendeteSets(
+  id: string,
+  vorher: Set<string>,
+  naturraum?: Naturraum,
+): { zweige: string[]; aeste: string[] } {
+  const leer = { zweige: [], aeste: [] };
+  if (vorher.has(id)) return leer;
+  const kategorie = artFuer(id)?.kategorie ?? (baumById[id] ? 'pflanzen' : undefined);
+  if (!kategorie) return leer;
+  const nachher = new Set(vorher).add(id);
+  const voll = (eintraege: KatalogEintrag[]) => eintraege.every((e) => nachher.has(e.id));
+  const zweige: string[] = [];
+  const aeste: string[] = [];
+  for (const ast of lebensbaum(kategorie, naturraum).aeste) {
+    if (!ast.eintraege.some((e) => e.id === id)) continue;
+    const zweig = ast.zweige.find((z) => z.eintraege.some((e) => e.id === id));
+    if (zweig && voll(zweig.eintraege)) zweige.push(zweig.name);
+    if (voll(ast.eintraege)) aeste.push(ast.name);
+  }
+  return { zweige, aeste };
 }
 
 // ---------- Schatzkammer unter dem Baum ----------

@@ -53,6 +53,20 @@ export function leseSaison(text: string): { bluete: number[]; frucht: number[] }
   return { bluete, frucht };
 }
 
+/**
+ * In welchen Monaten findet man die Art? "ganzjährig" → alle 12, "Blüte März–Mai" oder "Aug–Nov" → diese Bereiche.
+ * Ohne erkennbare Angabe: null (dann wird beim Filter „Jetzt in Saison“ nichts abgedunkelt – wir wissen es nicht).
+ */
+export function saisonMonate(text?: string): number[] | null {
+  if (!text) return null;
+  if (text.includes('ganzjährig')) return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const monate = new Set<number>();
+  for (const m of text.matchAll(/([A-ZÄÖÜa-zäöü]+)\s*[\u2013-]\s*([A-ZÄÖÜa-zäöü]+)/g)) {
+    for (const x of bereich(m[1], m[2])) monate.add(x);
+  }
+  return monate.size ? [...monate].sort((a, b) => a - b) : null;
+}
+
 export type Laub = 'austrieb' | 'gruen' | 'herbst' | 'kahl';
 
 export type Monatszustand = {

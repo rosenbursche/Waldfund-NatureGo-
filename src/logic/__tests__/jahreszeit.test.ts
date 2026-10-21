@@ -1,4 +1,4 @@
-import { leseSaison, zustandImMonat } from '@/logic/jahreszeit';
+import { leseSaison, saisonMonate, zustandImMonat } from '@/logic/jahreszeit';
 import { wachstum, wachstumsBereich } from '@/logic/wachstum';
 
 describe('Jahreslauf', () => {
@@ -43,5 +43,16 @@ describe('Wachstum', () => {
     expect(wachstumsBereich('buschwind')).toEqual({ max: 3, einheit: 'Stufe' });
     expect(wachstum('buschwind', 1).stufe).toBe('Keimling');
     expect(wachstum('hasel', 2).stufe).toBe('junger Strauch');
+  });
+});
+
+describe('Saison für den Filter „Jetzt in Saison“', () => {
+  test('Bereiche, ganzjährig und unbekannt', () => {
+    expect(saisonMonate('Blüte März–Mai')).toEqual([3, 4, 5]);
+    expect(saisonMonate('Aug–Nov')).toEqual([8, 9, 10, 11]);
+    expect(saisonMonate('ganzjährig, nachtaktiv')).toHaveLength(12);
+    expect(saisonMonate('März–Nov (Winterschlaf)')).toEqual([3, 4, 5, 6, 7, 8, 9, 10, 11]);
+    expect(saisonMonate('–')).toBeNull();
+    expect(saisonMonate(undefined)).toBeNull();
   });
 });

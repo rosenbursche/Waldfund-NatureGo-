@@ -3,7 +3,14 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, useReducedMotion } from 'react-native-reanimated';
 
 import type { KategorieId } from '@/data/artTypen';
-import type { Lebensbaum as LebensbaumDaten } from '@/logic/katalog';
+import type { Naturraum } from '@/data/typen';
+import {
+  alleImBaum,
+  passtZumFilter,
+  type KatalogEintrag,
+  type Lebensbaum as LebensbaumDaten,
+  type StammbaumFilter,
+} from '@/logic/katalog';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { GefahrAuftritt, hatAuftritt } from './gefahr/GefahrAuftritt';
@@ -22,6 +29,8 @@ import { Schatzkammer } from './stammbaum/Schatzkammer';
 type Props = {
   kategorie: KategorieId;
   baum: LebensbaumDaten;
+  /** für den Filter „Hier möglich“ */
+  naturraum?: Naturraum;
   gefunden: Record<string, unknown>;
   verborgen: (id: string) => boolean;
   /** Text für den toten Ast, falls es keine gefährlichen Arten gibt */
@@ -30,7 +39,19 @@ type Props = {
   onBereich?: (y: number) => void;
 };
 
-export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBereich }: Props) {
+const FILTER: [StammbaumFilter, string][] = [
+  ['alle', 'Alle'],
+  ['fehlt', 'Fehlt noch'],
+  ['hier', 'Hier möglich'],
+  ['saison', 'Jetzt in Saison'],
+];
+
+export function Stammbaum({ kategorie, baum, naturraum, gefunden, verborgen, leerText, onBereich }: Props) {
+  const [filter, setFilter] = useState<StammbaumFilter>('alle');
+  const monat = new Date().getMonth() + 1;
+  const passt = (e: KatalogEintrag) => passtZumFilter(e, filter, gefunden, naturraum, monat);
+  const alle = alleImBaum(baum);
+  const anzahlPassend = filter === 'alle' ? alle.length : alle.filter(passt).length;
   const ruhig = useReducedMotion();
   const [offen, setOffen] = useState<string | null>(null);
   const [auftritt, setAuftritt] = useState(false);
@@ -54,6 +75,29 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
         Schatz. Die Sterne sind die legendären Arten – und am toten Ast ganz oben lauert Gefahr.
       </Schrift>
 
+      {/* Filter: dunkeln im geöffneten Ast ab, verstecken nie – die ganze Sammlung bleibt sichtbar */}
+      <View style={stile.filterReihe} accessibilityRole="radiogroup" accessibilityLabel="Filter für den Stammbaum">
+        {FILTER.map(([wert, text]) => (
+          <Pressable
+            key={wert}
+            onPress={() => setFilter(wert)}
+            accessibilityRole="radio"
+            accessibilityLabel={`Filter ${text}`}
+            accessibilityState={{ selected: filter === wert }}
+            style={[stile.filter, filter === wert && stile.filterAktiv]}
+          >
+            <Schrift style={[stile.filterText, filter === wert && { color: colors.amber }]}>{text}</Schrift>
+          </Pressable>
+        ))}
+      </View>
+      {filter !== 'alle' && (
+        <Schrift art="klein" style={{ textAlign: 'center' }}>
+          {anzahlPassend} von {alle.length} Arten passen
+          {filter === 'hier' && !naturraum ? ' (wähle in den Einstellungen deine Gegend)' : ''} – die übrigen sind im
+          geöffneten Ast abgedunkelt.
+        </Schrift>
+      )}
+
       <Lebensbaum kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={waehle} />
       <Schatzkammer kategorie={kategorie} baum={baum} gefunden={gefunden} />
       <AstListe kategorie={kategorie} baum={baum} gefunden={gefunden} offen={offen} onWaehle={waehle} />
@@ -73,6 +117,7 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
             kategorie={kategorie}
             ast={ast}
             gefunden={gefunden}
+            passt={filter === 'alle' ? undefined : passt}
             onSchliessen={() => setOffen(null)}
           />
         </View>
@@ -103,6 +148,17 @@ export function Stammbaum({ kategorie, baum, gefunden, verborgen, leerText, onBe
 }
 
 const stile = StyleSheet.create({
+  filterReihe: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: spacing.s },
+  filter: {
+    paddingHorizontal: spacing.m,
+    paddingVertical: 6,
+    borderRadius: radius.l,
+    borderWidth: 1,
+    borderColor: colors.moss,
+    backgroundColor: colors.night,
+  },
+  filterAktiv: { borderColor: colors.amber, backgroundColor: colors.forest },
+  filterText: { fontFamily: fonts.etikett, fontSize: 11, color: colors.fog },
   schliessen: {
     alignSelf: 'flex-end',
     marginBottom: spacing.s,

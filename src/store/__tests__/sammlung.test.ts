@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { AST_BONUS, ZWEIG_BONUS } from '@/data/spiel';
 import { useSammlung } from '@/store/sammlung';
 
 describe('Sammlung speichert Punkte und Fortschritt', () => {
@@ -8,12 +9,19 @@ describe('Sammlung speichert Punkte und Fortschritt', () => {
   test('Fund bringt Punkte und wird gespeichert', async () => {
     const b = useSammlung.getState().sammeln('uhu', { datum: '2026-10-11' }, new Date('2026-10-11T10:00:00'));
     expect(b.punkte).toBe(300);
-    expect(useSammlung.getState().ap).toBe(300);
+    // der Uhu ist in den App-Daten die einzige Art in Zweig „Eulen“ und Ast „Jäger der Lüfte“:
+    // sein Fund vollendet beide und bringt den Sammelset-Bonus
+    expect(b).toMatchObject({
+      zweigeVoll: ['Eulen'],
+      aesteVoll: ['Jäger der Lüfte'],
+      setBonus: ZWEIG_BONUS + AST_BONUS,
+    });
+    expect(useSammlung.getState().ap).toBe(300 + ZWEIG_BONUS + AST_BONUS);
 
     // Ist der Stand auch im Gerätespeicher angekommen (übersteht also einen Neustart)?
     await new Promise((ok) => setTimeout(ok, 0));
     const gespeichert = JSON.parse((await AsyncStorage.getItem('wildfund-sammlung')) ?? '{}');
-    expect(gespeichert.state.ap).toBe(300);
+    expect(gespeichert.state.ap).toBe(300 + ZWEIG_BONUS + AST_BONUS);
     expect(gespeichert.state.gefunden.uhu.datum).toBe('2026-10-11');
   });
 

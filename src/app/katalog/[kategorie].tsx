@@ -185,6 +185,7 @@ function StammbaumAnsicht({ kategorie }: { kategorie: KategorieId }) {
         <Stammbaum
           kategorie={kategorie}
           baum={baum}
+          naturraum={naturraum}
           gefunden={gefunden}
           verborgen={verborgen}
           leerText={LEER_TEXT[kategorie]}

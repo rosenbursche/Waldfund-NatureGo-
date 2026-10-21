@@ -1,6 +1,15 @@
 import { ARTEN } from '@/data/arten';
 import type { Art } from '@/data/artTypen';
-import { KATEGORIEN, LEVEL_SCHWELLEN, RAENGE, SELTENHEIT, SERIE_AP_PRO_TAG, SERIE_MAX_BONUS } from '@/data/spiel';
+import {
+  AST_BONUS,
+  KATEGORIEN,
+  LEVEL_SCHWELLEN,
+  RAENGE,
+  SELTENHEIT,
+  SERIE_AP_PRO_TAG,
+  SERIE_MAX_BONUS,
+  ZWEIG_BONUS,
+} from '@/data/spiel';
 
 /**
  * Reine Rechenfunktionen für Punkte, Level, Serien und Erfolge.
@@ -119,6 +128,10 @@ export type Belohnung = {
   neu: boolean; // false = Art war schon gesammelt (nur neues Foto)
   punkte: number; // Grundpunkte nach Seltenheit
   bonus: number; // Serienbonus
+  /** Bonus für vollendete Zweige und Äste im Lebensbaum */
+  setBonus: number;
+  zweigeVoll: string[];
+  aesteVoll: string[];
   serie: number;
   levelVorher: number;
   levelNachher: number;
@@ -132,8 +145,15 @@ export type Belohnung = {
  * Was bringt dieser Fund?
  * - Punkte gibt es nur für Arten, die man zum ersten Mal echt findet.
  * - Der Serienbonus zählt einmal pro Tag (beim ersten Fund des Tages).
+ * - Schließt der Fund einen Zweig oder Ast ab (`sets`, aus `vollendeteSets()`), gibt es einen kleinen Bonus.
  */
-export function berechneBelohnung(stand: Spielstand, art: Art | undefined, artId: string, jetzt: Date): Belohnung {
+export function berechneBelohnung(
+  stand: Spielstand,
+  art: Art | undefined,
+  artId: string,
+  jetzt: Date,
+  sets: { zweige: string[]; aeste: string[] } = { zweige: [], aeste: [] },
+): Belohnung {
   const neu = !stand.gesammelt.has(artId);
   const levelVorher = levelIndex(stand.ap) + 1;
   if (!neu) {
@@ -142,6 +162,9 @@ export function berechneBelohnung(stand: Spielstand, art: Art | undefined, artId
       neu,
       punkte: 0,
       bonus: 0,
+      setBonus: 0,
+      zweigeVoll: [],
+      aesteVoll: [],
       serie: stand.serie,
       levelVorher,
       levelNachher: levelVorher,
@@ -154,13 +177,17 @@ export function berechneBelohnung(stand: Spielstand, art: Art | undefined, artId
   // Baumarten ohne eigenen Steckbrief zählen als "häufig"
   const punkte = art ? punkteFuerArt(art) : SELTENHEIT[1].punkte;
   const s = neueSerie(stand.letzterTag, stand.serie, jetzt);
-  const ap = stand.ap + punkte + s.bonus;
+  const setBonus = sets.zweige.length * ZWEIG_BONUS + sets.aeste.length * AST_BONUS;
+  const ap = stand.ap + punkte + s.bonus + setBonus;
   const levelNachher = levelIndex(ap) + 1;
   const nachher = new Set(stand.gesammelt).add(artId);
   return {
     neu,
     punkte,
     bonus: s.bonus,
+    setBonus,
+    zweigeVoll: sets.zweige,
+    aesteVoll: sets.aeste,
     serie: s.serie,
     levelVorher,
     levelNachher,

@@ -203,6 +203,40 @@ export function Lebensbaum({ kategorie, baum, gefunden, offen, onWaehle }: Props
             ),
           )}
 
+          {/* Knospenkranz: ein Punkt je Art um jeden Ast-Knopf – so sieht man, wie groß die Sammlung ist */}
+          {baum.aeste.map((ast, i) => {
+            const p = form.astSpitzen[i];
+            const n = ast.eintraege.length;
+            const r = KNOPF / 2 + 6;
+            const punkt = Math.min(2.6, ((Math.PI * r) / Math.max(n, 1)) * 0.62);
+            return ast.eintraege.map((e, k) => {
+              const w = -Math.PI / 2 + (k / n) * Math.PI * 2;
+              const x = p.x + Math.cos(w) * r;
+              const y = p.y + Math.sin(w) * r;
+              const ok = e.id in gefunden;
+              const s = SELTENHEIT[e.seltenheit];
+              if (ok)
+                return (
+                  <Circle key={e.id} cx={x} cy={y} r={punkt * 1.1} fill={e.seltenheit >= 3 ? s.farbe : stil.ring} />
+                );
+              // sehr seltene, noch fehlende Arten: hohler Ring (verhüllte Knospe)
+              return e.seltenheit >= 3 ? (
+                <Circle
+                  key={e.id}
+                  cx={x}
+                  cy={y}
+                  r={punkt}
+                  fill="none"
+                  stroke={s.farbe}
+                  strokeWidth={0.8}
+                  opacity={0.75}
+                />
+              ) : (
+                <Circle key={e.id} cx={x} cy={y} r={punkt * 0.85} fill={colors.fog} opacity={0.28} />
+              );
+            });
+          })}
+
           {/* der tote Ast: schwarz, dornig, mit roter Glut an der Spitze – hier lauert die Gefahr */}
           <Circle cx={form.todesPlatz.x} cy={form.todesPlatz.y} r={W * 0.15} fill="url(#glut)" />
           <Path d={form.todesAst.holz} fill={colors.abgrund} stroke={colors.blut} strokeWidth={0.8} opacity={0.97} />

@@ -1,5 +1,5 @@
 import { ARTEN, artById } from '@/data/arten';
-import { MYSTERY_AB } from '@/data/spiel';
+import { AST_BONUS, MYSTERY_AB, ZWEIG_BONUS } from '@/data/spiel';
 import {
   berechneBelohnung,
   huettenStufe,
@@ -103,6 +103,25 @@ describe('Belohnung für einen Fund', () => {
     expect(b).toMatchObject({ neu: true, punkte: 10, bonus: 0, serie: 1, levelVorher: 1, levelNachher: 1 });
     expect(b.neueErfolge.map((e) => e.id)).toEqual(['erster-fund']);
     expect(b.stand.ap).toBe(10);
+  });
+
+  test('vollendeter Zweig und Ast bringen den Sammelset-Bonus', () => {
+    const b = berechneBelohnung(start, artById['amsel'], 'amsel', tag, {
+      zweige: ['Drosseln'],
+      aeste: ['Drosseln & Finken'],
+    });
+    expect(b).toMatchObject({
+      setBonus: ZWEIG_BONUS + AST_BONUS,
+      zweigeVoll: ['Drosseln'],
+      aesteVoll: ['Drosseln & Finken'],
+    });
+    expect(b.stand.ap).toBe(10 + ZWEIG_BONUS + AST_BONUS);
+    // schon gesammelte Art: kein Bonus
+    const wieder = berechneBelohnung({ ...start, gesammelt: new Set(['amsel']) }, artById['amsel'], 'amsel', tag, {
+      zweige: ['Drosseln'],
+      aeste: [],
+    });
+    expect(wieder.setBonus).toBe(0);
   });
 
   test('legendäre Art bringt einen großen Sprung und lässt die Hütte wachsen', () => {

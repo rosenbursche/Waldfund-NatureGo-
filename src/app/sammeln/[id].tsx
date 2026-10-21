@@ -20,7 +20,7 @@ import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { artById } from '@/data/arten';
-import { SELTENHEIT } from '@/data/spiel';
+import { AST_BONUS, SELTENHEIT, ZWEIG_BONUS } from '@/data/spiel';
 import { WappenReihe } from '@/components/ui/Wappen';
 import { HUETTEN_NAME, levelInfo, tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
@@ -257,7 +257,7 @@ export default function Sammeln() {
 /** Punkte (zählen hoch), Serienbonus, Level-up, wachsende Hütte und neue Erfolge */
 function BelohnungsText({ b }: { b: Belohnung }) {
   const ruhig = useReducedMotion();
-  const gesamt = b.punkte + b.bonus;
+  const gesamt = b.punkte + b.bonus + b.setBonus;
   const [angezeigt, setAngezeigt] = useState(ruhig ? gesamt : 0);
   useEffect(() => {
     if (ruhig || gesamt === 0) return;
@@ -289,6 +289,22 @@ function BelohnungsText({ b }: { b: Belohnung }) {
           inklusive {b.bonus} AP Serienbonus ({b.serie} Tage in Folge)
         </Schrift>
       )}
+      {b.zweigeVoll.map((z, i) => (
+        <Animated.View key={z} entering={FadeInDown.delay(900 + i * 200).duration(500)} style={stile.erfolg}>
+          <Schrift style={{ color: colors.legend }}>✿</Schrift>
+          <Schrift art="klein" style={{ color: colors.moon }}>
+            Zweig „{z}“ vollständig: +{ZWEIG_BONUS} AP
+          </Schrift>
+        </Animated.View>
+      ))}
+      {b.aesteVoll.map((a, i) => (
+        <Animated.View key={a} entering={FadeInDown.delay(1000 + i * 200).duration(500)} style={stile.erfolg}>
+          <Schrift style={{ color: colors.legend }}>✦</Schrift>
+          <Schrift art="klein" style={{ color: colors.legend }}>
+            Ast „{a}“ vollständig: +{AST_BONUS} AP
+          </Schrift>
+        </Animated.View>
+      ))}
       {b.levelNachher > b.levelVorher && (
         <Animated.View entering={FadeInDown.delay(1100).duration(600)}>
           <Schrift art="notiz" style={{ fontSize: 22, textAlign: 'center' }}>

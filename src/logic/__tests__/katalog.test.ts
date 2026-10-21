@@ -9,8 +9,10 @@ import {
   katalogGruppen,
   lebensbaum,
   mysteryArten,
+  passtZumFilter,
   schatzkammer,
   vitrinenArten,
+  vollendeteSets,
   waldPlaetze,
   zweigFortschritt,
   zweigSchatz,
@@ -152,6 +154,34 @@ describe('Lebensbaum: Äste, Zweige, Sterne, toter Ast', () => {
     expect(zweigFortschritt(z, {})).toMatchObject({ gefunden: 0, voll: false, schatzGefunden: false });
     const alle = Object.fromEntries(z.eintraege.map((x) => [x.id, {}]));
     expect(zweigFortschritt(z, alle)).toMatchObject({ fehlt: 0, voll: true, schatzGefunden: true });
+  });
+
+  test('vollendeteSets: der letzte Specht schließt den Zweig, der Ast braucht noch mehr', () => {
+    expect(vollendeteSets('buntspecht', new Set())).toEqual({ zweige: [], aeste: [] });
+    expect(vollendeteSets('buntspecht', new Set(['schwarzspecht']))).toEqual({ zweige: ['Spechte'], aeste: [] });
+    const ast = lebensbaum('voegel').aeste.find((a) => a.name === 'Spechte, Tauben & Juwelen')!;
+    const rest = new Set(ast.eintraege.map((e) => e.id).filter((id) => id !== 'eisvogel'));
+    expect(vollendeteSets('eisvogel', rest)).toEqual({
+      zweige: ['Bunte Juwelen'],
+      aeste: ['Spechte, Tauben & Juwelen'],
+    });
+    // schon gesammelt: kein neuer Bonus
+    expect(vollendeteSets('schwarzspecht', new Set(['schwarzspecht', 'buntspecht']))).toEqual({
+      zweige: [],
+      aeste: [],
+    });
+  });
+
+  test('Filter dunkeln nur ab: fehlt, hier möglich, Saison', () => {
+    const e = (id: string) => alleImBaum(lebensbaum('pflanzen', heide)).find((x) => x.id === id)!;
+    expect(passtZumFilter(e('buschwind'), 'fehlt', { buschwind: {} }, heide, 4)).toBe(false);
+    expect(passtZumFilter(e('buschwind'), 'fehlt', {}, heide, 4)).toBe(true);
+    // Buschwindröschen blüht im Frühjahr, nicht im Oktober
+    expect(passtZumFilter(e('buschwind'), 'saison', {}, heide, 4)).toBe(true);
+    expect(passtZumFilter(e('buschwind'), 'saison', {}, heide, 10)).toBe(false);
+    // heimische Baumarten des Naturraums sind dort immer „möglich“
+    expect(passtZumFilter(e('stieleiche'), 'hier', {}, heide, 4)).toBe(true);
+    expect(passtZumFilter(e('buschwind'), 'alle', {}, heide, 10)).toBe(true);
   });
 
   test('Schatzkammer: seltenste zuerst, gefährlichste nach Stufe', () => {

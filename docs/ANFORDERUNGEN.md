@@ -174,10 +174,11 @@ Konzept: `docs/KONZEPT-SPIELSYSTEM.md` (Entwurf). Offene Entscheidungen dort in 
 | Gruppen im Stammbaum abstimmen (Vorschlag / Familie / Ordnung) | 🟡 Umschalter da · Konzept `docs/KONZEPT-STAMMBAUM-GLIEDERUNG.md` (Branch `feature/stammbaum-gliederung`), E1 + E3 entschieden |
 | Gliederung Rune → Ast (≤ 7) → Zweig (2–12 Arten) → Art: Daten, Logik, geöffneter Ast mit Zweigen | ✅ Schritt 1–2 (`src/data/gliederung.ts`, `lebensbaum()`, `AstPanel.tsx`) |
 | Übersichtlicher Baum: Knöpfe ohne Text und weiter aufgefächert, Ast-Liste mit Namen unter dem Baum, eigenes Symbol je Ast | ✅ (`AstListe.tsx`) |
-| Knospe je Art (Gesamtgröße sichtbar), Zweig blüht, Vorschläge „Als Nächstes“, Filter dimmen statt verstecken, Suche | ⬜ |
+| Knospe je Art (Gesamtgröße sichtbar), Filter dimmen statt verstecken (Alle / Fehlt noch / Hier möglich / Jetzt in Saison) | ✅ |
+| Zweig blüht sichtbar auf, Vorschläge „Als Nächstes“, Suche im Stammbaum | ⬜ |
 | Jeder Zweig hat einen Schatz (sehr seltene oder besondere Art) | ✅ Logik + Krone im Zweig |
 | Schatzkammer unter dem Baum: die 5 seltensten und die 3 gefährlichsten Arten der Rune, Gefahrenstufe 1–3 | ✅ (`Schatzkammer.tsx`) |
-| Bonuspunkte: +25 AP je voller Zweig, +150 AP je voller Ast | 🟡 Werte in `spiel.ts`, Vergabe fehlt |
+| Bonuspunkte: +25 AP je voller Zweig, +150 AP je voller Ast | ✅ Vergabe beim Fund, Anzeige auf der Ergebnis-Seite |
 | Gefahr am toten Ast über der Krone (statt Schattenwurzeln) | ✅ |
 | Schreck-Auftritt über den ganzen Bildschirm vor „Gefährlich & tödlich“: Säugetiere Maul schnappt zu, Pflanzen/Pilze Giftnebel mit Totenkopf und umkippender Maus; überspringbar, ohne Blitze, aus bei „Bewegung reduzieren“ | ✅ (`components/gefahr/`) |
 | Waldansicht mit vielen Arten (Figuren reichen über den Baumring hinaus) | ⬜ |

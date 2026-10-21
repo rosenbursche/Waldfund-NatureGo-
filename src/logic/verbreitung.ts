@@ -1,5 +1,5 @@
 import { WUCHSGEBIETE } from '@/data/karte';
-import type { Geometrie } from '@/data/typen';
+import type { Geometrie, Naturraum } from '@/data/typen';
 import { ECHTE_VERBREITUNG } from '@/data/nachweise';
 import { DEUTSCHLAND_UMRISS, VERBREITUNG } from '@/data/verbreitung';
 
@@ -80,6 +80,30 @@ export function vorkommen(artId: string, modellName: string): boolean[] {
   });
   vorkommenCache.set(schluessel, occ);
   return occ;
+}
+
+const naturraumZellen = new Map<string, number[]>();
+
+/** Rasterfelder (Index in `rasterZellen()`), deren Mittelpunkt im Naturraum liegt – einmal berechnet, dann gemerkt */
+export function zellenImNaturraum(n: Naturraum): number[] {
+  const da = naturraumZellen.get(n.id);
+  if (da) return da;
+  const z = rasterZellen()
+    .map((c, k) => (punktInGeometrie(c.lon, c.lat, n.geometrie) ? k : -1))
+    .filter((k) => k >= 0);
+  naturraumZellen.set(n.id, z);
+  return z;
+}
+
+/**
+ * Kommt die Art (grob) im Naturraum vor? Mindestens ein Rasterfeld mit Vorkommen.
+ * Nur für den Filter „Hier möglich“ – ohne echte Nachweise ist es das Demo-Modell.
+ */
+export function kommtVorIn(artId: string, modellName: string, n: Naturraum): boolean {
+  const zellen = zellenImNaturraum(n);
+  if (!zellen.length) return true; // zu klein für das Raster: lieber nichts abdunkeln
+  const occ = vorkommen(artId, modellName);
+  return zellen.some((k) => occ[k]);
 }
 
 /** Umrechnung Länge/Breite → Bildpunkte auf einer Karte 340 × 440 (wie im Prototyp) */

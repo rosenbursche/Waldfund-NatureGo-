@@ -3,7 +3,11 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 import { artById } from '@/data/arten';
+import { naturraumById } from '@/data/naturraeume';
 import { berechneBelohnung, type Belohnung } from '@/logic/fortschritt';
+import { vollendeteSets } from '@/logic/katalog';
+
+import { useEinstellungen } from './einstellungen';
 
 /**
  * Deine Sammlung: welche Arten du gefunden hast (mit Datum und Foto),
@@ -65,11 +69,16 @@ export const useSammlung = create<SammlungState>()(
 
       sammeln: (id, fund, jetzt = new Date()) => {
         const s = get();
+        const gesammelt = echteFunde(s.gefunden);
+        const naturraumId = useEinstellungen.getState().naturraumId;
+        // schließt der Fund einen Zweig oder Ast im Lebensbaum ab? Dann gibt es einen Bonus
+        const sets = vollendeteSets(id, gesammelt, naturraumId ? naturraumById[naturraumId] : undefined);
         const belohnung = berechneBelohnung(
-          { ap: s.ap, serie: s.serie, letzterTag: s.letzterTag, gesammelt: echteFunde(s.gefunden) },
+          { ap: s.ap, serie: s.serie, letzterTag: s.letzterTag, gesammelt },
           artById[id],
           id,
           jetzt,
+          sets,
         );
         const alt = s.gefunden[id];
         // Beispielfund wird durch echten Fund ersetzt, echter Fund bekommt nur ein neues Foto

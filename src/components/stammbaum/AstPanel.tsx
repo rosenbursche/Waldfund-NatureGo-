@@ -32,7 +32,14 @@ import { BAUM_STILE } from './baumStile';
  * Er trägt seine Zweige – jeder Zweig ist ein kleines Sammelset mit Fortschritt und einem Schatz.
  * Innerhalb eines Zweigs sitzen häufige Arten vorn, seltene an der Zweigspitze (hinten).
  */
-type Props = { kategorie: KategorieId; ast: LebensAst; gefunden: Record<string, unknown>; onSchliessen: () => void };
+type Props = {
+  kategorie: KategorieId;
+  ast: LebensAst;
+  gefunden: Record<string, unknown>;
+  /** Filter: Arten, die nicht passen, werden abgedunkelt (nicht ausgeblendet) */
+  passt?: (e: KatalogEintrag) => boolean;
+  onSchliessen: () => void;
+};
 
 const KOPF = 78; // Kopfzeile eines Zweigs
 const REIHE = 108;
@@ -42,7 +49,7 @@ const KNOTEN = 54;
 type Platz = { e: KatalogEintrag; x: number; y: number; schatz: boolean };
 type ZweigPlatz = { z: KatalogZweig; y: number };
 
-export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
+export function AstPanel({ kategorie, ast, gefunden, passt, onSchliessen }: Props) {
   const ruhig = useReducedMotion();
   const [breite, setBreite] = useState(0);
   const W = breite || 340;
@@ -151,6 +158,7 @@ export function AstPanel({ kategorie, ast, gefunden, onSchliessen }: Props) {
               p={p}
               ok={p.e.id in gefunden}
               verborgen={istVerborgen(p.e.id, gefunden)}
+              gedimmt={!!passt && !passt(p.e)}
               breite={W / spalten}
               index={i}
             />
@@ -218,12 +226,14 @@ function Knoten({
   p,
   ok,
   verborgen,
+  gedimmt,
   breite,
   index,
 }: {
   p: Platz;
   ok: boolean;
   verborgen: boolean;
+  gedimmt: boolean;
   breite: number;
   index: number;
 }) {
@@ -233,7 +243,7 @@ function Knoten({
   return (
     <Animated.View
       entering={FadeIn.delay(200 + Math.min(index, 14) * 70).duration(400)}
-      style={[stile.knoten, { width: b, left: p.x - b / 2, top: p.y - KNOTEN / 2 }]}
+      style={[stile.knoten, { width: b, left: p.x - b / 2, top: p.y - KNOTEN / 2 }, gedimmt && { opacity: 0.22 }]}
     >
       <Pressable
         onPress={() => router.push({ pathname: '/art/[id]', params: { id: p.e.id } })}

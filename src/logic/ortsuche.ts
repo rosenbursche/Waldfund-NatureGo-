@@ -9,13 +9,7 @@ export type Treffer = { plz: string; ort: string; lat: number; lon: number };
 
 /** Kleinschreibung, Umlaute vereinheitlichen: "Lüneburg" und "lueneburg" finden dasselbe. */
 export function normalisiere(s: string): string {
-  return s
-    .toLowerCase()
-    .trim()
-    .replace(/ä/g, 'ae')
-    .replace(/ö/g, 'oe')
-    .replace(/ü/g, 'ue')
-    .replace(/ß/g, 'ss');
+  return s.toLowerCase().trim().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
 }
 
 export function sucheOrte(eingabe: string, orte: OrtEintrag[], max = 20): Treffer[] {
@@ -25,7 +19,10 @@ export function sucheOrte(eingabe: string, orte: OrtEintrag[], max = 20): Treffe
 
   // Nur Ziffern → Postleitzahl-Suche (Anfang muss passen)
   if (/^\d+$/.test(q)) {
-    return orte.filter((o) => o[0].startsWith(q)).slice(0, max).map(zuTreffer);
+    return orte
+      .filter((o) => o[0].startsWith(q))
+      .slice(0, max)
+      .map(zuTreffer);
   }
 
   // Sonst Ortsname: Treffer am Wortanfang zuerst, jeder Ort nur einmal
