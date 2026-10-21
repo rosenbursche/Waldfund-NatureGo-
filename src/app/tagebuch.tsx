@@ -4,12 +4,13 @@ import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ArtIcon } from '@/components/ArtIcon';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import { Info } from '@/components/ui/Info';
 import { naturraumById } from '@/data/naturraeume';
-import { KATEGORIEN, LEVEL_SCHWELLEN, SELTENHEIT } from '@/data/spiel';
+import { KATEGORIEN, LEVEL_SCHWELLEN } from '@/data/spiel';
 import { erfolgeListe, HUETTEN_NAME, huettenStufe, levelInfo } from '@/logic/fortschritt';
 import { fortschrittDerKategorie, katalogEintrag } from '@/logic/katalog';
 import { useEinstellungen } from '@/store/einstellungen';
@@ -138,10 +139,16 @@ export default function Tagebuch() {
                     style={stile.fund}
                   >
                     {f.foto ? (
-                      <Image source={{ uri: f.foto }} style={stile.fundBild} contentFit="cover" />
+                      <View>
+                        <Image source={{ uri: f.foto }} style={stile.fundBild} contentFit="cover" />
+                        {/* der Taler der Art als Abzeichen auf dem eigenen Foto */}
+                        <View style={stile.fundTaler}>
+                          <ArtTaler id={id} seltenheit={e.seltenheit} zustand="gefunden" groesse={40} />
+                        </View>
+                      </View>
                     ) : (
                       <View style={[stile.fundBild, { alignItems: 'center', justifyContent: 'center' }]}>
-                        <ArtIcon name={e.icon} groesse={30} farbe={SELTENHEIT[e.seltenheit].farbe} />
+                        <ArtTaler id={id} seltenheit={e.seltenheit} zustand="gefunden" groesse={72} />
                       </View>
                     )}
                     <Schrift art="klein" numberOfLines={1} style={{ textAlign: 'center', fontSize: 12 }}>
@@ -231,6 +238,7 @@ const stile = StyleSheet.create({
   },
   funde: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
   fund: { width: '31%', gap: 4 },
+  fundTaler: { position: 'absolute', right: -6, bottom: -8 },
   fundBild: {
     width: '100%',
     aspectRatio: 1,

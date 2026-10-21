@@ -4,7 +4,7 @@ import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ArtMiniatur } from '@/components/ArtMiniatur';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { Hintergrund } from '@/components/Hintergrund';
 import { Icon } from '@/components/Icon';
 import { Kopfzeile } from '@/components/Kopfzeile';
@@ -217,7 +217,6 @@ function Raster3D({
 
 /** Kleine Karte mit 2D-Miniatur (für waagerechte Reihen) */
 function Karte({ e, gefunden, onPress }: { e: SuchEintrag; gefunden: Record<string, unknown>; onPress: () => void }) {
-  const s = SELTENHEIT[e.seltenheit];
   return (
     <Pressable
       onPress={onPress}
@@ -225,12 +224,13 @@ function Karte({ e, gefunden, onPress }: { e: SuchEintrag; gefunden: Record<stri
       accessibilityLabel={`${anzeigeName(e, gefunden)}, Wild-Wert ${e.wildWert}, ${e.punkte} Punkte`}
       style={({ pressed }) => [stile.karte, pressed && { opacity: 0.6 }]}
     >
-      <ArtMiniatur
+      <ArtTaler
+        id={e.id}
+        seltenheit={e.seltenheit}
+        zustand={e.id in gefunden ? 'gefunden' : 'umriss'}
+        groesse={67}
         modell={e.modell}
         baumModell={e.baumModell}
-        stil={e.id in gefunden ? 'farbe' : 'umriss'}
-        akzent={s.farbe}
-        groesse={46}
       />
       <Schrift style={stile.gitterName} numberOfLines={2}>
         {anzeigeName(e, gefunden)}
@@ -252,7 +252,6 @@ function Zeile({
   rang?: number;
   onPress: () => void;
 }) {
-  const s = SELTENHEIT[e.seltenheit];
   const kat = KATEGORIEN.find((k) => k.id === e.kategorie);
   const raetsel = istRaetsel(e, gefunden) && !e.gefahr;
   return (
@@ -263,12 +262,13 @@ function Zeile({
       style={({ pressed }) => [stile.zeile, pressed && { opacity: 0.6 }]}
     >
       {rang !== undefined && <Schrift style={stile.rang}>{rang}</Schrift>}
-      <ArtMiniatur
+      <ArtTaler
+        id={e.id}
+        seltenheit={e.seltenheit}
+        zustand={raetsel ? 'verborgen' : e.id in gefunden ? 'gefunden' : 'umriss'}
+        groesse={58}
         modell={e.modell}
         baumModell={e.baumModell}
-        stil={raetsel ? 'verborgen' : e.id in gefunden ? 'farbe' : 'umriss'}
-        akzent={e.gefahr ? colors.warn : s.farbe}
-        groesse={40}
       />
       <View style={{ flex: 1, gap: 2 }}>
         <Schrift style={stile.zeileName} numberOfLines={1}>

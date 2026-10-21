@@ -19,7 +19,7 @@ import { SELTENHEIT } from '@/data/spiel';
 import type { KatalogEintrag } from '@/logic/katalog';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
-import { ArtMiniatur } from './ArtMiniatur';
+import { ArtTaler } from './taler/ArtTaler';
 import { Schrift } from './Schrift';
 
 /**
@@ -162,13 +162,14 @@ function GefahrKnoten({ e, ok, versteckt }: { e: KatalogEintrag; ok: boolean; ve
       accessibilityLabel={`${name}, ${stufe}, ${s.name}, ${s.punkte} Punkte, ${ok ? 'gesammelt' : 'noch offen'}`}
       style={({ pressed }) => [stile.knoten, pressed && { opacity: 0.6 }]}
     >
-      <View style={[stile.kreis, ok ? { borderStyle: 'solid', shadowOpacity: 0.8 } : null]}>
-        <ArtMiniatur
+      <View style={[stile.kreis, ok ? { shadowOpacity: 0.8 } : null]}>
+        <ArtTaler
+          id={e.id}
+          seltenheit={e.seltenheit}
+          zustand={ok ? 'gefunden' : versteckt ? 'verborgen' : 'umriss'}
+          groesse={64}
           modell={e.modell}
           baumModell={e.baumModell}
-          stil={ok ? 'farbe' : versteckt ? 'verborgen' : 'umriss'}
-          akzent={colors.blut}
-          groesse={44}
         />
         <View style={stile.schaedel}>
           <Schrift style={{ fontSize: 11, lineHeight: 14, color: colors.moon }}>☠</Schrift>
@@ -209,14 +210,10 @@ const stile = StyleSheet.create({
   leer: { textAlign: 'center', paddingHorizontal: spacing.l, paddingTop: spacing.m, color: colors.moon },
   raster: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: spacing.m, paddingTop: spacing.m },
   knoten: { width: 96, alignItems: 'center' },
+  // der Taler bringt seinen Rang-Rahmen mit – hier nur ein roter Gefahren-Schein
   kreis: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    borderWidth: 1.6,
-    borderStyle: 'dashed',
-    borderColor: colors.blut,
-    backgroundColor: colors.night,
+    width: 66,
+    height: 66,
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: colors.blut,

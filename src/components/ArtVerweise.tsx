@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { ArtMiniatur } from '@/components/ArtMiniatur';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { Schrift } from '@/components/Schrift';
 import { SELTENHEIT } from '@/data/spiel';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
@@ -40,12 +40,13 @@ export function ArtVerweise({
                 pressed && { opacity: 0.6 },
               ]}
             >
-              <ArtMiniatur
+              <ArtTaler
+                id={e.id}
+                seltenheit={e.seltenheit}
+                zustand={ok ? 'gefunden' : versteckt ? 'verborgen' : 'umriss'}
+                groesse={41}
                 modell={e.modell}
                 baumModell={e.baumModell}
-                stil={ok ? 'farbe' : versteckt ? 'verborgen' : 'umriss'}
-                akzent={s.farbe}
-                groesse={28}
               />
               <Schrift art="klein" style={{ color: ok ? colors.moon : colors.fog }}>
                 {versteckt ? '???' : e.name}

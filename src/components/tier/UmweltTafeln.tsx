@@ -14,13 +14,12 @@ import Svg, {
   Text as SvgText,
 } from 'react-native-svg';
 
-import { ArtMiniatur } from '@/components/ArtMiniatur';
+import { ArtTaler } from '@/components/taler/ArtTaler';
 import { Schrift } from '@/components/Schrift';
 import type { Landschaft, TierSeite, TrittForm, Zone } from '@/data/tierSeiten';
 import { MONATE } from '@/logic/jahreszeit';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
 import { cmZuPunkten, farbMix, nahrungIm } from '@/logic/tierJahr';
-import { SELTENHEIT } from '@/data/spiel';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 import { TierFigur } from './TierFigur';
@@ -822,12 +821,15 @@ function Gefahr({ gefahr, sammlung }: { gefahr: TierSeite['gefahren'][number]; s
     <>
       <View style={stile.gefahrKreis}>
         {e ? (
-          <ArtMiniatur
+          <ArtTaler
+            id={e.id}
+            seltenheit={e.seltenheit}
+            zustand={
+              gefahr.artId! in sammlung ? 'gefunden' : istVerborgen(gefahr.artId!, sammlung) ? 'verborgen' : 'umriss'
+            }
+            groesse={58}
             modell={e.modell}
             baumModell={e.baumModell}
-            stil={gefahr.artId! in sammlung ? 'farbe' : istVerborgen(gefahr.artId!, sammlung) ? 'verborgen' : 'umriss'}
-            akzent={SELTENHEIT[e.seltenheit].farbe}
-            groesse={40}
           />
         ) : (
           <TierSymbol name={gefahr.icon ?? 'wolf'} groesse={32} farbe={colors.fog} />
