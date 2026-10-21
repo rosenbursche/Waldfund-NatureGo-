@@ -2,6 +2,8 @@
 
 # dependencies
 node_modules/
+# auch als Verknüpfung (Symlink) nie einchecken
+node_modules
 
 # Expo
 .expo/
