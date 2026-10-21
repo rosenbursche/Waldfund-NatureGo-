@@ -102,7 +102,7 @@ Die Routen liegen in `src/app/` (expo-router: Der Dateiname ist der Pfad).
 | Sammlung | „Beispielfunde laden“ (zum Ausprobieren, ohne Punkte), „Sammlung leeren“ (löscht auch Fund-Fotos) |
 | Bilderkennung | „Echte Erkennung für Pflanzen (Pl@ntNet)“ (nur schaltbar, wenn ein Server eingetragen ist). Im Demo-Modus zusätzlich: „manche Fotos nicht erkennen“, um die Foto-Tipps zu testen |
 | Darstellung | „Startszene als Bild-Diorama (Test)“, „Bildrate auf der Lichtung anzeigen“, „3D-Test: realistisches Modell“ |
-| Belastungstest (nur Entwicklung) | „500 echte Testarten im Katalog“ und Gruppierung im Stammbaum nach **Konzept** (Ast → Zweig, Standard), Vorschlag, Familie oder Ordnung. Zuordnung der Testarten: `src/data/testGliederung.ts`. In Expo Go standardmäßig an, in der Store-Version nicht vorhanden. Daten: `src/data/testarten.json`, neu bauen mit `node scripts/testarten-bauen.mjs` |
+| Belastungstest (nur Entwicklung) | „500 echte Testarten im Katalog“ und Gruppierung im Stammbaum nach **Konzept** (Ast → Zweig, Standard), Vorschlag, Familie oder Ordnung. Zuordnung der Testarten: `src/data/testGliederung.ts`. Testarten, die es auch als echte Art gibt (gleicher lateinischer Name, z. B. Reh), zeigen auf die echte Art mit Icon und Tierseite (`src/logic/katalog.ts`). In Expo Go standardmäßig an, in der Store-Version nicht vorhanden. Daten: `src/data/testarten.json`, neu bauen mit `node scripts/testarten-bauen.mjs` |
 | Deine Daten | „Alles zurücksetzen“ |
 | Datenquellen | Pflicht-Namensnennungen (Thünen, Karte, 3D-Modell, GeoNames, ggf. Pl@ntNet) |
 
