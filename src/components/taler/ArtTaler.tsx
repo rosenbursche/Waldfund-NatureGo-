@@ -23,7 +23,7 @@ import { colors, fonts, talerRang } from '@/theme/theme';
 
 /**
  * Art-Taler: das eigene Icon einer Art im Rang-Emblem ihrer Seltenheit (Gestaltung: docs/ICONS.md).
- * - gefunden: Icon in Farbe · nicht gefunden: Silhouette · verborgen (Mystery): „?“
+ * - gefunden: Icon in Farbe · nicht gefunden: Icon unter leichtem Schleier · verborgen (Mystery): „?“
  * - Ohne eigenes Icon zeigt der Taler vorerst die bisherige Miniatur.
  * `groesse` ist die Breite des ganzen Emblems.
  */
@@ -76,7 +76,13 @@ export function ArtTaler({ id, seltenheit, zustand, groesse = 64, modell, baumMo
       </SvgText>
     );
   } else if (icon) {
-    innen = iconKnoten(icon, zustand === 'gefunden', colors.moss, praefix).map((k, i) => zeichne(k, `i${i}`));
+    // Icons sind immer in Farbe zu sehen; noch nicht gefundene Arten liegen unter einem leichten Nachtschleier
+    innen = (
+      <>
+        {iconKnoten(icon, true, colors.moss, praefix).map((k, i) => zeichne(k, `i${i}`))}
+        {zustand === 'umriss' && <Circle cx={MITTE} cy={MITTE} r={ICON_RADIUS} fill={colors.night} opacity={0.35} />}
+      </>
+    );
   }
 
   // noch kein eigenes Icon: bisherige Miniatur mittig über die Scheibe legen

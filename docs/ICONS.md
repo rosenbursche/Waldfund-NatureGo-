@@ -19,7 +19,7 @@ Alle haben: geschwungene Metallblätter mit Mittelrippe und Glanzkante, Metallra
 
 Zustände:
 - **gefunden:** Icon in Farbe.
-- **noch nicht gefunden:** nur die Umriss-Ebenen (`rolle: "form"`) als Silhouette. Das Emblem bleibt sichtbar, damit man den Wert erkennt.
+- **noch nicht gefunden:** das Icon in Farbe unter einem leichten Nachtschleier (gewünscht: Icons sollen immer sichtbar sein). Das Emblem bleibt sichtbar, damit man den Wert erkennt.
 - **Mystery** (verborgen): „?“.
 - In der App: `<ArtTaler id seltenheit zustand groesse />` (`src/components/taler/ArtTaler.tsx`). Er steht überall, wo Arten erscheinen: Stammbaum (Äste, gefundene Sterne), Suche, Tagebuch (als Abzeichen auf dem eigenen Foto), Sammeln (nach dem Fund), Artenseite (unter dem Titel), Artverweise, Gefahren und Fressfeinde.
 
