@@ -52,7 +52,7 @@ describe('Katalog im Belastungstest', () => {
     an('familie');
     const familien = lebensbaum('voegel').aeste.length;
     expect(familien).toBeGreaterThan(vorschlag);
-    expect(katalogEintrag('t-amsel')?.gruppe).toBe('Turdidae');
+    expect(katalogEintrag('amsel')?.gruppe).toBe('Turdidae');
   });
 
   test('Mystery und Waldplätze nutzen die Testarten', () => {

@@ -14,22 +14,48 @@ import { kommtVorIn } from './verbreitung';
 
 // ---------- Belastungstest ----------
 
+/**
+ * Testarten, die es auch als echte App-Art gibt (gleicher lateinischer Name), zeigen auf die echte Art –
+ * so haben z. B. Reh und Wildschwein auch im Belastungstest ihr Icon, ihre Tierseite und die Sammlung.
+ * Nur Ast und Zweig kommen aus dem Test. Bei Bäumen wird nur die ID getauscht.
+ */
+const echtNachLatein = new Map(ARTEN.map((a) => [a.lat, a]));
+const baumNachLatein = new Map(Object.values(baumById).map((b) => [b.lat, b]));
+const TESTARTEN_MIT_ECHTEN = Object.fromEntries(
+  Object.entries(TESTARTEN).map(([g, arten]) => [
+    g,
+    arten.map((t) => {
+      const echt = echtNachLatein.get(t.lat);
+      if (echt) return { ...echt, gruppe: t.gruppe, zweig: t.zweig, besonders: echt.besonders ?? t.besonders };
+      // Baumarten haben keinen Art-Eintrag: Testdaten behalten, aber mit der echten Baum-ID
+      const baum = baumNachLatein.get(t.lat);
+      return baum ? { ...t, id: baum.id, name: baum.name } : t;
+    }),
+  ]),
+) as Record<keyof typeof TESTARTEN, Art[]>;
+
+function imBelastungstest(): boolean {
+  // __DEV__: in der Store-Version gibt es den Belastungstest nicht
+  return __DEV__ && useEinstellungen.getState().belastungstest;
+}
+
 /** Die Arten, die der Katalog gerade zeigt: normal die App-Arten, im Belastungstest die 500 Testarten */
 function aktiveArten(): Art[] {
-  const e = useEinstellungen.getState();
-  // __DEV__: in der Store-Version gibt es den Belastungstest nicht
-  if (!(__DEV__ && e.belastungstest)) return ARTEN;
+  if (!imBelastungstest()) return ARTEN;
   // Absicherung: ein gespeicherter Wert aus einer anderen App-Version darf nie zum Absturz führen
-  return TESTARTEN[e.testGruppierung] ?? TESTARTEN.konzept;
+  return TESTARTEN_MIT_ECHTEN[useEinstellungen.getState().testGruppierung] ?? TESTARTEN_MIT_ECHTEN.konzept;
 }
 
 const testById = Object.fromEntries(
-  Object.entries(TESTARTEN).map(([g, arten]) => [g, Object.fromEntries(arten.map((a) => [a.id, a]))]),
+  Object.entries(TESTARTEN_MIT_ECHTEN).map(([g, arten]) => [g, Object.fromEntries(arten.map((a) => [a.id, a]))]),
 ) as Record<keyof typeof TESTARTEN, Record<string, Art>>;
 
-/** Art zu einer ID – Testarten mit der gerade gewählten Gruppierung */
+/** Art zu einer ID – im Belastungstest mit der gerade gewählten Gruppierung */
 function artFuer(id: string): Art | undefined {
-  if (id.startsWith('t-')) return (testById[useEinstellungen.getState().testGruppierung] ?? testById.konzept)[id];
+  if (id.startsWith('t-') || imBelastungstest()) {
+    const test = (testById[useEinstellungen.getState().testGruppierung] ?? testById.konzept)[id];
+    if (test || id.startsWith('t-')) return test;
+  }
   return artById[id];
 }
 
