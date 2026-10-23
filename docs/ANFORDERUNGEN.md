@@ -232,7 +232,7 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 
 | Anforderung | Stand |
 |---|---|
-| G1: **Fundstücke** je Art (Spuren, Losung, Suhle, Federn, Nester, Blätter, Rinde, Früchte …), Stufen Gespürt → Erkannt → Begegnet → Gemeistert, nur fotografieren | ⬜ Konzept |
+| G1: **Fundstücke** je Art (Spuren, Losung, Suhle, Federn, Nester, Blätter, Rinde, Früchte …), Stufen als Taler-Prägung Holz → Bronze → Silber → Gold, nur fotografieren | ⬜ Konzept |
 | G1: Nur das **regionale Tierreich** zuerst: Pilotregion mit ca. 40 Arten × 6–8 Fundstücke | ⬜ Pilotregion offen |
 | G1: **Bestimmungsschlüssel** für Spuren als Rätsel | ⬜ Konzept |
 | G2: **Tagesaufgaben** (vor der Haustür lösbar), gnädige Serie | ⬜ Konzept |

@@ -1,6 +1,6 @@
 # Wildfund – Projektregeln
 
-„Pokémon Go für Naturliebhaber“: Heimische Arten finden, fotografieren, im Katalog freischalten, Punkte sammeln. Der Reiz liegt in **seltenen** Arten. Zielgruppe 12–25 Jahre.
+„Pokémon Go für Naturliebhaber“: Heimische Arten finden, fotografieren, im Katalog freischalten, Punkte sammeln. Der Reiz liegt in **seltenen** Arten. Kern-Zielgruppe 12–25 Jahre, aber **universell wie Duolingo**: Kinder, Familien und Ältere sollen genauso mitmachen können (einfache Bedienung, keine Jugendsprache).
 
 Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtkonzept (Fundstücke, Vogelstimmen, Rhythmus, Community): `docs/KONZEPT-GESAMT.md`.** **Gesamtdokumentation (Bedienung, Spielregeln, Daten, 3D, Technik): `docs/DOKUMENTATION.md`** – bei Änderungen mitpflegen. **Alle Anforderungen mit Stand: `docs/ANFORDERUNGEN.md`** (bei neuen Wünschen dort ergänzen und Status pflegen). Vorgaben für realistische 3D-Modelle: `docs/3D-PIPELINE.md`. Klickbarer Web-Prototyp (Struktur, Daten, Punktelogik, Zeichnungen, Karte): `prototyp-wildfund.html`. Das **Farbschema des Prototyps nicht übernehmen**. Expo-spezifische Hinweise: `AGENTS.md`.
 

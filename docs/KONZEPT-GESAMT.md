@@ -33,12 +33,12 @@ Eine Art ist nicht nur „gefunden“ oder „nicht gefunden“. Jede Art hat **
 Grundsatz: **Bäume** über Blätter, Rinde, Früchte, Knospen. **Vögel** über Federn, Nester, Stimmen. **Säugetiere** über Spuren, Losung, Bauten, Fraßspuren.
 
 ### 2.2 Stufen je Art
-1. **Gespürt**: erstes Zeichen gefunden. Die Art kommt als Silhouette aus dem Nebel.
-2. **Erkannt**: drei Zeichen. Die Seite bekommt Farbe.
-3. **Begegnet**: echte Sichtung oder Foto des Tiers.
-4. **Gemeistert**: alle Fundstücke. Goldener Rand.
+Der **Art-Taler** wechselt sichtbar das Material, ganz ohne Text (wie Bronze/Silber/Gold bei Duolingo-Ligen). Entschieden am 24.10.2026.
 
-(Namen sind Vorschläge.)
+1. **Holz-Taler**: erstes Fundstück. Die Art kommt als Silhouette aus dem Nebel.
+2. **Bronze-Taler**: drei Zeichen. Die Seite bekommt Farbe.
+3. **Silber-Taler**: das Lebewesen selbst gesehen (Sichtung oder Foto).
+4. **Gold-Taler**: alle Fundstücke.
 
 ### 2.3 Warum das wirkt
 - Man findet **fast bei jedem Spaziergang etwas**. Wühlstellen, Spechtschmieden, Federn und Blätter sind viel häufiger als die Tiere selbst.
@@ -77,7 +77,7 @@ Vögel **hört** man viel öfter, als man sie sieht. Eine Tonaufnahme als Fundst
 | **Täglich (10 Min., auch in der Stadt)** | 3 kleine Tagesaufgaben, die vor der Haustür lösbar sind: „Finde ein Blatt mit gesägtem Rand“, „Höre eine Amsel“, „Fotografiere eine Rinde mit Rissen“. |
 | **Wöchentlich** | **Fährte der Woche**: ein Rätsel zu einer unbekannten Art („Hinterlässt Sanduhr-Spuren am Ufer …“). Wer es löst, schaltet die Art frei. |
 | **Jahreszeitlich** | **Naturkalender als Events**: Krötenwanderung, Brunft, Kranichzug, Pilzsaison, erster Zitronenfalter. Die Natur liefert jedes Jahr neue Events, kostenlos. Manche Fundstücke gibt es **nur in ihrer Saison**. Wer sie verpasst, wartet ein Jahr, und das bindet. |
-| **Langfristig** | Sammelsets (gibt es schon), Lebensbaum, wachsende Hütte, Gemeistert-Ränder. |
+| **Langfristig** | Sammelsets (gibt es schon), Lebensbaum, wachsende Hütte, Gold-Taler. |
 
 **Serie (Streak), aber gnädig:** Ein Regentag oder eine kranke Woche zerstört sie nicht (z. B. Ruhetage sammeln).
 
@@ -148,7 +148,7 @@ Häufige Fundstücke (Buchenblatt, Amselruf) brauchen wenig Prüfung, seltene (L
 
 1. **Pilotregion:** Lüneburger Heide (dort ist schon die Startszene geplant) oder deine eigene Gegend?
 2. **Welche ~40 Arten** und welche Fundstücke je Art. Am besten über die Recherche-Agenten mit Quellen.
-3. **Namen der Stufen** (Gespürt / Erkannt / Begegnet / Gemeistert).
+3. ✅ **Stufen** (24.10.2026): Holz-, Bronze-, Silber-, Gold-Taler.
 4. **Vogelstimmen:** BirdNET-Lizenz klären oder Alternative.
-5. **Zielgruppe:** Bisher steht in `CLAUDE.md` „12–25 Jahre“. Neu: alle Altersgruppen, besonders Familien?
+5. ✅ **Zielgruppe** (24.10.2026): Kern 12–25 Jahre, aber universell wie Duolingo, auch Kinder, Familien und Ältere.
 6. **Punkte für Fundstücke** im Verhältnis zur echten Sichtung.

@@ -32,23 +32,23 @@ describe('Stufen einer Art', () => {
     expect(artStufe(WILDSCHWEIN, new Set())).toBe(0);
   });
 
-  test('ein Zeichen: gespürt', () => {
+  test('ein Zeichen: Holz', () => {
     expect(artStufe(WILDSCHWEIN, new Set(['suhle']))).toBe(1);
   });
 
-  test('drei Zeichen: erkannt', () => {
+  test('drei Zeichen: Bronze', () => {
     expect(artStufe(WILDSCHWEIN, new Set(['suhle', 'losung', 'trittsiegel']))).toBe(2);
   });
 
-  test('Sichtung ohne Zeichen: begegnet', () => {
+  test('Sichtung ohne Zeichen: Silber', () => {
     expect(artStufe(WILDSCHWEIN, new Set(['sichtung']))).toBe(3);
   });
 
-  test('alles gefunden: gemeistert', () => {
+  test('alles gefunden: Gold', () => {
     expect(artStufe(WILDSCHWEIN, new Set(WILDSCHWEIN.map((f) => f.id)))).toBe(4);
   });
 
-  test('Art mit nur zwei Zeichen ist mit beiden erkannt', () => {
+  test('Art mit nur zwei Zeichen hat mit beiden Bronze', () => {
     const art = [fs('a', 'blatt'), fs('b', 'rinde'), fs('ganz', 'ganz')];
     expect(artStufe(art, new Set(['a', 'b']))).toBe(2);
   });

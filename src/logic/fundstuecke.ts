@@ -8,18 +8,18 @@ import type { Fundstueck, FundstueckTyp, Monat } from '@/data/fundstueckTypen';
 /** Typen, die das Lebewesen selbst zeigen (Tier gesehen, ganze Pflanze, Pilz). Alles andere ist ein Zeichen. */
 const BEGEGNUNG: ReadonlySet<FundstueckTyp> = new Set(['sichtung', 'ganz', 'fruchtkoerper']);
 
-/** So viele Zeichen braucht „Erkannt“ (bei Arten mit weniger Zeichen: alle) */
+/** So viele Zeichen braucht den Bronze-Taler (bei Arten mit weniger Zeichen: alle) */
 export const ZEICHEN_FUER_ERKANNT = 3;
 
-/** 0 = verborgen, 1 = gespürt, 2 = erkannt, 3 = begegnet, 4 = gemeistert */
+/** Taler-Prägung: 0 = verborgen, 1 = Holz, 2 = Bronze, 3 = Silber, 4 = Gold */
 export type Stufe = 0 | 1 | 2 | 3 | 4;
 
 export const STUFEN_NAMEN: Record<Stufe, string> = {
   0: 'Verborgen',
-  1: 'Gespürt',
-  2: 'Erkannt',
-  3: 'Begegnet',
-  4: 'Gemeistert',
+  1: 'Holz-Taler',
+  2: 'Bronze-Taler',
+  3: 'Silber-Taler',
+  4: 'Gold-Taler',
 };
 
 export function istBegegnung(f: Fundstueck): boolean {
@@ -28,10 +28,10 @@ export function istBegegnung(f: Fundstueck): boolean {
 
 /**
  * Stufe einer Art aus ihren Fundstücken und den IDs der gefundenen.
- * - Gespürt: irgendein Fundstück
- * - Erkannt: 3 Zeichen (Spuren, Federn, Blätter …)
- * - Begegnet: das Lebewesen selbst gesehen – egal wie viele Zeichen
- * - Gemeistert: alle Fundstücke
+ * - Holz: irgendein Fundstück
+ * - Bronze: 3 Zeichen (Spuren, Federn, Blätter …)
+ * - Silber: das Lebewesen selbst gesehen – egal wie viele Zeichen
+ * - Gold: alle Fundstücke
  */
 export function artStufe(fundstuecke: readonly Fundstueck[], gefunden: ReadonlySet<string>): Stufe {
   const da = fundstuecke.filter((f) => gefunden.has(f.id));
