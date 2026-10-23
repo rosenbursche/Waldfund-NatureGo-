@@ -5,8 +5,11 @@ import type { Fundstueck, FundstueckTyp, Monat } from '@/data/fundstueckTypen';
  * (Gesamtkonzept G1, `docs/KONZEPT-GESAMT.md` Abschnitt 2.2).
  */
 
-/** Typen, die das Lebewesen selbst zeigen (Tier gesehen, ganze Pflanze, Pilz). Alles andere ist ein Zeichen. */
-const BEGEGNUNG: ReadonlySet<FundstueckTyp> = new Set(['sichtung', 'ganz', 'fruchtkoerper']);
+/**
+ * Typen, die das ganze Lebewesen zeigen (Tier gesehen, ganze Pflanze, ganzer Pilz). Alles andere ist ein Zeichen.
+ * Pilz-Details (Lamellen, Stiel, junger Fruchtkörper) sind bewusst Zeichen, sonst gäbe jedes Pilzfoto sofort Silber.
+ */
+const BEGEGNUNG: ReadonlySet<FundstueckTyp> = new Set(['sichtung', 'ganz']);
 
 /** So viele Zeichen braucht man für den Bronze-Taler (bei Arten mit weniger Zeichen: alle) */
 export const ZEICHEN_FUER_BRONZE = 3;

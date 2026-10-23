@@ -53,6 +53,17 @@ describe('Stufen einer Art', () => {
     expect(artStufe(art, new Set(['a', 'b']))).toBe(2);
   });
 
+  test('Pilz-Details sind Zeichen, erst der ganze Pilz gibt Silber', () => {
+    const pilz = [
+      fs('lamellen', 'fruchtkoerper'),
+      fs('stiel', 'fruchtkoerper'),
+      fs('ganz', 'ganz'),
+      fs('baum', 'sonstiges'),
+    ];
+    expect(artStufe(pilz, new Set(['lamellen']))).toBe(1);
+    expect(artStufe(pilz, new Set(['lamellen', 'ganz']))).toBe(3);
+  });
+
   test('fremde IDs zählen nicht', () => {
     expect(artStufe(WILDSCHWEIN, new Set(['feder']))).toBe(0);
   });
