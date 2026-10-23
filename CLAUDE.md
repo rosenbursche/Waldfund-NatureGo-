@@ -2,7 +2,7 @@
 
 „Pokémon Go für Naturliebhaber“: Heimische Arten finden, fotografieren, im Katalog freischalten, Punkte sammeln. Der Reiz liegt in **seltenen** Arten. Zielgruppe 12–25 Jahre.
 
-Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtdokumentation (Bedienung, Spielregeln, Daten, 3D, Technik): `docs/DOKUMENTATION.md`** – bei Änderungen mitpflegen. **Alle Anforderungen mit Stand: `docs/ANFORDERUNGEN.md`** (bei neuen Wünschen dort ergänzen und Status pflegen). Vorgaben für realistische 3D-Modelle: `docs/3D-PIPELINE.md`. Klickbarer Web-Prototyp (Struktur, Daten, Punktelogik, Zeichnungen, Karte): `prototyp-wildfund.html`. Das **Farbschema des Prototyps nicht übernehmen**. Expo-spezifische Hinweise: `AGENTS.md`.
+Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtkonzept (Fundstücke, Vogelstimmen, Rhythmus, Community): `docs/KONZEPT-GESAMT.md`.** **Gesamtdokumentation (Bedienung, Spielregeln, Daten, 3D, Technik): `docs/DOKUMENTATION.md`** – bei Änderungen mitpflegen. **Alle Anforderungen mit Stand: `docs/ANFORDERUNGEN.md`** (bei neuen Wünschen dort ergänzen und Status pflegen). Vorgaben für realistische 3D-Modelle: `docs/3D-PIPELINE.md`. Klickbarer Web-Prototyp (Struktur, Daten, Punktelogik, Zeichnungen, Karte): `prototyp-wildfund.html`. Das **Farbschema des Prototyps nicht übernehmen**. Expo-spezifische Hinweise: `AGENTS.md`.
 
 ## Tierseiten-Pipeline
 - Neue oder überarbeitete Tierseiten entstehen über **`/tierseite <artId>`** (Skill in `.claude/skills/tierseite/`) mit den Agenten in `.claude/agents/`: Recherche → Verbreitung (GBIF), Bilder (Commons), Spuren → Prüfer → Bauer. Beschreibung: **`docs/PIPELINE-TIERSEITEN.md`**.
@@ -68,6 +68,6 @@ Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtdokumentation (Bedienung, 
 - Fundorte seltener/geschützter Arten **nie genau** anzeigen oder teilen, höchstens auf Rasterfeld-Ebene (TK25).
 - Bei geschützten Arten: „Nur fotografieren, nicht pflücken, nicht stören“. Bei Pilzen immer: nichts essen, was nicht von Sachverständigen geprüft wurde.
 - Keine Mechanik, die belohnt, Tiere zu verfolgen oder Wege zu verlassen.
-- Datenschutz (teils Minderjährige): kein Konto im MVP, Daten nur lokal, Standort nur grob und nur mit Zustimmung. Kommen später Konten/Server dazu: auf DSGVO und Einwilligung bei unter 16-Jährigen hinweisen.
+- Datenschutz (teils Minderjährige): **Jeder bekommt ein Nutzerkonto** (Entscheidung 23.10.2026, `docs/KONZEPT-GESAMT.md` Abschnitt 6) mit Spitzname statt echtem Namen. Bis die Konten gebaut sind, bleiben die Daten lokal. Standort nur grob und nur mit Zustimmung, auf dem Server nur Rasterebene. Bei Konten/Server immer auf DSGVO und Einwilligung bei unter 16-Jährigen achten.
 - **API-Schlüssel nie in die App einbauen**, sondern über einen Server/eine Serverless-Funktion (`server/`). In `app.json → extra` steht nur die öffentliche Server-Adresse.
 - Echte Erkennung ist standardmäßig aus und wird erst nach Hinweis (inkl. „unter 16: Eltern fragen“) eingeschaltet. Pilze, Vögel, Säugetiere: nur Demo-Prüfung, ehrlich gekennzeichnet (`Fund.geprueft`).

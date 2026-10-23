@@ -227,6 +227,25 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 | Spuren nur Schnee und Matsch, realistischer gezeichnet, echte Form aus Referenzen | ✅ Darstellung; echte Formen kommen über den Spuren-Agenten |
 | Lebendige Tierseite: Kapitel statt Kästen, große echte Fotos, Bewegung mit Bedeutung | ✅ umgesetzt für Reh und Fuchs (`docs/KONZEPT-TIERSEITE.md`); weitere Tiere sobald Fotos da sind |
 
+### 2.12 Gesamtkonzept: rausgehen und dranbleiben (23.10.2026)
+Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt, feste Community, die alles sammeln will. Offene Entscheidungen dort in Abschnitt 10.
+
+| Anforderung | Stand |
+|---|---|
+| G1: **Fundstücke** je Art (Spuren, Losung, Suhle, Federn, Nester, Blätter, Rinde, Früchte …), Stufen Gespürt → Erkannt → Begegnet → Gemeistert, nur fotografieren | ⬜ Konzept |
+| G1: Nur das **regionale Tierreich** zuerst: Pilotregion mit ca. 40 Arten × 6–8 Fundstücke | ⬜ Pilotregion offen |
+| G1: **Bestimmungsschlüssel** für Spuren als Rätsel | ⬜ Konzept |
+| G2: **Tagesaufgaben** (vor der Haustür lösbar), gnädige Serie | ⬜ Konzept |
+| G2: **„Nebel lichtet sich“** und **teilbare Fund-Karte** (ohne Ort) | ⬜ Konzept |
+| G3: **Naturkalender-Events** (Krötenwanderung, Brunft, Kranichzug, Pilzsaison …), Fundstücke nur in ihrer Saison | ⬜ Konzept |
+| G3: **Vogelstimmen** als Fundstück | ⬜ 🔒 BirdNET-Lizenz (nicht kommerziell) klären |
+| Fährte der Woche (Rätsel zu unbekannter Art) | ⬜ Konzept |
+| G4: Test mit 10 echten Nutzern (jung und alt) über 2 Wochen | ⬜ 🔒 Tester |
+| G5: **Nutzerkonto für alle**, Ranglisten je Naturraum, Familien-/Expeditions-Modus | ⬜ Entscheidung Konto gefallen (siehe 4.5) |
+| G5: Echtheitsprüfung für Fundstücke (Standort passt zum Fundstück, Wildpark-Flächen, Jahreszeit, Fingerabdruck, Community) | ⬜ baut auf 2.7 / `KONZEPT-WETTKAMPF.md` auf |
+| Partner (NABU, Naturparks, Schulen, Pfadfinder, Förster) | ⬜ Idee |
+| Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
+
 ## 3. Vorgeschlagene Reihenfolge
 
 1. **Schritt 1 – jetziges System (ohne externe Modelle)**
@@ -262,10 +281,10 @@ Konzept: `docs/KONZEPT-VEROEFFENTLICHUNG.md` (Entwurf). Entscheidungen E1–E7 d
 - Keine Texte aus Wikipedia übernehmen (Weitergabe-Pflicht der Lizenz).
 - Gefahren ehrlich: Tiere nicht gefährlicher darstellen, als sie sind.
 
-### 4.5 Schutz von Natur und Nutzern (unverändert, nicht verhandelbar)
+### 4.5 Schutz von Natur und Nutzern (nicht verhandelbar; Konto-Regel geändert am 23.10.2026)
 - Fundorte nie genauer als Rasterebene; Standort nur grob und mit Zustimmung.
 - Keine Mechanik, die Verfolgen von Tieren oder Verlassen der Wege belohnt.
-- Kein Konto, Daten lokal. Echte Bilderkennung erst nach Hinweis einschaltbar (inkl. „unter 16: Eltern fragen“).
+- **Jeder hat ein Nutzerkonto** (Entscheidung 23.10.2026, ersetzt „Kein Konto, Daten lokal“): Spitzname statt echtem Namen, Fundorte auf dem Server nur auf Rasterebene, Sammeln funktioniert auch offline. Bis die Konten gebaut sind, bleiben die Daten lokal. Echte Bilderkennung erst nach Hinweis einschaltbar (inkl. „unter 16: Eltern fragen“).
 - Vor Veröffentlichung: Datenschutzerklärung, Einwilligung unter 16 (DSGVO) rechtlich prüfen, Pl@ntNet-Logo ergänzen.
 
 ---

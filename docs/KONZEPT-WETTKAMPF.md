@@ -163,7 +163,7 @@ W1 und W2 bringen auch ohne Server schon etwas: Der Katalog zeigt ehrlich, ob ei
 
 ## 6. Offene Entscheidungen
 
-1. **Regel 4.5 „Kein Konto, Daten lokal“** steht in `ANFORDERUNGEN.md` als nicht verhandelbar. Ein Wettkampf braucht Konten. Vorschlag: Konto nur für den Wettkampf-Modus. Das Spiel allein bleibt offline und ohne Konto.
+1. ✅ **Entschieden am 23.10.2026: Jeder hat ein Nutzerkonto** (siehe `docs/KONZEPT-GESAMT.md` Abschnitt 6). Ursprüngliche Frage: **Regel 4.5 „Kein Konto, Daten lokal“** steht in `ANFORDERUNGEN.md` als nicht verhandelbar. Ein Wettkampf braucht Konten. Vorschlag: Konto nur für den Wettkampf-Modus. Das Spiel allein bleibt offline und ohne Konto.
 2. **Exotische Zoo-Tiere** (Löwe, Elefant …): nur heimische Arten wie bisher, oder eine eigene Kategorie „Zoo“ nur für Kämpfe?
 3. **Sammelpunkte für Zoofunde:** gar keine oder wenige (z. B. 10 %)?
 4. **Wie stark der Wild-Bonus** im Kampf sein soll.
