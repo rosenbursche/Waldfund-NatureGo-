@@ -8,8 +8,8 @@ import type { Fundstueck, FundstueckTyp, Monat } from '@/data/fundstueckTypen';
 /** Typen, die das Lebewesen selbst zeigen (Tier gesehen, ganze Pflanze, Pilz). Alles andere ist ein Zeichen. */
 const BEGEGNUNG: ReadonlySet<FundstueckTyp> = new Set(['sichtung', 'ganz', 'fruchtkoerper']);
 
-/** So viele Zeichen braucht den Bronze-Taler (bei Arten mit weniger Zeichen: alle) */
-export const ZEICHEN_FUER_ERKANNT = 3;
+/** So viele Zeichen braucht man für den Bronze-Taler (bei Arten mit weniger Zeichen: alle) */
+export const ZEICHEN_FUER_BRONZE = 3;
 
 /** Taler-Prägung: 0 = verborgen, 1 = Holz, 2 = Bronze, 3 = Silber, 4 = Gold */
 export type Stufe = 0 | 1 | 2 | 3 | 4;
@@ -40,7 +40,7 @@ export function artStufe(fundstuecke: readonly Fundstueck[], gefunden: ReadonlyS
   if (da.some(istBegegnung)) return 3;
   const zeichenGesamt = fundstuecke.filter((f) => !istBegegnung(f)).length;
   const zeichenDa = da.filter((f) => !istBegegnung(f)).length;
-  if (zeichenDa >= Math.min(ZEICHEN_FUER_ERKANNT, zeichenGesamt)) return 2;
+  if (zeichenDa >= Math.min(ZEICHEN_FUER_BRONZE, zeichenGesamt)) return 2;
   return 1;
 }
 
