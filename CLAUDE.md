@@ -62,7 +62,7 @@ Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtkonzept (Fundstücke, Voge
 - Alle Animationen bei „Bewegung reduzieren“ abschwächen.
 
 ## Fachliche Regel „heimisch“
-„Heimisch“ = **von Natur aus dort vorkommend**, nicht „häufig gepflanzt“. Beispiele: Fichte nur Hochharz, hohe Lagen Erzgebirge/Bayerischer Wald, Alpen; Europäische Lärche nur Alpen; Douglasie und Roteiche nicht heimisch. Die App zeigt z. B. „Fichte – hier angepflanzt, nicht heimisch“.
+„Heimisch“ = **von Natur aus dort vorkommend**, nicht „häufig gepflanzt“. Beispiele: Fichte nur Hochharz, hohe Lagen Erzgebirge/Bayerischer Wald, Alpen; Europäische Lärche nur Alpen; Fichte zusätzlich **möglicherweise** heimisch in der Lüneburger Heide an feuchten Standorten und Hochmoorrändern (NLWKN, Jahn 1985), normale Fichtenforste dort sind angepflanzt; Douglasie und Roteiche nicht heimisch. Die App zeigt z. B. „Fichte – hier angepflanzt, nicht heimisch“.
 
 ## Schutz von Natur und Nutzern (nicht verhandelbar)
 - Fundorte seltener/geschützter Arten **nie genau** anzeigen oder teilen, höchstens auf Rasterfeld-Ebene (TK25).

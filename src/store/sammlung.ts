@@ -81,7 +81,8 @@ export function gefundeneFundstuecke(
 /** Taler-Stufe einer Art (0 = verborgen … 4 = Gold) */
 export function talerStufe(artId: string, s: Pick<SammlungState, 'fundstuecke' | 'gefunden'>): Stufe {
   const daten = fundstueckeById[artId];
-  if (!daten) return 0;
+  // Arten ohne Fundstück-Daten (z. B. Testarten): ein Fund zählt als Silber
+  if (!daten) return s.gefunden[artId] && !s.gefunden[artId].beispiel ? 3 : 0;
   return artStufe(daten.fundstuecke, gefundeneFundstuecke(artId, s.fundstuecke, s.gefunden));
 }
 

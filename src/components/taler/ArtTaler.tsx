@@ -18,11 +18,14 @@ import { ArtMiniatur } from '@/components/ArtMiniatur';
 import type { ModellParameter, Seltenheit } from '@/data/artTypen';
 import { ART_ICONS } from '@/data/icons';
 import type { BaumModell } from '@/data/typen';
+import type { Stufe } from '@/logic/fundstuecke';
 import { iconKnoten, ICON_RADIUS, MITTE, talerRahmen, TALER_VIEWBOX, type Knoten } from '@/logic/taler/taler';
-import { colors, fonts, talerRang } from '@/theme/theme';
+import { talerStufe, useSammlung } from '@/store/sammlung';
+import { colors, fonts, talerPraegung, talerRang } from '@/theme/theme';
 
 /**
  * Art-Taler: das eigene Icon einer Art im Rang-Emblem ihrer Seltenheit (Gestaltung: docs/ICONS.md).
+ * - Seltenheit: Form, Email und Edelstein · Fortschritt (Fundstücke): Metall von Rohling über Holz bis Gold
  * - gefunden: Icon in Farbe · nicht gefunden: Icon unter leichtem Schleier · verborgen (Mystery): „?“
  * - Ohne eigenes Icon zeigt der Taler vorerst die bisherige Miniatur.
  * `groesse` ist die Breite des ganzen Emblems.
@@ -35,6 +38,8 @@ type Props = {
   /** Ersatz, solange es noch kein eigenes Icon gibt */
   modell?: ModellParameter;
   baumModell?: BaumModell;
+  /** Prägung (Fortschritt 0–4). Fehlt sie, kommt sie aus deiner Sammlung. */
+  praegung?: Stufe;
 };
 
 const SVG: Record<Knoten['t'], React.ComponentType<Record<string, unknown>>> = {
@@ -60,10 +65,12 @@ function zeichne(k: Knoten, schluessel: string): ReactNode {
   );
 }
 
-export function ArtTaler({ id, seltenheit, zustand, groesse = 64, modell, baumModell }: Props) {
+export function ArtTaler({ id, seltenheit, zustand, groesse = 64, modell, baumModell, praegung }: Props) {
   // eindeutige Verlaufs-IDs je Taler, damit mehrere Taler auf einer Seite sich nicht stören
   const praefix = `t${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const r = talerRahmen(seltenheit, talerRang[seltenheit], colors, praefix);
+  const ausSammlung = useSammlung((s) => talerStufe(id, s));
+  const metall = talerPraegung[praegung ?? ausSammlung].metall;
+  const r = talerRahmen(seltenheit, { ...talerRang[seltenheit], metall }, colors, praefix);
   const icon = ART_ICONS[id];
   const hoehe = (groesse * TALER_VIEWBOX.h) / TALER_VIEWBOX.b;
   const v = TALER_VIEWBOX;

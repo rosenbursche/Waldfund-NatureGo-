@@ -33,7 +33,7 @@ Eine Art ist nicht nur „gefunden“ oder „nicht gefunden“. Jede Art hat **
 Grundsatz: **Bäume** über Blätter, Rinde, Früchte, Knospen. **Vögel** über Federn, Nester, Stimmen. **Säugetiere** über Spuren, Losung, Bauten, Fraßspuren.
 
 ### 2.2 Stufen je Art
-Der **Art-Taler** wechselt sichtbar das Material, ganz ohne Text (wie Bronze/Silber/Gold bei Duolingo-Ligen). Entschieden am 24.10.2026.
+Der **Art-Taler** wechselt sichtbar das Material, ganz ohne Text (wie Bronze/Silber/Gold bei Duolingo-Ligen). Entschieden am 24.10.2026. Das Metall zeigt nur noch den Fortschritt; die Seltenheit zeigen Edelstein, Email und Schmuck (`docs/ICONS.md`). Vor dem ersten Fund ist der Taler ein grauer Rohling.
 
 1. **Holz-Taler**: erstes Fundstück. Die Art kommt als Silhouette aus dem Nebel.
 2. **Bronze-Taler**: drei Zeichen. Die Seite bekommt Farbe.
@@ -66,7 +66,7 @@ Vögel **hört** man viel öfter, als man sie sieht. Eine Tonaufnahme als Fundst
 
 - Erkennung prüfen: **BirdNET** (Open Source). **Achtung:** Die Lizenz ist nicht kommerziell. Vor der Nutzung klären, ob das für Wildfund geht, sonst eine Alternative suchen.
 - Aufnahmen nur kurz, Ton wird nach der Erkennung gelöscht (Datenschutz: keine Gespräche speichern).
-- Später auch andere Stimmen: Frösche, Kröten, Heuschrecken, Hirschröhren.
+- **Nur Vogelstimmen** (Entscheidung 24.10.2026). Laute von Säugetieren (Rehbellen, Fuchsbellen …) zählen nicht als Fundstück.
 
 ---
 
@@ -152,3 +152,5 @@ Häufige Fundstücke (Buchenblatt, Amselruf) brauchen wenig Prüfung, seltene (L
 4. **Vogelstimmen:** BirdNET-Lizenz klären oder Alternative.
 5. ✅ **Zielgruppe** (24.10.2026): Kern 12–25 Jahre, aber universell wie Duolingo, auch Kinder, Familien und Ältere.
 6. **Punkte für Fundstücke** im Verhältnis zur echten Sichtung.
+7. ✅ **Angepflanzte, nicht heimische Bäume** (24.10.2026): sammelbar, mit Abzeichen „angepflanzt, nicht heimisch“ und weniger Punkten.
+8. ✅ **Fichte in der Heide** (24.10.2026): möglicherweise heimisch an feuchten Standorten, normale Forste angepflanzt (`CLAUDE.md`).

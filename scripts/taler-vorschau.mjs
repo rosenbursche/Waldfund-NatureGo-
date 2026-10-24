@@ -1,7 +1,9 @@
 /**
  * Vorschau der Art-Taler (Icon + Rang-Rahmen) als PNG – für Gestaltung und Prüfung durch Agenten.
  *
- *   node scripts/taler-vorschau.mjs <artId> [<artId> …] [--alle] [--gross] [--aus datei.png] [--stufe 1-4]
+ *   node scripts/taler-vorschau.mjs <artId> [<artId> …] [--alle] [--gross] [--aus datei.png] [--stufe 1-4] [--praegung 0-4]
+ *
+ * --praegung: Metall nach Fortschritt (0 Rohling, 1 Holz, 2 Bronze, 3 Silber, 4 Gold); ohne: Metall nach Seltenheit
  *
  * Zeigt je Art: gefunden (groß), noch nicht gefunden (Silhouette) und die echte Größe in der App (44 px),
  * dazu den Namen. Ohne --aus landet das Bild in recherche/icons/vorschau.png.
@@ -12,7 +14,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { colors, talerRang } from '../src/theme/theme.ts';
+import { colors, talerPraegung, talerRang } from '../src/theme/theme.ts';
 import { alsSvg, iconKnoten, talerRahmen, TALER_VIEWBOX } from '../src/logic/taler/taler.ts';
 
 const WURZEL = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -20,9 +22,10 @@ const args = process.argv.slice(2);
 const wert = (s) => (args.includes(s) ? args[args.indexOf(s) + 1] : undefined);
 const aus = wert('--aus') ?? join(WURZEL, 'recherche', 'icons', 'vorschau.png');
 const stufeFest = wert('--stufe') ? Number(wert('--stufe')) : undefined;
+const praegung = wert('--praegung') !== undefined ? Number(wert('--praegung')) : undefined;
 const iconOrdner = join(WURZEL, 'src', 'data', 'icons');
 
-let ids = args.filter((a, i) => !a.startsWith('--') && !['--aus', '--stufe'].includes(args[i - 1]));
+let ids = args.filter((a, i) => !a.startsWith('--') && !['--aus', '--stufe', '--praegung'].includes(args[i - 1]));
 if (args.includes('--alle'))
   ids = readdirSync(iconOrdner)
     .filter((f) => f.endsWith('.json'))
@@ -47,7 +50,9 @@ function info(id) {
 
 function taler(id, icon, stufe, gefunden, x, y, groesse) {
   const schluessel = `${id}-${gefunden ? 'a' : 'b'}-${groesse}`;
-  const r = talerRahmen(stufe, talerRang[stufe], colors, schluessel);
+  const rang =
+    praegung === undefined ? talerRang[stufe] : { ...talerRang[stufe], metall: talerPraegung[praegung].metall };
+  const r = talerRahmen(stufe, rang, colors, schluessel);
   const innen = icon ? iconKnoten(icon, gefunden, colors.moss, schluessel) : [];
   const teile = [...r.hinten, ...r.scheibe, ...innen, ...r.innen, ...r.vorn].map(alsSvg).join('');
   // groesse = Breite des ganzen Emblems

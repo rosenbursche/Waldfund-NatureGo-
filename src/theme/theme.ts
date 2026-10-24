@@ -139,6 +139,19 @@ export const talerRang = {
   },
 } as const;
 
+/**
+ * Taler-Prägung = dein Fortschritt bei einer Art (Fundstücke, `src/logic/fundstuecke.ts`).
+ * Das Metall des Talers zeigt die Prägung, die Seltenheit zeigen Form, Email und Edelstein (`talerRang`).
+ * 0 = noch nichts gefunden: matter Rohling.
+ */
+export const talerPraegung = {
+  0: { name: 'Rohling', metall: ['#9AA39B', '#646C66', '#323833', '#848D86', '#1D211E'] },
+  1: { name: 'Holz', metall: ['#E2C9A2', '#A27A4C', '#5C3F22', '#C9A070', '#36240F'] },
+  2: { name: 'Bronze', metall: talerRang[2].metall },
+  3: { name: 'Silber', metall: talerRang[3].metall },
+  4: { name: 'Gold', metall: talerRang[4].metall },
+} as const;
+
 export const fonts = {
   /** Cinzel: Titel, Logo, Abschnitts-Überschriften (nur Großbuchstaben-Formen, sparsam einsetzen) */
   titel: 'Cinzel_700Bold',

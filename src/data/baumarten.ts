@@ -276,6 +276,8 @@ export const BAUMARTEN: Baumart[] = [
     boeden: ['sauer', 'feucht', 'kalkreich'], // kalkreich: in den Kalkalpen
     grosslandschaften: ['mittelgebirge', 'alpen'],
     // Nur Hochharz, hohe Lagen von Erzgebirge und Bayerischem Wald sowie die Alpen.
+    // Lüneburger Heide: an feuchten Standorten möglicherweise heimisch (NLWKN, Jahn 1985), deshalb nicht in
+    // heimisch_in – die Forste dort sind angepflanzt (recherche/fundstuecke/baeume-b.md).
     // TODO fachlich prüfen
     heimisch_in: ['hochharz', 'oberes-erzgebirge', 'innerer-bayerischer-wald', 'alpen'],
     forstlich_angebaut: true,

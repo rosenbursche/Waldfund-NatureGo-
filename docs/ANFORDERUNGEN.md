@@ -238,13 +238,17 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 | G2: **Tagesaufgaben** (vor der Haustür lösbar), gnädige Serie | ⬜ Konzept |
 | G2: **„Nebel lichtet sich“** und **teilbare Fund-Karte** (ohne Ort) | ⬜ Konzept |
 | G3: **Naturkalender-Events** (Krötenwanderung, Brunft, Kranichzug, Pilzsaison …), Fundstücke nur in ihrer Saison | ⬜ Konzept |
-| G3: **Vogelstimmen** als Fundstück | ⬜ 🔒 BirdNET-Lizenz (nicht kommerziell) klären |
+| G3: **Vogelstimmen** als Fundstück (nur Vögel, keine Säugetier-Laute) | ⬜ 🔒 BirdNET-Lizenz (nicht kommerziell) klären |
 | Fährte der Woche (Rätsel zu unbekannter Art) | ⬜ Konzept |
 | G4: Test mit 10 echten Nutzern (jung und alt) über 2 Wochen | ⬜ 🔒 Tester |
 | G5: **Nutzerkonto für alle**, Ranglisten je Naturraum, Familien-/Expeditions-Modus | ⬜ Entscheidung Konto gefallen (siehe 4.5) |
 | G5: Echtheitsprüfung für Fundstücke (Standort passt zum Fundstück, Wildpark-Flächen, Jahreszeit, Fingerabdruck, Community) | ⬜ baut auf 2.7 / `KONZEPT-WETTKAMPF.md` auf |
 | Partner (NABU, Naturparks, Schulen, Pfadfinder, Förster) | ⬜ Idee |
 | Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
+| G1 umgesetzt (Branch `feature/fundstuecke`): 389 Fundstücke für 73 Arten mit Quellen, Album auf der Artenseite, Speichern, Foto nur per App-Kamera | ✅ · Tonaufnahme offen |
+| Taler: Metall = Fortschritt (Rohling → Holz → Bronze → Silber → Gold), Seltenheit über Edelstein und Email | ✅ |
+| Angepflanzte Bäume sammelbar mit Abzeichen und weniger Punkten | ⬜ entschieden |
+| Korrekturen aus der Recherche in die App-Daten übernehmen (Igel-Saison, Hasenspur, Eibe-Schutz, Verbreitung Schwarzspecht/Schwarzstorch/Uhu/Wiedehopf, Texte zu Brutplätzen …) | ⬜ |
 
 ## 3. Vorgeschlagene Reihenfolge
 

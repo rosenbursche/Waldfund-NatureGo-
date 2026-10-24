@@ -8,6 +8,8 @@ Vorschau: `node scripts/taler-vorschau.mjs <artId> … [--gross] [--stufe 1-4]` 
 Alle vier Ränge bilden eine Familie. Sie steigern sich über **Metall, Email-Farbe und Edelstein**, nicht über immer mehr Schmuck.
 Farben: `talerRang` in `src/theme/theme.ts`.
 
+**Seit 24.10.2026: Metall = Fortschritt, nicht mehr Seltenheit.** Das Metall zeigt die **Prägung** (Fundstücke, `docs/KONZEPT-GESAMT.md` 2.2): Rohling (grau, nichts gefunden) → Holz → Bronze → Silber → Gold (`talerPraegung` in `src/theme/theme.ts`). Die **Seltenheit** zeigen weiter Schmuck (Blätter, Kamm), Email-Farbe und Edelstein. Die Metalle in der Tabelle gelten nur noch für die Vorschau ohne `--praegung`.
+
 | Stufe | Emblem | Schmuck |
 |---|---|---|
 | 1 häufig | **Kupfer und Patina** (Türkis-Email) | ein kleines Blatt je Seite, kleiner Stein oben, schlichter Anhänger |
