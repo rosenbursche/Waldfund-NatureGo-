@@ -65,7 +65,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "test": "jest"
+    "test": "jest",
+    "db": "node --no-warnings scripts/db-bauen.mjs"
   },
   "private": true,
   "jest": {

@@ -62,3 +62,6 @@ recherche/icons/**/*.png
 recherche/icons/**/*.jpg
 recherche/icons/**/*.jpeg
 recherche/icons/**/kandidaten.json
+
+# Arten-Datenbank: wird von scripts/db-bauen.mjs erzeugt (Ansicht zum Lesen: db/export/*.csv)
+db/*.sqlite
