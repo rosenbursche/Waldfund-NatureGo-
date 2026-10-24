@@ -63,3 +63,29 @@ export function jetztMoeglich(fundstuecke: readonly Fundstueck[], gefunden: Read
     .filter((f) => !gefunden.has(f.id) && inSaison(f, monat))
     .sort((a, b) => a.findbarkeit - b.findbarkeit);
 }
+
+/**
+ * Monate als Zeitspannen, auch über den Jahreswechsel und mit Lücken:
+ * [1,2,11,12] → [[11,2]], [2,3,10,11] → [[2,3],[10,11]]. Ganzjährig → [].
+ */
+export function monatsSpannen(monate: readonly Monat[]): [Monat, Monat][] {
+  const da = new Set(monate);
+  if (da.size === 12) return [];
+  // Start bei einem Monat, vor dem eine Lücke liegt, damit Spannen über Dezember/Januar ganz bleiben
+  const start = ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as Monat[]).find(
+    (m) => da.has(m) && !da.has(m === 1 ? 12 : ((m - 1) as Monat)),
+  );
+  if (!start) return [];
+  const spannen: [Monat, Monat][] = [];
+  let von: Monat | null = null;
+  for (let i = 0; i < 12; i++) {
+    const m = (((start - 1 + i) % 12) + 1) as Monat;
+    if (da.has(m) && von === null) von = m;
+    const naechster = ((m % 12) + 1) as Monat;
+    if (von !== null && (!da.has(naechster) || i === 11)) {
+      spannen.push([von, m]);
+      von = null;
+    }
+  }
+  return spannen;
+}

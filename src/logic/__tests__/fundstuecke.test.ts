@@ -1,5 +1,5 @@
 import type { Fundstueck, FundstueckTyp } from '@/data/fundstueckTypen';
-import { artFortschritt, artStufe, inSaison, jetztMoeglich } from '@/logic/fundstuecke';
+import { artFortschritt, artStufe, inSaison, jetztMoeglich, monatsSpannen } from '@/logic/fundstuecke';
 
 const ALLE_MONATE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as Fundstueck['monate'];
 
@@ -89,4 +89,16 @@ describe('Fortschritt und Saison', () => {
     ];
     expect(jetztMoeglich(art, new Set(['schon']), 6).map((f) => f.id)).toEqual(['leicht', 'selten']);
   });
+});
+
+describe('Monatsspannen', () => {
+  test('eine Spanne', () => expect(monatsSpannen([10, 11])).toEqual([[10, 11]]));
+  test('über den Jahreswechsel', () => expect(monatsSpannen([1, 2, 11, 12])).toEqual([[11, 2]]));
+  test('mit Lücke', () =>
+    expect(monatsSpannen([2, 3, 10, 11])).toEqual([
+      [2, 3],
+      [10, 11],
+    ]));
+  test('einzelner Monat', () => expect(monatsSpannen([5])).toEqual([[5, 5]]));
+  test('ganzjährig', () => expect(monatsSpannen(ALLE_MONATE)).toEqual([]));
 });

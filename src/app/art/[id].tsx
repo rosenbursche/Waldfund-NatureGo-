@@ -29,6 +29,7 @@ import { Knopf } from '@/components/Knopf';
 import { Kopfzeile } from '@/components/Kopfzeile';
 import { ArtTaler } from '@/components/taler/ArtTaler';
 import { ArtVerweise } from '@/components/ArtVerweise';
+import { FundstueckAlbum } from '@/components/fundstuecke/FundstueckAlbum';
 import { LehrbuchKarte } from '@/components/LehrbuchZeichnung';
 import { Schrift } from '@/components/Schrift';
 import { VerbreitungsKarte } from '@/components/VerbreitungsKarte';
@@ -311,6 +312,9 @@ export default function ArtSeite() {
             onPress={() => router.push({ pathname: '/sammeln/[id]', params: { id } })}
           />
         )}
+
+        {/* Fundstücke: Spuren, Federn, Blätter … als Album-Plätze (Gesamtkonzept G1) */}
+        {!verborgen && <FundstueckAlbum artId={id} />}
 
         {verborgen && art?.raetsel && (
           <Kasten>
