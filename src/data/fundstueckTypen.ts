@@ -50,8 +50,13 @@ export type Fundstueck = {
   quellen: string[];
 };
 
+/** Kommt die Art in einem Naturraum von Natur aus vor? (laut Recherche) */
+export type Vorkommen = 'ja' | 'nein' | 'unsicher';
+
 export type ArtFundstuecke = {
   artId: string;
+  /** Naturraum-ID → Vorkommen. Bisher nur die Pilotregion Lüneburger Heide. */
+  vorkommen: Record<string, Vorkommen>;
   fundstuecke: Fundstueck[];
   quellen: Record<string, { titel: string; url: string }>;
 };
