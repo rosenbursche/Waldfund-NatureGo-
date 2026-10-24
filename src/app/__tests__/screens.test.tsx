@@ -88,7 +88,8 @@ describe('Screens rendern ohne Fehler', () => {
     mockParams.id = 'fichte';
     useEinstellungen.setState({ naturraumId: 'lueneburger-heide' });
     await render(<ArtSeite />);
-    expect(screen.getByText(/Gemeine Fichte – hier angepflanzt, nicht heimisch/)).toBeTruthy();
+    // Hinweis „hier angepflanzt“ ist entfernt (heimisch/angepflanzt kommt in einer späteren Iteration)
+    expect(screen.queryByText(/hier angepflanzt/)).toBeNull();
     expect(screen.getByText('Aus dem Bestimmungsbuch')).toBeTruthy();
   });
 

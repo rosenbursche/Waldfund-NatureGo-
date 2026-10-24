@@ -37,19 +37,16 @@ import { artById } from '@/data/arten';
 import { modellFuerArt, namensnennung } from '@/data/modelle';
 import { STECKBRIEFE } from '@/data/steckbriefe';
 import { baumById } from '@/data/baumarten';
-import { NATURRAEUME, naturraumById } from '@/data/naturraeume';
 import { KATEGORIEN, ROTE_LISTE_NAME, SCHUTZ_NAME, SELTENHEIT } from '@/data/spiel';
 import { BODEN_NAME, GROSSLANDSCHAFT_NAME, HOEHENSTUFE_NAME } from '@/data/typen';
 import { istVerborgen, katalogEintrag } from '@/logic/katalog';
 import { wirdGefressenVon } from '@/logic/nahrungsnetz';
 import { MONATE, MONATE_LANG, zustandImMonat } from '@/logic/jahreszeit';
-import { herkunftsText, istHeimisch } from '@/logic/regelEngine';
 import { wachstum, wachstumsBereich } from '@/logic/wachstum';
 import { stimmungJetzt } from '@/logic/tageszeit';
 import { ArtBuehne } from '@/scene/ArtBuehne';
 import { TierSeiteInhalt } from '@/components/tier/TierSeiteInhalt';
 import { tierSeite } from '@/data/tierSeiten';
-import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
@@ -72,7 +69,6 @@ const SCHUTZ_HINWEIS = [
 export default function ArtSeite() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const ruhig = useReducedMotion();
-  const naturraumId = useEinstellungen((s) => s.naturraumId);
   const sammlung = useSammlung((s) => s.gefunden);
   // Pflanzen-Regler: Monat (Start: aktueller Monat) und Wachstum (Start: ausgewachsen)
   const [monat, setMonat] = useState(() => new Date().getMonth() + 1);
@@ -86,7 +82,6 @@ export default function ArtSeite() {
   const eintrag = katalogEintrag(id);
   const art = artById[id];
   const baum = baumById[id];
-  const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
 
   if (!eintrag) {
     return (
@@ -425,11 +420,6 @@ export default function ArtSeite() {
                 />
               </>
             )}
-            {baum && naturraum && (
-              <Schrift art="notiz" style={{ marginTop: spacing.s }}>
-                {herkunftsText(baum, naturraum)} ({naturraum.name})
-              </Schrift>
-            )}
           </Abschnitt>
         )}
 
@@ -522,16 +512,7 @@ export default function ArtSeite() {
               titel={verborgen ? 'Hier könntest du suchen' : 'Verbreitung in Deutschland'}
               info="Verbreitung und Schutzstatus sind vereinfacht (Demo-Daten)."
             >
-              {art ? (
-                <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} />
-              ) : baum ? (
-                <VerbreitungsKarte
-                  art="naturraeume"
-                  naturraeume={NATURRAEUME.filter((n) => istHeimisch(baum.id, n))}
-                  farbe={colors.rune}
-                  eigenerId={naturraumId ?? undefined}
-                />
-              ) : null}
+              {art ? <VerbreitungsKarte art="raster" artId={id} modell={art.verbreitung} farbe={s.farbe} /> : null}
             </Abschnitt>
           </>
         )}

@@ -152,5 +152,5 @@ Häufige Fundstücke (Buchenblatt, Amselruf) brauchen wenig Prüfung, seltene (L
 4. **Vogelstimmen:** BirdNET-Lizenz klären oder Alternative.
 5. ✅ **Zielgruppe** (24.10.2026): Kern 12–25 Jahre, aber universell wie Duolingo, auch Kinder, Familien und Ältere.
 6. **Punkte für Fundstücke** im Verhältnis zur echten Sichtung.
-7. ✅ **Angepflanzte, nicht heimische Bäume** (24.10.2026): sammelbar, mit Abzeichen „angepflanzt, nicht heimisch“ und weniger Punkten.
+7. ⏸ **Heimisch oder angepflanzt** (24.10.2026): kommt erst in einer späteren Iteration. Abzeichen „angepflanzt“ gestrichen, Hinweis „hier angepflanzt“ und Naturraum-Karte auf der Baumseite entfernt.
 8. ✅ **Fichte in der Heide** (24.10.2026): möglicherweise heimisch an feuchten Standorten, normale Forste angepflanzt (`CLAUDE.md`).

@@ -247,7 +247,7 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 | Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
 | G1 umgesetzt (Branch `feature/fundstuecke`): 389 Fundstücke für 73 Arten mit Quellen, Album auf der Artenseite, Speichern, Foto nur per App-Kamera | ✅ · Tonaufnahme offen |
 | Taler: Metall = Fortschritt (Rohling → Holz → Bronze → Silber → Gold), Seltenheit über Edelstein und Email | ✅ |
-| Angepflanzte Bäume sammelbar mit Abzeichen und weniger Punkten | ⬜ entschieden |
+| Heimisch/angepflanzt (Abzeichen, Hinweis auf der Baumseite) | ⏸ später; Hinweis und Naturraum-Karte auf der Baumseite entfernt (24.10.2026) |
 | Korrekturen aus der Recherche in die App-Daten übernehmen (Igel-Saison, Hasenspur, Eibe-Schutz, Verbreitung Schwarzspecht/Schwarzstorch/Uhu/Wiedehopf, Texte zu Brutplätzen …) | ⬜ |
 
 ## 3. Vorgeschlagene Reihenfolge
