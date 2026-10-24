@@ -94,6 +94,34 @@ Vögel **hört** man viel öfter, als man sie sieht. Eine Tonaufnahme als Fundst
 
 ---
 
+### 5.1 Fund-Karte: Wo wurde was gefunden? (Idee 24.10.2026)
+- Eine Karte zeigt, wo andere Nutzer eine Art **mit bestätigtem Fotobeweis** gefunden haben. Wer die Art noch nicht hat, weiß, wo er suchen kann. Das senkt die Hürde, rauszugehen.
+- **Der Nutzer entscheidet bei jedem Fund selbst**, ob er den Ort teilt. Voreinstellung: **nicht teilen**.
+- **Grenzen durch die Schutzregeln (gelten immer, auch wenn der Nutzer teilen will):**
+  - **Häufige, ungeschützte Arten** (Holunder, Rotbuche, Fliegenpilz …): Ort auf einige 100 m genau, wenn freigegeben.
+  - **Geschützte oder seltene Arten** (ab Seltenheit 3, besonders oder streng geschützt): höchstens das Rasterfeld.
+  - **Streng geschützte und störungsempfindliche Arten** (Luchs, Wildkatze, Uhu, Schwarzstorch, Orchideen …): **gar kein Ort**, nur „in deiner Region gefunden“.
+  - Keine Orte an Brutplätzen, Bauen oder Nestern, und nie in Echtzeit (Verzögerung, z. B. am nächsten Tag), damit niemand einem Tier hinterherläuft.
+  - Unter 16: Ort teilen nur mit Einwilligung der Eltern.
+
+### 5.2 „Jetzt in Saison“ im Startbildschirm (Idee 24.10.2026)
+- Kleine Karten oder Widgets auf der Startseite: „Holunder blüht gerade“, „Bucheckern liegen“, „Pfifferlings-Zeit“. Grundlage sind die Monate der Fundstücke und der Jahreslauf aus der Datenbank, in der Region des Nutzers.
+- Dazu passend: Naturkalender-Events (Abschnitt 4).
+- Später als echtes Widget auf dem Handy-Startbildschirm (braucht einen Development Build, nicht Expo Go).
+
+### 5.3 Müll melden (Idee 24.10.2026)
+- Die App macht auf Müll in der Natur aufmerksam: Müll fotografieren, optional aufsammeln und entsorgen. Dafür gibt es Punkte oder ein eigenes Abzeichen („Waldhüter“).
+- Gemeinsame Aktionen mit Gemeinden oder Vereinen (Clean-up-Tage) als Events.
+- Keine Belohnung dafür, Wege zu verlassen; Sicherheitshinweis bei Scherben, Spritzen und Sondermüll (nicht anfassen, melden).
+- Offen: Meldung an die Gemeinde (z. B. über vorhandene Mängelmelder) – später prüfen.
+
+### 5.4 Ranglisten wie bei Strava (Idee 24.10.2026)
+- **Erstfunde:** „Du bist die erste Person in deiner Region, die diese Art gefunden hat.“
+- **Seltenheit unter Nutzern:** „Du bist eine von 10 Personen, die diese Art gefunden haben.“
+- Ranglisten **je Region** (Naturraum oder Landkreis), je Woche, Monat und Jahr, auch nur unter Freunden.
+- Wie die „Local Legend“ bei Strava: wer in einer Region die meisten Arten einer Gruppe gefunden hat.
+- Zählt nur mit bestätigtem Fund (Echtheitsprüfung, Abschnitt 7). Region wird grob angegeben, nie der Fundort.
+
 ## 6. Jeder hat ein Nutzerkonto (Entscheidung 23.10.2026)
 
 - Ersetzt die alte Regel „Kein Konto, Daten lokal“ (`ANFORDERUNGEN.md` 4.5) und den Vorschlag „Konto nur für den Wettkampf“ (`KONZEPT-WETTKAMPF.md` 6.1).
@@ -137,9 +165,9 @@ Häufige Fundstücke (Buchenblatt, Amselruf) brauchen wenig Prüfung, seltene (L
 |---|---|
 | G1 | **Fundstücke-System** für eine Pilotregion: ca. 40 Arten × 6–8 Fundstücke = rund 300 Sammelziele. Dazu der Bestimmungsschlüssel für Spuren. |
 | G2 | **Tagesaufgaben**, **„Nebel lichtet sich“** und **teilbare Karte**. |
-| G3 | **Naturkalender-Events** und **Vogelstimmen** (nach Lizenzklärung). |
+| G3 | **Naturkalender-Events**, **„Jetzt in Saison“ auf der Startseite (5.2)**, **Müll melden (5.3)** und **Vogelstimmen** (nach Lizenzklärung). |
 | G4 | **Testen:** 10 echte Leute aus der Zielgruppe (jung und alt) nutzen die App 2 Wochen lang. Wer öffnet sie nach 7 Tagen noch? |
-| G5 | **Konten, Community, Ranglisten je Naturraum, Familien-Modus**, Echtheitsprüfung W1–W3. |
+| G5 | **Konten, Community, Ranglisten je Naturraum (Strava-Stil, 5.4), Fund-Karte mit Freigabe (5.1), Familien-Modus**, Echtheitsprüfung W1–W3. |
 | danach | Kämpfe (`KONZEPT-SPIELSYSTEM.md`), erst wenn das Sammeln allein schon fesselt. |
 
 ---

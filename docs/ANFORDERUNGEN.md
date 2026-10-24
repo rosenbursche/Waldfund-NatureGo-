@@ -244,6 +244,10 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 | G5: **Nutzerkonto für alle**, Ranglisten je Naturraum, Familien-/Expeditions-Modus | ⬜ Entscheidung Konto gefallen (siehe 4.5) |
 | G5: Echtheitsprüfung für Fundstücke (Standort passt zum Fundstück, Wildpark-Flächen, Jahreszeit, Fingerabdruck, Community) | ⬜ baut auf 2.7 / `KONZEPT-WETTKAMPF.md` auf |
 | Partner (NABU, Naturparks, Schulen, Pfadfinder, Förster) | ⬜ Idee |
+| Fund-Karte: wo andere eine Art mit Fotobeweis gefunden haben; Freigabe je Fund durch den Nutzer, Grenzen nach Schutzregeln (5.1) | ⬜ Konzept |
+| „Jetzt in Saison“-Karten auf der Startseite, später Handy-Widget (5.2) | ⬜ Konzept |
+| Müll melden / aufsammeln mit Abzeichen (5.3) | ⬜ Konzept |
+| Ranglisten wie Strava: Erstfund in der Region, „eine von 10 Personen“, Local Legend (5.4) | ⬜ Konzept |
 | Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
 | G1 umgesetzt (Branch `feature/fundstuecke`): 389 Fundstücke für 73 Arten mit Quellen, Album auf der Artenseite, Speichern, Foto nur per App-Kamera | ✅ · Tonaufnahme offen |
 | Taler: Metall = Fortschritt (Rohling → Holz → Bronze → Silber → Gold), Seltenheit über Edelstein und Email | ✅ |
