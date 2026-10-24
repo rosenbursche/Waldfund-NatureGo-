@@ -1,0 +1,700 @@
+{
+  "gruppe": "pilze",
+  "arten": [
+    {
+      "artId": "fliegenpilz",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "junger-fruchtkoerper",
+          "name": "Junger Fliegenpilz",
+          "typ": "fruchtkoerper",
+          "kurz": "Kleiner, rundlicher Knubbel, noch ganz in einer weißen Hülle.",
+          "erkennen": ["knubbelig, rundlich", "von weißer Gesamthülle umschlossen", "darunter schimmert die rote Huthaut durch"],
+          "verwechslung": "Sehr junge Fliegenpilze sind kaum zu erkennen. Auch junge Knollenblätterpilze stecken in einer weißen Hülle und sehen eiförmig aus.",
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Waldboden am Wegrand, oft unter Birken",
+          "schutz": "Giftig. Nur fotografieren, nicht pflücken, nicht in den Mund nehmen. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["dgfm2022", "zwickau", "spektrum-fliegenpilz", "dgfm2019"]
+        },
+        {
+          "id": "ausgewachsener-fruchtkoerper",
+          "name": "Ausgewachsener Fliegenpilz",
+          "typ": "ganz",
+          "kurz": "Roter Hut mit weißen Flocken – der bekannteste Giftpilz.",
+          "erkennen": ["Hut leuchtend rot, orange oder orangegelb", "weiße Flocken (Hüllreste), können vom Regen abgewaschen sein", "Hut bis 20 cm breit"],
+          "verwechslung": "Der Braune Fliegenpilz (Königs-Fliegenpilz) hat einen braunen Hut und wächst eher im Bergfichtenwald; er ist ebenfalls stark giftig.",
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 1,
+          "wo": "Laub- und Nadelwald, im Flachland meist unter Birken",
+          "schutz": "Giftig. Nur fotografieren, nicht pflücken. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["spektrum-fliegenpilz", "dgfm2022", "zwickau"]
+        },
+        {
+          "id": "lamellen",
+          "name": "Lamellen unter dem Hut",
+          "typ": "fruchtkoerper",
+          "kurz": "Weiße, dicht stehende Blättchen an der Hutunterseite.",
+          "erkennen": ["Lamellen weiß", "dicht gedrängt"],
+          "verwechslung": null,
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Unterseite älterer, aufgeschirmter Hüte",
+          "schutz": "Pilz dafür nicht abbrechen: Ein kleiner Spiegel zeigt die Hutunterseite, ohne den Pilz zu beschädigen.",
+          "quellen": ["zwickau", "spektrum-fliegenpilz", "dgfm-flyer"]
+        },
+        {
+          "id": "stiel-ring-knolle",
+          "name": "Stiel mit Ring und Warzenknolle",
+          "typ": "fruchtkoerper",
+          "kurz": "Weißer Stiel mit hängendem Ring und knolliger Basis mit Warzengürteln.",
+          "erkennen": ["Stiel weiß", "große, schlaff hängende Manschette (Ring)", "abgesetzte Knolle, oben mit Warzen in Gürteln"],
+          "verwechslung": "Knollenblätterpilze haben eine Knolle mit lappiger Scheide statt Warzengürteln.",
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Stielbasis am Boden, teils in Moos oder Laub versteckt",
+          "schutz": "Knolle nicht ausgraben. Nur fotografieren.",
+          "quellen": ["dgfm2022", "spektrum-fliegenpilz", "zwickau"]
+        },
+        {
+          "id": "partnerbaum",
+          "name": "Partnerbaum Birke oder Fichte",
+          "typ": "sonstiges",
+          "kurz": "Der Fliegenpilz lebt in Partnerschaft (Mykorrhiza) mit Baumwurzeln.",
+          "erkennen": ["im Flachland meist unter Birken", "im Gebirge besonders unter Fichten", "eher auf sauren Böden"],
+          "verwechslung": null,
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 1,
+          "wo": "Unter Birken am Wald- oder Wegrand",
+          "schutz": null,
+          "quellen": ["spektrum-fliegenpilz", "waldwissen-mykorrhiza", "dgfm2022"]
+        }
+      ],
+      "quellen": {
+        "dgfm2022": { "titel": "DGfM: Pilz des Jahres 2022 – Fliegenpilz", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2022-fliegenpilz" },
+        "dgfm2019": { "titel": "DGfM: Pilz des Jahres 2019 – Grüner Knollenblätterpilz (Hinweis: Sammelgut von Pilzberatung prüfen lassen)", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2019-gruener-knollenblaetterpilz" },
+        "dgfm-flyer": { "titel": "DGfM-Flyer „Gemeinsam das Reich der Pilze entdecken“ (Dr. Rita Lüder)", "url": "https://www.moerfelden-walldorf.de/pdfs/umwelt/dgfm-flyer-gemeinsam-das-reich-der-pilze-entdecken.pdf?cid=u7m" },
+        "zwickau": { "titel": "Pilzberater Südwestsachsen e.V. / Landkreis Zwickau: Merkblatt Wulstlinge (2017)", "url": "https://landkreis-zwickau.de/uploads/formulare/ZA4Wulstlinge_1691.pdf" },
+        "spektrum-fliegenpilz": { "titel": "Spektrum Lexikon der Biologie: Fliegenpilz", "url": "https://www.spektrum.de/lexikon/biologie/fliegenpilz/24915" },
+        "waldwissen-mykorrhiza": { "titel": "waldwissen.net (J. Preller): Eine feine Gesellschaft – Mykorrhiza", "url": "https://www.waldwissen.net/de/lebensraum-wald/pilze-und-flechten/eine-feine-gesellschaft" },
+        "gbif": { "titel": "GBIF-Nachweise Amanita muscaria, Deutschland, im Polygon Lüneburger Heide (1093 Nachweise 2004–2026)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=8168319&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": ["Hexenringe beim Fliegenpilz nicht artbezogen belegt (DGfM-Flyer erklärt Hexenringe nur allgemein)."]
+    },
+    {
+      "artId": "knolli",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "ausgewachsener-fruchtkoerper",
+          "name": "Ausgewachsener Knollenblätterpilz",
+          "typ": "ganz",
+          "kurz": "Grünlicher Hut, weiße Lamellen, Ring und Knolle – tödlich giftig.",
+          "erkennen": ["Hut grün bis oliv, auch bräunlich oder weißlich", "Hut fein faserig, zum Rand hin oft heller", "Hut bis 12 cm, erst halbkugelig, dann flach"],
+          "verwechslung": "Champignons haben dunkle (rosa bis braune) Lamellen und dunkelbraunes Sporenpulver, der Knollenblätterpilz weiße. Auch mit grünen Täublingen wird er verwechselt. Es gibt eine weiße Form.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "Laub- und Mischwald, Parks, Waldränder, besonders unter Eichen",
+          "schutz": "TÖDLICH GIFTIG: Schon ein Pilz (ca. 50 g) kann tödlich sein. Nur fotografieren, nicht pflücken, nicht in den Mund nehmen. Anfassen allein vergiftet nach DGfM nicht – trotzdem am besten nicht anfassen und sonst danach Hände waschen, bevor man isst. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["dgfm2019", "zwickau", "dgfm-flyer"]
+        },
+        {
+          "id": "junger-fruchtkoerper",
+          "name": "Junger Knollenblätterpilz („Ei“)",
+          "typ": "fruchtkoerper",
+          "kurz": "Junge Pilze stecken ganz in einer weißen Hülle und sehen wie ein Ei aus.",
+          "erkennen": ["eiförmig", "ganz von weißer Hüllhaut umschlossen"],
+          "verwechslung": "Junge Wulstlinge, auch Fliegenpilze, sehen im Ei-Stadium ähnlich aus und sind dann kaum zu bestimmen.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 3,
+          "wo": "Waldboden unter Laubbäumen",
+          "schutz": "TÖDLICH GIFTIG. Nur fotografieren, nicht pflücken, nicht anfassen. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["zwickau", "dgfm2022", "dgfm2019"]
+        },
+        {
+          "id": "lamellen",
+          "name": "Weiße, freie Lamellen",
+          "typ": "fruchtkoerper",
+          "kurz": "Die Lamellen sind weiß und berühren den Stiel nicht.",
+          "erkennen": ["Lamellen weißlich", "frei (nicht am Stiel angewachsen)", "Sporenpulver weiß"],
+          "verwechslung": "Champignons: Lamellen und Sporen dunkelbraun.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "Hutunterseite",
+          "schutz": "Nicht abbrechen oder umdrehen – ein Spiegel zeigt die Unterseite. Tödlich giftig.",
+          "quellen": ["dgfm2019", "dgfm-flyer"]
+        },
+        {
+          "id": "stiel-ring",
+          "name": "Stiel mit Ring",
+          "typ": "fruchtkoerper",
+          "kurz": "Weißer Stiel mit hängendem, vergänglichem Ring und grünlicher Natterung.",
+          "erkennen": ["Stiel weiß, bis 10 cm lang", "grünlich genattert (marmoriert)", "weißer, flüchtiger Ring"],
+          "verwechslung": null,
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "Stiel direkt über dem Boden",
+          "schutz": "Tödlich giftig. Nur fotografieren.",
+          "quellen": ["dgfm2019", "zwickau"]
+        },
+        {
+          "id": "knolle-scheide",
+          "name": "Knolle mit Scheide",
+          "typ": "fruchtkoerper",
+          "kurz": "Die knollige Stielbasis steckt in einer lappigen, abstehenden Hauttasche.",
+          "erkennen": ["knollige Stielbasis", "lappige, offen abstehende Scheide (Volva)", "oft im Boden oder in der Streu verborgen"],
+          "verwechslung": "Fliegenpilz: Knolle mit Warzengürteln statt Scheide.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 3,
+          "wo": "Stielbasis, oft im Laub versteckt",
+          "schutz": "Nicht ausgraben. Tödlich giftig.",
+          "quellen": ["dgfm2019", "zwickau"]
+        },
+        {
+          "id": "partnerbaum",
+          "name": "Partnerbaum Eiche",
+          "typ": "sonstiges",
+          "kurz": "Wächst in Partnerschaft mit Bäumen, vor allem unter Eichen.",
+          "erkennen": ["unter Eichen, seltener unter Buchen", "auch in Parkanlagen"],
+          "verwechslung": null,
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "Unter Eichen am Weg- oder Parkrand",
+          "schutz": null,
+          "quellen": ["zwickau", "dgfm2019"]
+        }
+      ],
+      "quellen": {
+        "dgfm2019": { "titel": "DGfM: Pilz des Jahres 2019 – Grüner Knollenblätterpilz", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2019-gruener-knollenblaetterpilz" },
+        "dgfm2022": { "titel": "DGfM: Pilz des Jahres 2022 – Fliegenpilz", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2022-fliegenpilz" },
+        "dgfm-flyer": { "titel": "DGfM-Flyer „Gemeinsam das Reich der Pilze entdecken“ („Kontaktgiftige Pilze … gibt es nicht“)", "url": "https://www.moerfelden-walldorf.de/pdfs/umwelt/dgfm-flyer-gemeinsam-das-reich-der-pilze-entdecken.pdf?cid=u7m" },
+        "zwickau": { "titel": "Pilzberater Südwestsachsen e.V. / Landkreis Zwickau: Merkblatt Wulstlinge (2017)", "url": "https://landkreis-zwickau.de/uploads/formulare/ZA4Wulstlinge_1691.pdf" },
+        "gbif": { "titel": "GBIF-Nachweise Amanita phalloides, im Polygon Lüneburger Heide (94 Nachweise 2010–2026)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=5240325&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": [
+        "Ring: DGfM nennt ihn „oberseits gerieft“, das Zwickauer Merkblatt „nicht gerieft oder nur undeutlich gerieft“ – Riefung daher weggelassen.",
+        "„Hände waschen“ steht in keiner geöffneten Quelle; DGfM sagt ausdrücklich, dass es keine kontaktgiftigen Pilze gibt. Händewaschen ist reine Vorsichtsregel der App.",
+        "Geruch (süßlich, Kunsthonig, DGfM) bewusst nicht als Fundstück aufgenommen, weil man dafür nah heran muss."
+      ]
+    },
+    {
+      "artId": "tintling",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "junger-fruchtkoerper",
+          "name": "Junger Schopf-Tintling",
+          "typ": "fruchtkoerper",
+          "kurz": "Weißer, walzenförmiger Hut mit abstehenden Schuppen.",
+          "erkennen": ["Hut weiß, walzenförmig", "mit abstehenden Schuppen", "Lamellen zuerst weiß, dicht"],
+          "verwechslung": "Specht- und Falten-Tintlinge: jung kein rein weißes Hutfleisch; seltene Doppelgänger wachsen auf Dung oder riechen nach Maggi.",
+          "monate": [5, 6, 7, 8, 9, 10, 11],
+          "findbarkeit": 1,
+          "wo": "Wegränder, Fettwiesen, Parks",
+          "schutz": "Nur fotografieren. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["dgfm2024", "dgfm2019"]
+        },
+        {
+          "id": "verfaerbung",
+          "name": "Rosa-schwarz verfärbter Hut",
+          "typ": "fruchtkoerper",
+          "kurz": "Mit dem Alter werden Hut und Lamellen erst rosa, dann schwarz.",
+          "erkennen": ["Hutrand und Lamellen rosa", "später schwarz"],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9, 10, 11],
+          "findbarkeit": 1,
+          "wo": "Wegränder, Wiesen, Parks",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["dgfm2024"]
+        },
+        {
+          "id": "zerfliessender-hut",
+          "name": "Zerfließender Hut („Tinte“)",
+          "typ": "fruchtkoerper",
+          "kurz": "Reife Pilze zerfließen vom Hutrand her zu schwarzer, tropfender Sporenmasse.",
+          "erkennen": ["schwarze, tintenartige Flüssigkeit", "tropft vom Hut ab", "Hut vom Rand her aufgelöst"],
+          "verwechslung": "Andere Tintlinge zerfließen ebenfalls.",
+          "monate": [5, 6, 7, 8, 9, 10, 11],
+          "findbarkeit": 1,
+          "wo": "Wegränder, Wiesen, Parks",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["dgfm2024", "spektrum-tintlinge"]
+        },
+        {
+          "id": "stiel",
+          "name": "Langer weißer Stiel",
+          "typ": "fruchtkoerper",
+          "kurz": "Langer, weißer Stiel, der an weißen Spargel erinnert.",
+          "erkennen": ["lang und weiß", "löst sich leicht vom Hut"],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Wegränder, Wiesen, Parks",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["dgfm2024"]
+        },
+        {
+          "id": "gruppe",
+          "name": "Gruppe am Wegrand",
+          "typ": "sonstiges",
+          "kurz": "Schopf-Tintlinge erscheinen oft in großen Scharen an stickstoffreichen Stellen.",
+          "erkennen": ["viele Pilze nebeneinander", "Wegränder, Fettwiesen, Parkanlagen"],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Grasige Weg- und Straßenränder, Parks",
+          "schutz": null,
+          "quellen": ["dgfm2024"]
+        }
+      ],
+      "quellen": {
+        "dgfm2024": { "titel": "DGfM: Pilz des Jahres 2024 – Schopf-Tintling", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2024-schopf-tintling" },
+        "dgfm2019": { "titel": "DGfM: Pilz des Jahres 2019 (Sammelgut von Pilzberatung prüfen lassen)", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2019-gruener-knollenblaetterpilz" },
+        "spektrum-tintlinge": { "titel": "Spektrum Lexikon der Biologie: Tintlinge", "url": "https://www.spektrum.de/lexikon/biologie/tintlinge/66785" },
+        "gbif": { "titel": "GBIF-Nachweise Coprinus comatus, im Polygon Lüneburger Heide (357 Nachweise 2009–2026)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=7987658&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": ["Ring am Stiel: in den geöffneten Quellen nicht artbezogen beschrieben (Spektrum: Tintlinge „unberingt oder mit Ring“), daher kein eigenes Fundstück."]
+    },
+    {
+      "artId": "hallimasch",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bueschel",
+          "name": "Büschel am Stumpf",
+          "typ": "ganz",
+          "kurz": "Viele Pilze dicht beieinander an Baumstümpfen oder am Stammfuß.",
+          "erkennen": ["büschelig wachsend", "an Baumstümpfen, am Fuß toter und lebender Bäume", "Hüte gelblich bis bräunlich, 3–10 cm"],
+          "verwechslung": "Sparriger Schüppling: nicht abwischbare Schuppen, braune Sporen, keine deutliche Ringzone.",
+          "monate": [9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Stümpfe und Stammfüße am Wegrand, Laub- und Nadelholz",
+          "schutz": "Roh ungenießbar bzw. giftig. Nur fotografieren. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["berlin-hallimasch", "spektrum-hallimasch", "waldwissen-hallimasch"]
+        },
+        {
+          "id": "hut-schuppen",
+          "name": "Hut mit feinen Schuppen",
+          "typ": "fruchtkoerper",
+          "kurz": "Gelblicher Hut mit feinen, abwischbaren Schüppchen.",
+          "erkennen": ["Hut gelblich", "feinschuppig, Schuppen abwischbar", "Lamellen weiß, laufen kurz am Stiel herab"],
+          "verwechslung": "Sparriger Schüppling: Schuppen nicht abwischbar.",
+          "monate": [9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Büschel an Stümpfen",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["berlin-hallimasch", "spektrum-hallimasch"]
+        },
+        {
+          "id": "ring",
+          "name": "Ring am Stiel",
+          "typ": "fruchtkoerper",
+          "kurz": "Deutliche Ringzone am Stiel, beim Honiggelben Hallimasch häutig.",
+          "erkennen": ["deutliche Ringzone", "Ring unterseits gelblich", "beim Dunklen Hallimasch eher wattig"],
+          "verwechslung": "Sparriger Schüppling: keine deutliche Ringzone.",
+          "monate": [9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Büschel an Stümpfen",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["berlin-hallimasch", "waldwissen-hallimasch"]
+        },
+        {
+          "id": "faechermyzel",
+          "name": "Weißes Fächermyzel unter der Rinde",
+          "typ": "spur",
+          "kurz": "Weiße, dünne, fächerartige Pilzschicht zwischen Rinde und Holz.",
+          "erkennen": ["weiß, dünn, großflächig", "fächerartig", "zwischen Rinde und Holz, gut sichtbar wo die Rinde abgefallen ist"],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Abgestorbene Stämme und Stümpfe mit loser oder abgeplatzter Rinde",
+          "schutz": "Keine Rinde abreißen – nur dort schauen, wo sie schon fehlt.",
+          "quellen": ["waldwissen-hallimasch", "spektrum-hallimasch", "berlin-hallimasch"]
+        },
+        {
+          "id": "rhizomorphen",
+          "name": "Rhizomorphen („Pilzschnüre“)",
+          "typ": "spur",
+          "kurz": "Schwarzbraune, schnurartige Pilzstränge, mit denen sich der Hallimasch ausbreitet.",
+          "erkennen": ["schwarzbraun bis schwarz", "1–2 mm bis einige Millimeter dick", "verzweigt, können meterlang sein"],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Unter loser Rinde abgestorbener Bäume, an Stümpfen, im Boden",
+          "schutz": "Keine Rinde abreißen, nicht graben.",
+          "quellen": ["berlin-hallimasch", "spektrum-hallimasch", "spektrum-rhizomorphen"]
+        },
+        {
+          "id": "leuchtholz",
+          "name": "Leuchtendes Holz",
+          "typ": "sonstiges",
+          "kurz": "Vom Hallimasch-Myzel befallenes Holz leuchtet manchmal im Dunkeln.",
+          "erkennen": ["schwaches Leuchten im Dunkeln", "an befallenem Holz bzw. an Rhizomorphen"],
+          "verwechslung": "Auch einige Helmlinge leuchten schwach.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 4,
+          "wo": "Morsches Holz am Wegrand, nur bei Dunkelheit",
+          "schutz": "Nicht nachts allein in den Wald und auf den Wegen bleiben.",
+          "quellen": ["spektrum-hallimasch", "spektrum-leuchtpilze"]
+        },
+        {
+          "id": "harzfluss",
+          "name": "Harzfluss am Stammfuß",
+          "typ": "spur",
+          "kurz": "An befallenen Nadelbäumen tritt am Stammfuß viel Harz aus.",
+          "erkennen": ["starker Harzfluss", "am Fuß von Nadelbäumen"],
+          "verwechslung": "Harz tritt auch nach anderen Verletzungen aus – kein sicherer Beweis allein.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Stammfuß von Kiefern oder Fichten",
+          "schutz": null,
+          "quellen": ["spektrum-hallimasch"]
+        }
+      ],
+      "quellen": {
+        "berlin-hallimasch": { "titel": "Pflanzenschutzamt Berlin: Steckbrief Honiggelber Hallimasch (2022)", "url": "https://www.berlin.de/pflanzenschutzamt/_assets/stadtgruen/schadorganismen-in-berlin/holzzerstoerende-pilze/02-hallimasch.pdf" },
+        "waldwissen-hallimasch": { "titel": "waldwissen.net (WSL): Die Hallimasch-Arten – Systematik und Vorkommen", "url": "https://www.waldwissen.net/de/lebensraum-wald/pilze-und-flechten/die-hallimasch-arten" },
+        "spektrum-hallimasch": { "titel": "Spektrum Lexikon der Biologie: Hallimasch", "url": "https://www.spektrum.de/lexikon/biologie/hallimasch/30348" },
+        "spektrum-rhizomorphen": { "titel": "Spektrum Lexikon der Biologie: Rhizomorphen", "url": "https://www.spektrum.de/lexikon/biologie/rhizomorphen/56765" },
+        "spektrum-leuchtpilze": { "titel": "Spektrum Lexikon der Biologie: Leuchtpilze", "url": "https://www.spektrum.de/lexikon/biologie/leuchtpilze/39071" },
+        "gbif": { "titel": "GBIF-Nachweise im Polygon Lüneburger Heide: Armillaria mellea 6 (2022–2025), Armillaria ostoyae 53 (2009–2025)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=2536899&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": [
+        "Monate für Myzel, Rhizomorphen, Leuchtholz und Harzfluss sind nicht ausdrücklich belegt; ganzjährig angenommen, weil sie im Holz bleiben.",
+        "Hallimasch-Arten sind laut WSL meist nur im Labor sicher zu trennen; die Fundstücke gelten für die Gattung.",
+        "Erscheinungszeit: Berlin nennt September–November, Spektrum Juli–November für die Gattung."
+      ]
+    },
+    {
+      "artId": "steinpilz",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "ausgewachsener-fruchtkoerper",
+          "name": "Steinpilz",
+          "typ": "ganz",
+          "kurz": "Großer, dickfleischiger Röhrling mit braunem Hut und dickem Stiel.",
+          "erkennen": ["Hut anfangs weiß, später leber-, nuss- oder schwarzbraun", "Hut bis 35 cm breit, dickfleischig", "derber, oft bauchiger Stiel"],
+          "verwechslung": "Gallenröhrling: giftig und sehr bitter. Satans-Röhrling: rote Poren und rotes Netz am gelben Stiel. Sicher nur durch Pilzsachverständige.",
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Laub- und Nadelwald, gern auf Sandböden mit Rohhumus",
+          "schutz": "Besonders geschützt (BArtSchV Anlage 1); nur geringe Mengen für den Eigenbedarf erlaubt. In der App: nur fotografieren. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["spektrum-steinpilze", "spektrum-tylopilus", "spektrum-satan", "bartschv-anlage1", "bartschv-2", "gbif-monate"]
+        },
+        {
+          "id": "roehren",
+          "name": "Röhren unter dem Hut",
+          "typ": "fruchtkoerper",
+          "kurz": "Statt Lamellen ein Schwamm aus Röhren, jung weiß, alt gelbgrünlich.",
+          "erkennen": ["Poren jung weiß", "im Alter gelbgrünlich"],
+          "verwechslung": "Satans-Röhrling: Poren rot.",
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Hutunterseite",
+          "schutz": "Nicht abbrechen – ein Spiegel zeigt die Unterseite.",
+          "quellen": ["spektrum-steinpilze", "spektrum-satan", "dgfm-flyer"]
+        },
+        {
+          "id": "stiel-netz",
+          "name": "Bauchiger Stiel mit Netz",
+          "typ": "fruchtkoerper",
+          "kurz": "Dicker, oft bauchiger Stiel, meist mit feinem Adernetz.",
+          "erkennen": ["derb, oft bauchig", "meist mit hellem Adernetz"],
+          "verwechslung": "Satans-Röhrling: gelber Stiel mit rotem Netz.",
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Waldboden",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["spektrum-steinpilze", "spektrum-satan"]
+        },
+        {
+          "id": "partnerbaum",
+          "name": "Partnerbaum",
+          "typ": "sonstiges",
+          "kurz": "Der Steinpilz lebt in Mykorrhiza mit vielen Waldbäumen, z. B. der Fichte.",
+          "erkennen": ["unter Waldbäumen, z. B. Fichte", "bevorzugt Sandböden mit Rohhumusauflage"],
+          "verwechslung": null,
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Unter Bäumen am Wegrand",
+          "schutz": null,
+          "quellen": ["spektrum-steinpilze", "waldwissen-mykorrhiza", "dgfm-flyer"]
+        }
+      ],
+      "quellen": {
+        "spektrum-steinpilze": { "titel": "Spektrum Lexikon der Biologie: Steinpilze", "url": "https://www.spektrum.de/lexikon/biologie/steinpilze/63544" },
+        "spektrum-tylopilus": { "titel": "Spektrum Lexikon der Biologie: Tylopilus (Gallenröhrling)", "url": "https://www.spektrum.de/lexikon/biologie/tylopilus/68146" },
+        "spektrum-satan": { "titel": "Spektrum Lexikon der Biologie: Satanspilz", "url": "https://www.spektrum.de/lexikon/biologie/satanspilz/58629" },
+        "waldwissen-mykorrhiza": { "titel": "waldwissen.net (J. Preller): Eine feine Gesellschaft – Mykorrhiza", "url": "https://www.waldwissen.net/de/lebensraum-wald/pilze-und-flechten/eine-feine-gesellschaft" },
+        "dgfm-flyer": { "titel": "DGfM-Flyer „Gemeinsam das Reich der Pilze entdecken“", "url": "https://www.moerfelden-walldorf.de/pdfs/umwelt/dgfm-flyer-gemeinsam-das-reich-der-pilze-entdecken.pdf?cid=u7m" },
+        "bartschv-anlage1": { "titel": "Bundesartenschutzverordnung, Anlage 1 (Pilze)", "url": "https://www.gesetze-im-internet.de/bartschv_2005/anlage_1.html" },
+        "bartschv-2": { "titel": "Bundesartenschutzverordnung § 2 (Eigenbedarf in geringen Mengen)", "url": "https://www.gesetze-im-internet.de/bartschv_2005/__2.html" },
+        "gbif-monate": { "titel": "GBIF-Nachweise Boletus edulis in Deutschland seit 2000 nach Monat (5129 Nachweise; Monate mit ≥3 %)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=5954958&country=DE&year=2000,2026&limit=0&facet=month" },
+        "gbif": { "titel": "GBIF-Nachweise Boletus edulis, im Polygon Lüneburger Heide (197 Nachweise 2009–2026)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=5954958&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": [
+        "Monate nur aus GBIF-Meldungen abgeleitet (Juli–November), keine Fachquelle mit Monaten geöffnet.",
+        "Genaue Unterschiede zum Gallenröhrling (Porenfarbe, Netz) in keiner geöffneten Quelle beschrieben."
+      ]
+    },
+    {
+      "artId": "pfifferling",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "fruchtkoerper",
+          "name": "Pfifferling",
+          "typ": "ganz",
+          "kurz": "Gelber, gestielter Hutpilz – das Gelb kommt von Carotinoiden.",
+          "erkennen": ["gelb", "gestielt-hutförmig", "statt Lamellen Leisten an der Unterseite"],
+          "verwechslung": "Falscher Pfifferling (Orangefarbiger Gabelblättling): gehört zu den Kremplingen, ungenießbar. Sicher nur durch Pilzsachverständige.",
+          "monate": [6, 7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Nadelwald, auch Laubwald",
+          "schutz": "Besonders geschützt (BArtSchV Anlage 1, alle heimischen Pfifferlinge); nur geringe Mengen für den Eigenbedarf erlaubt. In der App: nur fotografieren. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["spektrum-pfifferling", "spektrum-kremplinge", "bartschv-anlage1", "bartschv-2", "gbif-monate"]
+        },
+        {
+          "id": "leisten",
+          "name": "Leisten unter dem Hut",
+          "typ": "fruchtkoerper",
+          "kurz": "Dicke, vielfach miteinander verbundene Leisten statt Lamellen.",
+          "erkennen": ["dicke Leisten", "vielfach verbunden"],
+          "verwechslung": "Semmelstoppelpilze sehen ähnlich aus, haben aber Stacheln an der Unterseite. Kremplinge (dazu der Falsche Pfifferling) haben echte, leicht ablösbare Lamellen.",
+          "monate": [6, 7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Hutunterseite",
+          "schutz": "Nicht abbrechen – ein Spiegel zeigt die Unterseite.",
+          "quellen": ["spektrum-pfifferling", "spektrum-stachelpilze", "spektrum-kremplinge", "dgfm-flyer"]
+        },
+        {
+          "id": "partnerbaum",
+          "name": "Partnerbäume",
+          "typ": "sonstiges",
+          "kurz": "Der Pfifferling hat mehrere Mykorrhiza-Partner unter den Bäumen.",
+          "erkennen": ["in Nadel- und Laubwäldern", "unter Bäumen, nicht frei auf Wiesen"],
+          "verwechslung": null,
+          "monate": [6, 7, 8, 9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Waldboden am Wegrand",
+          "schutz": null,
+          "quellen": ["waldwissen-mykorrhiza", "spektrum-pfifferling"]
+        }
+      ],
+      "quellen": {
+        "spektrum-pfifferling": { "titel": "Spektrum Kompaktlexikon der Biologie: Pfifferling", "url": "https://www.spektrum.de/lexikon/biologie-kompakt/pfifferling/8867" },
+        "spektrum-kremplinge": { "titel": "Spektrum Lexikon der Biologie: Kremplinge (Falscher Pfifferling)", "url": "https://www.spektrum.de/lexikon/biologie/kremplinge/37338" },
+        "spektrum-stachelpilze": { "titel": "Spektrum Lexikon der Biologie: Stachelpilze (Semmelstoppelpilz als Doppelgänger)", "url": "https://www.spektrum.de/lexikon/biologie/stachelpilze/63217" },
+        "waldwissen-mykorrhiza": { "titel": "waldwissen.net (J. Preller): Eine feine Gesellschaft – Mykorrhiza", "url": "https://www.waldwissen.net/de/lebensraum-wald/pilze-und-flechten/eine-feine-gesellschaft" },
+        "dgfm-flyer": { "titel": "DGfM-Flyer „Gemeinsam das Reich der Pilze entdecken“", "url": "https://www.moerfelden-walldorf.de/pdfs/umwelt/dgfm-flyer-gemeinsam-das-reich-der-pilze-entdecken.pdf?cid=u7m" },
+        "bartschv-anlage1": { "titel": "Bundesartenschutzverordnung, Anlage 1 (Pilze)", "url": "https://www.gesetze-im-internet.de/bartschv_2005/anlage_1.html" },
+        "bartschv-2": { "titel": "Bundesartenschutzverordnung § 2 (Eigenbedarf in geringen Mengen)", "url": "https://www.gesetze-im-internet.de/bartschv_2005/__2.html" },
+        "gbif-monate": { "titel": "GBIF-Nachweise Cantharellus cibarius in Deutschland seit 2000 nach Monat (2267 Nachweise; Monate mit ≥3 %)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=5249504&country=DE&year=2000,2026&limit=0&facet=month" },
+        "gbif": { "titel": "GBIF-Nachweise Cantharellus cibarius, im Polygon Lüneburger Heide (92 Nachweise 2004–2026)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=5249504&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": [
+        "Nur 3 belegte Fundstücke. Hutgröße, Geruch und genaue Partnerbaumarten fehlen in den geöffneten Quellen.",
+        "Monate nur aus GBIF-Meldungen abgeleitet (Juni–November)."
+      ]
+    },
+    {
+      "artId": "glucke",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "fruchtkoerper",
+          "name": "Krause Glucke",
+          "typ": "ganz",
+          "kurz": "Blumenkohlartiger Pilz aus vielen welligen, krausen Lappen.",
+          "erkennen": ["blumenkohlartig", "wellige, krause Hutlappen aus einem Strunk", "10–40 cm breit und hoch"],
+          "verwechslung": "Breitblättrige Glucke: Lappen ohne krause Enden, im Alter weiß.",
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 3,
+          "wo": "Stammbasis von Kiefern",
+          "schutz": "Nur fotografieren. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["berlin-glucke", "dgfm2019"]
+        },
+        {
+          "id": "junger-fruchtkoerper",
+          "name": "Junge Glucke",
+          "typ": "fruchtkoerper",
+          "kurz": "Junge Glucken sind weißlich und erinnern an einen Badeschwamm.",
+          "erkennen": ["weißlich bis cremefarben", "wachsartig", "weich und leicht zerbrechlich, wie ein Badeschwamm"],
+          "verwechslung": null,
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 3,
+          "wo": "Stammbasis von Kiefern",
+          "schutz": "Nicht anfassen – zerbricht leicht. Nur fotografieren.",
+          "quellen": ["berlin-glucke"]
+        },
+        {
+          "id": "alter-fruchtkoerper",
+          "name": "Alte Glucke",
+          "typ": "fruchtkoerper",
+          "kurz": "Im Alter wird die Glucke gelblich bis ockergelb.",
+          "erkennen": ["gelblich bis ockergelb"],
+          "verwechslung": "Breitblättrige Glucke wird im Alter weiß.",
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 3,
+          "wo": "Stammbasis von Kiefern",
+          "schutz": "Nur fotografieren.",
+          "quellen": ["berlin-glucke"]
+        },
+        {
+          "id": "wirtsbaum",
+          "name": "Glucken-Kiefer",
+          "typ": "sonstiges",
+          "kurz": "Die Glucke wächst am Stammfuß von Nadelbäumen, meist Kiefern, oft jahrelang am selben Baum.",
+          "erkennen": ["am Fuß von Kiefern, auch Fichte, Tanne, Douglasie", "mehrere Jahre am gleichen Standort", "verursacht Braunfäule im Stamm"],
+          "verwechslung": null,
+          "monate": [7, 8, 9, 10, 11],
+          "findbarkeit": 3,
+          "wo": "Kiefern am Wegrand",
+          "schutz": null,
+          "quellen": ["berlin-glucke"]
+        }
+      ],
+      "quellen": {
+        "berlin-glucke": { "titel": "Pflanzenschutzamt Berlin: Steckbrief Krause Glucke (2022)", "url": "https://www.berlin.de/pflanzenschutzamt/_assets/stadtgruen/schadorganismen-in-berlin/holzzerstoerende-pilze/05-krause-glucke.pdf" },
+        "dgfm2019": { "titel": "DGfM: Pilz des Jahres 2019 (Sammelgut von Pilzberatung prüfen lassen)", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2019-gruener-knollenblaetterpilz" },
+        "gbif": { "titel": "GBIF-Nachweise Sparassis crispa, im Polygon Lüneburger Heide (126 Nachweise 2009–2026)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=2550247&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": ["Monate „alte Glucke“ ab August geschätzt aus Berliner Angabe Juli–November; nicht einzeln belegt."]
+    },
+    {
+      "artId": "satan",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "fruchtkoerper",
+          "name": "Satans-Röhrling",
+          "typ": "ganz",
+          "kurz": "Großer Röhrling mit hellgrauem Hut, roten Poren und dickem Stiel.",
+          "erkennen": ["Hut silber-olivgrau, alt auch ockerfarben", "Hut 6–25 cm", "Stiel knollig-bauchig"],
+          "verwechslung": "Steinpilz: Poren weiß bis gelbgrünlich, kein rotes Netz.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 4,
+          "wo": "Laubwald auf Kalkboden",
+          "schutz": "Giftig (der giftigste Röhrling, starke Bauchschmerzen). Nur fotografieren, nicht pflücken. Nichts essen, was nicht eine Pilzsachverständige geprüft hat.",
+          "quellen": ["spektrum-satan", "dgfm-flyer", "gbif-monate"]
+        },
+        {
+          "id": "poren",
+          "name": "Rote Poren",
+          "typ": "fruchtkoerper",
+          "kurz": "Die Röhrenmündungen an der Hutunterseite sind rot.",
+          "erkennen": ["Poren rötlich, meist karminrot"],
+          "verwechslung": "Steinpilz: Poren weiß bis gelbgrünlich.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 4,
+          "wo": "Hutunterseite",
+          "schutz": "Nicht abbrechen – ein Spiegel zeigt die Unterseite. Giftig.",
+          "quellen": ["spektrum-satan", "spektrum-steinpilze", "dgfm-flyer"]
+        },
+        {
+          "id": "stiel-netz",
+          "name": "Gelber Stiel mit rotem Netz",
+          "typ": "fruchtkoerper",
+          "kurz": "Knolliger, gelber Stiel mit rotem Netzmuster.",
+          "erkennen": ["Stiel knollig, bauchig", "gelb", "rotes Netz"],
+          "verwechslung": "Steinpilz: Stiel mit hellem Adernetz.",
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 4,
+          "wo": "Waldboden",
+          "schutz": "Giftig. Nur fotografieren.",
+          "quellen": ["spektrum-satan", "spektrum-steinpilze"]
+        },
+        {
+          "id": "geruch",
+          "name": "Aasgeruch alter Pilze",
+          "typ": "sonstiges",
+          "kurz": "Der Pilz riecht widerlich, ältere Pilze nach Aas.",
+          "erkennen": ["widerlicher Geruch", "alt aasartig"],
+          "verwechslung": null,
+          "monate": [7, 8, 9, 10],
+          "findbarkeit": 4,
+          "wo": "Direkt am Pilz",
+          "schutz": "Nicht anfassen oder pflücken, nur aus der Nähe riechen. Giftig.",
+          "quellen": ["spektrum-satan"]
+        }
+      ],
+      "quellen": {
+        "spektrum-satan": { "titel": "Spektrum Lexikon der Biologie: Satanspilz", "url": "https://www.spektrum.de/lexikon/biologie/satanspilz/58629" },
+        "spektrum-steinpilze": { "titel": "Spektrum Lexikon der Biologie: Steinpilze", "url": "https://www.spektrum.de/lexikon/biologie/steinpilze/63544" },
+        "dgfm-flyer": { "titel": "DGfM-Flyer „Gemeinsam das Reich der Pilze entdecken“ (Satans-Röhrling: sehr selten, Kalkböden)", "url": "https://www.moerfelden-walldorf.de/pdfs/umwelt/dgfm-flyer-gemeinsam-das-reich-der-pilze-entdecken.pdf?cid=u7m" },
+        "gbif-monate": { "titel": "GBIF-Nachweise Rubroboletus satanas in Deutschland seit 2000 nach Monat (227 Nachweise; Monate mit ≥3 %)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=7722553&country=DE&year=2000,2026&limit=0&facet=month" },
+        "gbif": { "titel": "GBIF-Nachweise Rubroboletus satanas: 0 im Polygon Lüneburger Heide (5 im umgebenden Rechteck, alle außerhalb)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=7722553&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": [
+        "„nein“ beruht auf 0 GBIF-Nachweisen und der Bindung an Kalkböden (DGfM, Spektrum) bei sandigen Heideböden; eine Fachkarte (pilze-deutschland.de) ließ sich nicht maschinell auslesen.",
+        "Monate nur aus GBIF-Meldungen abgeleitet (Juli–Oktober)."
+      ]
+    },
+    {
+      "artId": "stachelbart",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "fruchtkoerper",
+          "name": "Igel-Stachelbart",
+          "typ": "ganz",
+          "kurz": "Weißliche, knollige Pilzmasse mit herabhängenden Stacheln an totem Laubholz.",
+          "erkennen": ["weißlich bis gelblich", "derb, knollenförmig, manchmal seitlich gestielt", "10–30 cm Durchmesser"],
+          "verwechslung": null,
+          "monate": [9, 10, 11],
+          "findbarkeit": 4,
+          "wo": "Stärkeres Totholz alter Buchen oder Eichen, stehend oder liegend",
+          "schutz": "Stark gefährdet (Rote Liste Deutschland 2). Nur fotografieren, nicht abschneiden, Totholz liegen lassen. Fundort nie genau teilen. Nichts essen, was nicht eine Pilzsachverständige geprüft hat – die DGfM bittet, Wildbestände zu schonen.",
+          "quellen": ["dgfm2026"]
+        },
+        {
+          "id": "stacheln",
+          "name": "Herabhängende Stacheln",
+          "typ": "fruchtkoerper",
+          "kurz": "Statt Lamellen oder Röhren hängen 2–5 cm lange Stacheln nach unten.",
+          "erkennen": ["Stacheln 2–5 cm lang, hängend", "bei älteren Pilzen besonders lang", "Oberseite faserig oder mit kurzen Stacheln"],
+          "verwechslung": null,
+          "monate": [9, 10, 11],
+          "findbarkeit": 4,
+          "wo": "Unterseite des Fruchtkörpers",
+          "schutz": "Nicht anfassen. Stark gefährdet – nur fotografieren.",
+          "quellen": ["dgfm2026"]
+        },
+        {
+          "id": "totholz",
+          "name": "Alter Totholz-Baum",
+          "typ": "sonstiges",
+          "kurz": "Der Stachelbart braucht dickes, frisch abgestorbenes Holz alter Buchen oder Eichen.",
+          "erkennen": ["dicker toter Buchen- oder Eichenstamm", "stehend oder liegend", "feuchter, naturnaher Laubwald"],
+          "verwechslung": null,
+          "monate": [9, 10, 11],
+          "findbarkeit": 4,
+          "wo": "Totholzreiche Laubmischwälder",
+          "schutz": "Totholz nicht betreten oder bewegen. Fundort nie genau teilen.",
+          "quellen": ["dgfm2026"]
+        }
+      ],
+      "quellen": {
+        "dgfm2026": { "titel": "DGfM: Pilz des Jahres 2026 – Igelstachelbart", "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2026-igelstachelbart" },
+        "bartschv-anlage1": { "titel": "Bundesartenschutzverordnung, Anlage 1 (Hericium nicht aufgeführt)", "url": "https://www.gesetze-im-internet.de/bartschv_2005/anlage_1.html" },
+        "gbif": { "titel": "GBIF-Nachweise Hericium erinaceus, im Polygon Lüneburger Heide (2 Nachweise, 2019 und 2024)", "url": "https://api.gbif.org/v1/occurrence/search?taxonKey=5248508&country=DE&decimalLatitude=52.262,53.474&decimalLongitude=9.57,11.083" }
+      },
+      "offen": [
+        "Nur 3 belegte Fundstücke; Verwechslungsarten nennt die DGfM nicht.",
+        "Nicht nach BArtSchV geschützt (nicht in Anlage 1), aber Rote Liste 2.",
+        "Lüneburger Heide: nur 2 GBIF-Nachweise – vorhanden, aber Glückstreffer."
+      ]
+    }
+  ]
+}

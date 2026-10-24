@@ -1,0 +1,894 @@
+{
+  "gruppe": "voegel",
+  "arten": [
+    {
+      "artId": "amsel",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "rl",
+      "fundstuecke": [
+        {
+          "id": "gesang",
+          "name": "Gesang",
+          "typ": "stimme",
+          "kurz": "Lauter, flötender Gesang des Männchens, oft vom Dach oder einer Baumspitze.",
+          "erkennen": [
+            "Volltönend und sehr melodisch: klare Flötentöne, dazwischen kurzes Zwitschern und kleine Triller",
+            "Singt von hohen Plätzen wie Dachfirst oder Baumwipfel",
+            "Vor allem früh am Morgen (ab etwa 45 Minuten vor Sonnenaufgang) und am späten Abend"
+          ],
+          "verwechslung": null,
+          "monate": [2, 3, 4, 5, 6],
+          "findbarkeit": 1,
+          "wo": "Waldrand, Parks, Dorfränder: Sänger sitzt oben auf Baum oder Dach",
+          "schutz": null,
+          "quellen": ["nabu", "lbv", "presse"]
+        },
+        {
+          "id": "warnruf",
+          "name": "Warnruf",
+          "typ": "stimme",
+          "kurz": "Lautes, metallisches „pli-pli-pli“, wenn Gefahr droht, etwa eine Katze.",
+          "erkennen": [
+            "Metallisch klingende, schnelle Reihe „pli-pli-pli-pli-pli“",
+            "Laut und aufgeregt, oft wenn sich ein Feind nähert"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Überall, wo Amseln leben: Hecken, Gebüsch, Waldrand",
+          "schutz": null,
+          "quellen": ["nabu"]
+        },
+        {
+          "id": "sichtung-maennchen",
+          "name": "Sichtung Männchen",
+          "typ": "sichtung",
+          "kurz": "Ganz schwarzer Vogel mit gelbem Schnabel, hüpft am Boden.",
+          "erkennen": [
+            "Gefieder ganz schwarz",
+            "Gelber bis orange-gelber Schnabel und gelber Augenring",
+            "Bewegt sich am Boden hüpfend fort"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Wegränder, Rasen, Laubboden unter Büschen",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "sichtung-weibchen",
+          "name": "Sichtung Weibchen",
+          "typ": "sichtung",
+          "kurz": "Schlicht braune Amsel mit hellerer, gestrichelter Kehle.",
+          "erkennen": [
+            "Dunkelbraunes Gefieder",
+            "Kehle etwas heller und braun gestrichelt",
+            "Jungvögel sehen ähnlich schlicht braun aus"
+          ],
+          "verwechslung": "Andere Drosseln (z. B. Singdrossel) sehen ähnlich aus. Auf die Brustflecken achten: Sie helfen laut NABU am meisten bei der Bestimmung.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Wegränder, Rasen, Laubboden unter Büschen",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "laub-gewendet",
+          "name": "Gewendetes Laub",
+          "typ": "spur",
+          "kurz": "Auf Würmersuche schleudert die Amsel Blätter mit dem Schnabel zur Seite.",
+          "erkennen": [
+            "Laub am Boden zur Seite geworfen, darunter offene Erde",
+            "Oft sieht man die Amsel selbst hüpfend und pickend daneben"
+          ],
+          "verwechslung": "Auch das Rotkehlchen wendet bei der Futtersuche Blätter. Sicher ist die Spur nur, wenn man den Vogel dabei sieht.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Laubboden unter Hecken und Büschen am Wegrand, kurzes Gras",
+          "schutz": null,
+          "quellen": ["lbv", "nabu", "rk92"]
+        },
+        {
+          "id": "mauserfeder",
+          "name": "Mauserfeder",
+          "typ": "feder",
+          "kurz": "Im August mausern alle erwachsenen Amseln – dann liegen Federn am Boden.",
+          "erkennen": [
+            "Schwungfedern der Amsel sind nur rund 10 cm lang",
+            "Schwungfeder: eine Fahne deutlich breiter als die andere; Schwanzfeder: Kiel in der Mitte"
+          ],
+          "verwechslung": "Federn bestimmen ist laut NABU etwas für Spezialisten. Ohne Vergleichsbild ist die Zuordnung unsicher.",
+          "monate": [8, 9],
+          "findbarkeit": 3,
+          "wo": "Waldboden, Wegrand, Parkrasen",
+          "schutz": "Nur fotografieren, liegen lassen. Alle europäischen Vogelarten sind besonders geschützt; auch erkennbare Teile wie Federn darf man nicht besitzen (§ 44 Abs. 2 Nr. 1 i. V. m. § 7 Abs. 2 Nr. 1 c und Nr. 13 b bb BNatSchG). Laut NABU bleibt selbst eine Amselfeder im Wald.",
+          "quellen": ["federn", "bnatschg44", "bnatschg7"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU: Die Amsel – Vom Waldvogel zum Gartenvogel (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/amsel/" },
+        "lbv": { "titel": "LBV Artenporträt Amsel", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/amsel/" },
+        "presse": { "titel": "NABU-Pressemitteilung 26.02.2021: Horch mal, wer da singt (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.presseportal.de/pm/6347/4849146" },
+        "rk92": { "titel": "NABU: Das Rotkehlchen (Vogel des Jahres 1992, Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/aktionen-und-projekte/vogel-des-jahres/1992-rotkehlchen/02501.html" },
+        "federn": { "titel": "NABU Bremen: Wenn die Federn fallen (Archivfassung)", "url": "https://web.archive.org/web/2025/https://bremen.nabu.de/tiere-und-pflanzen/voegel/Vogelkunde/28554.html" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG – Vorschriften für besonders geschützte Tier- und Pflanzenarten", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" },
+        "bnatschg7": { "titel": "§ 7 BNatSchG – Begriffsbestimmungen", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__7.html" },
+        "rl": { "titel": "Krüger & Sandkühler (2022): Rote Liste der Brutvögel Niedersachsens und Bremens, 9. Fassung, Inform.d. Naturschutz Niedersachs. 2/2022 (Region Tiefland-Ost mit Lüneburger Heide)", "url": "https://nlwkn.niedersachsen.de/download/183168" }
+      },
+      "offen": [
+        "Nest (Napf mit Erde verstärkt) bewusst weggelassen: Brutzeit-Monate der Amsel nicht belegt; Konzept sagt: keine Belohnung für Nester in der Brutzeit. Ein Fundstück ‚altes Nest im Winter‘ wäre möglich, braucht aber eine Quelle für die Brutmonate.",
+        "Verwechslung des Gesangs (z. B. mit Singdrossel) nicht mit Quelle belegt.",
+        "Farbe der Amsel-Mauserfedern nicht ausdrücklich belegt (nur Länge und Mauserzeit August)."
+      ]
+    },
+    {
+      "artId": "kohlmeise",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "rl",
+      "fundstuecke": [
+        {
+          "id": "gesang",
+          "name": "Gesang „zi-zi-bäh“",
+          "typ": "stimme",
+          "kurz": "Klingelnder, oft zweisilbiger Gesang – eine der ersten Vogelstimmen im Jahr.",
+          "erkennen": [
+            "Monotone Strophen, oft mehrmals wiederholt",
+            "Bekanntestes Motiv: „zi-zi-bäh“",
+            "Beginnt schon um den Jahreswechsel"
+          ],
+          "verwechslung": "Andere Meisen, besonders die Blaumeise, singen zur selben Zeit.",
+          "monate": [1, 2, 3, 4, 5],
+          "findbarkeit": 1,
+          "wo": "Wald, Waldrand, Parks und Gärten mit Bäumen",
+          "schutz": null,
+          "quellen": ["nabu", "lbv", "presse"]
+        },
+        {
+          "id": "ruf",
+          "name": "Ruf",
+          "typ": "stimme",
+          "kurz": "Kurze Rufe wie „zi tuhi“, das ganze Jahr zu hören.",
+          "erkennen": [
+            "Rufe klingen zum Beispiel wie „zi tuhi“",
+            "Kohlmeisen sind meist Standvögel und das ganze Jahr da"
+          ],
+          "verwechslung": "Die Rufe ähneln denen anderer Meisenarten. Sicher nur mit Sichtung.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Bäume und Gebüsch am Weg",
+          "schutz": null,
+          "quellen": ["nabu"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Größte Meise: schwarzer Kopf, weiße Wangen, gelber Bauch mit schwarzem Streifen.",
+          "erkennen": [
+            "Kopf glänzend schwarz mit weißem Wangenfeld",
+            "Unterseite leuchtend gelb mit schwarzem Längsstreifen",
+            "Rücken moosgrün, weiße Binde über den blaugrauen Flügeln"
+          ],
+          "verwechslung": "Blaumeise: kleiner, Kopf blau mit mehr Weiß. Tannenmeise: blaumeisengroß, ohne Gelb, Unterseite beige.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Laub- und Mischwald, Parks, Gärten",
+          "schutz": null,
+          "quellen": ["nabu", "lbv", "meisen"]
+        },
+        {
+          "id": "maennchen-weibchen",
+          "name": "Männchen oder Weibchen",
+          "typ": "sichtung",
+          "kurz": "Von vorn sieht man den Unterschied am schwarzen Bauchstreifen.",
+          "erkennen": [
+            "Männchen: kräftigerer, breiterer schwarzer Bauchstreifen",
+            "Weibchen: schmalerer Bauchstreifen",
+            "Nur in der Vorderansicht gut zu sehen"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Bäume und Gebüsch am Weg",
+          "schutz": null,
+          "quellen": ["meisen"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Kohlmeise (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/kohlmeise/" },
+        "lbv": { "titel": "LBV Artenporträt Kohlmeise", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/kohlmeise/" },
+        "presse": { "titel": "NABU-Pressemitteilung 26.02.2021: Horch mal, wer da singt (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.presseportal.de/pm/6347/4849146" },
+        "meisen": { "titel": "NABU: Vögel bestimmen – Meisen im Vergleich (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/aktionen-und-projekte/stunde-der-gartenvoegel/voegel-bestimmen/13775.html" },
+        "rl": { "titel": "Krüger & Sandkühler (2022): Rote Liste der Brutvögel Niedersachsens und Bremens, 9. Fassung (Region Tiefland-Ost mit Lüneburger Heide)", "url": "https://nlwkn.niedersachsen.de/download/183168" }
+      },
+      "offen": [
+        "Ende der Gesangszeit nicht artgenau belegt. Monate 4–5 sind angenommen; NABU Bremen nennt nur allgemein, dass das Vogelkonzert ab Juni dünner wird.",
+        "Spur ‚aufgehackte Samenschalen‘ (steckbriefe.ts) nicht belegt, daher kein Fundstück.",
+        "Nistkasten/Bruthöhle bewusst weggelassen (Brutplatz)."
+      ]
+    },
+    {
+      "artId": "rotkehlchen",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "rl",
+      "fundstuecke": [
+        {
+          "id": "gesang",
+          "name": "Gesang",
+          "typ": "stimme",
+          "kurz": "Hohe, feine Töne, die „perlend“ auslaufen – fast das ganze Jahr und sogar nachts.",
+          "erkennen": [
+            "Beginnt mit hohen, feinen Tönen, endet in „tröpfelnden“, „perlenden“ Elementen",
+            "Klingt etwas wehmütig",
+            "Auch im Herbst, im Winter und nachts; am meisten singen die Männchen von März bis Mai",
+            "Auch Weibchen singen, leiser und kürzer"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Unterholz, Hecken und Waldränder; Sänger oft auf einem freien Strauch",
+          "schutz": null,
+          "quellen": ["nabu", "rk92"]
+        },
+        {
+          "id": "warnruf",
+          "name": "Warnruf „tick“",
+          "typ": "stimme",
+          "kurz": "Kurzes, hartes „tick“ oder hohes „siiip“, wenn es beunruhigt ist.",
+          "erkennen": [
+            "Kurzes, hartes „tick“, auch „tick-ick-ich“",
+            "Hohes, dünnes „siiip“"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Dichtes Gebüsch und Unterholz am Weg",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Rundlicher kleiner Vogel mit orangeroter Kehle und Brust.",
+          "erkennen": [
+            "Kehle und Brust orange, Bauch hell",
+            "Rücken, Hinterkopf und Schwanz braun",
+            "Männchen und Weibchen sehen gleich aus",
+            "Große dunkle Augen, hüpft am Boden"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Unterholz, Waldränder, Hecken, Parks",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "nahbegegnung",
+          "name": "Nahbegegnung",
+          "typ": "sichtung",
+          "kurz": "Wo Erde aufgewühlt ist, kommt das Rotkehlchen oft bis auf einen Meter heran.",
+          "erkennen": [
+            "Sucht in frisch aufgewühlter Erde nach Würmern und Insekten",
+            "Folgt im Wald auch Wildschweinen, um in der aufgeworfenen Erde zu picken",
+            "Lässt Menschen ungewöhnlich nah heran"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Frisch gehackte Beete, Wühlstellen am Wegrand",
+          "schutz": "Nicht füttern oder anlocken, einfach still stehen bleiben.",
+          "quellen": ["nabu", "rk92"]
+        },
+        {
+          "id": "jungvogel",
+          "name": "Jungvogel",
+          "typ": "sichtung",
+          "kurz": "Junge Rotkehlchen haben noch keine orange Brust, sondern braun geschuppte.",
+          "erkennen": [
+            "Brust braun geschuppt, ohne Orange",
+            "Gestalt und Verhalten wie beim Altvogel"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9],
+          "findbarkeit": 3,
+          "wo": "Unterholz und Hecken am Weg",
+          "schutz": "Jungvögel nicht anfassen oder mitnehmen; Abstand halten (Störungsverbot zur Aufzuchtzeit, § 44 Abs. 1 Nr. 2 BNatSchG).",
+          "quellen": ["nabu", "rk92", "bnatschg44"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Rotkehlchen (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/rotkehlchen/" },
+        "rk92": { "titel": "NABU: Das Rotkehlchen (Vogel des Jahres 1992, Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/aktionen-und-projekte/vogel-des-jahres/1992-rotkehlchen/02501.html" },
+        "lbv": { "titel": "LBV Artenporträt Rotkehlchen", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/rotkehlchen/" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" },
+        "rl": { "titel": "Krüger & Sandkühler (2022): Rote Liste der Brutvögel Niedersachsens und Bremens, 9. Fassung (Region Tiefland-Ost mit Lüneburger Heide)", "url": "https://nlwkn.niedersachsen.de/download/183168" }
+      },
+      "offen": [
+        "Monate für Jungvögel aus der Brutzeit abgeleitet (Mitte April bis August laut NABU 1992), nicht direkt belegt.",
+        "Ob es im Hochsommer (Mauser) eine Gesangspause gibt, ist nicht belegt; NABU 1992 schreibt ‚das ganze Jahr über‘."
+      ]
+    },
+    {
+      "artId": "eichelhaeher",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "rl",
+      "fundstuecke": [
+        {
+          "id": "warnruf",
+          "name": "Rätsch-Ruf",
+          "typ": "stimme",
+          "kurz": "Heiseres, lautes „krschäääh“ – damit warnt er den ganzen Wald.",
+          "erkennen": [
+            "Heiser, rätschend, kann sich zu lautem Kreischen steigern",
+            "Ruft bei Gefahr und warnt so alle Waldbewohner",
+            "Ahmt andere Vögel nach, vor allem Spechte und Habichte; im Winter auch leise glucksende Töne"
+          ],
+          "verwechslung": "Weil er Habicht und Spechte täuschend echt nachahmt, kann hinter einem ‚Habicht‘ auch ein Eichelhäher stecken.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Laub- und Mischwald, Waldrand",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "blaue-feder",
+          "name": "Blaue Flügelfeder",
+          "typ": "feder",
+          "kurz": "Federn mit leuchtend azurblauem, schwarz gebändertem Muster – ein Glücksfund.",
+          "erkennen": [
+            "Azurblau mit schwarzen Querbändern",
+            "Stammt aus dem Flügel (Flügelbug)",
+            "Am ehesten im Spätsommer, wenn viele Vögel mausern"
+          ],
+          "verwechslung": "Laut NABU gehört diese Feder zu den wenigen, die auch Anfänger leicht erkennen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Waldwege, Waldboden",
+          "schutz": "Nur fotografieren, liegen lassen. Federn europäischer Vogelarten darf man nicht besitzen (§ 44 Abs. 2 Nr. 1 i. V. m. § 7 Abs. 2 Nr. 1 c und Nr. 13 b bb BNatSchG). Laut NABU ist eine Federsammlung ohne Ausnahmegenehmigung verboten.",
+          "quellen": ["nabu", "federn", "rabenvoegel", "bnatschg44", "bnatschg7"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Rosabrauner Rabenvogel mit blauem Flügelfeld und weißem Bürzel.",
+          "erkennen": [
+            "Körper rötlich braun bis rosa",
+            "Schwarz-weiße Flügelzeichnung mit blau schillerndem Feld",
+            "Weißer Bürzel, langer schwarzer Schwanz, schwarzer Bartstreif",
+            "Stellt bei Erregung die Scheitelfedern auf; Flug wirkt etwas träge"
+          ],
+          "verwechslung": "Laut NABU keine Verwechslungsgefahr.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Lichter Laub- und Mischwald, Waldrand, Parks",
+          "schutz": null,
+          "quellen": ["nabu", "lbv", "rabenvoegel"]
+        },
+        {
+          "id": "eichelflug",
+          "name": "Eichel-Transport",
+          "typ": "sichtung",
+          "kurz": "Im Herbst fliegt er mit vollem Kehlsack hin und her und vergräbt Eicheln.",
+          "erkennen": [
+            "Trägt bis zu zehn Eicheln in Kehlsack und Schnabel",
+            "Vergräbt sie einzeln oder in kleinen Gruppen, oft neben Stämmen oder Stümpfen",
+            "Hauptsammelzeit Oktober, dann bis zu elf Stunden am Tag unterwegs"
+          ],
+          "verwechslung": null,
+          "monate": [9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Unter Eichen und an Waldrändern, Lücken im Wald",
+          "schutz": null,
+          "quellen": ["waldwissen", "srf", "nabu"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU: Der Eichelhäher – Gescheiter Waldvogel (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/eichelhaeher/" },
+        "lbv": { "titel": "LBV Artenporträt Eichelhäher", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/eichelhaeher/" },
+        "rabenvoegel": { "titel": "NABU: Vögel bestimmen – Rabenvögel im Vergleich (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/aktionen-und-projekte/stunde-der-gartenvoegel/voegel-bestimmen/13769.html" },
+        "federn": { "titel": "NABU Bremen: Wenn die Federn fallen (Archivfassung)", "url": "https://web.archive.org/web/2025/https://bremen.nabu.de/tiere-und-pflanzen/voegel/Vogelkunde/28554.html" },
+        "waldwissen": { "titel": "Preller (2010), Wald und Holz NRW: Markwart, der vorlaute Eichenpflanzer (waldwissen.net)", "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/voegel/markwart-der-vorlaute-eichenpflanzer" },
+        "srf": { "titel": "SRF Einstein: Wie überleben Eichel- und Tannenhäher den Winter?", "url": "https://www.srf.ch/sendungen/einstein/fuenfmalklug-wie-ueberleben-eichel-und-tannenhaeher-den-winter" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" },
+        "bnatschg7": { "titel": "§ 7 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__7.html" },
+        "rl": { "titel": "Krüger & Sandkühler (2022): Rote Liste der Brutvögel Niedersachsens und Bremens, 9. Fassung (Region Tiefland-Ost mit Lüneburger Heide)", "url": "https://nlwkn.niedersachsen.de/download/183168" }
+      },
+      "offen": [
+        "‚Häher-Eiche‘ (Keimling aus vergessenem Versteck) ist im Gelände nicht sicher dem Häher zuzuordnen – weggelassen.",
+        "September und November beim Eichel-Transport aus ‚Herbst‘ (waldwissen) abgeleitet; ausdrücklich belegt ist nur Oktober (SRF).",
+        "Nest bewusst weggelassen."
+      ]
+    },
+    {
+      "artId": "buntspecht",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "nabu-nds",
+      "fundstuecke": [
+        {
+          "id": "trommeln",
+          "name": "Trommelwirbel",
+          "typ": "stimme",
+          "kurz": "Kurzer, sehr schneller Trommelwirbel auf einem hohlen Ast – der ‚Gesang‘ der Spechte.",
+          "erkennen": [
+            "Kurz und schnell: bis 2 Sekunden, 10–15 Schläge",
+            "Auf hohlen Stämmen, toten Ästen, manchmal sogar Dachrinnen",
+            "Männchen und Weibchen trommeln",
+            "Vor allem im Vorfrühling; an sonnigen Tagen manchmal schon im Dezember"
+          ],
+          "verwechslung": "Schwarzspecht: viel längerer, kräftiger Wirbel (1,75–3 s). Kleinspecht: lange, knurrende, oft unterbrochene Wirbel.",
+          "monate": [2, 3, 4],
+          "findbarkeit": 1,
+          "wo": "Wald und Parks mit alten Bäumen",
+          "schutz": null,
+          "quellen": ["lbv", "nabu-nds", "bs97", "lbv-ssp"]
+        },
+        {
+          "id": "kix-ruf",
+          "name": "„Kix“-Ruf",
+          "typ": "stimme",
+          "kurz": "Kurzes, spitzes „kix“ – sein häufigster Ruf.",
+          "erkennen": [
+            "Helles, scharfes „kix“ oder „kick“",
+            "Wenn er aufgeregt ist: schnelles Schnarren"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Laub- und Nadelwald, Parks, Feldgehölze",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "spechtschmiede",
+          "name": "Spechtschmiede",
+          "typ": "frass",
+          "kurz": "Ein Zapfen steckt in einer Rindenspalte, darunter liegen viele aufgehackte Zapfen.",
+          "erkennen": [
+            "Zapfen in Rindenritze oder Astloch eingeklemmt",
+            "Schuppen klaffen auseinander, Samen fehlen",
+            "Am Boden darunter viele bearbeitete Fichten- oder Kiefernzapfen",
+            "Auch Nüsse werden so geknackt; genutzt vor allem in Herbst und Winter"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Kiefern- und Fichtenwald, Stämme direkt am Weg",
+          "schutz": null,
+          "quellen": ["vogelspuren", "lbv", "bs97", "nabu"]
+        },
+        {
+          "id": "feder",
+          "name": "Spechtfeder",
+          "typ": "feder",
+          "kurz": "Schwarze Feder mit fast kreisrunden weißen Flecken.",
+          "erkennen": [
+            "Schwarzer Grund mit fast runden weißen Flecken",
+            "Typisch für Buntspecht und seine nahen Verwandten"
+          ],
+          "verwechslung": "Mittel- und Kleinspecht haben ähnlich gemusterte Federn; sicher ist nur ‚Buntspecht oder Verwandter‘.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Waldboden, Wegrand",
+          "schutz": "Nur fotografieren, liegen lassen. Federn europäischer Vogelarten darf man nicht besitzen (§ 44 Abs. 2 Nr. 1 i. V. m. § 7 Abs. 2 Nr. 1 c und Nr. 13 b bb BNatSchG); laut NABU ist eine Federsammlung ohne Ausnahmegenehmigung verboten.",
+          "quellen": ["federn", "bnatschg44", "bnatschg7"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Amselgroßer schwarz-weißer Specht mit leuchtend rotem Unterschwanz.",
+          "erkennen": [
+            "Schwarz-weiße Flügel, heller Bauch, tiefrote Unterschwanzdecken",
+            "Männchen mit rotem Nackenfleck, Weibchen dort schwarz",
+            "Jungvögel mit ganz rotem Scheitel",
+            "Fliegt in Wellen"
+          ],
+          "verwechslung": "Mittelspecht: etwas kleiner, beide Geschlechter mit großem rotem Scheitel, Bauch leicht rötlich. Junge Buntspechte mit rotem Scheitel sehen ihm ähnlich.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Stämme alter Bäume, im Winter auch an Futterstellen",
+          "schutz": null,
+          "quellen": ["nabu", "lbv", "spechte"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Buntspecht (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/buntspecht/" },
+        "lbv": { "titel": "LBV Artenporträt Buntspecht", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/buntspecht/" },
+        "lbv-ssp": { "titel": "LBV Artenporträt Schwarzspecht", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/schwarzspecht/" },
+        "nabu-nds": { "titel": "NABU Niedersachsen: Balzzeit bei den Spechten (10.03.2026, Archivfassung)", "url": "https://web.archive.org/web/2025/https://niedersachsen.nabu.de/tiere-und-pflanzen/voegel/vogelarten/spechte/31200.html" },
+        "bs97": { "titel": "NABU: Der Buntspecht – Trommler, Schmied und Zimmermann (Vogel des Jahres 1997, Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/aktionen-und-projekte/vogel-des-jahres/1997-buntspecht/01990.html" },
+        "vogelspuren": { "titel": "NABU: Vogelspuren – Was unscheinbare Funde verraten (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/vogelkunde/gut-zu-wissen/23288.html" },
+        "spechte": { "titel": "NABU: Vögel bestimmen – Spechte im Vergleich (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/aktionen-und-projekte/stunde-der-gartenvoegel/voegel-bestimmen/13776.html" },
+        "federn": { "titel": "NABU Bremen: Wenn die Federn fallen (Archivfassung)", "url": "https://web.archive.org/web/2025/https://bremen.nabu.de/tiere-und-pflanzen/voegel/Vogelkunde/28554.html" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" },
+        "bnatschg7": { "titel": "§ 7 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__7.html" }
+      },
+      "offen": [
+        "Höhle (im Konzept genannt) weggelassen: Brutmonate und Merkmale (Lochgröße) nicht belegt. Wenn gewünscht, nur außerhalb der Brutzeit und mit Hinweis auf § 44 Abs. 1 Nr. 3 BNatSchG.",
+        "Trommel-Monate: belegt sind ‚Vorfrühling‘, ‚manchmal schon im Dezember‘ (NABU 1997) und Balzzeit im März (NABU Niedersachsen); genaue Spanne Februar–April ist abgeleitet.",
+        "Unterschied Spechtschmiede-Zapfen zu Eichhörnchen-Zapfen nicht mit Quelle belegt.",
+        "Ringelspuren (Saftlecken) nicht recherchiert."
+      ]
+    },
+    {
+      "artId": "schwarzspecht",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "nlwkn",
+      "fundstuecke": [
+        {
+          "id": "ruf",
+          "name": "Ruf und Rufreihe",
+          "typ": "stimme",
+          "kurz": "Nasales, vibrierendes „kniöööh“ und eine laute Rufreihe „kwi-kwi-kwi“.",
+          "erkennen": [
+            "Ruf nasal und vibrierend, etwa „kniöööh“",
+            "Rufreihe ähnlich dem Lachen des Grünspechts, aber tiefer und klagender, mit verzögertem Anfang",
+            "Am stimmfreudigsten in der Balz im März und April"
+          ],
+          "verwechslung": "Grünspecht: lachende Rufreihe, heller und ohne verzögerten Anfang.",
+          "monate": [3, 4],
+          "findbarkeit": 2,
+          "wo": "Große, alte Buchen- und Kiefernwälder",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "flugruf",
+          "name": "Flugruf",
+          "typ": "stimme",
+          "kurz": "Im Flug ein mehrmals wiederholtes „krrück“ oder „kirr-kirr“.",
+          "erkennen": [
+            "Hohes „krrück“, einige Male wiederholt",
+            "Fliegt dabei meist gerade (nicht in Wellen wie andere Spechte)"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Über großen Waldgebieten, Lichtungen",
+          "schutz": null,
+          "quellen": ["nabu", "lbv"]
+        },
+        {
+          "id": "trommeln",
+          "name": "Trommelwirbel",
+          "typ": "stimme",
+          "kurz": "Langer, kräftiger Wirbel, der bis zu drei Kilometer weit trägt.",
+          "erkennen": [
+            "Lang: etwa 1,75–3 Sekunden",
+            "Sehr laut, erinnert an einen Presslufthammer",
+            "Auf hohlen Stämmen, vor allem in der Balzzeit"
+          ],
+          "verwechslung": "Buntspecht: viel kürzerer Wirbel (bis 2 s).",
+          "monate": [3, 4],
+          "findbarkeit": 2,
+          "wo": "Große, alte Wälder",
+          "schutz": null,
+          "quellen": ["lbv", "nabu-nds", "nabu"]
+        },
+        {
+          "id": "hackspuren",
+          "name": "Große Hackspuren",
+          "typ": "frass",
+          "kurz": "Tiefe, längliche Löcher und zerhackte Baumstümpfe mit vielen Spänen.",
+          "erkennen": [
+            "Längliche, oft rechteckige Hacklöcher, die tief ins Holz gehen",
+            "Morsche Stümpfe zerhackt, Späne liegen drumherum",
+            "Große Flächen abgelöster Rinde",
+            "Oft an Nadelholz-Stümpfen, wo Ameisen leben"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Baumstümpfe und liegendes Totholz am Waldweg",
+          "schutz": null,
+          "quellen": ["lbv", "nlwkn"]
+        },
+        {
+          "id": "hoehle",
+          "name": "Schwarzspechthöhle",
+          "typ": "bau",
+          "kurz": "Großes, ovales Einflugloch hoch in einem dicken, astfreien Stamm.",
+          "erkennen": [
+            "Ovaler Eingang, größer als bei allen anderen heimischen Spechten",
+            "In alten, dicken Stämmen (mindestens 35 cm), oft Buche oder Kiefer",
+            "Stamm unterhalb der Höhle meist astfrei"
+          ],
+          "verwechslung": null,
+          "monate": [8, 9, 10, 11, 12, 1],
+          "findbarkeit": 3,
+          "wo": "Nur vom Weg aus in alten Buchen- und Kiefernbeständen",
+          "schutz": "Nur vom Weg aus fotografieren, nicht an den Baum gehen oder klopfen. Höhlenbäume sind Fortpflanzungs- und Ruhestätten (auch für Hohltaube, Raufußkauz, Fledermäuse) und geschützt (§ 44 Abs. 1 Nr. 3 BNatSchG). Brutzeit Februar–Juli: in dieser Zeit kein Fundstück.",
+          "quellen": ["nabu", "nlwkn", "bnatschg44"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Krähengroßer, fast ganz schwarzer Specht mit rotem Scheitel.",
+          "erkennen": [
+            "Fast ganz schwarz, heller Meißelschnabel, weißliche Iris",
+            "Männchen mit ganz rotem Scheitel, Weibchen nur am Hinterkopf rot",
+            "Flug flatternd und gerade, Kopf hochgehalten"
+          ],
+          "verwechslung": "Im Flug mit Krähen verwechselbar: Krähen fliegen gleichmäßiger, schlagen flacher und wirken nicht so bucklig.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Alte Buchen-, Misch- und Kiefernwälder",
+          "schutz": "Nicht verfolgen, vom Weg aus beobachten.",
+          "quellen": ["nabu", "lbv"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Schwarzspecht (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/schwarzspecht/" },
+        "lbv": { "titel": "LBV Artenporträt Schwarzspecht", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/schwarzspecht/" },
+        "nabu-nds": { "titel": "NABU Niedersachsen: Balzzeit bei den Spechten (Archivfassung)", "url": "https://web.archive.org/web/2025/https://niedersachsen.nabu.de/tiere-und-pflanzen/voegel/vogelarten/spechte/31200.html" },
+        "nlwkn": { "titel": "NLWKN (2022): Vollzugshinweise Brutvogelarten Teil 2 – Schwarzspecht", "url": "https://www.nlwkn.niedersachsen.de/download/26007" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" }
+      },
+      "offen": [
+        "Ganzjährige Monate für Flugruf und Sichtung aus ‚Standvogel‘ (NABU) abgeleitet.",
+        "Monate für die Höhle abgeleitet aus der Brutzeit Februar–Juli (NLWKN); Februar bewusst ausgenommen."
+      ]
+    },
+    {
+      "artId": "eisvogel",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "nlwkn",
+      "fundstuecke": [
+        {
+          "id": "ruf",
+          "name": "Pfiff „ziii“",
+          "typ": "stimme",
+          "kurz": "Scharfer, durchdringender Pfiff – oft kurz bevor er vorbeischießt.",
+          "erkennen": [
+            "Hell und scharf pfeifend „ziii“, manchmal zweisilbig „ZII-ti“",
+            "Bei Erregung gereiht",
+            "Gesang kaum vom Ruf zu unterscheiden; gute Chancen ab Anfang März"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Klare Bäche, Flüsse und Teiche, von Brücken und Uferwegen",
+          "schutz": "Nur vom Weg aus lauschen. Nicht am Ufer nach Brutplätzen suchen: Störungen durch Erholungsbetrieb und Fotografen gefährden die Bruten (NLWKN); erhebliche Störung zur Brutzeit ist verboten (§ 44 Abs. 1 Nr. 2 BNatSchG).",
+          "quellen": ["lbv", "nabu", "presse", "nlwkn", "bnatschg44"]
+        },
+        {
+          "id": "blauer-blitz",
+          "name": "Blauer Blitz",
+          "typ": "sichtung",
+          "kurz": "Ein leuchtend blauer Punkt, der gerade und dicht über dem Wasser entlangschießt.",
+          "erkennen": [
+            "Geradliniger, schneller Flug dicht über der Wasseroberfläche",
+            "Rücken schillernd blau, heller als die Flügel",
+            "Meist kündigt ihn vorher sein Pfiff an"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Bach- und Flussabschnitte von Brücken oder Uferwegen aus",
+          "schutz": "Nicht nachgehen, nicht anlocken. Kein Fundstück für Brutröhren oder Steilufer.",
+          "quellen": ["lbv", "nabu"]
+        },
+        {
+          "id": "ansitz",
+          "name": "Eisvogel auf der Warte",
+          "typ": "sichtung",
+          "kurz": "Sitzt still auf einem Ast über dem Wasser und stürzt sich kopfüber nach Fischen.",
+          "erkennen": [
+            "Oberseite azur- bis kobaltblau, Bauch und Wangen rostorange",
+            "Weißer Fleck an Kehle und Halsseiten, langer dunkler Schnabel",
+            "Weibchen: Schnabel unten orange",
+            "Sitzt oft im Schatten auf überhängenden Ästen"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Überhängende Äste an Bächen und Teichen, vom Weg aus",
+          "schutz": "Abstand halten und vom Weg aus fotografieren. Störungen an Gewässern können die Fütterung der Jungen verhindern (LBV).",
+          "quellen": ["nabu", "lbv", "nlwkn"]
+        },
+        {
+          "id": "winterwasser",
+          "name": "Wintergast am offenen Wasser",
+          "typ": "sichtung",
+          "kurz": "Im Winter sucht er eisfreie Stellen – dann sieht man ihn auch an ungewohnten Gewässern.",
+          "erkennen": [
+            "Außerhalb der Brutzeit an allen Gewässertypen",
+            "Im Winter Zuzug nordosteuropäischer Eisvögel an eisfreie Gewässer",
+            "Bei Frost an Stellen, die nicht zufrieren"
+          ],
+          "verwechslung": null,
+          "monate": [11, 12, 1, 2],
+          "findbarkeit": 3,
+          "wo": "Eisfreie Bachabschnitte, Teichabläufe, Brücken",
+          "schutz": "Bei Frost besonders nicht aufscheuchen: Viele Eisvögel sterben in harten Wintern.",
+          "quellen": ["nlwkn", "lbv"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Eisvogel (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/eisvogel/" },
+        "lbv": { "titel": "LBV Artenporträt Eisvogel", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/eisvogel/" },
+        "presse": { "titel": "NABU-Pressemitteilung 26.02.2021: Horch mal, wer da singt (Archivfassung)", "url": "https://web.archive.org/web/2025/https://www.presseportal.de/pm/6347/4849146" },
+        "nlwkn": { "titel": "NLWKN (2011): Vollzugshinweise Brutvogelarten – Eisvogel (Verbreitungsschwerpunkt u. a. Lüneburger Heide/Wendland)", "url": "https://www.nlwkn.niedersachsen.de/download/25993" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" }
+      },
+      "offen": [
+        "Brutröhre und Gewölle aus Fischgräten bewusst weggelassen (Brutplatz). steckbriefe.ts nennt unter ‚spuren‘ ‚Brutröhren … mit Fischgräten am Eingang‘ – das lädt zum Aufsuchen ein und sollte umformuliert werden.",
+        "Ganzjährige Monate aus ‚Standvogel‘ (NABU, LBV) abgeleitet."
+      ]
+    },
+    {
+      "artId": "uhu",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "nlwkn",
+      "fundstuecke": [
+        {
+          "id": "balzruf",
+          "name": "Ruf „u-hu“",
+          "typ": "stimme",
+          "kurz": "Tiefes, dumpfes, weit tragendes „u-hu“ in der Dämmerung.",
+          "erkennen": [
+            "Männchen dumpf „uu-hu“, Weibchen etwas höher",
+            "Weibchen ruft auch hart bellend „kjähw“",
+            "Vor allem in der Dämmerung, abends und nachts",
+            "Herbstbalz Oktober/November, Hauptbalz mit Höhepunkt Februar/März"
+          ],
+          "verwechslung": null,
+          "monate": [2, 3, 10, 11],
+          "findbarkeit": 4,
+          "wo": "Nur zufällig von öffentlichen Wegen aus, z. B. am Waldrand in der Abenddämmerung",
+          "schutz": "Dem Ruf nicht nachgehen und keine Rufe abspielen. Der Uhu ist sehr störungsempfindlich (LBV); Störungen am Brutplatz durch Wanderer und Freizeitnutzung gefährden ihn (NLWKN). Erhebliche Störung zur Brutzeit ist verboten (§ 44 Abs. 1 Nr. 2 BNatSchG). Ort nie genau teilen.",
+          "quellen": ["lbv", "lfu", "nrw", "nabu", "nlwkn", "bnatschg44"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Riesige Eule mit Federohren und orangeroten Augen.",
+          "erkennen": [
+            "Größte Eule Europas, massiger Körper",
+            "Lange Federohren (bis 8 cm), leuchtend orangerote Augen",
+            "Rostbraun mit dunklen Flecken; rufende Tiere zeigen einen weißen Kehlfleck",
+            "Tagsüber gut versteckt, aktiv in Dämmerung und Nacht"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 4,
+          "wo": "Nur zufällig, vom Weg aus",
+          "schutz": "Nicht nähern, nicht suchen. Am Nistplatz verteidigt der Uhu seine Brut furchtlos (NABU). Fundort nie genau teilen.",
+          "quellen": ["nabu", "lbv", "bnatschg44"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Uhu (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/uhu/" },
+        "lbv": { "titel": "LBV Artenporträt Uhu", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/uhu/" },
+        "lfu": { "titel": "Bayerisches Landesamt für Umwelt: Steckbrief Uhu", "url": "https://www.lfu.bayern.de/natur/artenhilfsprogramme_voegel/uhu/steckbrief/index.htm" },
+        "nrw": { "titel": "LANUV NRW: Planungsrelevante Arten – Uhu (Bubo bubo)", "url": "https://ffh-arten.naturschutzinformationen.nrw.de/ffh-arten/de/arten/vogelarten/steckbrief/102976" },
+        "nlwkn": { "titel": "NLWKN (2011): Vollzugshinweise Brutvogelarten – Uhu (Vorkommen u. a. im EU-Vogelschutzgebiet V38 Große Heide bei Unterlüß und Kiehnmoor)", "url": "https://www.nlwkn.niedersachsen.de/download/26002" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" }
+      },
+      "offen": [
+        "Nur 2 Fundstücke (Regel: 4–10). Mehr gibt es ohne Aufsuchen von Brut- oder Ruheplätzen nicht.",
+        "Gewölle und Rupfungsreste bewusst weggelassen: Laut NLWKN liegen sie unter Sitzwarten in Brutplatznähe. steckbriefe.ts nennt ‚Gewölle unter dem Schlafplatz‘ als Spur – das lädt zum Aufsuchen ein.",
+        "Federn weggelassen (Fundort meist Schlaf- oder Brutplatz; nicht belegt).",
+        "Uhu in der Lüneburger Heide: belegt ist ein Vorkommen im Vogelschutzgebiet V38 (Südheide); der Schwerpunkt in Niedersachsen liegt im Bergland. Bestandszahl für die Heide fehlt."
+      ]
+    },
+    {
+      "artId": "wiedehopf",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "nlwkn-vsg",
+      "fundstuecke": [
+        {
+          "id": "ruf",
+          "name": "Ruf „hup-hup-hup“",
+          "typ": "stimme",
+          "kurz": "Dumpfes, hohles „hup hup hup“, nicht laut, aber weit zu hören.",
+          "erkennen": [
+            "Mehrfach wiederholtes, dumpf und hohl klingendes, mehrsilbiges „hup hup hup“",
+            "Balzruf des Männchens, dreisilbig „upupup“",
+            "Nur im Sommerhalbjahr: Rückkehr im April, Abzug ab Ende Juli"
+          ],
+          "verwechslung": null,
+          "monate": [4, 5, 6],
+          "findbarkeit": 4,
+          "wo": "Offene Heiden, lichte Kiefernwälder, Weiden – nur von öffentlichen Wegen",
+          "schutz": "Dem Ruf nicht nachgehen, keine Rufe abspielen. Streng geschützte, in Niedersachsen stark gefährdete Art (RL Nds. 2); Brutplätze nie suchen, Fundort nie genau teilen (§ 44 Abs. 1 Nr. 2 BNatSchG).",
+          "quellen": ["lbv", "nabu", "rl", "bnatschg44"]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Orangebrauner Vogel mit Federhaube, langem gebogenem Schnabel und schwarz-weißen Flügeln.",
+          "erkennen": [
+            "Orangebraune Haube mit schwarzen Spitzen, meist angelegt; aufgestellt oft direkt nach der Landung",
+            "Langer, gebogener Schnabel",
+            "Rücken und Flügel deutlich schwarz-weiß gebändert",
+            "Sucht am Boden auf kurzem oder lückigem Bewuchs nach Insekten"
+          ],
+          "verwechslung": "Laut NABU unverwechselbar.",
+          "monate": [4, 5, 6, 7, 8],
+          "findbarkeit": 4,
+          "wo": "Kurzrasige oder lückig bewachsene Flächen; auf dem Durchzug ab April auch auf Rasen, Sportplätzen, in Gärten",
+          "schutz": "Abstand halten, nicht anpirschen, vom Weg aus fotografieren. Fundort nie genau teilen.",
+          "quellen": ["nabu", "lbv"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Wiedehopf (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/wiedehopf/" },
+        "lbv": { "titel": "LBV Artenporträt Wiedehopf", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/wiedehopf/" },
+        "nlwkn-vsg": { "titel": "NLWKN (2017): Wertbestimmende Vogelarten der EU-Vogelschutzgebiete in Niedersachsen (Wiedehopf wertbestimmend in V30 Truppenübungsplätze Munster Nord und Süd)", "url": "https://www.nlwkn.niedersachsen.de/download/25501/Wertbestimmende_Vogelarten_der_EU-Vogelschutzgebiete_in_Niedersachsen_Aktualisierte_Fassung_Stand_01.08.2017_.pdf" },
+        "nna": { "titel": "Hartmann & Igebrink (2025): Brutbiologie des Wiedehopfes in der Region Hannover, NNA (Niedersachsen: 25–30 bzw. 35 Paare, u. a. Lüneburger Heide)", "url": "https://www.nna.niedersachsen.de/download/219148" },
+        "rl": { "titel": "Krüger & Sandkühler (2022): Rote Liste der Brutvögel Niedersachsens und Bremens, 9. Fassung", "url": "https://nlwkn.niedersachsen.de/download/183168" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" }
+      },
+      "offen": [
+        "Nur 2 Fundstücke. Stocherlöcher (steckbriefe.ts) nicht belegt.",
+        "Rufmonate April–Juni abgeleitet aus Rückkehr im April und Brutzeit April–Juli; Ende der Rufzeit nicht belegt.",
+        "Vorkommen in der Heide liegt teils auf Truppenübungsplätzen (V30 Munster), die nicht frei zugänglich sind. Für Spaziergänger sehr selten.",
+        "Quelle ‚nna‘ nur als Beleg für Niedersachsen-Bestand und Lüneburger Heide als Vorkommensgebiet."
+      ]
+    },
+    {
+      "artId": "schwarzstorch",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "nlwkn-vsg",
+      "fundstuecke": [
+        {
+          "id": "segelflug",
+          "name": "Schwarzstorch im Segelflug",
+          "typ": "sichtung",
+          "kurz": "Großer dunkler Storch, der hoch am Himmel in der Thermik kreist.",
+          "erkennen": [
+            "Kreist oft hoch am Himmel im Segelflug",
+            "Fast ganz schwarz, weißer Bauch und weiße Achseln",
+            "Hals im Flug gestreckt, Flügelspannweite 1,70–2,05 m",
+            "Zugvogel: bei uns von März/April bis Ende August/Anfang September"
+          ],
+          "verwechslung": "Graureiher: zieht im Flug den Hals ein. Weißstorch: überwiegend weiß.",
+          "monate": [4, 5, 6, 7, 8],
+          "findbarkeit": 4,
+          "wo": "Offener Himmel über großen Wäldern und Heiden, von Wegen und Aussichtspunkten",
+          "schutz": "Nicht verfolgen, nicht nach dem Horst suchen. Am Brutplatz reagieren Schwarzstörche besonders zu Beginn der Brutzeit auf Störungen mit Brutabbruch (LBV); erhebliche Störung ist verboten (§ 44 Abs. 1 Nr. 2 BNatSchG). Fundort nie genau teilen.",
+          "quellen": ["nabu", "lbv", "bnatschg44"]
+        },
+        {
+          "id": "nahrungssuche",
+          "name": "Schwarzstorch bei der Nahrungssuche",
+          "typ": "sichtung",
+          "kurz": "Watet an Bächen, Waldtümpeln oder auf gemähten Wiesen und sucht Fische und Frösche.",
+          "erkennen": [
+            "Schwarzes Gefieder mit grünlich-violettem Metallglanz",
+            "Schnabel und Beine leuchtend rot",
+            "Jungvögel im ersten Jahr mattbraun, Beine und Schnabel grau-gelb",
+            "Bei der Nahrungssuche weniger scheu als am Brutplatz"
+          ],
+          "verwechslung": "Weißstorch: weiß mit schwarzen Schwingen. Graureiher: zieht im Flug den Hals ein.",
+          "monate": [4, 5, 6, 7, 8],
+          "findbarkeit": 4,
+          "wo": "Bachtäler, Feuchtwiesen, Waldteiche – nur vom Weg aus",
+          "schutz": "Großen Abstand halten und sofort weitergehen, wenn er aufschaut. Nicht anpirschen.",
+          "quellen": ["nabu", "lbv"]
+        }
+      ],
+      "quellen": {
+        "nabu": { "titel": "NABU Vogelporträt Schwarzstorch (Archivfassung, nabu.de im Oktober 2026 offline)", "url": "https://web.archive.org/web/2025/https://www.nabu.de/tiere-und-pflanzen/voegel/portraets/schwarzstorch/" },
+        "lbv": { "titel": "LBV Artenporträt Schwarzstorch", "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/schwarzstorch/" },
+        "nlwkn-vsg": { "titel": "NLWKN (2017): Wertbestimmende Vogelarten der EU-Vogelschutzgebiete in Niedersachsen (Schwarzstorch wertbestimmend u. a. in V30 Munster, V32 Bergen, V34 Südheide und Aschauteiche)", "url": "https://www.nlwkn.niedersachsen.de/download/25501/Wertbestimmende_Vogelarten_der_EU-Vogelschutzgebiete_in_Niedersachsen_Aktualisierte_Fassung_Stand_01.08.2017_.pdf" },
+        "rl": { "titel": "Krüger & Sandkühler (2022): Rote Liste der Brutvögel Niedersachsens und Bremens, 9. Fassung (53 Paare; Artenhilfsprogramm seit 1974)", "url": "https://nlwkn.niedersachsen.de/download/183168" },
+        "bnatschg44": { "titel": "§ 44 BNatSchG", "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html" }
+      },
+      "offen": [
+        "Nur 2 Fundstücke. Stimme weggelassen (ruft selten, klappert kaum). Horst und Trittsiegel weggelassen.",
+        "steckbriefe.ts nennt ‚dreizehige Trittsiegel im Schlamm an Bächen‘ als Spur – nicht belegt und lockt ans Ufer brutnaher Bäche.",
+        "März und September (Ankunft/Abzug) nicht in die Monate aufgenommen, weil nur Randmonate.",
+        "Ob Niedersachsen Horstschutzzonen gesetzlich regelt, nicht geprüft."
+      ]
+    }
+  ]
+}

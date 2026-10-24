@@ -1,0 +1,2071 @@
+{
+  "gruppe": "saeuger",
+  "arten": [
+    {
+      "artId": "reh",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "faehrte",
+          "kurz": "Abdruck von zwei schmalen, spitzen Hufhälften (Schalen).",
+          "erkennen": [
+            "4–5 cm lang, etwa 3 cm breit",
+            "kleinstes Huftier-Trittsiegel",
+            "Afterklauen nur gelegentlich mit abgedrückt",
+            "beim Gehen tritt der Hinterlauf fast genau in den Vorderlauf"
+          ],
+          "verwechslung": "Wildschwein: etwa doppelt so groß, die Afterklauen sind fast immer seitlich hinter den Schalen zu sehen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Weicher Boden, Schlamm oder Schnee auf Wald- und Feldwegen",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "anl"
+          ]
+        },
+        {
+          "id": "losung",
+          "name": "Losung",
+          "typ": "losung",
+          "kurz": "Kleine, dunkle, glänzende Kotpillen.",
+          "erkennen": [
+            "eiförmig, etwa 1–1,5 cm",
+            "dunkelbraun bis schwarz, glänzend",
+            "an einem Ende leicht zugespitzt",
+            "im Winter einzeln oder locker, im Sommer oft in kleinen Häufchen"
+          ],
+          "verwechslung": "Feldhase: runde, etwas abgeplattete, gelblich- bis olivbraune Kügelchen mit sichtbaren Pflanzenfasern.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Wegränder, Waldwege, Wiesenränder",
+          "schutz": "Losung nicht anfassen, nur fotografieren.",
+          "quellen": [
+            "kot",
+            "anl"
+          ]
+        },
+        {
+          "id": "verbiss",
+          "name": "Verbiss an jungen Bäumen",
+          "typ": "frass",
+          "kurz": "Abgerupfte Knospen und Triebspitzen an jungen Bäumen.",
+          "erkennen": [
+            "Bissstelle rau bis ausgefranst, Trieb leicht gequetscht",
+            "eher flacher Winkel (etwa 0–30°)",
+            "meist 20–90 cm über dem Boden",
+            "oft an Eiche, Edellaubholz und Tanne, vor allem im Winter"
+          ],
+          "verwechslung": "Feldhase: glatte, schräge Schnittfläche (30–60°), meist nur 20–50 cm hoch. Reh hat oben keine Schneidezähne und rupft deshalb.",
+          "monate": [
+            11,
+            12,
+            1,
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 2,
+          "wo": "Junge Bäume am Waldrand und in Jungwüchsen neben dem Weg",
+          "schutz": null,
+          "quellen": [
+            "verbiss",
+            "lwfVerbiss",
+            "anl"
+          ]
+        },
+        {
+          "id": "fegestelle",
+          "name": "Fegestelle",
+          "typ": "rinde",
+          "kurz": "Junge Bäumchen, an denen der Bock die Basthaut vom Geweih gerieben hat.",
+          "erkennen": [
+            "Rinde an jungen Stämmchen abgerieben und verletzt",
+            "betroffen sind junge Bäume und Sträucher, gern seltene oder harzreiche Arten",
+            "frische Stellen im Frühjahr, wenn der Bast abstirbt"
+          ],
+          "verwechslung": "Wildschwein-Malbaum: dickerer Stamm, Rinde bis etwa 1 m Höhe abgerieben, dazu Schlamm und Borsten.",
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 2,
+          "wo": "Waldränder, Hecken, junge Bäume am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "vsReh",
+            "dwsReh",
+            "sbs",
+            "anl"
+          ]
+        },
+        {
+          "id": "liegeplatz",
+          "name": "Liegeplatz",
+          "typ": "sonstiges",
+          "kurz": "Wannenförmige Mulde, in der ein Reh geruht hat.",
+          "erkennen": [
+            "flache, wannenförmige Mulde",
+            "im Schnee besonders gut zu sehen",
+            "größer als die Sasse des Hasen"
+          ],
+          "verwechslung": "Feldhase (Sasse): etwas kleiner.",
+          "monate": [
+            11,
+            12,
+            1,
+            2,
+            3
+          ],
+          "findbarkeit": 3,
+          "wo": "Wiesen- und Waldränder, im Schnee entlang der Spur",
+          "schutz": null,
+          "quellen": [
+            "anl"
+          ]
+        },
+        {
+          "id": "abwurfstange",
+          "name": "Abwurfstange",
+          "typ": "sonstiges",
+          "kurz": "Abgeworfenes Geweih eines Rehbocks.",
+          "erkennen": [
+            "kurzes Geweih mit höchstens drei Enden je Stange",
+            "Böcke werfen jedes Jahr ab, das neue wächst sofort nach"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Zufallsfund im Laub am Wegrand",
+          "schutz": "Nur fotografieren und liegen lassen: Abwurfstangen darf sich nur der Jagdausübungsberechtigte aneignen.",
+          "quellen": [
+            "dwsReh",
+            "vsReh",
+            "dwsRatgeber",
+            "bjagdg"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Reh am Waldrand oder auf dem Feld.",
+          "erkennen": [
+            "Sommerfell rotbraun bis gelblich, Winterfell hell- bis dunkelgrau",
+            "Bock mit kurzem Geweih (höchstens drei Enden)",
+            "im Herbst oft in Gruppen auf Feldern"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Übergang Wald–Feld, Wiesen, Felder",
+          "schutz": "Ein allein liegendes Kitz nicht anfassen, die Mutter kommt zurück. Umgebung zügig verlassen. Hunde an die Leine (Brut- und Setzzeit 1.3.–31.7.).",
+          "quellen": [
+            "dwsReh",
+            "dwsRatgeber",
+            "nrw"
+          ]
+        }
+      ],
+      "quellen": {
+        "anl": {
+          "titel": "Tierspuren – Projekt „Tiere live“, mit Anlagen A 1_1, A 1_2, A 4_1 (Bayerische Akademie für Naturschutz und Landschaftspflege, ANL)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+        },
+        "bjagdg": {
+          "titel": "Bundesjagdgesetz § 1 (Abs. 5: Aneignungsrecht an Abwurfstangen und Fallwild)",
+          "url": "https://www.gesetze-im-internet.de/bjagdg/__1.html"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "dwsReh": {
+          "titel": "Reh – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/reh"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 5840 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 5220126",
+          "url": "https://www.gbif.org/species/5220126"
+        },
+        "kot": {
+          "titel": "Mehr als ein Haufen: Was Kot verrät (waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen"
+        },
+        "lwfVerbiss": {
+          "titel": "Schalenwild, Hase oder Maus – wer war’s? Verbiss richtig ansprechen, Faltblatt 2024 (LWF Bayern)",
+          "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/verbiss_richtig_ansprechen_faltblatt_2024.pdf"
+        },
+        "nrw": {
+          "titel": "Brut- und Setzzeit: Wildtier gefunden? Nicht vorschnell handeln (Land NRW, 28.02.2025)",
+          "url": "https://www.land.nrw/pressemitteilung/brut-und-setzzeit-wildtier-gefunden-nicht-vorschnell-handeln"
+        },
+        "sbs": {
+          "titel": "Wildschäden im Wald – Erkennen, Bewerten, Vorbeugen (Staatsbetrieb Sachsenforst)",
+          "url": "https://www.sbs.sachsen.de/download/sbs/39_WildschaedenImWaldErkennenBewertenVorbeugen.pdf"
+        },
+        "verbiss": {
+          "titel": "Verbiss richtig ansprechen (waldwissen.net / LWF Bayern)",
+          "url": "https://www.waldwissen.net/de/waldwirtschaft/schadensmanagement/wildschaeden/verbiss-richtig-ansprechen"
+        },
+        "vsReh": {
+          "titel": "Wildtiere im Wallis – Das Reh, Infoblatt 2025 (Kanton Wallis, Dienststelle für Jagd, Fischerei und Wildtiere)",
+          "url": "https://www.vs.ch/documents/33024802/33033352/Infoblatt_Reh_2025/a86d0fad-c2c0-dd82-8c69-1eeef5514d77"
+        }
+      },
+      "offen": [
+        "Plätzstellen (Böcke scharren den Boden auf) sind bei der DWS erwähnt, aber ohne Monate und ohne Aussehen. Deshalb weggelassen.",
+        "Monate der Fegestelle nur nach dem Wallis-Infoblatt (März–Mai). Ob Fegestellen im Norddeutschen Tiefland zeitlich abweichen, ist nicht belegt.",
+        "Monate des Liegeplatzes sind nur für Schnee belegt (ANL). Im Sommer nicht geprüft.",
+        "Rehbellen (Schrecken) nicht aufgenommen: Stimmen laut Auftrag nur bei Vögeln."
+      ]
+    },
+    {
+      "artId": "eichhoernchen",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Eichhörnchen am Baum oder am Boden.",
+          "erkennen": [
+            "Fell hellrot bis schwärzlich-braun, Bauch immer weiß oder cremefarben",
+            "im Winter längere Ohrpinsel",
+            "tagaktiv"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Wälder, Parks, Gärten mit alten Bäumen",
+          "schutz": null,
+          "quellen": [
+            "dwsEich"
+          ]
+        },
+        {
+          "id": "haselnuss",
+          "name": "Geknackte Haselnuss",
+          "typ": "frass",
+          "kurz": "Haselnussschale, in zwei Hälften gespalten.",
+          "erkennen": [
+            "von der Spitze her in zwei fast gleiche Hälften gespalten",
+            "nur an der Spitze benagt, mehr gebrochen als genagt",
+            "junge Tiere hinterlassen mehr Nagespuren"
+          ],
+          "verwechslung": "Haselmaus: rundes Loch mit feinem Zahnkranz. Maus: genagtes Loch. Specht: unregelmäßig zerhackt.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Unter Haselsträuchern am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "anl"
+          ]
+        },
+        {
+          "id": "zapfen",
+          "name": "Abgenagter Zapfen",
+          "typ": "frass",
+          "kurz": "Zapfenspindel mit ausgefransten Resten.",
+          "erkennen": [
+            "Schuppen in unterschiedlicher Länge ausgerissen",
+            "Zapfenachse stark zerfasert",
+            "frisst Fichtensamen und Kiefernzapfen"
+          ],
+          "verwechslung": "Waldmaus: nagt die Spindel gleichmäßig glatt. Specht: Schuppen bleiben dran und stehen in alle Richtungen ab.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Unter Nadelbäumen am Waldweg",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "dwsEich"
+          ]
+        },
+        {
+          "id": "triebe",
+          "name": "Abgebissene Triebe",
+          "typ": "knospe",
+          "kurz": "Viele kleine Zweigspitzen am Boden unter Nadelbäumen.",
+          "erkennen": [
+            "nur die Knospen sind abgefressen",
+            "die abgebissenen Triebe liegen am Boden",
+            "oft viele Triebe eines Baumes, vor allem Fichte und Tanne"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Unter Fichten am Weg",
+          "schutz": null,
+          "quellen": [
+            "verbiss",
+            "lwfVerbiss",
+            "anl"
+          ]
+        },
+        {
+          "id": "kobel",
+          "name": "Kobel",
+          "typ": "nest",
+          "kurz": "Kugeliges Nest aus Zweigen hoch im Baum.",
+          "erkennen": [
+            "kugelig aus Zweigen, Blättern und Moos",
+            "Eingang kaum zu erkennen",
+            "Wurfkobel in einer Astgabel in sicherer Höhe"
+          ],
+          "verwechslung": "Elsternest: aus Ästen und Zweigen, rund mit Kuppeldach, oft oben in der Krone.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "In Bäumen am Weg, im kahlen Winterwald am besten zu sehen",
+          "schutz": "Nur von unten fotografieren, nicht hochklettern.",
+          "quellen": [
+            "dwsEich",
+            "dwsRatgeber"
+          ]
+        },
+        {
+          "id": "spur",
+          "name": "Sprungspur",
+          "typ": "spur",
+          "kurz": "Vier Abdrücke, die an Bäumen beginnen und enden.",
+          "erkennen": [
+            "Hinterfüße landen vor den Vorderfüßen (V-förmiges Bild)",
+            "vorn 4, hinten 5 lange Zehen mit Krallen",
+            "Hinterfuß 3–5 cm, keine Schwanz-Schleifspur",
+            "Spur beginnt und endet an Bäumen"
+          ],
+          "verwechslung": "Maus: viel kleiner, oft mit Schwanz-Schleifspur.",
+          "monate": [
+            12,
+            1,
+            2
+          ],
+          "findbarkeit": 3,
+          "wo": "Schnee unter Bäumen",
+          "schutz": null,
+          "quellen": [
+            "anl",
+            "dwsRatgeber"
+          ]
+        },
+        {
+          "id": "wuehlspur",
+          "name": "Wühlspuren im Schnee",
+          "typ": "sonstiges",
+          "kurz": "Kleine Grablöcher, wo Vorräte gesucht wurden.",
+          "erkennen": [
+            "kleine Grabstellen am Stammfuß",
+            "Eichhörnchen vergraben Nüsse und Samen im Herbst meist nahe an Baumstämmen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            12,
+            1,
+            2
+          ],
+          "findbarkeit": 3,
+          "wo": "Schnee rund um Bäume am Weg",
+          "schutz": null,
+          "quellen": [
+            "anl",
+            "dwsEich"
+          ]
+        }
+      ],
+      "quellen": {
+        "anl": {
+          "titel": "Tierspuren – Projekt „Tiere live“, mit Anlagen A 1_1, A 1_2, A 4_1 (Bayerische Akademie für Naturschutz und Landschaftspflege, ANL)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+        },
+        "dwsEich": {
+          "titel": "Eichhörnchen – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/eichhoernchen"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 2965 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 8211070",
+          "url": "https://www.gbif.org/species/8211070"
+        },
+        "lwfVerbiss": {
+          "titel": "Schalenwild, Hase oder Maus – wer war’s? Verbiss richtig ansprechen, Faltblatt 2024 (LWF Bayern)",
+          "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/verbiss_richtig_ansprechen_faltblatt_2024.pdf"
+        },
+        "verbiss": {
+          "titel": "Verbiss richtig ansprechen (waldwissen.net / LWF Bayern)",
+          "url": "https://www.waldwissen.net/de/waldwirtschaft/schadensmanagement/wildschaeden/verbiss-richtig-ansprechen"
+        }
+      },
+      "offen": [
+        "Monate für Haselnuss- und Zapfenreste nicht belegt; die Reste liegen lange. Deshalb alle Monate eingetragen.",
+        "Zapfen-Fraßbild ist in der DWS nur für Fichtenzapfen beschrieben. In der Lüneburger Heide gibt es viel Kiefer; das Kiefernzapfen-Fraßbild ist nicht belegt.",
+        "Fichte ist in der Lüneburger Heide nicht heimisch, aber oft gepflanzt; das Fundstück „Abgebissene Triebe“ gilt dort für Forste.",
+        "Schutzstatus (besonders geschützt?) nicht mit eigener Quelle geprüft."
+      ]
+    },
+    {
+      "artId": "wildschwein",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel mit Afterklauen",
+          "typ": "faehrte",
+          "kurz": "Zwei Schalen und dahinter zwei kleine seitliche Abdrücke.",
+          "erkennen": [
+            "etwa 6–12 cm lang, je nach Alter",
+            "Afterklauen hinter und seitlich der Schalen fast immer im Abdruck",
+            "etwa doppelt so groß wie beim Reh"
+          ],
+          "verwechslung": "Reh: kleiner (4–5 cm), Afterklauen nur selten zu sehen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Schlammige Waldwege, Wegränder, Schnee",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "anl",
+            "frWs"
+          ]
+        },
+        {
+          "id": "gebraech",
+          "name": "Gebräch",
+          "typ": "frass",
+          "kurz": "Großflächig umgewühlter Boden.",
+          "erkennen": [
+            "Boden großflächig umgepflügt",
+            "entsteht bei der Suche nach Bodentieren, Wurzeln und Knollen"
+          ],
+          "verwechslung": "Dachs: wühlt kleinräumiger. Im Feld geht er laut Fribourg-Infoblatt methodisch vor, das Wildschwein grob.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Waldboden, Wegränder, Wiesen am Waldrand",
+          "schutz": null,
+          "quellen": [
+            "lwfWs",
+            "frWs"
+          ]
+        },
+        {
+          "id": "suhle",
+          "name": "Suhle",
+          "typ": "spur",
+          "kurz": "Schlammige Mulde, in der sich Wildschweine wälzen.",
+          "erkennen": [
+            "nasse, schlammige Mulde nahe am Wasser",
+            "dient der Hautpflege",
+            "in der Nähe oft ein Malbaum mit Schlamm an der Rinde"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Nassstellen und Gräben im Wald, nahe am Weg",
+          "schutz": null,
+          "quellen": [
+            "berlinWs",
+            "lwfWs",
+            "wslReiben"
+          ]
+        },
+        {
+          "id": "malbaum",
+          "name": "Malbaum",
+          "typ": "rinde",
+          "kurz": "Baum, an dem sich Wildschweine nach dem Suhlen reiben.",
+          "erkennen": [
+            "Rinde bis etwa 1 m Höhe ganz oder teilweise abgerieben",
+            "Schlammspuren und Borsten am Stamm",
+            "derselbe Baum wird immer wieder benutzt",
+            "meist in der Nähe einer Suhle"
+          ],
+          "verwechslung": "Fegestelle vom Reh: an dünnen Bäumchen, ohne Schlamm und Borsten.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Stämme an Nassstellen im Wald",
+          "schutz": null,
+          "quellen": [
+            "wslReiben",
+            "lwfWs"
+          ]
+        },
+        {
+          "id": "losung",
+          "name": "Losung",
+          "typ": "losung",
+          "kurz": "Großer, wurstförmiger Kothaufen.",
+          "erkennen": [
+            "dunkelbraun bis schwarz",
+            "aus zusammengeballten Kotbeeren, oft wurstförmig verbunden",
+            "Durchmesser etwa 4–7 cm",
+            "deutlich massiger als bei Reh oder Hirsch"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Waldwege und Wegränder",
+          "schutz": "Losung nicht anfassen, nur fotografieren.",
+          "quellen": [
+            "kot",
+            "frWs"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Wildschwein oder Rotte mit Frischlingen.",
+          "erkennen": [
+            "Fell hellgrau bis tiefschwarz",
+            "Frischlinge bis etwa zum 4. Monat hellgelb längsgestreift",
+            "meist nachts unterwegs"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Waldränder, Felder, Dickichte in Wegnähe",
+          "schutz": "Ruhig bleiben, Abstand halten und dem Tier einen Fluchtweg lassen. Eine Bache mit Frischlingen in großem Bogen umgehen.",
+          "quellen": [
+            "berlinWs",
+            "frWs"
+          ]
+        }
+      ],
+      "quellen": {
+        "anl": {
+          "titel": "Tierspuren – Projekt „Tiere live“, mit Anlagen A 1_1, A 1_2, A 4_1 (Bayerische Akademie für Naturschutz und Landschaftspflege, ANL)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+        },
+        "berlinWs": {
+          "titel": "Das Wildschwein – Wildtiere im Stadtgebiet (Senatsverwaltung Berlin)",
+          "url": "https://www.berlin.de/sen/uvk/natur-und-gruen/jagd-und-wildtiere/wildtiere-im-stadtgebiet/wildschwein/"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "frWs": {
+          "titel": "Das Wildschwein, Infoblatt (Amt für Wald und Natur, Kanton Freiburg)",
+          "url": "https://www.fr.ch/de/document/76231"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 355 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 7705930",
+          "url": "https://www.gbif.org/species/7705930"
+        },
+        "kot": {
+          "titel": "Mehr als ein Haufen: Was Kot verrät (waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen"
+        },
+        "lwfWs": {
+          "titel": "Warum werden Wildschweine zum Problem? (LWF Bayern, waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/wald-und-wild/wildtiermanagement/wildschweinproblem"
+        },
+        "wslReiben": {
+          "titel": "Wildschwein (Reiben) – Diagnose online (Waldschutz Schweiz, WSL)",
+          "url": "https://waldschutz.wsl.ch/fileadmin/user_upload/WSL/Microsite/Waldschutz-Schweiz/Diagnose_online/de/Wildschwein_Reiben_63.pdf"
+        }
+      },
+      "offen": [
+        "Angefressene Maiskolben (Fribourg-Infoblatt: obere Hälfte zerbissen) weggelassen: liegen im Feld, nicht sicher vom Weg aus zu sehen, Monate nicht belegt.",
+        "Wurfkessel bewusst weggelassen (Störung, Gefahr durch die Bache)."
+      ]
+    },
+    {
+      "artId": "dachs",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "spur",
+          "kurz": "Breiter Pfotenabdruck mit langen Krallen.",
+          "erkennen": [
+            "Sohlengänger: die ganze Sohle drückt sich ab",
+            "kräftige, nach unten gebogene Krallen deutlich sichtbar"
+          ],
+          "verwechslung": "Fuchs: länglicher, schmaler Abdruck. Marder: kleiner, Abdrücke paarweise nebeneinander (Paarsprung).",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Schlammige Wege und Wegränder in Wäldern und Hecken",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "dwsDachs",
+            "anl"
+          ]
+        },
+        {
+          "id": "latrine",
+          "name": "Latrine",
+          "typ": "losung",
+          "kurz": "Kleine gegrabene Gruben, in die der Dachs seinen Kot setzt.",
+          "erkennen": [
+            "kleine, kegelförmige Gruben",
+            "darin dunkelbrauner bis schwarzer Kot, rund bis länglich",
+            "oft mit Samen, Beerenresten oder Insektenpanzern",
+            "liegen an markanten Stellen, oft an Reviergrenzen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Wegränder, Waldränder, Hecken",
+          "schutz": "Losung nicht anfassen, nur fotografieren.",
+          "quellen": [
+            "kot",
+            "dwsDachs",
+            "frWs"
+          ]
+        },
+        {
+          "id": "bau",
+          "name": "Dachsbau",
+          "typ": "bau",
+          "kurz": "Großer Erdbau, oft über viele Generationen genutzt.",
+          "erkennen": [
+            "meist im Wald, auch in Hecken und Feldgehölzen",
+            "in trockenem, grabfestem Boden",
+            "Familienbaue werden über Jahre und Generationen genutzt"
+          ],
+          "verwechslung": "Fuchsbau: oft kleiner, mit Knochen und Federn am Eingang. Füchse ziehen auch in Dachsbaue ein.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Hänge und Böschungen im Wald, nur vom Weg aus",
+          "schutz": "Nur vom Weg aus fotografieren, nicht an den Bau gehen.",
+          "quellen": [
+            "dwsDachs"
+          ]
+        },
+        {
+          "id": "grabspuren",
+          "name": "Grabspuren",
+          "typ": "frass",
+          "kurz": "Durchwühlte Laubstreu und aufgekratzter Rasen.",
+          "erkennen": [
+            "im Wald durchwühlte Streu- und Laubschicht (Suche nach Käfern und Larven)",
+            "auf Grünland ausgegrabene Regenwürmer",
+            "im Maisfeld: Pflanzen geknickt, Kolben am Boden sauber abgefressen"
+          ],
+          "verwechslung": "Wildschwein: gräbt viel größere Flächen um und arbeitet „unordentlich“.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Waldboden und Wiesen am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "dwsDachs",
+            "frWs"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Dachs in der Dämmerung.",
+          "erkennen": [
+            "überwiegend in Dämmerung und Nacht aktiv, tagsüber im Bau",
+            "im Winter meist Winterruhe"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Waldränder und Wiesen in der Dämmerung",
+          "schutz": null,
+          "quellen": [
+            "dwsDachs"
+          ]
+        }
+      ],
+      "quellen": {
+        "anl": {
+          "titel": "Tierspuren – Projekt „Tiere live“, mit Anlagen A 1_1, A 1_2, A 4_1 (Bayerische Akademie für Naturschutz und Landschaftspflege, ANL)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+        },
+        "dwsDachs": {
+          "titel": "Dachs – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/dachs"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "frWs": {
+          "titel": "Das Wildschwein, Infoblatt (Amt für Wald und Natur, Kanton Freiburg)",
+          "url": "https://www.fr.ch/de/document/76231"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 217 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 2433875",
+          "url": "https://www.gbif.org/species/2433875"
+        },
+        "kot": {
+          "titel": "Mehr als ein Haufen: Was Kot verrät (waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen"
+        }
+      },
+      "offen": [
+        "Zahl der Zehen im Trittsiegel (App: „5 Zehen“) in den geöffneten Quellen nicht ausdrücklich genannt; DWS nennt nur die Krallen.",
+        "„Altes Polster vor dem Bau“ (App-Spur) nicht belegt.",
+        "Monate der Winterruhe (App: Dez–Jan) nicht belegt; DWS sagt nur „im Winter“. Deshalb stehen bei allen Fundstücken alle Monate.",
+        "Dachswechsel (ausgetretene Pfade) nicht belegt."
+      ]
+    },
+    {
+      "artId": "fuchs",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "spur",
+          "kurz": "Ovaler Pfotenabdruck mit vier Zehen und Krallen.",
+          "erkennen": [
+            "etwa 5 cm lang, 3–4 cm breit",
+            "vier Zehenballen und Krallenabdrücke",
+            "die beiden mittleren Zehenballen liegen ganz vor den äußeren, dazwischen ein großer Zwischenraum"
+          ],
+          "verwechslung": "Hund: mittlere Ballen ragen weniger weit vor, Zwischenraum schmal. Luchs/Katze: rund, ohne Krallen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Schlamm, Sand und Schnee auf Feld- und Waldwegen",
+          "schutz": null,
+          "quellen": [
+            "anl",
+            "dwsRatgeber",
+            "kora"
+          ]
+        },
+        {
+          "id": "schnuerspur",
+          "name": "Schnürspur",
+          "typ": "spur",
+          "kurz": "Abdrücke wie auf einer Schnur aufgereiht.",
+          "erkennen": [
+            "im Trab tritt der Hinterfuß in den Abdruck des Vorderfußes",
+            "Abdrücke schnurgerade hintereinander",
+            "oft zusammen mit Mäusespuren"
+          ],
+          "verwechslung": "Luchs schnürt ebenfalls, hat aber runde Abdrücke ohne Krallen.",
+          "monate": [
+            12,
+            1,
+            2
+          ],
+          "findbarkeit": 2,
+          "wo": "Schnee auf Wegen und Feldrändern",
+          "schutz": null,
+          "quellen": [
+            "anl",
+            "dwsRatgeber",
+            "kora"
+          ]
+        },
+        {
+          "id": "losung",
+          "name": "Losung",
+          "typ": "losung",
+          "kurz": "Wurstförmiger Kot mit gedrehter Spitze, gern an erhöhten Stellen.",
+          "erkennen": [
+            "etwa 3–10 cm lang, etwa 2 cm dick",
+            "ein Ende spitz oder schraubenförmig gedreht",
+            "oft mit Haaren, Federn, Knochen oder Beerenkernen",
+            "liegt auf Steinen, Baumstümpfen, Grasbüscheln (Reviermarke)",
+            "starker Raubtiergeruch"
+          ],
+          "verwechslung": "Marder: sehr ähnlich, ohne Genanalyse kaum sicher zu unterscheiden.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Erhöhte Stellen am Wegrand: Steine, Baumstümpfe, Maulwurfshügel",
+          "schutz": "Fuchslosung nie anfassen (Fuchsbandwurm). Nur fotografieren.",
+          "quellen": [
+            "kot",
+            "anl",
+            "kora"
+          ]
+        },
+        {
+          "id": "bau",
+          "name": "Fuchsbau",
+          "typ": "bau",
+          "kurz": "Erdbau mit mehreren Röhren.",
+          "erkennen": [
+            "mehrere Eingänge (Fluchtröhren)",
+            "Fuchsgeruch durch Urinmarken",
+            "Knochen, Fellreste oder Federn am Eingang"
+          ],
+          "verwechslung": "Dachsbau: Füchse ziehen oft in alte Dachs- oder Kaninchenbaue ein, die Zuordnung ist deshalb schwer.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Waldränder und Böschungen, nur vom Weg aus",
+          "schutz": "Nur vom Weg aus fotografieren, nicht an den Bau herangehen. Im Frühjahr ziehen Füchse dort ihre Jungen auf.",
+          "quellen": [
+            "dwsFuchs",
+            "dwsRatgeber"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Rotfuchs auf Wiese, Feld oder in der Stadt.",
+          "erkennen": [
+            "vor allem in der Dämmerung und nachts unterwegs",
+            "zur Jungenaufzucht auch am Tag auf Mäusejagd",
+            "auch in Städten: Gärten, Parks, Friedhöfe"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Feldränder, Wiesen, Parks und Stadtränder",
+          "schutz": "Zutrauliche oder tote Füchse nicht anfassen.",
+          "quellen": [
+            "dwsFuchs",
+            "anl"
+          ]
+        }
+      ],
+      "quellen": {
+        "anl": {
+          "titel": "Tierspuren – Projekt „Tiere live“, mit Anlagen A 1_1, A 1_2, A 4_1 (Bayerische Akademie für Naturschutz und Landschaftspflege, ANL)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+        },
+        "dwsFuchs": {
+          "titel": "Rotfuchs – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/fuchs"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 619 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 5219243",
+          "url": "https://www.gbif.org/species/5219243"
+        },
+        "kora": {
+          "titel": "Merkblatt Luchsfährte – Verwechslungen (KORA, Kanton Solothurn)",
+          "url": "https://so.ch/fileadmin/internet/vwd/vwd-awjf-jagd/pdf/merkblatt_luchsfaehrte.pdf"
+        },
+        "kot": {
+          "titel": "Mehr als ein Haufen: Was Kot verrät (waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen"
+        }
+      },
+      "offen": [
+        "Rupfung mit abgebissenen Federkielen (App-Spur „Federkiele abgebissen“) nicht belegt: waldwissen „Federsammlung online“ nennt nur Greifvögel, die Uni-Regensburg-Seite war nicht erreichbar.",
+        "Hinweis „tote Füchse nicht anfassen“ stützt sich nur allgemein auf ANL (Losung/Fuchsbandwurm). Eine eigene Quelle (z. B. RKI/BfR) für tote Tiere fehlt noch.",
+        "Ranzbellen und Keckern (DWS) nicht aufgenommen, weil Stimmen laut Auftrag nur bei Vögeln."
+      ]
+    },
+    {
+      "artId": "igel",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "spur",
+          "kurz": "Kleiner Abdruck mit fünf langen, schlanken Zehen.",
+          "erkennen": [
+            "etwa 2,5–3 cm",
+            "fünf lange, schlanke Zehen an allen Füßen",
+            "die Daumenzehe ist nicht immer zu sehen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 3,
+          "wo": "Schlammige Stellen an Wegen, Gärten und Hecken",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber"
+          ]
+        },
+        {
+          "id": "kot",
+          "name": "Igelkot",
+          "typ": "losung",
+          "kurz": "Kleine dunkle Kotwurst, oft glänzend.",
+          "erkennen": [
+            "etwa 3 cm lang und 1 cm breit",
+            "glänzt durch Panzer von Insekten",
+            "kann Beerenreste, Haare oder Federn enthalten"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Rasenränder, Wege in Parks und Gärten, Hecken",
+          "schutz": "Losung nicht anfassen, nur fotografieren.",
+          "quellen": [
+            "dwsRatgeber"
+          ]
+        },
+        {
+          "id": "laubnest",
+          "name": "Laubnest",
+          "typ": "nest",
+          "kurz": "Kugeliges Nest aus festgedrücktem Laub.",
+          "erkennen": [
+            "Laub aus der Umgebung, durch Wälzen verdichtet",
+            "unter Sträuchern oder Totholzhaufen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Unter Hecken und Reisighaufen am Weg",
+          "schutz": "Nest nicht öffnen und nicht anfassen. Der Igel ist besonders geschützt, Störung ist verboten, im Winterschlaf kann sie tödlich sein.",
+          "quellen": [
+            "dwsIgel",
+            "msIgel"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Igel in der Dämmerung oder nachts.",
+          "erkennen": [
+            "rollt sich bei Gefahr zusammen, statt zu flüchten",
+            "vor allem nachts, oft laut schmatzend und raschelnd",
+            "Winterschlaf etwa November bis März"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Gärten, Parks, Hecken, Wegränder in Siedlungsnähe",
+          "schutz": "Nicht mitnehmen: Der Igel ist besonders geschützt. Junge Igel im September in Ruhe lassen, sie wandern oft nur umher.",
+          "quellen": [
+            "dwsIgel",
+            "msIgel"
+          ]
+        }
+      ],
+      "quellen": {
+        "dwsIgel": {
+          "titel": "Igel – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/igel"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 1712 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 5219616",
+          "url": "https://www.gbif.org/species/5219616"
+        },
+        "msIgel": {
+          "titel": "Informationen zum Schutz unseres heimischen Braunbrustigels (Stadt Münster, Naturschutz)",
+          "url": "https://www.stadt-muenster.de/fileadmin/user_upload/stadt-muenster/67_gruen/pics/Naturschutz/pdf/250525_Igelschutz.pdf"
+        }
+      },
+      "offen": [
+        "Aktive Monate aus DWS (Winterschlaf etwa Nov–März) abgeleitet; App (arten.ts) sagt „März–Nov“.",
+        "Geräusche (Schmatzen, Fauchen) nicht als Fundstück, weil Stimmen laut Auftrag nur bei Vögeln.",
+        "Unterscheidung Igelkot von Marder- oder Rattenkot nicht belegt."
+      ]
+    },
+    {
+      "artId": "feldhase",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "spur",
+          "name": "Hasenspur",
+          "typ": "spur",
+          "kurz": "Typisches Sprungbild: zwei große Abdrücke vorn, zwei kleine hinten.",
+          "erkennen": [
+            "die langen Hinterläufe landen paarweise vor den Vorderläufen",
+            "die beiden Vorderpfoten liegen leicht hintereinander",
+            "Hinterpfote etwa 6–12 cm lang",
+            "je schneller, desto größer der Abstand"
+          ],
+          "verwechslung": "Kaninchen: gleiches Bild, aber deutlich kleiner. Verwechslung nur mit jungen Hasen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Feldwege, Ackerränder, Schnee",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "anl"
+          ]
+        },
+        {
+          "id": "losung",
+          "name": "Losung",
+          "typ": "losung",
+          "kurz": "Runde, faserige Kügelchen.",
+          "erkennen": [
+            "etwa 1 cm Durchmesser, rundlich bis leicht abgeplattet",
+            "gelblich-braun bis olivbraun",
+            "fein zerkleinerte Pflanzenreste sichtbar",
+            "locker verstreut"
+          ],
+          "verwechslung": "Reh: eiförmig, dunkel glänzend, an einem Ende zugespitzt.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Sonnige, offene Stellen, Feld- und Wiesenränder",
+          "schutz": "Losung nicht anfassen, nur fotografieren.",
+          "quellen": [
+            "kot",
+            "anl"
+          ]
+        },
+        {
+          "id": "sasse",
+          "name": "Sasse",
+          "typ": "bau",
+          "kurz": "Flache Liegemulde des Hasen.",
+          "erkennen": [
+            "wannenförmige Mulde, etwas kleiner als beim Reh",
+            "an Stellen mit guter Rundumsicht",
+            "im Winter lässt sich der Hase darin einschneien"
+          ],
+          "verwechslung": "Reh-Liegeplatz: größer.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Acker- und Wiesenflächen neben dem Feldweg",
+          "schutz": null,
+          "quellen": [
+            "dwsHase",
+            "anl"
+          ]
+        },
+        {
+          "id": "verbiss",
+          "name": "Verbiss",
+          "typ": "frass",
+          "kurz": "Glatt abgeschnittene Zweige an jungen Laubbäumen.",
+          "erkennen": [
+            "glatte, kaum ausgefranste Schnittfläche",
+            "deutlich schräger Winkel (meist 30–60°)",
+            "meist 20–50 cm über dem Boden",
+            "oft mehrere Triebe einer Pflanze, häufig am Waldrand",
+            "vor allem im Winter"
+          ],
+          "verwechslung": "Reh: raue, gefranste Bissstelle mit flachem Winkel.",
+          "monate": [
+            11,
+            12,
+            1,
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 3,
+          "wo": "Junge Laubbäume am Waldrand",
+          "schutz": null,
+          "quellen": [
+            "verbiss",
+            "lwfVerbiss"
+          ]
+        },
+        {
+          "id": "rindenfrass",
+          "name": "Nagespuren an Rinde",
+          "typ": "rinde",
+          "kurz": "Abgenagte Rinde an den untersten Zweigen.",
+          "erkennen": [
+            "Nagespuren an Laubgehölz-Rinde",
+            "an den untersten, bodennahen Zweigen und Ästen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            12,
+            1,
+            2
+          ],
+          "findbarkeit": 3,
+          "wo": "Hecken und Gehölze am Feldrand, im Winter",
+          "schutz": null,
+          "quellen": [
+            "anl"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Feldhase auf Acker oder Wiese.",
+          "erkennen": [
+            "viel längere Hinterläufe als Vorderläufe",
+            "meist nachtaktiv, sehr scheu",
+            "Männchen tragen Wettläufe und Boxkämpfe aus"
+          ],
+          "verwechslung": "Kaninchen: etwa 2 kg, nur halb so schwer wie der Feldhase (bis 7 kg).",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Offene Felder, Wiesen, Brachen, Ackerrandstreifen",
+          "schutz": "Allein sitzende Junghasen nicht anfassen, die Mutter säugt nur wenige Male am Tag. Hunde an die Leine (1.3.–31.7.).",
+          "quellen": [
+            "dwsHase",
+            "dwsRatgeber",
+            "anl",
+            "nrw"
+          ]
+        }
+      ],
+      "quellen": {
+        "anl": {
+          "titel": "Tierspuren – Projekt „Tiere live“, mit Anlagen A 1_1, A 1_2, A 4_1 (Bayerische Akademie für Naturschutz und Landschaftspflege, ANL)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/014_tierspuren_ges_ba.pdf"
+        },
+        "dwsHase": {
+          "titel": "Feldhase – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/feldhase"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 2019 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 7952072",
+          "url": "https://www.gbif.org/species/7952072"
+        },
+        "kot": {
+          "titel": "Mehr als ein Haufen: Was Kot verrät (waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen"
+        },
+        "lwfVerbiss": {
+          "titel": "Schalenwild, Hase oder Maus – wer war’s? Verbiss richtig ansprechen, Faltblatt 2024 (LWF Bayern)",
+          "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/verbiss_richtig_ansprechen_faltblatt_2024.pdf"
+        },
+        "nrw": {
+          "titel": "Brut- und Setzzeit: Wildtier gefunden? Nicht vorschnell handeln (Land NRW, 28.02.2025)",
+          "url": "https://www.land.nrw/pressemitteilung/brut-und-setzzeit-wildtier-gefunden-nicht-vorschnell-handeln"
+        },
+        "verbiss": {
+          "titel": "Verbiss richtig ansprechen (waldwissen.net / LWF Bayern)",
+          "url": "https://www.waldwissen.net/de/waldwirtschaft/schadensmanagement/wildschaeden/verbiss-richtig-ansprechen"
+        }
+      },
+      "offen": [
+        "Monate der Boxkämpfe in DWS nicht genannt.",
+        "Spurform: ANL nennt das Hasen-Spurbild „T-förmig“, die App „Y-Spur“. Keine Quelle für „Y“ gefunden.",
+        "Unterschied Kaninchen–Hase bei der Losung nicht belegt."
+      ]
+    },
+    {
+      "artId": "biber",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "sanduhr",
+          "name": "Sanduhr-Nagespur",
+          "typ": "frass",
+          "kurz": "Stamm, der ringsum zur Mitte hin angenagt ist.",
+          "erkennen": [
+            "etwa einen halben Meter über dem Boden",
+            "zwei parallele, knapp 1 cm breite Zahnrillen",
+            "Stamm zur Mitte hin schmal wie eine Sanduhr",
+            "Nagespäne liegen am Boden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Ufergehölze an Bächen und Flüssen, bis etwa 10 m vom Wasser",
+          "schutz": null,
+          "quellen": [
+            "dwsBiber",
+            "anlBiber"
+          ]
+        },
+        {
+          "id": "faellplatz",
+          "name": "Gefällter Baum mit Spänen",
+          "typ": "frass",
+          "kurz": "Vom Biber umgelegter Baum, daneben Späne.",
+          "erkennen": [
+            "gefällter Baum, Nagespäne am Boden",
+            "gern Weichhölzer wie Weiden und Pappeln",
+            "im Winter frisch und deutlich zu sehen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Ufer von Bächen und Flüssen",
+          "schutz": null,
+          "quellen": [
+            "anlBiber",
+            "dwsBiber"
+          ]
+        },
+        {
+          "id": "frassplatz",
+          "name": "Fraßplatz („Biber-Spaghetti“)",
+          "typ": "frass",
+          "kurz": "Weiß geschälte Zweigstücke am Ufer.",
+          "erkennen": [
+            "Zweigstücke ganz entrindet, frisch fast weiß",
+            "Enden schräg abgenagt",
+            "nur Biber nagen Zweige schräg und ganz ab"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Geschützte Uferstellen",
+          "schutz": null,
+          "quellen": [
+            "anlBiber"
+          ]
+        },
+        {
+          "id": "ausstieg",
+          "name": "Ausstieg und Biberpfad",
+          "typ": "spur",
+          "kurz": "Breite Rutsche vom Wasser ans Ufer.",
+          "erkennen": [
+            "breiter Ausstieg an der Uferkante",
+            "manchmal Trittsiegel oder Schleifspur des Schwanzes",
+            "breiter Pfad zu einem Fällplatz"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Uferböschung, vom Uferweg aus",
+          "schutz": null,
+          "quellen": [
+            "anlBiber"
+          ]
+        },
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "spur",
+          "kurz": "Großer Hinterfuß mit Schwimmhäuten.",
+          "erkennen": [
+            "Hinterfuß etwa 12–15 cm, mit deutlichen Schwimmhäuten",
+            "Vorderfuß wie eine kleine Hand",
+            "Schwanz schleift und verwischt die Abdrücke"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Uferschlamm",
+          "schutz": null,
+          "quellen": [
+            "dwsRatgeber",
+            "anlBiber"
+          ]
+        },
+        {
+          "id": "burg",
+          "name": "Biberburg und Damm",
+          "typ": "bau",
+          "kurz": "Haufen aus Ästen und Schlamm am oder im Wasser.",
+          "erkennen": [
+            "aufgeschichtete, abgenagte Äste",
+            "Eingang immer unter Wasser",
+            "frisch aufgeworfener Schlamm zeigt: bewohnt",
+            "Damm staut kleine Bäche zu Biberteichen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Am Gewässer, vom Weg aus",
+          "schutz": "Der Biber ist streng geschützt. Abstand zur Burg halten (bei Gewässerarbeiten empfiehlt das NLWKN etwa 25 m), nichts betreten oder verändern.",
+          "quellen": [
+            "dwsBiber",
+            "anlBiber",
+            "nlwknBiber"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Schwimmender Biber in der Dämmerung.",
+          "erkennen": [
+            "breite, flache Kelle",
+            "warnt durch Klatschen der Kelle aufs Wasser",
+            "dämmerungs- und nachtaktiv, ganzjährig"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Ruhige Flussabschnitte in der Dämmerung",
+          "schutz": null,
+          "quellen": [
+            "dwsBiber",
+            "anlBiber"
+          ]
+        }
+      ],
+      "quellen": {
+        "anlBiber": {
+          "titel": "Biber – Aktion 1 „Dem Biber auf der Spur“ mit Bestimmungsblättern A 1_1, A 1_2 (ANL Bayern)",
+          "url": "https://www.anl.bayern.de/projekte/tierelive/doc/02_biber_a1.pdf"
+        },
+        "dwsBiber": {
+          "titel": "Biber – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/biber"
+        },
+        "dwsRatgeber": {
+          "titel": "Ratgeber Fährten und Spuren (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/media/pages/landingpages/ratgeber/450acca148-1707642927/ratgeber-faehrten-und-spuren_ratgeber-faehrten-und-spuren.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF Occurrence API: 470 Nachweise (ab 2000, Beobachtungen ohne Museums-/Zoobelege) im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json, abgefragt 24.10.2026, taxonKey 4409131",
+          "url": "https://www.gbif.org/species/4409131"
+        },
+        "nlwknBiber": {
+          "titel": "Biber (Castor fiber) – Artensteckbrief Leitfaden Artenschutz Gewässerunterhaltung, Stand 07/2019 (NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/175268/Biber_-_Castor_fiber.pdf"
+        }
+      },
+      "offen": [
+        "Konkrete Biber-Gewässer in der Lüneburger Heide nur über GBIF-Ortsangaben (u. a. Örtze, Böhme, Ilmenau, Aller, Gerdau). Eine NLWKN-Verbreitungskarte wurde nicht geöffnet.",
+        "Abstand 25 m stammt aus Hinweisen zur Gewässerunterhaltung, nicht aus einer Regel für Spaziergänger.",
+        "Nahrungsfloß (Wintervorrat im Wasser) laut ANL möglich, aber nicht aufgenommen, weil es vom Weg aus kaum zu erkennen ist."
+      ]
+    },
+    {
+      "artId": "wildkatze",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "bund2017",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "spur",
+          "kurz": "Runder Katzenabdruck mit vier Zehen, ohne Krallen.",
+          "erkennen": [
+            "fast kreisrund",
+            "Ballen und vier Zehen sichtbar, keine Krallen",
+            "etwa 4 cm (Weibchen) bis 5 cm (Kuder)"
+          ],
+          "verwechslung": "Hauskatze: Abdruck identisch, deshalb kein sicherer Nachweis. Fuchs: länglich mit Krallen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Schlamm oder Schnee auf Waldwegen",
+          "schutz": null,
+          "quellen": [
+            "wtpKatze"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Wildkatze am Waldrand oder auf einer Lichtung.",
+          "erkennen": [
+            "buschiger Schwanz mit stumpfem Ende, wenige geschlossene schwarze Ringe, schwarze Spitze",
+            "verwaschene Tigerzeichnung, dunkler Rückenstreifen endet an der Schwanzwurzel",
+            "vier deutliche Streifen im Nacken",
+            "Nasenspiegel hell fleischfarben"
+          ],
+          "verwechslung": "Getigerte Hauskatze: spitzer Schwanz mit vielen dünnen, offenen Ringen. Sicher geht es nur genetisch.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Waldränder, Lichtungen, Hecken in großen Waldgebieten",
+          "schutz": "Streng geschützt. Getigerte Kätzchen im Wald nicht anfassen und nicht mitnehmen, die Mutter jagt meist in der Nähe.",
+          "quellen": [
+            "dwsKatze",
+            "wtpKatze",
+            "hannoverKatze"
+          ]
+        }
+      ],
+      "quellen": {
+        "bund2017": {
+          "titel": "Wildkatzenerfassung 2017 in Niedersachsen – Ergebnisse des Lockstockscreenings (BUND Niedersachsen mit NLWKN)",
+          "url": "https://www.bund-niedersachsen.de/fileadmin/niedersachsen/publikationen/wildkatzen/flyer_und_broschueren/BUNDbericht_Wildkatzenerfassung_2017.pdf"
+        },
+        "dwsKatze": {
+          "titel": "Wildkatze – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/wildkatze"
+        },
+        "hannoverKatze": {
+          "titel": "Wildkätzchen im Wald lassen (Hannover.de, Hinweise des BUND)",
+          "url": "https://www.hannover.de/Service/Presse-Medien/Hannover.de/Aktuelles/Service-2025/Wild%C2%ADk%C3%A4tz%C2%ADchen-im-Wald-lassen"
+        },
+        "wtpKatze": {
+          "titel": "Unterscheidungsmerkmale von Wildkatze und getigerter Hauskatze (Bayerisches Staatsministerium für Ernährung, Landwirtschaft und Forsten, Wildtierportal)",
+          "url": "https://www.wildtierportal.bayern.de/mam/cms12/wildtiere_bayern/dateien/unterscheidungsmerkmale_web.pdf"
+        }
+      },
+      "offen": [
+        "Vorkommen nur vereinzelt: BUND/NLWKN wiesen 2017 genetisch Wildkatzen an der Lopau (Heidekreis/Uelzen, nördlich Munster) und im Landkreis Gifhorn (u. a. Giebel, Barnbruch, Fahle Heide) nach; im übrigen Heidekreis und bei Unterlüß nicht. Neuere Daten nicht geprüft.",
+        "GBIF hat nur 10 Meldungen im Gebiet (2015–2023), teils Verkehrsopfer, ohne Prüfung auf Verwechslung mit Hauskatzen.",
+        "Losung und Verstecke (Holzpolter, Wurzelteller) nicht als Fundstück aufgenommen: nicht sicher zuzuordnen bzw. Störung.",
+        "Wildkatzenhaare an Lockstöcken sind eine Methode für Fachleute, kein Fundstück für Spaziergänger."
+      ]
+    },
+    {
+      "artId": "luchs",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbifLuchsBeleg",
+      "fundstuecke": [
+        {
+          "id": "trittsiegel",
+          "name": "Trittsiegel",
+          "typ": "spur",
+          "kurz": "Großer, runder Katzenabdruck ohne Krallen.",
+          "erkennen": [
+            "rund, Vorderpfote etwa 7–9 cm, Hinterpfote 7–8 cm",
+            "keine Krallen (nur selten in tiefem Schnee)",
+            "Zehenballen leicht gegeneinander versetzt",
+            "schnürt wie ein Fuchs, Schrittlänge etwa 80 cm und mehr"
+          ],
+          "verwechslung": "Hund: länglich, Krallen immer sichtbar, Ballen parallel. Fuchs: 4–6 cm, mit Krallen.",
+          "monate": [
+            12,
+            1,
+            2
+          ],
+          "findbarkeit": 4,
+          "wo": "Schnee auf Waldwegen",
+          "schutz": null,
+          "quellen": [
+            "kora",
+            "wwfLuchs"
+          ]
+        },
+        {
+          "id": "riss",
+          "name": "Riss",
+          "typ": "sonstiges",
+          "kurz": "Beutetier, das der Luchs mit Laub zugedeckt hat.",
+          "erkennen": [
+            "Reste mit Laub, Moos, Gras oder Schnee zugedeckt",
+            "Fraß beginnt meist an den Hinterkeulen",
+            "der Luchs kommt mehrere Nächte zurück"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Zufallsfund nahe am Weg",
+          "schutz": "Abstand halten, nichts anfassen, nicht weiter herangehen: Der Luchs kehrt zurück. Den Fund der zuständigen Stelle melden statt den Ort zu teilen.",
+          "quellen": [
+            "dwsLuchs",
+            "wwfLuchs"
+          ]
+        },
+        {
+          "id": "kot",
+          "name": "Losung",
+          "typ": "losung",
+          "kurz": "Dicke Kotwalzen, oft zugescharrt.",
+          "erkennen": [
+            "etwa 2–3 cm dick, aus mehreren stumpfen Teilstücken",
+            "fast nur Haare der Beute (z. B. Reh)",
+            "meist mit Laub, Erde oder Schnee zugedeckt, daneben Kratzspuren"
+          ],
+          "verwechslung": "Fuchs: dünner, Ende schraubenförmig zugespitzt, offen an erhöhter Stelle.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Waldwege, oft in der Nähe eines Risses",
+          "schutz": "Losung nicht anfassen, nur fotografieren.",
+          "quellen": [
+            "kora",
+            "kot"
+          ]
+        },
+        {
+          "id": "sichtung",
+          "name": "Sichtung",
+          "typ": "sichtung",
+          "kurz": "Luchs im Wald – ein großer Glücksfall.",
+          "erkennen": [
+            "Stummelschwanz mit schwarzem Ende",
+            "Ohrpinsel und Backenbart",
+            "geflecktes, rötlich- bis graubraunes Fell",
+            "vor allem in Dämmerung und Nacht"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Große Waldgebiete",
+          "schutz": "Streng geschützt. Nicht nachgehen, Sichtung melden, Ort nicht genau teilen.",
+          "quellen": [
+            "wwfLuchs",
+            "dwsLuchs"
+          ]
+        }
+      ],
+      "quellen": {
+        "dwsLuchs": {
+          "titel": "Luchs – Steckbrief (Deutsche Wildtier Stiftung)",
+          "url": "https://www.deutschewildtierstiftung.de/wildtiere/luchs"
+        },
+        "gbifLuchsBeleg": {
+          "titel": "GBIF-Nachweis 5028039577: Lynx lynx, 21.08.2022, TK25 2726/4 Garlstorf (NABU|naturgucker, ungeprüfte Meldung)",
+          "url": "https://www.gbif.org/occurrence/5028039577"
+        },
+        "kora": {
+          "titel": "Merkblatt Luchsfährte – Verwechslungen (KORA, Kanton Solothurn)",
+          "url": "https://so.ch/fileadmin/internet/vwd/vwd-awjf-jagd/pdf/merkblatt_luchsfaehrte.pdf"
+        },
+        "kot": {
+          "titel": "Mehr als ein Haufen: Was Kot verrät (waldwissen.net)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/wildtierkot-erkennen"
+        },
+        "wwfLuchs": {
+          "titel": "Der Luchs im Revier – Informationen für Jäger (Luchs Bayern e. V. und WWF Deutschland)",
+          "url": "https://www.wwf.de/fileadmin/fm-wwf/Publikationen-PDF/Artenschutz/WWF-Luchsleitfaden.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: kein Vorkommen gesichert. In GBIF nur eine ungeprüfte Meldung (NABU|naturgucker, 21.08.2022, Garlstorf). DWS nennt für Niedersachsen nur den Harz (Auswilderung). Eine Bestätigung durch das Luchs-Monitoring Niedersachsen fehlt.",
+        "Luchsrufe zur Ranz (Feb–Apr, WWF) nicht aufgenommen: Stimmen laut Auftrag nur bei Vögeln.",
+        "Meldestelle für Luchshinweise in Niedersachsen (Nationalpark Harz/Luchsprojekt) nicht geöffnet."
+      ]
+    }
+  ]
+}

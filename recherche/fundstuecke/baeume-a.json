@@ -1,0 +1,3613 @@
+{
+  "gruppe": "baeume-a",
+  "arten": [
+    {
+      "artId": "rotbuche",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt-austrieb",
+          "name": "Junges Buchenblatt",
+          "typ": "blatt",
+          "kurz": "Frisch ausgetriebenes, hellgrünes Blatt mit seidigen Härchen am Rand.",
+          "erkennen": [
+            "hellgrün, weich",
+            "am Rand seidig behaart",
+            "Austrieb zieht sich von Ende April bis Juni, unten zuerst"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 1,
+          "wo": "Waldrand, junge Buchen am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "blatt-sommer",
+          "name": "Buchenblatt",
+          "typ": "blatt",
+          "kurz": "Eiförmiges, leicht welliges Blatt mit glattem Rand.",
+          "erkennen": [
+            "etwa 5–10 cm lang, eiförmig",
+            "Rand fast ganzrandig, leicht wellig",
+            "oben dunkelgrün glänzend"
+          ],
+          "verwechslung": "Hainbuche: Blattrand doppelt gesägt und Blatt faltig.",
+          "monate": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "überall im Buchenwald, am Weg",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub der Buche",
+          "typ": "blatt",
+          "kurz": "Buchenlaub färbt sich gelb, orange, rotbraun und zuletzt matt braun.",
+          "erkennen": [
+            "Farbfolge gelb – orange – rotbraun – braun",
+            "fällt meist im Oktober/November, zusammen mit den Bucheckern"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "auf dem Weg und im Laubteppich",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q7"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Buchenknospe",
+          "typ": "knospe",
+          "kurz": "Lange, schlanke, spitze Winterknospe.",
+          "erkennen": [
+            "bis 2–3 cm lang, spindelförmig",
+            "rotbraun bis rehbraun, Spitzen heller",
+            "steht vom Zweig ab"
+          ],
+          "verwechslung": "Hainbuche: Knospen nur 5–8 mm, liegen am Zweig an.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Zweige junger Buchen am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q8"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Buchenrinde",
+          "typ": "rinde",
+          "kurz": "Bis ins hohe Alter glatte, silbergraue Rinde.",
+          "erkennen": [
+            "glatt und dünn, silbergrau",
+            "bildet nur selten Borke",
+            "junge Rinde graugrün"
+          ],
+          "verwechslung": "Hainbuche: auch glatt und grau, aber Stamm mit Längswülsten („spannrückig“).",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "jeder Buchenstamm am Weg",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Buchenblüte",
+          "typ": "bluete",
+          "kurz": "Kugelige, zottig behaarte Blütenstände, erscheinen mit dem Laub.",
+          "erkennen": [
+            "männliche Blüten: kugelig, an langen hängenden Stielen",
+            "weibliche: kurz gestielt, aufrecht",
+            "Buchen blühen meist erst ab etwa 50 Jahren"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 3,
+          "wo": "unter alten Buchen, oft am Boden liegend",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "buchecker",
+          "name": "Bucheckern im Fruchtbecher",
+          "typ": "frucht",
+          "kurz": "Dreikantige Nüsschen, zu zweit in einem stacheligen Becher.",
+          "erkennen": [
+            "1,5–2 cm lang, dreikantig, rotbraun",
+            "Fruchtbecher weichstachelig, reißt vierklappig auf",
+            "fallen meist im Oktober/November"
+          ],
+          "verwechslung": null,
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "auf dem Weg unter Buchen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q7",
+            "q6"
+          ]
+        },
+        {
+          "id": "keimling",
+          "name": "Buchenkeimling",
+          "typ": "keimling",
+          "kurz": "Junge Buche mit zwei nierenförmigen Keimblättern.",
+          "erkennen": [
+            "Keimblätter nierenförmig, ledrig",
+            "oben tiefgrün glänzend, unten weißlich",
+            "sehen den späteren Blättern nicht ähnlich"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 2,
+          "wo": "Waldboden am Wegrand unter alten Buchen",
+          "schutz": null,
+          "quellen": [
+            "q7",
+            "q4"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Rotbuche (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Hoher Baum mit glattem grauem Stamm und dichter Krone.",
+          "erkennen": [
+            "im Wald schlank, bis 25 m astfrei",
+            "frei stehend breite Krone ab 2–3 m Höhe",
+            "bis etwa 45 m hoch"
+          ],
+          "verwechslung": "Blutbuche: Kulturform mit roten bis schwarzroten Blättern (Parks), keine eigene Art.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Buchenwälder, Waldwege",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "Landkreis Heidekreis/Harburg: Verordnung über das Naturschutzgebiet „Lüneburger Heide“ vom 18.12.2020 (über NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/183716"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Bodensaurer Buchenwald (LRT 9110/9120), Teil 2",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26032"
+        },
+        "q3": {
+          "titel": "LK Celle/LK Uelzen: Verordnung über das Naturschutzgebiet „Lünsholz“ (NSG-LÜ 314) vom 19.12.2017 (über NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/130319"
+        },
+        "q4": {
+          "titel": "Baum des Jahres Stiftung: Die Rot-Buche – Baum des Jahres 2022 (PDF)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2023/09/Download_BaumdesJahres2022_Rot-Buche.pdf"
+        },
+        "q5": {
+          "titel": "Baum des Jahres Stiftung: Die Buche – Baum des Jahres 1990 (PDF)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/1990_Buche.pdf"
+        },
+        "q6": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Fagus sylvatica / Rot-Buche – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/15905.html"
+        },
+        "q8": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Hainbuche – Knospen und Triebe",
+          "url": "https://www.uni-goettingen.de/de/knospen+und+triebe/56488.html"
+        }
+      },
+      "offen": [
+        "Wie lange alte Fruchtbecher am Boden liegen bleiben, nicht belegt."
+      ]
+    },
+    {
+      "artId": "traubeneiche",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Blatt der Traubeneiche",
+          "typ": "blatt",
+          "kurz": "Gelapptes Eichenblatt mit langem Stiel und keilförmigem Grund.",
+          "erkennen": [
+            "Blattstiel 1–2,5 cm lang",
+            "Blattgrund keilförmig, ohne Öhrchen",
+            "5–8 abgerundete Lappen je Seite, gleichmäßig",
+            "unten mit Sternhaaren (Lupe)"
+          ],
+          "verwechslung": "Stieleiche: Blatt fast ohne Stiel, mit Öhrchen am Grund. Sicher nur mit mindestens 3 Merkmalen; es gibt Mischformen.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Eichenwald, Wegrand",
+          "schutz": "Raupen des Eichenprozessionsspinners an Eichen nicht anfassen: ihre Gifthaare können starke Hautallergien auslösen.",
+          "quellen": [
+            "q3",
+            "q4",
+            "q5"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbst- und Winterlaub",
+          "typ": "blatt",
+          "kurz": "Erst gelb, dann braun; bleibt oft den Winter über am Baum.",
+          "erkennen": [
+            "ab Oktober gelb- und gelbgrüne Töne, dann braun",
+            "hält oft bis November",
+            "junge Bäume behalten braunes Laub oft bis zum Frühjahr"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "junge Eichen am Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Knospen der Traubeneiche",
+          "typ": "knospe",
+          "kurz": "Gehäufte Knospen am Zweigende, die Endknospe ist größer.",
+          "erkennen": [
+            "Endknospe schmal-spitz, etwa 10 mm",
+            "Seitenknospen 6–8 mm, kegelförmig, stehen ab",
+            "braune, fein bewimperte Schuppen"
+          ],
+          "verwechslung": "Stieleiche: Endknospe dick-eiförmig, so groß wie die Seitenknospen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige junger Eichen",
+          "schutz": null,
+          "quellen": [
+            "q7"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Eichenborke",
+          "typ": "rinde",
+          "kurz": "Jung glatt, später dicke, in langen Feldern rissige Borke.",
+          "erkennen": [
+            "Schuppenborke, reißt in lange viereckige Felder",
+            "im Alter bis 5 cm dick"
+          ],
+          "verwechslung": "Stieleiche: Rinde sieht sehr ähnlich aus, Unterscheidung an der Rinde nicht sicher.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Eichenstämme am Weg",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q8"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Eichenkätzchen",
+          "typ": "bluete",
+          "kurz": "Unscheinbare, hängende männliche Kätzchen beim Austrieb.",
+          "erkennen": [
+            "männliche Blüten in hängenden Ähren",
+            "weibliche winzig, mit roten Narben, fast sitzend",
+            "erst an Bäumen ab 20–40 Jahren"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5
+          ],
+          "findbarkeit": 3,
+          "wo": "tief hängende Zweige, abgefallene Kätzchen auf dem Weg",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q3",
+            "q9"
+          ]
+        },
+        {
+          "id": "eichel",
+          "name": "Eicheln der Traubeneiche",
+          "typ": "frucht",
+          "kurz": "Eicheln sitzen fast ohne Stiel in Gruppen („Trauben“).",
+          "erkennen": [
+            "Eichel eiförmig, im Becher zu etwa einem Drittel",
+            "mehrere Eicheln dicht beieinander, fast ungestielt",
+            "fallen ab Oktober"
+          ],
+          "verwechslung": "Stieleiche: Eicheln an langen Stielen.",
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "auf dem Weg unter Eichen",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5"
+          ]
+        },
+        {
+          "id": "keimling",
+          "name": "Eichenkeimling",
+          "typ": "keimling",
+          "kurz": "Junge Eiche, die aus einer Eichel im Boden wächst.",
+          "erkennen": [
+            "keimt im Frühjahr nach dem Fall",
+            "Keimblätter bleiben in der Eichel im Boden",
+            "selten weißblättrige „Albino“-Sämlinge"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Waldboden, Wegränder (oft von Eichelhähern versteckt)",
+          "schutz": null,
+          "quellen": [
+            "q5"
+          ]
+        },
+        {
+          "id": "galle",
+          "name": "Eichengallapfel",
+          "typ": "sonstiges",
+          "kurz": "Kugelige „Frucht“ am Blatt, gebildet durch eine Gallwespe.",
+          "erkennen": [
+            "rundliche Kugel an der Blattunterseite",
+            "innen lebt die Larve der Eichengallwespe",
+            "Blatt bleibt trotzdem funktionsfähig"
+          ],
+          "verwechslung": "Echte Eicheln: sitzen im Becher am Zweig, nicht am Blatt.",
+          "monate": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Eichenblätter am Wegrand, auch heruntergefallen",
+          "schutz": null,
+          "quellen": [
+            "q5"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Traubeneiche (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Großer Baum mit breiter Krone und oft geradem Stamm.",
+          "erkennen": [
+            "bis 40 m hoch",
+            "alte Bäume mit breiter Krone und knickigen dicken Ästen",
+            "Stamm oft gerader durchgehend als bei der Stieleiche"
+          ],
+          "verwechslung": "Stieleiche: Wuchs kaum anders – Blätter und Eicheln prüfen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Eichen- und Eichen-Birkenwald",
+          "schutz": "Raupen des Eichenprozessionsspinners an Eichen nicht anfassen: ihre Gifthaare können starke Hautallergien auslösen.",
+          "quellen": [
+            "q5",
+            "q3"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "Landkreis Heidekreis/Harburg: Verordnung über das Naturschutzgebiet „Lüneburger Heide“ vom 18.12.2020 (über NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/183716"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (LRT 9190), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26036"
+        },
+        "q3": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q4": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Blätter",
+          "url": "https://www.uni-goettingen.de/de/bl%c3%a4tter/16689.html"
+        },
+        "q5": {
+          "titel": "Baum des Jahres Stiftung: Die Trauben-Eiche – Baum des Jahres 2014 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2014_Traubeneiche.pdf"
+        },
+        "q6": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Phänologie",
+          "url": "https://www.uni-goettingen.de/de/ph%c3%a4nologie/16690.html"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Knospen und Triebe",
+          "url": "https://www.uni-goettingen.de/de/knospen+und++triebe/16688.html"
+        },
+        "q8": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Rinde und Borke",
+          "url": "https://www.uni-goettingen.de/de/rinde+und+borke/16693.html"
+        },
+        "q9": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Blüten, Samen und Früchte",
+          "url": "https://www.uni-goettingen.de/de/bl%c3%bcten%2c+samen+und+fr%c3%bcchte/16692.html"
+        }
+      },
+      "offen": [
+        "Sternhaare auf der Blattunterseite nur mit Lupe sichtbar – für Foto-Bestimmung schwierig.",
+        "Monate für Gallen nur aus der Laubzeit abgeleitet, nicht direkt belegt."
+      ]
+    },
+    {
+      "artId": "stieleiche",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Blatt der Stieleiche",
+          "typ": "blatt",
+          "kurz": "Gelapptes Eichenblatt, fast ohne Stiel, mit „Öhrchen“ am Grund.",
+          "erkennen": [
+            "Blattstiel nur 4–9 mm",
+            "Blattgrund mit Öhrchen",
+            "4–7 rundliche, ungleich verteilte Lappen je Seite",
+            "Blätter in Büscheln am Triebende, unten kahl"
+          ],
+          "verwechslung": "Traubeneiche: Blattstiel 1–2,5 cm, keilförmiger Grund ohne Öhrchen.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "überall an Wegen, Feldrändern, im Wald",
+          "schutz": "Raupen des Eichenprozessionsspinners an Eichen nicht anfassen: ihre Gifthaare können starke Hautallergien auslösen.",
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbst- und Winterlaub",
+          "typ": "blatt",
+          "kurz": "Gelb, dann braun; ein Teil bleibt bis in den Spätwinter hängen.",
+          "erkennen": [
+            "erst gelb, dann braun",
+            "ein Teil bleibt bis zum Spätwinter am Baum, vor allem an jungen Eichen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "junge Eichen am Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q7"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Knospen der Stieleiche",
+          "typ": "knospe",
+          "kurz": "Dicke Knospen, gehäuft am Zweigende.",
+          "erkennen": [
+            "Endknospen dick-eiförmig, 5–8 mm",
+            "genauso groß wie die Seitenknospen",
+            "braune, fein bewimperte Schuppen"
+          ],
+          "verwechslung": "Traubeneiche: Endknospe schlanker und größer (etwa 10 mm) als die Seitenknospen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige junger Eichen",
+          "schutz": null,
+          "quellen": [
+            "q8"
+          ]
+        },
+        {
+          "id": "rinde-jung",
+          "name": "Rinde junger Eichen",
+          "typ": "rinde",
+          "kurz": "Glatte, glänzende, silbergraue bis bräunliche Rinde.",
+          "erkennen": [
+            "glatt und glänzend",
+            "bräunlich bis weißgrau („Lohrinde“)",
+            "reißt mit etwa 15–30 Jahren auf"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "junge Eichen am Weg",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q9"
+          ]
+        },
+        {
+          "id": "rinde-alt",
+          "name": "Borke alter Eichen",
+          "typ": "rinde",
+          "kurz": "Dicke, tief längsgefurchte, dunkle Borke.",
+          "erkennen": [
+            "dick, tief längsrissig",
+            "graubraun bis dunkelbraun-schwärzlich"
+          ],
+          "verwechslung": "Traubeneiche: sehr ähnliche Borke, daran nicht sicher zu trennen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "alte Eichen an Wegen und Alleen",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q9"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Eichenkätzchen",
+          "typ": "bluete",
+          "kurz": "Schmale, hängende, gelbgrüne männliche Kätzchen.",
+          "erkennen": [
+            "2–5 cm lang, locker, gelblichgrün",
+            "erscheinen mit den Blättern",
+            "weibliche Blüten winzig, an langen Stielen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 2,
+          "wo": "tief hängende Zweige, Kätzchen auf dem Weg",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q10",
+            "q4"
+          ]
+        },
+        {
+          "id": "eichel",
+          "name": "Eicheln an langen Stielen",
+          "typ": "frucht",
+          "kurz": "Walzenförmige Eicheln an langen Stielen.",
+          "erkennen": [
+            "Eichel 2–3,5 cm, frisch mit dunklen Längsstreifen",
+            "Fruchtstiel deutlich länger als der Blattstiel",
+            "unteres Drittel im Becher"
+          ],
+          "verwechslung": "Traubeneiche: Eicheln fast ohne Stiel.",
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "auf Wegen unter Eichen",
+          "schutz": null,
+          "quellen": [
+            "q10",
+            "q4",
+            "q6"
+          ]
+        },
+        {
+          "id": "keimling",
+          "name": "Eichenkeimling",
+          "typ": "keimling",
+          "kurz": "Junge Eiche aus einer überwinterten Eichel.",
+          "erkennen": [
+            "keimt im Frühjahr",
+            "Keimblätter bleiben in der Eichel im Boden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Waldboden, Wegränder („Hähersaat“)",
+          "schutz": null,
+          "quellen": [
+            "q11"
+          ]
+        },
+        {
+          "id": "absprung",
+          "name": "Absprünge",
+          "typ": "sonstiges",
+          "kurz": "Ganze grüne Zweiglein, die die Eiche im Sommer abwirft.",
+          "erkennen": [
+            "beblätterter kleiner Zweig am Boden",
+            "glatte, gelenkartige Narbe am unteren Ende",
+            "Schutz vor Austrocknung, keine Krankheit"
+          ],
+          "verwechslung": "Abgebrochene Zweige: haben eine raue Bruchstelle.",
+          "monate": [
+            6,
+            7,
+            8
+          ],
+          "findbarkeit": 2,
+          "wo": "auf Wegen unter Eichen nach trockenen Tagen",
+          "schutz": null,
+          "quellen": [
+            "q11"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Stieleiche (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Mächtiger Baum mit knorrigen, weit ausladenden Ästen.",
+          "erkennen": [
+            "unregelmäßige, breite Krone",
+            "Äste oft waagerecht abstehend",
+            "25–40 m hoch"
+          ],
+          "verwechslung": "Traubeneiche: Wuchs kaum anders – Blätter und Eicheln prüfen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Wälder, Feldränder, Alleen, Hofeichen",
+          "schutz": "Raupen des Eichenprozessionsspinners an Eichen nicht anfassen: ihre Gifthaare können starke Hautallergien auslösen.",
+          "quellen": [
+            "q6",
+            "q10"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "Landkreis Heidekreis/Harburg: Verordnung über das Naturschutzgebiet „Lüneburger Heide“ vom 18.12.2020 (über NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/183716"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (LRT 9190), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26036"
+        },
+        "q3": {
+          "titel": "NLWKN Vollzugshinweise: Feuchter Eichen- und Hainbuchen-Mischwald (LRT 9160), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25853"
+        },
+        "q4": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q5": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Blätter",
+          "url": "https://www.uni-goettingen.de/de/bl%c3%a4tter/16689.html"
+        },
+        "q6": {
+          "titel": "Baum des Jahres Stiftung: Die Stieleiche – Baum des Jahres 1989 (PDF)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/1989_Stieleiche.pdf"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Phänologie",
+          "url": "https://www.uni-goettingen.de/de/ph%c3%a4nologie/16690.html"
+        },
+        "q8": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Knospen und Triebe",
+          "url": "https://www.uni-goettingen.de/de/knospen+und++triebe/16688.html"
+        },
+        "q9": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Rinde und Borke",
+          "url": "https://www.uni-goettingen.de/de/rinde+und+borke/16693.html"
+        },
+        "q10": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Stiel-/Trauben-Eiche – Blüten, Samen und Früchte",
+          "url": "https://www.uni-goettingen.de/de/bl%c3%bcten%2c+samen+und+fr%c3%bcchte/16692.html"
+        },
+        "q11": {
+          "titel": "Baum des Jahres Stiftung: Die Trauben-Eiche – Baum des Jahres 2014 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2014_Traubeneiche.pdf"
+        }
+      },
+      "offen": [
+        "Absprünge sind in der Traubeneichen-Quelle für „die Eiche“ beschrieben; für die Stieleiche übertragen.",
+        "Gallen (Eichengallwespe) kommen laut Quelle an „den Eichen“ vor – bei der Traubeneiche aufgeführt, hier wegen der Höchstzahl 10 weggelassen.",
+        "Monate für Absprünge aus „im Sommer“ abgeleitet."
+      ]
+    },
+    {
+      "artId": "hainbuche",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Hainbuchenblatt",
+          "typ": "blatt",
+          "kurz": "Faltiges Blatt mit doppelt gesägtem Rand – sieht „nicht ganz entfaltet“ aus.",
+          "erkennen": [
+            "5–12 cm lang, elliptisch, zugespitzt",
+            "Rand doppelt gesägt",
+            "zwischen den Adern gefaltet",
+            "fühlt sich härter an als Buchenlaub"
+          ],
+          "verwechslung": "Rotbuche: Blattrand glatt, Blatt nicht faltig.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken, Waldrand, Eichen-Hainbuchenwald",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbst- und Winterlaub",
+          "typ": "blatt",
+          "kurz": "Erst goldgelb, dann braun; bleibt an Hecken lange hängen.",
+          "erkennen": [
+            "im Herbst goldgelb, zuletzt braun",
+            "an Hecken bleibt das Laub im Winter lange am Zweig"
+          ],
+          "verwechslung": "Junge Eichen und Buchen behalten auch braunes Winterlaub – Blattform prüfen.",
+          "monate": [
+            1,
+            2,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "geschnittene Hecken, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Hainbuchenknospe",
+          "typ": "knospe",
+          "kurz": "Kleine, spitze Knospe, die eng am Zweig anliegt.",
+          "erkennen": [
+            "5–8 mm lang, schmal-eiförmig",
+            "liegt am Zweig an, Spitze oft zum Zweig gedreht",
+            "Schuppen braun, oft dunkel berandet",
+            "Zweig zickzackförmig"
+          ],
+          "verwechslung": "Rotbuche: Knospen viel länger (bis 2–3 cm) und abstehend.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Zweige an Hecken und jungen Bäumen",
+          "schutz": null,
+          "quellen": [
+            "q7"
+          ]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Männliche Kätzchen",
+          "typ": "bluete",
+          "kurz": "Männliche Kätzchen überwintern frei sichtbar und blühen mit dem Laub.",
+          "erkennen": [
+            "schon ab Spätsommer angelegt, im Winter „nackt“ sichtbar",
+            "zur Blüte bis 12 cm lang, schlaff hängend"
+          ],
+          "verwechslung": "Hasel: Kätzchen blühen schon im Spätwinter vor dem Laub.",
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige an Waldrand und Hecke",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q8",
+            "q5"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Hainbuchenfrucht",
+          "typ": "frucht",
+          "kurz": "Kleines Nüsschen mit dreilappigem Flügel, in hängenden Büscheln.",
+          "erkennen": [
+            "Nüsschen etwa 5 mm",
+            "Flügel (Deckblatt) dreilappig",
+            "oft etwa acht Paare übereinander",
+            "reif im September/Oktober, hängt oft über Winter"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Zweige und Weg unter Hainbuchen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q8",
+            "q5"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Hainbuchenstamm",
+          "typ": "rinde",
+          "kurz": "Glatter, grauer Stamm mit Wülsten, wie Muskeln.",
+          "erkennen": [
+            "glatt, grau bis grünlich grau",
+            "Längswülste („spannrückig“)",
+            "bleibt bis ins Alter meist glatt"
+          ],
+          "verwechslung": "Rotbuche: glatter, runder Stamm ohne Wülste.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Waldrand, alte Hecken",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q9"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Hainbuche (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Mittelgroßer Baum, oft als Hecke geschnitten.",
+          "erkennen": [
+            "bis etwa 20 m hoch",
+            "sehr schnittverträglich, häufig als Hecke",
+            "wächst oft im Schatten von Eichen und Buchen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken, Waldränder, Eichen-Hainbuchenwälder",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Feuchter Eichen- und Hainbuchen-Mischwald (LRT 9160), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25853"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (LRT 9190), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26036"
+        },
+        "q3": {
+          "titel": "NLWKN Vollzugshinweise: Bodensaurer Buchenwald (LRT 9110/9120), Teil 2",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26032"
+        },
+        "q4": {
+          "titel": "Baum des Jahres Stiftung: Die Hainbuche – Baum des Jahres 1996 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/1996_Hainbuche.pdf"
+        },
+        "q5": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q6": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Hainbuche – Blätter",
+          "url": "https://www.uni-goettingen.de/de/bl%c3%a4tter/56490.html"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Hainbuche – Knospen und Triebe",
+          "url": "https://www.uni-goettingen.de/de/knospen+und+triebe/56488.html"
+        },
+        "q8": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Hainbuche – Blüten, Samen und Früchte",
+          "url": "https://www.uni-goettingen.de/de/bl%c3%bcten%2c+samen+und+fr%c3%bcchte/56529.html"
+        },
+        "q9": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Hainbuche – Rinde und Borke",
+          "url": "https://www.uni-goettingen.de/de/rinde+und+borke/56531.html"
+        }
+      },
+      "offen": [
+        "Ob einzelne Hainbuchen-Hecken in der Heide gepflanzt sind, lässt sich nicht pauschal sagen."
+      ]
+    },
+    {
+      "artId": "bergahorn",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Bergahornblatt",
+          "typ": "blatt",
+          "kurz": "Großes, fünflappiges Blatt mit stumpfen Lappen.",
+          "erkennen": [
+            "meist 5 Lappen, stumpf, nie lang ausgezogen",
+            "Oberfläche runzelig",
+            "unten graugrün",
+            "kein Milchsaft im Stiel",
+            "gegenständig"
+          ],
+          "verwechslung": "Spitzahorn: Lappen mit lang ausgezogenen Spitzen, Milchsaft im Stiel.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Wegränder, Parks, Alleen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Meist goldgelbe Herbstfärbung.",
+          "erkennen": [
+            "goldgelb",
+            "weniger bunt als beim Spitzahorn"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Wegränder, Alleen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q6"
+          ]
+        },
+        {
+          "id": "teerflecken",
+          "name": "Teerflecken auf dem Blatt",
+          "typ": "sonstiges",
+          "kurz": "Schwarze Flecken auf Ahornblättern durch einen Blattpilz.",
+          "erkennen": [
+            "große schwarze Flecken auf grünem oder gelbem Blatt",
+            "schädigt den Baum kaum"
+          ],
+          "verwechslung": null,
+          "monate": [
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Laub unter Ahornen",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Bergahornknospe",
+          "typ": "knospe",
+          "kurz": "Grüne, vom Zweig abstehende Knospen.",
+          "erkennen": [
+            "grün",
+            "vom Zweig abstehend",
+            "gegenständig"
+          ],
+          "verwechslung": "Spitzahorn: Knospen rotbraun und anliegend. Esche: Knospen schwarz.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige junger Ahorne",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Bergahornblüte",
+          "typ": "bluete",
+          "kurz": "Gelbgrüne Blüten in hängenden Rispen, nach den Blättern.",
+          "erkennen": [
+            "hängende, verzweigte Blütenstände",
+            "gelbgrün",
+            "erscheinen mit oder kurz nach dem Laub"
+          ],
+          "verwechslung": "Spitzahorn: aufrechte Blütenstände vor dem Laub.",
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Ahorn-„Propeller“",
+          "typ": "frucht",
+          "kurz": "Paarige Flügelnüsschen, die im spitzen bis rechten Winkel stehen.",
+          "erkennen": [
+            "zwei Flügelnüsse verbunden",
+            "Winkel spitz bis rechtwinklig",
+            "fallen ab Ende September, drehen sich beim Fallen"
+          ],
+          "verwechslung": "Spitzahorn: Flügel stumpfer gespreizt. Feldahorn: Flügel waagerecht.",
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "Weg unter Ahornen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q6"
+          ]
+        },
+        {
+          "id": "keimling",
+          "name": "Ahornkeimling",
+          "typ": "keimling",
+          "kurz": "Keimling mit zwei schmalen Keimblättern, oft massenhaft.",
+          "erkennen": [
+            "Keimblätter entfalten sich über dem Boden",
+            "oft 100 und mehr pro Quadratmeter",
+            "Keimung im April"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 2,
+          "wo": "Boden unter Ahornen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q6"
+          ]
+        },
+        {
+          "id": "borke",
+          "name": "Schuppenborke",
+          "typ": "rinde",
+          "kurz": "Alte Bäume mit schuppiger, bunter Borke wie eine Platane.",
+          "erkennen": [
+            "Schuppen von gelb bis dunkelbraun und grün",
+            "alte Schuppen fallen ab, darunter heller",
+            "oft mit Flechten und Moosen"
+          ],
+          "verwechslung": "Platane: gepflanzter Parkbaum mit großen Rindenplatten.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "alte Alleebäume",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Bergahorn (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Großer Baum mit runder Krone, häufig als Alleebaum.",
+          "erkennen": [
+            "bis 40 m hoch",
+            "runde bis eiförmige Krone im Freistand"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Parks, Waldränder",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Schlucht- und Hangmischwälder (LRT 9180*), Teil 3",
+          "url": "https://www.nlwkn.niedersachsen.de/download/50158"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Erlen- und Eschenwälder an Fließgewässern (LRT 91E0*), Stand 11/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26038"
+        },
+        "q3": {
+          "titel": "NLWKN Vollzugshinweise: Waldmeister-Buchenwälder (LRT 9130), Teil 2",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26033"
+        },
+        "q4": {
+          "titel": "Baum des Jahres Stiftung: Der Berg-Ahorn – Baum des Jahres 2009 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2009_Bergahorn.pdf"
+        },
+        "q5": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q6": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Acer pseudoplatanus / Berg-Ahorn – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/16397.html"
+        }
+      },
+      "offen": [
+        "In der Lüneburger Heide stehende Bergahorne sind nach den Quellen gepflanzt oder verwildert, nicht von Natur aus heimisch."
+      ]
+    },
+    {
+      "artId": "spitzahorn",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Spitzahornblatt",
+          "typ": "blatt",
+          "kurz": "Großes Blatt mit 5–7 Lappen und lang ausgezogenen Spitzen.",
+          "erkennen": [
+            "Lappen mit spitzen, lang ausgezogenen Zähnen",
+            "oben und unten fast gleich grün",
+            "Stiel mit weißem Milchsaft beim Abknicken",
+            "gegenständig"
+          ],
+          "verwechslung": "Bergahorn: stumpfe Lappen, runzelig, kein Milchsaft. Platane: wechselständig.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Parks, Waldränder",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q6",
+            "q7"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Leuchtend goldgelb bis karminrot.",
+          "erkennen": [
+            "goldgelb bis karminrot",
+            "bunter als beim Bergahorn"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Wegränder",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q8"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Spitzahornknospe",
+          "typ": "knospe",
+          "kurz": "Glänzend rotbraune, kahle, anliegende Knospen.",
+          "erkennen": [
+            "Endknospe breit eiförmig, meist rot",
+            "Seitenknospen schmal, anliegend",
+            "junge Triebe rötlich und glatt"
+          ],
+          "verwechslung": "Bergahorn: Knospen grün und abstehend.",
+          "monate": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige junger Bäume",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q8",
+            "q7"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Spitzahornblüte",
+          "typ": "bluete",
+          "kurz": "Leuchtend gelbgrüne, aufrechte Blütenstände vor dem Laub.",
+          "erkennen": [
+            "aufrechte, doldige Blütenstände",
+            "grünlich-gelb, sehr auffällig",
+            "meist im April, vor dem Blattaustrieb"
+          ],
+          "verwechslung": "Bergahorn: hängende Blüten erst mit dem Laub.",
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "Alleen, Parks – im Frühling von weitem sichtbar",
+          "schutz": null,
+          "quellen": [
+            "q7",
+            "q6",
+            "q8"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Flügelfrucht",
+          "typ": "frucht",
+          "kurz": "Paarige Flügelfrüchte mit fast waagerecht gespreizten Flügeln.",
+          "erkennen": [
+            "bis 5 cm lang",
+            "Flügel stumpfwinklig bis fast waagerecht",
+            "reifen im Herbst"
+          ],
+          "verwechslung": "Bergahorn: spitzer Winkel. Feldahorn: kleiner, ganz waagerecht.",
+          "monate": [
+            9,
+            10
+          ],
+          "findbarkeit": 1,
+          "wo": "Weg unter Spitzahornen",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q7"
+          ]
+        },
+        {
+          "id": "borke",
+          "name": "Spitzahornborke",
+          "typ": "rinde",
+          "kurz": "Früh feine, längsrissige, dunkle Netzborke, die nicht abblättert.",
+          "erkennen": [
+            "braun bis schwärzlich-braun oder grau",
+            "längsrissig, fein",
+            "schuppt nicht ab"
+          ],
+          "verwechslung": "Bergahorn: Borke blättert in Schuppen ab.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleebäume",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q7"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Spitzahorn (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Mittelgroßer Baum mit dichter, eiförmiger bis runder Krone.",
+          "erkennen": [
+            "bis 30 m hoch",
+            "Krone im Alter kugelig"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Parks, Laubmischwald",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q6"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Waldmeister-Buchenwälder (LRT 9130), Teil 2",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26033"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Feuchter Eichen- und Hainbuchen-Mischwald (LRT 9160), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25853"
+        },
+        "q3": {
+          "titel": "NLWKN Vollzugshinweise: Schlucht- und Hangmischwälder (LRT 9180*), Teil 3",
+          "url": "https://www.nlwkn.niedersachsen.de/download/50158"
+        },
+        "q4": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Acer platanoides / Spitz-Ahorn – Vorkommen",
+          "url": "https://www.uni-goettingen.de/de/vorkommen/16403.html"
+        },
+        "q5": {
+          "titel": "Baum des Jahres Stiftung: Der Spitzahorn – Baum des Jahres 1995 (PDF)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/1995_Spitzahorn.pdf"
+        },
+        "q6": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Acer platanoides / Spitz-Ahorn – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/16404.html"
+        },
+        "q8": {
+          "titel": "Baum des Jahres Stiftung: Der Berg-Ahorn – Baum des Jahres 2009 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2009_Bergahorn.pdf"
+        }
+      },
+      "offen": [
+        "Keimlinge nicht eigens belegt.",
+        "Natürliches Vorkommen in der Lüneburger Heide nicht belegt; NLWKN nennt die Art nur für Berg- und Hügelland."
+      ]
+    },
+    {
+      "artId": "feldahorn",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Feldahornblatt",
+          "typ": "blatt",
+          "kurz": "Kleines Ahornblatt mit 3–5 stumpfen, abgerundeten Lappen.",
+          "erkennen": [
+            "meist unter 10 cm",
+            "Lappen stumpf, Rand bewimpert (Lupe)",
+            "Milchsaft im Blattstiel",
+            "Austrieb oft rötlich"
+          ],
+          "verwechslung": "Spitz- und Bergahorn: Blätter deutlich größer.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Hecken, Gebüsch, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Lange anhaltende goldgelbe, selten rote Herbstfärbung.",
+          "erkennen": [
+            "goldgelb, selten rot",
+            "hält bis weit in den November"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "Hecken, Feldränder",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5"
+          ]
+        },
+        {
+          "id": "korkleisten",
+          "name": "Korkleisten am Zweig",
+          "typ": "rinde",
+          "kurz": "Junge Zweige oft mit langen, graubraunen Korkrippen.",
+          "erkennen": [
+            "hervorstehende Längsrippen aus Kork",
+            "an den Knospen rundum eingeschnürt",
+            "nicht an jedem Baum"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Zweige in Hecken",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "borke",
+          "name": "Feldahornborke",
+          "typ": "rinde",
+          "kurz": "Schuppenborke mit kleinen, rechteckigen Schuppen.",
+          "erkennen": [
+            "kleine rechteckige Schuppen",
+            "Stamm oft mit Ausbauchungen"
+          ],
+          "verwechslung": "Hainbuche: Stamm auch wulstig, aber Rinde glatt.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "ältere Feldahorne",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Feldahornblüte",
+          "typ": "bluete",
+          "kurz": "Unscheinbare hellgrüne Blüten mit dem Laub.",
+          "erkennen": [
+            "aufrecht stehende Blütenstände",
+            "Blüten und Blütenstiele behaart",
+            "Ende April bis Mai"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 3,
+          "wo": "Hecken, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "frucht-rot",
+          "name": "Junge rote Früchte",
+          "typ": "frucht",
+          "kurz": "Reifende Doppel-Flügelfrüchte färben sich kurz intensiv rot.",
+          "erkennen": [
+            "Flügel waagerecht in einer Linie",
+            "im Mai/Juni oft rot"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Hecken, Feldränder",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Flügelfrüchte",
+          "typ": "frucht",
+          "kurz": "Doppel-Flügelnüsschen mit waagerecht abstehenden Flügeln.",
+          "erkennen": [
+            "Flügel stehen sich waagerecht gegenüber",
+            "reif im Herbst",
+            "hängen oft bis über den Winter"
+          ],
+          "verwechslung": "Spitz- und Bergahorn: Flügel im Winkel.",
+          "monate": [
+            1,
+            2,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Hecken, Feldränder",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4",
+            "q6"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Feldahorn (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Kleiner, oft mehrstämmiger Baum oder Strauch.",
+          "erkennen": [
+            "selten über 20 m",
+            "oft mehrstämmig oder strauchförmig",
+            "knorriger Wuchs"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Hecken, Knicks, Waldränder",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Feuchter Eichen- und Hainbuchen-Mischwald (LRT 9160), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25853"
+        },
+        "q2": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Acer campestre / Feld-Ahorn – Vorkommen",
+          "url": "https://www.uni-goettingen.de/de/vorkommen/16410.html"
+        },
+        "q3": {
+          "titel": "Baum des Jahres Stiftung: Der Feld-Ahorn – Baum des Jahres 2015 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2015_Feldahorn.pdf"
+        },
+        "q4": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q5": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Acer campestre / Feld-Ahorn – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/16411.html"
+        },
+        "q6": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Acer platanoides / Spitz-Ahorn – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/16404.html"
+        }
+      },
+      "offen": [
+        "Quellen widersprechen sich zum Tiefland: NLWKN nennt Feldahorn als Nebenbaumart im Eichen-Hainbuchenwald, Uni Göttingen schreibt „fehlt … im deutschen Tiefland“."
+      ]
+    },
+    {
+      "artId": "esche",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Eschenblatt",
+          "typ": "blatt",
+          "kurz": "Großes gefiedertes Blatt mit 9–15 gesägten Fiederblättchen.",
+          "erkennen": [
+            "bis 35–40 cm lang mit Stiel",
+            "9–15 Fiederblättchen, Rand gesägt",
+            "gegenständig",
+            "treibt sehr spät aus, oft erst im Mai/Juni"
+          ],
+          "verwechslung": "Eberesche: wechselständig, kleinere Fiedern. Walnuss: Fiedern ganzrandig.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Bachtäler, feuchte Wälder, Wegränder",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4",
+            "q5"
+          ]
+        },
+        {
+          "id": "laubfall",
+          "name": "Grüner Laubfall",
+          "typ": "blatt",
+          "kurz": "Eschenblätter fallen im Herbst grün ab und verrotten schnell.",
+          "erkennen": [
+            "kaum Herbstfärbung",
+            "Blätter und Spindeln fallen grün",
+            "im Frühjahr kaum noch zu finden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "Weg unter Eschen",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Schwarze Eschenknospe",
+          "typ": "knospe",
+          "kurz": "Samtschwarze, spitze Knospen – unverwechselbar.",
+          "erkennen": [
+            "schwarz, filzig behaart",
+            "spitz wie eine Zwiebelturmspitze",
+            "gegenständig, Paare um 90° gedreht",
+            "Zweige grau bis graugrün"
+          ],
+          "verwechslung": "Bergahorn: Knospen grün.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Zweige junger Eschen",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4",
+            "q5"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Eschenblüte",
+          "typ": "bluete",
+          "kurz": "Dunkelrote bis violette Blütenbüschel vor dem Laub.",
+          "erkennen": [
+            "in Büscheln an den Zweigspitzen",
+            "ohne Kelch- und Kronblätter",
+            "vor den Blättern"
+          ],
+          "verwechslung": null,
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 3,
+          "wo": "Zweige an Waldrand und Bach",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4",
+            "q5"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Eschen-Flügelnüsse",
+          "typ": "frucht",
+          "kurz": "Längliche, einseitig geflügelte Nüsse in hängenden Büscheln.",
+          "erkennen": [
+            "anfangs grün, reif gelbbraun",
+            "reif August–Oktober",
+            "fallen den ganzen Winter über"
+          ],
+          "verwechslung": "Ahorn: Früchte paarweise verbunden.",
+          "monate": [
+            1,
+            2,
+            3,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Weg unter Eschen",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Eschenrinde",
+          "typ": "rinde",
+          "kurz": "Jung hell und glatt, später grobe netzartige Borke.",
+          "erkennen": [
+            "junge Rinde auffallend hell und glatt",
+            "alt: vom Stammfuß her netzartige Borke"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Eschenstämme am Weg",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q3"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Esche (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Hoher Baum mit grober, sparriger Verzweigung.",
+          "erkennen": [
+            "bis über 40 m",
+            "sehr grob verzweigt, sparrige Krone",
+            "silbrige bis aschgraue Rinde"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Bachauen, Erlen-Eschenwälder",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Erlen- und Eschenwälder an Fließgewässern (LRT 91E0*), Stand 11/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26038"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Feuchter Eichen- und Hainbuchen-Mischwald (LRT 9160), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25853"
+        },
+        "q3": {
+          "titel": "Baum des Jahres Stiftung: Die Gemeine Esche – Baum des Jahres 2001 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2001_Gemeine_Esche.pdf"
+        },
+        "q4": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Fraxinus excelsior / Gemeine Esche – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/33091.html"
+        },
+        "q5": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        }
+      },
+      "offen": [
+        "Keimlinge nicht beschrieben (nur, dass Samen erst nach zwei Wintern keimen).",
+        "Eschentriebsterben nicht näher recherchiert."
+      ]
+    },
+    {
+      "artId": "winterlinde",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Winterlindenblatt",
+          "typ": "blatt",
+          "kurz": "Kleines, schief herzförmiges Blatt mit rostroten Bärtchen unten.",
+          "erkennen": [
+            "5–7 cm lang, herzförmig, kurze Spitze",
+            "unten blaugrün, fast kahl",
+            "rostrote Bärtchen in den Aderwinkeln",
+            "Blattstiel kahl"
+          ],
+          "verwechslung": "Sommerlinde: Blatt größer, beiderseits grün, weich behaart, weiße Bärtchen.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Wälder, Dorfplätze, Alleen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Goldgelbe Herbstfärbung.",
+          "erkennen": [
+            "goldgelb im Oktober"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q6"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Lindenknospe",
+          "typ": "knospe",
+          "kurz": "Stumpfe Knospen mit meist nur zwei sichtbaren Schuppen.",
+          "erkennen": [
+            "meist 2 Knospenschuppen, die untere reicht über die Mitte",
+            "lichtseitig rot",
+            "steht vom Zweig ab"
+          ],
+          "verwechslung": "Sommerlinde: meist 3 Schuppen, die unterste reicht nicht zur Mitte.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige, Stockausschläge am Stamm",
+          "schutz": null,
+          "quellen": [
+            "q5"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Lindenblüte",
+          "typ": "bluete",
+          "kurz": "Gelblichweiße, nach Honig duftende Blüten in Büscheln.",
+          "erkennen": [
+            "5–12 Blüten pro Blütenstand",
+            "duftet bis 200 m weit",
+            "blüht etwa zwei Wochen nach der Sommerlinde"
+          ],
+          "verwechslung": "Sommerlinde: nur 2–5 Blüten, blüht früher.",
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 2,
+          "wo": "Alleen, Dorflinden, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q7",
+            "q4"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Lindennüsschen mit Flugblatt",
+          "typ": "frucht",
+          "kurz": "Kleine gestielte Nüsschen an einem länglichen Flugblatt.",
+          "erkennen": [
+            "Nüsschen klein, dünnschalig, zerdrückbar",
+            "2–3 schwache Rippen",
+            "Flugblatt zungenförmig",
+            "bleiben bis in den Winter hängen"
+          ],
+          "verwechslung": "Sommerlinde: Nüsse größer, hart, 4–5 kräftige Rippen.",
+          "monate": [
+            1,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Weg unter Linden",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q7"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Lindenrinde",
+          "typ": "rinde",
+          "kurz": "Jung glatt und grau, alt flache Netzborke.",
+          "erkennen": [
+            "junge Rinde glatt, grau",
+            "alt braungrau mit flachen Furchen und Leisten (Netzborke)"
+          ],
+          "verwechslung": "Sommerlinde: Borke gröber.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Lindenstämme",
+          "schutz": null,
+          "quellen": [
+            "q8",
+            "q6"
+          ]
+        },
+        {
+          "id": "stammknollen",
+          "name": "Stammknollen und Stockausschläge",
+          "typ": "sonstiges",
+          "kurz": "Knollen am Stamm mit dichten Büscheln junger Triebe.",
+          "erkennen": [
+            "Maserknollen um alte Astansätze",
+            "dichte Zweigbüschel aus schlafenden Knospen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "alte Linden",
+          "schutz": null,
+          "quellen": [
+            "q6"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Winterlinde (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Großer Baum mit herzförmiger Krone und hängenden „Schleppen“.",
+          "erkennen": [
+            "bis etwa 30 m",
+            "Krone herzförmig",
+            "untere Seitenäste hängen schwingend"
+          ],
+          "verwechslung": "Holländische Linde: gepflanzte Kreuzung, Merkmale gemischt.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Wälder, Dörfer, Alleen",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q4"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Feuchter Eichen- und Hainbuchen-Mischwald (LRT 9160), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25853"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Waldmeister-Buchenwälder (LRT 9130), Teil 2",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26033"
+        },
+        "q3": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Derzeitige Verbreitung",
+          "url": "https://www.uni-goettingen.de/de/derzeitige+verbreitung/41681.html"
+        },
+        "q4": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q5": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Morphologie der Knospen, Blätter und jungen Triebe",
+          "url": "https://www.uni-goettingen.de/de/morphologie+der+knospen%2c+bl%c3%a4tter+und+jungen+triebe/41753.html"
+        },
+        "q6": {
+          "titel": "Baum des Jahres Stiftung: Die Winter-Linde – Baum des Jahres 2016 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2016_Winterlinde-1.pdf"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Morphologie der Blüten und Früchte",
+          "url": "https://www.uni-goettingen.de/de/morphologie+der+bl%c3%bcten+und+fr%c3%bcchte/41754.html"
+        },
+        "q8": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Morphologie der Rinde und des Holzes",
+          "url": "https://www.uni-goettingen.de/de/morphologie+der+rinde+und+des+holzes/41755.html"
+        }
+      },
+      "offen": [
+        "Ob Winterlinden in der Lüneburger Heide von Natur aus vorkommen, ist nicht klar belegt (NLWKN: Hauptbaumart „in SO-Niedersachsen“; Linden-Schwerpunkt bei Gifhorn, ohne Artangabe).",
+        "In Städten und an Straßen oft gepflanzte Hybriden (Holländische Linde), schwer zu bestimmen."
+      ]
+    },
+    {
+      "artId": "sommerlinde",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Sommerlindenblatt",
+          "typ": "blatt",
+          "kurz": "Großes, schief herzförmiges, weich behaartes Blatt mit weißen Bärtchen.",
+          "erkennen": [
+            "7–12 cm lang",
+            "beiderseits gleich grün, weich behaart",
+            "weiße Bärtchen in den Aderwinkeln",
+            "Blattstiel oft behaart"
+          ],
+          "verwechslung": "Winterlinde: kleiner, unten blaugrün, rostrote Bärtchen, Stiel kahl.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Dorflinden, Alleen, Parks",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4",
+            "q2"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Sommerlindenknospe",
+          "typ": "knospe",
+          "kurz": "Knospe mit meist drei sichtbaren Schuppen.",
+          "erkennen": [
+            "meist 3 Knospenschuppen",
+            "unterste reicht nicht bis zur Knospenmitte",
+            "schmal- bis breit-eiförmig"
+          ],
+          "verwechslung": "Winterlinde: meist nur 2 Schuppen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Zweige junger Linden",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Sommerlindenblüte",
+          "typ": "bluete",
+          "kurz": "Wenige, große, duftende Blüten am Flugblatt.",
+          "erkennen": [
+            "meist nur 2–5 Blüten pro Blütenstand",
+            "gelblichweiß, duftend",
+            "blüht etwa 2 Wochen vor der Winterlinde"
+          ],
+          "verwechslung": "Winterlinde: 5–12 Blüten, blüht später.",
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 2,
+          "wo": "Dorflinden, Alleen",
+          "schutz": null,
+          "quellen": [
+            "q5",
+            "q6",
+            "q2"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Harte Lindennuss",
+          "typ": "frucht",
+          "kurz": "Kugelige, verholzte, samtige Nuss mit 4–5 kräftigen Rippen.",
+          "erkennen": [
+            "größer und hart, nicht zerdrückbar",
+            "4–5 kräftige Längsrippen",
+            "samtig behaart",
+            "fällt im Herbst und Winter"
+          ],
+          "verwechslung": "Winterlinde: kleiner, dünnschalig, zerdrückbar.",
+          "monate": [
+            1,
+            2,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Weg unter Linden",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q5",
+            "q2"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Sommerlindenrinde",
+          "typ": "rinde",
+          "kurz": "Dunkelgraue Rinde mit feinen Längsfurchen, alt gröbere Netzborke.",
+          "erkennen": [
+            "jung glatt, graugrün mit hellen Streifen",
+            "später dunkelgrau, feine Längsfurchen, netzige Leisten",
+            "Borke gröber als bei der Winterlinde"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "alte Linden",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q7"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Sommerlinde (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Sehr großer Baum mit breiter, tief herabhängender Krone.",
+          "erkennen": [
+            "bis 40 m hoch",
+            "oft sehr dicker Stamm – die dicksten Linden Deutschlands sind Sommerlinden",
+            "klassische Dorflinde"
+          ],
+          "verwechslung": "Holländische Linde: häufig gepflanzte Kreuzung, Merkmale gemischt.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "Dorfplätze, Höfe, Alleen",
+          "schutz": null,
+          "quellen": [
+            "q6",
+            "q2",
+            "q8"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Schlucht- und Hangmischwälder (LRT 9180*), Teil 3",
+          "url": "https://www.nlwkn.niedersachsen.de/download/50158"
+        },
+        "q2": {
+          "titel": "Baum des Jahres Stiftung: Die Winter-Linde – Baum des Jahres 2016 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2016_Winterlinde-1.pdf"
+        },
+        "q3": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q4": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Morphologie der Knospen, Blätter und jungen Triebe",
+          "url": "https://www.uni-goettingen.de/de/morphologie+der+knospen%2c+bl%c3%a4tter+und+jungen+triebe/41753.html"
+        },
+        "q5": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Morphologie der Blüten und Früchte",
+          "url": "https://www.uni-goettingen.de/de/morphologie+der+bl%c3%bcten+und+fr%c3%bcchte/41754.html"
+        },
+        "q6": {
+          "titel": "Baum des Jahres Stiftung: Die Sommerlinde – Baum des Jahres 1991 (PDF)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/1991_Sommerlinde.pdf"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Morphologie der Rinde und des Holzes",
+          "url": "https://www.uni-goettingen.de/de/morphologie+der+rinde+und+des+holzes/41755.html"
+        },
+        "q8": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Linden – Derzeitige Verbreitung",
+          "url": "https://www.uni-goettingen.de/de/derzeitige+verbreitung/41681.html"
+        }
+      },
+      "offen": [
+        "Herbstfärbung nicht eigens belegt.",
+        "In der Lüneburger Heide sind Sommerlinden vermutlich gepflanzt (Dorflinden); natürliches Vorkommen nicht belegt."
+      ]
+    },
+    {
+      "artId": "bergulme",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Bergulmenblatt",
+          "typ": "blatt",
+          "kurz": "Großes, raues, schiefes Blatt mit doppelt gesägtem Rand, oft dreizipflig.",
+          "erkennen": [
+            "5–16 cm lang, im oberen Drittel am breitesten",
+            "Grund schief (asymmetrisch)",
+            "Oberseite rau",
+            "oft 3 (bis 6) Spitzen",
+            "14–20 Seitenaderpaare"
+          ],
+          "verwechslung": "Feldulme: Oberseite glatt glänzend, nur eine Spitze. Flatterulme: Seitenadern meist nicht gegabelt.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 3,
+          "wo": "feuchte Laubwälder, Bachtäler, Parks",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5",
+            "q6",
+            "q7"
+          ]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Leuchtend gelbe Herbstfärbung.",
+          "erkennen": [
+            "leuchtend gelb"
+          ],
+          "verwechslung": null,
+          "monate": [
+            10,
+            11
+          ],
+          "findbarkeit": 3,
+          "wo": "unter Ulmen",
+          "schutz": null,
+          "quellen": [
+            "q7"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Ulmenblüte",
+          "typ": "bluete",
+          "kurz": "Rötlich-violette Blütenknäuel lange vor dem Laub.",
+          "erkennen": [
+            "kugelige Knäuel",
+            "rötlich-violett",
+            "sehr kurz gestielt",
+            "blüht Februar bis April"
+          ],
+          "verwechslung": null,
+          "monate": [
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 3,
+          "wo": "Zweige an Waldrand und Park",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q7",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "frucht",
+          "name": "Ulmenfrucht",
+          "typ": "frucht",
+          "kurz": "Rundliche, dünn geflügelte Frucht mit dem Samen in der Mitte.",
+          "erkennen": [
+            "eiförmig bis rundlich, grünlich",
+            "Samen in der Mitte des Flügels",
+            "Flügelrand nicht bewimpert",
+            "bis Mai/Juni"
+          ],
+          "verwechslung": "Flatterulme: Früchte lang gestielt, Rand bewimpert. Feldulme: Samen nicht in der Mitte.",
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 3,
+          "wo": "Weg unter Ulmen",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q7",
+            "q6"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Ulmenknospe",
+          "typ": "knospe",
+          "kurz": "Kugelige, vielschuppige Knospen, liegen am Zweig an.",
+          "erkennen": [
+            "kugelig, vielschuppig",
+            "nicht abstehend",
+            "Schuppenspitzen ohne dunklen Rand",
+            "junge Zweige borstig behaart"
+          ],
+          "verwechslung": "Flatterulme: Schuppenspitzen dunkel berandet. Feldulme: Knospen abstehend.",
+          "monate": [
+            1,
+            2,
+            3,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Zweige",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q6",
+            "q5"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Ulmenrinde",
+          "typ": "rinde",
+          "kurz": "Lange glatt, später längsrissige, graubraune Borke.",
+          "erkennen": [
+            "jung glatt, silbergrau, bräunlich oder grün",
+            "später längsrissig, grau- bis dunkelbraun"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Ulmenstämme",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q7"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Bergulme (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Großer Baum mit runder Krone; heute durch das Ulmensterben selten groß.",
+          "erkennen": [
+            "bis 30–40 m hoch",
+            "Krone meist regelmäßig rund",
+            "oft einzeln im Wald"
+          ],
+          "verwechslung": "Ulmensterben: absterbende Zweige und Äste, vertrocknete Krone – verbreitet durch den Ulmensplintkäfer.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Bachtäler, Parks, Hangwälder",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q5"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Erlen- und Eschenwälder an Fließgewässern (LRT 91E0*), Stand 11/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26038"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Waldmeister-Buchenwälder (LRT 9130), Teil 2",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26033"
+        },
+        "q3": {
+          "titel": "NLWKN Vollzugshinweise: Schlucht- und Hangmischwälder (LRT 9180*), Teil 3",
+          "url": "https://www.nlwkn.niedersachsen.de/download/50158"
+        },
+        "q4": {
+          "titel": "Baum des Jahres Stiftung: Die Bergulme – Baum des Jahres 1992 (PDF)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/1992_Bergulme.pdf"
+        },
+        "q5": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q6": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Merkmale zur Unterscheidung von Berg-, Feld- und Flatterulme",
+          "url": "https://www.uni-goettingen.de/de/56387.html"
+        },
+        "q7": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Berg-, Flatter- und Feldulme (Merkmale, Blüte, Früchte)",
+          "url": "https://uni-goettingen.de/de/56392.html"
+        }
+      },
+      "offen": [
+        "Wie häufig in der Lüneburger Heide, nicht belegt; NLWKN nennt die Bergulme nur „im Bergland“.",
+        "Fraßbilder des Ulmensplintkäfers unter der Rinde nicht eigens als Fundstück belegt."
+      ]
+    },
+    {
+      "artId": "schwarzerle",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Erlenblatt",
+          "typ": "blatt",
+          "kurz": "Rundliches Blatt, vorne stumpf oder eingekerbt – „die Spitze fehlt“.",
+          "erkennen": [
+            "rundlich bis verkehrt-eiförmig",
+            "vorne stumpf oder eingebuchtet",
+            "unten gelbbraune Bärtchen in den Aderwinkeln",
+            "oben kahl, 4–7 Seitennerven"
+          ],
+          "verwechslung": "Grauerle: Blatt spitz, unten grau behaart, 10–15 Seitennerven.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 1,
+          "wo": "Bach- und Grabenränder, feuchte Wege",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4",
+            "q5",
+            "q6"
+          ]
+        },
+        {
+          "id": "laubfall",
+          "name": "Grüner Laubfall",
+          "typ": "blatt",
+          "kurz": "Erlenblätter fallen grün ab, keine Herbstfärbung.",
+          "erkennen": [
+            "schon im Frühsommer fallen untere Blätter grün",
+            "im Herbst keine Färbung",
+            "Laub verrottet bis zum Frühjahr"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "Weg unter Erlen",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5"
+          ]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Erlenkätzchen",
+          "typ": "bluete",
+          "kurz": "Lange violette männliche und kleine weibliche Kätzchen, frei überwinternd.",
+          "erkennen": [
+            "männliche 5–10 cm, hängend, violett",
+            "weibliche nur etwa 0,5 cm, aufrecht",
+            "schon ab Frühsommer des Vorjahres sichtbar",
+            "blüht sehr früh, März–April"
+          ],
+          "verwechslung": "Hasel: Blätter und Nüsse anders, keine Zapfen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Bachufer, Gräben",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5",
+            "q4"
+          ]
+        },
+        {
+          "id": "zapfen",
+          "name": "Erlenzapfen",
+          "typ": "frucht",
+          "kurz": "Kleine verholzte „Zapfen“ – einmalig bei einem Laubbaum.",
+          "erkennen": [
+            "eiförmig, holzig, braun bis schwarz",
+            "bleiben sehr lange am Baum",
+            "Samen fallen von Herbst bis Frühjahr"
+          ],
+          "verwechslung": "Nadelbaumzapfen: viel größer, an Nadelbäumen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Zweige und Boden am Bach",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5"
+          ]
+        },
+        {
+          "id": "rinde-jung",
+          "name": "Rinde junger Erlen",
+          "typ": "rinde",
+          "kurz": "Glatte, graugrüne Rinde mit großen Korkporen.",
+          "erkennen": [
+            "glatt, graugrün",
+            "auffallend große Lentizellen (Korkporen)"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "junge Erlen am Wasser",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q3"
+          ]
+        },
+        {
+          "id": "rinde-alt",
+          "name": "Borke alter Erlen",
+          "typ": "rinde",
+          "kurz": "Dunkelgraue bis schwarze, zerklüftete Schuppenborke.",
+          "erkennen": [
+            "dunkelgrau bis schwarz",
+            "längsrissig zerklüftet",
+            "namensgebend: „Schwarz“-Erle"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Bachufer, Erlenbruch am Weg",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q5",
+            "q4"
+          ]
+        },
+        {
+          "id": "rotes-holz",
+          "name": "Rote Schnittfläche",
+          "typ": "sonstiges",
+          "kurz": "Frisch gesägtes Erlenholz färbt sich auffällig rot.",
+          "erkennen": [
+            "frische Schnittfläche wird blutrot",
+            "Farbe entsteht durch Luft-Sauerstoff"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "frische Holzstapel am Waldweg",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Schwarzerle (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Laubbaum mit geradem, bis in die Spitze durchgehendem Stamm.",
+          "erkennen": [
+            "Stamm gerade bis in die Krone („Fichte der Täler“)",
+            "bis 25–35 m",
+            "wächst an Bächen und in nassen Bruchwäldern"
+          ],
+          "verwechslung": "Erlensterben (Phytophthora): schüttere Krone, schwarzbraune Flecken am Stammfuß.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Bäche, Gräben, Erlenbrüche",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "Landkreis Heidekreis/Harburg: Verordnung über das Naturschutzgebiet „Lüneburger Heide“ vom 18.12.2020 (über NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/183716"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Erlen- und Eschenwälder an Fließgewässern (LRT 91E0*), Stand 11/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26038"
+        },
+        "q3": {
+          "titel": "Baum des Jahres Stiftung: Die Schwarz-Erle – Baum des Jahres 2003 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2003_Schwarzerle.pdf"
+        },
+        "q4": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        },
+        "q5": {
+          "titel": "Forstbotanischer Garten Universität Göttingen: Alnus glutinosa / Schwarz-Erle – Biologie und Ökologie",
+          "url": "https://www.uni-goettingen.de/de/biologie+und+%c3%96kologie/11024.html"
+        },
+        "q6": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik Silber – Alnus incana (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/prog/5001/0/8690/Alnus_incana.pdf"
+        }
+      },
+      "offen": [
+        "Knospen nicht eigens belegt."
+      ]
+    },
+    {
+      "artId": "grauerle",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Grauerlenblatt",
+          "typ": "blatt",
+          "kurz": "Eiförmiges, spitzes Blatt, unterseits grau und weich behaart.",
+          "erkennen": [
+            "eiförmig, zugespitzt",
+            "Rand scharf doppelt gesägt",
+            "unten grau und weichhaarig",
+            "meist 10–15 Seitennerven"
+          ],
+          "verwechslung": "Schwarzerle: Blatt rundlich, vorne stumpf, 4–7 Nerven.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 4,
+          "wo": "Bach- und Flussufer",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q2"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Grauerlenrinde",
+          "typ": "rinde",
+          "kurz": "Glatte, graue Rinde – auch im Alter.",
+          "erkennen": [
+            "glatt und grau",
+            "bleibt auch im Alter glatt"
+          ],
+          "verwechslung": "Schwarzerle: alt dunkle, zerklüftete Borke.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Uferböschungen",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q2"
+          ]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Grauerlenkätzchen",
+          "typ": "bluete",
+          "kurz": "Windbestäubte Kätzchen an zweijährigen Zweigen.",
+          "erkennen": [
+            "männliche und weibliche Blüten am selben Baum",
+            "blüht März bis April"
+          ],
+          "verwechslung": "Schwarzerle: sehr ähnliche Kätzchen – Blatt und Rinde prüfen.",
+          "monate": [
+            3,
+            4
+          ],
+          "findbarkeit": 4,
+          "wo": "Ufergehölze",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "zweig",
+          "name": "Junger Zweig",
+          "typ": "knospe",
+          "kurz": "Junge Zweige sind flaumig behaart.",
+          "erkennen": [
+            "flaumig behaart"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Ufergehölze",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Grauerle (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Oft mehrstämmiger, bis 20–25 m hoher Baum an Bächen.",
+          "erkennen": [
+            "oft mehrstämmig",
+            "meist unter 50 Jahre alt",
+            "bildet Wurzelbrut"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 4,
+          "wo": "Bach- und Flussufer, Hangbefestigungen",
+          "schutz": null,
+          "quellen": [
+            "q2",
+            "q3"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "NLWKN Vollzugshinweise: Erlen- und Eschenwälder an Fließgewässern (LRT 91E0*), Stand 11/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26038"
+        },
+        "q2": {
+          "titel": "Bayerisches Landesamt für Umwelt: Grau-Erle (Alnus incana), Auen-Steckbrief (PDF)",
+          "url": "https://www.lfu.bayern.de/wasser/auen/grundlagen/auen_naturhaushalt/doc/grau_erle.pdf"
+        },
+        "q3": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik Silber – Alnus incana (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/prog/5001/0/8690/Alnus_incana.pdf"
+        }
+      },
+      "offen": [
+        "Fruchtzapfen der Grauerle in den Quellen nicht beschrieben (nur „Früchte mit schmalem Flügelrand“).",
+        "Ob Grauerlen in der Heide nur gepflanzt sind (z. B. Uferbefestigung), nicht belegt; NLWKN: Heimat in Niedersachsen nicht geklärt."
+      ]
+    },
+    {
+      "artId": "sandbirke",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Birkenblatt",
+          "typ": "blatt",
+          "kurz": "Rautenförmiges bis dreieckiges Blatt mit lang ausgezogener Spitze.",
+          "erkennen": [
+            "rautenförmig, dreieckig",
+            "doppelt gesägt",
+            "lange, ausgezogene Spitze",
+            "unten fast kahl"
+          ],
+          "verwechslung": "Moorbirke: Zähne ohne einwärts gebogene Spitzchen, Triebe behaart.",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Heide, Waldränder, Wegränder",
+          "schutz": null,
+          "quellen": [
+            "q4",
+            "q3"
+          ]
+        },
+        {
+          "id": "rinde-weiss",
+          "name": "Weiße Birkenrinde",
+          "typ": "rinde",
+          "kurz": "Leuchtend weiße Rinde, die sich in waagerechten Streifen abringelt.",
+          "erkennen": [
+            "schneeweiß und glänzend",
+            "löst sich waagerecht in Ringeln",
+            "darunter wieder weiße Schicht"
+          ],
+          "verwechslung": "Moorbirke: Rinde meist weniger hell und glänzend.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "überall in der Heide",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "rinde-alt",
+          "name": "Dunkler Stammfuß",
+          "typ": "rinde",
+          "kurz": "Am unteren Stamm alter Birken oft dunkle, rissige Rinde.",
+          "erkennen": [
+            "im unteren Teil oft dunkel",
+            "oben weißlich und glatt"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "alte Birken am Weg",
+          "schutz": null,
+          "quellen": [
+            "q4"
+          ]
+        },
+        {
+          "id": "zweig",
+          "name": "Warziger Zweig",
+          "typ": "knospe",
+          "kurz": "Junge Zweige kahl, mit kleinen klebrigen Harzdrüsen („Warzen“).",
+          "erkennen": [
+            "kahl",
+            "kleine klebrige Harzwarzen",
+            "Zweigspitzen hängen über"
+          ],
+          "verwechslung": "Moorbirke: Triebe behaart, ohne Harzdrüsen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "junge Birken, tief hängende Zweige",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Birkenkätzchen",
+          "typ": "bluete",
+          "kurz": "Hängende männliche und zuerst aufrechte weibliche Kätzchen im Frühling.",
+          "erkennen": [
+            "männliche hängen herab",
+            "weibliche zur Blüte aufrecht, später hängend",
+            "Blüte im April"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "Birken am Weg",
+          "schutz": "Birkenpollen fliegen weit und lösen Heuschnupfen aus.",
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        },
+        {
+          "id": "fruechte",
+          "name": "Birken-Flügelnüsschen",
+          "typ": "samen",
+          "kurz": "Winzige Nüsschen mit zwei Flügeln, oft massenhaft.",
+          "erkennen": [
+            "sehr klein, zwei Flügel",
+            "fallen ab August bis in den Herbst",
+            "oft in großen Mengen auf Wegen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "Wege, Pfützenränder unter Birken",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "keimling",
+          "name": "Birkenkeimling",
+          "typ": "keimling",
+          "kurz": "Winzige junge Birken, vor allem im Frühjahr.",
+          "erkennen": [
+            "die meisten keimen erst im Frühjahr",
+            "oft viele auf offenem Boden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "offener Sand, Wegränder, Lichtungen",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "hexenbesen",
+          "name": "Hexenbesen",
+          "typ": "sonstiges",
+          "kurz": "Dichtes Zweignest in der Krone, durch einen Pilz verursacht.",
+          "erkennen": [
+            "viele kleine, dicht verzweigte Zweige",
+            "sieht aus wie ein Besen in der Krone"
+          ],
+          "verwechslung": "Vogelnest: aus eingebautem Material, nicht aus lebenden Zweigen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "Birkenkronen am Weg (im Winter gut sichtbar)",
+          "schutz": null,
+          "quellen": [
+            "q3"
+          ]
+        },
+        {
+          "id": "baum",
+          "name": "Sandbirke (ganzer Baum)",
+          "typ": "ganz",
+          "kurz": "Schlanker Baum mit weißem Stamm und überhängenden Zweigspitzen.",
+          "erkennen": [
+            "bis 25–30 m",
+            "lichte Krone, Zweigspitzen hängen mähnenartig",
+            "Pionierbaum auf Sand und Heide"
+          ],
+          "verwechslung": "Moorbirke: oft auf nasseren Böden (nicht sicher), junge Triebe behaart ohne Harzwarzen.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Heide, Kiefern- und Eichen-Birkenwälder",
+          "schutz": null,
+          "quellen": [
+            "q3",
+            "q4"
+          ]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "Landkreis Heidekreis/Harburg: Verordnung über das Naturschutzgebiet „Lüneburger Heide“ vom 18.12.2020 (über NLWKN)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/183716"
+        },
+        "q2": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (LRT 9190), Stand 10/2020",
+          "url": "https://www.nlwkn.niedersachsen.de/download/26036"
+        },
+        "q3": {
+          "titel": "Baum des Jahres Stiftung: Die Sandbirke – Baum des Jahres 2000 (PDF, Text A. Roloff)",
+          "url": "https://baum-des-jahres.de/wp-content/uploads/2020/10/2000_Sandbirke.pdf"
+        },
+        "q4": {
+          "titel": "Universität Bayreuth (BayCEER): Qualifizierung Feldbotanik – Artensteckbriefe Bronze Nordbayern v3 (PDF)",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/forschung/5001/Artensteckbriefe_Bronze_Nordbayern_v3.pdf"
+        }
+      },
+      "offen": [
+        "Herbstfärbung nicht eigens belegt.",
+        "Moorbirke-Abgrenzung im Gelände schwierig; es gibt (seltene) Bastarde."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1750 @@
+{
+  "gruppe": "baeume-b",
+  "arten": [
+    {
+      "artId": "moorbirke",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q3",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Eiförmiges Birkenblatt mit rundem Grund, unten behaart.",
+          "erkennen": [
+            "Eiförmig, kurze Spitze, Blattgrund abgerundet bis fast herzförmig",
+            "Rand meist einfach gesägt",
+            "Unterseite und Blattstiel behaart, oft mit Haarbüscheln in den Aderwinkeln"
+          ],
+          "verwechslung": "Sandbirke (Hängebirke): Blatt rautenförmig, lang zugespitzt, Grund gerade abgeschnitten, kahl und meist doppelt gesägt.",
+          "monate": [5, 6, 7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "An Moorrändern und in feuchten Birkenwäldern am Wegrand",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "winterzweig",
+          "name": "Junger Zweig",
+          "typ": "knospe",
+          "kurz": "Junge Zweige sind flaumig behaart – daher auch der Name Haarbirke.",
+          "erkennen": [
+            "Junge Triebe samtig bis locker behaart",
+            "Keine oder nur wenige helle Warzen",
+            "Knospen länglich-eiförmig mit braunen, unten oft grünlichen Schuppen"
+          ],
+          "verwechslung": "Sandbirke: junge Zweige kahl, mit vielen hellen Harzwarzen, fühlen sich beim Darüberstreichen rau an.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Niedrige Zweige junger Birken am Wegrand",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Matt weiß bis grau, bleibt bis ins Alter glatt.",
+          "erkennen": [
+            "Nicht so hell wie bei der Sandbirke, matt weiß bis grau, selten bräunlich",
+            "Kurze, schmale waagrechte Korkbänder",
+            "Blättert waagrecht in dünnen Streifen ab, kaum dunkle Borke"
+          ],
+          "verwechslung": "Sandbirke: hellweiße Rinde, am unteren Stamm dunkle, fast schwarze, tief längsrissige Borke.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Stämme am Moorrand und in Bruchwäldern",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Blütenkätzchen",
+          "typ": "bluete",
+          "kurz": "Hängende männliche und aufrechte grüne weibliche Kätzchen zum Laubaustrieb.",
+          "erkennen": [
+            "Männliche Kätzchen länglich, zur Blüte schlaff hängend",
+            "Weibliche Kätzchen 2–4 cm, grünlich, anfangs aufrecht",
+            "Blüte mit dem Laubaustrieb"
+          ],
+          "verwechslung": "Sandbirke blüht ähnlich; sicher nur über behaarte Zweige und Blattform.",
+          "monate": [4, 5],
+          "findbarkeit": 3,
+          "wo": "Birken am Moorrand",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "fruchtkaetzchen",
+          "name": "Fruchtkätzchen und Flügelnüsschen",
+          "typ": "frucht",
+          "kurz": "Walzenförmige Fruchtstände, die in Schuppen und winzige Flügelnüsschen zerfallen.",
+          "erkennen": [
+            "Hängende, walzenförmige „Zäpfchen“",
+            "Zerfallen in dreilappige braune Schuppen und geflügelte Nüsschen",
+            "Im Winter hängen oft noch alte Fruchtkätzchen neben den geschlossenen männlichen Kätzchen"
+          ],
+          "verwechslung": "Sandbirke hat ähnliche Fruchtstände.",
+          "monate": [8, 9, 10, 11, 12, 1, 2, 3],
+          "findbarkeit": 2,
+          "wo": "Am Zweig; Schuppen und Nüsschen auf Weg oder Schnee",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Birke mit steif aufrechten oder abstehenden, nicht hängenden Zweigen auf nassem Boden.",
+          "erkennen": [
+            "Zweigspitzen hängen nicht über",
+            "Wächst auf feuchten bis nassen, nährstoffarmen Sand- oder Torfböden",
+            "Oft mehrstämmig"
+          ],
+          "verwechslung": "Sandbirke: Zweigspitzen peitschenförmig überhängend; wächst auch trocken.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Moorränder, Bruchwälder, nasse Senken",
+          "schutz": "Moorwälder sind gesetzlich geschützte Biotope (§ 30 BNatSchG). Auf den Wegen bleiben, Moor nicht betreten.",
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "LWF Wissen 87: Die Moorbirke – Verbreitung, Variabilität und Ökologie (Bayerische Landesanstalt für Wald und Forstwirtschaft)",
+          "url": "https://www.lwf.bayern.de/mam/cms04/waldbau-bergwald/dateien/die_moorbirke_verbreitung__variabilit%C3%A4t_und_%C3%96kologie_-_lwf_wissen_87.pdf"
+        },
+        "q2": {
+          "titel": "Müller-Kroehling (2019): Moorbirke in Mooren. ANLiegen Natur 41(1), Bayerische Akademie für Naturschutz",
+          "url": "https://www.anl.bayern.de/publikationen/anliegen/doc/an41101mueller_kroehling_2019_moorbirke.pdf"
+        },
+        "q3": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (9190), Stand 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/26036"
+        }
+      },
+      "offen": [
+        "Herbstfärbung nicht eigens belegt.",
+        "Lüneburger Heide: LWF nennt das nordwestdeutsche Tiefland als Verbreitungsschwerpunkt, NLWKN nennt die Moorbirke als typische Baumart der bodensauren Eichenwälder (größte Vorkommen in der Lüneburger Heide). Genaue Moorbirken-Vorkommen im Naturraum nicht einzeln geprüft."
+      ]
+    },
+    {
+      "artId": "vogelbeere",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q4",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Fiederblatt",
+          "typ": "blatt",
+          "kurz": "Unpaarig gefiedertes Blatt, ähnlich wie bei der Esche.",
+          "erkennen": [
+            "Wechselständig, unpaarig gefiedert",
+            "13–17 Teilblättchen, je 7–8 cm, Rand gesägt",
+            "Oberseits dunkelgrün, unterseits graugrün"
+          ],
+          "verwechslung": "Esche: daher der Name Eberesche („falsche Esche“). Die Vogelbeere hat gesägte, kurz gestielte Teilblättchen.",
+          "monate": [5, 6, 7, 8, 9],
+          "findbarkeit": 1,
+          "wo": "Wald- und Wegränder, lichte Kiefern- und Eichenwälder",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Im Herbst färben sich die Fiederblätter über Gelb zu tiefem Rot.",
+          "erkennen": ["Gefiedertes Blatt in Gelb bis tiefem Rot"],
+          "verwechslung": null,
+          "monate": [10, 11],
+          "findbarkeit": 1,
+          "wo": "Am Baum und auf dem Weg",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blütendolde",
+          "typ": "bluete",
+          "kurz": "Große, gewölbte, gelblich-weiße Blütenstände, die etwas unangenehm riechen.",
+          "erkennen": [
+            "Aufrechte, gewölbte Trugdolde aus 200–300 Einzelblüten",
+            "Gelblich- bis grünlich-weiß",
+            "Viele Bienen und Fliegen"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6],
+          "findbarkeit": 2,
+          "wo": "Waldränder und Lichtungen",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "beeren",
+          "name": "Vogelbeeren",
+          "typ": "frucht",
+          "kurz": "Hängende Büschel scharlachroter, etwa 1 cm großer Früchte.",
+          "erkennen": [
+            "Kugelig, etwa 1 cm, erst grünlich, dann gelblich, reif scharlachrot",
+            "In hängenden Fruchtständen",
+            "Meist drei spitze Samen im Inneren"
+          ],
+          "verwechslung": null,
+          "monate": [8, 9, 10, 11],
+          "findbarkeit": 1,
+          "wo": "Am Baum am Wald- und Wegrand; im Winter oft schon von Vögeln gefressen",
+          "schutz": "Nur fotografieren, nicht pflücken – über 60 Vogelarten fressen die Beeren.",
+          "quellen": ["q1", "q3"]
+        },
+        {
+          "id": "winterknospe",
+          "name": "Winterknospe",
+          "typ": "knospe",
+          "kurz": "Große, braune, behaarte Knospe, die Endknospe oft gekrümmt.",
+          "erkennen": [
+            "Knospen groß, braun und behaart",
+            "Endknospe an der Zweigspitze häufig gekrümmt",
+            "Junge Zweige filzig, später kahl und aschgrau"
+          ],
+          "verwechslung": null,
+          "monate": [11, 12, 1, 2, 3],
+          "findbarkeit": 2,
+          "wo": "Junge Bäume am Wegrand",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Glatte, silber- bis gelblichgraue Rinde mit Korkporen.",
+          "erkennen": [
+            "Glatt, silbergrau bis gelblichgrau",
+            "Unterbrochen von Korkporen",
+            "Im Alter am Stammfuß schwarzgraue, kräftige Borke"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Stämme am Wegrand",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Schlanker, kleiner Baum oder Großstrauch mit lockerer, lichter Krone.",
+          "erkennen": [
+            "Meist 15–20 m, oft auch mehrstämmig",
+            "Lockere, lichtdurchlässige Krone",
+            "Häufig an Wald- und Wegrändern"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Wald- und Wegränder, Lichtungen, Moorränder",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW Faltblatt: Die Eberesche/Vogelbeere (Schutzgemeinschaft Deutscher Wald, 2021)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Eberesche.pdf"
+        },
+        "q2": {
+          "titel": "Universität Innsbruck: Steckbrief Sorbus aucuparia, Eberesche",
+          "url": "https://uibk.ac.at/media/filer_public/0e/73/0e731dfa-8fe8-498e-8de7-33dd177e91b9/sorbus_aucuparia.docx"
+        },
+        "q3": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Vogelbeere oder Eberesche",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/EBERESCHE_SDW-Steckbrief.pdf"
+        },
+        "q4": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (9190), Stand 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/26036"
+        }
+      },
+      "offen": [
+        "Keine belegte Verwechslungsart für die Blüte gefunden.",
+        "Monate der Fruchtreife: SDW sagt „Spätsommer“ und „bleiben im Winter am Baum“; 8–11 ist daraus abgeleitet."
+      ]
+    },
+    {
+      "artId": "vogelkirsche",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q2",
+      "fundstuecke": [
+        {
+          "id": "rinde-jung",
+          "name": "Ringelborke",
+          "typ": "rinde",
+          "kurz": "Glatte, glänzende, rotbraune Rinde mit waagrechten Korkwarzenbändern.",
+          "erkennen": [
+            "Glatt und glänzend, rot bis bräunlich",
+            "Waagrechte Bänder aus Korkwarzen",
+            "Korkhaut löst sich in Querbändern ab"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Waldränder, Feldgehölze",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde-alt",
+          "name": "Borke alter Bäume",
+          "typ": "rinde",
+          "kurz": "Im Alter wird die Rinde borkig.",
+          "erkennen": ["Alte Stämme mit Borke statt glatter Ringelrinde"],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Alte Bäume am Waldrand",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Eiförmiges, grob doppelt gesägtes Blatt mit zwei kleinen Drüsen am Stiel.",
+          "erkennen": [
+            "Eiförmig, etwa 10 cm lang, in eine längere Spitze auslaufend",
+            "Grob doppelt gesägt, lindgrün",
+            "Am Blattstiel zwei kleine, meist rote Drüsen (Nektarien)"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9],
+          "findbarkeit": 2,
+          "wo": "Waldränder, Hecken",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Im Herbst leuchtend rotes Laub.",
+          "erkennen": ["Blätter in vielen Rottönen"],
+          "verwechslung": null,
+          "monate": [10, 11],
+          "findbarkeit": 2,
+          "wo": "Am Waldrand",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Schneeweiße, fünfzählige Blüten vor dem Laubaustrieb.",
+          "erkennen": [
+            "Schneeweiß, fünf Blütenblätter",
+            "Zu mehreren aus Kurztrieben",
+            "Blätter erscheinen kurz nach der Blüte"
+          ],
+          "verwechslung": null,
+          "monate": [4, 5],
+          "findbarkeit": 2,
+          "wo": "Blühende Bäume ragen aus dem Waldrand heraus",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "kirschen",
+          "name": "Wildkirschen",
+          "typ": "frucht",
+          "kurz": "Kleine, kugelige, glänzend schwarzrote Steinfrüchte.",
+          "erkennen": [
+            "1–1,5 cm, kugelig, schwarzrot glänzend",
+            "Wenig Fruchtfleisch um einen großen Kern"
+          ],
+          "verwechslung": null,
+          "monate": [7],
+          "findbarkeit": 3,
+          "wo": "Am Baum oder darunter; werden schnell von Vögeln gefressen",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW Faltblatt: Die Vogelkirsche (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Vogelkirsche.pdf"
+        },
+        "q2": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Vogelkirsche",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/VOGELKIRSCHE_SDW-Steckbrief.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: Keine Quelle gefunden, die natürliche Vorkommen dort bestätigt oder ausschließt. SDW nennt große Vorkommen in Südniedersachsen und sagt, sie meide saure Böden – die armen Sande der Heide passen eher nicht. Außerdem wird sie oft an Waldrändern gepflanzt.",
+        "Keine belegte Verwechslungsart gefunden (z. B. Traubenkirsche, Birke bei der Rinde)."
+      ]
+    },
+    {
+      "artId": "elsbeere",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Tief gelapptes, lang gestieltes Blatt, das etwas an Ahorn erinnert.",
+          "erkennen": [
+            "Breit-oval, tief gelappt, 6–10 cm lang",
+            "Lang gestielt, wechselständig",
+            "Abgerissene Blätter am Boden fallen durch ihre Form auf"
+          ],
+          "verwechslung": "Ahorn: Blätter sehen ähnlich aus; die Elsbeere hat wechselständige Blätter.",
+          "monate": [5, 6, 7, 8, 9],
+          "findbarkeit": 4,
+          "wo": "Warme Laubwälder auf Kalk; am Boden liegende Blätter",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Früh und leuchtend blutrot bis gelb gefärbtes Laub – einer der buntesten Bäume.",
+          "erkennen": ["Scharlach- bis blutrotes und gelbes Laub, früher als bei anderen Bäumen"],
+          "verwechslung": null,
+          "monate": [9, 10, 11],
+          "findbarkeit": 4,
+          "wo": "Leuchtet im Herbst aus dem Kronendach",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Reinweiße Blüten in großen, aufrechten Trugdolden.",
+          "erkennen": ["Reinweiß", "Ziemlich große, aufrechte Trugdolden"],
+          "verwechslung": "Im Mai blühen mehrere Bäume und Sträucher ähnlich weiß – Blattform prüfen.",
+          "monate": [5],
+          "findbarkeit": 4,
+          "wo": "Lichte, warme Wälder",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "frucht",
+          "name": "Elsbeeren",
+          "typ": "frucht",
+          "kurz": "Kleine, braune, punktierte Früchte – fallen kaum herunter.",
+          "erkennen": [
+            "Kugelig bis länglich, etwa 1,5 cm",
+            "Anfangs rötlichgelb, reif braun, mit Korkwarzen punktiert"
+          ],
+          "verwechslung": null,
+          "monate": [9, 10],
+          "findbarkeit": 4,
+          "wo": "Hoch in der Krone; Vögel fressen sie meist dort",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Rissige, dunkelbraune Rinde wie bei einem Birnbaum.",
+          "erkennen": ["Rissig, dunkelbraun", "Erinnert an Wildbirne oder Roterle"],
+          "verwechslung": "Wildbirne, Roterle: ähnliche Rinde, Blätter vergleichen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 4,
+          "wo": "Stämme in warmen Laubwäldern",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW Faltblatt: Die Elsbeere (Schutzgemeinschaft Deutscher Wald, Text W. Kausch-Blecken von Schmeling)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Elsbeere.pdf"
+        },
+        "q2": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Elsbeere",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/ELSBEERE_SDW-Steckbrief.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: SDW sagt, im Nordwesten Deutschlands bilden die Mittelgebirge die Verbreitungsgrenze; die Art meidet arme, sandige Böden. Daraus „nein“ – eine regionale Fundliste wurde nicht geprüft.",
+        "Fruchtmonate: RP Freiburg nennt Reife im September; Oktober ist ergänzt.",
+        "Keimling: SDW erwähnt Keimlinge nur (werden verbissen, Pilzbefall), keine Erkennungsmerkmale."
+      ]
+    },
+    {
+      "artId": "waldkiefer",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q5",
+      "fundstuecke": [
+        {
+          "id": "nadeln",
+          "name": "Nadelpaar",
+          "typ": "blatt",
+          "kurz": "Je zwei gedrehte, blaugrüne Nadeln an einem Kurztrieb.",
+          "erkennen": [
+            "Immer zwei Nadeln zusammen",
+            "Etwa 3–8 cm, steif, spitz, leicht gedreht",
+            "Blaugrün bis silbergrau, im Querschnitt halbrund"
+          ],
+          "verwechslung": "Lärche: Büschel aus 20–50 weichen Nadeln, im Winter kahl.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Überall im Kiefernwald, auch am Boden",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q4"]
+        },
+        {
+          "id": "spiegelrinde",
+          "name": "Spiegelrinde (oben)",
+          "typ": "rinde",
+          "kurz": "Leuchtend rotgelbe, papierdünn abblätternde Rinde im oberen Stamm.",
+          "erkennen": [
+            "Rotgelb bis fuchsrot",
+            "Löst sich in papierdünnen Schuppen",
+            "An jungen Kiefern und in der Krone alter Kiefern"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Blick nach oben an den Stamm",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "borke",
+          "name": "Schuppenborke (unten)",
+          "typ": "rinde",
+          "kurz": "Dicke, tief gefurchte, graubraune Borke am Stammfuß alter Kiefern.",
+          "erkennen": [
+            "Grau- bis rotbraun, plattig",
+            "Tief rissig, wird mit dem Alter immer dicker"
+          ],
+          "verwechslung": "Lärche: im Alter ebenfalls dicke, rotbraune Borke – Nadeln vergleichen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Unterer Stamm alter Kiefern",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "zapfen",
+          "name": "Kiefernzapfen",
+          "typ": "frucht",
+          "kurz": "Kleiner, eiförmiger Zapfen, der nach dem Öffnen als Ganzes abfällt.",
+          "erkennen": [
+            "3–8 cm, eiförmig, kurz gestielt, dunkelbraun bis schwärzlich",
+            "Braucht zwei Jahre zur Reife, öffnet sich im dritten Jahr",
+            "Im ersten Jahr kleine, zurückgebogene grüne Zäpfchen am Zweig"
+          ],
+          "verwechslung": "Fichtenzapfen sind viel länger (10–16 cm) und walzenförmig.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Auf Waldwegen unter Kiefern",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3", "q4"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Rote weibliche Zäpfchen an der Triebspitze, gelbe männliche Blüten am Triebgrund.",
+          "erkennen": [
+            "Weibliche Blütenzäpfchen rot, am Ende der Maitriebe",
+            "Männliche Blüten gelb, ährenförmig am Grund der neuen Triebe",
+            "Gelber Blütenstaub fliegt mit dem Wind"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6],
+          "findbarkeit": 2,
+          "wo": "Junge Kiefern am Wegrand",
+          "schutz": null,
+          "quellen": ["q2", "q3", "q4"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Lichtbaum mit im Alter schirmartiger, unregelmäßiger Krone.",
+          "erkennen": [
+            "Jung regelmäßig aufgebaut, im Alter schirmartig gewölbte Krone",
+            "Oft krumme Stämme und Äste",
+            "Zweifarbiger Stamm: unten graubraun, oben fuchsrot"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Heideränder, Kiefernwälder, Dünen, Moorränder",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Kiefer oder Waldkiefer",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/KIEFER_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "SDW Faltblatt: Die Waldkiefer (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Waldkiefer.pdf"
+        },
+        "q3": {
+          "titel": "Universität Bayreuth (BayCEER), Qualifizierung Feldbotanik: Pinus sylvestris, Wald-Kiefer",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/allgemein/5001/0/7672/Pinus_sylvestris.pdf"
+        },
+        "q4": {
+          "titel": "Universität Innsbruck: Steckbrief Pinus sylvestris, Rot-Föhre",
+          "url": "https://uibk.ac.at/media/filer_public/d8/eb/d8ebbd7a-0974-4a97-a8ef-046707e4e4e3/pinus_sylvestris.docx"
+        },
+        "q5": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (9190), Stand 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/26036"
+        },
+        "q6": {
+          "titel": "Jahn, G. (1985): Zum Nadelbaumanteil an der potentiellen natürlichen Vegetation der Lüneburger Heide. Tuexenia 5: 377–389",
+          "url": "https://www.tuexenia.de/publications/tuexenia/Tuexenia_1985_NS_005_0377-0389.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: NLWKN zählt die Wald-Kiefer zu den lebensraumtypischen Baumarten der bodensauren Eichenwälder (in jungen Stadien auch vorherrschend). Jahn (1985, q6) hält es für „wahrscheinlich bis sicher“, dass sich die Kiefer an Sonderstandorten (Moorränder, nasse Böden, Dünen) ohne Menschen gehalten hat. Die meisten heutigen Kiefernforste stammen aber aus Aufforstungen des 19. Jahrhunderts. Die ältere PNV-Karte (1979) führte die Kiefer dort nicht.",
+        "Monate für Zapfen am Boden (ganzjährig) sind abgeleitet: Quellen sagen nur, dass der Zapfen als Ganzes abfällt.",
+        "Keimling nicht belegt."
+      ]
+    },
+    {
+      "artId": "weisstanne",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q2",
+      "fundstuecke": [
+        {
+          "id": "nadeln",
+          "name": "Nadeln",
+          "typ": "blatt",
+          "kurz": "Flache, stumpfe Nadeln mit Kerbe an der Spitze und zwei weißen Streifen unten.",
+          "erkennen": [
+            "1,5–3 cm, flach, stumpf, an der Spitze eingekerbt, sticht nicht",
+            "Unterseits zwei weiße Wachsstreifen",
+            "Am Zweig gescheitelt (wirken zweizeilig)"
+          ],
+          "verwechslung": "Fichte: spitze, stechende, vierkantige Nadeln ohne weiße Streifen. Douglasie: auch zwei weiße Streifen, aber ohne Kerbe und mit Orangenduft beim Zerreiben.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Bergmischwälder; außerhalb nur gepflanzt",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Helle, silbergraue Rinde – daher der Name Weißtanne.",
+          "erkennen": [
+            "Jung hellgrau und glatt",
+            "Später silbergrau bis weißgrau, in eckige Schuppen zerreißend",
+            "Kleine Harzbeulen auf der Rinde"
+          ],
+          "verwechslung": "Fichte: rötliche bis graubraune Rinde mit rundlichen Schuppen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Stämme im Bergmischwald",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "zapfen",
+          "name": "Aufrechter Zapfen und Spindel",
+          "typ": "frucht",
+          "kurz": "Zapfen stehen aufrecht wie Kerzen und zerfallen am Baum; zurück bleibt die Spindel.",
+          "erkennen": [
+            "10–16 cm, walzenförmig, aufrecht, meist weit oben",
+            "Schuppen fallen einzeln ab, Spindel bleibt am Zweig stehen",
+            "Ganze Tannenzapfen findet man am Boden nicht"
+          ],
+          "verwechslung": "Am Boden liegende „Tannenzapfen“ sind fast immer Fichtenzapfen.",
+          "monate": [8, 9, 10, 11, 12, 1, 2, 3],
+          "findbarkeit": 4,
+          "wo": "Mit Fernglas in der Krone alter Tannen",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "zapfenschuppen",
+          "name": "Zapfenschuppen am Boden",
+          "typ": "samen",
+          "kurz": "Einzelne Deck- und Fruchtschuppen und geflügelte Samen unter Alttannen.",
+          "erkennen": [
+            "Einzelne Schuppen statt ganzer Zapfen",
+            "Samen dreieckig und geflügelt"
+          ],
+          "verwechslung": null,
+          "monate": [10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Unter alten Tannen",
+          "schutz": null,
+          "quellen": ["q2", "q3"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Gelbe männliche Blüten hängen, weibliche stehen aufrecht und sind erst rot.",
+          "erkennen": [
+            "Blüten im oberen Kronenteil",
+            "Männliche gelb, nach unten gerichtet",
+            "Weibliche aufrecht, erst rot, später grün"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6],
+          "findbarkeit": 4,
+          "wo": "Hoch in der Krone",
+          "schutz": null,
+          "quellen": ["q3"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Großer Nadelbaum mit waagrechten Ästen; alte Bäume mit abgeplatteter „Storchennest“-Krone.",
+          "erkennen": [
+            "Äste weit ausladend, fast waagrecht",
+            "Im Alter storchennestartig abgeplattete Krone",
+            "Helle Rinde"
+          ],
+          "verwechslung": "Fichte: regelmäßig kegelförmige Krone, rötliche Rinde.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Bergmischwälder mit Buche und Fichte",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Tanne oder Weißtanne",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/TANNE_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "SDW Faltblatt: Die Tanne (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Wei%C3%9Ftanne.pdf"
+        },
+        "q3": {
+          "titel": "Universität Innsbruck: Steckbrief Abies alba, Weiß-Tanne",
+          "url": "https://uibk.ac.at/media/filer_public/b8/4d/b84d70b9-f0b7-4c96-9af7-3aee88ab719d/abies_alba2.docx"
+        },
+        "q4": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Douglasie",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/DOUGLASIE_SDW-Steckbrief.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: SDW nennt als Hauptverbreitung Alpen, Alpenvorland und Mittelgebirge bis Thüringer Wald und Erzgebirge; den Harz hatte die Tanne vor 200 Jahren noch nicht erreicht. Für das norddeutsche Tiefland also „nein“.",
+        "Zapfenmonate am Baum (8–3) sind abgeleitet; SDW sagt nur „ab Oktober fallen die Schuppen ab“.",
+        "Keimling: SDW nennt, dass Tannenkeimlinge im Schatten überleben, aber keine Erkennungsmerkmale.",
+        "Verwechslung mit Douglasie stützt sich auf q4 (Douglasie: Orangenduft) und q2 (Tanne: eingekerbte Nadeln)."
+      ]
+    },
+    {
+      "artId": "fichte",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q4",
+      "fundstuecke": [
+        {
+          "id": "nadeln",
+          "name": "Nadeln",
+          "typ": "blatt",
+          "kurz": "Spitze, stechende, vierkantige Nadeln auf kleinen Stielchen.",
+          "erkennen": [
+            "10–25 mm, starr, stachelspitzig",
+            "Im Querschnitt vierkantig, ohne weiße Streifen",
+            "Sitzen auf vorspringenden Blattkissen – ein entnadelter Zweig fühlt sich rau an"
+          ],
+          "verwechslung": "Weißtanne: flache, stumpfe, eingekerbte Nadeln mit zwei weißen Streifen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Fichtenforste, auch in der Heide häufig gepflanzt",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Jung glatt und rötlichbraun, später graubraun mit rundlichen Schuppen.",
+          "erkennen": [
+            "Jung glatt, rötlichbraun (daher „Rotfichte“)",
+            "Im Alter schuppig, graubraun mit rundlichen Schuppen"
+          ],
+          "verwechslung": "Weißtanne: hellgraue bis weißgraue Rinde.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Stämme am Wegrand",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "zapfen",
+          "name": "Fichtenzapfen",
+          "typ": "frucht",
+          "kurz": "Langer, hängender Zapfen, der als Ganzes abfällt – der typische „Tannenzapfen“ vom Boden.",
+          "erkennen": [
+            "10–16 cm lang, braun, walzenförmig",
+            "Hängt am Baum nach unten",
+            "Fällt nach dem Samenflug als Ganzes ab"
+          ],
+          "verwechslung": "Wird oft fälschlich „Tannenzapfen“ genannt; echte Tannenzapfen zerfallen am Baum. Kiefernzapfen sind viel kleiner.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Auf Waldwegen unter Fichten",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Scharlach- bis hellrote, aufrechte weibliche Blüten wie Miniaturzapfen.",
+          "erkennen": [
+            "Weibliche Blüten rot, aufrecht am Ende der Triebe, drehen sich nach der Befruchtung nach unten",
+            "Männliche Blüten zahlreich zwischen den Nadeln"
+          ],
+          "verwechslung": null,
+          "monate": [4, 5],
+          "findbarkeit": 3,
+          "wo": "Kronen von Fichten am Waldrand",
+          "schutz": null,
+          "quellen": ["q2"]
+        },
+        {
+          "id": "schwefelregen",
+          "name": "Schwefelregen",
+          "typ": "sonstiges",
+          "kurz": "Gelber Blütenstaub, der Pfützen, Wege und Teiche gelb färbt.",
+          "erkennen": ["Gelber Pollenfilm auf Pfützen, Wasser und Wegen"],
+          "verwechslung": null,
+          "monate": [4, 5],
+          "findbarkeit": 3,
+          "wo": "Pfützen und Wege in Fichtennähe; nur in Jahren mit starker Blüte (etwa alle 3–8 Jahre)",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Gerader Nadelbaum mit regelmäßig kegelförmiger Krone.",
+          "erkennen": [
+            "Gerader, schlanker Stamm, Äste quirlförmig, waagrecht ansetzend",
+            "Regelmäßig kegelförmige Krone",
+            "Im dichten Bestand untere Äste abgestorben"
+          ],
+          "verwechslung": "Weißtanne: im Alter abgeplattete Krone, helle Rinde.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Fichtenforste",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Fichte",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/FICHTE_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "SDW Faltblatt: Die Fichte (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Fichte.pdf"
+        },
+        "q3": {
+          "titel": "Jahn, G. (1985): Zum Nadelbaumanteil an der potentiellen natürlichen Vegetation der Lüneburger Heide. Tuexenia 5: 377–389",
+          "url": "https://www.tuexenia.de/publications/tuexenia/Tuexenia_1985_NS_005_0377-0389.pdf"
+        },
+        "q4": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (9190), Stand 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/26036"
+        },
+        "q5": {
+          "titel": "Universität Innsbruck: Steckbrief Pinus sylvestris, Rot-Föhre (Blütezeit Kiefer)",
+          "url": "https://uibk.ac.at/media/filer_public/d8/eb/d8ebbd7a-0974-4a97-a8ef-046707e4e4e3/pinus_sylvestris.docx"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: Fast alle Fichten dort sind Aufforstungen (SDW: Fichte kam durch Anbau in die Ebenen West- und Nordwestdeutschlands). ABER: NLWKN schreibt, auf feuchten Standorten der Lüneburger Heide und Südheide seien „möglicherweise auch geringe Fichtenanteile standortgerecht (indigene Fichtenvorkommen)“, und Jahn (1985) hält ein Überdauern der Fichte an Hochmoorrändern und nassen Böden der Hohen Heide für wahrscheinlich. Das widerspricht der Projektregel in CLAUDE.md (Fichte nur Hochharz, Erzgebirge, Bayerischer Wald, Alpen) – bitte fachlich entscheiden. Für die App bleibt „hier angepflanzt“ für fast alle Fichten richtig.",
+        "Ob auch Kiefernpollen (Blüte Mai–Juni, q5) Pfützen sichtbar färbt, ist nicht belegt – daher keine Verwechslung eingetragen.",
+        "Zapfen ganzjährig am Boden ist abgeleitet.",
+        "Fichtengallen (Ananasgalle der Großen Fichtengallenlaus, SDW) wären ein gutes Fundstück, Monate aber nicht belegt."
+      ]
+    },
+    {
+      "artId": "laerche",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q2",
+      "fundstuecke": [
+        {
+          "id": "nadeln",
+          "name": "Nadelbüschel",
+          "typ": "blatt",
+          "kurz": "Weiche, hellgrüne Nadeln in Büscheln an Kurztrieben, einzeln an Langtrieben.",
+          "erkennen": [
+            "An Kurztrieben 20–50 Nadeln in rosettigen Büscheln",
+            "An gelblichen Langtrieben einzeln",
+            "Weich, 15–30 mm, beim Austrieb hellgrün"
+          ],
+          "verwechslung": "Kiefer: nur zwei Nadeln je Kurztrieb, steif.",
+          "monate": [4, 5, 6, 7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "Forste und Waldränder, oft gepflanzt",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "herbstnadeln",
+          "name": "Goldene Herbstnadeln",
+          "typ": "blatt",
+          "kurz": "Einziger heimischer Nadelbaum, der im Herbst goldgelb wird und die Nadeln abwirft.",
+          "erkennen": ["Nadeln goldgelb", "Fallen im Herbst ab, Weg oft gelb bestreut"],
+          "verwechslung": null,
+          "monate": [10, 11],
+          "findbarkeit": 2,
+          "wo": "Leuchtet aus dem Nadelwald; Nadeln auf dem Weg",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "zapfen",
+          "name": "Kleiner Zapfen",
+          "typ": "frucht",
+          "kurz": "Kleine, eiförmige Zapfen, die jahrelang am Zweig bleiben – auch im kahlen Winter.",
+          "erkennen": [
+            "1,5–4 cm, eiförmig, hellbraun",
+            "Schuppenrand nicht oder kaum nach außen gebogen",
+            "Bleiben bis zu drei Jahre nach dem Öffnen am Baum"
+          ],
+          "verwechslung": "Japanische Lärche (oft gepflanzt): Zapfenschuppen an der Spitze deutlich zurückgebogen, Zapfen wirkt wie eine kleine Rose.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "An Zweigen, im Winter gut sichtbar; Zapfen fallen auch als Ganzes ab",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Auffällig dunkelrote weibliche Blüten, oft vor dem Nadelaustrieb.",
+          "erkennen": [
+            "Weibliche Blüten bis 2,5 cm, oft dunkelrot",
+            "Männliche Kätzchen höchstens 1 cm, schwefelgelb",
+            "Erscheinen meist vor den Nadeln"
+          ],
+          "verwechslung": null,
+          "monate": [4, 5],
+          "findbarkeit": 3,
+          "wo": "Niedrige Zweige am Waldrand",
+          "schutz": null,
+          "quellen": ["q2", "q3"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Jung glatt und grau, im Alter dicke, tief gefurchte, rotbraune Borke.",
+          "erkennen": [
+            "Jung glatt, grün- bis graubraun",
+            "Alt bis 10 cm dicke Borke, rotbraun, tief gefurcht, mit karminroten Schuppen"
+          ],
+          "verwechslung": "Douglasie: alte Borke ähnlich tief gefurcht – Nadeln vergleichen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Stämme am Wegrand",
+          "schutz": null,
+          "quellen": ["q2", "q4"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Schlanker, lichter Nadelbaum mit spitzkegeliger Krone.",
+          "erkennen": [
+            "Krone regelmäßig, pyramidenförmig, licht und locker",
+            "Äste an den Enden oft aufwärts gebogen",
+            "Im Winter kahl"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Forste und Waldränder",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Lärche",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/LAERCHE_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "SDW Faltblatt: Die Europäische Lärche (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Europ%C3%A4ische_L%C3%A4rche.pdf"
+        },
+        "q3": {
+          "titel": "Universität Innsbruck: Steckbrief Larix decidua, Europäische Lärche",
+          "url": "https://www.uibk.ac.at/media/filer_public/de/5c/de5c43af-e39d-4749-930e-4789e65f9f19/larix_decidua.docx"
+        },
+        "q4": {
+          "titel": "SDW Faltblatt: Die Douglasie (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Douglasie.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: SDW: „In Deutschland kommt die Lärche natürlich nur in den bayerischen Alpen vor.“ Alle Lärchen in der Heide sind gepflanzt (Europäische oder Japanische Lärche).",
+        "Blütemonate: Innsbruck nennt April–Juni (Alpen). Für das Tiefland sind 4–5 angesetzt – nicht eigens belegt.",
+        "Nadelmonate (4–10) aus „im Frühjahr hellgrün, im Herbst Abwurf“ abgeleitet."
+      ]
+    },
+    {
+      "artId": "eibe",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q3",
+      "fundstuecke": [
+        {
+          "id": "nadeln",
+          "name": "Nadeln",
+          "typ": "blatt",
+          "kurz": "Weiche, oben dunkelgrün glänzende, unten gelbgrüne Nadeln in zwei Reihen.",
+          "erkennen": [
+            "Etwa 3 cm lang, fast 2,5 mm breit, weich",
+            "Oberseite dunkelgrün glänzend, Unterseite gelbgrün",
+            "Zweizeilig angeordnet, Mittelrippe des Zweigs gut sichtbar"
+          ],
+          "verwechslung": "Weißtanne: Nadeln an der Spitze eingekerbt, unterseits zwei weiße Wachsstreifen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Schattige Hang- und Schluchtwälder; sonst oft in Parks und auf Friedhöfen gepflanzt",
+          "schutz": "Sehr giftig: Nadeln, Rinde und Samen enthalten Taxin (Herzgift). Nichts pflücken, nichts in den Mund nehmen. Für Pferde schon in kleinen Mengen tödlich. Wild wachsende Eiben sind besonders geschützt (BArtSchV) – nur fotografieren.",
+          "quellen": ["q1", "q2", "q5", "q6"]
+        },
+        {
+          "id": "samenmantel",
+          "name": "Roter Samenmantel",
+          "typ": "frucht",
+          "kurz": "Scharlachroter, becherförmiger Samenmantel um einen dunklen Samen – oft fälschlich Beere genannt.",
+          "erkennen": [
+            "Scharlachrot, fleischig, becherförmig, zart bläulich bereift",
+            "Umschließt den holzigen, schwarzbraunen Samen nur zum Teil",
+            "Nur an weiblichen Bäumen (Eibe ist meist zweihäusig)"
+          ],
+          "verwechslung": null,
+          "monate": [8, 9, 10],
+          "findbarkeit": 3,
+          "wo": "An weiblichen Eiben",
+          "schutz": "Der rote Samenmantel ist der einzige ungiftige Teil – der Samen darin ist sehr giftig. Nicht essen, Kinder und Haustiere fernhalten. Nur fotografieren.",
+          "quellen": ["q1", "q2", "q4"]
+        },
+        {
+          "id": "maennliche-bluete",
+          "name": "Männliche Blüten und Knospen",
+          "typ": "bluete",
+          "kurz": "Kleine kugelige Blütenknospen, schon im Herbst sichtbar; Blüte im Frühjahr.",
+          "erkennen": [
+            "Knospen der männlichen Blüten im Spätsommer angelegt, im Herbst deutlich erkennbar",
+            "Blüte im März/April, windbestäubt",
+            "Weibliche Blüten sehr unauffällig"
+          ],
+          "verwechslung": null,
+          "monate": [10, 11, 12, 1, 2, 3, 4],
+          "findbarkeit": 3,
+          "wo": "Zweigunterseiten männlicher Eiben",
+          "schutz": "Giftig – nur anschauen und fotografieren.",
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Graubraune bis braune Rinde, die sich in Schuppen oder Streifen löst.",
+          "erkennen": [
+            "Graubraun bis braun",
+            "Löst sich in Schuppen, manchmal in Streifen",
+            "Stamm oft unregelmäßig, nicht rund (spannrückig)"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Stämme alter Eiben",
+          "schutz": "Rinde ist giftig – nicht abziehen.",
+          "quellen": ["q1", "q4"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Dunkler, immergrüner Baum oder Strauch, oft mit mehreren verwachsenen Stämmen.",
+          "erkennen": [
+            "Bis 20 m, oft nur Strauch",
+            "Häufig mehrere miteinander verwachsene Stämme (Komplexstamm)",
+            "Wächst auch im tiefen Schatten"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 3,
+          "wo": "Schattige Laubwälder, oft auf Kalk",
+          "schutz": "Sehr giftig. Wild wachsende Eiben sind besonders geschützt und stehen auf der Roten Liste – nichts abschneiden, nur fotografieren.",
+          "quellen": ["q1", "q3", "q5"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW Faltblatt: Die Europäische Eibe (Schutzgemeinschaft Deutscher Wald, Text N. Kalinke, G. Aas, 2020)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Eibe.pdf"
+        },
+        "q2": {
+          "titel": "LWF Wissen 10: Beiträge zur Eibe (Bayerische Landesanstalt für Wald und Forstwirtschaft)",
+          "url": "https://lwg.bayern.de/mam/cms04/service/dateien/w10_beitraege_zur_eibe_gesamtheft_gesch.pdf"
+        },
+        "q3": {
+          "titel": "NW-FVA: Baumartensteckbrief Eibe (Taxus baccata)",
+          "url": "https://www.nw-fva.de/fileadmin/nwfva/publikationen/pdf/BaEm/eibe_nw-fva.pdf"
+        },
+        "q4": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Eibe",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/EIBE_SDW-Steckbrief.pdf"
+        },
+        "q5": {
+          "titel": "Rau, Kavaliauskas, Fussi, Šeho (2021): Erhaltung der Eibe in Bayern. waldwissen.net / AFZ-Der Wald 12/2021",
+          "url": "https://www.waldwissen.net/de/waldwirtschaft/waldbau/waldgenetik/erhaltung-der-eibe-in-bayern"
+        },
+        "q6": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Tanne oder Weißtanne",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/TANNE_SDW-Steckbrief.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: NW-FVA nennt drei Verbreitungsschwerpunkte in Deutschland (Ostseeküste, Weser-/Leinebergland und Mitteldeutschland, süddeutsche Mittelgebirge). Die Lüneburger Heide gehört nicht dazu. Einzelne natürliche Vorkommen wurden nicht geprüft. Eiben in Gärten, Parks und auf Friedhöfen sind gepflanzt.",
+        "Widerspruch: Das RP-Freiburg-Blatt (q4) schreibt „unterseits deutliche weiße Streifen“, das neuere SDW-Faltblatt (q1, mit G. Aas) „Unterseite gelbgrün“. Übernommen wurde q1.",
+        "Rote Liste: SDW „Rote Liste … gefährdet“, NW-FVA „Vorwarnliste“. Genaue Kategorie in der aktuellen Roten Liste Deutschlands nicht selbst geprüft.",
+        "„Kinder und Haustiere fernhalten“ ist ein Vorsichtshinweis, kein Zitat; belegt ist die Giftigkeit für Menschen und viele Tiere (q1) und für Pferde (q2).",
+        "Keimling: LWF erwähnt Eibenkeimlinge (Schnecken- und Wildschäden), aber keine Erkennungsmerkmale."
+      ]
+    },
+    {
+      "artId": "zitterpappel",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "q4",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Zitterndes Blatt",
+          "typ": "blatt",
+          "kurz": "Rundliches Blatt an langem, plattem Stiel, das schon beim leisesten Wind zittert.",
+          "erkennen": [
+            "Rundlich bis eiförmig, grob und unregelmäßig gezähnt",
+            "Blattstiel bis 8 cm, seitlich abgeflacht",
+            "Oben dunkelgrün, unten graugrün"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9],
+          "findbarkeit": 1,
+          "wo": "Waldränder, Kahlschläge, Wegränder",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Goldgelbes Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Auffällig goldgelbes Laub im Herbst.",
+          "erkennen": ["Rundliche, goldgelbe Blätter"],
+          "verwechslung": null,
+          "monate": [10, 11],
+          "findbarkeit": 1,
+          "wo": "Am Baum und auf dem Weg",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "rinde-jung",
+          "name": "Rinde (jung)",
+          "typ": "rinde",
+          "kurz": "Glatte, hellgrau-grüne bis silbrige Rinde mit rautenförmigen Korkporen.",
+          "erkennen": [
+            "Glatt, hellgrau-grün bis silbrig",
+            "Rautenförmige Lentizellen"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Junge Stämme am Waldrand",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        },
+        {
+          "id": "rinde-alt",
+          "name": "Borke (alt)",
+          "typ": "rinde",
+          "kurz": "Dicke, schwarzgraue, längsrissige Borke alter Bäume.",
+          "erkennen": ["Dunkelgrau bis schwarz", "Längsrissig"],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Alte Stämme",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Kätzchen",
+          "typ": "bluete",
+          "kurz": "Bis 10 cm lange, grauzottige Kätzchen lange vor dem Laubaustrieb.",
+          "erkennen": [
+            "Männliche Kätzchen grauzottig mit rötlichen bis karminroten Staubbeuteln",
+            "Weibliche grünlich und schlanker",
+            "Blüte ab Mitte März, vor den Blättern"
+          ],
+          "verwechslung": "Salweide blüht zur gleichen Zeit, ihre männlichen Kätzchen sind aber gelb und stehen aufrecht.",
+          "monate": [3, 4],
+          "findbarkeit": 2,
+          "wo": "Waldränder; abgefallene Kätzchen auf dem Weg",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q5"]
+        },
+        {
+          "id": "samenwolle",
+          "name": "Pappelflaum",
+          "typ": "samen",
+          "kurz": "Winzige Samen mit weißen Haaren fliegen in Flocken durch die Luft.",
+          "erkennen": [
+            "Weiße, watteartige Flocken",
+            "Aus aufgesprungenen Kapselfrüchten weiblicher Bäume"
+          ],
+          "verwechslung": "Weiden bilden ebenfalls weiße „Weidenwolle“.",
+          "monate": [5],
+          "findbarkeit": 2,
+          "wo": "In der Luft und am Wegrand unter weiblichen Bäumen",
+          "schutz": null,
+          "quellen": ["q1", "q3", "q5"]
+        },
+        {
+          "id": "wurzelbrut",
+          "name": "Pappelhain aus Wurzelbrut",
+          "typ": "ganz",
+          "kurz": "Viele junge Pappeln, die aus den Wurzeln eines Baums austreiben.",
+          "erkennen": [
+            "Gruppe gleich aussehender junger Bäume",
+            "Ausläufer bis 50 m vom Mutterbaum"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Kahlschläge, Waldränder, Hecken",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW Faltblatt: Die Zitterpappel (Schutzgemeinschaft Deutscher Wald, Stand Februar 2026)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Zitterpappel.pdf"
+        },
+        "q2": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Zitterpappel",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/ZITTERPAPPEL_SDW-Steckbrief.pdf"
+        },
+        "q3": {
+          "titel": "Baum des Jahres 2026: Zitterpappel (Baum des Jahres – Dr. Silvius Wodarz Stiftung)",
+          "url": "https://baum-des-jahres.de/baum-des-jahres/"
+        },
+        "q4": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (9190), Stand 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/26036"
+        },
+        "q5": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Salweide",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SALWEIDE_SDW-Steckbrief.pdf"
+        }
+      },
+      "offen": [
+        "Winterknospe: SDW zeigt ein Foto „Die Knospe“, beschreibt sie aber nicht.",
+        "„Männliche Salweidenkätzchen stehen aufrecht“ stützt sich auf SDW-Weiden (Kätzchen meist aufrecht); bitte beim Bauen prüfen."
+      ]
+    },
+    {
+      "artId": "silberweide",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q4",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Silbriges Blatt",
+          "typ": "blatt",
+          "kurz": "Schmales, lanzettliches Blatt, unten dicht seidig behaart und silbrig glänzend.",
+          "erkennen": [
+            "Schmal-lanzettlich, 5–12 cm",
+            "Unterseits dicht seidenhaarig, glänzt silbrig",
+            "Rand fein gesägt"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9, 10],
+          "findbarkeit": 2,
+          "wo": "Ufer von Flüssen und Gräben",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "kaetzchen",
+          "name": "Kätzchen",
+          "typ": "bluete",
+          "kurz": "Weidenkätzchen, die zusammen mit den Blättern erscheinen.",
+          "erkennen": [
+            "Blüten erscheinen mit den Blättern",
+            "Männliche Kätzchen gelb, weibliche silbrig-grün",
+            "Männliche und weibliche Kätzchen auf verschiedenen Bäumen"
+          ],
+          "verwechslung": "Salweide blüht früher und schon vor dem Laubaustrieb.",
+          "monate": [4, 5],
+          "findbarkeit": 2,
+          "wo": "Uferbäume",
+          "schutz": null,
+          "quellen": ["q2", "q3"]
+        },
+        {
+          "id": "winterknospe",
+          "name": "Winterknospe",
+          "typ": "knospe",
+          "kurz": "Seitlich abgeflachte, anliegend behaarte Knospen an olivbraunen Zweigen.",
+          "erkennen": [
+            "Knospen zur Seite hin abgeflacht, anliegend behaart",
+            "Zweige oliv bis rotbraun, anliegend behaart"
+          ],
+          "verwechslung": null,
+          "monate": [11, 12, 1, 2, 3],
+          "findbarkeit": 3,
+          "wo": "Niedrige Zweige am Ufer",
+          "schutz": null,
+          "quellen": ["q2"]
+        },
+        {
+          "id": "borke",
+          "name": "Borke",
+          "typ": "rinde",
+          "kurz": "Tief gefurchte Borke alter Bäume.",
+          "erkennen": ["Alte Stämme bis 1 m dick", "Borke tief gefurcht"],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Alte Uferbäume",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "kopfweide",
+          "name": "Kopfweide",
+          "typ": "ganz",
+          "kurz": "Alle paar Jahre zurückgeschnittene Weide mit dickem „Kopf“ und vielen Ruten.",
+          "erkennen": [
+            "Kurzer, dicker Stamm mit verdicktem Kopf",
+            "Viele gerade Ruten aus dem Kopf",
+            "Oft in Reihen an Gräben und Kanälen"
+          ],
+          "verwechslung": "Auch andere Weidenarten werden als Kopfweide geschnitten – Blatt prüfen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Gräben, Kanäle, Feldwege in Niederungen",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Großer Weidenbaum der Flussauen mit silbrig wirkender Krone.",
+          "erkennen": [
+            "Bis 30–35 m hoch",
+            "Schlanke Krone, Laub wirkt silbrig",
+            "Wächst in häufig überfluteten Weichholzauen"
+          ],
+          "verwechslung": "Trauerweide in Parks: meist eine Zuchtform bzw. asiatische Varietät, nicht heimisch.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Flussufer, Auwälder",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Silberweide",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SILBERWEIDE_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "Universität Innsbruck: Steckbrief Salix alba, Silber-Weide",
+          "url": "https://uibk.ac.at/media/filer_public/3d/f0/3df071a0-201d-45fb-b5a5-32b14cfcd34e/salix_alba.docx"
+        },
+        "q3": {
+          "titel": "SDW Faltblatt: Die Weiden (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Silberweide.pdf"
+        },
+        "q4": {
+          "titel": "NLWKN Vollzugshinweise: Weiden-Auwälder (91E0*), Stand November 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/25851"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: Die Silberweide ist in Niedersachsen heimisch (NLWKN: Hauptbaumart der Weiden-Auwälder). Die größten Vorkommen liegen aber an der Elbe, dazu an Leine, Aller, Wümme und Ems. Ob es im Naturraum Lüneburger Heide selbst natürliche Silberweiden-Bestände gibt (z. B. an Ilmenau, Luhe, Örtze), wurde nicht geklärt. Kopfweiden an Gräben sind gepflanzt.",
+        "Blütemonate: Innsbruck nennt März–Mai; 4–5 sind für „mit den Blättern“ angesetzt.",
+        "Samenwolle Monat nicht belegt (SDW: Früchte reifen rund 30 Tage nach der Bestäubung)."
+      ]
+    },
+    {
+      "artId": "salweide",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "q4",
+      "fundstuecke": [
+        {
+          "id": "palmkaetzchen",
+          "name": "Palmkätzchen",
+          "typ": "bluete",
+          "kurz": "Silbrige Kätzchen im Vorfrühling, vor den Blättern; männliche werden leuchtend gelb.",
+          "erkennen": [
+            "Erscheinen vor den Blättern",
+            "Männliche Kätzchen mit gelben Staubbeuteln, duften nach Honig",
+            "Weibliche unscheinbar grünlich; anfangs sehen beide gleich aus"
+          ],
+          "verwechslung": "Zitterpappel blüht zur gleichen Zeit, hat aber lange, hängende, grauzottige Kätzchen.",
+          "monate": [3, 4],
+          "findbarkeit": 1,
+          "wo": "Waldränder, Lichtungen, Wegränder",
+          "schutz": "Kätzchen nicht abschneiden: Im Vorfrühling sind sie eine wichtige Nahrung für Bienen, Hummeln und Falter. Nur fotografieren.",
+          "quellen": ["q1", "q2", "q5"]
+        },
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Rundliches Blatt mit nach unten gebogener Spitze und kraus behaarter Unterseite.",
+          "erkennen": [
+            "Oval bis rundlich, oft etwas wellig",
+            "Spitze nach unten zurückgebogen – sicheres Merkmal",
+            "Unterseite hellgrau, kraus behaart, starkes Adernetz"
+          ],
+          "verwechslung": null,
+          "monate": [5, 6, 7, 8, 9, 10],
+          "findbarkeit": 1,
+          "wo": "Waldränder, Kahlschläge",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "samenwolle",
+          "name": "Weidenwolle",
+          "typ": "samen",
+          "kurz": "Dicht filzige Fruchtkapseln, die weiße Samenwolle entlassen.",
+          "erkennen": [
+            "Frucht dicht filzig behaart",
+            "Springt zweiklappig auf, Samen mit weißer Wolle"
+          ],
+          "verwechslung": "Pappelflaum der Zitterpappel sieht ähnlich aus.",
+          "monate": [4, 5],
+          "findbarkeit": 2,
+          "wo": "An weiblichen Sträuchern",
+          "schutz": null,
+          "quellen": ["q2", "q3"]
+        },
+        {
+          "id": "ganz",
+          "name": "Strauch oder kleiner Baum",
+          "typ": "ganz",
+          "kurz": "Häufigste Weide unserer Wälder, braucht kein Wasser in der Nähe.",
+          "erkennen": [
+            "Strauch oder bis 10 m hoher Baum",
+            "Wächst auch fern von Gewässern",
+            "Pionier auf Kahlschlägen und in Steinbrüchen"
+          ],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 1,
+          "wo": "Waldränder, Schlagfluren",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Salweide",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SALWEIDE_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "Universität Innsbruck: Steckbrief Salix caprea, Sal-Weide",
+          "url": "https://uibk.ac.at/media/filer_public/d7/63/d76332e4-4cb6-4255-abfd-4f64ccded2b9/salix_caprea.docx"
+        },
+        "q3": {
+          "titel": "SDW Faltblatt: Die Weiden (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Silberweide.pdf"
+        },
+        "q4": {
+          "titel": "NLWKN Vollzugshinweise: Alte bodensaure Eichenwälder auf Sandböden mit Stieleiche (9190), Stand 2020",
+          "url": "https://nlwkn.niedersachsen.de/download/26036"
+        },
+        "q5": {
+          "titel": "SDW Faltblatt: Die Zitterpappel (Schutzgemeinschaft Deutscher Wald, 2026)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Zitterpappel.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: Wahrscheinlich heimisch, aber nicht ausdrücklich belegt. NLWKN nennt die Sal-Weide an Waldrändern bodensaurer Eichenwälder als wichtige Raupenfutterpflanze; SDW sagt, sie komme in fast allen Regionen Mitteleuropas vor, „in einigen Gebieten“ sei sie erst vom Menschen eingeführt.",
+        "Rinde und Winterknospe nicht belegt.",
+        "Monate der Samenwolle aus „Früchte reifen rund 30 Tage nach der Bestäubung“ (SDW) abgeleitet.",
+        "App-Höchstalter 60 Jahre: keine Quelle gefunden."
+      ]
+    },
+    {
+      "artId": "douglasie",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q2",
+      "fundstuecke": [
+        {
+          "id": "nadeln",
+          "name": "Duftende Nadeln",
+          "typ": "blatt",
+          "kurz": "Weiche, stumpfe Nadeln, die zerrieben nach Orangen duften.",
+          "erkennen": [
+            "2–3 cm, weich und stumpf",
+            "Unterseite mit zwei weißen Streifen",
+            "Zerrieben aromatischer Duft nach Orange/Zitrus"
+          ],
+          "verwechslung": "Weißtanne: Nadeln an der Spitze eingekerbt, ohne Zitrusduft. Fichte: spitz und stechend.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Forste, auch in der Heide angepflanzt",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "zapfen",
+          "name": "Zapfen mit „Mäuseschwänzchen“",
+          "typ": "frucht",
+          "kurz": "Hängender Zapfen mit weit herausragenden, dreispitzigen Deckschuppen.",
+          "erkennen": [
+            "5–8 cm, eiförmig, hängend",
+            "Dreispitzige Deckschuppen ragen zwischen den Schuppen heraus",
+            "Sage: die Spitzen sind Hinterbeine und Schwanz gefangener Mäuse"
+          ],
+          "verwechslung": "Fichtenzapfen: länger, ohne herausragende Deckschuppen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Waldwege unter Douglasien",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "rinde-jung",
+          "name": "Rinde (jung)",
+          "typ": "rinde",
+          "kurz": "Glatte, olivgrüne Rinde mit vielen kleinen Harzbeulen.",
+          "erkennen": ["Glatt, olivgrün", "Zahlreiche kleine Harzblasen"],
+          "verwechslung": null,
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Junge Douglasien am Wegrand",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "borke-alt",
+          "name": "Borke (alt)",
+          "typ": "rinde",
+          "kurz": "Dicke, tief rissige Borke, in den Rissen ockergelb.",
+          "erkennen": [
+            "Dunkel rotbraun bis grauschwarz",
+            "Tiefe Längsrisse, innen ockergelb"
+          ],
+          "verwechslung": "Alte Lärche: ähnlich gefurchte Borke.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Alte Stämme",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Männliche und weibliche Blüten am selben Baum im Frühjahr.",
+          "erkennen": ["Einhäusig, getrenntgeschlechtig", "Blüht April bis Mai"],
+          "verwechslung": null,
+          "monate": [4, 5],
+          "findbarkeit": 3,
+          "wo": "Niedrige Zweige",
+          "schutz": null,
+          "quellen": ["q2"]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Baum",
+          "typ": "ganz",
+          "kurz": "Sehr hoher Nadelbaum aus Nordamerika mit spitz-kegelförmiger Krone – nicht heimisch.",
+          "erkennen": [
+            "In Europa bis etwa 60 m – die höchsten Bäume Deutschlands",
+            "Schlanke, kegelförmige Krone ähnlich Fichte und Tanne"
+          ],
+          "verwechslung": "Fichte, Tanne: Nadeln und Zapfen vergleichen.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Forste",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Douglasie",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/DOUGLASIE_SDW-Steckbrief.pdf"
+        },
+        "q2": {
+          "titel": "SDW Faltblatt: Die Douglasie (Schutzgemeinschaft Deutscher Wald)",
+          "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Douglasie.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: nicht heimisch, 1827 aus Nordamerika eingeführt (q1, q2). SDW: einst im Tertiär auch in Europa, aber die heutigen Lebensgemeinschaften entstanden ohne sie.",
+        "Samenflug Oktober–November (SDW). Zapfen ganzjährig am Boden ist abgeleitet."
+      ]
+    },
+    {
+      "artId": "roteiche",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "q1",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Blatt mit Grannenspitzen",
+          "typ": "blatt",
+          "kurz": "Großes, buchtig gelapptes Blatt, dessen Zähne in feine Haarspitzen auslaufen.",
+          "erkennen": [
+            "10–25 cm lang, lang gestielt",
+            "Je Seite 4–5(6) Lappen",
+            "Zähne enden in einer feinen Granne"
+          ],
+          "verwechslung": "Mit Stiel- und Traubeneiche wegen der Blätter laut LWF nicht verwechselbar. Sehr ähnlich ist die Scharlacheiche (Park- und Straßenbaum).",
+          "monate": [5, 6, 7, 8, 9],
+          "findbarkeit": 2,
+          "wo": "Waldränder, Alleen, Parks, Forste",
+          "schutz": null,
+          "quellen": ["q1", "q2", "q3"]
+        },
+        {
+          "id": "herbstlaub",
+          "name": "Herbstlaub",
+          "typ": "blatt",
+          "kurz": "Leuchtend orange- bis scharlachrotes Herbstlaub, bei alten Bäumen oft nur braun.",
+          "erkennen": [
+            "Orange bis scharlachrot",
+            "An jungen Pflanzen bleibt trockenes Laub oft bis zum Frühjahr hängen"
+          ],
+          "verwechslung": null,
+          "monate": [10, 11, 12, 1, 2, 3],
+          "findbarkeit": 2,
+          "wo": "Am Baum und dicke Laubschichten am Boden",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "eichel",
+          "name": "Roteichel",
+          "typ": "frucht",
+          "kurz": "Gedrungene, rotbraune Eichel in einem flachen Becher; reift erst im zweiten Jahr.",
+          "erkennen": [
+            "Bis 2,5 cm, gedrungen eiförmig, rotbraun",
+            "Flacher, schüsselförmiger Becher umschließt weniger als ein Drittel",
+            "Reift im zweiten Herbst nach der Blüte"
+          ],
+          "verwechslung": "Heimische Eicheln reifen schon im Jahr der Blüte.",
+          "monate": [9, 10, 11],
+          "findbarkeit": 2,
+          "wo": "Unter Roteichen auf dem Weg",
+          "schutz": null,
+          "quellen": ["q1", "q2"]
+        },
+        {
+          "id": "winterzweig",
+          "name": "Winterzweig mit jungen Früchten",
+          "typ": "knospe",
+          "kurz": "Gehäufte Endknospen; am Zweig sitzen oft erbsengroße Früchte vom Vorjahr.",
+          "erkennen": [
+            "Knospen 5–8 mm, rotbraun, Schuppen am Rand hell behaart, an der Triebspitze gehäuft",
+            "Erbsengroße junge Eicheln aus der Blüte des letzten Frühjahrs"
+          ],
+          "verwechslung": null,
+          "monate": [11, 12, 1, 2, 3],
+          "findbarkeit": 3,
+          "wo": "Niedrige Zweige junger Roteichen",
+          "schutz": null,
+          "quellen": ["q1"]
+        },
+        {
+          "id": "rinde",
+          "name": "Glatte Rinde",
+          "typ": "rinde",
+          "kurz": "Graue, lange glatte Rinde – buchenähnlich, anders als bei heimischen Eichen.",
+          "erkennen": [
+            "Grau, bis etwa zum 40. Jahr glatt",
+            "Erst alte Stämme mit längsrissiger, dünnschuppiger Borke"
+          ],
+          "verwechslung": "Bei heimischen Eichen bleibt die Rinde nicht so lange glatt.",
+          "monate": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          "findbarkeit": 2,
+          "wo": "Stämme an Waldrändern und Wegen",
+          "schutz": null,
+          "quellen": ["q1", "q3"]
+        },
+        {
+          "id": "bluete",
+          "name": "Blütenkätzchen",
+          "typ": "bluete",
+          "kurz": "Lange, gelbgrüne, schlaff hängende männliche Kätzchen.",
+          "erkennen": [
+            "Männliche Kätzchen lang, locker, gelbgrün, hängend",
+            "Weibliche Blüten winzig in den Blattachseln"
+          ],
+          "verwechslung": "Heimische Eichen blühen ähnlich.",
+          "monate": [4, 5],
+          "findbarkeit": 3,
+          "wo": "Niedrige Äste",
+          "schutz": null,
+          "quellen": ["q1"]
+        }
+      ],
+      "quellen": {
+        "q1": {
+          "titel": "Aas, G. (2023): Die Roteiche (Quercus rubra) – Verwandtschaft, Morphologie, Verbreitung und Ökologie. LWF Wissen 89",
+          "url": "https://lwf.bayern.de/mam/cms04/boden-klima/dateien/w89_s.07-15_aas_web.pdf"
+        },
+        "q2": {
+          "titel": "Boch, S. (2021): Die Roteiche. waldwissen.net (WSL)",
+          "url": "https://www.waldwissen.net/de/lebensraum-wald/baeume-und-waldpflanzen/laubbaeume/die-roteiche"
+        },
+        "q3": {
+          "titel": "SDW/RP Freiburg: Der Wald, seine Bäume und Sträucher – Roteiche",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/ROTEICHE_SDW-Steckbrief.pdf"
+        },
+        "q4": {
+          "titel": "Abgeordnetenhaus Berlin, Drucksache 19/21889: Antwort des Senats zur Roteiche (März 2025)",
+          "url": "https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/SchrAnfr/S19-21889.pdf"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: nicht heimisch, aus Nordamerika, seit etwa 1700 in Europa (q1–q3).",
+        "Status invasiv: Laut Berliner Senat (q4) führt das BfN die Roteiche auf seiner Managementliste als invasive Art; ein WSL-Teaser sagt „nicht invasiv“ (Schweiz). BfN-Originalliste nicht selbst geöffnet.",
+        "Eichel-Monate: LWF sagt „Reife im zweiten Herbst“; 9–11 abgeleitet.",
+        "Roteiche war Baum des Jahres 2025 (Startseite baum-des-jahres.de)."
+      ]
+    }
+  ]
+}

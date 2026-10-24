@@ -1,0 +1,2279 @@
+{
+  "gruppe": "pflanzen",
+  "arten": [
+    {
+      "artId": "buschwind",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Weiße Sternblüte, die im Frühling am Waldboden leuchtet.",
+          "erkennen": [
+            "meist nur eine Blüte je Stängel",
+            "6–8 (bis 12) weiße Blütenblätter, außen oft rosa überhaucht",
+            "viele gelbe Staubblätter in der Mitte"
+          ],
+          "verwechslung": "Gelbes Windröschen: gelbe Blüten, oft zwei je Pflanze.",
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "Laubwald, Hecken und Waldränder direkt neben dem Weg",
+          "schutz": "Giftig (FloraWeb). Nicht pflücken, nicht in den Mund nehmen; nach Anfassen Hände waschen.",
+          "quellen": [
+            "fwM",
+            "nb",
+            "fwN"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Stängelblätter",
+          "typ": "blatt",
+          "kurz": "Drei geteilte Blätter sitzen wie ein Kragen unter der Blüte.",
+          "erkennen": [
+            "drei Blätter am Stängel unter der Blüte",
+            "Blätter dreiteilig, grob eingeschnitten",
+            "Grundblätter fehlen zur Blütezeit"
+          ],
+          "verwechslung": null,
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "Waldboden am Wegrand",
+          "schutz": "Giftig (FloraWeb). Nicht pflücken, nicht in den Mund nehmen; nach Anfassen Hände waschen.",
+          "quellen": [
+            "fwM",
+            "nb",
+            "fwN"
+          ]
+        },
+        {
+          "id": "teppich",
+          "name": "Blütenteppich",
+          "typ": "ganz",
+          "kurz": "Viele Pflanzen zusammen bilden weiße Teppiche im lichten Frühlingswald.",
+          "erkennen": [
+            "dichte weiße Flächen am Waldboden",
+            "Pflanzen 10–25 cm hoch",
+            "wächst über einen kriechenden Wurzelstock"
+          ],
+          "verwechslung": null,
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "Laubwald vor dem Laubaustrieb, gut vom Weg aus zu sehen",
+          "schutz": "Giftig (FloraWeb). Nicht pflücken, nicht in den Mund nehmen; nach Anfassen Hände waschen.",
+          "quellen": [
+            "fwM",
+            "nb",
+            "fwN"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Busch-Windröschen – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=435"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Busch-Windröschen – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=435"
+        },
+        "nb": {
+          "titel": "Museum für Naturkunde Berlin, Naturblick: Busch-Windröschen",
+          "url": "https://naturblick.museumfuernaturkunde.berlin/species/portrait/494?lang=de"
+        },
+        "gbif": {
+          "titel": "GBIF: Anemone nemorosa – 658 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/3033263"
+        }
+      },
+      "offen": [
+        "Früchte (behaarte Nüsschen) beschrieben, aber kein belegter Monat – nicht aufgenommen.",
+        "Die Blätter ziehen laut FloraWeb im Frühsommer ein; ab Juni ist die Art kaum noch zu finden."
+      ]
+    },
+    {
+      "artId": "maerzenbecher",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Weiße, duftende Glocke, meist einzeln an einem hohlen Stängel.",
+          "erkennen": [
+            "sechs gleich lange weiße Blütenblätter, glockig",
+            "jedes Blütenblatt mit grünlichem oder gelblichem Fleck an der Spitze",
+            "duftet"
+          ],
+          "verwechslung": null,
+          "monate": [
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 2,
+          "wo": "feuchte Laub- und Auwälder am Weg",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Giftig (FloraWeb). Nur fotografieren.",
+          "quellen": [
+            "fwM",
+            "fwG",
+            "fwN",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Kleine Frühlingspflanze mit 3–4 dunkelgrünen, grasartigen Blättern.",
+          "erkennen": [
+            "10–30 cm hoch",
+            "3–4 dunkel grasgrüne Grundblätter",
+            "Stängel aufrecht und hohl, meist mit einer Blüte"
+          ],
+          "verwechslung": null,
+          "monate": [
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 2,
+          "wo": "feuchter Waldboden, oft in Gruppen",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Giftig (FloraWeb). Nur fotografieren.",
+          "quellen": [
+            "fwM",
+            "fwG",
+            "fwN",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Frühlings-Knotenblume (Märzenbecher) – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=3389"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Frühlings-Knotenblume (Märzenbecher) – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=3389"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Frühlings-Knotenblume (Märzenbecher) – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=3389"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        },
+        "gbif": {
+          "titel": "GBIF: Leucojum vernum – 31 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/2860409"
+        }
+      },
+      "offen": [
+        "Frucht (birnenförmige, fleischige Kapsel) beschrieben, aber ohne belegten Monat.",
+        "Lüneburger Heide: 31 GBIF-Nachweise seit 2000; Rote Liste Niedersachsen 3 (1993). Ob es Wildvorkommen oder verwilderte Gartenpflanzen sind, ist nicht geprüft."
+      ]
+    },
+    {
+      "artId": "sauerklee",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "blatt",
+          "name": "Kleeblatt",
+          "typ": "blatt",
+          "kurz": "Dreiteiliges Blatt mit herzförmigen Blättchen, das ganze Jahr grün.",
+          "erkennen": [
+            "Blatt dreizählig",
+            "Teilblättchen verkehrt herzförmig",
+            "Oberseite fein behaart, Rand bewimpert"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "schattiger Waldboden direkt am Weg",
+          "schutz": "Laut FloraWeb giftig (Haeupler & Muer) bzw. für Vieh giftig (Rothmaler). Nicht essen.",
+          "quellen": [
+            "fwM",
+            "ubt",
+            "fwN"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Kleine weiße Blüte mit feinen violetten Adern.",
+          "erkennen": [
+            "einzeln an langem Stiel",
+            "weiß, selten rosa",
+            "violett bis purpurrot geadert"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "schattiger Laub- und Nadelwald",
+          "schutz": "Laut FloraWeb giftig (Haeupler & Muer) bzw. für Vieh giftig (Rothmaler). Nicht essen.",
+          "quellen": [
+            "fwM",
+            "ubt",
+            "fwN"
+          ]
+        },
+        {
+          "id": "gefaltet",
+          "name": "Zusammengeklappte Blätter",
+          "typ": "sonstiges",
+          "kurz": "Bei Sonnenlicht klappen die Blättchen nach unten zusammen.",
+          "erkennen": [
+            "Blättchen hängen wie ein geschlossener Schirm",
+            "tritt bei direktem Sonnenlicht auf"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Sonnenflecken am Waldboden",
+          "schutz": "Laut FloraWeb giftig (Haeupler & Muer) bzw. für Vieh giftig (Rothmaler). Nicht essen.",
+          "quellen": [
+            "ubt",
+            "fwN"
+          ]
+        },
+        {
+          "id": "teppich",
+          "name": "Sauerklee-Teppich",
+          "typ": "ganz",
+          "kurz": "Niedrige, dichte Flächen aus Kleeblättern im schattigen Wald.",
+          "erkennen": [
+            "5–15 cm hoch",
+            "breitet sich mit kriechendem Wurzelstock aus",
+            "oft auf sauren, frischen Waldböden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Waldboden neben dem Weg",
+          "schutz": "Laut FloraWeb giftig (Haeupler & Muer) bzw. für Vieh giftig (Rothmaler). Nicht essen.",
+          "quellen": [
+            "fwM",
+            "fwO",
+            "ubt",
+            "fwN"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Wald-Sauerklee – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=4062"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Wald-Sauerklee – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=4062"
+        },
+        "fwO": {
+          "titel": "FloraWeb (BfN): Wald-Sauerklee – Lebensraum und Ökologie",
+          "url": "https://www.floraweb.de/php/oekologie.php?name-use-id=4062"
+        },
+        "ubt": {
+          "titel": "Universität Bayreuth (BayCEER), Qualifizierung Feldbotanik: Oxalis acetosella",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/allgemein/5001/0/7664/Oxalis_acetosella.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF: Oxalis acetosella – 387 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/8211958"
+        }
+      },
+      "offen": [
+        "Zusammenklappen bei Regen (App-Text) nicht belegt; belegt ist nur Sonnenlicht.",
+        "Monate für „zusammengeklappte Blätter“ sind eine Spiel-Vereinfachung (Blätter immergrün, Effekt bei Sonne)."
+      ]
+    },
+    {
+      "artId": "schluesselblume",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blütendolde",
+          "typ": "bluete",
+          "kurz": "Mehrere dottergelbe Blüten sitzen als Dolde an einem Stängel.",
+          "erkennen": [
+            "kräftig dottergelb",
+            "Blüten in einer Dolde am Stängelende",
+            "bis 30 cm hoch"
+          ],
+          "verwechslung": "Hohe Schlüsselblume: schwefelgelb. Gartenformen: ungewöhnliche Farbe oder Größe, keine Dolde.",
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "magere Wiesen und lichte Wälder am Wegrand",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Nur fotografieren.",
+          "quellen": [
+            "bundmv",
+            "fwM",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "rosette",
+          "name": "Blattrosette",
+          "typ": "blatt",
+          "kurz": "Flache Rosette aus länglich-eiförmigen Blättern am Boden.",
+          "erkennen": [
+            "Blätter bis 20 cm lang",
+            "länglich-eiförmig",
+            "alle Blätter in einer Grundrosette"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Wiesenrand am Weg",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Nur fotografieren.",
+          "quellen": [
+            "bundmv",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "kapsel",
+          "name": "Samenkapsel",
+          "typ": "samen",
+          "kurz": "Aufrechte Kapsel, die sich mit meist fünf Zähnen öffnet.",
+          "erkennen": [
+            "aufrecht stehend",
+            "Öffnung mit meist fünf Zähnen"
+          ],
+          "verwechslung": "Hohe Schlüsselblume: Kapsel mit vielen Zähnen.",
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 3,
+          "wo": "an verblühten Pflanzen am Wiesenrand",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Nur fotografieren.",
+          "quellen": [
+            "bundmv",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Kleine Staude mit Blattrosette und gelber Blütendolde.",
+          "erkennen": [
+            "bis 30 cm hoch",
+            "Grundrosette plus blattloser Blütenstängel"
+          ],
+          "verwechslung": null,
+          "monate": [
+            4,
+            5,
+            6
+          ],
+          "findbarkeit": 2,
+          "wo": "Magerwiesen, Böschungen, lichte Waldränder",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Nur fotografieren.",
+          "quellen": [
+            "bundmv",
+            "fwM",
+            "fwG",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Wiesen-Primel (Echte Schlüsselblume) – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=4570"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Wiesen-Primel (Echte Schlüsselblume) – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=4570"
+        },
+        "bundmv": {
+          "titel": "BUND Mecklenburg-Vorpommern: Artensteckbrief Primula veris (CC BY 4.0)",
+          "url": "https://www.bund-mecklenburg-vorpommern.de/fileadmin/mv/PDF/Wildpflanzen-Steckbriefe/Steckbrief-Primula-veris.pdf"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        },
+        "gbif": {
+          "titel": "GBIF: Primula veris – 158 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/8377689"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: 158 GBIF-Nachweise seit 2000, aber App führt die Art als Kalkpflanze; BUND MV warnt vor verwilderten Gartenhybriden. Wildstatus im Pilotgebiet nicht geprüft.",
+        "Kapsel-Monate aus „Samenreife ab Ende Mai“ (BUND MV) abgeleitet.",
+        "FloraWeb-Nutzungsseite ohne Giftigkeitsangabe; kein Gifthinweis aufgenommen."
+      ]
+    },
+    {
+      "artId": "tuerkenbund",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Große, nickende Lilienblüte mit nach hinten gerollten, gefleckten Blütenblättern.",
+          "erkennen": [
+            "Blüten groß und nickend",
+            "Blütenblätter stark zurückgerollt („Turban“)",
+            "purpurn gefleckt",
+            "3–10 (bis 20) Blüten in einer Traube"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 3,
+          "wo": "lichte Laubwälder und Säume, vom Weg aus",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen.",
+          "quellen": [
+            "fwM",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze mit Blattquirlen",
+          "typ": "ganz",
+          "kurz": "Hohe Lilie, deren mittlere Blätter in Quirlen rund um den Stängel stehen.",
+          "erkennen": [
+            "30–100 (bis 150) cm hoch",
+            "mittlere Blätter quirlig, länglich-spatelförmig",
+            "Stängel reich beblättert"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 3,
+          "wo": "Waldsaum, Hochstaudenflur am Weg",
+          "schutz": "Besonders geschützt (FloraWeb) – nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen.",
+          "quellen": [
+            "fwM",
+            "fwO",
+            "fwG",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Türkenbund-Lilie – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=3403"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Türkenbund-Lilie – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=3403"
+        },
+        "fwO": {
+          "titel": "FloraWeb (BfN): Türkenbund-Lilie – Lebensraum und Ökologie",
+          "url": "https://www.floraweb.de/php/oekologie.php?name-use-id=3403"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        },
+        "gbif": {
+          "titel": "GBIF: Lilium martagon – 4 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/2753146"
+        }
+      },
+      "offen": [
+        "Nur zwei Fundstücke belegt. Kapselfrucht (FloraWeb) ohne Monatsangabe.",
+        "Bestäuber laut FloraWeb Nachtfalter (passt zum App-Text); stärkerer Abendduft nicht geprüft.",
+        "Lüneburger Heide: nur 4 GBIF-Nachweise seit 2000; Rote Liste Niedersachsen 3 (1993). Vermutlich keine regelmäßigen Wildvorkommen – nicht geprüft."
+      ]
+    },
+    {
+      "artId": "arnika",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "bfn",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blütenkorb",
+          "typ": "bluete",
+          "kurz": "Großer, dottergelber Korb auf langem Stängel.",
+          "erkennen": [
+            "Köpfchen 6–8 cm breit",
+            "dunkel dottergelb",
+            "Blütenboden behaart"
+          ],
+          "verwechslung": "Andere gelbe Korbblütler: Arnika hat am Stängel nur 1–2 (3) gegenüberstehende Blattpaare und unten eine Blattrosette.",
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 4,
+          "wo": "magere, saure Heide- und Borstgrasflächen, nur vom Weg aus",
+          "schutz": "Besonders geschützt, Rote Liste D 3, Niedersachsen 2 (FloraWeb, BfN). Nicht pflücken (§ 44 BNatSchG). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen. Laut FloraWeb schwach giftig und allergieauslösend.",
+          "quellen": [
+            "fwM",
+            "bundmv",
+            "fwG",
+            "fwN",
+            "bfn",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "rosette",
+          "name": "Grundblattrosette",
+          "typ": "blatt",
+          "kurz": "Flache Rosette aus ganzrandigen, elliptischen Blättern.",
+          "erkennen": [
+            "Blätter elliptisch bis breit lanzettlich",
+            "ganzrandig, ungestielt",
+            "liegen rosettig am Boden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 4,
+          "wo": "magerer Rasen am Wegrand",
+          "schutz": "Besonders geschützt, Rote Liste D 3, Niedersachsen 2 (FloraWeb, BfN). Nicht pflücken (§ 44 BNatSchG). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen. Laut FloraWeb schwach giftig und allergieauslösend.",
+          "quellen": [
+            "fwM",
+            "bundmv",
+            "fwG",
+            "fwN",
+            "bfn",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "samenstand",
+          "name": "Samenstand",
+          "typ": "samen",
+          "kurz": "Nach der Blüte entstehen Samen mit langem Haarschirm.",
+          "erkennen": [
+            "Samen mit langem Pappus (Haarkrone)",
+            "reift ab Ende Juni"
+          ],
+          "verwechslung": null,
+          "monate": [
+            7,
+            8
+          ],
+          "findbarkeit": 4,
+          "wo": "an verblühten Pflanzen, vom Weg aus",
+          "schutz": "Besonders geschützt, Rote Liste D 3, Niedersachsen 2 (FloraWeb, BfN). Nicht pflücken (§ 44 BNatSchG). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen. Laut FloraWeb schwach giftig und allergieauslösend.",
+          "quellen": [
+            "bundmv",
+            "fwG",
+            "fwN",
+            "bfn",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Bis 60 cm hohe Staude mit Rosette und wenigen Stängelblättern.",
+          "erkennen": [
+            "20–60 cm hoch",
+            "Stängel einfach oder wenig verzweigt",
+            "1–2 (3) gegenständige Blattpaare"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7
+          ],
+          "findbarkeit": 4,
+          "wo": "Heide, Borstgrasrasen, lichte Waldränder",
+          "schutz": "Besonders geschützt, Rote Liste D 3, Niedersachsen 2 (FloraWeb, BfN). Nicht pflücken (§ 44 BNatSchG). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen. Laut FloraWeb schwach giftig und allergieauslösend.",
+          "quellen": [
+            "fwM",
+            "bfn",
+            "fwG",
+            "fwN",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Echte Arnika – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=585"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Echte Arnika – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=585"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Echte Arnika – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=585"
+        },
+        "bfn": {
+          "titel": "BfN: Arnika (Arnica montana) – Artenschutz-Dokument (Natura 2000, Pflanzenarten)",
+          "url": "https://www.bfn.de/sites/default/files/BfN/natura2000/Dokumente/pfl_arnimont.pdf"
+        },
+        "bundmv": {
+          "titel": "BUND Mecklenburg-Vorpommern: Artensteckbrief Arnica montana (CC BY 4.0)",
+          "url": "https://www.bund-mecklenburg-vorpommern.de/fileadmin/mv/PDF/Wildpflanzen-Steckbriefe/Steckbrief-Arnica-montana.pdf"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        }
+      },
+      "offen": [
+        "Samenstand-Monate aus „reift ab Ende Juni“ (BUND MV) abgeleitet.",
+        "App nennt Blüte Juni–Aug; FloraWeb 6–7.",
+        "Nur 8 GBIF-Nachweise seit 2000 im Polygon – trotzdem laut BfN ein Verbreitungsschwerpunkt der atlantischen Region. Daten zu Wuchsorten nicht genauer als Rasterebene verwenden."
+      ]
+    },
+    {
+      "artId": "sonnentau",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "fangblatt",
+          "name": "Fangblatt",
+          "typ": "blatt",
+          "kurz": "Rundes Blatt mit roten Tentakeln und glitzernden Klebetropfen.",
+          "erkennen": [
+            "Spreite rund, 5–10 mm lang",
+            "deutlich abgesetzter, behaarter Stiel",
+            "rote Tentakel mit Tropfen an der Spitze"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 3,
+          "wo": "Torfmoos an Moorwegen und Bohlenstegen",
+          "schutz": "Besonders geschützt, Rote Liste D 3 (FloraWeb) – nicht pflücken (§ 44 BNatSchG). Im Moor nur auf Wegen und Bohlenstegen bleiben: Tritt und Fotografieren abseits der Wege schaden der Art (BAFU). Genauen Fundort nicht teilen.",
+          "quellen": [
+            "fwM",
+            "bafu",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "beute",
+          "name": "Gefangenes Insekt",
+          "typ": "sonstiges",
+          "kurz": "Ein kleines Insekt klebt fest, das Blatt krümmt sich darum.",
+          "erkennen": [
+            "Insekt zwischen den Tentakeln",
+            "Blatt ist eingekrümmt",
+            "am Ende bleibt nur der Chitinpanzer"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 3,
+          "wo": "Moorrand, vom Steg aus",
+          "schutz": "Besonders geschützt, Rote Liste D 3 (FloraWeb) – nicht pflücken (§ 44 BNatSchG). Im Moor nur auf Wegen und Bohlenstegen bleiben: Tritt und Fotografieren abseits der Wege schaden der Art (BAFU). Genauen Fundort nicht teilen.",
+          "quellen": [
+            "bafu",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Kleine weiße Blüten auf einem Stängel weit über den Fangblättern.",
+          "erkennen": [
+            "4–12 Blüten",
+            "Blütenstängel viel länger als die Blätter",
+            "öffnen sich nur bei Sonne"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8
+          ],
+          "findbarkeit": 3,
+          "wo": "Moor, vom Weg aus",
+          "schutz": "Besonders geschützt, Rote Liste D 3 (FloraWeb) – nicht pflücken (§ 44 BNatSchG). Im Moor nur auf Wegen und Bohlenstegen bleiben: Tritt und Fotografieren abseits der Wege schaden der Art (BAFU). Genauen Fundort nicht teilen.",
+          "quellen": [
+            "fwM",
+            "bafu",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Rosette",
+          "typ": "ganz",
+          "kurz": "Bodennahe Rosette, nur 2–10 cm breit.",
+          "erkennen": [
+            "Rosette 2–10 cm Durchmesser",
+            "wächst in Torfmoos",
+            "zieht im Herbst ein (Winterknospe)"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 3,
+          "wo": "Hochmoor und nasse Heide, nur vom Weg aus",
+          "schutz": "Besonders geschützt, Rote Liste D 3 (FloraWeb) – nicht pflücken (§ 44 BNatSchG). Im Moor nur auf Wegen und Bohlenstegen bleiben: Tritt und Fotografieren abseits der Wege schaden der Art (BAFU). Genauen Fundort nicht teilen.",
+          "quellen": [
+            "bafu",
+            "fwM",
+            "fwG",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Rundblättriger Sonnentau – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=2028"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Rundblättriger Sonnentau – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=2028"
+        },
+        "bafu": {
+          "titel": "Bundesamt für Umwelt BAFU (Schweiz): Faktenblatt Rundblättriger Sonnentau (Drosera rotundifolia)",
+          "url": "https://www.newsd.admin.ch/newsd/message/attachments/10235.pdf"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        },
+        "gbif": {
+          "titel": "GBIF: Drosera rotundifolia – 281 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/3191030"
+        }
+      },
+      "offen": [
+        "BAFU ist eine Schweizer Quelle; Blütezeit dort 6–7, FloraWeb 7–8 – hier 6–8 zusammengefasst.",
+        "Kein niedersächsischer Beleg für Bohlenwege zum Sonnentau geöffnet; Hinweis stützt sich auf BAFU und Projektregel „Wege nicht verlassen“."
+      ]
+    },
+    {
+      "artId": "frauenschuh",
+      "lueneburgerHeide": "nein",
+      "lueneburgerHeideQuelle": "nlwkn",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Gelber „Schuh“ mit vier purpurbraunen, gedrehten Blütenblättern.",
+          "erkennen": [
+            "gelbe, pantoffelförmig aufgeblasene Lippe, 3–4 cm",
+            "vier spitze, purpurbraune, gedrehte Blütenblätter",
+            "meist eine Blüte, selten 2–4"
+          ],
+          "verwechslung": "Blühend mit keiner heimischen Art zu verwechseln (BfN).",
+          "monate": [
+            5,
+            6
+          ],
+          "findbarkeit": 4,
+          "wo": "lichte Wälder auf Kalk, nur vom Weg aus",
+          "schutz": "Streng geschützt, FFH-Anhang II und IV (FloraWeb). Nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Tritt durch Orchideenbesucher schadet (LfU Bayern). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen.",
+          "quellen": [
+            "bfn",
+            "nlwkn",
+            "fwM",
+            "fwG",
+            "bnatschg",
+            "lfu"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blätter",
+          "typ": "blatt",
+          "kurz": "3–5 kräftig geaderte, breite Blätter umfassen den Stängel.",
+          "erkennen": [
+            "elliptisch-eiförmig, bis 18 cm lang",
+            "deutlich längs geadert",
+            "unterseits fein behaart"
+          ],
+          "verwechslung": "Maiglöckchen-Blätter sehen auf den ersten Blick ähnlich aus (BfN).",
+          "monate": [
+            5,
+            6
+          ],
+          "findbarkeit": 4,
+          "wo": "Waldrand auf Kalk, vom Weg aus",
+          "schutz": "Streng geschützt, FFH-Anhang II und IV (FloraWeb). Nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Tritt durch Orchideenbesucher schadet (LfU Bayern). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen.",
+          "quellen": [
+            "bfn",
+            "fwM",
+            "fwG",
+            "bnatschg",
+            "lfu"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Bis 50 cm hohe Orchidee mit der größten Blüte unserer Flora.",
+          "erkennen": [
+            "20–50 cm hoch",
+            "unverzweigter Stängel",
+            "3–5 Blätter"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6
+          ],
+          "findbarkeit": 4,
+          "wo": "lichte Buchen- und Kiefernwälder auf Kalk",
+          "schutz": "Streng geschützt, FFH-Anhang II und IV (FloraWeb). Nicht pflücken, nicht ausgraben (§ 44 BNatSchG). Tritt durch Orchideenbesucher schadet (LfU Bayern). Nur vom Weg aus fotografieren, Weg nicht verlassen. Genauen Fundort nicht teilen.",
+          "quellen": [
+            "bfn",
+            "fwM",
+            "fwG",
+            "bnatschg",
+            "lfu"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Frauenschuh – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=1824"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Frauenschuh – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=1824"
+        },
+        "bfn": {
+          "titel": "BfN: Managementempfehlungen Anhang IV – Frauenschuh, Merkmale",
+          "url": "https://www.bfn.de/sites/default/files/AN4/documents/plantae/cypripedium_calceolus_merkm.pdf"
+        },
+        "nlwkn": {
+          "titel": "NLWKN: Vollzugshinweise zum Schutz von Pflanzenarten in Niedersachsen – Frauenschuh (2011)",
+          "url": "https://www.nlwkn.niedersachsen.de/download/25867"
+        },
+        "lfu": {
+          "titel": "LfU Bayern: Merkblatt Artenschutz Frauenschuh",
+          "url": "https://www.lfu.bayern.de/natur/artenhilfsprogramme/merkblaetter_botanik/doc/43lfumerkblatt_frauenschuh.pdf"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        }
+      },
+      "offen": [
+        "Frucht (bis 5 cm lange Kapsel, Reife etwa vier Monate, NLWKN) ohne genaue Monate – nicht aufgenommen.",
+        "Lüneburger Heide: NLWKN nennt rezente Vorkommen nur im niedersächsischen Hügelland (Hildesheim, Holzminden, Göttingen, Rieseberg). Der eine GBIF-Nachweis im Polygon wurde nicht geprüft."
+      ]
+    },
+    {
+      "artId": "hasel",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "kaetzchen",
+          "name": "Männliche Kätzchen",
+          "typ": "bluete",
+          "kurz": "Männliche Kätzchen, die schon im Winter Pollenwolken abgeben.",
+          "erkennen": [
+            "Kätzchen erscheinen vor dem Laub",
+            "überwintern am Strauch",
+            "an sonnigen Wintertagen auffällige Pollenschwaden"
+          ],
+          "verwechslung": null,
+          "monate": [
+            12,
+            1,
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken und Waldränder am Weg",
+          "schutz": null,
+          "quellen": [
+            "fwM",
+            "sdw",
+            "ubt"
+          ]
+        },
+        {
+          "id": "weibl_bluete",
+          "name": "Weibliche Blüte",
+          "typ": "bluete",
+          "kurz": "Winzige rote Narben schauen aus einer Knospe heraus.",
+          "erkennen": [
+            "sieht aus wie eine Laubknospe",
+            "nur die roten Narben sind sichtbar"
+          ],
+          "verwechslung": "Normale Laubknospe: ohne rote Fäden.",
+          "monate": [
+            2,
+            3
+          ],
+          "findbarkeit": 2,
+          "wo": "Zweige auf Augenhöhe am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "fwM",
+            "ubt",
+            "sdw"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Rundliches, zugespitztes Blatt mit doppelt gesägtem Rand.",
+          "erkennen": [
+            "rundlich bis verkehrt eiförmig, Grund etwas herzförmig",
+            "oben in eine Spitze ausgezogen",
+            "Rand doppelt grob gezähnt",
+            "Blätter und junge Triebe mit Drüsenhaaren"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecke, Waldrand",
+          "schutz": null,
+          "quellen": [
+            "fwM",
+            "sdw",
+            "gr"
+          ]
+        },
+        {
+          "id": "rinde",
+          "name": "Rinde",
+          "typ": "rinde",
+          "kurz": "Glatte, glänzende Rinde mit vielen Korkporen.",
+          "erkennen": [
+            "bräunlich oder grau, glatt",
+            "viele Korkporen (Lentizellen)",
+            "Strauch vom Grund aus verzweigt"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Strauchbasis am Wegrand",
+          "schutz": null,
+          "quellen": [
+            "sdw",
+            "ubt"
+          ]
+        },
+        {
+          "id": "nuss",
+          "name": "Haselnuss",
+          "typ": "frucht",
+          "kurz": "Hartschalige Nuss, halb von einem glockigen Fruchtbecher umhüllt.",
+          "erkennen": [
+            "gelblich braune, hartschalige Nuss",
+            "glockenförmiger Fruchtbecher umhüllt die Nuss halb",
+            "liegt im Herbst unter dem Strauch"
+          ],
+          "verwechslung": null,
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "unter Haselsträuchern am Wald- und Heckenrand",
+          "schutz": null,
+          "quellen": [
+            "fwM",
+            "gr",
+            "anl"
+          ]
+        },
+        {
+          "id": "frass_eichhoernchen",
+          "name": "Nuss vom Eichhörnchen",
+          "typ": "frass",
+          "kurz": "Nussschale sauber in zwei Hälften gesprengt.",
+          "erkennen": [
+            "Schale in zwei Hälften",
+            "keine Zahnspuren am Bruchrand"
+          ],
+          "verwechslung": null,
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "unter Haselsträuchern",
+          "schutz": null,
+          "quellen": [
+            "pn",
+            "anl"
+          ]
+        },
+        {
+          "id": "frass_maus",
+          "name": "Nuss von Wald- oder Rötelmaus",
+          "typ": "frass",
+          "kurz": "Loch mit rauem Rand, Zahnspuren quer zum Lochrand.",
+          "erkennen": [
+            "rauer Lochrand",
+            "Zahnspuren senkrecht zur Öffnung",
+            "Waldmaus/Gelbhalsmaus: auch Zahnspuren auf der Schale; Rötelmaus: keine"
+          ],
+          "verwechslung": "Haselmaus: Lochrand glatt, Spuren parallel zum Rand.",
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "unter Haselsträuchern, in der Laubstreu am Weg",
+          "schutz": null,
+          "quellen": [
+            "pn",
+            "anl"
+          ]
+        },
+        {
+          "id": "frass_haselmaus",
+          "name": "Nuss von der Haselmaus",
+          "typ": "frass",
+          "kurz": "Fast kreisrundes Loch mit glattem Rand.",
+          "erkennen": [
+            "Loch sehr rund",
+            "glatter Lochrand",
+            "Zahnspuren parallel oder leicht schräg zum Rand"
+          ],
+          "verwechslung": "Mäuse: rauer Rand, Spuren quer zum Rand.",
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 4,
+          "wo": "unter Haselsträuchern an Hecken und Waldrändern",
+          "schutz": "Haselmaus nicht suchen oder stören – nur die Nuss am Boden fotografieren.",
+          "quellen": [
+            "pn",
+            "anl"
+          ]
+        },
+        {
+          "id": "frass_bohrer",
+          "name": "Loch vom Haselnussbohrer",
+          "typ": "frass",
+          "kurz": "Winziges, kreisrundes Loch von 1–2 mm.",
+          "erkennen": [
+            "Loch 1–2 mm, kreisrund",
+            "stammt vom Haselnussbohrer, einem Käfer mit langem Rüssel"
+          ],
+          "verwechslung": "Haselmaus: viel größeres Loch.",
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 2,
+          "wo": "unter Haselsträuchern",
+          "schutz": null,
+          "quellen": [
+            "pn"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Gewöhnliche Hasel – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=1676"
+        },
+        "sdw": {
+          "titel": "SDW / RP Freiburg Forst: Steckbrief Haselnussstrauch",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/HASELNUSSSTRAUCH_SDW-Steckbrief.pdf"
+        },
+        "ubt": {
+          "titel": "Universität Bayreuth (BayCEER), Qualifizierung Feldbotanik: Corylus avellana",
+          "url": "https://www.bayceer.uni-bayreuth.de/zertifizierung_artenkenntnis/de/allgemein/5001/0/7586/Corylus_avellana.pdf"
+        },
+        "gr": {
+          "titel": "Amt für Wald und Naturgefahren Graubünden: Sträucher (Haselstrauch)",
+          "url": "https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/dokumentenliste_afw/3_3_2_3_straeucher.pdf"
+        },
+        "pn": {
+          "titel": "Pro Natura / Wildtier Schweiz: Wer hat die Nuss benagt? (Bestimmung von Fraßspuren an Haselnüssen)",
+          "url": "https://www.pronatura.ch/sites/pronatura.ch/files/2017-11/wer_hat_die_nuss_benagt.pdf"
+        },
+        "anl": {
+          "titel": "ANL Bayern, Anliegen Natur 47(1) 2025: Bauer, Tosberg & Remmele – Der Haselmaus auf der (Fraß-)Spur",
+          "url": "https://anl.bayern.de/publikationen/anliegen/doc/an47111bauer_et_al_2025_haselmaus_nussjagd.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF: Corylus avellana – 860 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/2875979"
+        }
+      },
+      "offen": [
+        "Monate für Nüsse und Fraßspuren nach dem Nussjagd-Zeitraum (5.9.–30.11., ANL) gewählt; eigene Reifezeit der Nüsse nicht belegt.",
+        "Vögel (z. B. Specht, Kleiber, Häher) als Nussöffner nicht genauer belegt – kein eigenes Fundstück.",
+        "Vorkommen der Haselmaus in der Lüneburger Heide nicht geprüft."
+      ]
+    },
+    {
+      "artId": "holunder",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blütendolde",
+          "typ": "bluete",
+          "kurz": "Großer, flacher Schirm aus vielen kleinen, cremeweißen Blüten.",
+          "erkennen": [
+            "tellerförmige, fünfstrahlige Trugdolde",
+            "Blüten weiß, Staubbeutel gelb",
+            "starker, frisch-fruchtiger Duft"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7
+          ],
+          "findbarkeit": 1,
+          "wo": "Waldränder, Hecken, Wegränder",
+          "schutz": "Laut BfR mittelschweres Vergiftungsrisiko; Beeren roh oder unreif nicht essen. Kerne schwach giftig (FloraWeb).",
+          "quellen": [
+            "sdw",
+            "fwM",
+            "bund",
+            "bfrFaq",
+            "fwN"
+          ]
+        },
+        {
+          "id": "beeren",
+          "name": "Beeren",
+          "typ": "frucht",
+          "kurz": "Kleine, schwarze, kugelige Beeren in hängenden Dolden.",
+          "erkennen": [
+            "schwarz, kugelig",
+            "in doldenartigen Rispen",
+            "dunkelroter Saft, der kaum auswaschbar ist"
+          ],
+          "verwechslung": "Roter Holunder: Früchte leuchtend rot.",
+          "monate": [
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken, Waldrand",
+          "schutz": "Laut BfR mittelschweres Vergiftungsrisiko; Beeren roh oder unreif nicht essen. Kerne schwach giftig (FloraWeb).",
+          "quellen": [
+            "fwM",
+            "gr",
+            "sdw",
+            "bund",
+            "bfrFaq",
+            "fwN"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Gefiedertes Blatt",
+          "typ": "blatt",
+          "kurz": "Gefiedertes Blatt aus mehreren Teilblättchen.",
+          "erkennen": [
+            "Blätter gefiedert",
+            "am Grund mit Zipfeln oder Drüsen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Strauch am Wegrand",
+          "schutz": "Laut BfR mittelschweres Vergiftungsrisiko; Beeren roh oder unreif nicht essen. Kerne schwach giftig (FloraWeb).",
+          "quellen": [
+            "fwM",
+            "bfrFaq",
+            "fwN"
+          ]
+        },
+        {
+          "id": "mark",
+          "name": "Weißes Mark",
+          "typ": "sonstiges",
+          "kurz": "Zweige sind innen mit weichem, weißem Mark gefüllt.",
+          "erkennen": [
+            "Mark weiß und schaumstoffartig",
+            "Zweige wirken hohl"
+          ],
+          "verwechslung": "Roter Holunder: Mark bräunlich.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 2,
+          "wo": "an bereits abgebrochenen oder geschnittenen Zweigen am Weg",
+          "schutz": "Keine Zweige abbrechen – nur schon abgebrochene oder geschnittene Zweige anschauen.",
+          "quellen": [
+            "fwM",
+            "sdw",
+            "gr"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Strauch",
+          "typ": "ganz",
+          "kurz": "Großer, stark verzweigter Strauch auf nährstoffreichen Böden.",
+          "erkennen": [
+            "2–7 m hoch",
+            "stark verzweigt",
+            "oft an sehr stickstoffreichen Stellen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Waldrand, Hecke, Wegrand",
+          "schutz": "Laut BfR mittelschweres Vergiftungsrisiko; Beeren roh oder unreif nicht essen. Kerne schwach giftig (FloraWeb).",
+          "quellen": [
+            "fwM",
+            "sdw",
+            "bfrFaq",
+            "fwN"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Schwarzer Holunder – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=5227"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Schwarzer Holunder – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=5227"
+        },
+        "sdw": {
+          "titel": "SDW / RP Freiburg Forst: Steckbrief Schwarzer Holunder",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SCHWARZER_HOLUNDER_SDW-Steckbrief.pdf"
+        },
+        "bund": {
+          "titel": "BUND Schleswig-Holstein: Wildsträucher – Schwarzer Holunder",
+          "url": "https://www.bund-sh.de/fileadmin/sh/Internes/Themen-PDFs-LV/Wildstraeucher/schwarzer_holunder.pdf"
+        },
+        "gr": {
+          "titel": "Amt für Wald und Naturgefahren Graubünden: Sträucher (Holunder, Schwarzer / Roter)",
+          "url": "https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/dokumentenliste_afw/3_3_2_3_straeucher.pdf"
+        },
+        "bfrFaq": {
+          "titel": "BfR: Giftpflanzen – wie kann man sich schützen und was ist bei einer Vergiftung zu tun?",
+          "url": "https://www.bfr.bund.de/fragen-und-antworten/thema/giftpflanzen-wie-kann-man-sich-schuetzen-und-was-ist-bei-einer-vergiftung-zu-tun/"
+        },
+        "gbif": {
+          "titel": "GBIF: Sambucus nigra – 600 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/2888728"
+        }
+      },
+      "offen": [
+        "Graubünden nennt Holunder „beliebtes Fegeholz des Rehwildes“ – mögliches Fundstück für die Gruppe Säuger, ohne belegte Monate hier nicht aufgenommen.",
+        "Blütezeit je Quelle verschieden (SDW Mai–Juni, FloraWeb 6–7, BUND SH 6–8); hier 5–7."
+      ]
+    },
+    {
+      "artId": "schlehe",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Kleine weiße Blüten bedecken den kahlen Strauch, noch vor den Blättern.",
+          "erkennen": [
+            "Blüten weiß, 1–1,5 cm",
+            "erscheinen vor den Blättern",
+            "dicht gedrängt an den Zweigen"
+          ],
+          "verwechslung": "Weißdorn: blüht später (Mai–Juni) in Schirmrispen.",
+          "monate": [
+            4,
+            5
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken und Waldränder",
+          "schutz": "Spitze Sprossdornen – Abstand halten.",
+          "quellen": [
+            "fwM",
+            "sdw",
+            "bund"
+          ]
+        },
+        {
+          "id": "fruechte",
+          "name": "Schlehen",
+          "typ": "frucht",
+          "kurz": "Kugelige, blauschwarze, bereifte Früchte.",
+          "erkennen": [
+            "kugelig, 6–18 mm",
+            "blauschwarz mit hellem Reif",
+            "Fruchtfleisch grün, sehr sauer"
+          ],
+          "verwechslung": null,
+          "monate": [
+            9,
+            10,
+            11
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecke am Weg",
+          "schutz": "Spitze Sprossdornen – Abstand halten.",
+          "quellen": [
+            "fwM",
+            "gr",
+            "bund"
+          ]
+        },
+        {
+          "id": "dornen",
+          "name": "Dornige Zweige",
+          "typ": "rinde",
+          "kurz": "Sparriger Strauch mit Sprossdornen und fast schwarzer Rinde.",
+          "erkennen": [
+            "Zweige enden in stechenden Spitzen",
+            "Rinde auffällig schwarzbraun",
+            "sparrig verzweigt, bildet Dickichte"
+          ],
+          "verwechslung": "Weißdorn: ebenfalls dornig; die Schlehe hat auffällig schwarzbraune Rinde.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken, Feldränder, Waldsaum",
+          "schutz": "Spitze Sprossdornen – Abstand halten.",
+          "quellen": [
+            "fwM",
+            "sdw",
+            "gr"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Kleine Blätter, nur 2–4 cm lang.",
+          "erkennen": [
+            "2–4 (5) cm lang, 1–2,5 cm breit",
+            "Blattstiel ohne Drüsen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Hecke am Weg",
+          "schutz": "Spitze Sprossdornen – Abstand halten.",
+          "quellen": [
+            "fwM"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Schlehenhecke",
+          "typ": "ganz",
+          "kurz": "Dichtes, dorniges Gebüsch, oft durch Wurzelausläufer entstanden.",
+          "erkennen": [
+            "bis 3–4 m hoch",
+            "viele Wurzelsprosse, dicht",
+            "gutes Vogelschutzgehölz"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "sonnige Hecken und Waldränder",
+          "schutz": "Spitze Sprossdornen – Abstand halten.",
+          "quellen": [
+            "fwM",
+            "bund",
+            "sdw"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Schlehe – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=23397"
+        },
+        "sdw": {
+          "titel": "SDW / RP Freiburg Forst: Steckbrief Schlehe (Schwarzdorn)",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SCHWARZDORN_SDW-Steckbrief.pdf"
+        },
+        "bund": {
+          "titel": "BUND Schleswig-Holstein: Wildsträucher – Die Schlehe",
+          "url": "https://www.bund-sh.de/fileadmin/sh/Internes/Themen-PDFs-LV/Wildstraeucher/schlehe.pdf"
+        },
+        "gr": {
+          "titel": "Amt für Wald und Naturgefahren Graubünden: Sträucher (Schwarzdorn oder Schlehe)",
+          "url": "https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/dokumentenliste_afw/3_3_2_3_straeucher.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF: Prunus spinosa – 438 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/3023221"
+        }
+      },
+      "offen": [
+        "App nennt Blüte März–April, FloraWeb (BiolFlor) April, BUND SH 4–5; Früchte App Okt–Nov, BUND SH 9–11.",
+        "SDW: Neuntöter spießt Beute auf Schlehendornen – passt eher zur Gruppe Vögel; nicht als Pflanzen-Fundstück aufgenommen."
+      ]
+    },
+    {
+      "artId": "weissdorn",
+      "lueneburgerHeide": "ja",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Weiße Blüten in Schirmrispen, mit nur einem Griffel.",
+          "erkennen": [
+            "weiß bis leicht rosa, fünf Blütenblätter",
+            "schirmrispige Blütenstände",
+            "ein Griffel je Blüte"
+          ],
+          "verwechslung": "Zweigriffliger Weißdorn: 2–3 Griffel, Blätter schwächer eingebuchtet; beide bastardieren oft (BUND SH).",
+          "monate": [
+            5,
+            6
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken und Waldränder",
+          "schutz": "Kräftige Sprossdornen – Abstand halten.",
+          "quellen": [
+            "bundmv",
+            "bund"
+          ]
+        },
+        {
+          "id": "fruechte",
+          "name": "Früchte",
+          "typ": "frucht",
+          "kurz": "Kleine rote Apfelfrüchte mit meist einem Steinkern.",
+          "erkennen": [
+            "scharlach- bis dunkelweinrot",
+            "kugelig bis eiförmig",
+            "meist ein Steinkern"
+          ],
+          "verwechslung": "Zweigriffliger Weißdorn: 2–3 Griffel, Blätter schwächer eingebuchtet; beide bastardieren oft (BUND SH).",
+          "monate": [
+            9,
+            10
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecke am Weg",
+          "schutz": "Kräftige Sprossdornen – Abstand halten.",
+          "quellen": [
+            "bundmv",
+            "bund",
+            "fwM",
+            "gr"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Tief eingeschnittenes Blatt mit 3–7 Lappen.",
+          "erkennen": [
+            "3–7 Lappen",
+            "Einschnitte reichen mindestens bis zur Blatthälfte",
+            "Einschnitte ganzrandig, Lappen nur vorn gezähnt"
+          ],
+          "verwechslung": "Zweigriffliger Weißdorn: 2–3 Griffel, Blätter schwächer eingebuchtet; beide bastardieren oft (BUND SH).",
+          "monate": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecke am Weg",
+          "schutz": "Kräftige Sprossdornen – Abstand halten.",
+          "quellen": [
+            "bundmv",
+            "fwM"
+          ]
+        },
+        {
+          "id": "dornen",
+          "name": "Dornen",
+          "typ": "rinde",
+          "kurz": "Zweige mit kräftigen Sprossdornen.",
+          "erkennen": [
+            "kräftige, spitze Sprossdornen",
+            "dicht verzweigtes Geäst"
+          ],
+          "verwechslung": "Schlehe: Rinde fast schwarz, Blüte vor dem Laub.",
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecke, Feldrand",
+          "schutz": "Kräftige Sprossdornen – Abstand halten.",
+          "quellen": [
+            "bundmv",
+            "bund",
+            "gr"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Strauch",
+          "typ": "ganz",
+          "kurz": "Dorniger Strauch oder kleiner Baum, oft in Hecken.",
+          "erkennen": [
+            "meist 3–4 m, bis über 10 m",
+            "sommergrün",
+            "typisch für Hecken"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 1,
+          "wo": "Hecken, Waldränder, Gebüsche",
+          "schutz": "Kräftige Sprossdornen – Abstand halten.",
+          "quellen": [
+            "bundmv",
+            "bund"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Eingriffliger Weißdorn – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=1707"
+        },
+        "bundmv": {
+          "titel": "BUND Mecklenburg-Vorpommern: Artensteckbrief Crataegus monogyna (CC BY 4.0)",
+          "url": "https://www.bund-mecklenburg-vorpommern.de/fileadmin/mv/PDF/Wildpflanzen-Steckbriefe/Steckbrief-Crataegus-monogyna.pdf"
+        },
+        "bund": {
+          "titel": "BUND Schleswig-Holstein: Wildsträucher – Eingriffliger und Zweigriffliger Weißdorn",
+          "url": "https://www.bund-sh.de/fileadmin/sh/Internes/Themen-PDFs-LV/Wildstraeucher/weissdorn.pdf"
+        },
+        "gr": {
+          "titel": "Amt für Wald und Naturgefahren Graubünden: Sträucher (Weissdorn, Eingriffeliger)",
+          "url": "https://www.gr.ch/DE/institutionen/verwaltung/diem/awn/dokumentenliste_afw/3_3_2_3_straeucher.pdf"
+        },
+        "gbif": {
+          "titel": "GBIF: Crataegus monogyna – 139 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/9220780"
+        }
+      },
+      "offen": [
+        "BUND SH: Der Zweigrifflige Weißdorn ist in Norddeutschland weiter verbreitet als der Eingrifflige – in der Lüneburger Heide also oft Verwechslungsgefahr.",
+        "BUND MV: viele Bestände gehen auf Anpflanzungen zurück; „heimisch“ im Einzelfall nicht prüfbar."
+      ]
+    },
+    {
+      "artId": "eisenhut",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Blaue Blüte, die wie ein Helm geformt ist.",
+          "erkennen": [
+            "blau",
+            "helmartig geformt"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8
+          ],
+          "findbarkeit": 3,
+          "wo": "feuchte Hochstaudenfluren und Bachufer im Bergland, vom Weg aus",
+          "schutz": "Tödlich giftig, giftigste Pflanze Mitteleuropas (BfR). Schon längerer Hautkontakt kann vergiften – nicht anfassen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "bfr",
+            "bfrFaq",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blatt",
+          "typ": "blatt",
+          "kurz": "Handförmig geteiltes Blatt.",
+          "erkennen": [
+            "handförmig geteilt"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8
+          ],
+          "findbarkeit": 3,
+          "wo": "Bachufer am Weg",
+          "schutz": "Tödlich giftig, giftigste Pflanze Mitteleuropas (BfR). Schon längerer Hautkontakt kann vergiften – nicht anfassen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "bfr",
+            "bfrFaq",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Bis 1,5 m hohe Staude an feuchten Orten im Gebirge.",
+          "erkennen": [
+            "bis 1,5 m hoch",
+            "blaue, helmartige Blüten",
+            "wächst auch in Gärten"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8
+          ],
+          "findbarkeit": 3,
+          "wo": "feuchte Stellen im Bergland, Gärten",
+          "schutz": "Tödlich giftig, giftigste Pflanze Mitteleuropas (BfR). Schon längerer Hautkontakt kann vergiften – nicht anfassen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "bfr",
+            "bfrFaq",
+            "fwG",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwG": {
+          "titel": "FloraWeb (BfN): Blauer Eisenhut (i. e. S.) – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=33758"
+        },
+        "bfr": {
+          "titel": "BfR-Giftgarten: Blauer Eisenhut",
+          "url": "https://www.bfr.bund.de/bfr-giftgarten/blauer-eisenhut/"
+        },
+        "bfrFaq": {
+          "titel": "BfR: Giftpflanzen – wie kann man sich schützen und was ist bei einer Vergiftung zu tun?",
+          "url": "https://www.bfr.bund.de/fragen-und-antworten/thema/giftpflanzen-wie-kann-man-sich-schuetzen-und-was-ist-bei-einer-vergiftung-zu-tun/"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        },
+        "gbif": {
+          "titel": "GBIF: Aconitum napellus – 1 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/3033665"
+        }
+      },
+      "offen": [
+        "FloraWeb hat für Aconitum napellus s. str. keine Morphologie; Merkmale nur aus BfR – Beschreibung knapp.",
+        "Balgfrüchte mit schwarzen Samen (BfR) ohne Monatsangabe – nicht aufgenommen.",
+        "Lüneburger Heide: nur 1 GBIF-Nachweis seit 2000; BfR nennt Gebirge oder Gärten. Wildvorkommen im Pilotgebiet unwahrscheinlich, aber nicht durch eine Fachquelle verneint."
+      ]
+    },
+    {
+      "artId": "tollkirsche",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "beere",
+          "name": "Beere",
+          "typ": "frucht",
+          "kurz": "Glänzend schwarze, kirschgroße Beere.",
+          "erkennen": [
+            "blauschwarz, glänzend, kirschgroß",
+            "saftig, schmeckt süßlich – trotzdem tödlich giftig",
+            "Blüten und damit Beeren stehen einzeln"
+          ],
+          "verwechslung": "Heidelbeere (BfR warnt vor dieser Verwechslung): Tollkirsche ist eine bis 1,5 m hohe Staude mit einzelnen, kirschgroßen Beeren.",
+          "monate": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Kahlschläge, Lichtungen und Wegränder",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR), besonders Blätter und Samen. Nichts anfassen oder essen.",
+          "quellen": [
+            "fwM",
+            "bfr",
+            "bfrFaq",
+            "fwN"
+          ]
+        },
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Nickende, braunviolette Glocke.",
+          "erkennen": [
+            "glockig, 2,5–4 cm lang",
+            "braunviolett, innen gelblich und purpur geadert",
+            "einzeln, hängend"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8
+          ],
+          "findbarkeit": 2,
+          "wo": "Lichtungen am Weg",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR), besonders Blätter und Samen. Nichts anfassen oder essen.",
+          "quellen": [
+            "fwM",
+            "bfr",
+            "fwN"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blattpaar",
+          "typ": "blatt",
+          "kurz": "Große, eiförmige Blätter, je ein großes und ein kleines nebeneinander.",
+          "erkennen": [
+            "eiförmig, zugespitzt, bis 15 cm",
+            "flaumig behaart, glattrandig",
+            "oben immer ein großes mit einem kleineren Blatt gepaart"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "findbarkeit": 2,
+          "wo": "Waldlichtung, Wegrand",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR), besonders Blätter und Samen. Nichts anfassen oder essen.",
+          "quellen": [
+            "fwM",
+            "bfr",
+            "fwN"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Bis 1,5 (2) m hohe, verzweigte Staude.",
+          "erkennen": [
+            "50–150 (200) cm hoch",
+            "Stängel stumpfkantig, oben verästelt"
+          ],
+          "verwechslung": null,
+          "monate": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "Kahlschläge, Lichtungen, Waldwege",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR), besonders Blätter und Samen. Nichts anfassen oder essen.",
+          "quellen": [
+            "fwM",
+            "bfr",
+            "fwN"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Echte Tollkirsche – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=772"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Echte Tollkirsche – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=772"
+        },
+        "bfr": {
+          "titel": "BfR-Giftgarten: Schwarze Tollkirsche",
+          "url": "https://www.bfr.bund.de/bfr-giftgarten/schwarze-tollkirsche/"
+        },
+        "bfrFaq": {
+          "titel": "BfR: Giftpflanzen – wie kann man sich schützen und was ist bei einer Vergiftung zu tun?",
+          "url": "https://www.bfr.bund.de/fragen-und-antworten/thema/giftpflanzen-wie-kann-man-sich-schuetzen-und-was-ist-bei-einer-vergiftung-zu-tun/"
+        },
+        "gbif": {
+          "titel": "GBIF: Atropa belladonna – 1 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/3802655"
+        }
+      },
+      "offen": [
+        "Lüneburger Heide: nur 1 GBIF-Nachweis seit 2000 – Vorkommen im Pilotgebiet unklar.",
+        "App: Beeren Aug–Okt, BfR: Juli–Oktober."
+      ]
+    },
+    {
+      "artId": "herbstzeitlose",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte",
+          "typ": "bluete",
+          "kurz": "Blassviolette Sternblüte, die im Herbst ohne Blätter aus der Wiese kommt.",
+          "erkennen": [
+            "blassviolett, selten weiß",
+            "lange Blütenröhre, kein Stängel",
+            "drei bis zum Grund freie Griffel",
+            "keine Blätter zur Blütezeit"
+          ],
+          "verwechslung": null,
+          "monate": [
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "feuchte Wiesen am Weg",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR). Nicht anfassen, nichts essen. Blätter nicht mit Bärlauch verwechseln.",
+          "quellen": [
+            "fwM",
+            "fwN",
+            "bfrFaq"
+          ]
+        },
+        {
+          "id": "blatt",
+          "name": "Blattrosette mit Frucht",
+          "typ": "blatt",
+          "kurz": "Im Frühjahr: dunkelgrüne, dicke Blätter mit einer Fruchtkapsel in der Mitte.",
+          "erkennen": [
+            "dunkelgrüne, dickliche Blätter, bis 35 cm",
+            "Fruchtkapsel sitzt stängellos zwischen den Blättern"
+          ],
+          "verwechslung": "Bärlauch und Maiglöckchen (BfR warnt vor Verwechslung) – Blätter nie zum Essen sammeln.",
+          "monate": [
+            3,
+            4,
+            5
+          ],
+          "findbarkeit": 2,
+          "wo": "Wiesenrand am Weg",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR). Nicht anfassen, nichts essen. Blätter nicht mit Bärlauch verwechseln.",
+          "quellen": [
+            "fwM",
+            "bfrFaq",
+            "fwN"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganze Pflanze",
+          "typ": "ganz",
+          "kurz": "Wiesenpflanze, die im Herbst blüht und im Frühjahr Blätter treibt.",
+          "erkennen": [
+            "Blüten 5–25 cm",
+            "Fruchtknoten unter der Erde"
+          ],
+          "verwechslung": null,
+          "monate": [
+            3,
+            4,
+            5,
+            8,
+            9,
+            10
+          ],
+          "findbarkeit": 2,
+          "wo": "feuchte Wiesen",
+          "schutz": "Stark bis tödlich giftig (FloraWeb, BfR). Nicht anfassen, nichts essen. Blätter nicht mit Bärlauch verwechseln.",
+          "quellen": [
+            "fwM",
+            "fwN",
+            "bfrFaq"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Herbst-Zeitlose – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=1610"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Herbst-Zeitlose – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=1610"
+        },
+        "bfrFaq": {
+          "titel": "BfR: Giftpflanzen – wie kann man sich schützen und was ist bei einer Vergiftung zu tun?",
+          "url": "https://www.bfr.bund.de/fragen-und-antworten/thema/giftpflanzen-wie-kann-man-sich-schuetzen-und-was-ist-bei-einer-vergiftung-zu-tun/"
+        },
+        "gbif": {
+          "titel": "GBIF: Colchicum autumnale – 4 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/2739622"
+        }
+      },
+      "offen": [
+        "Blatt-Monate aus „im Frühjahr“ (FloraWeb) als März–Mai abgeleitet.",
+        "Lüneburger Heide: nur 4 GBIF-Nachweise seit 2000; Rote Liste Niedersachsen 3 (1993)."
+      ]
+    },
+    {
+      "artId": "seidelbast",
+      "lueneburgerHeide": "unsicher",
+      "lueneburgerHeideQuelle": "gbif",
+      "fundstuecke": [
+        {
+          "id": "bluete",
+          "name": "Blüte am kahlen Zweig",
+          "typ": "bluete",
+          "kurz": "Rosa, stark duftende Blüten sitzen direkt am Zweig, vor den Blättern.",
+          "erkennen": [
+            "rosa bis purpurn, 4–8 mm",
+            "meist zu dritt am Zweig",
+            "erscheinen vor den Blättern, betäubender Duft"
+          ],
+          "verwechslung": null,
+          "monate": [
+            2,
+            3,
+            4
+          ],
+          "findbarkeit": 3,
+          "wo": "krautreiche Laubwälder, oft auf Kalk",
+          "schutz": "Stark giftig, vor allem Rinde und Samen; reizt die Haut (BUND Naturschutz, SDW, FloraWeb). Nicht anfassen, nichts essen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "fwM",
+            "sdw",
+            "bn",
+            "fwN",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "knospe",
+          "name": "Blütenknospen",
+          "typ": "knospe",
+          "kurz": "Im Spätwinter sind die Knospen schon deutlich am Zweig zu sehen.",
+          "erkennen": [
+            "Knospen an den Zweigspitzen"
+          ],
+          "verwechslung": null,
+          "monate": [
+            2
+          ],
+          "findbarkeit": 3,
+          "wo": "Laubwald am Weg",
+          "schutz": "Stark giftig, vor allem Rinde und Samen; reizt die Haut (BUND Naturschutz, SDW, FloraWeb). Nicht anfassen, nichts essen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "bn",
+            "fwN",
+            "fwG",
+            "sdw",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "beeren",
+          "name": "Beeren",
+          "typ": "frucht",
+          "kurz": "Leuchtend rote, eiförmige Beeren am Zweig.",
+          "erkennen": [
+            "leuchtend rot, 6–10 mm",
+            "eiförmig, erbsengroß, fleischig"
+          ],
+          "verwechslung": null,
+          "monate": [
+            7,
+            8
+          ],
+          "findbarkeit": 3,
+          "wo": "Laubwald am Weg",
+          "schutz": "Stark giftig, vor allem Rinde und Samen; reizt die Haut (BUND Naturschutz, SDW, FloraWeb). Nicht anfassen, nichts essen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "fwM",
+            "bn",
+            "sdw",
+            "fwN",
+            "fwG",
+            "bnatschg"
+          ]
+        },
+        {
+          "id": "ganz",
+          "name": "Ganzer Strauch",
+          "typ": "ganz",
+          "kurz": "Kleiner, wenig verzweigter Strauch mit rutenförmigen Ästen.",
+          "erkennen": [
+            "30–150 cm hoch",
+            "Äste nur an den Spitzen beblättert",
+            "Rinde jung gelblich braun, später braungrau"
+          ],
+          "verwechslung": null,
+          "monate": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "findbarkeit": 3,
+          "wo": "krautreiche Buchenwälder",
+          "schutz": "Stark giftig, vor allem Rinde und Samen; reizt die Haut (BUND Naturschutz, SDW, FloraWeb). Nicht anfassen, nichts essen. Besonders geschützt (FloraWeb) – nicht pflücken.",
+          "quellen": [
+            "fwM",
+            "sdw",
+            "fwN",
+            "fwG",
+            "bn",
+            "bnatschg"
+          ]
+        }
+      ],
+      "quellen": {
+        "fwM": {
+          "titel": "FloraWeb (BfN): Gewöhnlicher Seidelbast – Morphologie und Entwicklung",
+          "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=1881"
+        },
+        "fwG": {
+          "titel": "FloraWeb (BfN): Gewöhnlicher Seidelbast – Gefährdung und Recht",
+          "url": "https://www.floraweb.de/php/gefaerdung.php?taxon-id=1881"
+        },
+        "fwN": {
+          "titel": "FloraWeb (BfN): Gewöhnlicher Seidelbast – Nutzung (Giftigkeit)",
+          "url": "https://www.floraweb.de/php/nutzung.php?name-use-id=1881"
+        },
+        "sdw": {
+          "titel": "SDW / RP Freiburg Forst: Steckbrief Seidelbast",
+          "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SEIDELBAST_SDW-Steckbrief.pdf"
+        },
+        "bn": {
+          "titel": "BUND Naturschutz in Bayern, OG Wolfratshausen: Steckbrief Natur – Echter Seidelbast (Feb. 2017)",
+          "url": "https://bad-toelz.bund-naturschutz.de/fileadmin/kreisgruppen/badtoelz/dokumente/Ortsgruppe%20Wolfratshausen/Steckbrief_Natur_Seidelbast_Feb_17.pdf"
+        },
+        "bnatschg": {
+          "titel": "§ 44 Abs. 1 Nr. 4 BNatSchG (Zugriffsverbote für besonders geschützte Pflanzen)",
+          "url": "https://www.gesetze-im-internet.de/bnatschg_2009/__44.html"
+        },
+        "gbif": {
+          "titel": "GBIF: Daphne mezereum – 1 Nachweise seit 2000 im Polygon „Lüneburger Heide“ aus src/data/naturraeume.json (API-Abfrage 24.10.2026, nur Rasterebene ausgewertet)",
+          "url": "https://www.gbif.org/species/5420852"
+        }
+      },
+      "offen": [
+        "Beerenreife: BUND Naturschutz Juli–August, SDW „im Herbst“, App Juni–Aug – uneinheitlich, hier 7–8.",
+        "Lüneburger Heide: nur 1 GBIF-Nachweis seit 2000; App führt die Art als Kalkpflanze. Vorkommen im Pilotgebiet unklar.",
+        "Knospen-Monat stützt sich nur auf einen Foto-Hinweis (2. Februar) im BUND-Naturschutz-Steckbrief."
+      ]
+    }
+  ]
+}
