@@ -19,7 +19,7 @@ Alle Fachangaben in diesem Konzept (Fundstücke je Art, Zeiträume im Naturkalen
 
 ## 2. Fundstücke: Jede Art ist eine Album-Seite
 
-Eine Art ist nicht nur „gefunden“ oder „nicht gefunden“. Jede Art hat **6–10 Fundstücke**, und jedes zählt einzeln. Zuerst nur das **regionale Tierreich** (eine Pilotregion, siehe 9).
+Eine Art ist nicht nur „gefunden“ oder „nicht gefunden“. Jede Art hat **höchstens 4 Fundstücke plus die Sichtung** (Entscheidung 24.10.2026, vorher 6–10). Die Sichtung ist der fünfte Platz und wird hervorgehoben. Ausgewählt werden die 4 Zeichen, die man am leichtesten findet. Zuerst nur das **regionale Tierreich** (eine Pilotregion, siehe 9).
 
 ### 2.1 Beispiele
 | Art | Fundstücke |
