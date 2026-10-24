@@ -99,6 +99,12 @@ Namensnennung erscheint in der App unter Einstellungen → Datenquellen und in d
 - **Lizenz:** Nur Datensätze unter **CC0 1.0** oder **CC BY 4.0** (per Filter, NC-Datensätze ausgeschlossen). Namensnennung „GBIF.org“ steht unter jeder Karte in der App.
 - **Vor Veröffentlichung:** Über GBIF.org einen Download bzw. ein „Derived Dataset“ mit DOI anlegen und diese DOI in der App zitieren (GBIF-Zitierregeln).
 
+### Arten-Datenbank, Stufe A (nur Datenbank `db/`, noch nicht in der App)
+Geladen von `scripts/db-stufe-a.mjs`. Lizenzen laut Recherche `reports/Offene Artendatenbanken für Wildfund.md`, vor einer Veröffentlichung im Browser bestätigen.
+- **GBIF.org**: welche Arten in Deutschland seit 2000 nachgewiesen sind (Säugetiere, Vögel, Gefäßpflanzen, Agaricomycetes), nur Nachweise unter CC0 1.0 und CC BY 4.0. Vor der Veröffentlichung: GBIF-Download mit DOI erzeugen und zitieren.
+- **Catalogue of Life eXtended Release** (ChecklistBank-Datensatz 315557), CC BY 4.0: wissenschaftliche Namen, Systematik, Volksnamen. Namensnennung nötig.
+- **Wikidata**, CC0: Wikidata-Nummer, deutscher und englischer Hauptname, Titel des deutschen Wikipedia-Artikels (nur der Titel, kein Text).
+
 ## Geprüft, (noch) nicht verwendet
 
 | Quelle | Ergebnis |

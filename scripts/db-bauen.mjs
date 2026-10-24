@@ -86,7 +86,7 @@ for (const art of saeuger) {
   const seite = TIER_SEITEN[art.id];
   const steckbrief = STECKBRIEFE[art.id];
   const quellen = { art, steckbrief, seite };
-  einfuegen('art', { id: art.id, gruppe: 'saeuger', wiss_name: art.lat });
+  einfuegen('art', { id: art.id, gruppe: 'saeuger', wiss_name: art.lat, in_app: 1 });
   einfuegen('name', { art_id: art.id, sprache: 'de', name: art.name, haupt: 1 });
 
   // Quellen der Tierseite (bisher je Art, nicht je Datenpunkt)

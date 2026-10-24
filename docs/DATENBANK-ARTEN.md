@@ -204,6 +204,13 @@ Die heutige Tierseiten-Pipeline (`/tierseite`) wird damit zu Schritt B + C und s
 | D5 | Stufe A für alle Arten in Deutschland, dann Europa |
 | D6 | App liest aus dem Auszug der Datenbank |
 
+## 7a. Stand 24.10.2026
+- **D2 fertig:** 10 Säugetiere aus der App in der Datenbank, Rückweg geprüft (`npm run db`).
+- **Stufe A Deutschland fertig:** 11.547 Arten (Säugetiere 315, Vögel 1.100, Gefäßpflanzen 7.578, Pilze/Agaricomycetes 2.554) mit Catalogue-of-Life-ID, Systematik, deutschem und englischem Namen und Anzahl Nachweise. Übersicht: `db/export/stufe-a-deutschland.csv`.
+- **Hauptnummer je Art ist die COL-ID** (GBIF nutzt seit Juni 2026 den Catalogue of Life, das alte GBIF-Backbone wird nicht mehr gepflegt).
+- Die Liste enthält auch Gäste, Irrläufer und Gartenflüchtlinge. Als Nächstes: Status heimisch/eingeführt (WCVP, GRIIS) und eine Mindestzahl an Nachweisen.
+- **Offen:** Raster für die Europa-Karte – H3 (eigene Umrechnung) oder ISEA3H (rechnet GBIF selbst).
+
 ## 8. Offene Fragen
 1. Welche Gruppen kommen danach? (Insekten, Amphibien, Reptilien, Fische?)
 2. Reihenfolge Deutschland → Europa → Nordamerika?

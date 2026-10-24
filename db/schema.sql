@@ -6,8 +6,14 @@ CREATE TABLE art (
   id          TEXT PRIMARY KEY,            -- unser Kurzname, z. B. 'wildschwein'
   gruppe      TEXT NOT NULL,               -- saeuger | voegel | pflanzen | baeume | pilze
   wiss_name   TEXT NOT NULL,
-  gbif_key    INTEGER,
-  wikidata_id TEXT
+  autor       TEXT,
+  col_id      TEXT UNIQUE,                 -- Catalogue of Life (COL XR), Hauptnummer seit GBIF-Umstellung 2026
+  klasse      TEXT,
+  ordnung     TEXT,
+  familie     TEXT,
+  gbif_key    INTEGER,                     -- alte GBIF-Backbone-Nummer, nur als Verweis
+  wikidata_id TEXT,
+  in_app      INTEGER NOT NULL DEFAULT 0   -- 1 = Art ist heute schon in der App
 );
 
 CREATE TABLE name (
