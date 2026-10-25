@@ -248,6 +248,13 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 | „Jetzt in Saison“-Karten auf der Startseite, später Handy-Widget (5.2) | ⬜ Konzept |
 | Müll melden / aufsammeln mit Abzeichen (5.3) | ⬜ Konzept |
 | Ranglisten wie Strava: Erstfund in der Region, „eine von 10 Personen“, Local Legend (5.4) | ⬜ Konzept |
+| **Daten zuerst:** erst Arten-Datenbank mit Sonderwissen je Art (Rezept, Essbarkeit, Inhaltsstoffe …), dann die Seiten mit eigenen Bausteinen je Art (11) | ⬜ Entscheidung 25.10.2026 |
+| Community-Feed wie Komoot/Instagram: Funde, Taler, Abzeichen von Leuten aus der Region und denen man folgt; Folgen, Benachrichtigung bei Freunden, Funde teilen (12) | ⬜ Konzept |
+| Startphase mit Beispielprofilen im Feed, mit Leitplanken (12.3) | ⬜ 🔒 rechtlich prüfen |
+| Jahresrückblick, Jahrestage mit eigenem Foto, Naturkalender (GitHub-Ansicht), Entdeckerkarte im Stil des 18. Jahrhunderts (13) | ⬜ Konzept |
+| Lückenanalyse und „fast geschafft“ in der Region, Regionsübersicht, gemeinsame Ziele der Region (14.1) | ⬜ Konzept |
+| Saison-Benachrichtigungen aus dem Jahreslauf der Arten in der Region, auch für ungefundene Arten, mit mitwachsenden Aufgaben (14.2) | ⬜ Konzept |
+| Monatliche Challenges (14.3) | ⬜ Idee |
 | Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
 | G1 umgesetzt (Branch `feature/fundstuecke`): 389 Fundstücke für 73 Arten mit Quellen, Album auf der Artenseite, Speichern, Foto nur per App-Kamera | ✅ · Tonaufnahme offen |
 | Taler: Metall = Fortschritt (Rohling → Holz → Bronze → Silber → Gold), Seltenheit über Edelstein und Email | ✅ |
