@@ -1,0 +1,241 @@
+{
+  "artId": "eichhoernchen",
+  "colId": "79Y2K",
+  "wissName": "Sciurus vulgaris",
+  "gruppe": "saeuger",
+  "eintraege": [
+    {
+      "id": "vergessene-vorraete",
+      "thema": "oekologie",
+      "titel": "Bis zu 10.000 Verstecke – und neue Bäume",
+      "text": "Eichhörnchen halten keinen Winterschlaf, sondern nur Winterruhe. Darum vergraben sie im Herbst Nüsse und Samen, laut Naturschutzbund Österreich in bis zu 10.000 Verstecken. Sie merken sich nicht jedes Versteck, aber die Gegend und ihr Versteckmuster, und finden viel mit der Nase. Einige Vorräte bleiben trotzdem liegen. Im Frühjahr keimen sie, und so helfen Eichhörnchen, ähnlich wie Eichelhäher, neue Wälder zu pflanzen.",
+      "details": {
+        "verstecke": "bis zu 10.000 (Naturschutzbund Österreich)"
+      },
+      "monate": [
+        9,
+        10,
+        11
+      ],
+      "meldung": "Vorratszeit! Beobachte mal ein Eichhörnchen: Wo vergräbt es seine Nüsse?",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "dws",
+        "naturschutzbundAT",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "name",
+      "thema": "name",
+      "titel": "Kein Horn und vielleicht keine Eiche",
+      "text": "Mit der Eiche hat der Name wohl nichts zu tun. Sprachforscher vermuten im ersten Teil eine alte Wurzel für „sich heftig bewegen, schwingen“, also ein Name für das flinke Tier. Die Eiche wäre dann nur eine spätere Anlehnung. Auch das „Horn“ kam erst später dazu, als man das alte Wort an ein bekanntes anpasste. Ganz sicher ist die Herkunft nicht. Der wissenschaftliche Name Sciurus bedeutet „Schattenschwanz“.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "dwds",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "kopfueber",
+      "thema": "koerper",
+      "titel": "Kopfüber den Stamm hinunter",
+      "text": "Eichhörnchen klettern nicht nur hinauf, sondern auch kopfüber am glatten Stamm hinunter. Das schaffen sie mit langen, beweglichen Greifzehen und scharfen Krallen an Vorder- und Hinterpfoten. Ihre muskulösen Hinterbeine sind besonders lang, damit springen sie bis zu zwei Meter weit von Ast zu Ast.",
+      "details": {
+        "sprungweite": "bis 2 m"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "uniDue",
+        "naturschutzbundAT"
+      ]
+    },
+    {
+      "id": "schwanz",
+      "thema": "koerper",
+      "titel": "Ruder, Fahne und Bettdecke",
+      "text": "Der buschige Schwanz ist fast so lang wie der Körper. Beim Springen dient er als Steuerruder, beim Klettern zum Gleichgewicht. Mit ihm verständigen sich Eichhörnchen auch: Bei Gefahr plustern sie ihn auf und schlagen ihn hin und her. Und im Nest, dem Kobel, wärmt er wie eine Decke.",
+      "details": {
+        "laenge": "bis 22 cm"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "naturschutzbundAT"
+      ]
+    },
+    {
+      "id": "fellfarbe",
+      "thema": "verblueffend",
+      "titel": "Rot, braun oder schwarz – dieselbe Art",
+      "text": "Bei uns gibt es nur eine Eichhörnchenart. Trotzdem reicht ihr Fell von hellrot bis braunschwarz, nur der Bauch ist immer weiß oder cremefarben. In Nadelwäldern höherer Lagen sind sie meist dunkler als im Laubwald des Flachlands. Auch ein graues Eichhörnchen ist bei uns fast immer ein heimisches und kein Grauhörnchen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "naturschutzbundAT",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "pinselohren",
+      "thema": "mitmachen",
+      "titel": "Pinsel nur im Winter",
+      "text": "Im Frühjahr und Herbst wechseln Eichhörnchen ihr Fell. Das Winterfell ist dichter und dunkler, der Schwanz buschiger, und die Haarpinsel an den Ohren werden länger. Beim Fellwechsel im Frühjahr fallen die Pinsel aus. Achte mal darauf, wie unterschiedlich die Ohren im Winter und im Sommer aussehen.",
+      "details": null,
+      "monate": [
+        11,
+        12,
+        1,
+        2,
+        3
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "verfolgungsjagd",
+      "thema": "verhalten",
+      "titel": "Wilde Jagden um die Stämme",
+      "text": "Schon um den Jahreswechsel beginnt die Paarungszeit mit wilden Verfolgungsjagden: Oft jagen mehrere Männchen einem Weibchen durch die Bäume hinterher. Eine zweite Paarungszeit folgt im Sommer. Nach der Paarung duldet das Weibchen das Männchen nicht mehr in seiner Nähe und zieht die Jungen allein groß.",
+      "details": null,
+      "monate": [
+        1,
+        2,
+        3
+      ],
+      "meldung": "Paarungszeit der Eichhörnchen: Siehst du mehrere Hörnchen, die sich wild durch die Bäume jagen?",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "jungtiere",
+      "thema": "verhalten",
+      "titel": "Nackt, blind und nur 3–4 cm",
+      "text": "Nach 36 bis 42 Tagen Tragzeit kommen meist zwei bis fünf Junge im Kobel zur Welt. Sie sind nackt, blind und taub und nur drei bis vier Zentimeter groß. Erst nach etwa acht Wochen verlassen sie das Nest. Viele junge Eichhörnchen überleben das erste Jahr nicht, wie viele, hängt vor allem vom Futter ab.",
+      "details": {
+        "tragzeit": "36–42 Tage",
+        "wurf": "meist 2–5, selten bis 8"
+      },
+      "monate": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "mastjahre",
+      "thema": "beziehung",
+      "titel": "Gute Jahre für Buche und Fichte, gute Jahre für Hörnchen",
+      "text": "Eichhörnchen sind auf alte, samentragende Bäume angewiesen. Fichten und Rotbuchen tragen erst nach 30 bis 50 Jahren Samen. In Jahren, in denen Fichte oder Buche besonders viele Samen bilden, steigt auch die Zahl der Eichhörnchen deutlich. In mageren Jahren sinkt sie wieder.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws"
+      ]
+    },
+    {
+      "id": "grauhoernchen",
+      "thema": "beziehung",
+      "titel": "Die graue Gefahr aus Amerika",
+      "text": "Das größere Grauhörnchen aus Nordamerika wurde Ende des 19. Jahrhunderts in Großbritannien ausgesetzt und hat das rote Eichhörnchen dort fast überall verdrängt. Es brachte ein Pockenvirus mit, gegen das Grauhörnchen weitgehend immun sind, rote Eichhörnchen aber nicht. Auch in Norditalien leben inzwischen Grauhörnchen. In Deutschland wurden sie bisher nicht nachgewiesen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "naturschutzbundAT",
+        "uniDue"
+      ]
+    },
+    {
+      "id": "winterruhe",
+      "thema": "verhalten",
+      "titel": "Kein Winterspeck",
+      "text": "Anders als viele andere Nager fressen sich Eichhörnchen keinen Winterspeck an. Im Winter sind sie täglich nur ein bis zwei Stunden unterwegs und holen sich Futter aus ihren Verstecken. Den Rest der Zeit verbringen sie im gut gepolsterten Kobel. Deshalb kannst du sie auch im Winter sehen.",
+      "details": {
+        "aktivitaetWinter": "1–2 Stunden täglich (DWS)"
+      },
+      "monate": [
+        12,
+        1,
+        2
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "naturschutzbundAT"
+      ]
+    }
+  ],
+  "quellen": {
+    "dws": {
+      "titel": "Deutsche Wildtier Stiftung: Eichhörnchen – Steckbrief",
+      "url": "https://www.deutschewildtierstiftung.de/wildtiere/eichhoernchen",
+      "abgerufen": "2026-10-25"
+    },
+    "naturschutzbundAT": {
+      "titel": "Naturschutzbund Österreich: Eichhörnchen im Winter – kleine Nager mit großem Gedächtnis (06.11.2025)",
+      "url": "https://naturschutzbund.at/newsreader-36/items/eichhoernchen-im-winter-kleine-nager-mit-grossem-gedaechtnis.html",
+      "abgerufen": "2026-10-25"
+    },
+    "uniDue": {
+      "titel": "Universität Duisburg-Essen, Fakultät für Biologie: Eichhörnchen am Campus Essen",
+      "url": "https://www.uni-due.de/biologie/fakultaet/eichhoernchen.php",
+      "abgerufen": "2026-10-25"
+    },
+    "dwds": {
+      "titel": "DWDS, Etymologisches Wörterbuch (Pfeifer): Eichhörnchen",
+      "url": "https://www.dwds.de/wb/etymwb/Eichhörnchen",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Name: Die Uni Duisburg-Essen schreibt bestimmt „nicht von Eichen“, das DWDS ist vorsichtiger („vielleicht sekundär“). Der Text folgt dem DWDS.",
+    "Gehirnwachstum um bis zu 15 % im Winter (Naturschutzbund Österreich): nicht aufgenommen, weil unklar ist, ob die Studie Eichhörnchen oder verwandte Hörnchen betrifft.",
+    "Pilze auf Ästen trocknen: keine Quelle gefunden.",
+    "Pinselohren-Monate 11–3 abgeleitet aus „Winterfell“ und „fallen im Frühjahr aus“.",
+    "NABU-Seiten waren beim Abruf offline."
+  ]
+}
