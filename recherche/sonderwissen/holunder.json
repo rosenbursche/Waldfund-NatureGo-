@@ -1,0 +1,244 @@
+{
+  "artId": "holunder",
+  "colId": "79HX3",
+  "wissName": "Sambucus nigra",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "sambunigrin",
+      "thema": "giftig",
+      "titel": "Warum Holunderbeeren in den Topf gehören",
+      "text": "Blätter, frische Rinde und unreife Früchte enthalten Sambunigrin. Dieser Stoff ist ein cyanogenes Glykosid und kann Blausäure freisetzen. Roh lösen die Beeren Übelkeit, Erbrechen und Durchfall aus. Erst beim Erhitzen über 80 °C wird der Stoff weitgehend unschädlich. Das BfR zählt Holunder zu den Pflanzen, nach denen bei Vergiftungen am häufigsten gefragt wird, und stuft das Risiko als mittelschwer ein.",
+      "details": { "unschaedlichAb": "über 80 °C", "betroffeneTeile": ["Blätter", "frische Rinde", "unreife Früchte", "Kerne", "Stiele"] },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Beeren nie roh oder unreif essen. Nur ganz schwarze, reife Beeren verwenden und vollständig durcherhitzen. Blätter, Rinde und Stiele nicht essen. Bei Verdacht auf eine Vergiftung den Giftnotruf anrufen.",
+      "wow": 3,
+      "quellen": ["lwf", "bfr", "gesundheitAt", "wochenblatt", "pz"]
+    },
+    {
+      "id": "attich",
+      "thema": "giftig",
+      "titel": "Der giftige Doppelgänger: Zwerg-Holunder",
+      "text": "In Mitteleuropa gibt es drei heimische Holunder-Arten. Der Zwerg-Holunder, auch Attich genannt, ist eine krautige Pflanze ohne Holzstamm. Bei ihm sind alle Teile giftig, besonders Beeren und Wurzeln. Man erkennt ihn am Geruch, der bitter und modrig ist, und an den Beeren, die nach oben stehen. Beim Schwarzen Holunder hängen die Beeren nach unten.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Zwerg-Holunder (Attich) ist in allen Teilen giftig, auch gekocht. Merkmale zum Unterscheiden: krautig statt verholzt, unangenehmer Geruch, aufrecht stehende Fruchtstände. Im Zweifel nichts verwenden.",
+      "wow": 2,
+      "quellen": ["hamburg", "oekoleo", "lwf"]
+    },
+    {
+      "id": "trauben-holunder",
+      "thema": "giftig",
+      "titel": "Roter Bruder mit braunem Mark",
+      "text": "Der Trauben-Holunder trägt korallenrote Früchte, die schon im Juli und August reif sind. Anders als beim Schwarzen Holunder sind sie auch nach dem Kochen nicht genießbar. Sicher unterscheiden kann man die beiden am Mark der Zweige: Beim Schwarzen Holunder ist es weiß, beim Trauben-Holunder braun. Seine Früchte sind viel fettreicher, die des Schwarzen Holunders viel süßer.",
+      "details": {
+        "schwarzerHolunder": { "zucker": "16,98 %", "fett": "3,33 %", "mark": "weiß", "fruechte": "schwarzblau" },
+        "traubenHolunder": { "zucker": "6,13 %", "fett": "22,8 %", "mark": "braun", "fruechte": "korallenrot" }
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Früchte des Trauben-Holunders nicht essen, auch nicht gekocht. Alle Teile gelten als schwach giftig.",
+      "wow": 2,
+      "quellen": ["lwf", "waldwissen"]
+    },
+    {
+      "id": "sirup",
+      "thema": "rezept",
+      "titel": "Holunderblüten-Sirup",
+      "text": "Aus den Blütendolden lässt sich ein duftender Sirup kochen. Die Blüten ziehen ein bis zwei Tage in Wasser, dann kommen Zucker und Zitronensäure dazu und alles wird kurz aufgekocht. Ein Schuss Sirup in kaltem Wasser schmeckt nach Sommer.",
+      "details": {
+        "zutaten": ["1 l Wasser", "15–20 Holunderblütendolden", "1 kg Zucker", "20 g Zitronensäure", "1 unbehandelte Zitrone"],
+        "schritte": [
+          "Flaschen gründlich reinigen und bereitstellen.",
+          "Wasser in einen großen Topf füllen und die Blütendolden hineinlegen.",
+          "Die Zitrone in Stücke schneiden und dazugeben.",
+          "Zugedeckt 24 bis 48 Stunden ziehen lassen.",
+          "Durch ein feines Sieb abgießen, den Topf säubern und die Flüssigkeit zurückgießen.",
+          "Zucker und Zitronensäure darin auflösen und aufkochen.",
+          "Kochend heiß in die Flaschen füllen und sofort verschließen."
+        ],
+        "portionen": "etwa 1 Liter Ansatz (Ertrag in der Quelle nicht genannt)"
+      },
+      "monate": [5, 6, 7],
+      "meldung": null,
+      "sicherheit": "Nur die Blüten verwenden, keine Blätter oder Zweige. Nicht mit dem giftigen Zwerg-Holunder verwechseln: Er riecht bitter und modrig, der Schwarze Holunder süßlich. Vorher die Besitzer fragen, sparsam schneiden und den Strauch nicht beschädigen. Kinder kochen und füllen nur mit Erwachsenen ab.",
+      "wow": 2,
+      "quellen": ["oekoleo"]
+    },
+    {
+      "id": "beerensaft",
+      "thema": "rezept",
+      "titel": "Holunderbeersaft aus dem Topf",
+      "text": "Aus reifen, gut gekochten Beeren wird ein tiefroter Saft. Die Beeren werden mit wenig Wasser gekocht und dann durch ein Tuch gesiebt. Den Saft kann man weiter zu Gelee verarbeiten.",
+      "details": {
+        "zutaten": ["2 kg reife, ganz schwarze Holunderbeeren", "400 ml Wasser"],
+        "schritte": [
+          "Dicke Stiele entfernen, Beeren in einer Schüssel mit Wasser waschen und abtropfen lassen.",
+          "Blätter, Insekten und unreife Beeren aussortieren.",
+          "Die Beeren mit einer Gabel von den Dolden streifen und mit dem Wasser in einen Topf geben.",
+          "20 Minuten kochen.",
+          "Die Masse in ein mit einem Baumwolltuch ausgelegtes Sieb geben und den Saft auffangen."
+        ],
+        "portionen": "aus 2 kg Beeren (Ertrag in der Quelle nicht genannt)"
+      },
+      "monate": [8, 9, 10],
+      "meldung": null,
+      "sicherheit": "Beeren nie roh essen. Nur ganz schwarze, reife Beeren verwenden und unreife aussortieren. Alles vollständig durcherhitzen (über 80 °C). Stiele nicht mitessen. Nicht mit dem giftigen Zwerg-Holunder verwechseln, dessen Beeren nach oben stehen. Der Saft färbt stark, also alte Kleidung tragen.",
+      "wow": 1,
+      "quellen": ["wochenblatt", "gesundheitAt"]
+    },
+    {
+      "id": "frau-holle",
+      "thema": "geschichte",
+      "titel": "Wohnt Frau Holle im Holunder?",
+      "text": "Der Sage nach wohnte die gute Frau Holle im Holunder. Um sie gnädig zu stimmen, goss man früher das erste Badewasser eines Neugeborenen unter einen Holunderstrauch. Man glaubte auch, der Strauch schütze vor Blitzschlag und bösen Geistern. Schon die Germanen sollen ihn für den Wohnsitz von Göttinnen gehalten haben.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["hamburg", "pz"]
+    },
+    {
+      "id": "hut-ziehen",
+      "thema": "geschichte",
+      "titel": "Vor dem Holunder den Hut ziehen",
+      "text": "Früher hieß es, man müsse vor dem Holunder den Hut abnehmen. In süddeutschen Bergregionen grüßt man ihn so, wenn man an ihm vorbeigeht. Der Holunder galt als Schutzbaum des Hauses und wurde als Hausbaum gepflanzt. Ihn umzuhauen sollte Unglück bringen, und wenn er verdorrte, sah man darin ein Zeichen für einen Todesfall.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["austria", "hamburg", "pz"]
+    },
+    {
+      "id": "name",
+      "thema": "name",
+      "titel": "Holler, Holder, Flieder",
+      "text": "Der Holunder hat viele Namen: Holler, Holder und in Norddeutschland Flieder. Daher heißt die Beerensuppe im Norden oft Fliederbeersuppe. Woher das Wort Holunder kommt, ist nicht geklärt. Vielleicht von Frau Holle, vielleicht von den Zweigen, die innen nur mit lockerem Mark gefüllt sind und darum hohl wirken.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["sdw", "pz", "hohenheim"]
+    },
+    {
+      "id": "holundermark",
+      "thema": "nutzung",
+      "titel": "Das Mark für das Mikroskop",
+      "text": "Die Zweige sind mit weißem, schaumstoffartigem Mark gefüllt und lassen sich leicht aushöhlen. Kinder bauten daraus früher Blasrohre. Mikroskopiker nutzen ein Stück Holundermark bis heute für Handschnitte: Sie klemmen zum Beispiel ein Blatt in einen Spalt im Mark und schneiden beides zusammen mit einer Rasierklinge in hauchdünne Scheiben.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["sdw", "floraweb", "lbv", "bmg", "mkb"]
+    },
+    {
+      "id": "vogelbuffet",
+      "thema": "oekologie",
+      "titel": "Futter für über 60 Vogelarten",
+      "text": "Über 60 Vogelarten fressen Holunderbeeren, eine alte Zählung kommt auf 62. Besonders gern nascht die Mönchsgrasmücke. Die Samen kommen unverdaut wieder heraus, so pflanzen die Vögel neue Sträucher. Eine alte Beschreibung aus einer historischen Holzsammlung erwähnt Holunder sogar auf altem Mauerwerk, wohin ihn nur Vögel gebracht haben können.",
+      "details": { "vogelarten": 62 },
+      "monate": [8, 9],
+      "meldung": "Die Holunderbeeren sind jetzt schwarz. Schau mal, welche Vögel zum Naschen kommen!",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["waldwissen", "lbv", "bund", "hohenheim"]
+    },
+    {
+      "id": "insekten",
+      "thema": "beziehung",
+      "titel": "Beliebt bei Käfern, gemieden von Blattfressern",
+      "text": "Die Blüten werden vor allem von Fliegen und Käfern bestäubt, darunter Rosenkäfer und Bockkäfer. Die Blätter fressen dagegen nur wenige Insekten: Am Schwarzen Holunder kennt man hier nur 13 pflanzenfressende Insekten- und Milbenarten. Vermutlich liegt das am Sambunigrin. Eine Ausnahme ist die Raupe des Holunderspanners, eines Falters mit spitz ausgezogenen Hinterflügeln.",
+      "details": { "pflanzenfressendeInsektenUndMilben": 13 },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["waldwissen", "lwf"]
+    },
+    {
+      "id": "stickstoffzeiger",
+      "thema": "oekologie",
+      "titel": "Zeigt, wo zu viel Stickstoff ist",
+      "text": "Holunder wächst am liebsten dort, wo der Boden übermäßig viel Stickstoff enthält, etwa dort, wo Vieh lagert. Botaniker geben ihm die höchste Stickstoffzahl 9 und nennen ihn einen Verschmutzungszeiger. Er ist ein typischer Begleiter menschlicher Siedlungen. Sein Laub zersetzt sich besonders schnell und verbessert den Boden.",
+      "details": { "zeigerwertStickstoff": 9 },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["floraweb", "lwf", "sdw"]
+    },
+    {
+      "id": "judasohr",
+      "thema": "beziehung",
+      "titel": "Ohren am Holunder",
+      "text": "Das Judasohr ist ein Pilz, der bei uns fast nur auf Holunder wächst. Er besiedelt geschwächte oder tote Äste und baut das Holz ab. Seine braunen, gallertigen Fruchtkörper sehen aus wie Ohrmuscheln. Bei Trockenheit schrumpfen sie zu harten Klümpchen und quellen bei Regen wieder auf. Im Winter, wenn der Holunder kahl ist, findet man sie am leichtesten.",
+      "details": null,
+      "monate": [11, 12, 1, 2, 3],
+      "meldung": "Am kahlen Holunder hängen jetzt oft Judasohren. Entdeckst du eins?",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["botver", "waldwissen"]
+    },
+    {
+      "id": "faerben",
+      "thema": "nutzung",
+      "titel": "Beeren, die färben",
+      "text": "Der dunkelrote Saft der Beeren hinterlässt Flecken, die kaum auszuwaschen sind. Genau das nutzte man früher: Mit den Früchten wurden Leder und Wolle gefärbt. Noch heute dienen Holunderbeeren als natürlicher Farbstoff für Lebensmittel und Textilien.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["sdw", "lbv", "pz", "floraweb"]
+    },
+    {
+      "id": "duft-riechen",
+      "thema": "mitmachen",
+      "titel": "Riech mal an der Blüte",
+      "text": "Halt die Nase an eine Blütendolde. Heute beschreibt man den Duft als frisch und fruchtig, eine alte Beschreibung nannte ihn „widerlich-süß“. Zum starken Geruch trägt auch Ammoniak bei, und er lockt Käfer und Fliegen an. Schau, wer auf den Dolden krabbelt. Findest du einen abgebrochenen Zweig am Weg, sieh dir das weiße Mark an.",
+      "details": null,
+      "monate": [5, 6, 7],
+      "meldung": "Der Holunder blüht gerade. Riech mal dran!",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["sdw", "lbv", "hohenheim", "floraweb"]
+    }
+  ],
+  "quellen": {
+    "lwf": { "titel": "Olaf Schmidt: Der Traubenholunder – Ein ökologisch wertvoller Pionier. LWF aktuell 4/2024, S. 25–27", "url": "https://lwf.bayern.de/mam/cms04/boden-klima/dateien/a147_s25-27_schmidt.pdf", "abgerufen": "2026-10-25" },
+    "waldwissen": { "titel": "waldwissen.net (LWF): Der Schwarze Holunder aus tierökologischer Sicht (Olaf Schmidt)", "url": "https://www.waldwissen.net/de/lebensraum-wald/baeume-und-waldpflanzen/laubbaeume/der-schwarze-holunder-aus-tieroekologischer-sicht", "abgerufen": "2026-10-25" },
+    "bfr": { "titel": "BfR: Giftpflanzen – wie kann man sich schützen und was ist bei einer Vergiftung zu tun?", "url": "https://www.bfr.bund.de/fragen-und-antworten/thema/giftpflanzen-wie-kann-man-sich-schuetzen-und-was-ist-bei-einer-vergiftung-zu-tun/", "abgerufen": "2026-10-25" },
+    "gesundheitAt": { "titel": "Gesundheitsportal Österreich (gesundheit.gv.at): Saisonkalender September – Holunder", "url": "https://www.gesundheit.gv.at/leben/ernaehrung/saisonkalender/september/holunder", "abgerufen": "2026-10-25" },
+    "wochenblatt": { "titel": "Wochenblatt für Landwirtschaft und Landleben / top agrar (Bettina Pröbsting): Erntezeit für Holunderbeeren", "url": "https://www.topagrar.com/landleben/kochen-und-backen/erntezeit-fur-holunderbeeren-20028728.html", "abgerufen": "2026-10-25" },
+    "pz": { "titel": "Pharmazeutische Zeitung: Heimisches Superfood ist Heilpflanze des Jahres 2024", "url": "https://www.pharmazeutische-zeitung.de/heimisches-superfood-ist-heilpflanze-des-jahres-2024-144196/", "abgerufen": "2026-10-25" },
+    "hamburg": { "titel": "Bezirksamt Wandsbek, Botanischer Sondergarten: Florale Geschichten – Holunder", "url": "https://www.hamburg.de/politik-und-verwaltung/bezirke/wandsbek/themen/umwelt-natur-und-klimaschutz/botanischer-sondergarten/florale-geschichten/florale-geschichten-loewenzahn-1180314", "abgerufen": "2026-10-25" },
+    "oekoleo": { "titel": "ökoLeo (Umweltportal für Kinder in Hessen): Holunderblüten-Sirup selber machen", "url": "https://www.oekoleo.de/artikel/holunderblueten-sirup-selber-machen/", "abgerufen": "2026-10-25" },
+    "austria": { "titel": "Austria-Forum, ABC zur Volkskunde Österreichs (Helga Maria Wolf): Holunder", "url": "https://austria-forum.org/af/Wissenssammlungen/ABC_zur_Volkskunde_%C3%96sterreichs/Holunder", "abgerufen": "2026-10-25" },
+    "sdw": { "titel": "SDW / RP Freiburg Forst: Steckbrief Schwarzer Holunder", "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/SCHWARZER_HOLUNDER_SDW-Steckbrief.pdf", "abgerufen": "2026-10-25" },
+    "bund": { "titel": "BUND Schleswig-Holstein: Wildsträucher – Schwarzer Holunder", "url": "https://www.bund-sh.de/fileadmin/sh/Internes/Themen-PDFs-LV/Wildstraeucher/schwarzer_holunder.pdf", "abgerufen": "2026-10-25" },
+    "lbv": { "titel": "LBV München: Der schwarze Holunder (Sambucus nigra)", "url": "https://www.lbv-muenchen.de/tiere-pflanzen/voegel/details/der-schwarze-holunder-sambucus-nigra/", "abgerufen": "2026-10-25" },
+    "floraweb": { "titel": "FloraWeb (BfN): Sambucus nigra – Morphologie, Ökologie (Zeigerwerte) und Nutzung", "url": "https://www.floraweb.de/php/oekologie.php?name-use-id=5227", "abgerufen": "2026-10-25" },
+    "hohenheim": { "titel": "Universität Hohenheim, Xylothek (historische Holzbibliothek): Der schwarze Hollunder, Sambucus nigra", "url": "https://projekte.uni-hohenheim.de/uniarch/Xylothek%20_%20Seite/B-Serie/096_Holunder%20der%20schwarze.pdf", "abgerufen": "2026-10-25" },
+    "bmg": { "titel": "Berliner Mikroskopische Gesellschaft: Einführungskurs in die Mikroskopie (Methodenblatt Handschnitt)", "url": "https://www.berliner-mikroskopische-gesellschaft.de/Einfuhrungskurs_in_die_Mikroskopie.pdf", "abgerufen": "2026-10-25" },
+    "mkb": { "titel": "Mikroskopisches Kollegium Bonn (Jörg Weiß): Botanische Schnitte mit dem Hand-Zylindermikrotom", "url": "https://mikroskopie-bonn.de/bibliothek/botanische_mikrotechnik/160.html", "abgerufen": "2026-10-25" },
+    "botver": { "titel": "Botanischer Verein zu Hamburg (Dr. Jürgen Hechler): Pflanzen vor der Haustür – Das Judasohr", "url": "https://www.botanischerverein.de/tl_files/botanischer_verein/dokumente_service/pflanzenportraits/judasohr.pdf", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Keine Originalseite eines Giftinformationszentrums, der Verbraucherzentrale, des BZfE oder einer Landwirtschaftskammer gefunden. Die Landwirtschaftskammer Niedersachsen wird nur in Presseartikeln zitiert (mindestens 20 Minuten über 80 °C). Die Erhitzungsdauer ist darum nicht amtlich belegt; belegt sind nur „über 80 °C“ (gesundheit.gv.at, Wochenblatt) und 20 Minuten Kochzeit im Saftrezept.",
+    "Die BfR-Seite nennt Holunder mit mittelschwerem Risiko, beschreibt aber nicht, welche Teile betroffen sind oder dass gekochte Beeren sicher sind. Sambunigrin und die betroffenen Teile stammen von der LWF, vom Wochenblatt und von der Pharmazeutischen Zeitung.",
+    "Zwerg-Holunder: Laut Hamburg sind besonders Beeren und Wurzeln giftig. Den Hinweis aus Ratgebern, eine Vergiftung könne tödlich sein, habe ich nicht aufgenommen, weil keine Fachquelle ihn bestätigt.",
+    "Für das Rezept mit Beeren-Gelee fand ich keine seriöse Quelle mit Mengen. Das Wochenblatt verlinkt Gelee nur extern. Aufgenommen ist der Saft im Topf; beim Dampfentsafter nennt das Wochenblatt 45 Minuten.",
+    "Insekten: BUND SH nennt bis zu 20 Tag- und Nachtfalterarten (Raupen oder Nektar), waldwissen nur 13 pflanzenfressende Insekten- und Milbenarten. Das widerspricht sich nicht unbedingt, weil BUND auch Nektarsauger zählt. Im Text steht nur die Zahl 13.",
+    "Die Zahl von 62 Vogelarten geht auf Turček zurück, eine alte Zählung (laut Suchergebnis 1961; das Jahr steht nicht in der geöffneten Quelle). LBV nennt „über 60“.",
+    "Holundermark als Spielzeug (z. B. Stehaufmännchen) nicht belegt. Belegt sind nur Blasrohre (LBV).",
+    "Dass das Judasohr nach Judas benannt ist, der sich an einem Holunder erhängt haben soll, steht nur in der englischen Wikipedia. Darum nicht aufgenommen.",
+    "Blütezeit je nach Quelle unterschiedlich: SDW Mai–Juni, FloraWeb 6–7, BUND SH 6–8, Hamburg Mai–Juli. Hier ist sie mit 5–7 angegeben. Für die Beerenreife nennt BUND SH 8–9 und gesundheit.gv.at September–Oktober (in Österreich, je nach Sorte ab Mitte August).",
+    "Den Text der PDF-Quellen (SDW, BUND SH, LWF, Botanischer Verein, Hohenheim, BMG) habe ich mit WebFetch geladen und mit pdftotext lesbar gemacht."
+  ]
+}

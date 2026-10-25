@@ -1,0 +1,448 @@
+{
+  "artId": "walnuss",
+  "colId": "6NFN8",
+  "wissName": "Juglans regia",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "juglon",
+      "thema": "chemie",
+      "titel": "Juglon: Giftbaum oder Gartenmythos?",
+      "text": "In der Walnuss steckt eine harmlose Vorstufe, aus der vor allem im Boden der Stoff Juglon wird. Im Labor hemmt Juglon das Keimen und Wachsen vieler Pflanzen. Ob das unter dem Baum wirklich der Grund für kümmernde Nachbarn ist, wird seit Jahrzehnten gestritten: Feldversuche zeigten oft kaum Wirkung, Boden bindet den Stoff und Bakterien bauen ihn ab. Die Echte Walnuss hat zudem weniger Juglon als die Schwarznuss, und Forscher vermuten, dass noch andere Stoffe mitwirken.",
+      "details": {
+        "stoff": "Juglon (5-Hydroxy-1,4-naphthochinon)",
+        "erstmalsIsoliert": "1856",
+        "ersteFeldversuche": "ab 1951"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "strugstad2012",
+        "wsu",
+        "medic2023",
+        "askext",
+        "lagoni2008"
+      ]
+    },
+    {
+      "id": "braune-haende",
+      "thema": "nutzung",
+      "titel": "Die Schale, die Hände wochenlang braun färbt",
+      "text": "Wer grüne Walnussschalen anfasst, hat schnell braune bis schwarze Finger. Schuld ist wieder das Juglon, das die Haut braun färbt. Die Farbe lässt sich nicht einfach abwaschen und kann wochenlang bleiben. Früher nutzte man den dunklen Sud aus grünen Schalen, Blättern und Rinde zum Haarfärben, Beizen und Färben.",
+      "details": null,
+      "monate": [
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "lagoni2008",
+        "utopia",
+        "waldwissen",
+        "janscheck2008"
+      ]
+    },
+    {
+      "id": "blaetter-ungeniessbar",
+      "thema": "oekologie",
+      "titel": "Ein Baum, an dessen Blättern keine Raupe frisst",
+      "text": "In Deutschland ist kein Käfer und keine Schmetterlingsraupe bekannt, die die gerbstoffreichen Walnussblätter fressen kann. Früher glaubte man deshalb, die Blätter vertreiben Ungeziefer: Man pflanzte den Baum neben Misthaufen und Abort gegen Fliegen und legte Blätter gegen Motten in Schränke. Dass das hilft, ist nicht belegt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "blaschke2008",
+        "janscheck2008"
+      ]
+    },
+    {
+      "id": "kraehen-luftfall",
+      "thema": "verhalten",
+      "titel": "Krähen als Nussknacker mit Luftangriff",
+      "text": "Rabenkrähen bekommen die harte Walnuss mit dem Schnabel kaum auf. Also fliegen sie mit der Nuss hoch und lassen sie aus 10 bis 20 Metern auf Straßen oder Beton fallen. Eine Studie an Amerikanerkrähen zeigte: Nüsse mit harter Schale lassen sie aus größerer Höhe fallen, über weichem Boden auch. Sind viele andere Krähen in der Nähe, werfen sie niedriger, damit ihnen keiner die Nuss klaut.",
+      "details": {
+        "fallhoehe": "10–20 m (Rabenkrähe, LWF)"
+      },
+      "monate": [
+        9,
+        10,
+        11
+      ],
+      "meldung": "Walnusszeit! Achte mal darauf, ob Krähen Nüsse auf die Straße fallen lassen.",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "lwfkraehen2008",
+        "cristol1999"
+      ]
+    },
+    {
+      "id": "kraehen-vorrat",
+      "thema": "beziehung",
+      "titel": "Vergessene Vorräte werden zu neuen Bäumen",
+      "text": "Vögel und kleine Säugetiere tragen Walnüsse fort und sorgen so dafür, dass junge Nussbäume auch im Wald auftauchen. In München versteckten Rabenkrähen im Herbst viele Walnüsse im Boden als Wintervorrat, ähnlich wie Eichelhäher. Rund drei Monate später fanden sie die Nüsse sogar unter Schnee meist punktgenau wieder. Auch Eichhörnchen fressen Walnüsse gern.",
+      "details": null,
+      "monate": [
+        9,
+        10,
+        11,
+        12,
+        1,
+        2
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "aas2008",
+        "lwfkraehen2008",
+        "goettingen"
+      ]
+    },
+    {
+      "id": "stoepselkopf-ameise",
+      "thema": "oekologie",
+      "titel": "Ameisen, die ihre Tür mit dem Kopf verschließen",
+      "text": "In toten Zweigen alter Walnussbäume lebt in warmen Gegenden oft die Stöpselkopf-Ameise. Sie nutzt alte Bohrgänge von Insekten als Nest. Besondere Arbeiterinnen haben einen dicken, vorn flachen Kopf, der genau in das Eingangsloch passt, und verschließen es wie ein Korken. Hohle alte Walnussbäume bieten außerdem seltenen Käfern wie dem Eremiten eine Wohnung.",
+      "details": {
+        "volksgroesse": "selten mehr als 500 Arbeiterinnen"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "schmidt2008",
+        "blaschke2008"
+      ]
+    },
+    {
+      "id": "name-welsch",
+      "thema": "name",
+      "titel": "Die Nuss der Fremden",
+      "text": "Walnuss heißt eigentlich „welsche Nuss“, also Nuss der Welschen. So nannten die Germanen die romanisch sprechenden Nachbarn im Süden und Westen. Der Name unterschied die fremde Nuss von der heimischen Haselnuss. Die Form „Walnuss“ kam aus dem Niederdeutschen und setzte sich um 1700 durch. Juglans wird als „Jovis glans“ gedeutet, die Eichel des Gottes Jupiter.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dwds",
+        "waldwissen",
+        "janscheck2008"
+      ]
+    },
+    {
+      "id": "roemer-karl",
+      "thema": "geschichte",
+      "titel": "Mitgebracht von Römern, gefördert von Karl dem Großen",
+      "text": "Die Walnuss stammt aus Vorder- und Mittelasien. Nach Mitteleuropa brachten sie vor allem die Römer, die nördlich der Alpen Nussbäume pflanzten. Später förderte Karl der Große den Anbau, in seiner Landgüterverordnung „Capitulare de villis“ steht die „Nux gallica“, die welsche Nuss. Alte Funde, die man für wilde Vorkommen hielt, gehen nach neueren Befunden wohl alle auf den Menschen zurück.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "aas2008",
+        "janscheck2008",
+        "waldwissen"
+      ]
+    },
+    {
+      "id": "nussfressertag",
+      "thema": "geschichte",
+      "titel": "Der gefürchtete Nussfressertag",
+      "text": "Die Walnuss blüht Ende April bis Mai, gleichzeitig mit dem Austrieb, und wird vom Wind bestäubt. Erst hängen die langen männlichen Kätzchen, die weiblichen Blüten folgen später. Ein Spätfrost kann die Blüte zerstören, deshalb hieß der Markustag am 25. April im Volksmund „Nussfressertag“: „Ohne Aprilblüte keine Septembernuss.“ In den 1950er-Jahren starben nach Spätfrösten Tausende Nussbäume in Süddeutschland.",
+      "details": {
+        "winterfrost": "erträgt in der Winterruhe bis etwa −30 °C"
+      },
+      "monate": [
+        4,
+        5,
+        6
+      ],
+      "meldung": "Die Walnuss blüht. Entdeckst du die langen grünen Kätzchen?",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "janscheck2008",
+        "aas2008",
+        "waldwissen"
+      ]
+    },
+    {
+      "id": "walnussfruchtfliege",
+      "thema": "beziehung",
+      "titel": "Eine Fliege aus Amerika färbt Nüsse schwarz",
+      "text": "Die Walnussfruchtfliege stammt aus Nordamerika und wurde in Europa 1986 im Tessin entdeckt. Ihre Maden fressen die grüne Fruchtschale, die dann schwarz, weich und schleimig wird und die Nussschale schwarz färbt. Ein Weibchen markiert die Frucht nach der Eiablage mit einem Duftstoff, damit andere Weibchen dort keine Eier mehr ablegen.",
+      "details": {
+        "groesse": "4–8 mm",
+        "eierJeWeibchen": "300–400"
+      },
+      "monate": [
+        7,
+        8,
+        9
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "agroscope2018",
+        "ages"
+      ]
+    },
+    {
+      "id": "gallmilbe-suchen",
+      "thema": "mitmachen",
+      "titel": "Beulen oben, weißer Filz unten",
+      "text": "Sieh dir Walnussblätter an: Oft wölbt sich die Blattfläche zwischen den Adern zu glänzenden Beulen. Dreh das Blatt um, dann findest du darunter weißen Filz. Darin leben winzige Gallmilben, kleiner als 0,2 Millimeter. Dem Baum und seinen Nüssen schaden sie laut britischer Gartenbaugesellschaft nicht.",
+      "details": {
+        "art": "Walnuss-Filzgallmilbe (Aceria erinea, früher Eriophyes erineus)"
+      },
+      "monate": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "meldung": "Dreh mal ein Walnussblatt um: Siehst du weißen Filz unter den Beulen?",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "rhs",
+        "goettingen",
+        "blaschke2008"
+      ]
+    },
+    {
+      "id": "blatt-und-mark",
+      "thema": "mitmachen",
+      "titel": "Riechen und ins Innere eines Zweigs schauen",
+      "text": "Zerreib ein Blättchen zwischen den Fingern: Es riecht stark und würzig. Schneide dann einen abgefallenen Zweig der Länge nach auf. Das Mark in der Mitte ist nicht durchgehend, sondern wie eine kleine Leiter in Kammern geteilt. Das ist ein sicheres Erkennungszeichen der Walnuss.",
+      "details": null,
+      "monate": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "meldung": "Zerreib mal ein Walnussblatt und riech daran!",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "aas2008"
+      ]
+    },
+    {
+      "id": "hirn-signatur",
+      "thema": "geschichte",
+      "titel": "Sieht aus wie ein Gehirn",
+      "text": "Der runzlige Nusskern erinnert an ein Gehirn in einem harten Schädel. Nach der alten Signaturenlehre glaubte man, dass eine Pflanze durch ihre Form zeigt, wogegen sie hilft. Die Walnuss galt deshalb früher als Mittel gegen Kopfleiden. Wissenschaftlich hat diese Lehre keinen Wert, sie ist ein Stück Medizingeschichte.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "doccheck",
+        "rcseng"
+      ]
+    },
+    {
+      "id": "nuesse-essbar",
+      "thema": "essbar",
+      "titel": "Reife Nüsse im Herbst",
+      "text": "Im September und Oktober platzt die grüne Schale auf und die reifen Nüsse fallen unter den Baum. Essbar ist der Kern. In der grünen Fruchtschale, in Blättern und Rinde stecken Naphthochinone wie Juglon, im Kern und seiner dünnen Haut fanden Forscher keine. Frische Nüsse lagert man dunkel, trocken und luftig.",
+      "details": {
+        "teile": [
+          "Nusskern (reif, aus der Schale)"
+        ],
+        "zubereitung": "roh oder in Speisen; vorher trocknen und luftig lagern, innerhalb eines Jahres verbrauchen"
+      },
+      "monate": [
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": "Verschimmelte Nüsse immer wegwerfen: Schimmelpilze bilden Aflatoxine, die Leber und Niere schädigen und Krebs auslösen können und beim Kochen oder Backen nicht zerstört werden. Klappert der Kern beim Schütteln, Kern genau auf Schimmel prüfen. Walnüsse können bei Allergikern schwere, den ganzen Körper betreffende Reaktionen auslösen. Grüne Schale nicht essen, ihr Saft färbt die Haut. Nur unter Bäumen sammeln, wo es erlaubt ist.",
+      "wow": 1,
+      "quellen": [
+        "aas2008",
+        "medic2023",
+        "consumerbz",
+        "altmeyers"
+      ]
+    },
+    {
+      "id": "schwarze-nuesse",
+      "thema": "rezept",
+      "titel": "Schwarze Nüsse aus grünen Früchten",
+      "text": "Für „schwarze Nüsse“ braucht man unreife, grüne Walnüsse, deren Schale innen noch nicht hart ist. Als Stichtag gilt traditionell der Johannistag am 24. Juni. Die Nüsse werden wochenlang gewässert, damit sie weniger bitter sind, und dann in würzigem Zuckersirup eingekocht, bis sie schwarz werden. Danach brauchen sie mindestens ein halbes Jahr Ruhe im Glas.",
+      "details": {
+        "zutaten": [
+          "1 kg unreife grüne Walnüsse",
+          "1 kg brauner Zucker",
+          "ca. 600 ml Wasser",
+          "6 Gewürznelken",
+          "1 Zimtstange",
+          "1 Vanilleschote",
+          "2 Bio-Limetten (abgeriebene Schale)"
+        ],
+        "schritte": [
+          "Reifetest: Eine Nuss aufschneiden. Sie muss sich mit einem Schaschlikspieß ganz durchstechen lassen, innen darf noch keine harte Schale sein.",
+          "Mit Handschuhen jede Nuss unter Wasser 15- bis 20-mal bis zur Mitte einstechen.",
+          "2 bis 3 Wochen in kaltem Wasser wässern, das Wasser möglichst zweimal täglich wechseln.",
+          "Mit kochendem Wasser übergießen, 30 Minuten ziehen lassen, abschrecken und abtropfen lassen.",
+          "Zucker mit Wasser, Gewürzen und Limettenschale kochen, bis der Sirup klar ist und Fäden zieht.",
+          "Nüsse im Sirup mindestens 30 Minuten bei schwacher Hitze köcheln, bis sie weich und schwarz sind.",
+          "In sterilisierte Schraubgläser füllen, mit heißem Sirup bedecken, verschließen und mindestens 6 Monate dunkel und kühl lagern."
+        ],
+        "portionen": "etwa 1 kg Nüsse, je Glas 5–7 Stück; die Quelle rät Anfängern, mit etwa 20 Nüssen zu beginnen"
+      },
+      "monate": [
+        6
+      ],
+      "meldung": null,
+      "sicherheit": "Unbedingt Handschuhe tragen: Der Saft färbt die Haut schwarz, die Farbe hält wochenlang. Nur Nüsse von einem sicher erkannten Walnussbaum und nur mit Erlaubnis des Besitzers verwenden. Gläser vorher sterilisieren. Wer eine Nussallergie hat, verzichtet darauf.",
+      "wow": 2,
+      "quellen": [
+        "utopia",
+        "altmeyers"
+      ]
+    }
+  ],
+  "quellen": {
+    "aas2008": {
+      "titel": "Aas, G. (2008): Die Walnuss (Juglans regia): Systematik, Verbreitung und Morphologie. LWF Wissen 60, S. 5–10",
+      "url": "https://www.lwf.bayern.de/mam/cms04/boden-klima/dateien/w60-die-walnuss-systematik-verbreitung-morphologie.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "blaschke2008": {
+      "titel": "Blaschke, M.; Bußler, H. (2008): Pilze und Insekten an der Walnuss. LWF Wissen 60, S. 26–29",
+      "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/w60_gesamt.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "schmidt2008": {
+      "titel": "Schmidt, O. (2008): Heimliches Ameisenvolk im Nussbaumzweig. LWF Wissen 60, S. 36",
+      "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/w60_gesamt.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "lagoni2008": {
+      "titel": "Lagoni, N. (2008): Der Walnussbaum – nützlich für Pharmazie und Medizin. LWF Wissen 60, S. 54–57",
+      "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/w60_gesamt.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "lwfkraehen2008": {
+      "titel": "Krähen knacken Nüsse mit „Luft-Fall-Technik“. LWF Wissen 60, S. 58 (nach Reichholf 2003, 2004; Ortlam 1990)",
+      "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/w60_gesamt.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "janscheck2008": {
+      "titel": "Janscheck, T. (2008): Die „Welsche Nuss“ – Geschichte und Geschichten einer „Zugereisten“. LWF Wissen 60, S. 59–63",
+      "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/w60_gesamt.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "waldwissen": {
+      "titel": "Milad, M.; Karopka, M. (2008): Die Walnuss als Waldbaumart. waldwissen.net",
+      "url": "https://www.waldwissen.net/de/lebensraum-wald/baeume-und-waldpflanzen/laubbaeume/die-walnuss-juglans-regia",
+      "abgerufen": "2026-10-25"
+    },
+    "strugstad2012": {
+      "titel": "Strugstad, M. P.; Despotovski, S. (2012): A Summary of Extraction, Synthesis, Properties, and Potential Uses of Juglone: A Literature Review. Journal of Ecosystems and Management 13(3)",
+      "url": "https://jem-online.org/index.php/jem/article/download/119/473",
+      "abgerufen": "2026-10-25"
+    },
+    "wsu": {
+      "titel": "Washington State University Extension: Do Black Walnut Trees Have Allelopathic Effects on Other Plants? (Home Garden Series, archiviert)",
+      "url": "https://pubs.extension.wsu.edu/?p=10477",
+      "abgerufen": "2026-10-25"
+    },
+    "medic2023": {
+      "titel": "Medic, A.; Hudina, M.; Jakopic, J.; Veberic, R.: Is juglone really the only allelochemical in J. regia affecting plant growth and seed germination? Acta Horticulturae 1365",
+      "url": "https://ishs.org/ishs-article/1365_14/",
+      "abgerufen": "2026-10-25"
+    },
+    "askext": {
+      "titel": "Ask Extension: Antwort zu Englischer Walnuss und Juglon",
+      "url": "https://ask.extension.org/kb/faq.php?id=439474",
+      "abgerufen": "2026-10-25"
+    },
+    "cristol1999": {
+      "titel": "Cristol, D. A.; Switzer, P. V. (1999): Avian prey-dropping behavior. II. American crows and walnuts. Behavioral Ecology 10(3): 220–226",
+      "url": "https://scholars.eiu.edu/es/publications/avian-prey-dropping-behavior-ii-american-crows-and-walnuts/",
+      "abgerufen": "2026-10-25"
+    },
+    "goettingen": {
+      "titel": "Universität Göttingen: Walnuss – Tierische Schädlinge",
+      "url": "https://uni-goettingen.de/de/76570.html",
+      "abgerufen": "2026-10-25"
+    },
+    "dwds": {
+      "titel": "DWDS: Walnuss (Etymologie nach Pfeifer)",
+      "url": "https://www.dwds.de/wb/Walnuss",
+      "abgerufen": "2026-10-25"
+    },
+    "agroscope2018": {
+      "titel": "Sostizzo, T. et al. (2018): Walnussfruchtfliege – Rhagoletis completa. Agroscope Merkblatt Nr. 96",
+      "url": "https://kanton.baselland.ch/volkswirtschafts-und-gesundheitsdirektion/landw-zentrum-ebenrain/psd_files/pflanzenschutzdienst/merkblatt-walnussfruchtfliege.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "ages": {
+      "titel": "AGES: Walnussfruchtfliege",
+      "url": "https://www.ages.at/pflanze/pflanzengesundheit/schaderreger-von-a-bis-z/walnussfruchtfliege",
+      "abgerufen": "2026-10-25"
+    },
+    "rhs": {
+      "titel": "Royal Horticultural Society: Walnut blister mite",
+      "url": "https://www.rhs.org.uk/biodiversity/walnut-blister-mite",
+      "abgerufen": "2026-10-25"
+    },
+    "doccheck": {
+      "titel": "DocCheck Flexikon: Signaturenlehre",
+      "url": "https://flexikon.doccheck.com/de/Signaturenlehre",
+      "abgerufen": "2026-10-25"
+    },
+    "rcseng": {
+      "titel": "Royal College of Surgeons of England, Library Blog: Natural magic and medicine in the library collection",
+      "url": "https://rcseng.ac.uk/library-and-publications/library/blog/natural-magic-and-medicine-in-the-library-collection/",
+      "abgerufen": "2026-10-25"
+    },
+    "consumerbz": {
+      "titel": "Verbraucherzentrale Südtirol: Sind verschimmelte Walnüsse gesundheitsschädlich?",
+      "url": "https://www.consumer.bz.it/de/sind-verschimmelte-walnuesse-gesundheitsschaedlich",
+      "abgerufen": "2026-10-25"
+    },
+    "altmeyers": {
+      "titel": "Altmeyers Enzyklopädie: Walnussallergie",
+      "url": "https://www.altmeyers.org/de/allergologie/walnussallergie-19054",
+      "abgerufen": "2026-10-25"
+    },
+    "utopia": {
+      "titel": "Utopia.de: Schwarze Nüsse – Rezept für eingelegte Walnüsse",
+      "url": "https://utopia.de/ratgeber/schwarze-nuesse-rezept-fuer-eingelegte-walnuesse_148542/",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Juglon/Allelopathie: Laborwirkung ist gut belegt, Wirkung im Freiland umstritten. Die meisten Feldbefunde und die kritische WSU-Seite betreffen die Schwarznuss (Juglans nigra); für die Echte Walnuss gibt es nur die Aussage 'weniger Juglon' (Ask Extension, keine Zahl) und die Studie von Medic et al. (andere Phenole wirken mit). Den Übersichtsartikel von Willis (2000) konnte ich nicht selbst öffnen.",
+    "Austrieb: waldwissen.net schreibt, die Walnuss treibe 'früh' aus; die Idee 'spätes Austreiben' ist nicht belegt. Belegt ist nur Spätfrostgefährdung und Blüte mit dem Laubaustrieb Ende April bis Mai. Janscheck zitiert eine alte Sorte 'späte Wallnuß, die erst um Johanni ausschlägt' (Sorte, nicht Art).",
+    "Namensdatierung: waldwissen.net sagt, 'Walnuss' entstand im 18. Jh.; DWDS sagt, die Form erscheint Mitte 17. Jh. und ist um 1700 verbreitet. Im Eintrag steht 'um 1700'.",
+    "Göttingen schreibt, die Filzgallmilbe übertrage den Erreger des Bakterienbrandes; RHS schreibt, die Milben schaden Baum und Früchten nicht. Im Eintrag nur die RHS-Aussage mit Nennung der Quelle.",
+    "Eichhörnchen als Verbreiter der Walnuss: nur allgemein 'Kleinsäuger' (Aas) und 'frisst gerne Nüsse' (Göttingen) belegt; keine Quelle gefunden, die vergessene Walnussverstecke von Eichhörnchen ausdrücklich belegt.",
+    "Johannistag (24. Juni) als Stichtag für grüne Nüsse nur aus Ratgeberseiten (Utopia, Gartenjournal, yumda) belegt, keine volkskundliche Fachquelle. Walnusslikör/Nocino nicht aufgenommen, da nur Blog-/Händlerquellen.",
+    "Stöpselkopf-Ameise (wow 3) nur aus einer Quelle (Schmidt, LWF Wissen 60); zweite unabhängige Quelle fehlt.",
+    "Kein Beleg gefunden für Saatkrähen als Nussabwerfer; die Quellen nennen Rabenkrähen (LWF) und Amerikanerkrähen (Cristol & Switzer).",
+    "Mehrere Einträge stützen sich auf verschiedene Autoren desselben Hefts LWF Wissen 60 (2008); die Beiträge sind eigenständig, aber nicht völlig unabhängig.",
+    "Holznutzung (Möbel, Maserknollen, Gewehrschäfte; Grosser & Jeske, LWF Wissen 60) bewusst weggelassen, da eher Katalogwissen und sonst mehr als 15 Einträge."
+  ]
+}

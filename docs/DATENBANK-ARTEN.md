@@ -211,6 +211,14 @@ Die heutige Tierseiten-Pipeline (`/tierseite`) wird damit zu Schritt B + C und s
 - Die Liste enthält auch Gäste, Irrläufer und Gartenflüchtlinge. Als Nächstes: Status heimisch/eingeführt (WCVP, GRIIS) und eine Mindestzahl an Nachweisen.
 - **Offen:** Raster für die Europa-Karte – H3 (eigene Umrechnung) oder ISEA3H (rechnet GBIF selbst).
 
+## 7b. Sonderwissen je Art (25.10.2026)
+Neben dem festen Feldkatalog bekommt jede Art **Sonderwissen**, also das, was es nur bei ihr gibt (`docs/KONZEPT-GESAMT.md` Abschnitt 11).
+- Tabelle `sonderwissen`: beliebig viele Einträge je Art, jeweils mit Thema, Titel, Text, Details (z. B. Rezept), Monaten, Benachrichtigungstext, Sicherheitshinweis, Wow-Wert 1–3, Quellen und Status.
+- Themen: `db/felder/sonderwissen.mjs` (verblüffend, Inhaltsstoffe, Beziehungen, Körper, Verhalten, Rolle in der Natur, essbar, Rezept, giftig, Nutzung, Geschichte, Name, selbst ausprobieren). Die Prüfregeln stehen in derselben Datei, z. B. Pflicht-Sicherheitshinweis bei essbar, Rezept und giftig, bei Pilzen der Hinweis auf Pilzsachverständige.
+- Recherche je Art in `recherche/sonderwissen/<artId>.json`, Auftrag in `AUFTRAG.md`. `npm run db` lädt alles über die COL-ID. Übersicht: `db/export/sonderwissen.csv`.
+- `monate` und `meldung` sind die Grundlage für die Saison-Benachrichtigungen (Konzept 14.2).
+- Erste Arten: Walnuss, Holunder, Wildschwein.
+
 ## 8. Offene Fragen
 1. Welche Gruppen kommen danach? (Insekten, Amphibien, Reptilien, Fische?)
 2. Reihenfolge Deutschland → Europa → Nordamerika?

@@ -126,3 +126,21 @@ CREATE TABLE datenstand (
   app_vorschlag    TEXT NOT NULL,          -- ja | nein | offen
   app_entscheidung TEXT                    -- deine Entscheidung
 );
+
+-- Sonderwissen: was es nur bei dieser Art gibt (Themen in db/felder/sonderwissen.mjs, Recherche in recherche/sonderwissen/)
+CREATE TABLE sonderwissen (
+  art_id      TEXT NOT NULL REFERENCES art(id),
+  id          TEXT NOT NULL,
+  reihenfolge INTEGER NOT NULL,
+  thema       TEXT NOT NULL,               -- verblueffend | chemie | beziehung | essbar | rezept | geschichte …
+  titel       TEXT NOT NULL,               -- kurz und neugierig machend
+  text        TEXT NOT NULL,               -- 2–4 Sätze, eigene Worte
+  details     TEXT,                        -- JSON, z. B. Rezept {zutaten, schritte}
+  monate      TEXT,                        -- JSON-Liste, wann es passt (für Saison-Benachrichtigungen)
+  meldung     TEXT,                        -- Text der Saison-Benachrichtigung, z. B. „Der Holunder blüht gerade …“
+  sicherheit  TEXT,                        -- Pflicht bei essbar, rezept, giftig
+  wow         INTEGER NOT NULL,            -- 1 nett · 2 interessant · 3 erzählt man weiter
+  quelle_ids  TEXT NOT NULL DEFAULT '[]',
+  status      TEXT NOT NULL,               -- belegt | geprueft
+  PRIMARY KEY (art_id, id)
+);
