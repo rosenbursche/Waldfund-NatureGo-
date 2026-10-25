@@ -1,0 +1,167 @@
+{
+  "artId": "herbstzeitlose",
+  "colId": "WX9R",
+  "wissName": "Colchicum autumnale",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "verkehrtes-jahr",
+      "thema": "verblueffend",
+      "titel": "Blüte im Herbst, Frucht im Frühling",
+      "text": "Die Herbstzeitlose macht es andersherum als fast alle Blumen. Im Spätsommer und Herbst schieben sich blassviolette Blüten ohne ein einziges Blatt aus der Wiese. Der Fruchtknoten sitzt dabei unter der Erde. Nach der Blüte verschwindet alles wieder. Erst im nächsten Frühjahr wachsen aus der Knolle breite, bis zu 40 cm lange Blätter und dazwischen die Frucht. So ist die Pflanze zweimal im Jahr zu sehen.",
+      "details": null,
+      "monate": [
+        3,
+        4,
+        5,
+        8,
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": "Alle Teile sind stark giftig. Nur ansehen und fotografieren.",
+      "wow": 3,
+      "quellen": [
+        "floraweb",
+        "tud2019"
+      ]
+    },
+    {
+      "id": "baerlauch-doppelgaenger",
+      "thema": "giftig",
+      "titel": "Der tödliche Doppelgänger des Bärlauchs",
+      "text": "Im Frühjahr, wenn Bärlauch gesammelt wird, sprießen auch die Blätter der Herbstzeitlosen. Junge Blätter sehen sich sehr ähnlich. Laut Bundesinstitut für Risikobewertung kommt es durch Verwechslungen jedes Jahr zu Vergiftungen, manchmal tödlich, vor allem im April und Mai. Die Geruchsprobe hat Tücken: Hängt noch Knoblauchduft von einem früheren Blatt an den Fingern, riecht auch das falsche Blatt danach.",
+      "details": {
+        "haeufung": "April und Mai (BfR)"
+      },
+      "monate": [
+        3,
+        4,
+        5
+      ],
+      "meldung": "Bärlauch-Zeit: Vorsicht, die Blätter der Herbstzeitlosen sehen ähnlich aus und sind tödlich giftig. Im Zweifel stehen lassen!",
+      "sicherheit": "Wildkräuter nur sammeln, wenn du sie sicher kennst. Im Zweifel nichts pflücken und nichts essen. Bei Verdacht sofort den Giftnotruf anrufen.",
+      "wow": 3,
+      "quellen": [
+        "bfr2022",
+        "tud2019",
+        "srf"
+      ]
+    },
+    {
+      "id": "colchicin",
+      "thema": "giftig",
+      "titel": "Colchicin: Gift, das die Zellteilung stoppt",
+      "text": "Alle Teile der Herbstzeitlosen enthalten Colchicin. Schon etwa 20 Milligramm können für einen Menschen tödlich sein. Das Gift wirkt erst nach zwei bis sechs Stunden mit Erbrechen, starkem Durchfall, Krämpfen und Lähmungen. Es hemmt die Zellteilung, und das kann nach ein bis zwei Tagen zum Tod führen. Trocknen oder Kochen macht die Pflanze nicht harmlos.",
+      "details": {
+        "toedlicheDosis": "etwa 20 mg Colchicin (TU Dresden)",
+        "latenz": "2–6 Stunden"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Nicht berühren und nicht in den Mund nehmen. Nach Kontakt Hände waschen. Bei Verdacht auf Vergiftung sofort den Giftnotruf oder 112 anrufen.",
+      "wow": 3,
+      "quellen": [
+        "tud2019",
+        "floraweb",
+        "bfr2022"
+      ]
+    },
+    {
+      "id": "stiel-oder-nicht",
+      "thema": "mitmachen",
+      "titel": "Mit oder ohne Stiel?",
+      "text": "Ein wichtiger Unterschied zum Bärlauch: Jedes Bärlauchblatt sitzt an einem langen, dünnen Stiel. Die Blätter der Herbstzeitlosen haben keinen Stiel, sie stehen dicht zusammen in einer dunkelgrünen Rosette, in deren Mitte im Frühjahr die Frucht sitzt. Herbstzeitlosen wachsen vor allem auf feuchten Wiesen, Bärlauch eher im schattigen Wald. Sicher ist aber nur, wer alle Merkmale kennt.",
+      "details": null,
+      "monate": [
+        3,
+        4,
+        5
+      ],
+      "meldung": null,
+      "sicherheit": "Diese Merkmale helfen beim Erkennen, ersetzen aber keine sichere Bestimmung. Nichts essen, was du nicht ganz sicher kennst.",
+      "wow": 2,
+      "quellen": [
+        "srf",
+        "floraweb",
+        "bfr2022"
+      ]
+    },
+    {
+      "id": "giftmilch",
+      "thema": "verblueffend",
+      "titel": "Gift in der Milch",
+      "text": "Schafe und Ziegen reagieren weniger empfindlich auf die Herbstzeitlose als Menschen. Fressen sie die Pflanze, kann das Gift aber in ihre Milch übergehen. Für Weidetiere gilt sie als giftig, und auch getrocknet verliert sie ihre Giftwirkung nicht.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "tud2019",
+        "floraweb"
+      ]
+    },
+    {
+      "id": "pflanzenzucht",
+      "thema": "nutzung",
+      "titel": "Ein Gift, das Pflanzen größer macht",
+      "text": "Colchicin stört die Zellteilung. Genau das nutzt man in der Pflanzenzüchtung: Mit einer winzigen Menge verdoppelt sich bei der Teilung der Chromosomensatz, und es entstehen größere Zuchtpflanzen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "tud2019"
+      ]
+    },
+    {
+      "id": "herbstbluete",
+      "thema": "mitmachen",
+      "titel": "Lila Sterne auf der Herbstwiese",
+      "text": "Zwischen August und Oktober, manchmal bis November, leuchten auf feuchten Wiesen und an Auwäldern blassviolette, selten weiße Blüten. Sie haben drei freie Griffel und eine lange Blütenröhre. Die Herbstzeitlose wächst vor allem auf extensiv genutzten Wiesen.",
+      "details": {
+        "bluehmonate": "9–10 (Rothmaler), August–November (BiolFlor)"
+      },
+      "monate": [
+        8,
+        9,
+        10
+      ],
+      "meldung": "Die Herbstzeitlosen blühen! Such auf feuchten Wiesen nach lila Blüten ohne Blätter. Nur anschauen, sie ist sehr giftig.",
+      "sicherheit": "Nicht pflücken. Kinder nicht damit spielen lassen.",
+      "wow": 1,
+      "quellen": [
+        "floraweb"
+      ]
+    }
+  ],
+  "quellen": {
+    "floraweb": {
+      "titel": "FloraWeb (BfN): Colchicum autumnale – Morphologie, Ökologie und Nutzung",
+      "url": "https://www.floraweb.de/php/morphologie.php?name-use-id=1610",
+      "abgerufen": "2026-10-25"
+    },
+    "tud2019": {
+      "titel": "TU Dresden, Botanischer Garten: Pflanze der Woche – Die Herbst-Zeitlose (KW 38/2019)",
+      "url": "https://tu-dresden.de/bg/standorte/dresden/pflanze-der-woche/colchicum-autumnale",
+      "abgerufen": "2026-10-25"
+    },
+    "bfr2022": {
+      "titel": "BfR, Presseinformation 08/2022: Bärlauch – „Doppelgänger“ führen häufig zu Vergiftungen",
+      "url": "https://www.bfr.bund.de/presseinformation/baerlauch-doppelgaenger-fuehren-haeufig-zu-vergiftungen/",
+      "abgerufen": "2026-10-25"
+    },
+    "srf": {
+      "titel": "SRF: Frühlingsbote – der Bärlauch und seine giftigen Doppelgänger (mit Tox Info Suisse)",
+      "url": "https://www.srf.ch/news/gesellschaft/fruehlingsbote-der-baerlauch-und-seine-giftigen-doppelgaenger",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Todeszahlen für Deutschland: keine gefunden (Schweiz: 4 Todesfälle seit 2000 laut Tox Info Suisse, nur aus Suchergebnis, nicht geöffnet).",
+    "Name „Zeitlose“: keine Quelle gesucht.",
+    "Verwendung von Colchicin als Arzneistoff: bewusst weggelassen (keine Heilversprechen)."
+  ]
+}
