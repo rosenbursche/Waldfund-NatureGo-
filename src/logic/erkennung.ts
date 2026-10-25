@@ -1,4 +1,5 @@
 import Constants from 'expo-constants';
+import { File } from 'expo-file-system';
 
 import { ARTEN } from '@/data/arten';
 import type { FundTyp } from '@/logic/fundstueckErkennung';
@@ -79,8 +80,8 @@ export async function erkenneFoto(
   const url = erkennungsUrl();
   if (!url) throw new ErkennungNichtErreichbar('Es ist noch kein Erkennungs-Server eingetragen.');
   const daten = new FormData();
-  // React Native: Dateien werden als {uri, name, type} angehängt
-  daten.append('foto', { uri, name: 'foto.jpg', type: 'image/jpeg' } as unknown as Blob);
+  // Seit SDK 58 nimmt fetch keine {uri, name, type}-Objekte mehr, sondern Dateien mit bytes() (expo-file-system)
+  daten.append('foto', new File(uri) as unknown as Blob);
   if (gruppe) daten.append('gruppe', gruppe);
   if (fundstuecke) daten.append('fundstuecke', JSON.stringify(fundstuecke));
   const antwort = await mitZeitlimit(`${url}/erkennen`, { method: 'POST', body: daten });
