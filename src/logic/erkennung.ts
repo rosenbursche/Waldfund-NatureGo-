@@ -51,14 +51,25 @@ async function mitZeitlimit(url: string, init: RequestInit = {}, ms = 20000): Pr
   }
 }
 
-/** Schickt ein Foto (lokale Datei) an den Server und gibt die Kandidaten zurück. */
-export async function erkenneFoto(uri: string, gruppe?: Gruppe): Promise<Erkennungsergebnis> {
+/**
+ * Schickt ein Foto (lokale Datei) an den Server und gibt die Kandidaten zurück.
+ * fundstueck: Typ (z. B. 'losung') und wissenschaftliche Namen der Arten, die dieses Fundstück haben.
+ */
+export async function erkenneFoto(
+  uri: string,
+  optionen: { gruppe?: Gruppe; fundstueck?: { typ: string; kandidaten: string[] } } = {},
+): Promise<Erkennungsergebnis> {
+  const { gruppe, fundstueck } = optionen;
   const url = erkennungsUrl();
   if (!url) throw new ErkennungNichtErreichbar('Es ist noch kein Erkennungs-Server eingetragen.');
   const daten = new FormData();
   // React Native: Dateien werden als {uri, name, type} angehängt
   daten.append('foto', { uri, name: 'foto.jpg', type: 'image/jpeg' } as unknown as Blob);
   if (gruppe) daten.append('gruppe', gruppe);
+  if (fundstueck) {
+    daten.append('typ', fundstueck.typ);
+    daten.append('kandidaten', JSON.stringify(fundstueck.kandidaten));
+  }
   const antwort = await mitZeitlimit(`${url}/erkennen`, { method: 'POST', body: daten });
   if (!antwort.ok) throw new ErkennungNichtErreichbar('Die Erkennung hat das Foto nicht verarbeiten können.');
   return (await antwort.json()) as Erkennungsergebnis;
