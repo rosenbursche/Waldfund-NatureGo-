@@ -1,0 +1,258 @@
+{
+  "artId": "rotbuche",
+  "colId": "3DSK5",
+  "wissName": "Fagus sylvatica",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "blitz-irrtum",
+      "thema": "verblueffend",
+      "titel": "„Buchen sollst du suchen“ – ein gefährlicher Irrtum",
+      "text": "Ein alter Spruch sagt: „Vor Eichen sollst du weichen, doch die Buchen musst du suchen.“ Das stimmt nicht. Blitze schlagen in Buchen genauso ein. Bei Regen bildet sich auf der glatten Rinde ein Wasserfilm, und der Blitz läuft außen am Stamm in den Boden. Darum sieht man an Buchen kaum Spuren. Die dicke Borke von Eichen saugt sich dagegen voll, und dort reißt der Blitz eine lange Furche auf.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Bei Gewitter nie unter Bäumen Schutz suchen, auch nicht unter Buchen. Am sichersten ist ein Auto oder ein Haus.",
+      "wow": 3,
+      "quellen": ["bdj2022", "thueringenforst2018", "goettingen"]
+    },
+    {
+      "id": "buchenmast-maeuse",
+      "thema": "beziehung",
+      "titel": "Viele Bucheckern, viele Mäuse",
+      "text": "Nach einem Jahr mit sehr vielen Bucheckern überleben mehr Rötelmäuse den Winter. Manchmal bekommen sie sogar im Winter Junge. Im Jahr danach gibt es deshalb oft sehr viele Rötelmäuse. Forschende fanden einen engen Zusammenhang zwischen der Buchenmast im Vorjahr und der Zahl der Mäuse. Weil Rötelmäuse das Hantavirus übertragen können, steigen dann oft auch die Erkrankungen bei Menschen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Mäuse und Mäusekot nicht anfassen und Staub in Schuppen oder Hütten nicht aufwirbeln.",
+      "wow": 3,
+      "quellen": ["fli", "bmu2012", "lwf86"]
+    },
+    {
+      "id": "mastjahre",
+      "thema": "oekologie",
+      "titel": "Mastjahre: Ganze Wälder verabreden sich",
+      "text": "Buchen tragen nicht jedes Jahr gleich viele Früchte. Alle zwei bis acht Jahre bilden ganze Wälder gleichzeitig riesige Mengen Bucheckern, das nennt man Mast. Ob es so weit kommt, hängt vom Wetter in den zwei Jahren davor und zur Blütezeit ab. Seit etwa zwanzig Jahren kommen Mastjahre häufiger vor. Das kostet die Bäume Kraft: In Mastjahren und ein bis zwei Jahre danach bleiben ihre Blätter deutlich kleiner.",
+      "details": { "abstand": "alle 2–8 Jahre (WSL Mastweb)" },
+      "monate": [8, 9],
+      "meldung": "Schau mal hoch in die Buchenkronen: Hängen die Äste voller brauner Fruchtbecher? Dann wird es ein Mastjahr.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["mastweb", "lwf86", "bdj2022"]
+    },
+    {
+      "id": "austrieb-von-unten",
+      "thema": "verhalten",
+      "titel": "Grün wird es von unten nach oben",
+      "text": "Im Frühjahr treiben Buchen nicht alle auf einmal aus. Zuerst werden die Keimlinge am Boden grün, dann die jungen Buchen im Unterholz, dann die unteren Äste der großen Bäume und zuletzt das Kronendach. Das dauert vier bis fünf Wochen. So bekommen die unteren Triebe noch ein paar Wochen Licht, bevor die Krone alles beschattet.",
+      "details": null,
+      "monate": [4, 5, 6],
+      "meldung": "Die Buchen werden grün – von unten nach oben. Sind die kleinen Buchen schon grün und die Kronen noch kahl?",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["bdj2022"]
+    },
+    {
+      "id": "schattenreich",
+      "thema": "oekologie",
+      "titel": "Die Königin des Schattens",
+      "text": "Die Krone der Buche wirft einen ungewöhnlich starken Schatten. Darunter halten es auf Dauer nur Eibe, Stechpalme und Weißtanne aus. Junge Buchen aber können Jahre bis Jahrzehnte im Schatten warten. Stirbt ein alter Baum und fällt Licht herein, wachsen sie sofort los. Ohne den Menschen wäre Mitteleuropa deshalb größtenteils von Buchenwald bedeckt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["bdj2022", "waldwissen2009"]
+    },
+    {
+      "id": "kahle-stelle",
+      "thema": "mitmachen",
+      "titel": "Die kahle Stelle am Stammfuß",
+      "text": "Weil die Rinde glatt ist und die Äste schräg nach oben wachsen, läuft an der Buche besonders viel Regenwasser am Stamm herunter. Es nimmt sauren Staub mit, den die Blätter aus der Luft gekämmt haben. Auf der Seite, an der das Wasser abfließt, wird der Boden sauer, und dort wächst oft gar nichts. Such an einer alten Buche mal nach dieser kahlen Stelle.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["goettingen", "bdj2022"]
+    },
+    {
+      "id": "wasserwerk",
+      "thema": "oekologie",
+      "titel": "Das Wasserwerk des Waldes",
+      "text": "In dichten Nadelbäumen bleibt viel Regen in den Kronen hängen und verdunstet wieder. Bei der Buche läuft ein großer Teil des Regens über die Äste und den glatten Stamm direkt in den Waldboden. Bei keiner anderen Laubbaumart im Wald ist dieser Stammabfluss so hoch. Darum nennt man die Buche auch das „Wasserwerk“ des Waldes.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["bdj2022", "goettingen"]
+    },
+    {
+      "id": "bucheckern",
+      "thema": "essbar",
+      "titel": "Bucheckern: roh lieber nicht",
+      "text": "Bucheckern stecken voller Fett, Stärke und Eiweiß. Roh enthalten sie aber Stoffe wie Fagin, Oxalsäure und Saponine, die Beschwerden machen können. Kurz erhitzt, zum Beispiel geröstet, gelten sie als genießbar. Früher presste man daraus ein nussiges Öl, heute macht sich kaum noch jemand die Mühe. Mäuse, Eichhörnchen, Wildschweine, Häher, Wildtauben und Finken kommen dank der Bucheckern besser durch den Winter.",
+      "details": {
+        "teile": ["Kerne der Bucheckern"],
+        "zubereitung": "nur erhitzt, z. B. kurz geröstet",
+        "inhalt": "bis 45 % fettes Öl, ca. 40 % Stärke und Eiweiß (LWF Wissen 86)"
+      },
+      "monate": [9, 10, 11],
+      "meldung": null,
+      "sicherheit": "Bucheckern nie roh essen, sie können Beschwerden auslösen. Nur erhitzt und nur in kleinen Mengen probieren. Kinder nur zusammen mit Erwachsenen.",
+      "wow": 2,
+      "quellen": ["lwf86", "bdj2022"]
+    },
+    {
+      "id": "name-rot",
+      "thema": "name",
+      "titel": "Warum die grüne Buche „Rot“-Buche heißt",
+      "text": "Die Rotbuche hat grüne Blätter. Die Buche mit den dunkelroten Blättern in Parks ist die Blutbuche, eine gezüchtete Form. Ihren Namen hat die Rotbuche vom Holz: Es ist weißgelb mit einem leicht rötlichen Schimmer, anders als das fast weiße Holz der Hainbuche. Die Hainbuche ist übrigens gar keine echte Buche, sondern gehört zu den Birkengewächsen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["bdj2022"]
+    },
+    {
+      "id": "blutbuche",
+      "thema": "geschichte",
+      "titel": "Die Blutbuche und das Verbrechen",
+      "text": "Bei der Blutbuche überdeckt ein roter Farbstoff im Zellsaft das grüne Blattgrün. Die Universität Göttingen nennt Blutbuchen die größten roten Pflanzen der Welt. Früher erzählte man sich, eine Blutbuche zeige, dass die Natur ein Verbrechen missbillige und das Blut nicht zur Ruhe komme. Das ist natürlich ein Aberglaube.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["goettingen", "bdj2022"]
+    },
+    {
+      "id": "buchstabe",
+      "thema": "name",
+      "titel": "Kommt der Buchstabe von der Buche?",
+      "text": "Ein Buchstabe war ursprünglich ein Holzstäbchen mit eingeritzten Runen. Oft heißt es, die Germanen hätten dafür Buchenstäbe genommen, und deshalb stamme „Buch“ von „Buche“. Schon die Brüder Grimm sahen das so. Heute bezweifeln Sprachforscher diesen Zusammenhang. Ganz geklärt ist die Herkunft des Wortes „Buch“ nicht.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dwdsBuchstabe", "dwdsBuch", "bdj2022"]
+    },
+    {
+      "id": "neuling",
+      "thema": "geschichte",
+      "titel": "Spät gekommen, alles erobert",
+      "text": "Nach der letzten Eiszeit kam die Buche erst spät zurück nach Mitteleuropa. Hier wuchsen längst Eichen, Linden und Ulmen. Erst vor etwa 6.000 Jahren begann sie, in diese Wälder vorzudringen, und rund 2.000 Jahre später war sie die vorherrschende Baumart. Später drängte der Mensch sie stark zurück und pflanzte vor allem Fichten und Kiefern. Heute nimmt die Buche wieder zu.",
+      "details": { "anteilWaldDeutschland": "etwa 16 % (Baum des Jahres 2022)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["bdj2022", "lwf86"]
+    },
+    {
+      "id": "deutschland-viertel",
+      "thema": "verblueffend",
+      "titel": "Ein Viertel aller Buchenwälder gehört zu uns",
+      "text": "Buchenwälder gibt es von Natur aus nur in Europa. Etwa ein Viertel ihres natürlichen Verbreitungsgebiets liegt in Deutschland, kein anderes Land hat einen so großen Anteil. Deshalb hat Deutschland eine besondere Verantwortung. Seit 2011 sind fünf alte Buchenwälder in Deutschland UNESCO-Weltnaturerbe: im Hainich, in Jasmund, an der Müritz, am Kellerwald-Edersee und im Grumsin.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["bfn2008", "bdj2022"]
+    },
+    {
+      "id": "gallmuecke",
+      "thema": "mitmachen",
+      "titel": "Spitze Zipfelmützen auf den Blättern",
+      "text": "Auf vielen Buchenblättern sitzen kleine, harte, spitze Kegel. Das sind Gallen der Buchengallmücke, die nur an der Buche lebt. Das Weibchen legt seine Eier an die Knospen, und das Blatt bildet um die Larve herum dieses Häuschen. Im Mai sind die Gallen bis zu 12 mm groß, erst grün und später rotbraun. Lass das Blatt am Baum und schau sie dir nur an.",
+      "details": { "groesse": "bis 12 mm" },
+      "monate": [5, 6, 7, 8, 9],
+      "meldung": "Such mal auf Buchenblättern nach kleinen spitzen Zipfelmützen. Darin wohnt eine Larve.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["lwf86"]
+    },
+    {
+      "id": "suentelbuche",
+      "thema": "verblueffend",
+      "titel": "Die Buche, die nicht weiß, wo oben ist",
+      "text": "Eine besonders seltsame Form ist die Süntelbuche. Ihre Äste ändern oft plötzlich und scheinbar ziellos die Richtung und wachsen nur selten gerade nach oben. So entsteht ein knorriger, verdrehter Baum. Warum sie so wächst, ist bis heute nicht geklärt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["bdj2022"]
+    }
+  ],
+  "quellen": {
+    "bdj2022": {
+      "titel": "Baum des Jahres 2022: Die Rot-Buche (Dr. Silvius Wodarz Stiftung, Steckbrief)",
+      "url": "https://baum-des-jahres.de/wp-content/uploads/2023/09/Download_BaumdesJahres2022_Rot-Buche.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "lwf86": {
+      "titel": "LWF Wissen 86: Beiträge zur Rotbuche (Bayerische Landesanstalt für Wald und Forstwirtschaft), u. a. Aas: Verwandtschaft, Morphologie, Verbreitung und Ökologie; Buche aus tierökologischer Sicht",
+      "url": "https://lwf.bayern.de/mam/cms04/service/dateien/w86_beiträge_zur_rotbuche.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "waldwissen2009": {
+      "titel": "Muck et al. (2009): Die Rotbuche – Mutter des Waldes. LWF aktuell 69 (waldwissen.net)",
+      "url": "https://www.waldwissen.net/de/lebensraum-wald/baeume-und-waldpflanzen/laubbaeume/die-rotbuche-mutter-des-waldes",
+      "abgerufen": "2026-10-25"
+    },
+    "mastweb": {
+      "titel": "Artenblatt Rotbuche – Fagus sylvatica (WSL Mastweb, Schweiz)",
+      "url": "https://mastweb.wsl.ch/fileadmin/user_upload/WSL/Microsite/Mastweb/Datein/Artenblatt_Rotbuche.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "goettingen": {
+      "titel": "Universität Göttingen, Forstbotanischer Garten: Rotbuche – Besonderes",
+      "url": "https://uni-goettingen.de/de/15932.html",
+      "abgerufen": "2026-10-25"
+    },
+    "thueringenforst2018": {
+      "titel": "ThüringenForst, Medieninformation 39/2018: Sommerliche Hitzegewitter im Wald – was ist zu tun?",
+      "url": "https://forstwirtschaft-in-deutschland.de/fileadmin/news_import/MI_39-18_Sommergewitter_250518.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "fli": {
+      "titel": "Friedrich-Loeffler-Institut: Hantavirus infections",
+      "url": "https://www.fli.de/en/news/animal-disease-situation/hantavirus-infections/",
+      "abgerufen": "2026-10-25"
+    },
+    "bmu2012": {
+      "titel": "Umweltforschungsplan FKZ 3709 41 401: Hantaviren – Einfluss von Klima und Buchenmast auf Rötelmäuse (Bundesumweltministerium, Abschlussbericht)",
+      "url": "https://www.bmuv.de/fileadmin/Daten_BMU/Pools/Forschungsdatenbank/fkz_3709_41_401_hantaviren_bf.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "bfn2008": {
+      "titel": "BfN: Bonner Thesen zum Buchenwaldschutz (Positionspapier)",
+      "url": "https://www.bfn.de/sites/default/files/BfN/service/Dokumente/positionspapiere/buchenwaldthesen.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "dwdsBuchstabe": {
+      "titel": "DWDS, Etymologisches Wörterbuch (Pfeifer): Buchstabe",
+      "url": "https://www.dwds.de/wb/etymwb/Buchstabe",
+      "abgerufen": "2026-10-25"
+    },
+    "dwdsBuch": {
+      "titel": "DWDS, Etymologisches Wörterbuch (Pfeifer): Buch",
+      "url": "https://www.dwds.de/wb/etymwb/Buch",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Gallmücke: Belegt ist nur, dass die Gallen im Mai ihre Endgröße erreichen und später rotbraun werden. Die Monate 6–9 sind daraus abgeleitet (die Gallen bleiben am Blatt).",
+    "Austrieb von unten nach oben: nur eine Quelle (Baum des Jahres 2022). Deshalb wow 2.",
+    "Mastjahre häufiger: Baum des Jahres 2022 sagt „sehr viel häufiger als früher“ und nennt Temperatur und Stickstoff als vermutete Ursachen. LWF Wissen 86 (Bogdziewicz et al. 2020) sagt: mehr Samen, aber schwächere Jahr-zu-Jahr-Schwankung. Eine ältere Rekonstruktion (Drobyshev 2014, im Mastweb zitiert) fand keinen Langzeittrend. Im Text steht deshalb nur „seit etwa zwanzig Jahren häufiger“ aus BdJ.",
+    "Junge Buchenblätter als Salat: nur eine Quelle (BdJ), deshalb nicht aufgenommen.",
+    "Blutbuche als „größte rote Pflanze der Welt“: nur Uni Göttingen, als deren Aussage gekennzeichnet.",
+    "Herkunft der Rotbuche aus einer Variante der Orient-Buche (BdJ) nicht aufgenommen, weil LWF Wissen 86 beide nur als nah verwandt beschreibt.",
+    "Hantavirus: Die FLI-Seite ist auf Englisch und teils älter (Mastjahr 2011/2012). Der Landkreis Osnabrück nennt Ausbruchsjahre 2007, 2010, 2012, 2017, 2019, die Datei (docx) habe ich nicht geöffnet."
+  ]
+}

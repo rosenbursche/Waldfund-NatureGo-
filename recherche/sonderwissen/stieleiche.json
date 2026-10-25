@@ -1,0 +1,225 @@
+{
+  "artId": "stieleiche",
+  "colId": "4R5YN",
+  "wissName": "Quercus robur",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "insektenrekord",
+      "thema": "oekologie",
+      "titel": "Der Baum mit den meisten Bewohnern",
+      "text": "An keinem heimischen Baum leben so viele Insektenarten wie an der Eiche. Bekannt sind 179 Arten großer Schmetterlinge und in Mitteleuropa über 1.000 Käferarten. An der Eiche leben dreimal so viele spezialisierte Arten wie an der Buche. Ein Grund: Eichen kamen nach der Eiszeit Tausende Jahre früher zu uns zurück als die Buche, die Tiere hatten also viel Zeit, sich an den Baum und seine Gerbstoffe anzupassen.",
+      "details": { "grossschmetterlinge": 179, "kaeferarten": "über 1.000 (Mitteleuropa)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wwEiche", "wwBuche2009", "sdw"]
+    },
+    {
+      "id": "haehersaat",
+      "thema": "beziehung",
+      "titel": "Der Vogel, der Eichenwälder pflanzt",
+      "text": "Ein Eichelhäher kann im Herbst bis zu 5.000 Eicheln verstecken, und er trägt sie bis zu 5 km weit fort. Nicht alle findet er wieder. Aus den vergessenen Vorräten wachsen neue Eichen. Darum gilt der Eichelhäher als wichtigster Verbreiter der Eiche.",
+      "details": { "eicheln": "bis 5.000 je Häher und Herbst", "entfernung": "bis 5 km" },
+      "monate": [9, 10, 11],
+      "meldung": "Eichelzeit! Achte mal auf Eichelhäher, die mit vollem Schnabel davonfliegen.",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["sdw", "lifegenmon"]
+    },
+    {
+      "id": "gallustinte",
+      "thema": "nutzung",
+      "titel": "Tinte aus Eichen-Gallen",
+      "text": "Manche Gallwespen legen ihre Eier in Eichenblätter oder dünne Zweige. Die Eiche bildet darum eine Kugel, den Gallapfel. Galläpfel stecken voller Gerbstoffe. Mischt man sie mit Eisensalz, entsteht an der Luft eine schwarze Farbe: die Eisengallustinte. Sie war im Mittelalter die meistbenutzte Tinte.",
+      "details": { "gerbstoff": "bis zu 60 % (Planet Wissen)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["planetWissen", "muenster2026"]
+    },
+    {
+      "id": "johannistrieb",
+      "thema": "verhalten",
+      "titel": "Zweiter Frühling im Juni",
+      "text": "Im Frühjahr fressen oft Raupen von Frostspanner und anderen Faltern die Eichen fast kahl. Doch die Eiche hat schlafende Knospen in Reserve. Daraus treibt sie im Frühsommer ein zweites Mal aus, das nennt man Johannistrieb, nach dem Johannistag am 24. Juni. So macht sie den Fraß meist wieder wett.",
+      "details": null,
+      "monate": [6, 7],
+      "meldung": "Schau mal an die Eichenzweige: Siehst du frische, hellgrüne Triebe? Das ist der Johannistrieb.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wwKlima", "lwf119", "wwSchaeden"]
+    },
+    {
+      "id": "prozessionsspinner",
+      "thema": "beziehung",
+      "titel": "Raupen im Gänsemarsch – nicht anfassen!",
+      "text": "Die Raupen des Eichenprozessionsspinners wandern abends in langen Reihen zum Fressen in die Eichenkronen, bis zu 30 Tiere nebeneinander. Ab dem dritten Raupenstadium bilden sie winzige Brennhaare mit Widerhaken, eine alte Raupe hat bis zu 700.000 davon. Die Haare brechen leicht ab, fliegen mit dem Wind und bleiben in alten Nestern noch lange gefährlich.",
+      "details": { "brennhaare": "bis 700.000 je Altraupe, bis 0,2 mm lang" },
+      "monate": [5, 6, 7],
+      "meldung": "An Eichen können jetzt Raupen mit Brennhaaren sitzen. Raupen und Gespinste nur von Weitem ansehen!",
+      "sicherheit": "Raupen und Gespinstnester nicht anfassen und Abstand halten. Die Brennhaare lösen Juckreiz, Ausschlag und Reizungen an Augen und Atemwegen aus. Auch alte Nester sind noch gefährlich.",
+      "wow": 2,
+      "quellen": ["lwfEps"]
+    },
+    {
+      "id": "urwaldkaefer",
+      "thema": "oekologie",
+      "titel": "Zuhause der größten Käfer",
+      "text": "Viele der größten Käfer Mitteleuropas wachsen im Holz alter Eichen heran, zum Beispiel der Hirschkäfer, der Heldbock und der Eremit. Von den 115 Urwaldreliktarten Deutschlands, also Tieren, die nur in sehr alten, naturnahen Wäldern überleben, nutzen 66 die Eiche als Wohnbaum. Eine einzelne alte Eiche kann deshalb wichtiger sein als ein ganzer junger Wald.",
+      "details": { "urwaldreliktarten": "66 von 115 nutzen Eichen" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wwEiche"]
+    },
+    {
+      "id": "totaste-hoehlen",
+      "thema": "oekologie",
+      "titel": "Lebende Bäume voller totem Holz",
+      "text": "Eichen tragen auch lebend viele abgestorbene Äste in der Krone. Pilze zersetzen bei alten Eichen das Holz im Inneren, ohne die Versorgung des Baumes zu stören. So entstehen Höhlen für Insekten, Vögel und Fledermäuse, die viele Jahrzehnte halten. Weil Eichen über 1.000 Jahre alt werden können, überdauerten an ihnen Arten auch Zeiten, in denen sonst kaum totes Holz im Wald lag.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wwEiche", "sdw"]
+    },
+    {
+      "id": "mast-schweine",
+      "thema": "geschichte",
+      "titel": "Eicheln für die Schweine",
+      "text": "Eicheln enthalten viel Stärke und Öl. Hirsche, Rehe, Wildschweine, Eichhörnchen und Eichelhäher fressen sie gern. Früher war die Schweinemast unter den Eichen sehr wichtig: Man trieb die Hausschweine in den Wald. Jahre mit besonders vielen Eicheln nennt man Mastjahre. Bei der Eiche kommen sie meist alle fünf bis sieben Jahre.",
+      "details": { "mastjahre": "meist alle 5–7 Jahre (LIFEGENMON)" },
+      "monate": [9, 10],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["sdw", "lifegenmon"]
+    },
+    {
+      "id": "stiel-oder-traube",
+      "thema": "mitmachen",
+      "titel": "Stiel oder Traube?",
+      "text": "Bei uns wachsen zwei Eichenarten, die sich ähneln. Die Stieleiche hat ihren Namen von den Eicheln: Sie hängen an langen Stielen. Ihre Blätter haben dagegen nur einen kurzen Stiel und sind am Grund herzförmig. Bei der Traubeneiche sitzen die Eicheln an kurzen Stielen dicht wie eine Traube zusammen, die Blätter haben einen langen Stiel. Weil es auch Mischlinge gibt, schau dir am besten mehrere Merkmale an.",
+      "details": null,
+      "monate": [9, 10],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["sdw"]
+    },
+    {
+      "id": "schiffbau",
+      "thema": "nutzung",
+      "titel": "2.000 Eichen für ein Schiff",
+      "text": "Eichenholz ist schwer, hart und dank seiner Gerbstoffe lange haltbar. Man baute daraus Kirchen, Fachwerkhäuser, Windmühlen und Schiffe. Für ein einziges großes Kriegssegelschiff, ein Linienschiff, brauchte man etwa 2.000 große Eichen. Viele natürliche Eichenwälder wurden deshalb abgeholzt. Mit junger Eichenrinde gerbte man früher außerdem Leder.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["sdw"]
+    },
+    {
+      "id": "mehltau",
+      "thema": "mitmachen",
+      "titel": "Puderzucker auf den Blättern",
+      "text": "Sind Eichenblätter weiß bepudert, steckt meist der Eichenmehltau dahinter. Dieser Pilz lebt nur auf Eichen und breitet seine Fäden, anders als die meisten Pilze, offen auf dem Blatt aus. Er befällt vor allem die zarten Blätter des Johannistriebs. Im Sommer und Herbst ist er gut zu sehen.",
+      "details": null,
+      "monate": [7, 8, 9],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["wwEiche", "wwKlima"]
+    },
+    {
+      "id": "pilzpartner",
+      "thema": "beziehung",
+      "titel": "Pilze vom Keimling bis zum Stumpf",
+      "text": "Kaum ein Baum hat so viele Pilzbegleiter wie die Eiche. An alten Eichen wächst zum Beispiel der seltene Igel-Stachelbart, der als Zeiger für naturnahe Wälder gilt. Auch der Riesenporling, der Pilz mit dem größten Fruchtkörper in Deutschland, kann an der Eiche auftreten. Unter den harten Konsolen des Eichenfeuerschwamms bauen Spechte gern ihre Höhlen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wwEiche"]
+    },
+    {
+      "id": "bluete",
+      "thema": "mitmachen",
+      "titel": "Die unscheinbare Eichenblüte",
+      "text": "Eichen blühen Ende April und im Mai, gleichzeitig mit dem Blattaustrieb. Die männlichen Blüten hängen als Kätzchen von etwa 5 cm Länge an den Zweigen, der Wind trägt den Blütenstaub fort. Die Stieleiche blüht etwa zwei Wochen vor der Traubeneiche. Erst ab einem Alter von 40 bis 100 Jahren tragen Eichen im Wald Früchte.",
+      "details": null,
+      "monate": [4, 5],
+      "meldung": "Die Eichen blühen! Such mal nach den langen, hängenden Kätzchen an den Zweigen.",
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["lifegenmon"]
+    }
+  ],
+  "quellen": {
+    "wwEiche": {
+      "titel": "waldwissen.net (LWF): In und an der Eiche – Insekten und Pilze",
+      "url": "https://www.waldwissen.net/de/lebensraum-wald/baeume-und-waldpflanzen/laubbaeume/in-und-an-der-eiche",
+      "abgerufen": "2026-10-25"
+    },
+    "wwBuche2009": {
+      "titel": "Muck et al. (2009): Die Rotbuche – Mutter des Waldes. LWF aktuell 69 (waldwissen.net)",
+      "url": "https://www.waldwissen.net/de/lebensraum-wald/baeume-und-waldpflanzen/laubbaeume/die-rotbuche-mutter-des-waldes",
+      "abgerufen": "2026-10-25"
+    },
+    "sdw": {
+      "titel": "SDW / RP Freiburg Forst: Steckbrief Eiche",
+      "url": "https://rpf.baden-wuerttemberg.de/fileadmin/RP-Internet/Freiburg/Abteilung_8/Referat_81/FAZ_Mattenhof/Baumartenbestimmung_-_Steckbriefe/EICHE_SDW-Steckbrief.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "lifegenmon": {
+      "titel": "LIFEGENMON: Leitfaden für das genetische Monitoring der Stieleiche und Traubeneiche (LWF Bayern)",
+      "url": "https://lwf.bayern.de/mam/cms02/asp/dateien/lifegenmon_leitfaden_eichen.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "planetWissen": {
+      "titel": "Planet Wissen (WDR): Tinte – Eisengallustinte",
+      "url": "https://www.planet-wissen.de/technik/farbe/tinte/pwiealterezepturfuerdieeisengallustinte100.html",
+      "abgerufen": "2026-10-25"
+    },
+    "muenster2026": {
+      "titel": "Universität Münster, Institut für Pharmazeutische Biologie: Gestern im Wald – Eichengallapfel (06.05.2026)",
+      "url": "https://www.uni-muenster.de/Chemie.pb/institut/meldungen/2026-Eichengallapfel.html",
+      "abgerufen": "2026-10-25"
+    },
+    "wwKlima": {
+      "titel": "waldwissen.net: Eichenschädlinge im Klimawandel",
+      "url": "https://www.waldwissen.net/de/waldwirtschaft/schadensmanagement/komplexkrankheiten/eichenschaedlinge-im-klimawandel",
+      "abgerufen": "2026-10-25"
+    },
+    "wwSchaeden": {
+      "titel": "waldwissen.net: Eichenschäden",
+      "url": "https://www.waldwissen.net/de/waldwirtschaft/schadensmanagement/komplexkrankheiten/eichenschaeden",
+      "abgerufen": "2026-10-25"
+    },
+    "lwf119": {
+      "titel": "LWF aktuell 119: Waldschutzkunde Eiche",
+      "url": "https://lwg.bayern.de/mam/cms04/waldbau-bergwald/dateien/a119_waldschutzkunde_eiche.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "lwfEps": {
+      "titel": "LWF Merkblatt 15: Eichenprozessionsspinner",
+      "url": "https://www.lwf.bayern.de/mam/cms04/service/dateien/mb15_eichenprozessionsspinner.pdf",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Johannistrieb: Die Monate 6–7 kommen aus dem Namen (Johannistag 24. Juni) und daraus, dass der Prozessionsspinner bis Ende Juni „partiell den Johannistrieb“ frisst (LWF Merkblatt 15). Den Spektrum-Lexikoneintrag („Juni/Juli“) konnte ich nicht öffnen (403).",
+    "Prozessionsspinner: Monate 5–7 = Fraßzeit Mai bis Ende Juni und Verpuppung bis in den Juli (LWF Merkblatt 15). Brennhaare in alten Nestern sind auch später noch gefährlich.",
+    "Mehltau: „Sommer und Herbst“ (waldwissen) ist mit 7–9 nur grob umgesetzt.",
+    "Eicheln essbar / giftig für Menschen: nur Ratgeberseiten gefunden, keine Giftinformationszentrale. Nicht aufgenommen.",
+    "Name „Eiche“ von lat. esca (Speise), so im SDW-Steckbrief: nicht aufgenommen, weil nicht etymologisch geprüft.",
+    "Eisengallustinte: Planet Wissen nennt die Herkunft aus dem arabischen Raum mit „vermutlich“; nicht in den Text übernommen. Historisch wurden vor allem Aleppo-Gallen genutzt, nicht nur Gallen heimischer Eichen.",
+    "Stieleiche Blütenzeit „zwei Wochen vor Traubeneiche“ und Fruchtbildung ab 40–100 Jahren: nur LIFEGENMON."
+  ]
+}
