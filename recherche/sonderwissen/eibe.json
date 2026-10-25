@@ -1,0 +1,262 @@
+{
+  "artId": "eibe",
+  "colId": "5527N",
+  "wissName": "Taxus baccata",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "alles-giftig",
+      "thema": "giftig",
+      "titel": "Alles giftig – bis auf den roten Mantel",
+      "text": "Fast alles an der Eibe enthält das Gift Taxin: Nadeln, Rinde, Holz und auch der Samen. Die einzige Ausnahme ist der rote, süßliche Samenmantel. Er ist keine Beere, sondern ein fleischiger Becher um den Samen. Wer Nadeln oder den Samen zerbeißt, kann Übelkeit, Erbrechen, Sehstörungen und Herzrhythmusstörungen bekommen. Taxin wirkt ähnlich wie Digitalis auf das Herz.",
+      "details": {
+        "gift": "Taxine (Pseudoalkaloide)"
+      },
+      "monate": [
+        8,
+        9,
+        10
+      ],
+      "meldung": "Die roten Samenmäntel der Eibe leuchten jetzt. Hübsch, aber der Samen darin ist giftig – nur anschauen!",
+      "sicherheit": "Nichts von der Eibe in den Mund nehmen, auch nicht die roten „Beeren“. Bei Verdacht sofort ein Giftinformationszentrum anrufen.",
+      "wow": 3,
+      "quellen": [
+        "bfr",
+        "sdw",
+        "lwf10"
+      ]
+    },
+    {
+      "id": "pferd-und-reh",
+      "thema": "verblueffend",
+      "titel": "Tödlich fürs Pferd, Leckerbissen fürs Reh",
+      "text": "Für Pferde ist die Eibe extrem gefährlich: Schon 100 bis 200 Gramm Nadeln oder Rinde können tödlich sein, und der Tod kann bereits fünf Minuten nach dem Fressen eintreten. Früher fällte man deshalb Eiben entlang der Fuhrwege. Rehe, Hasen und Kaninchen vertragen das Gift dagegen weitgehend. Rehe fressen die zarten Nadeln sogar besonders gern, und junge Eiben haben es darum schwer.",
+      "details": {
+        "pferdTodlich": "100–200 g Nadeln oder Rinde (SDW)"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Eibenzweige nie an Pferde, Rinder, Schafe oder Hunde verfüttern, auch keinen Heckenschnitt.",
+      "wow": 3,
+      "quellen": [
+        "sdw",
+        "lwf10",
+        "nwfva"
+      ]
+    },
+    {
+      "id": "oetzi-bogen",
+      "thema": "geschichte",
+      "titel": "Der Bogen von Ötzi",
+      "text": "Eibenholz ist hart, schwer und zugleich sehr elastisch, ideal für Bögen. Der Gletschermann Ötzi, der vor rund 5.200 Jahren lebte, trug einen Bogenstab aus Eibe bei sich. Speere aus Eibenholz sind sogar über hunderttausend Jahre alt. Im Mittelalter waren die berühmten englischen Langbögen aus Eibe. Weil so viel Eibenholz für Bögen und Armbrüste gebraucht wurde, wurde die Eibe in Europa stark zurückgedrängt.",
+      "details": {
+        "oetzi": "vor rund 5.200 Jahren"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "sdw",
+        "nwfva",
+        "lwf10",
+        "waldwissen2021"
+      ]
+    },
+    {
+      "id": "name-bogen",
+      "thema": "name",
+      "titel": "Der Bogenbaum",
+      "text": "Der wissenschaftliche Name Taxus wird vom griechischen Wort toxon abgeleitet, das heißt Bogen. Ein alter deutscher Name der Eibe ist auch „Bogenbaum“. Der zweite Teil, baccata, bedeutet „beerentragend“, obwohl die roten „Beeren“ eigentlich Samenmäntel sind.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "sdw",
+        "bfr"
+      ]
+    },
+    {
+      "id": "alter-ueberschaetzt",
+      "thema": "verblueffend",
+      "titel": "5.000 Jahre alt? Wohl eher nicht",
+      "text": "Die Eibe im schottischen Dorf Fortingall wird oft auf 3.000 bis 5.000 Jahre geschätzt. Fachleute sind heute vorsichtiger: Als gesichert gelten Alter von 600 bis 1.000 Jahren. Der Grund für die Überschätzung: Alte Eiben bilden aus dem Stock neue Triebe, die mit dem Stamm verwachsen. Stirbt der alte Stamm, bleibt ein Scheinstamm aus vielen Teilen, der viel älter aussieht, als er ist.",
+      "details": {
+        "gesichert": "600–1.000 Jahre (NW-FVA)",
+        "aeltesteDeutschland": "vermutlich 500–800 Jahre"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "nwfva",
+        "sdw"
+      ]
+    },
+    {
+      "id": "jura-baum",
+      "thema": "verblueffend",
+      "titel": "Ein Baum aus der Zeit der Dinosaurier",
+      "text": "Die Gattung Taxus gab es schon im mittleren Jura, vor etwa 150 Millionen Jahren, als Dinosaurier lebten. Damit gilt die Eibe als die älteste einheimische Baumart Mitteleuropas.",
+      "details": {
+        "seit": "ca. 150 Mio. Jahren (mittlerer Jura)"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "lwf10"
+      ]
+    },
+    {
+      "id": "stockausschlag",
+      "thema": "koerper",
+      "titel": "Der Nadelbaum, der wieder austreibt",
+      "text": "Die Eibe ist die einzige heimische Nadelbaumart, die aus dem Stock neu austreiben kann. Am ganzen Stamm und an den Zweigen können aus schlafenden Knospen neue Triebe wachsen, zum Beispiel nach Verletzungen oder Frost. So entstehen oft mehrere miteinander verwachsene Stämme. Im Rokoko schnitt man Eiben zu kunstvollen Formhecken.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "sdw",
+        "nwfva"
+      ]
+    },
+    {
+      "id": "vogelverbreitung",
+      "thema": "beziehung",
+      "titel": "Vögel säen die Eibe",
+      "text": "Der rote Samenmantel lockt Vögel an. Amseln, Drosseln und Krähen schlucken ihn samt Samen. Den süßen Mantel verdauen sie, den harten Samen scheiden sie unverdaut wieder aus, oft weit vom Baum entfernt. Die Misteldrossel würgt die Samen sogar wieder aus. So verbreiten Vögel die Eibe im Wald.",
+      "details": null,
+      "monate": [
+        8,
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "nwfva",
+        "sdw"
+      ]
+    },
+    {
+      "id": "maennlein-weiblein",
+      "thema": "mitmachen",
+      "titel": "Männliche und weibliche Bäume",
+      "text": "Bei der Eibe gibt es fast immer getrennte männliche und weibliche Bäume. Außer ihr ist bei den heimischen Nadelbäumen nur der Wacholder so. Rote Samenmäntel findest du nur an weiblichen Eiben. Die männlichen Blütenknospen werden schon im Spätsommer angelegt und sind im Herbst schon deutlich zu erkennen. Geblüht wird im März und April, der Wind trägt den Pollen.",
+      "details": null,
+      "monate": [
+        10,
+        11,
+        12,
+        1,
+        2,
+        3,
+        4
+      ],
+      "meldung": null,
+      "sicherheit": "Zweige nicht abbrechen und nichts in den Mund nehmen.",
+      "wow": 2,
+      "quellen": [
+        "sdw",
+        "nwfva",
+        "lwf10"
+      ]
+    },
+    {
+      "id": "totenbaum",
+      "thema": "geschichte",
+      "titel": "Totenbaum und Baum des ewigen Lebens",
+      "text": "Wegen ihres Gifts nannten römische Dichter die Eibe einen Totenbaum. Die Germanen nutzten ihre Zweige, um Dämonen und bösen Zauber abzuwehren. Für andere Völker war der immergrüne Baum ein Zeichen des ewigen Lebens, deshalb steht er bis heute oft auf Friedhöfen. In Frankreich wurde in den hohlen Stamm einer alten Eibe sogar eine kleine Kapelle mit Tür eingebaut.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "sdw"
+      ]
+    },
+    {
+      "id": "selten-geworden",
+      "thema": "oekologie",
+      "titel": "Nur noch 60.000 wilde Eiben",
+      "text": "Früher war die Eibe weiter verbreitet, darauf deuten Ortsnamen wie Eibenstock oder Ibach hin. Heute wächst sie meist nur einzeln oder in kleinen Gruppen und steht auf der Roten Liste. Bei einer bundesweiten Erfassung 2010 bis 2012 zählte man in deutschen Wäldern 342 Vorkommen mit gut 60.000 Bäumen. Die meisten stehen in Thüringen, rund 33.200.",
+      "details": {
+        "vorkommen": 342,
+        "baeume": "über 60.000",
+        "thueringen": "rund 33.200"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "sdw",
+        "waldwissen2021"
+      ]
+    },
+    {
+      "id": "schattenkoenigin",
+      "thema": "oekologie",
+      "titel": "Wächst, wo andere aufgeben",
+      "text": "Kaum eine Baumart verträgt so viel Schatten wie die Eibe. Sie kann sogar unter dem dichten Dach alter Buchen überleben, wo andere junge Bäume eingehen. Dafür wächst sie sehr langsam. Für die Holzwirtschaft spielt sie deshalb heute kaum eine Rolle.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "sdw",
+        "bdjRotbuche"
+      ]
+    }
+  ],
+  "quellen": {
+    "sdw": {
+      "titel": "SDW Faltblatt: Die Europäische Eibe (Schutzgemeinschaft Deutscher Wald, Text N. Kalinke, G. Aas, 2020)",
+      "url": "https://www.sdw.de/fileadmin/Bundesverband/01_Dateien/Infobl%C3%A4tter/Faltblatt_Eibe.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "lwf10": {
+      "titel": "LWF Wissen 10: Beiträge zur Eibe – Ursachen des Eibenrückganges und forstliche Schutzmöglichkeiten",
+      "url": "https://www.lwf.bayern.de/mam/cms04/waldbau/dateien/w10_ursachen_des_eibenrueckganges_und_forstliche_schutzmoeglichkeiten_gesch.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "nwfva": {
+      "titel": "NW-FVA: Baumartensteckbrief Eibe (Taxus baccata)",
+      "url": "https://www.nw-fva.de/fileadmin/nwfva/publikationen/pdf/BaEm/eibe_nw-fva.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "bfr": {
+      "titel": "BfR-Giftgarten: Europäische Eibe",
+      "url": "https://www.bfr.bund.de/bfr-giftgarten/europaeische-eibe/",
+      "abgerufen": "2026-10-25"
+    },
+    "waldwissen2021": {
+      "titel": "Rau, Kavaliauskas, Fussi, Šeho (2021): Erhaltung der Eibe in Bayern. waldwissen.net / AFZ-Der Wald 12/2021",
+      "url": "https://www.waldwissen.net/de/waldwirtschaft/waldbau/waldgenetik/erhaltung-der-eibe-in-bayern",
+      "abgerufen": "2026-10-25"
+    },
+    "bdjRotbuche": {
+      "titel": "Baum des Jahres 2022: Die Rot-Buche (Dr. Silvius Wodarz Stiftung, Steckbrief)",
+      "url": "https://baum-des-jahres.de/wp-content/uploads/2023/09/Download_BaumdesJahres2022_Rot-Buche.pdf",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Ältester Holzfund: SDW nennt eine Lanzenspitze aus der Holsteinwarmzeit vor etwa 300.000 Jahren, NW-FVA Speere bis 150.000 Jahre. Im Text deshalb nur „über hunderttausend Jahre“.",
+    "Pferde: SDW 100–200 g tödlich, NW-FVA 30–500 g für verschiedene Haustiere, LWF 0,2–0,3 g/kg und Tod ab 5 Minuten.",
+    "Höhe: SDW bis 20 m, BfR bis 10 m.",
+    "Taxol (Krebsmedikament) und Volksmedizin: bewusst weggelassen (keine Heilversprechen).",
+    "Taxus von griechisch toxon: nur SDW; ein etymologisches Wörterbuch wurde nicht geöffnet. TODO fachlich prüfen.",
+    "Rote-Liste-Kategorie und Schutzstatus (BArtSchV) nicht geprüft; SDW sagt nur „steht auf der Roten Liste“, LWF nennt sie „besonders geschützt“ (laut Suchergebnis, Seite nicht geöffnet)."
+  ]
+}
