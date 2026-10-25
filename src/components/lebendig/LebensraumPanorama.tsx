@@ -2,6 +2,7 @@ import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, Pressable, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import type { ScrollViewInstance } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 
 import { Schrift } from '@/components/Schrift';
@@ -33,7 +34,7 @@ export function LebensraumPanorama({ tier, ruhig }: { tier: TierSeite; ruhig: bo
   const [nacht, setNacht] = useState(false);
   const [wahl, setWahl] = useState<Zone | null>(null);
   const [fenster, setFenster] = useState(0);
-  const blick = useRef<ScrollView>(null);
+  const blick = useRef<ScrollViewInstance>(null);
   const [weg] = useState(() => new Animated.Value(0)); // 0 = am Tagesort, 1 = am Dämmerungsort
   const [abend] = useState(() => new Animated.Value(0));
 

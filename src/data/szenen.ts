@@ -1,6 +1,7 @@
-import type { ImageSourcePropType } from 'react-native';
-
 import type { KategorieId } from './artTypen';
+
+/** Bild aus require('…png'): Metro gibt dafür eine Nummer zurück */
+type Bild = number;
 
 /**
  * Startszenen als 2,5D-Diorama: übereinanderliegende Bildebenen (1024 × 1536),
@@ -16,7 +17,7 @@ export const SZENE_HOEHE = 1536;
 export type Punkt = { x: number; y: number };
 
 export type SzenenEbene = {
-  bild: ImageSourcePropType;
+  bild: Bild;
   /** Tiefe 0 = unendlich weit (bewegt sich kaum), 1 = ganz vorne (bewegt sich am stärksten) */
   tiefe: number;
 };
@@ -31,7 +32,7 @@ export type DioramaSzene = {
   mittelgrund: SzenenEbene;
   lichtung: SzenenEbene;
   /** Hütte je Ausbaustufe 0–3; fehlt eine Stufe, wird die nächstniedrigere (oder Stufe 1) gezeigt */
-  huette: Partial<Record<0 | 1 | 2 | 3, ImageSourcePropType>>;
+  huette: Partial<Record<0 | 1 | 2 | 3, Bild>>;
   huetteTiefe: number;
   vordergrund: SzenenEbene;
   orte: {
@@ -84,7 +85,7 @@ export const PLATZHALTER_HEIDE: DioramaSzene = {
 export const DIORAMA_SZENEN: DioramaSzene[] = [PLATZHALTER_HEIDE];
 
 /** Hüttenbild zur Stufe – fehlt das Bild, die nächstniedrigere Stufe, sonst irgendeine vorhandene */
-export function huettenBild(szene: DioramaSzene, stufe: 0 | 1 | 2 | 3): ImageSourcePropType | undefined {
+export function huettenBild(szene: DioramaSzene, stufe: 0 | 1 | 2 | 3): Bild | undefined {
   for (let s = stufe; s >= 0; s--) {
     const b = szene.huette[s as 0 | 1 | 2 | 3];
     if (b) return b;

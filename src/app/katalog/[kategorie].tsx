@@ -1,6 +1,7 @@
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import type { ScrollViewInstance } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useReducedMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -177,7 +178,7 @@ function StammbaumAnsicht({ kategorie }: { kategorie: KategorieId }) {
   const naturraum = naturraumId ? naturraumById[naturraumId] : undefined;
   const baum = lebensbaum(kategorie, naturraum);
   const verborgen = (id: string) => istVerborgen(id, gefunden);
-  const scroll = useRef<ScrollView>(null);
+  const scroll = useRef<ScrollViewInstance>(null);
   const [baumY, setBaumY] = useState(0);
 
   return (

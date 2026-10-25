@@ -2,7 +2,9 @@
  * Render-Tests: Jeder Screen wird einmal komplett dargestellt.
  * So fallen Laufzeitfehler auf, die beim reinen Bauen nicht sichtbar sind.
  */
-import { fireEvent, render, screen } from '@testing-library/react-native';
+import { fireEvent, render as rtlRender, screen } from '@testing-library/react-native';
+import type { ReactElement } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import ArtSeite from '@/app/art/[id]';
 import { ARTEN } from '@/data/arten';
@@ -25,6 +27,9 @@ import Waehlen from '@/app/onboarding/waehlen';
 import { GefahrAuftritt } from '@/components/gefahr/GefahrAuftritt';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
+
+// Wie in src/app/_layout.tsx: Gesten brauchen seit Gesture Handler 3 (SDK 58) die Wurzel-Ansicht
+const render = (ui: ReactElement) => rtlRender(ui, { wrapper: GestureHandlerRootView });
 
 const mockParams: Record<string, string> = { id: 'lueneburger-heide', per: 'liste' };
 jest.mock('expo-router', () => ({
@@ -235,7 +240,7 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.queryByText('Tippe eine Art an')).toBeNull();
     expect(screen.getByLabelText(/^Info: /)).toBeTruthy(); // Erklärung hinter dem „i“
     expect(screen.getByLabelText('Ansicht Stammbaum')).toBeTruthy();
-  });
+  }, 60000); // baut viele Seiten nacheinander, braucht unter Last mehr als 5 Sekunden
 
   test('Katalog Pilze: Lebensbaum mit Ästen, Stern und totem Ast', async () => {
     mockParams.kategorie = 'pilze';

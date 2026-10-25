@@ -65,7 +65,7 @@ export default function Suche() {
               <Schrift art="klein" style={{ marginTop: spacing.m }}>
                 Nichts gefunden. Prüf die Schreibweise oder versuch die Postleitzahl.
               </Schrift>
-            ) : null
+            ) : undefined
           }
           renderItem={({ item }) => (
             <Pressable

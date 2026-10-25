@@ -18,7 +18,7 @@ Vollständiger Auftrag: `wildfund-prompt.md`. **Gesamtkonzept (Fundstücke, Voge
 - Läuft eine Bibliothek nicht in Expo Go, das sagen und eine Alternative vorschlagen (z. B. Development Build).
 
 ## Tech-Stack
-- Expo (SDK 57) + React Native + TypeScript, **expo-router** (Routen in `src/app/`).
+- Expo (SDK 58, React Native 0.88) + React Native + TypeScript, **expo-router** (Routen in `src/app/`).
 - 3D: `@react-three/fiber` (native) + `expo-gl` + `@react-three/drei`.
 - 2D-Effekte (Leuchten, Nebel, Partikel): `@shopify/react-native-skia`. Lehrbuch-Zeichnungen und Karte: `react-native-svg` + `roughjs`.
 - `expo-camera` / `expo-image-picker`, `expo-location`, `expo-sensors`.
