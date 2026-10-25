@@ -235,7 +235,9 @@ export const ARTEN: Art[] = [
     schutz: 0,
     roteListe: '*',
     lebensraum: 'Waldränder, Hecken, nährstoffreiche Böden',
-    saison: 'Blüte Mai–Juni, Beeren Aug–Sep',
+    // Blüte: SDW-Steckbrief Mai–Juni, FloraWeb 6–7, BUND SH 06–08; Beeren: BUND SH 08–09 (recherche/sonderwissen/holunder.md)
+    saison: 'Blüte Mai–Juli, Beeren Aug–Sep',
+    // FloraWeb (Rothmaler): Wuchshöhe 3,00–7,00 m; SDW nennt als Ausnahme „bis über 10 m“
     groesse: '3–7 m',
     wusstestDu:
       'Die Beeren sind roh unverträglich und werden nur gekocht verwendet – die Blüten duften stark nach Sommer.',

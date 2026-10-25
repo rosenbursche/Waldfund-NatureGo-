@@ -28,3 +28,6 @@ Ebenfalls stark: **holundermark**. Mikroskopiker klemmen bis heute Pflanzenteile
 - Keine Originalquelle von Giftinformationszentrum, Verbraucherzentrale, BZfE oder Landwirtschaftskammer gefunden (die Seite schmeck-den-sueden.de war gesperrt). Die Angabe „mindestens 20 Minuten über 80 °C“ steht nur in Presseartikeln, die sich auf die LWK Niedersachsen berufen. Darum steht im Text nur „über 80 °C“.
 - Für Gelee aus Beeren gibt es kein seriöses Rezept mit Mengen. Die Erzählung zum Judasohr-Namen (Judas am Holunder) und Holundermark-Spielzeug sind nicht belegt.
 - Die Texte der PDF-Quellen habe ich mit WebFetch geladen und mit `pdftotext` ausgelesen.
+
+## Übernommen in die App (25.10.2026, Phase C1)
+- `src/data/arten.ts` `saison`: „Blüte Mai–Juni“ → „Blüte Mai–Juli“ (SDW, FloraWeb, BUND SH; passt zu `fundstuecke.json` Blüte 5–7). Beeren Aug–Sep und Größe 3–7 m (FloraWeb/Rothmaler) bleiben.

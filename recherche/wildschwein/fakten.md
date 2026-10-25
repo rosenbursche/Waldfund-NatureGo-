@@ -24,6 +24,7 @@ PDFs wurden heruntergeladen und als Text gelesen. Die Spuren-Seite der DWS (q5) 
 - Tragzeit: 108–120 Tage, Mittel 114 (q1, q2). Etwa 4 Monate (q3, q4, q6), 115 Tage (q10), 16–17 Wochen (q11), etwa 116 Tage (q24).
 - Geburt (Frischen): meist März–Mai (q3), März–Juni (q10, q11), NRW: April (q1).
 - Säugezeit 3–4 Monate (q3, q10, q11), Berlin: 3 Monate, mit etwa 6 Monaten selbstständig (q6).
+- Nachtrag 25.10.2026 (DJV-Tiersteckbrief, in der Tierseite q31): Tragzeit 4 Monate, Geburt „im Januar oder Februar“, 1 bis 8 Frischlinge, 3 Monate gesäugt. Die Geburtszeit widerspricht den übrigen Quellen (März–Mai); die App bleibt bei März–Mai.
 - Mast: Stieleiche reift Ende Sep/Anfang Okt, Traubeneiche im Oktober (q21). Bucheckern reifen und fallen Sep–Nov (q22). Im Winter frisst das Wildschwein heruntergefallene Eicheln und Bucheckern (q20). Mastjahre bei Eichen alle 5–7 Jahre (q21).
 - Kein Winterschlaf und keine Winterruhe; dazu wurde keine eigene Quelle gesucht, weil keine Quelle eine Winterruhe erwähnt.
 
@@ -35,7 +36,7 @@ PDFs wurden heruntergeladen und als Text gelesen. Die Spuren-Seite der DWS (q5) 
 
 ## Jungtiere (Frischlinge)
 - Wurf meist 5–8 (q1), 4–8 (q10, q11), bis 12 (q6), im Schnitt 6 (q4). Geburtsgewicht 740–1.090 g (q1).
-- Streifen: hellgelbe Längsstreifen bis zum 4. Monat (q6), 3–4 Monate (q4), 0–4 Monate (q10). LJV-Prüfungsfragen: verloren mit 4–5 Monaten (q16). **Spanne 3–5 Monate.**
+- Streifen: hellgelbe Längsstreifen bis zum 4. Monat (q6), 3–4 Monate (q4), 0–4 Monate (q10). LJV-Prüfungsfragen: verloren mit 4–5 Monaten (q16). q4 nennt auf derselben Seite zusätzlich „ca. 4 bis 6 Monate“ (Nachtrag 25.10.2026). **Spanne 3–5 Monate.**
 - Danach rotbraunes Jugendfell, „rothaariger Frischling“ von 4–12 Monaten (q10, q4). Im Winter erkennt man ältere Frischlinge an bräunlichen Borsten an den Flanken (q16).
 - Bache bleibt nach der Geburt einige Tage im Wurfkessel und kehrt dann zur Rotte zurück (q3). Frischlinge sind also fast ab Geburt mit der Rotte unterwegs.
 - Geschlechtsreif teils schon mit 7–10 Monaten (q3), ab 8 Monaten und 30 kg (q1).

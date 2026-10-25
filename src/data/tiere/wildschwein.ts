@@ -68,7 +68,7 @@ export const WILDSCHWEIN: TierSeite = {
     { id: 'ruessel', x: 186, y: 117, icon: 'nase', kurz: 'Rüssel: gräbt und riecht' }, // q1, q4, q11
     { id: 'borsten', x: 110, y: 74, icon: 'streifen', kurz: 'Lange, dunkle Borsten' }, // q4
     { id: 'zahn', x: 178, y: 114, icon: 'zahn', kurz: 'Keiler: Eckzähne über 20 cm' }, // q4
-    { id: 'ohr', x: 151, y: 80, icon: 'ohr', kurz: 'Hört sehr gut' }, // TODO fachlich prüfen (keine Quelle)
+    { id: 'ohr', x: 151, y: 80, icon: 'ohr', kurz: 'Hört sehr gut' }, // q6: „Gehör- und Geruchssinn sind dagegen sehr gut entwickelt“
     { id: 'huf', x: 70, y: 141, icon: 'bein', kurz: 'Afterklauen hinter den Hufen' }, // q5, q8
   ],
   // q7 (Telemetrie BW): nachts 65,6 % aktiv, tags 19,4 %; Maximum um Mitternacht. Von Natur aus auch tagaktiv,
@@ -151,6 +151,7 @@ export const WILDSCHWEIN: TierSeite = {
   //      J  F  M  A    M  J  J  A    S    O  N  D
   fell: [0, 0, 0, 0.5, 1, 1, 1, 0.5, 0.5, 0, 0, 0],
   // q1, q3, q10: Frischling heißt das Tier das ganze erste Jahr; Streifen 3–5 Monate (q4, q6, q10, q16),
+  // q4 nennt auf derselben Seite auch „ca. 4 bis 6 Monate“; die meisten Quellen sagen etwa 4 Monate (q6: „bis zum 4. Monat“)
   // danach rotbraunes Jugendkleid bis etwa zum 12. Monat (q10, q4)
   // TODO fachlich prüfen: Streifen-Monate 3–8 und Rotbraun-Monate 9–2 aus Geburtszeit + Dauer abgeleitet
   jung: {
@@ -197,7 +198,8 @@ export const WILDSCHWEIN: TierSeite = {
     { artId: 'fuchs', kurz: 'Fuchs', nurJung: true },
     // q17: 40 % der Wildschwein-Unfälle Oktober bis Dezember
     { icon: 'auto', kurz: 'Straßen' },
-    // q3: nasskalte Witterung in den ersten Wochen kann zu hohen Ausfällen führen
+    // q3: nasskalte Witterung in den ersten Wochen kann zu hohen Ausfällen führen;
+    // q31: „Viele Frischlinge sterben in den ersten Lebenswochen aufgrund feuchtkalter Witterung und Krankheiten.“
     { icon: 'schnee', kurz: 'Nasskaltes Wetter', nurJung: true },
   ],
   // q6, q7, q11, q10: Laub-/Mischwald mit Dickungen und feuchten Böden, nachts Nahrung auch auf Feldern und Wiesen
@@ -351,6 +353,11 @@ export const WILDSCHWEIN: TierSeite = {
       id: 'q30',
       titel: 'Einheimische Paarhufer, Arbeitsblätter (Naturhistorisches Museum der Universität Zürich)',
       url: 'https://www.nmz.uzh.ch/dam/jcr:ff2e2ed8-0dba-4286-8702-9e3731c27692/2024_Paarhufer_Arbeitsblaetter.pdf',
+    },
+    {
+      id: 'q31',
+      titel: 'Tiersteckbrief Wildschwein (Sus scrofa) (Deutscher Jagdverband)',
+      url: 'https://www.jagdverband.de/zahlen-fakten/tiersteckbriefe/wildschwein-sus-scrofa',
     },
     {
       id: 'g40',

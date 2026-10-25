@@ -44,3 +44,10 @@ Ebenfalls stark: die Leitbache, die per Duft die Paarungszeit der ganzen Rotte g
 - Ob die Hirschtrüffel vor allem im Spätwinter gefressen werden, steht nur in Presseberichten, die nicht geöffnet wurden. Deshalb hat der Eintrag keine Monate.
 - Schwimmen: nur eine Quelle (DJV), keine Strecken.
 - Heinken & Raudnitschka (q14): Jahr und Band stehen nicht im PDF-Text.
+
+## Übernommen in die App (25.10.2026, Phase C1)
+Nummern hier = Tierseite `src/data/tiere/wildschwein.ts` (Berlin = q6, DWS = q4, DJV neu = q31).
+- `koerper.ohr` „Hört sehr gut“: TODO entfernt, belegt durch Berlin (q6).
+- `gefahren` „Nasskaltes Wetter“: zusätzlich DJV (q31).
+- Frischlingsstreifen: Monate bleiben (März–Aug). Die „3–6 Monate“ fassen zwei widersprüchliche Sätze der DWS-Seite zusammen („drei bis vier Monate“ und „ca. 4 bis 6 Monate“); Berlin sagt „bis zum 4. Monat“. Nur Kommentar ergänzt.
+- Wurfgröße, Säugezeit, Sehvermögen: nicht in der App, nur Nachtrag in `recherche/wildschwein/fakten.md`. DJV nennt als Geburtszeit Januar/Februar – Widerspruch zu den übrigen Quellen, App bleibt bei März–Mai.
