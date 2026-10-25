@@ -187,6 +187,8 @@ Häufige Fundstücke (Buchenblatt, Amselruf) brauchen wenig Prüfung, seltene (L
 8. ✅ **Fichte in der Heide** (24.10.2026): möglicherweise heimisch an feuchten Standorten, normale Forste angepflanzt (`CLAUDE.md`).
 9. **Startphase mit Beispielprofilen** (25.10.2026, siehe 12.3): Entscheidung des Nutzers steht; `TODO rechtlich prüfen` (UWG, Digital Services Act, Jugendschutz), bevor es live geht.
 10. **Essbar, Rezepte, Sammeln** (25.10.2026, siehe 11.2): Wie passt „Holunder sammeln, Rezept kochen“ zur Regel „nichts pflücken, nichts essen“ (2.5, `CLAUDE.md`)? Vorschlag: Rezepte nur für häufige, ungeschützte, sicher bestimmbare Arten, bei Pilzen immer „nur nach Prüfung durch Pilzsachverständige“.
+12. **Spenden: Woher kommt das Geld?** (25.10.2026, siehe 16.3): z. B. Sponsoren, Teil der Einnahmen, Partner. `TODO rechtlich prüfen` (Werbung mit Spenden, Gemeinnützigkeit der Empfänger, App-Store-Regeln).
+13. **Events von Nutzern** (25.10.2026, siehe 16.2): Moderation, Haftung und Teilnahme unter 16 klären.
 11. **Monatliche Challenges** (25.10.2026, siehe 14.3): Idee angefangen, Ausgestaltung offen.
 
 ---
@@ -216,6 +218,7 @@ In der Datenbank heißt das: Neben dem festen Feldkatalog gibt es frei erweiterb
 ## 12. Community-Feed wie Komoot oder Instagram (Idee 25.10.2026)
 
 ### 12.1 Der Feed
+- **Der Feed ist die Startseite** (Entscheidung 25.10.2026): Wer die App öffnet, sieht zuerst die Community, also Funde anderer Nutzer, Beispielprofile in der Startphase (12.3) und lokale Events (16.2).
 - Eigener Tab **„Feed“**: Leute aus der Region und Leute, denen man folgt. Man sieht, was sie gefunden haben, welche Taler und Abzeichen sie bekommen haben und was sie gerade machen.
 - Beispiele: „Andrea hat einen Walnussbaum gefunden, schau ihn dir auch an“ (mit ihrem Foto und Ort, wenn sie ihn freigibt). „Andrea war Holunder sammeln“ (mit Bildern).
 - Ziel: sich gegenseitig inspirieren und **gemeinsam** Neues entdecken.
@@ -290,3 +293,35 @@ Grundsatz: **Alles auf die Region des Nutzers beziehen.**
 - **Profilwerte:** Region, Lieblingsgruppen, übliche Uhrzeit, Niveau.
 - **Je Art:** Jahreslauf (Blüte, Früchte, Saison) und Vorkommen je Region aus der Datenbank. Das ist die Grundlage für 14.2.
 - Datenschutz: Standort nur grob, erst nach Einwilligung, unter 16 mit Einwilligung der Eltern (DSGVO), Daten nie verkaufen.
+
+---
+
+## 16. Community ist alles (Entscheidung 25.10.2026)
+
+Die wichtigste Änderung am Konzept: Wildfund ist vor allem eine **Community naturliebender Menschen**. Sammeln, Daten und Seiten dienen dazu, dass diese Gemeinschaft entsteht und zusammen rausgeht.
+
+### 16.1 Startseite = Feed
+Siehe 12.1. Die alte Startseite (Sammlung, Karte) rückt in eigene Tabs.
+
+### 16.2 Lokale Events
+- **Groß angekündigt:** Events in der Region erscheinen prominent im Feed, z. B. „Müllsammeln in Würzburg am Samstag“ (Stadt, Verein, Naturpark, NABU …).
+- **Nutzer erstellen Events selbst**, eigenverantwortlich und sehr einfach: Titel, Ort (Treffpunkt), Zeit, kurze Beschreibung. Zum Beispiel Pilzwanderung, Vogelstimmen am Morgen, Clean-up.
+- Teilnahme mit einem Klick, danach sehen die Teilnehmer ihre gemeinsamen Funde.
+- **Leitplanken** (Vorschlag Claude):
+  - Treffpunkt öffentlich, keine Events an Brutplätzen, Bauen oder Fundorten seltener Arten, in Schutzgebieten nur auf Wegen.
+  - Melden-Knopf und Moderation.
+  - Unter 16: nur mit Einwilligung der Eltern oder bei Events geprüfter Veranstalter (Schutz vor Treffen mit Fremden).
+  - Hinweis, dass der Ersteller verantwortlich ist. Haftung `TODO rechtlich prüfen`.
+- Passt zu Müll melden (5.3) und zu den Partnern (Abschnitt 5).
+
+### 16.3 Punkte spenden
+- Wer Punkte sammelt, kann sie **spenden**. Wildfund rechnet sie in einen kleinen Geldbetrag um (ein paar Euro) und zahlt an die gewählte Organisation.
+- In der App gibt es eine **Liste lokaler Organisationen** in der Region: Tierheime, Wildtierstationen, Umwelt- und Naturschutzvereine. Der Nutzer entscheidet, wohin seine Punkte gehen.
+- Das schafft **Aufmerksamkeit** für lokale Organisationen, auch wenn der Betrag klein ist. Im Feed: „Die Community in Würzburg hat diesen Monat 340 € an das Tierheim gespendet.“
+- Organisationen stellen sich mit einer kurzen Seite vor und können eigene Events anlegen (16.2).
+- Offen (Entscheidung 10.12):
+  - Woher kommt das Geld (Sponsoren, Teil der Einnahmen)?
+  - Wie viele Euro sind ein Punkt?
+  - Nur geprüfte, gemeinnützige Organisationen aufnehmen.
+  - Offen zeigen, wie viel Geld wirklich fließt (Werbung mit Spenden muss nachvollziehbar sein, `TODO rechtlich prüfen`).
+- Der Nutzer zahlt dabei selbst nichts. Die Spende kommt von Wildfund, also braucht es keinen Kauf in der App.

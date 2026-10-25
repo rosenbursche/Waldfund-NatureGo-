@@ -255,6 +255,9 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 | Lückenanalyse und „fast geschafft“ in der Region, Regionsübersicht, gemeinsame Ziele der Region (14.1) | ⬜ Konzept |
 | Saison-Benachrichtigungen aus dem Jahreslauf der Arten in der Region, auch für ungefundene Arten, mit mitwachsenden Aufgaben (14.2) | ⬜ Konzept |
 | Monatliche Challenges (14.3) | ⬜ Idee |
+| **Community ist alles:** Startseite = Feed mit Nutzern, Beispielprofilen und lokalen Events (16.1) | ⬜ Entscheidung 25.10.2026 |
+| Lokale Events groß im Feed (Stadt, Vereine), Nutzer erstellen Events selbst, mit Leitplanken (16.2) | ⬜ Konzept · 🔒 Moderation, Haftung, unter 16 |
+| Punkte spenden an lokale Tierheime und Umweltorganisationen, Liste in der Region, Awareness im Feed (16.3) | ⬜ Konzept · 🔒 Geldquelle, rechtlich prüfen |
 | Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
 | G1 umgesetzt (Branch `feature/fundstuecke`): 389 Fundstücke für 73 Arten mit Quellen, Album auf der Artenseite, Speichern, Foto nur per App-Kamera | ✅ · Tonaufnahme offen |
 | Taler: Metall = Fortschritt (Rohling → Holz → Bronze → Silber → Gold), Seltenheit über Edelstein und Email | ✅ |
