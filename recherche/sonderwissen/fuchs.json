@@ -1,0 +1,179 @@
+{
+  "artId": "fuchs",
+  "colId": "5BSG3",
+  "wissName": "Vulpes vulpes",
+  "gruppe": "saeuger",
+  "eintraege": [
+    {
+      "id": "maeuselsprung-kompass",
+      "thema": "verblueffend",
+      "titel": "Springt der Fuchs nach Kompass?",
+      "text": "Beim Mäuseln schleicht der Fuchs langsam heran, lauscht und springt dann hoch in die Luft, um die Maus von oben zu packen. Forschende beobachteten in Tschechien 84 Füchse bei fast 600 Sprüngen. In hohem Gras und im Schnee sprangen sie meist Richtung Nordosten, und diese Sprünge klappten viel öfter. Die Forscher vermuten, dass der Fuchs das Magnetfeld der Erde wie einen Entfernungsmesser nutzt. Bewiesen ist das noch nicht.",
+      "details": { "fuechse": 84, "spruenge": 592, "richtung": "etwa 20° östlich von magnetisch Nord" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["cerveny2011", "physorg2011"]
+    },
+    {
+      "id": "helferinnen",
+      "thema": "verhalten",
+      "titel": "Tanten, die beim Großziehen helfen",
+      "text": "Meist leben Füchse als Paar oder als Familie aus Eltern und Jungen. In manchen Gegenden lebt aber ein Rüde mit vier oder fünf Fähen zusammen. Nur die ranghöchste Fähe bekommt Junge. Die anderen bekommen selbst keine, helfen aber bei der Aufzucht mit. Auch Jungfüchse aus dem Vorjahr bleiben manchmal in der Familie.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["silvaplana", "dws"]
+    },
+    {
+      "id": "ranzbellen",
+      "thema": "mitmachen",
+      "titel": "Schreie in Winternächten",
+      "text": "Von Dezember bis Februar ist Paarungszeit, die Ranz. Dann hört man nachts das Ranzbellen der Füchse. Rüden streiten sich, begleitet von typischen Keckerlauten. Vor Gefahr warnen Füchse mit einem lauten, langgezogenen Bellen, und während der Jungenaufzucht manchmal mit einem heiseren Schrei.",
+      "details": null,
+      "monate": [12, 1, 2],
+      "meldung": "Ranzzeit der Füchse: Hörst du nachts Bellen und Keckern? Das sind Füchse auf Partnersuche.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws", "silvaplana"]
+    },
+    {
+      "id": "welpen",
+      "thema": "verhalten",
+      "titel": "Blind und taub im Bau",
+      "text": "Im März oder April kommen drei bis sechs Junge zur Welt. Sie haben schon Fell, sind aber blind und taub. Nach zwei Wochen öffnen sich die Augen, nach vier Wochen machen die Welpen erste Ausflüge vor den Bau. Oft bringt der Vater Futter. In dieser Zeit jagen Füchse auch am Tag nach Wühlmäusen, dann kann man sie besonders gut sehen.",
+      "details": { "wurf": "1–12, meist 4–6 (Silvaplana)" },
+      "monate": [3, 4, 5, 6],
+      "meldung": "Fuchswelpen-Zeit! Jetzt jagen Füchse oft auch tagsüber auf Wiesen nach Mäusen. Halte Abstand vom Bau.",
+      "sicherheit": "Fuchsbaue nicht stören und Welpen nie anfassen.",
+      "wow": 2,
+      "quellen": ["dws", "silvaplana"]
+    },
+    {
+      "id": "wg-mit-dachs",
+      "thema": "beziehung",
+      "titel": "Wohngemeinschaft mit dem Dachs",
+      "text": "Der Fuchs gräbt seinen Bau nicht immer selbst. Gern zieht er in Höhlen von Dachsen oder Kaninchen und baut sie aus. Sind die Baue groß genug, wohnt er sogar mit den ursprünglichen Bewohnern zusammen. Einen bewohnten Fuchsbau erkennst du am typischen Fuchsgeruch und an Knochen, Fellresten oder Federn am Eingang.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Baue nur aus der Ferne ansehen, nicht hineinfassen.",
+      "wow": 2,
+      "quellen": ["dws", "silvaplana"]
+    },
+    {
+      "id": "katzenaugen",
+      "thema": "koerper",
+      "titel": "Ein Hund mit Katzenaugen",
+      "text": "Der Fuchs gehört wie Hund und Wolf zu den Hundeartigen. Seine Pupillen sind aber senkrechte Schlitze wie bei einer Katze. Seine Augen sind für Dämmerung und Nacht gemacht. Er riecht etwa vierhundertmal besser als ein Mensch, und seine spitzen Ohren kann er in fast alle Richtungen drehen, um Geräusche genau zu orten.",
+      "details": { "geruch": "etwa 400-mal besser als beim Menschen" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["naturschutzbundAT", "silvaplana", "dws"]
+    },
+    {
+      "id": "weltweit",
+      "thema": "verblueffend",
+      "titel": "Das Raubtier mit dem größten Verbreitungsgebiet",
+      "text": "Kein anderes Raubtier ist so weit verbreitet wie der Rotfuchs. Er lebt fast auf der ganzen Nordhalbkugel, an Küsten, in Wüsten, in der Tundra, im Hochgebirge und mitten in Großstädten. In Australien wurde er im 19. Jahrhundert ausgesetzt und lebt heute fast auf dem ganzen Kontinent. In der Schweiz kommt er bis auf 3.000 Meter Höhe vor.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["silvaplana", "naturschutzbundAT"]
+    },
+    {
+      "id": "stadtfuchs",
+      "thema": "verhalten",
+      "titel": "Wilde Großstädter",
+      "text": "Füchse leben heute auch mitten in Städten wie Berlin. In Parks, Gärten und auf Friedhöfen finden sie Verstecke, nachts Mäuse, Ratten und Essensreste. Manchmal geht es ihnen in der Stadt sogar besser als auf eintönigen Äckern. Weil Füchse nach jahrzehntelangen Impfkampagnen nicht mehr an Tollwut sterben, sind ihre Bestände wieder gewachsen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Füchse nie füttern und nicht anfassen, auch wenn sie zutraulich wirken.",
+      "wow": 2,
+      "quellen": ["dws", "berlin"]
+    },
+    {
+      "id": "mausejaeger",
+      "thema": "oekologie",
+      "titel": "Hilfe für junge Wälder",
+      "text": "Den größten Teil seiner Nahrung machen kleine Nagetiere aus, vor allem Wühlmäuse. Mäuse nagen gern an jungen Bäumchen. Wo viele Bäume neu gepflanzt werden, hilft der Fuchs dem Wald, weil er die Mäuse kurz hält. Daneben frisst er Regenwürmer, Käfer, Aas und im Herbst gern Obst und Beeren.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["berlin", "silvaplana"]
+    },
+    {
+      "id": "fellwechsel",
+      "thema": "koerper",
+      "titel": "Im Winter größer, als er ist",
+      "text": "Ab April verliert der Fuchs sein Winterfell. Das Sommerfell ist erst im September ganz fertig, ab Oktober wächst schon wieder das dichtere, längere Winterfell. Im Winter wirkt der Fuchs dadurch größer und schwerer, als er ist: Ein erwachsener Fuchs wiegt meist nur etwa fünf bis sieben Kilogramm.",
+      "details": { "gewicht": "meist 5–7 kg" },
+      "monate": [4, 10],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["silvaplana", "dws"]
+    },
+    {
+      "id": "osterfuchs",
+      "thema": "geschichte",
+      "titel": "Der Fuchs, der Ostereier bringt",
+      "text": "In Märchen und Fabeln gilt der Fuchs seit Jahrhunderten als schlau und gerissen. In einigen Gegenden des deutschsprachigen Raums hat er aber eine freundliche Rolle: Dort bringt nicht der Osterhase, sondern der Fuchs die Ostereier. 2025 wählten die Menschen in Österreich den Rotfuchs zum Tier des Jahres.",
+      "details": null,
+      "monate": [3, 4],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["naturschutzbundAT"]
+    }
+  ],
+  "quellen": {
+    "dws": {
+      "titel": "Deutsche Wildtier Stiftung: Fuchs – Steckbrief",
+      "url": "https://www.deutschewildtierstiftung.de/wildtiere/fuchs",
+      "abgerufen": "2026-10-25"
+    },
+    "silvaplana": {
+      "titel": "Gemeinde Silvaplana, Forst: Kurzporträt Rotfuchs (Vulpes vulpes)",
+      "url": "https://gemeinde-silvaplana.ch/assets/forst/infotafeln/lebensraum/faktenblatter/kurzportraits-wildtiere/fuchs---kurzportrait.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "cerveny2011": {
+      "titel": "Červený, J., Begall, S., Koubek, P., Nováková, P. & Burda, H. (2011): Directional preference may enhance hunting accuracy in foraging foxes. Biology Letters 7(3): 355–357 (Eintrag Akademie der Wissenschaften CZ)",
+      "url": "https://asep.lib.cas.cz/arl-cav/en/detail-cav_un_epca-0354391-Directional-preference-may-enhance-hunting-accuracy-in-foraging-foxes",
+      "abgerufen": "2026-10-25"
+    },
+    "physorg2011": {
+      "titel": "Phys.org (14.01.2011): Predation by foxes aided by Earth's magnetic field",
+      "url": "https://phys.org/news/2011-01-predation-foxes-aided-earth-magnetic.html",
+      "abgerufen": "2026-10-25"
+    },
+    "naturschutzbundAT": {
+      "titel": "Naturschutzbund Österreich: Tier des Jahres 2025 – Rotfuchs",
+      "url": "https://naturschutzbund.at/tier-leser/items/2025-rotfuchs.html",
+      "abgerufen": "2026-10-25"
+    },
+    "berlin": {
+      "titel": "Senatsverwaltung Berlin: Wildtiere im Stadtgebiet – Fuchs",
+      "url": "https://www.berlin.de/sen/uvk/natur-und-gruen/jagd-und-wildtiere/wildtiere-im-stadtgebiet/fuchs/",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Magnetfeld: Den Originalartikel (Biology Letters) konnte ich nicht laden. Belegt über den Bibliothekseintrag der Tschechischen Akademie und den Phys.org-Bericht (72,5 % der erfolgreichen Sprünge Richtung Nord). Hypothese, nicht bewiesen – so im Text.",
+    "Fuchsbandwurm: keine Amtsquelle (RKI, LGL, BfR) geöffnet, nur Ökotest. Kein Eintrag. Der Hinweis in arten.ts bleibt mit TODO.",
+    "Violdrüse (Veilchenduft am Schwanz): keine Quelle gefunden.",
+    "Ranzzeit: DWS Dezember–Februar, Silvaplana Januar–Februar. Monate 12–2 nach DWS.",
+    "Fellwechsel-Monate 4 und 10 aus Silvaplana (Beginn des Wechsels)."
+  ]
+}
