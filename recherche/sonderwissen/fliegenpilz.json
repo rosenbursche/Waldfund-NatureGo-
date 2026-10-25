@@ -1,0 +1,167 @@
+{
+  "artId": "fliegenpilz",
+  "colId": "5TYZ9",
+  "wissName": "Amanita muscaria",
+  "gruppe": "pilze",
+  "eintraege": [
+    {
+      "id": "fliegen-scheintot",
+      "thema": "verblueffend",
+      "titel": "Die Fliegen waren nur scheintot",
+      "text": "Früher legte man gezuckerte, eingeweichte Fliegenpilz-Stücke als Fliegenfalle aus. Die berauschten Fliegen fielen in die Flüssigkeit und ertranken. Forscher prüften das um 1965 genauer: Stubenfliegen, die vom Pilz gefressen hatten, lagen nach wenigen Minuten wie tot da. Nach über 50 Stunden wachten sie aber wieder auf, wenn die Menge nicht zu groß war. Als Fliegengift taugt der Pilz also nur halb.",
+      "details": { "erwachen": "nach über 50 Stunden (Studie um 1965, zitiert bei Obermaier & Müller)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Fliegenpilze sind giftig. Nicht anfassen, wenn du danach etwas isst, und nie in den Mund nehmen.",
+      "wow": 3,
+      "quellen": ["obermaier2022", "dgfm2022"]
+    },
+    {
+      "id": "name",
+      "thema": "name",
+      "titel": "Fliegenpilz oder Narrenschwamm?",
+      "text": "Woher der Name Fliegenpilz kommt, ist nicht ganz geklärt. Am naheliegendsten ist die alte Nutzung als Fliegengift, darauf weist auch der wissenschaftliche Name muscaria hin (lateinisch musca, Fliege). Es könnte aber auch mit seiner Rauschwirkung zu tun haben: Ein anderer alter Name ist Narrenschwamm, ein weiterer Mückenschwamm.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["obermaier2022", "dgfm2022"]
+    },
+    {
+      "id": "muscarin",
+      "thema": "chemie",
+      "titel": "Das Gift, das nach ihm benannt ist – und kaum in ihm steckt",
+      "text": "Das Gift Muscarin wurde nach dem Fliegenpilz benannt. Im Fliegenpilz kommt es aber nur in Spuren vor. Viel mehr Muscarin bilden Risspilze, die deshalb gefährliche Giftpilze sind. Die Wirkung des Fliegenpilzes geht vor allem auf zwei andere Stoffe zurück: Ibotensäure und Muscimol.",
+      "details": { "hauptgifte": ["Ibotensäure", "Muscimol"] },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["obermaier2022"]
+    },
+    {
+      "id": "gift",
+      "thema": "giftig",
+      "titel": "Giftig, aber anders als der Knollenblätterpilz",
+      "text": "Der Fliegenpilz ist mit den tödlichen Knollenblätterpilzen verwandt, gilt aber nicht als tödlicher Giftpilz. Beim Trocknen entsteht aus der Ibotensäure das Muscimol. Nach dem Essen kommt es nach etwa einer Viertelstunde bis vier Stunden zu weiten Pupillen, rasendem Puls, Schwindel und Koordinationsstörungen, bis hin zu Krämpfen. Wie viel Gift ein Pilz enthält, schwankt stark von Exemplar zu Exemplar.",
+      "details": { "syndrom": "Pantherina-Syndrom", "latenz": "15 Minuten bis 4 Stunden (DGfM-Liste)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Nicht essen. Nichts essen, was nicht von Pilzsachverständigen geprüft wurde. Bei Verdacht auf Vergiftung sofort den Giftnotruf anrufen.",
+      "wow": 2,
+      "quellen": ["dgfm2022", "obermaier2022", "dgfmGiftliste"]
+    },
+    {
+      "id": "pantherpilz",
+      "thema": "giftig",
+      "titel": "Der braune Verwandte: Pantherpilz",
+      "text": "Der Pantherpilz ist ein naher Verwandter mit braunem Hut. Er enthält dieselben Gifte, Ibotensäure und Muscimol, und wird mit dem Perlpilz und dem Grauen Wulstling verwechselt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Pilze mit Flocken auf dem Hut nie selbst bestimmen und essen. Immer von Pilzsachverständigen prüfen lassen.",
+      "wow": 1,
+      "quellen": ["dgfmGiftliste", "doccheck"]
+    },
+    {
+      "id": "baumpartner",
+      "thema": "beziehung",
+      "titel": "Tauschhandel an den Wurzelspitzen",
+      "text": "Der Fliegenpilz lebt in Partnerschaft mit Bäumen, am häufigsten mit Birken, aber auch mit Fichten, Buchen, Tannen und vielen anderen. Seine Pilzfäden umhüllen die feinsten Wurzelspitzen. Er liefert dem Baum Wasser und Nährstoffe und bekommt dafür Zucker, den er selbst nicht herstellen kann. Über das Pilzgeflecht im Boden sind sogar Bäume verschiedener Arten miteinander verbunden.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dgfm2022", "lwf28", "nlpSchwarzwald"]
+    },
+    {
+      "id": "flocken",
+      "thema": "mitmachen",
+      "titel": "Woher die weißen Punkte kommen",
+      "text": "Ein junger Fliegenpilz steckt ganz in einer weißen Hülle, wie ein kleines Ei. Wenn der Hut wächst, reißt die Hülle in Stücke, und die weißen Flocken bleiben auf der roten Huthaut liegen. Regen kann sie abwaschen, dann ist der Hut ganz rot. Unter der Huthaut ist das Fleisch gelb-orange, sonst weiß. Schau auch auf den Stielgrund: Dort sitzen Warzen in Gürteln um eine Knolle.",
+      "details": { "hut": "bis 20 cm" },
+      "monate": [8, 9, 10, 11],
+      "meldung": "Fliegenpilz-Zeit! Schau, ob dein Fliegenpilz noch Flocken hat oder ob der Regen sie abgewaschen hat. Nur fotografieren!",
+      "sicherheit": "Nur ansehen und fotografieren, nicht ausreißen.",
+      "wow": 2,
+      "quellen": ["doccheck", "dgfm2022"]
+    },
+    {
+      "id": "sibirien",
+      "thema": "geschichte",
+      "titel": "Rauschpilz der sibirischen Schamanen",
+      "text": "In Sibirien nutzten Schamanen den Fliegenpilz als Rauschmittel. Ein Reisender berichtete, die Kamtschadalen hätten ihn dem Alkohol vorgezogen. Weil viel Muscimol über den Urin ausgeschieden wird, soll sogar der Urin Berauschter getrunken worden sein. Laut der Deutschen Gesellschaft für Mykologie berauschen sich auch Rentiere gern an Fliegenpilzen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Der Rausch ist eine Vergiftung mit Erbrechen und heftigem Kater. Niemals ausprobieren.",
+      "wow": 3,
+      "quellen": ["obermaier2022", "dgfm2022"]
+    },
+    {
+      "id": "glueckspilz",
+      "thema": "geschichte",
+      "titel": "Vom Giftpilz zum Glückspilz",
+      "text": "Ab etwa 1900 tauchte der Fliegenpilz immer öfter als Glückspilz auf, als Schmuck und Kitsch in Tausenden Varianten, als Ziermuster und Spielzeug. Heute erkennen ihn schon kleine Kinder. 2022 wählte die Deutsche Gesellschaft für Mykologie zu ihrem 100. Geburtstag den Fliegenpilz zum Pilz des Jahres.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["dgfm2022", "obermaier2022", "nlpSchwarzwald"]
+    },
+    {
+      "id": "haeufig",
+      "thema": "verblueffend",
+      "titel": "Fast überall auf der Welt",
+      "text": "Der Fliegenpilz ist nahezu weltweit verbreitet und gehört zu den häufigsten Pilzarten Deutschlands. Er wächst in Laub- und Nadelwäldern in Europa, Asien und Nordamerika. Trotzdem gibt es selbst bei ihm noch Lücken auf den Verbreitungskarten. Deshalb rief die DGfM die Menschen auf, ihre Funde mit Foto zu melden.",
+      "details": null,
+      "monate": [8, 9, 10, 11],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["dgfm2022", "doccheck", "nlpSchwarzwald"]
+    }
+  ],
+  "quellen": {
+    "obermaier2022": {
+      "titel": "Obermaier, S. & Müller, M. (2022): Das Gift des Fliegenpilzes – Von den Geheimnissen des Narrenschwamms. Chemie in unserer Zeit 56(4): 256–264 (Universität Groningen, frei zugänglich)",
+      "url": "https://pure.rug.nl/ws/portalfiles/portal/675750583/Chemie_in_nserer_Zeit_2021_Obermaier_Das_Gift_des_Fliegenpilzes.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "dgfm2022": {
+      "titel": "Deutsche Gesellschaft für Mykologie: Pilz des Jahres 2022 – Fliegenpilz",
+      "url": "https://www.dgfm-ev.de/de/ueber-uns/news/pilz-des-jahres-2022-fliegenpilz",
+      "abgerufen": "2026-10-25"
+    },
+    "dgfmGiftliste": {
+      "titel": "Giftpilze – Vergiftungssyndrome (Quelle: Deutsche Gesellschaft für Mykologie), bereitgestellt von BUND Naturschutz Dingolfing-Landau",
+      "url": "https://dingolfing-landau.bund-naturschutz.de/fileadmin/kreisgruppen/dingolfing/Meindl/Pilzkartierung-Downloads/Giftpilze__Quelle_Deutsche_Ges._f._Mykologie_.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "doccheck": {
+      "titel": "DocCheck Flexikon: Fliegenpilz",
+      "url": "https://flexikon.doccheck.com/de/Fliegenpilz",
+      "abgerufen": "2026-10-25"
+    },
+    "lwf28": {
+      "titel": "LWF Wissen 28: Pilze an Birke (Bayerische Landesanstalt für Wald und Forstwirtschaft)",
+      "url": "https://lfl.bayern.de/mam/cms04/waldschutz/dateien/w28_pilze_an_birke.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "nlpSchwarzwald": {
+      "titel": "Nationalpark Schwarzwald, Pressemitteilung 04.08.2022: Die Suche nach dem Fliegenpilz geht weiter",
+      "url": "https://www.nationalpark-schwarzwald.de/fileadmin/Mediendatenbank_Nationalpark/Pressemitteilungen_und_Blog/2022/PM_20220804_Fliegenpilzaktion_FP.pdf",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Fliegenfalle: DGfM sagt, die Fliegen ertranken berauscht. Obermaier & Müller zitieren eine Studie um 1965, nach der vergiftete Fliegen nach über 50 Stunden wieder erwachten. Beides steht im Text, weil es sich nicht widerspricht (Ertrinken vs. Gift allein).",
+    "Rentiere: nur DGfM, keine Primärquelle geöffnet.",
+    "Kamtschadalen und Urin: Obermaier & Müller berichten das nach einem historischen Reisebericht („soll“), DGfM bestätigt den Urin-Brauch.",
+    "Verwechslung mit dem Kaiserling (DocCheck): nicht aufgenommen, weil der Kaiserling in Deutschland kaum vorkommt (nicht geprüft).",
+    "Monate 8–11 aus App-Daten und der Fundstück-Recherche (DGfM 2022, Spektrum, Merkblatt Wulstlinge); DocCheck sagt nur „Sommer bis Herbst“."
+  ]
+}

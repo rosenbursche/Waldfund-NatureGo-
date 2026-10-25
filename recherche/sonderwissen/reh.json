@@ -1,0 +1,198 @@
+{
+  "artId": "reh",
+  "colId": "QSF3",
+  "wissName": "Capreolus capreolus",
+  "gruppe": "saeuger",
+  "eintraege": [
+    {
+      "id": "keimruhe",
+      "thema": "verblueffend",
+      "titel": "Paarung im Sommer, Kitz erst im nächsten Frühling",
+      "text": "Rehe paaren sich im Juli und August, viel früher als andere Hirscharten. Danach macht der winzige Keim eine Pause: Von August bis Dezember entwickelt er sich kaum weiter. Diese Keimruhe dauert etwa viereinhalb Monate. Erst ab Dezember wächst das Kitz richtig. So verlängert sich die Tragzeit von 24 auf 42 Wochen, und die Kitze kommen im Mai und Juni zur Welt, wenn es warm ist und viel Futter gibt.",
+      "details": { "keimruhe": "August–Dezember, ca. 4,5 Monate", "tragzeit": "42 Wochen gesamt, 24 Wochen echte Entwicklung" },
+      "monate": [8, 9, 10, 11, 12],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["dws", "wallis", "djv"]
+    },
+    {
+      "id": "trughirsch",
+      "thema": "verblueffend",
+      "titel": "Näher am Elch als am Rothirsch",
+      "text": "Das Reh ist nicht die Frau des Hirsches, sondern eine eigene Art: die kleinste und häufigste Hirschart Europas. Zusammen mit Elch und Rentier gehört es zu den sogenannten Trughirschen. Deshalb ist es mit dem Elch näher verwandt als mit dem Rothirsch oder dem Damhirsch, die bei uns leben.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["dws", "djv"]
+    },
+    {
+      "id": "schwarze-rehe",
+      "thema": "verblueffend",
+      "titel": "Schwarze Rehe im Norden",
+      "text": "Vor allem im westlichen und mittleren Norddeutschland leben immer wieder ganz schwarze Rehe. Im Sommer glänzen Kopf, Nacken und Rücken tiefschwarz. Forschende fanden die Ursache in einem Gen: Alle untersuchten schwarzen Rehe trugen dieselbe Veränderung doppelt, von Mutter und Vater. Die schwarze Farbe wird also rezessiv vererbt, ähnlich wie beim schwarzen Leoparden.",
+      "details": { "gen": "ASIP" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["dws", "reissmann2020"]
+    },
+    {
+      "id": "kitz-allein",
+      "thema": "verhalten",
+      "titel": "Allein im Gras – aber nicht verlassen",
+      "text": "Die Ricke legt ihr Kitz im hohen Gras ab, dort drückt es sich reglos an den Boden. In den ersten Tagen hat es noch keinen eigenen Geruch, so finden Feinde es schwer. Die Mutter kommt nur zum Säugen und Putzen und beobachtet es aus sicherer Entfernung. Ein Kitz allein ist also nicht verwaist. Gefährlich wird es beim Mähen der Wiesen: Die Deutsche Wildtier Stiftung schätzt, dass jedes Jahr 50.000 bis 100.000 Kitze betroffen sind.",
+      "details": null,
+      "monate": [5, 6],
+      "meldung": "Setzzeit: Siehst du ein Kitz allein im Gras, ist es nicht verlassen. Nicht anfassen, leise weitergehen!",
+      "sicherheit": "Kitze nie anfassen oder mitnehmen. Hunde an die Leine nehmen.",
+      "wow": 2,
+      "quellen": ["djv", "maehtod2018", "dws"]
+    },
+    {
+      "id": "brunft",
+      "thema": "verhalten",
+      "titel": "Vier Tage im Jahr",
+      "text": "Die Brunft der Rehe dauert etwa von Mitte Juli bis Mitte August. Eine Ricke ist aber nur etwa vier Tage lang paarungsbereit. Die Böcke riechen das und folgen ihr manchmal tagelang. In dieser Zeit fiept die Ricke nach dem Bock, und die Böcke lassen raue, bellende Laute hören. Die Böcke verlieren dabei deutlich an Gewicht.",
+      "details": null,
+      "monate": [7, 8],
+      "meldung": "Rehbrunft! In der Dämmerung kannst du jetzt manchmal Rehe fiepen oder bellen hören.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws", "djv"]
+    },
+    {
+      "id": "bellen",
+      "thema": "mitmachen",
+      "titel": "Ein Reh, das bellt",
+      "text": "Wenn sich ein Reh erschreckt, gibt es einen kurzen, bellenden Laut von sich. Viele halten das für einen Hund. Hörst du im Wald so ein Bellen, hat dich vermutlich ein Reh bemerkt, oft lange bevor du es siehst. Bleib dann stehen und such mit den Augen den Waldrand ab.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["djv"]
+    },
+    {
+      "id": "nase-ohren",
+      "thema": "koerper",
+      "titel": "Riecht dich auf 300 Meter",
+      "text": "Rehe riechen und hören hervorragend. Einen Menschen können sie auf mehr als 300 Meter Entfernung wittern. Ihre Augen sind schwächer, doch Bewegungen bemerken sie sehr genau. Wer Rehe beobachten will, steht deshalb besser still und achtet darauf, dass der Wind von den Rehen zu einem selbst weht.",
+      "details": { "wittern": "über 300 m" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws", "djv"]
+    },
+    {
+      "id": "hohle-haare",
+      "thema": "koerper",
+      "titel": "Ein Winterfell aus hohlen Haaren",
+      "text": "Zweimal im Jahr wechseln Rehe ihr Fell, im April und Mai und im September und Oktober. Im Sommer ist es rotbraun, im Winter graubraun. Im Winterfell ist jedes einzelne Haar hohl. Die eingeschlossene Luft hält warm wie eine Daunenjacke. Das ausgefallene Winterfell nutzen viele Vögel für ihre Nester.",
+      "details": null,
+      "monate": [4, 5, 9, 10],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws", "djv"]
+    },
+    {
+      "id": "spiegel",
+      "thema": "mitmachen",
+      "titel": "Kleeblatt oder Niere?",
+      "text": "Am Hinterteil haben Rehe einen hellen Fleck, den Spiegel. Im Winter ist er besonders deutlich. Dann kannst du daran Männchen und Weibchen unterscheiden: Weibchen haben unten ein Haarbüschel, die Schürze, und ihr Spiegel sieht aus wie ein Kleeblatt. Bei Böcken ist er eher nierenförmig.",
+      "details": null,
+      "monate": [11, 12, 1, 2, 3],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws"]
+    },
+    {
+      "id": "naescher",
+      "thema": "verhalten",
+      "titel": "Ein Feinschmecker mit kleinem Magen",
+      "text": "Rehe fressen kaum Gras. Sie suchen sich gezielt die nahrhaftesten Kräuter, Knospen, Blüten und Früchte aus, deshalb nennt man sie Konzentratselektierer oder Nascher. Ihr Pansen ist eher klein. Darum fressen sie nicht viel auf einmal, sondern legen über den Tag viele kurze Fresspausen ein. Ein Reh von etwa 20 kg braucht zwei bis vier Kilogramm Grünes am Tag.",
+      "details": { "futterProTag": "2–4 kg Grünmasse (20-kg-Reh)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wallis", "dws", "djv"]
+    },
+    {
+      "id": "geweih-zyklus",
+      "thema": "koerper",
+      "titel": "Jedes Jahr ein neues Geweih",
+      "text": "Nur Rehböcke tragen ein Geweih. Sie werfen es jedes Jahr zwischen Oktober und Dezember ab. Sofort wächst ein neues unter einer nährenden Haut, dem Bast. Im Frühjahr ist es fertig, und der Bock reibt den Bast an jungen Bäumchen ab, das heißt Fegen. Die abgeworfenen Stangen sind reich an Kalzium und Phosphor und sind deshalb bei vielen Nagetieren beliebt.",
+      "details": { "abwurf": "Oktober–Dezember", "fegen": "März–Mai (Wallis)" },
+      "monate": [3, 4, 5],
+      "meldung": "Fegezeit: Such an jungen Bäumchen nach abgeschabter Rinde. Hier hat ein Rehbock seinen Bast abgerieben.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws", "wallis", "djv"]
+    },
+    {
+      "id": "plaetzen",
+      "thema": "oekologie",
+      "titel": "Gärtner wider Willen",
+      "text": "Rehböcke schlagen den Waldboden auf, das nennt man Plätzen. Auch im Winter scharren Rehe nach Futter. An diesen Stellen liegt der rohe Boden frei. Genau so einen Platz brauchen manche Bäume zum Keimen, zum Beispiel Birke, Kiefer und Tanne.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["dws"]
+    },
+    {
+      "id": "widergang",
+      "thema": "verhalten",
+      "titel": "Der Trick mit der eigenen Spur",
+      "text": "Ein Reh ist kein Ausdauerläufer. Bei Gefahr springt es mit wenigen schnellen Sätzen ins Dickicht. Sein hinten erhöhter Körper ist genau dafür gebaut. Auf der Flucht läuft es manchmal ein Stück in seiner eigenen Spur zurück und springt dann zur Seite weg. So schüttelt es Verfolger ab, die seiner Spur nachgehen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wallis", "dws"]
+    }
+  ],
+  "quellen": {
+    "dws": {
+      "titel": "Deutsche Wildtier Stiftung: Reh – Steckbrief",
+      "url": "https://www.deutschewildtierstiftung.de/wildtiere/reh",
+      "abgerufen": "2026-10-25"
+    },
+    "djv": {
+      "titel": "Deutscher Jagdverband: Tiersteckbrief Reh (Capreolus capreolus)",
+      "url": "https://www.jagdverband.de/zahlen-fakten/tiersteckbriefe/reh-capreolus-capreolus",
+      "abgerufen": "2026-10-25"
+    },
+    "wallis": {
+      "titel": "Kanton Wallis, Dienststelle für Jagd, Fischerei und Wildtiere: Infoblatt Reh 2025",
+      "url": "https://www.vs.ch/documents/33024802/33033352/Infoblatt_Reh_2025/a86d0fad-c2c0-dd82-8c69-1eeef5514d77",
+      "abgerufen": "2026-10-25"
+    },
+    "maehtod2018": {
+      "titel": "Deutsche Wildtier Stiftung: Stoppt den Mähtod! (16.07.2018)",
+      "url": "https://www.deutschewildtierstiftung.de/aktuelles/artikel/stoppt-den-maehtod",
+      "abgerufen": "2026-10-25"
+    },
+    "reissmann2020": {
+      "titel": "Reissmann et al. (2020): An Agouti-Signaling-Protein Mutation is Strongly Associated with Melanism in European Roe Deer. Genes 11(6): 647 (PMC7349051)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7349051/",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Spiegel-Monate 11–3: abgeleitet aus „im Winter“ (DWS) und dem Haarwechsel im September/Oktober (DJV).",
+    "Mähtod 50.000–100.000: Hochrechnung der DWS, keine Zählung (wie in der Tierseite markiert).",
+    "DJV: Rehe seien „farbenblind“. Nicht übernommen, weil Hirsche nach neuerer Forschung meist zwei Farbtypen sehen; nicht geprüft.",
+    "Widergang: nur Wallis, Fluchtverhalten zusätzlich DWS.",
+    "Hexenringe (Kreisspuren in der Brunft): keine Quelle geöffnet, nicht aufgenommen."
+  ]
+}
