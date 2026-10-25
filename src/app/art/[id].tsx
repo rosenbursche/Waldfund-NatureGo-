@@ -286,7 +286,11 @@ export default function ArtSeite() {
                       ? ' · geprüft mit Pl@ntNet'
                       : fund.geprueft === 'demo'
                         ? ' · Demo-Prüfung'
-                        : ''}
+                        : fund.geprueft === 'erkannt'
+                          ? ' · erkannt'
+                          : fund.geprueft === 'gewaehlt'
+                            ? ' · selbst bestimmt, noch unbestätigt'
+                            : ''}
                 </Schrift>
               </View>
             </View>

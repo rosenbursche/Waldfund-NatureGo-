@@ -22,7 +22,7 @@ Die Python-Umgebung und das Modell (1,7 GB) liegen vom ersten Test im Arbeitsord
 
 ```
 venv/bin/python artvektoren.py                      # einmal, ca. 1 Minute
-venv/bin/python -m uvicorn server:app --port 8765    # Server starten
+venv/bin/python -m uvicorn server:app --host 0.0.0.0 --port 8765    # Server starten (auch fürs Handy im WLAN)
 ```
 Danach im Browser `http://localhost:8765/docs` öffnen → `/erkennen` → „Try it out“ → Foto wählen.
 

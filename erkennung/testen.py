@@ -44,7 +44,7 @@ def main(bilder_datei, arten_datei=None):
                 z = zeilen[g]
                 z['n'] += 1
                 z['top1'] += x['vorschlaege'][0]['id'] == r['soll']
-                z['top5'] += r['soll'] in [v['id'] for v in x['vorschlaege']]
+                z['top5'] += r['soll'] in [v['id'] for v in x['vorschlaege'][:5]]
                 z['sicher'] += x['status'] == 'sicher'
                 z['sicher_richtig'] += x['status'] == 'sicher' and x['art']['id'] == r['soll']
                 z['gattung'] += x['status'] == 'gattung'

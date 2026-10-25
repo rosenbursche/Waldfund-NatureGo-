@@ -23,6 +23,7 @@ HIER = Path(__file__).resolve().parent
 SCHWELLE = 0.90  # ab hier gilt eine Erkennung als sicher (recherche/erkennung/bioclip2-test.md)
 VORWISSEN = 0.5  # Gewicht der Häufigkeit: logit + 0,5 · ln(1 + Nachweise). Im Test besser als 0, 1, 1,5 und 2
 GEGEN_NACHWEISE = 1000  # Gegenklassen haben keine Wildnachweise, zählen für das Vorwissen wie eine mittlere Art
+VORSCHLAEGE = 6  # so viele Kandidaten zeigt die App zur Auswahl (Gesamtkonzept Abschnitt 17)
 PILZ_HINWEIS = 'Die Erkennung sagt nie, ob ein Pilz essbar ist. Nichts essen, was nicht Pilzsachverständige geprüft haben.'
 
 
@@ -64,7 +65,7 @@ class Erkenner:
         p = F.softmax(logits, dim=0).cpu().numpy()
         ordnung = np.argsort(-p)
 
-        top = [self._art(idx[i], p[i]) for i in ordnung[:5]]
+        top = [self._art(idx[i], p[i]) for i in ordnung[:VORSCHLAEGE]]
         # Wahrscheinlichkeit je Gattung: Wenn das Modell zwischen Arten schwankt, ist oft die Gattung sicher
         gat = {}
         for i, wert in zip(idx, p):

@@ -13,6 +13,7 @@ import Katalog from '@/app/katalog/[kategorie]';
 import Modelltest from '@/app/modelltest';
 import Bausteine from '@/app/bausteine';
 import Mystery from '@/app/mystery';
+import Entdecken from '@/app/entdecken';
 import Sammeln from '@/app/sammeln/[id]';
 import SucheEntdecken from '@/app/suche';
 import Tagebuch from '@/app/tagebuch';
@@ -309,6 +310,13 @@ describe('Screens rendern ohne Fehler', () => {
     await render(<ArtSeite />);
     expect(screen.getByText('Mystery-Art')).toBeTruthy();
     expect(screen.queryByText('Eurasischer Luchs')).toBeNull();
+  });
+
+  test('Entdecken: Startschritt mit Schutzhinweis', async () => {
+    await render(<Entdecken />);
+    expect(screen.getByText('Was hast du gefunden?')).toBeTruthy();
+    expect(screen.getByText('Kamera öffnen')).toBeTruthy();
+    expect(screen.getByText(/Pilze nie essen/)).toBeTruthy();
   });
 
   test('Sammeln: Startschritt mit Schutzhinweis', async () => {

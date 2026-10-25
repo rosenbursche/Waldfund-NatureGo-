@@ -184,6 +184,14 @@ function LichtungScreen({ naturraum }: { naturraum: Naturraum }) {
             <ArtIcon name="tree" groesse={24} farbe={colors.rune} />
           </Pressable>
           <Pressable
+            onPress={() => router.push('/entdecken')}
+            accessibilityRole="button"
+            accessibilityLabel="Entdecken: Foto machen und bestimmen"
+            style={({ pressed }) => [stile.kamera, pressed && { opacity: 0.6 }]}
+          >
+            <Icon name="kamera" groesse={26} farbe={colors.night} />
+          </Pressable>
+          <Pressable
             onPress={() => router.push('/mystery')}
             accessibilityRole="button"
             accessibilityLabel="Mystery-Zone: die seltensten Arten"
@@ -321,6 +329,17 @@ const stile = StyleSheet.create({
     borderColor: colors.moss,
   },
   fpsText: { fontFamily: fonts.etikett, fontSize: 12 },
+  kamera: {
+    width: 58,
+    height: 58,
+    borderRadius: 29,
+    backgroundColor: colors.amber,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: colors.amber,
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+  },
   mystery: {
     width: 52,
     height: 52,

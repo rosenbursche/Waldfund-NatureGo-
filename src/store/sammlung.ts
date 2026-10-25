@@ -16,8 +16,16 @@ import { useEinstellungen } from './einstellungen';
  * dazu Aktivitätspunkte (AP) und deine Serie. Alles bleibt auf dem Handy
  * und übersteht einen Neustart der App.
  */
-/** geprueft: wie der Fund geprüft wurde – 'demo' (simuliert) oder 'plantnet' (echt) */
-export type Fund = { datum: string; beispiel?: boolean; foto?: string; geprueft?: 'demo' | 'plantnet' };
+/**
+ * geprueft: wie der Fund geprüft wurde – 'demo' (simuliert), 'plantnet' (echt), 'erkannt' (eigene Erkennung war sicher
+ * und der Nutzer hat dieselbe Art gewählt) oder 'gewaehlt' (Nutzer hat aus den Kandidaten gewählt, noch unbestätigt)
+ */
+export type Fund = {
+  datum: string;
+  beispiel?: boolean;
+  foto?: string;
+  geprueft?: 'demo' | 'plantnet' | 'erkannt' | 'gewaehlt';
+};
 
 /** Ein gesammeltes Fundstück (Spur, Feder, Blatt …): wann und mit welchem Foto */
 export type FundstueckFund = { datum: string; foto?: string };

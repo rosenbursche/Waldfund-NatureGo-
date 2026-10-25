@@ -65,6 +65,10 @@ export default function RootLayout() {
         >
           {/* Sammeln öffnet sich als Vollbild von unten und ist ein eigener Moment */}
           <Stack.Screen
+            name="entdecken"
+            options={{ presentation: 'fullScreenModal', animation: ruhig ? 'none' : 'slide_from_bottom' }}
+          />
+          <Stack.Screen
             name="sammeln/[id]"
             options={{ presentation: 'fullScreenModal', animation: ruhig ? 'none' : 'slide_from_bottom' }}
           />
