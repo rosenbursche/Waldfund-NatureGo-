@@ -1,14 +1,71 @@
 {
   "hinweis": "Haustiere, Nutztiere und Menschen. Die Erkennung kennt sie, damit z. B. aus einer Hauskatze keine Wildkatze wird. Sie geben nie Punkte.",
   "klassen": [
-    { "id": "gegen-hauskatze", "wiss": "Felis catus", "de": "Hauskatze", "gruppe": "saeuger" },
-    { "id": "gegen-haushund", "wiss": "Canis lupus familiaris", "de": "Haushund", "gruppe": "saeuger" },
-    { "id": "gegen-hausrind", "wiss": "Bos taurus", "de": "Hausrind", "gruppe": "saeuger" },
-    { "id": "gegen-pferd", "wiss": "Equus caballus", "de": "Hauspferd", "gruppe": "saeuger" },
-    { "id": "gegen-hausschaf", "wiss": "Ovis aries", "de": "Hausschaf", "gruppe": "saeuger" },
-    { "id": "gegen-hausziege", "wiss": "Capra hircus", "de": "Hausziege", "gruppe": "saeuger" },
-    { "id": "gegen-hausschwein", "wiss": "Sus scrofa domesticus", "de": "Hausschwein", "gruppe": "saeuger" },
-    { "id": "gegen-haushuhn", "wiss": "Gallus gallus domesticus", "de": "Haushuhn", "gruppe": "voegel" },
-    { "id": "gegen-mensch", "wiss": "Homo sapiens", "de": "Mensch", "gruppe": "saeuger" }
+    {
+      "id": "gegen-hauskatze",
+      "wiss": "Felis catus",
+      "de": "Hauskatze",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-haushund",
+      "wiss": "Canis lupus familiaris",
+      "de": "Haushund",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-hausrind",
+      "wiss": "Bos taurus",
+      "de": "Hausrind",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-hausrind-ur",
+      "wiss": "Bos primigenius",
+      "de": "Hausrind",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-pferd",
+      "wiss": "Equus caballus",
+      "de": "Hauspferd",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-hausesel",
+      "wiss": "Equus asinus",
+      "de": "Hausesel",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-hausschaf",
+      "wiss": "Ovis aries",
+      "de": "Hausschaf",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-hausziege",
+      "wiss": "Capra hircus",
+      "de": "Hausziege",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-hausschwein",
+      "wiss": "Sus scrofa domesticus",
+      "de": "Hausschwein",
+      "gruppe": "saeuger"
+    },
+    {
+      "id": "gegen-haushuhn",
+      "wiss": "Gallus gallus domesticus",
+      "de": "Haushuhn",
+      "gruppe": "voegel"
+    },
+    {
+      "id": "gegen-mensch",
+      "wiss": "Homo sapiens",
+      "de": "Mensch",
+      "gruppe": "saeuger"
+    }
   ]
 }
