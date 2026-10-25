@@ -1,0 +1,10 @@
+# Python 3.11. Installieren: python3.11 -m venv venv && venv/bin/pip install -r requirements.txt
+torch==2.14.1
+open_clip_torch==3.3.0
+pybioclip==2.1.6
+huggingface_hub
+numpy
+pillow
+fastapi
+uvicorn
+python-multipart
