@@ -15,6 +15,7 @@ App ◀──sicher / Gattung / unsicher / kein Wildfund + 5 Vorschläge──�
 | `erkenner.py` | Die Erkennung: Vorauswahl, Vergleich, Vorwissen (häufige Arten leicht bevorzugt), Entscheidung |
 | `server.py` | Kleiner Web-Server: `POST /erkennen` (Foto, optional `gruppe`), `GET /gesund`. Speichert keine Fotos |
 | `testen.py` | Prüft die Erkennung mit Testbildern bekannter Art |
+| `testfotos_holen.py` | Lädt Testfotos für Zufallsarten aus GBIF: nur 2025/2026, freie Bildlizenz, ohne iNaturalist |
 
 ## Starten (Mac)
 Die Python-Umgebung und das Modell (1,7 GB) liegen vom ersten Test im Arbeitsordner der Claude-Sitzung. Neu einrichten: `python3.11 -m venv venv && venv/bin/pip install -r requirements.txt` (das Modell lädt beim ersten Start).
@@ -44,6 +45,29 @@ Auswahl: **alle 11.550 Arten in Deutschland** (Stufe A plus 9 Gegenklassen). Es 
 - **Mischlinge (×) raus:** Kreuzungen wie „Traubeneiche × Stieleiche“ zogen Treffer von den echten Arten ab.
 - **Vorwissen:** Häufige Arten werden leicht bevorzugt, nach der Zahl der GBIF-Nachweise in Deutschland. Vorher gewannen oft Gartenpflanzen und Irrläufer wie die Balsam-Tanne statt der Weißtanne. Getestet wurden die Gewichte 0, 0,5, 1, 1,5 und 2; 0,5 war am besten.
 
+## Gegentest mit neuen Fotos und Zufallsarten (25.10.2026)
+Der erste Test nutzte die 73 App-Arten und Fotos, an denen das Gewicht 0,5 gewählt wurde. Darum gab es einen zweiten, strengeren Test:
+- **162 zufällige Arten aus der Datenbank**, keine App-Arten, jeweils mindestens 200 Nachweise in Deutschland.
+- **486 Fotos**, 3 je Art von verschiedenen Fotografen.
+- **Nur Aufnahmen aus 2025 und 2026**, also nach dem Trainingsstichtag von BioCLIP 2. Das Modell kann sie nicht kennen.
+- Nur Bildlizenz CC0, CC BY oder CC BY-SA, jedes Bild einzeln geprüft, ohne iNaturalist.
+- Die Fotos wurden nicht von Hand angesehen. Einzelne zeigen vielleicht Spuren, Lebensraum oder tote Tiere.
+
+| Gruppe | Arten | Bilder | Top-1 | Top-5 | „sicher“ | davon richtig |
+|---|---|---|---|---|---|---|
+| alle | 162 | 486 | **72,0 %** | **93,0 %** | 41,6 % | **97,0 %** |
+| Pflanzen | 35 | 105 | 61,0 % | 93,3 % | 27,6 % | 93,1 % |
+| Pilze | 50 | 150 | 82,0 % | 94,7 % | 43,3 % | 98,5 % |
+| Säugetiere | 27 | 81 | 54,3 % | 86,4 % | 22,2 % | 100 % |
+| Vögel | 50 | 150 | 79,3 % | 94,7 % | 60,0 % | 96,7 % |
+
+**Was das bedeutet:**
+- **Bei Zufallsarten ist es deutlich schwerer.** Darunter sind viele Arten, die auch Fachleute auf einem Foto kaum unterscheiden: Fledermäuse (Zwerg- gegen Mückenfledermaus), Mäuse (Wald- gegen Gelbhalsmaus), Seggen, Gräser, Nachtkerzen, Ehrenpreis-Arten, Weißdorn-Arten.
+- **Die Fehler sind fast immer nahe Verwandte.** Die richtige Art steht dann meist auf Platz 2. Darum passt die Auswahl mit 4–6 Kandidaten (Gesamtkonzept Abschnitt 17) sehr gut: In 93 % der Fälle ist die richtige Art dabei.
+- **„Sicher“ bleibt verlässlich (97 %).** Es gab 6 falsche „sicher“, alle bei schwer trennbaren Paaren: Grauspecht/Grünspecht, Küstenseeschwalbe/Flussseeschwalbe, Strandpieper/Wiesenpieper, zwei Weißdorn- und zwei Spierstrauch-Arten, Gift-Häubling/Fälbling. Der Fall **Gift-Häubling** zeigt erneut: Bei Pilzen darf es nie eine Aussage zur Essbarkeit geben.
+- **Freie Fotos sind knapp.** Für viele Säugetiere, vor allem Fledermäuse und Mäuse, gab es keine 3 frei lizenzierten Fotos aus 2025/2026. Darum sind es dort nur 27 Arten.
+- **Verbessern lässt sich das** mit Referenzbildern je Art als zusätzlichen Fingerabdrücken, mit einer Vorauswahl je Rasterfeld und Monat und mit einem Zusatzklassifikator für Verwechslungspaare.
+
 ## Grenzen (ehrlich)
 - **Seltene Arten haben es schwerer.** Das Vorwissen bevorzugt häufige Arten. Eine echte Seltenheit wird dadurch eher „unsicher“ als falsch „sicher“. Für sie braucht es die Bestätigung durch die Community. Später wird das Vorwissen genauer: je Rasterfeld und Monat statt für ganz Deutschland.
 - **Getestet wurde an denselben Bildern, an denen das Gewicht 0,5 gewählt wurde.** Ein Gegentest mit neuen Bildern steht noch aus, am besten mit deinen eigenen Handyfotos.
@@ -54,7 +78,7 @@ Auswahl: **alle 11.550 Arten in Deutschland** (Stufe A plus 9 Gegenklassen). Es 
 - **Rechtlich offen:** BioCLIP 2 wurde teils mit nicht kommerziellen Bildern trainiert. Das prüft ein Anwalt. Als Ersatz ist DINOv2 vorgesehen.
 
 ## Nächste Schritte
-1. Gegentest mit eigenen Handyfotos.
+1. Test mit eigenen Handyfotos (Fotos aus dem Feld, nicht von Fotografen).
 2. Referenzbilder je Art (nur CC0 und CC BY, Lizenz je Bild geprüft) als zusätzliche Fingerabdrücke.
 3. Vorauswahl je Rasterfeld und Monat aus einem GBIF-Download.
 4. Server bei Modal bereitstellen und an den vorhandenen Cloudflare-Worker (`server/`) anschließen.
