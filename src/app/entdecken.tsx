@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import Animated, {
   Easing,
@@ -505,7 +505,13 @@ function Gesammelt({
 }) {
   const appId = appArtId(kandidat);
   const fs = fundKandidat(kandidat.typ, kandidat.wiss)?.fundstueck;
-  const gefunden = useSammlung((s) => (fund ? gefundeneFundstuecke(fund.artId, s.fundstuecke, s.gefunden) : null));
+  // Zustand: nur die Rohdaten auswählen (stabile Werte), das Set erst hier bauen – sonst Endlosschleife
+  const fundstuecke = useSammlung((s) => s.fundstuecke);
+  const gefundenAlle = useSammlung((s) => s.gefunden);
+  const gefunden = useMemo(
+    () => (fund ? gefundeneFundstuecke(fund.artId, fundstuecke, gefundenAlle) : null),
+    [fund, fundstuecke, gefundenAlle],
+  );
   const alle = fund ? fundstueckeById[fund.artId]?.fundstuecke : undefined;
   const punkte = belohnung && belohnung.neu ? belohnung.punkte + belohnung.bonus + belohnung.setBonus : 0;
   if (kandidat.gegenklasse) {
