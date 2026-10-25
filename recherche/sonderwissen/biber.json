@@ -1,0 +1,229 @@
+{
+  "artId": "biber",
+  "colId": "RQPW",
+  "wissName": "Castor fiber",
+  "gruppe": "saeuger",
+  "eintraege": [
+    {
+      "id": "eisenzaehne",
+      "thema": "koerper",
+      "titel": "Orange Zähne mit Eisen",
+      "text": "Die vorderen Nagezähne des Bibers sind orange. Das liegt an Eisen im Zahnschmelz. Forschende fanden 2015 heraus: Dieser eisenhaltige Schmelz ist härter und widerstandsfähiger gegen Säure als normaler Zahnschmelz, sogar als Schmelz mit Fluorid. Weil die harte Vorderseite die weichere Rückseite beim Nagen abschleift, schärfen sich die Zähne selbst. Sie werden bis zu 3,5 cm lang und wachsen ein Leben lang nach.",
+      "details": {
+        "zahnlaenge": "bis 3,5 cm"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "dws",
+        "northwestern2015"
+      ]
+    },
+    {
+      "id": "fastenfisch",
+      "thema": "geschichte",
+      "titel": "Der Biber, der ein Fisch sein sollte",
+      "text": "In der Fastenzeit durften Christen früher kein Fleisch essen, Fisch aber schon. Als Fisch galt vieles, was im Wasser lebt, und so landete auch der Biber auf dem Teller. Ein Jesuitenpater berichtete 1754, wegen seines schuppigen Schwanzes habe man den Biber in Paris offiziell zum Fisch erklärt, und Theologen hätten sein Fleisch für Fastentage erlaubt.",
+      "details": {
+        "jahr": "1754 (Bericht von Charlevoix)"
+      },
+      "monate": [
+        2,
+        3
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "jmberlin",
+        "sonntagsblatt2023",
+        "dws"
+      ]
+    },
+    {
+      "id": "comeback",
+      "thema": "verblueffend",
+      "titel": "Vom Fast-Aussterben zu 40.000 Tieren",
+      "text": "Der Biber wurde bis ins 19. Jahrhundert so stark verfolgt, dass er in weiten Teilen Europas verschwand. Mitte des 20. Jahrhunderts lebten in Deutschland nur noch Biber an der Mittelelbe, in ganz Europa gab es nur noch wenige Restgebiete. Dank Schutz und Wiederansiedlung leben heute wieder mindestens 40.000 Biber in Deutschland, und sie breiten sich weiter aus.",
+      "details": {
+        "bestandDeutschland": "mindestens 40.000 (DWS)"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "bfn",
+        "dws"
+      ]
+    },
+    {
+      "id": "baumeister",
+      "thema": "oekologie",
+      "titel": "Ein Nagetier baut Landschaften",
+      "text": "Kaum ein anderes Tier gestaltet seine Umgebung so stark wie der Biber. Er staut Bäche mit Dämmen auf, damit der Eingang seiner Burg immer unter Wasser liegt. So entstehen Biberteiche und feuchte Wiesen, in denen Fische, Amphibien, Insekten und Vögel leben. Gefällte und liegengelassene Bäume werden zu Totholz. Auf den offenen Biberwiesen fressen später Rehe und Hirsche.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "bfn",
+        "dws"
+      ]
+    },
+    {
+      "id": "sanduhr",
+      "thema": "mitmachen",
+      "titel": "Die Sanduhr am Ufer",
+      "text": "Biber fällen Bäume im Sitzen. Sie nagen etwa einen halben Meter über dem Boden rundherum, bis der Stamm wie eine Sanduhr aussieht und umkippt. Die oberen Zähne haken sich in die Rinde, die unteren raspeln. So entstehen parallele, knapp 1 cm breite Rillen. Selbst Stämme bis zu einem Meter Dicke schaffen sie. Am liebsten nagen sie an Weiden und Pappeln, die danach schnell wieder austreiben.",
+      "details": {
+        "rillenbreite": "knapp 10 mm",
+        "nagehoehe": "etwa 50 cm"
+      },
+      "monate": [
+        10,
+        11,
+        12,
+        1,
+        2,
+        3
+      ],
+      "meldung": "Im Winter fressen Biber vor allem Rinde. Siehst du am Ufer frisch benagte Sanduhr-Stämme? Bitte Abstand zu Burgen und Dämmen halten.",
+      "sicherheit": "Biberburgen und Dämme nicht betreten oder beschädigen. Der Biber ist streng geschützt.",
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "bfn"
+      ]
+    },
+    {
+      "id": "kelle",
+      "thema": "koerper",
+      "titel": "Ein Schwanz für alles",
+      "text": "Der breite, flache Schwanz heißt Kelle und ist mit Hornplättchen wie mit Schuppen besetzt. Er ist Steuer und Ruder beim Schwimmen, Stütze beim Sitzen und Fettspeicher für den Winter. Bei Gefahr klatscht der Biber damit laut aufs Wasser und warnt so seine Familie. An heißen Tagen kühlt er sich, indem er die Kelle ins kalte Wasser hält.",
+      "details": {
+        "kellenlaenge": "bis 40 cm (BfN)"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "bfn"
+      ]
+    },
+    {
+      "id": "pelz",
+      "thema": "koerper",
+      "titel": "23.000 Haare auf einem Fingernagel",
+      "text": "Das Fell des Bibers gehört zu den dichtesten im Tierreich: bis zu 23.000 Haare auf einem Quadratzentimeter, etwa so groß wie ein Fingernagel. Zwischen langen Deckhaaren und dichter Unterwolle bleibt eine Luftschicht, die wärmt und beim Schwimmen trägt. Gepflegt wird das Fell mit einer besonderen Putzkralle am Hinterfuß und mit einem öligen Sekret, das es wasserdicht macht.",
+      "details": {
+        "haardichte": "bis 23.000 je cm²"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws"
+      ]
+    },
+    {
+      "id": "tauchen",
+      "thema": "koerper",
+      "titel": "15 Minuten unter Wasser",
+      "text": "Biber können bis zu 15 Minuten tauchen. Dabei verschließen sie Nase und Ohren, und ein zusätzliches Augenlid schützt die Augen. Hinter den Nagezähnen können sie die Lippen schließen, so kommt beim Nagen unter Wasser kein Wasser in den Mund. Augen, Nase und Ohren liegen auf einer Linie oben am Kopf, so kann der Biber fast ganz abtauchen und trotzdem alles wahrnehmen.",
+      "details": {
+        "tauchzeit": "bis 15 min"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws"
+      ]
+    },
+    {
+      "id": "familie",
+      "thema": "verhalten",
+      "titel": "Große Geschwister helfen mit",
+      "text": "Biber leben monogam in Familien aus den Eltern und den Jungen der letzten zwei Jahre. Im Frühsommer kommen ein bis vier Junge zur Welt. Ältere Geschwister helfen bei der Aufzucht. Mit etwa zwei Jahren müssen die Jungen ausziehen und wandern dann an Gewässern entlang, bis sie ein freies Revier finden.",
+      "details": {
+        "wurf": "1–4"
+      },
+      "monate": [
+        5,
+        6
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "dws",
+        "bfn"
+      ]
+    },
+    {
+      "id": "wintervorrat",
+      "thema": "verhalten",
+      "titel": "Speisekammer unter Wasser",
+      "text": "Biber halten keinen Winterschlaf. Sie fressen sich Winterspeck an und legen in der Nähe ihres Baus Vorräte aus Ästen unter Wasser an. Im Winter, wenn Kräuter und Blätter fehlen, fressen sie vor allem Rinde und Zweige. Im Sommer stehen dagegen rund 235 verschiedene Pflanzenarten auf ihrem Speiseplan.",
+      "details": {
+        "pflanzenarten": "rund 235 (BfN)"
+      },
+      "monate": [
+        11,
+        12,
+        1,
+        2
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "bfn",
+        "dws"
+      ]
+    }
+  ],
+  "quellen": {
+    "dws": {
+      "titel": "Deutsche Wildtier Stiftung: Biber – Steckbrief",
+      "url": "https://www.deutschewildtierstiftung.de/wildtiere/biber",
+      "abgerufen": "2026-10-25"
+    },
+    "bfn": {
+      "titel": "Bundesamt für Naturschutz: Artenporträt Biber (Castor fiber)",
+      "url": "https://www.bfn.de/artenportraits/castor-fiber",
+      "abgerufen": "2026-10-25"
+    },
+    "northwestern2015": {
+      "titel": "Northwestern University (12.02.2015): Making Teeth Tough – Beavers Show Way to Improve Our Enamel (zu Gordon et al. 2015, Science 347: 746–750)",
+      "url": "https://mccormick.northwestern.edu/news/articles/2015/02/making-teeth-tough-beavers-show-way-to-improve-our-enamel.html",
+      "abgerufen": "2026-10-25"
+    },
+    "jmberlin": {
+      "titel": "Jüdisches Museum Berlin, Ausstellung „Koscher & Co“, à la carte: Gedämpfter Biber (mit Zitat Charlevoix 1754)",
+      "url": "https://www.jmberlin.de/koscher/alacarte/rezepte/biber.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "sonntagsblatt2023": {
+      "titel": "Sonntagsblatt (18.04.2023): Fasten im Mittelalter – Über 150 Tage Verzicht und warum Biber auf der Speisekarte standen",
+      "url": "https://sonntagsblatt.de/artikel/bayern/fasten-im-mittelalter-ueber-150-tage-verzicht-und-warum-biber-damals-auf-der",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Fastenfisch: Belege aus einem Museumsblatt (JMB, mit Primärzitat Charlevoix 1754) und einem Zeitungsartikel mit einer Historikerin. Ein Fachbuch der Kirchengeschichte wäre besser.",
+    "Bibergeil als Jagdgrund: nur in einem Zeitungsartikel (Rheinpfalz, nicht geöffnet).",
+    "Monate Fastenzeit 2–3: vereinfacht (Fastenzeit vor Ostern).",
+    "Sanduhr-Monate 10–3: abgeleitet aus „im Winter die Rinde“ (DWS) und Winteräsung (BfN).",
+    "Geburt: DWS April–Juni, BfN Ende Mai bis Anfang Juni. Monate 5–6.",
+    "LfU-Bayern-Seite konnte nicht geladen werden."
+  ]
+}
