@@ -325,3 +325,31 @@ Siehe 12.1. Die alte Startseite (Sammlung, Karte) rückt in eigene Tabs.
   - Nur geprüfte, gemeinnützige Organisationen aufnehmen.
   - Offen zeigen, wie viel Geld wirklich fließt (Werbung mit Spenden muss nachvollziehbar sein, `TODO rechtlich prüfen`).
 - Der Nutzer zahlt dabei selbst nichts. Die Spende kommt von Wildfund, also braucht es keinen Kauf in der App.
+
+---
+
+## 17. Erkennen und Sammeln: Der Nutzer wählt selbst (Idee 25.10.2026)
+
+Technik dahinter: `erkennung/README.md` (eigener Server mit BioCLIP 2).
+
+### 17.1 Ablauf
+1. **Foto machen**, nur mit der App-Kamera (Echtheitsprüfung W1, Abschnitt 7).
+2. **Analyse mit Animation:** Das Foto wird „gelesen“, z. B. mit Nebel, der sich lichtet, oder Runen, die über das Bild laufen. Die echte Erkennung dauert nur Sekundenbruchteile, die Animation macht daraus einen Moment. Bei „Bewegung reduzieren“ fällt sie kürzer aus.
+3. **Immer eine Auswahl, egal wie sicher die Erkennung ist:** An der Seite erscheinen **4–6 Arten, die es sein könnten**, als kleine Karten (Widgets) mit Foto, Name und Taler. Die wahrscheinlichste steht oben.
+4. **Selbst vergleichen:** Der Nutzer kann sich durch die Kandidaten klicken. Jede Karte öffnet eine kurze Vergleichsansicht mit Referenzfotos und den Merkmalen, an denen man die Arten unterscheidet (aus dem Feld `verwechslung` der Datenbank).
+5. **Antippen = gesammelt.** Erst wenn der Nutzer eine Art auswählt, ist sie offiziell gesammelt.
+
+### 17.2 Warum das gut ist
+- Der Nutzer **lernt** dabei: Er schaut genau hin und vergleicht, statt der KI blind zu glauben.
+- **Fehler der Erkennung** fallen weniger ins Gewicht, denn die richtige Art ist in 98 % der Fälle unter den ersten 5 (Test vom 25.10.2026).
+- Es fühlt sich an wie **eigenes Bestimmen**, nicht wie eine Maschine, die entscheidet.
+
+### 17.3 Regeln (Vorschlag Claude)
+- **Punkte richten sich danach, wie gut die Wahl zur Erkennung passt.**
+  - Wählt der Nutzer die Art, bei der die Erkennung „sicher“ war, zählt der Fund sofort voll.
+  - Wählt er eine Art mit niedriger Wahrscheinlichkeit oder eine seltene Art, ist der Fund zuerst **unbestätigt**. Er zählt voll, sobald die Community ihn bestätigt (Abschnitt 7, `KONZEPT-WETTKAMPF.md` 1.2). Sonst könnte man einfach immer die seltenste Art antippen.
+- **„Keine davon“ und „Weiß ich nicht“** sind immer möglich. Dann gibt es eine größere Auswahl (z. B. die Gattung) oder die Bitte um ein zweites Foto. Der Fund kann auch zur Community-Bestimmung gehen.
+- **Haustiere und Menschen** (Gegenklassen) erscheinen ehrlich als „Hauskatze?“, geben aber keine Punkte.
+- **Pilze:** Auf jeder Karte steht der Hinweis, dass die Erkennung nie etwas über Essbarkeit sagt. Giftige Doppelgänger werden in der Vergleichsansicht hervorgehoben.
+- **Unbekannte Arten** (noch nicht gesammelt) zeigen auf der Karte trotzdem ein Foto, sonst kann man nicht vergleichen. Der volle Steckbrief „lichtet sich“ erst nach dem Sammeln.
+- **Daten dafür:** Je Art braucht es 2–4 Anzeigefotos mit freier Lizenz und Namensnennung sowie die Unterscheidungsmerkmale zu den Verwechslungsarten. Beides gehört zur Daten-Pipeline.
