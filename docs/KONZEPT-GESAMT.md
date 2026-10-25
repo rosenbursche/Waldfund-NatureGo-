@@ -356,8 +356,9 @@ Technik dahinter: `erkennung/README.md` (eigener Server mit BioCLIP 2).
 
 ### 17.4 Fundstücke erkennen (Test vom 25.10.2026)
 Ergebnis aus `recherche/erkennung/fundstuecke-test.md` (473 geprüfte Fotos von Spuren, Losung, Fraß, Federn, Blättern, Rinde, Knospen und Früchten):
-- **Zuerst wählt der Nutzer den Typ:** Spur, Losung, Feder, Fraßspur, Blatt, Rinde, Knospe oder Frucht. Die Erkennung kann das per Text noch nicht zuverlässig selbst bestimmen (nur rund 50 %).
-- **Danach zeigt die App 4–6 Arten mit genau diesem Fundstück**, nach Wahrscheinlichkeit sortiert. Die richtige Art ist dann fast immer dabei (99–100 %) und in 80 % der Fälle auf Platz 1.
+- **Die App fragt nicht, was fotografiert wurde (Entscheidung 25.10.2026).** Der Nutzer macht nur ein Foto. Der Server erkennt selbst, ob es ein ganzes Lebewesen oder ein Fundstück zeigt (Spur, Losung, Feder, Fraßspur, Blatt, Rinde, Knospe, Frucht). Dafür gibt es einen kleinen gelernten Typ-Klassifikator auf den Bild-Fingerabdrücken (`erkennung/typ_erkennung.py`); per Text klappte das nur zu rund 50 %.
+- **Gemeinsame Vorschlagsliste:** Wahrscheinlichkeit des Typs × Wahrscheinlichkeit der Art. Bei einem unklaren Foto stehen z. B. „Reh · Trittsiegel“ und „Feldhase · Losung“ nebeneinander, der Nutzer wählt.
+- **Test (25.10.2026):** Die richtige Art ist bei Fundstücken in **98–99 %** der Fälle unter den 6 Vorschlägen, bei ganzen Lebewesen in 98 % (wie vorher). Der Typ stimmt bei neuen iNaturalist-Fotos von Spuren, Losung, Federn und Fraß zu **97 %**. Schwächer bei Bäumen, deren Art der Klassifikator nicht gesehen hat (Blatt 40 %, Frucht 64 %, Rinde 88 %, Knospe 83 %): Ein Blatt wird dann oft als „ganze Pflanze“ erkannt, die Art stimmt trotzdem meist.
 - **Was schon gut geht:** Federn, Fraßspuren, Blätter und Früchte. **Nur als Vorschlagsliste:** Trittsiegel und Rinde. **Braucht Referenzbilder oder Nutzerfotos:** Losung und Knospen.
 - **Schwierige Paare** wie Wildschwein und Reh oder Stiel- und Traubeneiche brauchen zusätzlich Bestimmungsfragen (Abschnitt 2.4).
 - **Punkte für Fundstücke** gibt es nicht allein durch die Erkennung. Voll zählen sie erst nach Bestätigung durch die Community, bei Wolf, Luchs und Wildkatze immer.

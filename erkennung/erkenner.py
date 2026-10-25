@@ -49,10 +49,11 @@ class Erkenner:
             x = preprocess_img(bild.convert('RGB')).unsqueeze(0).to(self.geraet)
             return F.normalize(self.modell.encode_image(x).float(), dim=-1)[0]
 
-    def erkennen(self, bild, gruppe=None, kandidaten=None):
-        """gruppe: z. B. 'pflanzen'. kandidaten: Liste von Art-IDs (Vorauswahl nach Ort und Monat, später)."""
+    def erkennen(self, bild, gruppe=None, kandidaten=None, fingerabdruck=None):
+        """gruppe: z. B. 'pflanzen'. kandidaten: Liste von Art-IDs (Vorauswahl nach Ort und Monat, später).
+        fingerabdruck: schon berechneter Fingerabdruck (dann wird bild nicht gebraucht)."""
         t0 = time.time()
-        f = self.fingerabdruck(bild)
+        f = self.fingerabdruck(bild) if fingerabdruck is None else fingerabdruck
         maske = ~self.mischling
         if gruppe:
             maske &= self.gruppen == gruppe

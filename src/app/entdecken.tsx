@@ -32,27 +32,25 @@ import {
 } from '@/logic/erkennung';
 import { tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { STUFEN_NAMEN, type Stufe } from '@/logic/fundstuecke';
-import { FUND_TYPEN, fundKandidat, kandidatenFuerTyp, type FundTyp } from '@/logic/fundstueckErkennung';
+import { fundKandidat, fundstueckKatalog } from '@/logic/fundstueckErkennung';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
 import { useEntdeckungen } from '@/store/entdeckungen';
 import { useSammlung } from '@/store/sammlung';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
- * Entdecken (Gesamtkonzept Abschnitt 17): Foto machen → „Was hast du fotografiert?“ (ganzes Lebewesen oder
- * Fundstück wie Spur, Losung, Blatt) → Analyse mit Animation → 4–6 Arten, die es sein könnten → selbst vergleichen →
- * antippen = gesammelt. Die Erkennung läuft auf dem eigenen Server (Ordner erkennung/).
+ * Entdecken (Gesamtkonzept Abschnitt 17): Foto machen → Analyse mit Animation → 4–6 Arten, die es sein könnten →
+ * selbst vergleichen → antippen = gesammelt. Ob das Foto ein ganzes Lebewesen oder ein Fundstück zeigt (Spur, Losung,
+ * Blatt, Rinde …), erkennt der Server selbst. Die Erkennung läuft auf dem eigenen Server (Ordner erkennung/).
  */
 type Schritt =
   | { art: 'start'; meldung?: string; zuEinstellungen?: boolean }
-  | { art: 'typ'; foto: string }
-  | { art: 'analyse'; foto: string; typ: FundTyp }
-  | { art: 'auswahl'; foto: string; typ: FundTyp; ergebnis: Erkennungsergebnis }
-  | { art: 'vergleich'; foto: string; typ: FundTyp; ergebnis: Erkennungsergebnis; kandidat: Kandidat }
+  | { art: 'analyse'; foto: string }
+  | { art: 'auswahl'; foto: string; ergebnis: Erkennungsergebnis }
+  | { art: 'vergleich'; foto: string; ergebnis: Erkennungsergebnis; kandidat: Kandidat }
   | {
       art: 'gesammelt';
       foto: string;
-      typ: FundTyp;
       kandidat: Kandidat;
       bestaetigt: boolean;
       belohnung?: Belohnung;
@@ -60,6 +58,9 @@ type Schritt =
     };
 
 const MIN_ANALYSE = 2400; // so lange läuft die Animation mindestens, auch wenn der Server schneller ist
+
+const KATALOG = fundstueckKatalog();
+const FUNDSTUECK_ZAHL = Object.values(KATALOG).reduce((n, l) => n + l.length, 0);
 
 const GRUPPE_NAME: Record<string, string> = {
   saeuger: 'Säugetier',
@@ -88,21 +89,20 @@ export default function Entdecken() {
         });
         return;
       }
-      setSchritt({ art: 'typ', foto: foto.uri });
+      await analysieren(foto.uri);
     } catch {
       setSchritt({ art: 'start', meldung: 'Beim Foto ist etwas schiefgelaufen. Versuch es bitte noch einmal.' });
     }
   }
 
-  async function analysieren(foto: string, typ: FundTyp) {
+  async function analysieren(foto: string) {
     try {
-      setSchritt({ art: 'analyse', foto, typ });
-      const fundstueck = typ === 'ganz' ? undefined : { typ, kandidaten: [...kandidatenFuerTyp(typ).keys()] };
+      setSchritt({ art: 'analyse', foto });
       const [ergebnis] = await Promise.all([
-        erkenneFoto(foto, { fundstueck }),
+        erkenneFoto(foto, { fundstuecke: KATALOG }),
         new Promise((ok) => setTimeout(ok, MIN_ANALYSE)),
       ]);
-      setSchritt({ art: 'auswahl', foto, typ, ergebnis });
+      setSchritt({ art: 'auswahl', foto, ergebnis });
     } catch (e) {
       setSchritt({
         art: 'start',
@@ -114,17 +114,17 @@ export default function Entdecken() {
     }
   }
 
-  async function waehlen(foto: string, typ: FundTyp, ergebnis: Erkennungsergebnis, k: Kandidat) {
+  async function waehlen(foto: string, ergebnis: Erkennungsergebnis, k: Kandidat) {
     if (k.gegenklasse) {
-      setSchritt({ art: 'gesammelt', foto, typ, kandidat: k, bestaetigt: false });
+      setSchritt({ art: 'gesammelt', foto, kandidat: k, bestaetigt: false });
       return;
     }
-    const fk = typ === 'ganz' ? undefined : fundKandidat(typ, k.wiss);
+    const fk = fundKandidat(k.typ, k.wiss);
     if (fk) {
       // Fundstücke zählen erst nach Bestätigung durch die Community voll (Gesamtkonzept 17.4)
       const dauerhaft = await fotoBehalten(foto, `${fk.artId}-${fk.fundstueck.id}`);
       const stufe = fundstueckSammeln(fk.artId, fk.fundstueck.id, { datum: tagesKey(new Date()), foto: dauerhaft });
-      setSchritt({ art: 'gesammelt', foto: dauerhaft, typ, kandidat: k, bestaetigt: false, stufe });
+      setSchritt({ art: 'gesammelt', foto: dauerhaft, kandidat: k, bestaetigt: false, stufe });
       return;
     }
     const bestaetigt = istBestaetigt(ergebnis, k);
@@ -150,7 +150,7 @@ export default function Entdecken() {
         bestaetigt,
       });
     }
-    setSchritt({ art: 'gesammelt', foto: dauerhaft, typ, kandidat: k, bestaetigt, belohnung });
+    setSchritt({ art: 'gesammelt', foto: dauerhaft, kandidat: k, bestaetigt, belohnung });
   }
 
   return (
@@ -162,7 +162,7 @@ export default function Entdecken() {
               <Kopfzeile
                 etikett="Entdecken"
                 titel="Was hast du gefunden?"
-                info="Fotografiere eine Pflanze, einen Pilz, einen Vogel oder ein Tier. Wildfund schlägt dir Arten vor, die es sein könnten. Du vergleichst selbst und wählst aus."
+                info="Fotografiere eine Pflanze, einen Pilz, einen Vogel oder ein Tier – oder eine Spur, Losung, Feder, Fraßspur, ein Blatt, Rinde, eine Knospe oder Frucht. Wildfund erkennt selbst, was es ist, und schlägt dir Arten vor. Du vergleichst und wählst aus."
               />
               <View style={[stile.kasten, { borderColor: colors.moss }]}>
                 <Schrift art="klein">Nur fotografieren · Auf dem Weg bleiben · Pilze nie essen</Schrift>
@@ -197,38 +197,19 @@ export default function Entdecken() {
             </>
           )}
 
-          {schritt.art === 'typ' && (
-            <TypWahl
-              foto={schritt.foto}
-              onWahl={(typ) => analysieren(schritt.foto, typ)}
-              onZurueck={() => setSchritt({ art: 'start' })}
-            />
-          )}
-
           {schritt.art === 'analyse' && (
             <Analyse
               foto={schritt.foto}
-              vergleich={
-                schritt.typ === 'ganz'
-                  ? 'Vergleich mit 11.550 Arten …'
-                  : `Vergleich mit ${kandidatenFuerTyp(schritt.typ).size} Arten …`
-              }
+              vergleich={`Vergleich mit 11.550 Arten und ${FUNDSTUECK_ZAHL} Fundstücken …`}
             />
           )}
 
           {schritt.art === 'auswahl' && (
             <Auswahl
               foto={schritt.foto}
-              typ={schritt.typ}
               ergebnis={schritt.ergebnis}
               onWaehle={(k) =>
-                setSchritt({
-                  art: 'vergleich',
-                  foto: schritt.foto,
-                  typ: schritt.typ,
-                  ergebnis: schritt.ergebnis,
-                  kandidat: k,
-                })
+                setSchritt({ art: 'vergleich', foto: schritt.foto, ergebnis: schritt.ergebnis, kandidat: k })
               }
               onKeine={() =>
                 setSchritt({
@@ -243,13 +224,10 @@ export default function Entdecken() {
           {schritt.art === 'vergleich' && (
             <Vergleich
               foto={schritt.foto}
-              typ={schritt.typ}
               kandidat={schritt.kandidat}
               hinweis={schritt.ergebnis.hinweis}
-              onDasIstEs={() => waehlen(schritt.foto, schritt.typ, schritt.ergebnis, schritt.kandidat)}
-              onZurueck={() =>
-                setSchritt({ art: 'auswahl', foto: schritt.foto, typ: schritt.typ, ergebnis: schritt.ergebnis })
-              }
+              onDasIstEs={() => waehlen(schritt.foto, schritt.ergebnis, schritt.kandidat)}
+              onZurueck={() => setSchritt({ art: 'auswahl', foto: schritt.foto, ergebnis: schritt.ergebnis })}
             />
           )}
 
@@ -261,48 +239,6 @@ export default function Entdecken() {
 }
 
 /** Die Analyse als eigener Moment: Scanlinie, drehender Runenring, Zeilen, die nacheinander erscheinen */
-/** „Was hast du fotografiert?“ – ein Tipp, dann geht es weiter */
-function TypWahl({ foto, onWahl, onZurueck }: { foto: string; onWahl: (t: FundTyp) => void; onZurueck: () => void }) {
-  return (
-    <View style={{ gap: spacing.m }}>
-      <View style={{ flexDirection: 'row', gap: spacing.m, alignItems: 'center' }}>
-        <Image source={{ uri: foto }} style={stile.eigenKlein} contentFit="cover" />
-        <Schrift art="ueberschrift" accessibilityRole="header" style={{ flex: 1 }}>
-          Was hast du fotografiert?
-        </Schrift>
-      </View>
-      <View style={stile.raster}>
-        {FUND_TYPEN.map((t, i) => (
-          <Animated.View
-            key={t.id}
-            entering={FadeInDown.delay(i * 50).duration(300)}
-            style={t.id === 'ganz' ? { width: '100%' } : stile.karteHuelle}
-          >
-            <Pressable
-              onPress={() => onWahl(t.id)}
-              accessibilityRole="button"
-              accessibilityLabel={t.beispiel ? `${t.name}: ${t.beispiel}` : t.name}
-              style={({ pressed }) => [
-                stile.typKarte,
-                t.id === 'ganz' && { borderColor: colors.amber },
-                pressed && { opacity: 0.7 },
-              ]}
-            >
-              <Schrift style={stile.karteName}>{t.name}</Schrift>
-              {!!t.beispiel && (
-                <Schrift art="klein" style={{ opacity: 0.75 }}>
-                  {t.beispiel}
-                </Schrift>
-              )}
-            </Pressable>
-          </Animated.View>
-        ))}
-      </View>
-      <Knopf titel="Neues Foto" art="leise" onPress={onZurueck} />
-    </View>
-  );
-}
-
 function Analyse({ foto, vergleich }: { foto: string; vergleich: string }) {
   const ruhig = useReducedMotion();
   const t = useSharedValue(0);
@@ -345,13 +281,11 @@ function Analyse({ foto, vergleich }: { foto: string; vergleich: string }) {
 
 function Auswahl({
   foto,
-  typ,
   ergebnis,
   onWaehle,
   onKeine,
 }: {
   foto: string;
-  typ: FundTyp;
   ergebnis: Erkennungsergebnis;
   onWaehle: (k: Kandidat) => void;
   onKeine: () => void;
@@ -385,11 +319,15 @@ function Auswahl({
       )}
       <View style={stile.raster}>
         {ergebnis.vorschlaege.map((k, i) => (
-          <Animated.View key={k.id} entering={FadeInDown.delay(i * 90).duration(400)} style={stile.karteHuelle}>
+          <Animated.View
+            key={`${k.typ ?? 'ganz'}-${k.id}`}
+            entering={FadeInDown.delay(i * 90).duration(400)}
+            style={stile.karteHuelle}
+          >
             <KandidatKarte
               kandidat={k}
               oben={i === 0}
-              fundstueck={typ === 'ganz' ? undefined : fundKandidat(typ, k.wiss)?.fundstueck.name}
+              fundstueck={fundKandidat(k.typ, k.wiss)?.fundstueck.name}
               onPress={() => onWaehle(k)}
             />
           </Animated.View>
@@ -465,21 +403,19 @@ function KandidatKarte({
 
 function Vergleich({
   foto,
-  typ,
   kandidat,
   hinweis,
   onDasIstEs,
   onZurueck,
 }: {
   foto: string;
-  typ: FundTyp;
   kandidat: Kandidat;
   hinweis: string | null;
   onDasIstEs: () => void;
   onZurueck: () => void;
 }) {
   const bilder = useVergleichsbilder(kandidat.id);
-  const fs = typ === 'ganz' ? undefined : fundKandidat(typ, kandidat.wiss)?.fundstueck;
+  const fs = fundKandidat(kandidat.typ, kandidat.wiss)?.fundstueck;
   return (
     <View style={{ gap: spacing.m }}>
       <Kopfzeile etikett={fs ? `Vergleichen · ${fs.name}` : 'Vergleichen'} titel={kandidat.name} />
@@ -540,7 +476,6 @@ function Vergleich({
 
 function Gesammelt({
   foto,
-  typ,
   kandidat,
   bestaetigt,
   belohnung,
@@ -548,7 +483,6 @@ function Gesammelt({
   onNochmal,
 }: {
   foto: string;
-  typ: FundTyp;
   kandidat: Kandidat;
   bestaetigt: boolean;
   belohnung?: Belohnung;
@@ -556,7 +490,7 @@ function Gesammelt({
   onNochmal: () => void;
 }) {
   const appId = appArtId(kandidat);
-  const fs = typ === 'ganz' ? undefined : fundKandidat(typ, kandidat.wiss)?.fundstueck;
+  const fs = fundKandidat(kandidat.typ, kandidat.wiss)?.fundstueck;
   const punkte = belohnung && belohnung.neu ? belohnung.punkte + belohnung.bonus + belohnung.setBonus : 0;
   if (kandidat.gegenklasse) {
     return (
@@ -652,16 +586,6 @@ const stile = StyleSheet.create({
   eigenGross: { width: 200, height: 200, borderRadius: 100, borderWidth: 3, borderColor: colors.amber },
   raster: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.s },
   karteHuelle: { width: '48.5%' },
-  typKarte: {
-    borderWidth: 1.5,
-    borderColor: colors.moss,
-    borderRadius: radius.m,
-    backgroundColor: colors.forest,
-    padding: spacing.m,
-    gap: 2,
-    minHeight: 64,
-    justifyContent: 'center',
-  },
   karte: {
     borderWidth: 1.5,
     borderColor: colors.moss,

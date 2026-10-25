@@ -260,6 +260,7 @@ Konzept: `docs/KONZEPT-GESAMT.md` (Entwurf). Ziel: echter Hype bei Jung und Alt,
 | Punkte spenden an lokale Tierheime und Umweltorganisationen, Liste in der Region, Awareness im Feed (16.3) | ⬜ Konzept · 🔒 Geldquelle, rechtlich prüfen |
 | Erkennen mit Auswahl: Foto → Analyse-Animation → 4–6 Kandidaten als Karten mit Fotos → selbst vergleichen → Antippen = gesammelt; unpassende Wahl erst unbestätigt (17) | ⬜ Konzept · Erkennungs-Prototyp ✅ (`erkennung/`) |
 | Kämpfe erst, wenn das Sammeln allein fesselt | Entscheidung |
+| Erkennen ohne Typauswahl: Server erkennt selbst ganzes Lebewesen oder Fundstück (Typ-Klassifikator, gemeinsame Vorschlagsliste) | ✅ 25.10.2026 · Referenzbilder je Typ verbessern Bäume |
 | G1 umgesetzt (Branch `feature/fundstuecke`): 389 Fundstücke für 73 Arten mit Quellen, Album auf der Artenseite, Speichern, Foto nur per App-Kamera | ✅ · Tonaufnahme offen |
 | Taler: Metall = Fortschritt (Rohling → Holz → Bronze → Silber → Gold), Seltenheit über Edelstein und Email | ✅ |
 | Heimisch/angepflanzt (Abzeichen, Hinweis auf der Baumseite) | ⏸ später; Hinweis und Naturraum-Karte auf der Baumseite entfernt (24.10.2026) |

@@ -1,6 +1,7 @@
 import Constants from 'expo-constants';
 
 import { ARTEN } from '@/data/arten';
+import type { FundTyp } from '@/logic/fundstueckErkennung';
 
 /**
  * Verbindung zum eigenen Erkennungs-Server (BioCLIP 2, Ordner erkennung/, Gesamtkonzept Abschnitt 17).
@@ -23,6 +24,8 @@ export type Kandidat = {
   gruppe: Gruppe;
   gegenklasse: boolean;
   sicherheit: number;
+  /** null = ganzes Lebewesen, sonst das erkannte Fundstück (trittsiegel, losung …) */
+  typ?: FundTyp | null;
 };
 
 export type Erkennungsergebnis = {
@@ -37,14 +40,26 @@ export type Vergleichsbild = { url: string; lizenz: string; urheber: string; que
 
 export class ErkennungNichtErreichbar extends Error {}
 
-async function mitZeitlimit(url: string, init: RequestInit = {}, ms = 20000): Promise<Response> {
+async function mitZeitlimit(url: string, init: RequestInit = {}, ms = 45000): Promise<Response> {
   const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), ms);
+  let abgelaufen = false;
+  const t = setTimeout(() => {
+    abgelaufen = true;
+    ctrl.abort();
+  }, ms);
   try {
     return await fetch(url, { ...init, signal: ctrl.signal });
-  } catch {
+  } catch (e) {
+    if (abgelaufen)
+      throw new ErkennungNichtErreichbar(
+        'Der Erkennungs-Server hat zu lange gebraucht. Versuch es bitte gleich noch einmal.',
+      );
+    // Beim Entwickeln die genaue Adresse und den Fehler zeigen, damit man sieht, woran es liegt
+    const genauer = __DEV__
+      ? ` (${url.split('/').slice(0, 3).join('/')}: ${e instanceof Error ? e.message : String(e)})`
+      : '';
     throw new ErkennungNichtErreichbar(
-      'Der Erkennungs-Server ist nicht erreichbar. Läuft er, und ist das Handy im selben WLAN?',
+      `Der Erkennungs-Server ist nicht erreichbar. Läuft er, und ist das Handy im selben WLAN?${genauer}`,
     );
   } finally {
     clearTimeout(t);
@@ -53,23 +68,21 @@ async function mitZeitlimit(url: string, init: RequestInit = {}, ms = 20000): Pr
 
 /**
  * Schickt ein Foto (lokale Datei) an den Server und gibt die Kandidaten zurück.
- * fundstueck: Typ (z. B. 'losung') und wissenschaftliche Namen der Arten, die dieses Fundstück haben.
+ * fundstuecke: je Fundstück-Typ die wissenschaftlichen Namen der Arten, die es haben. Der Server erkennt dann selbst,
+ * ob das Foto ein ganzes Lebewesen oder ein Fundstück zeigt (jeder Vorschlag hat dann `typ`).
  */
 export async function erkenneFoto(
   uri: string,
-  optionen: { gruppe?: Gruppe; fundstueck?: { typ: string; kandidaten: string[] } } = {},
+  optionen: { gruppe?: Gruppe; fundstuecke?: Record<string, string[]> } = {},
 ): Promise<Erkennungsergebnis> {
-  const { gruppe, fundstueck } = optionen;
+  const { gruppe, fundstuecke } = optionen;
   const url = erkennungsUrl();
   if (!url) throw new ErkennungNichtErreichbar('Es ist noch kein Erkennungs-Server eingetragen.');
   const daten = new FormData();
   // React Native: Dateien werden als {uri, name, type} angehängt
   daten.append('foto', { uri, name: 'foto.jpg', type: 'image/jpeg' } as unknown as Blob);
   if (gruppe) daten.append('gruppe', gruppe);
-  if (fundstueck) {
-    daten.append('typ', fundstueck.typ);
-    daten.append('kandidaten', JSON.stringify(fundstueck.kandidaten));
-  }
+  if (fundstuecke) daten.append('fundstuecke', JSON.stringify(fundstuecke));
   const antwort = await mitZeitlimit(`${url}/erkennen`, { method: 'POST', body: daten });
   if (!antwort.ok) throw new ErkennungNichtErreichbar('Die Erkennung hat das Foto nicht verarbeiten können.');
   return (await antwort.json()) as Erkennungsergebnis;
@@ -98,8 +111,8 @@ export function appArtId(k: Pick<Kandidat, 'wiss'>): string | undefined {
 
 /**
  * Regel aus dem Gesamtkonzept 17.3: Wählt der Nutzer die Art, bei der die Erkennung „sicher“ war, zählt der Fund
- * sofort. Sonst ist er zuerst unbestätigt (später bestätigt die Community).
+ * sofort. Sonst ist er zuerst unbestätigt (später bestätigt die Community). Fundstücke nie allein durch die Erkennung.
  */
 export function istBestaetigt(ergebnis: Erkennungsergebnis, gewaehlt: Kandidat): boolean {
-  return ergebnis.status === 'sicher' && ergebnis.art?.id === gewaehlt.id;
+  return ergebnis.status === 'sicher' && ergebnis.art?.id === gewaehlt.id && !gewaehlt.typ;
 }

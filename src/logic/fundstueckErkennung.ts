@@ -3,23 +3,14 @@ import { FUNDSTUECKE } from '@/data/fundstuecke';
 import type { Fundstueck } from '@/data/fundstueckTypen';
 
 /**
- * Was hast du fotografiert? (Gesamtkonzept 17.4) – Der Nutzer wählt zuerst den Typ, weil die Erkennung
- * Spur, Losung, Blatt … allein nicht sicher unterscheidet (recherche/erkennung/fundstuecke-test.md).
- * Danach vergleicht der Server das Foto nur mit den Arten, die genau dieses Fundstück haben.
+ * Fundstücke erkennen (Gesamtkonzept 17.4): Die App fragt nicht, was fotografiert wurde. Der Server erkennt selbst,
+ * ob das Foto ein ganzes Lebewesen oder ein Fundstück zeigt (Spur, Losung, Feder, Fraßspur, Blatt, Rinde, Knospe,
+ * Frucht), und vergleicht dann mit den Arten, die genau dieses Fundstück haben.
+ * Die App schickt dafür einmal mit, welche Arten welches Fundstück haben (aus src/data/fundstuecke.json).
  */
-export type FundTyp = 'ganz' | 'trittsiegel' | 'losung' | 'feder' | 'frass' | 'blatt' | 'rinde' | 'knospe' | 'frucht';
+export type FundTyp = 'trittsiegel' | 'losung' | 'feder' | 'frass' | 'blatt' | 'rinde' | 'knospe' | 'frucht';
 
-export const FUND_TYPEN: { id: FundTyp; name: string; beispiel: string }[] = [
-  { id: 'ganz', name: 'Ganzes Lebewesen', beispiel: 'Tier, Vogel, Pflanze, Pilz' },
-  { id: 'trittsiegel', name: 'Spur', beispiel: 'Trittsiegel, Fährte' },
-  { id: 'losung', name: 'Losung', beispiel: 'Kot' },
-  { id: 'feder', name: 'Feder', beispiel: '' },
-  { id: 'frass', name: 'Fraßspur', beispiel: 'Zapfen, Nagespur' },
-  { id: 'blatt', name: 'Blatt', beispiel: 'auch Nadeln' },
-  { id: 'rinde', name: 'Rinde', beispiel: '' },
-  { id: 'knospe', name: 'Knospe', beispiel: '' },
-  { id: 'frucht', name: 'Frucht', beispiel: 'Nuss, Zapfen, Samen' },
-];
+export const FUND_TYPEN: FundTyp[] = ['trittsiegel', 'losung', 'feder', 'frass', 'blatt', 'rinde', 'knospe', 'frucht'];
 
 /** Welche Fundstücke der Daten zu welchem Typ gehören (wie erkennung/fundstueck_vektoren.py) */
 function passt(f: Fundstueck, typ: FundTyp): boolean {
@@ -28,8 +19,6 @@ function passt(f: Fundstueck, typ: FundTyp): boolean {
       return f.typ === 'faehrte' || (f.typ === 'spur' && (f.id === 'trittsiegel' || f.id === 'spur'));
     case 'frucht':
       return f.typ === 'frucht' || f.typ === 'samen';
-    case 'ganz':
-      return false;
     default:
       return f.typ === typ;
   }
@@ -48,10 +37,16 @@ export function kandidatenFuerTyp(typ: FundTyp): Map<string, FundKandidat> {
   return aus;
 }
 
+/** Für den Server: je Fundstück-Typ die wissenschaftlichen Namen der Arten, die es haben */
+export function fundstueckKatalog(): Record<FundTyp, string[]> {
+  return Object.fromEntries(FUND_TYPEN.map((t) => [t, [...kandidatenFuerTyp(t).keys()]])) as Record<FundTyp, string[]>;
+}
+
 const norm = (s: string) => s.toLowerCase().trim().split(/\s+/).slice(0, 2).join(' ');
 
 /** Fundstück-Kandidat zu einem Vorschlag des Servers (über den wissenschaftlichen Namen) */
-export function fundKandidat(typ: FundTyp, wiss: string): FundKandidat | undefined {
+export function fundKandidat(typ: FundTyp | null | undefined, wiss: string): FundKandidat | undefined {
+  if (!typ) return undefined;
   for (const k of kandidatenFuerTyp(typ).values()) if (norm(k.lat) === norm(wiss)) return k;
   return undefined;
 }

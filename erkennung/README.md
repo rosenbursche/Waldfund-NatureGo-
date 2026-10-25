@@ -13,7 +13,8 @@ App ◀──sicher / Gattung / unsicher / kein Wildfund + 5 Vorschläge──�
 | `artvektoren.py` | Berechnet einmal den Fingerabdruck jeder Art aus der Datenbank (`db/wildfund.sqlite`) plus Gegenklassen → `daten/artvektoren.npz` (17 MB, nicht im Repo) |
 | `gegenklassen.json` | Haustiere und Menschen, damit z. B. aus einer Hauskatze keine Wildkatze wird. Sie geben nie Punkte |
 | `erkenner.py` | Die Erkennung: Vorauswahl, Vergleich, Vorwissen (häufige Arten leicht bevorzugt), Entscheidung |
-| `server.py` | Kleiner Web-Server: `POST /erkennen` (Foto, optional `gruppe`), `GET /gesund`. Speichert keine Fotos |
+| `server.py` | Kleiner Web-Server: `POST /erkennen` (Foto, optional `gruppe`; mit `fundstuecke` = JSON {typ: [Namen]} erkennt er selbst, ob es ein ganzes Lebewesen oder ein Fundstück ist), `GET /gesund`, `GET /artbilder/{id}`. Speichert keine Fotos |
+| `typ_erkennung.py`, `typ_lernen.py`, `typ_klassifikator.npz` | Was zeigt das Foto: ganz, Trittsiegel, Losung, Feder, Fraß, Blatt, Rinde, Knospe, Frucht? Kleiner gelernter Klassifikator (29 KB), gelernt mit 1.080 Fotos ohne iNaturalist |
 | `testen.py` | Prüft die Erkennung mit Testbildern bekannter Art |
 | `testfotos_holen.py` | Lädt Testfotos für Zufallsarten aus GBIF: nur 2025/2026, freie Bildlizenz, ohne iNaturalist |
 
