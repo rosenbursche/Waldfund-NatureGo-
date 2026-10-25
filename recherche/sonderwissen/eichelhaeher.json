@@ -1,0 +1,197 @@
+{
+  "artId": "eichelhaeher",
+  "colId": "6JYHZ",
+  "wissName": "Garrulus glandarius",
+  "gruppe": "voegel",
+  "eintraege": [
+    {
+      "id": "haehersaat",
+      "thema": "oekologie",
+      "titel": "Der fleißigste Waldbauer",
+      "text": "Im Herbst sammelt ein einziger Eichelhäher bis zu 5.000 Eicheln und versteckt sie als Wintervorrat, meist einzeln, ein paar Zentimeter tief im lockeren Boden. Die meisten Verstecke findet er wieder, sogar unter Schnee. Ein Teil bleibt aber liegen und keimt im Frühling. Diese Eichen wachsen ohne Pflanzschock und Wurzelverletzungen auf. Darum nennt man den Häher auch den Gärtner des Waldes.",
+      "details": {
+        "eicheln": "bis 5.000 je Herbst"
+      },
+      "monate": [
+        9,
+        10,
+        11
+      ],
+      "meldung": "Eichelzeit! Beobachte mal einen Eichelhäher: Wo versteckt er seine Eicheln?",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "szf2025",
+        "waldwissen",
+        "lbv"
+      ]
+    },
+    {
+      "id": "kehlsack",
+      "thema": "koerper",
+      "titel": "Acht im Hals, eine im Schnabel",
+      "text": "Der Eichelhäher hat einen dehnbaren Kehlsack. Darin kann er bis zu acht Eicheln transportieren, eine weitere, meist die größte, trägt er im Schnabel. Insgesamt schafft er so bis zu zehn Eicheln auf einmal. Für genug Früchte fliegt er bis zu sechs Kilometer weit. Dabei sortiert er genau aus: Schlechte Eicheln lässt er liegen.",
+      "details": {
+        "eichelnProFlug": "bis 8 im Kehlsack + 1 im Schnabel (SZF 2025), bis 10 (waldwissen)",
+        "strecke": "bis 6 km"
+      },
+      "monate": [
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "szf2025",
+        "waldwissen"
+      ]
+    },
+    {
+      "id": "foerster-helfer",
+      "thema": "nutzung",
+      "titel": "Förster, die mit Vögeln säen",
+      "text": "Manche Förster nutzen den Häher gezielt. Nach dem Orkan Kyrill stellte ein Revierleiter im Bergischen Land 20 sogenannte Hähertische auf und legte darauf in einem Herbst 600 Kilogramm Eicheln und Bucheckern aus. Die Häher trugen sie davon und versteckten sie auf den kahlen Sturmflächen. Er schätzt, dass so etwa 3.000 junge Bäume pro Hektar keimten. In Brandenburg wurde der Eichelhäher sogar zum Wappenvogel einer Kampagne für den Waldumbau.",
+      "details": {
+        "haehertische": 20,
+        "saatgut": "600 kg in einem Herbst"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "waldwissen",
+        "szf2025"
+      ]
+    },
+    {
+      "id": "stimmenimitator",
+      "thema": "verhalten",
+      "titel": "Klingt wie ein Bussard – ist aber keiner",
+      "text": "Das größte Talent des Eichelhähers ist das Nachahmen fremder Stimmen. Einen Bussard oder einen Reiher kann er täuschend echt nachmachen. Wer im Wald einen Bussard rufen hört, aber keinen sieht, hat vielleicht einen Häher gehört.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "planetWissen"
+      ]
+    },
+    {
+      "id": "waldwaechter",
+      "thema": "mitmachen",
+      "titel": "Der laute Wachposten",
+      "text": "Den heiseren, rätschenden Ruf des Eichelhähers kennt fast jeder, der viel im Wald ist. Er kann sich zu lautem Kreischen steigern, wenn der Vogel aufgeregt ist. Dann stellt er auch die Federn auf dem Scheitel auf. Hörst du das Rätschen, hat der Häher dich oder einen anderen Störenfried entdeckt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "lbv",
+        "waldwissen"
+      ]
+    },
+    {
+      "id": "blau-ohne-farbe",
+      "thema": "verblueffend",
+      "titel": "Blau ohne blaue Farbe",
+      "text": "Die blau-schwarz gestreiften Federn am Flügel enthalten keinen blauen Farbstoff. Das Blau entsteht durch winzige Strukturen in den Federästen: ein Netz aus Keratin mit Luftbläschen, an dem das Licht so gestreut wird, dass wir Blau sehen. Ähnlich ist es beim Eisvogel und der Blaumeise. Findest du eine Häherfeder, schau dir die feinen Querstreifen aus Hellblau, Dunkelblau und Schwarz an.",
+      "details": {
+        "streifenabstand": "etwa 4,5 mm (untersuchte Federn)"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "hunter2021"
+      ]
+    },
+    {
+      "id": "markwart",
+      "thema": "name",
+      "titel": "Markwart und der Name nach der Eiche",
+      "text": "Seinen Namen hat der Eichelhäher von seiner besonderen Beziehung zur Eiche. In Fabeln und bei dem Dichter Hermann Löns heißt er „Markwart“. Im Volksmund hat er noch viele weitere Namen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "waldwissen"
+      ]
+    },
+    {
+      "id": "nestraeuber",
+      "thema": "beziehung",
+      "titel": "Nicht nur Eicheln",
+      "text": "Der Eichelhäher ist ein Rabenvogel und frisst fast alles. In der Brutzeit braucht er viel Eiweiß, dann frisst er Insekten und ihre Larven, aber auch Eier und junge Vögel aus den Nestern von Singvögeln. Im Herbst und Winter leben Häher vor allem von Eicheln, Bucheckern und Haselnüssen.",
+      "details": null,
+      "monate": [
+        4,
+        5,
+        6
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "lbv",
+        "waldwissen"
+      ]
+    },
+    {
+      "id": "stadtvogel",
+      "thema": "verhalten",
+      "titel": "Vom scheuen Waldvogel zum Gartenbesucher",
+      "text": "Früher war der Eichelhäher ein klassischer Waldvogel und sehr scheu. Seit einigen Jahrzehnten kommt er auch in Parks, auf Friedhöfen und in großen Gärten vor. Dort legt er seine Scheu oft ab und versteckt seine Eicheln inzwischen auch in Gärten.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "waldwissen",
+        "lbv",
+        "szf2025"
+      ]
+    }
+  ],
+  "quellen": {
+    "szf2025": {
+      "titel": "Bonfils, P., Junod, P., Drollinger, F., Schuck, M. & Studhalter, S. (2025): Die Eiche, der Eichelhäher und der Förster. Schweizerische Zeitschrift für Forstwesen, doi:10.3188/szf.2025.0172",
+      "url": "https://www.szf-jfs.ch/fileadmin/article_pdfs/161632_Deutsch_Forstverein.pdf",
+      "abgerufen": "2026-10-25"
+    },
+    "waldwissen": {
+      "titel": "waldwissen.net: Markwart, der vorlaute Eichenpflanzer (nach Preller 2010, Landwirtschaftliches Wochenblatt Westfalen-Lippe)",
+      "url": "https://www.waldwissen.net/de/lebensraum-wald/tiere-im-wald/voegel/markwart-der-vorlaute-eichenpflanzer",
+      "abgerufen": "2026-10-25"
+    },
+    "lbv": {
+      "titel": "LBV (Landesbund für Vogel- und Naturschutz in Bayern): Artenporträt Eichelhäher",
+      "url": "https://www.lbv.de/ratgeber/naturwissen/artenportraits/detail/eichelhaeher/",
+      "abgerufen": "2026-10-25"
+    },
+    "planetWissen": {
+      "titel": "Planet Wissen (WDR): Zehn beliebte Gartenvögel – Eichelhäher",
+      "url": "https://www.planet-wissen.de/natur/voegel/singvoegel/heimische-singvoegel-120~_oid-galheimische-singvoegel-1201_position-4.html",
+      "abgerufen": "2026-10-25"
+    },
+    "hunter2021": {
+      "titel": "Hunter, X. (2021): Strukturfarben bei einheimischen Vogelfedern. Maturaarbeit, betreut vom Nano Imaging Lab, Swiss Nanoscience Institute (Universität Basel)",
+      "url": "https://nanoscience.ch/fileadmin/user_upload/nanoscience/06_Services/Nano_Imaging_Lab/Publikationen/Praktikumsarbeiten/strukturfarben-bei-einheimischen-vogelfedern_ma_xenia-hunter.pdf",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Stimmenimitation: nur Planet Wissen geöffnet (wow 3 mit nur einer Quelle). Eine Fachquelle (Vogelwarte, NABU) wäre besser; die Vogelwarte-Seite lädt per JavaScript, NABU war offline.",
+    "Strukturfarbe: Quelle ist eine Maturaarbeit mit REM-Aufnahmen am Swiss Nanoscience Institute; die Aussage, dass nicht-schillerndes Blau aus amorphen Keratinnetzwerken entsteht, ist dort mit Literatur belegt. Eine Fachpublikation wäre besser.",
+    "Kehlsack: SZF 2025 sagt „bis zu acht im Kropf und eine im Schnabel“, waldwissen „bis zu zehn in Kehlsack und Schnabel“. Beides im Text.",
+    "Einemsen (Ameisenbad): keine Quelle gefunden, nicht aufgenommen.",
+    "Monate Nesträuber 4–6 aus „Brutzeit“ abgeleitet."
+  ]
+}
