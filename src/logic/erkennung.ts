@@ -117,3 +117,13 @@ export function appArtId(k: Pick<Kandidat, 'wiss'>): string | undefined {
 export function istBestaetigt(ergebnis: Erkennungsergebnis, gewaehlt: Kandidat): boolean {
   return ergebnis.status === 'sicher' && ergebnis.art?.id === gewaehlt.id && !gewaehlt.typ;
 }
+
+/**
+ * Was die App zur Auswahl zeigt: die wahrscheinlichste Art und eine Alternative. Eine dritte nur, wenn sie
+ * ernsthaft in Frage kommt (Wunsch Niklas 25.10.2026: „maximal drei, eher zwei“).
+ */
+export const DRITTE_AB = 0.1;
+export function auswahlKandidaten(ergebnis: Erkennungsergebnis): Kandidat[] {
+  const v = ergebnis.vorschlaege;
+  return v.slice(0, v[2] && v[2].sicherheit >= DRITTE_AB ? 3 : 2);
+}

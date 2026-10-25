@@ -24,7 +24,9 @@ import Willkommen from '@/app/onboarding/index';
 import Liste from '@/app/onboarding/liste';
 import Suche from '@/app/onboarding/suche';
 import Waehlen from '@/app/onboarding/waehlen';
+import { FundMoment } from '@/components/fundstuecke/FundMoment';
 import { GefahrAuftritt } from '@/components/gefahr/GefahrAuftritt';
+import { fundstueckeById } from '@/data/fundstuecke';
 import { useEinstellungen } from '@/store/einstellungen';
 import { useSammlung } from '@/store/sammlung';
 
@@ -322,6 +324,16 @@ describe('Screens rendern ohne Fehler', () => {
     expect(screen.getByText('Was hast du gefunden?')).toBeTruthy();
     expect(screen.getByText('Kamera öffnen')).toBeTruthy();
     expect(screen.getByText(/Pilze nie essen/)).toBeTruthy();
+  });
+
+  test('Fund-Moment: Sichtung und Fundstück mit „x von n“', async () => {
+    await render(<FundMoment art="sichtung" artId="reh" />);
+    expect(screen.getByLabelText('Reh gesammelt')).toBeTruthy();
+    const alle = fundstueckeById.reh.fundstuecke;
+    await render(
+      <FundMoment art="fundstueck" artId="reh" alle={alle} neu={alle[0].id} gefunden={new Set([alle[0].id])} />,
+    );
+    expect(screen.getByText(`1 von ${alle.length}`)).toBeTruthy();
   });
 
   test('Sammeln: Startschritt mit Schutzhinweis', async () => {

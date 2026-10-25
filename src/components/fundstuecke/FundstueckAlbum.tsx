@@ -19,7 +19,7 @@ import { colors, fonts, radius, spacing } from '@/theme/theme';
  * Gesammelt wird nur mit der App-Kamera (Echtheitsprüfung W1), nie aus der Galerie.
  */
 
-const SYMBOL: Record<FundstueckTyp, SymbolName> = {
+export const FUNDSTUECK_SYMBOL: Record<FundstueckTyp, SymbolName> = {
   spur: 'tritt',
   faehrte: 'tritt',
   losung: 'losung',
@@ -114,7 +114,7 @@ export function FundstueckAlbum({ artId }: { artId: string }) {
               {foto ? (
                 <Image source={{ uri: foto }} style={stile.foto} contentFit="cover" />
               ) : (
-                <TierSymbol name={SYMBOL[f.typ]} groesse={34} farbe={da ? colors.amber : colors.fog} dicke={1.2} />
+                <TierSymbol name={FUNDSTUECK_SYMBOL[f.typ]} groesse={34} farbe={da ? colors.amber : colors.fog} dicke={1.2} />
               )}
               <Schrift art="klein" numberOfLines={2} style={stile.platzName}>
                 {f.name}

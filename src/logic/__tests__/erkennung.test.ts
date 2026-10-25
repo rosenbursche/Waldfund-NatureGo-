@@ -1,4 +1,4 @@
-import { appArtId, istBestaetigt, type Erkennungsergebnis, type Kandidat } from '@/logic/erkennung';
+import { appArtId, auswahlKandidaten, istBestaetigt, type Erkennungsergebnis, type Kandidat } from '@/logic/erkennung';
 
 const k = (id: string, wiss: string, sicherheit: number): Kandidat => ({
   id,
@@ -29,5 +29,17 @@ describe('Erkennung mit Auswahl', () => {
     expect(istBestaetigt(sicher, reh)).toBe(true);
     expect(istBestaetigt(sicher, dam)).toBe(false);
     expect(istBestaetigt({ ...sicher, status: 'unsicher', art: null }, reh)).toBe(false);
+  });
+
+  test('Auswahl: zwei Vorschläge, eine dritte nur, wenn sie ernsthaft in Frage kommt', () => {
+    const e = (p3: number): Erkennungsergebnis => ({
+      status: 'unsicher',
+      art: null,
+      gattung: null,
+      vorschlaege: [k('a', 'A a', 0.6), k('b', 'B b', 0.2), k('c', 'C c', p3), k('d', 'D d', 0.01)],
+      hinweis: null,
+    });
+    expect(auswahlKandidaten(e(0.03)).map((x) => x.id)).toEqual(['a', 'b']);
+    expect(auswahlKandidaten(e(0.15)).map((x) => x.id)).toEqual(['a', 'b', 'c']);
   });
 });

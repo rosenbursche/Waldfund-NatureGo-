@@ -21,6 +21,7 @@ import { Kopfzeile } from '@/components/Kopfzeile';
 import { Schrift } from '@/components/Schrift';
 import {
   appArtId,
+  auswahlKandidaten,
   erkenneFoto,
   ErkennungNichtErreichbar,
   erkennungsUrl,
@@ -33,9 +34,11 @@ import {
 import { tagesKey, type Belohnung } from '@/logic/fortschritt';
 import { STUFEN_NAMEN, type Stufe } from '@/logic/fundstuecke';
 import { fundKandidat, fundstueckKatalog } from '@/logic/fundstueckErkennung';
+import { FundMoment } from '@/components/fundstuecke/FundMoment';
+import { fundstueckeById } from '@/data/fundstuecke';
 import { fotoAufnehmen, fotoBehalten, type FotoQuelle } from '@/logic/foto';
 import { useEntdeckungen } from '@/store/entdeckungen';
-import { useSammlung } from '@/store/sammlung';
+import { gefundeneFundstuecke, useSammlung } from '@/store/sammlung';
 import { colors, fonts, radius, spacing } from '@/theme/theme';
 
 /**
@@ -53,6 +56,8 @@ type Schritt =
       foto: string;
       kandidat: Kandidat;
       bestaetigt: boolean;
+      /** gesammeltes Fundstück (für den Kreis aus Kuchenstücken) */
+      fund?: { artId: string; fundstueckId: string };
       belohnung?: Belohnung;
       stufe?: { vorher: Stufe; nachher: Stufe };
     };
@@ -124,7 +129,14 @@ export default function Entdecken() {
       // Fundstücke zählen erst nach Bestätigung durch die Community voll (Gesamtkonzept 17.4)
       const dauerhaft = await fotoBehalten(foto, `${fk.artId}-${fk.fundstueck.id}`);
       const stufe = fundstueckSammeln(fk.artId, fk.fundstueck.id, { datum: tagesKey(new Date()), foto: dauerhaft });
-      setSchritt({ art: 'gesammelt', foto: dauerhaft, kandidat: k, bestaetigt: false, stufe });
+      setSchritt({
+        art: 'gesammelt',
+        foto: dauerhaft,
+        kandidat: k,
+        bestaetigt: false,
+        stufe,
+        fund: { artId: fk.artId, fundstueckId: fk.fundstueck.id },
+      });
       return;
     }
     const bestaetigt = istBestaetigt(ergebnis, k);
@@ -318,7 +330,7 @@ function Auswahl({
         </View>
       )}
       <View style={stile.raster}>
-        {ergebnis.vorschlaege.map((k, i) => (
+        {auswahlKandidaten(ergebnis).map((k, i) => (
           <Animated.View
             key={`${k.typ ?? 'ganz'}-${k.id}`}
             entering={FadeInDown.delay(i * 90).duration(400)}
@@ -478,6 +490,7 @@ function Gesammelt({
   foto,
   kandidat,
   bestaetigt,
+  fund,
   belohnung,
   stufe,
   onNochmal,
@@ -485,12 +498,15 @@ function Gesammelt({
   foto: string;
   kandidat: Kandidat;
   bestaetigt: boolean;
+  fund?: { artId: string; fundstueckId: string };
   belohnung?: Belohnung;
   stufe?: { vorher: Stufe; nachher: Stufe };
   onNochmal: () => void;
 }) {
   const appId = appArtId(kandidat);
   const fs = fundKandidat(kandidat.typ, kandidat.wiss)?.fundstueck;
+  const gefunden = useSammlung((s) => (fund ? gefundeneFundstuecke(fund.artId, s.fundstuecke, s.gefunden) : null));
+  const alle = fund ? fundstueckeById[fund.artId]?.fundstuecke : undefined;
   const punkte = belohnung && belohnung.neu ? belohnung.punkte + belohnung.bonus + belohnung.setBonus : 0;
   if (kandidat.gegenklasse) {
     return (
@@ -506,9 +522,15 @@ function Gesammelt({
   }
   return (
     <View style={stile.mitte}>
-      <Animated.View entering={ZoomIn.duration(600)}>
-        <Image source={{ uri: foto }} style={stile.eigenGross} contentFit="cover" />
-      </Animated.View>
+      {fund && alle && gefunden ? (
+        <FundMoment art="fundstueck" artId={fund.artId} alle={alle} neu={fund.fundstueckId} gefunden={gefunden} />
+      ) : appId ? (
+        <FundMoment art="sichtung" artId={appId} />
+      ) : (
+        <Animated.View entering={ZoomIn.duration(600)}>
+          <Image source={{ uri: foto }} style={stile.eigenGross} contentFit="cover" />
+        </Animated.View>
+      )}
       <Animated.View entering={FadeInDown.delay(250).duration(500)} style={{ alignItems: 'center', gap: 6 }}>
         <Schrift art="etikett" style={{ color: colors.amber }}>
           {fs ? `Fundstück gesammelt · ${fs.name}` : 'Gesammelt'}

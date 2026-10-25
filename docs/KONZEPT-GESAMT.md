@@ -335,9 +335,11 @@ Technik dahinter: `erkennung/README.md` (eigener Server mit BioCLIP 2).
 ### 17.1 Ablauf
 1. **Foto machen**, nur mit der App-Kamera (Echtheitsprüfung W1, Abschnitt 7).
 2. **Analyse mit Animation:** Das Foto wird „gelesen“, z. B. mit Nebel, der sich lichtet, oder Runen, die über das Bild laufen. Die echte Erkennung dauert nur Sekundenbruchteile, die Animation macht daraus einen Moment. Bei „Bewegung reduzieren“ fällt sie kürzer aus.
-3. **Immer eine Auswahl, egal wie sicher die Erkennung ist:** An der Seite erscheinen **4–6 Arten, die es sein könnten**, als kleine Karten (Widgets) mit Foto, Name und Taler. Die wahrscheinlichste steht oben.
+3. **Immer eine Auswahl, egal wie sicher die Erkennung ist:** Es erscheinen **2 (höchstens 3) Arten, die es sein könnten**, als kleine Karten (Widgets) mit Foto, Name und Taler. Die wahrscheinlichste steht oben.
 4. **Selbst vergleichen:** Der Nutzer kann sich durch die Kandidaten klicken. Jede Karte öffnet eine kurze Vergleichsansicht mit Referenzfotos und den Merkmalen, an denen man die Arten unterscheidet (aus dem Feld `verwechslung` der Datenbank).
 5. **Antippen = gesammelt.** Erst wenn der Nutzer eine Art auswählt, ist sie offiziell gesammelt.
+6. **Nur 2 Vorschläge (Wunsch 25.10.2026):** die wahrscheinlichste Art und eine Alternative. Eine dritte nur, wenn sie ernsthaft in Frage kommt (ab 10 %). Damit ist die Auswahl kein Rätselraten, sondern ein Vergleich.
+7. **Fund-Moment (Entwurf, Design folgt):** Bei einer Sichtung wechselt das Icon der Art von grau zu farbig und ein Leuchtkreis zieht sich darum. Bei einem Fundstück bleibt die Art grau in der Mitte; um sie liegt ein Kreis aus Kuchenstücken (eins je Fundstück), das gefundene leuchtet mit seinem Symbol auf, dann erscheint „2 von 6“.
 
 ### 17.2 Warum das gut ist
 - Der Nutzer **lernt** dabei: Er schaut genau hin und vergleicht, statt der KI blind zu glauben.
