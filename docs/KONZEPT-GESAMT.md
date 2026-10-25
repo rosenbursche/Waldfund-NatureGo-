@@ -353,3 +353,11 @@ Technik dahinter: `erkennung/README.md` (eigener Server mit BioCLIP 2).
 - **Pilze:** Auf jeder Karte steht der Hinweis, dass die Erkennung nie etwas über Essbarkeit sagt. Giftige Doppelgänger werden in der Vergleichsansicht hervorgehoben.
 - **Unbekannte Arten** (noch nicht gesammelt) zeigen auf der Karte trotzdem ein Foto, sonst kann man nicht vergleichen. Der volle Steckbrief „lichtet sich“ erst nach dem Sammeln.
 - **Daten dafür:** Je Art braucht es 2–4 Anzeigefotos mit freier Lizenz und Namensnennung sowie die Unterscheidungsmerkmale zu den Verwechslungsarten. Beides gehört zur Daten-Pipeline.
+
+### 17.4 Fundstücke erkennen (Test vom 25.10.2026)
+Ergebnis aus `recherche/erkennung/fundstuecke-test.md` (473 geprüfte Fotos von Spuren, Losung, Fraß, Federn, Blättern, Rinde, Knospen und Früchten):
+- **Zuerst wählt der Nutzer den Typ:** Spur, Losung, Feder, Fraßspur, Blatt, Rinde, Knospe oder Frucht. Die Erkennung kann das per Text noch nicht zuverlässig selbst bestimmen (nur rund 50 %).
+- **Danach zeigt die App 4–6 Arten mit genau diesem Fundstück**, nach Wahrscheinlichkeit sortiert. Die richtige Art ist dann fast immer dabei (99–100 %) und in 80 % der Fälle auf Platz 1.
+- **Was schon gut geht:** Federn, Fraßspuren, Blätter und Früchte. **Nur als Vorschlagsliste:** Trittsiegel und Rinde. **Braucht Referenzbilder oder Nutzerfotos:** Losung und Knospen.
+- **Schwierige Paare** wie Wildschwein und Reh oder Stiel- und Traubeneiche brauchen zusätzlich Bestimmungsfragen (Abschnitt 2.4).
+- **Punkte für Fundstücke** gibt es nicht allein durch die Erkennung. Voll zählen sie erst nach Bestätigung durch die Community, bei Wolf, Luchs und Wildkatze immer.
