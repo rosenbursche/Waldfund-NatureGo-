@@ -132,8 +132,8 @@ export const REH: TierSeite = {
   },
   geschlechter: { maennlich: 'Bock', weiblich: 'Ricke' },
   jungName: 'Kitz',
-  // Schulterhöhe aus arten.ts; Gewicht TODO fachlich prüfen
-  groesse: { mass: 'schulter', cm: [60, 75], gewicht: [15, 30], einheit: 'kg' },
+  // Schulterhöhe aus arten.ts; Gewicht: DJV 17–22 kg, sehr gut entwickelt bis 25 kg; Wallis: Böcke bis 30 kg
+  groesse: { mass: 'schulter', cm: [60, 75], gewicht: [17, 30], einheit: 'kg' },
   koerper: [
     { id: 'spiegel', x: 49, y: 78, icon: 'spiegel', kurz: 'Spiegel: weißes Warnsignal' },
     { id: 'geweih', x: 155, y: -4, icon: 'geweih', kurz: 'Geweih – nur Böcke', nurMaennlich: true },
@@ -189,7 +189,8 @@ export const REH: TierSeite = {
     { id: 'setzzeit', kurz: 'Kitze kommen', monate: [5, 6], farbe: 'rune', symbol: 'mulde' },
     { id: 'brunft', kurz: 'Brunft', monate: [7, 8], farbe: 'amber', symbol: 'herz' },
     { id: 'keimruhe', kurz: 'Keimruhe', monate: [8, 9, 10, 11, 12], farbe: 'rare', symbol: 'keim' },
-    { id: 'abwurf', kurz: 'Geweih fällt ab', monate: [10, 11], farbe: 'fog', symbol: 'geweih' },
+    // DWS-Steckbrief und Kanton Wallis (Infoblatt Reh 2025): Abwurf Oktober–Dezember
+    { id: 'abwurf', kurz: 'Geweih fällt ab', monate: [10, 11, 12], farbe: 'fog', symbol: 'geweih' },
   ],
   geburt: 'setzzeit',
   //      J  F  M  A  M    J  J  A  S  O    N  D

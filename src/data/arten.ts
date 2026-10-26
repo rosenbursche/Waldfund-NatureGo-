@@ -43,7 +43,7 @@ export const ARTEN: Art[] = [
     schutz: 0,
     roteListe: '*',
     lebensraum: 'Buchenwälder auf frischen Böden',
-    saison: 'Bucheckern Sep–Okt',
+    saison: 'Bucheckern Sep–Nov', // WSL-Mastweb: Freigabe ab Mitte Sep, Abfall Okt–Nov; LIFEGENMON: Sep–Nov
     groesse: 'bis 45 m',
     wusstestDu: 'Ohne den Menschen wäre ein Großteil Deutschlands von Buchenwald bedeckt.',
     verbreitung: 'all',
@@ -338,7 +338,7 @@ export const ARTEN: Art[] = [
     giftig: 'tödlich giftig',
     lebensraum: 'Feuchte Wiesen',
     saison: 'Blüte Aug–Okt',
-    groesse: '8–30 cm',
+    groesse: '5–40 cm', // FloraWeb: Wuchshöhe (Rothmaler) 0,05–0,40 m
     wusstestDu:
       'Sie blüht im Herbst ohne Blätter. Die Blätter kommen erst im Frühjahr – und werden leicht mit Bärlauch verwechselt.',
     verbreitung: 'central',
@@ -373,11 +373,11 @@ export const ARTEN: Art[] = [
     lat: 'Taxus baccata',
     icon: 'tree',
     seltenheit: 2,
-    schutz: 0,
+    schutz: 1, // BArtSchV Anlage 1: „Taxus baccata L. … Eibe +“ (besonders geschützt)
     giftig: 'sehr giftig',
     lebensraum: 'Schattige Hang- und Schluchtwälder, oft auf Kalk',
     saison: 'Samen Aug–Okt',
-    groesse: 'bis 15 m',
+    groesse: 'bis 20 m', // SDW-Faltblatt Eibe 2020; BfR-Giftgarten nennt bis 10 m
     wusstestDu: 'Fast alles an ihr ist sehr giftig – nur der rote Samenmantel nicht, der Samen darin aber schon.',
     verbreitung: 'kalk',
     modell: { t: 'tree', shape: 'round', c1: '#24402C', c2: '#8A4A36' },
@@ -902,6 +902,7 @@ export const ARTEN: Art[] = [
     icon: 'mammal',
     seltenheit: 2,
     schutz: 2,
+    roteListe: 'V', // BfN-Artenporträt: Rote Liste Deutschland V (Meinig et al. 2020)
     lebensraum: 'Flüsse, Bäche, Seen mit Ufergehölz',
     saison: 'ganzjährig, dämmerungsaktiv',
     groesse: 'Körper 80–100 cm',

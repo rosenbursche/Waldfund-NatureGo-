@@ -18,7 +18,8 @@ export const EICHHOERNCHEN: TierSeite = {
     auge: '#1E1510',
   },
   jungName: 'Junges',
-  groesse: { mass: 'laenge', cm: [20, 25], gewicht: [250, 350], einheit: 'g' },
+  // DWS und Uni Duisburg-Essen: 200–480 g; Uni DUE: Körperlänge 20–30 cm
+  groesse: { mass: 'laenge', cm: [20, 30], gewicht: [200, 480], einheit: 'g' },
   koerper: [
     { id: 'schwanz', x: 55, y: 96, icon: 'lunte', kurz: 'Schwanz steuert beim Springen' },
     { id: 'ohr', x: 105, y: 62, icon: 'ohr', kurz: 'Ohrpinsel im Winter' },
@@ -36,7 +37,8 @@ export const EICHHOERNCHEN: TierSeite = {
   aktivSymbol: 'nuss',
   jahr: [
     { id: 'paarung', kurz: 'Paarungszeit', monate: [1, 2, 3], farbe: 'amber', symbol: 'herz' },
-    { id: 'junge', kurz: 'Junge im Kobel', monate: [3, 4, 6, 7], farbe: 'rune', symbol: 'kobel' },
+    // Uni DUE: Geburten Feb–Apr und Mai–Aug; DWS: letzte Jungtiere Ende August
+    { id: 'junge', kurz: 'Junge im Kobel', monate: [2, 3, 4, 5, 6, 7, 8], farbe: 'rune', symbol: 'kobel' },
     { id: 'vorrat', kurz: 'Vorräte verstecken', monate: [9, 10], farbe: 'rare', symbol: 'nuss' },
   ],
   geburt: 'junge',

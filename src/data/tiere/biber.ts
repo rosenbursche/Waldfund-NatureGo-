@@ -38,7 +38,8 @@ export const BIBER: TierSeite = {
   jahr: [
     { id: 'paarung', kurz: 'Paarung im Wasser', monate: [1, 2, 3], farbe: 'amber', symbol: 'herz' },
     { id: 'junge', kurz: 'Junge in der Burg', monate: [5, 6], farbe: 'rune', symbol: 'burg' },
-    { id: 'abwandern', kurz: 'Zweijährige ziehen fort', monate: [4], farbe: 'fog', symbol: 'karte' },
+    // DWS: Die Ältesten müssen gehen, wenn im April–Juni die neuen Jungen kommen
+    { id: 'abwandern', kurz: 'Zweijährige ziehen fort', monate: [4, 5, 6], farbe: 'fog', symbol: 'karte' },
     { id: 'vorrat', kurz: 'Wintervorrat im Wasser', monate: [10, 11], farbe: 'rare', symbol: 'rinde' },
   ],
   geburt: 'junge',

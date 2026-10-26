@@ -32,9 +32,9 @@ describe('Jahreslauf', () => {
 
 describe('Wachstum', () => {
   test('Bäume: Regler in Lebensjahren bis zum Höchstalter', () => {
-    expect(wachstumsBereich('stieleiche')).toEqual({ max: 800, einheit: 'Jahre' });
+    expect(wachstumsBereich('stieleiche')).toEqual({ max: 1000, einheit: 'Jahre' }); // Höchstalter laut SDW-Steckbrief Eiche
     expect(wachstum('stieleiche', 0).stufe).toBe('Keimling');
-    expect(wachstum('stieleiche', 600).stufe).toBe('alter Baum');
+    expect(wachstum('stieleiche', 800).stufe).toBe('alter Baum');
     expect(wachstum('stieleiche', 300).groesse).toBe(1);
     expect(wachstum('stieleiche', 10).groesse).toBeLessThan(0.4);
   });

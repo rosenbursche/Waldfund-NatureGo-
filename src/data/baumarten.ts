@@ -20,7 +20,7 @@ const BIS_MONTAN: Hoehenstufe[] = ['planar', 'kollin', 'submontan', 'montan'];
 export const BAUMARTEN: Baumart[] = [
   {
     id: 'rotbuche',
-    hoechstalter: 300, // TODO fachlich prüfen
+    hoechstalter: 300, // Baum des Jahres 2022: selten älter als 300–350; waldwissen (LWF aktuell 69): 300, selten 500
     name: 'Rotbuche',
     lat: 'Fagus sylvatica',
     status: 'heimisch',
@@ -48,7 +48,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'stieleiche',
-    hoechstalter: 800, // TODO fachlich prüfen
+    hoechstalter: 1000, // SDW-Steckbrief Eiche: in Einzelfällen bis 1000 Jahre; waldwissen: über 1.000
     name: 'Stieleiche',
     lat: 'Quercus robur',
     status: 'heimisch',
@@ -302,7 +302,7 @@ export const BAUMARTEN: Baumart[] = [
   },
   {
     id: 'eibe',
-    hoechstalter: 1000, // TODO fachlich prüfen
+    hoechstalter: 1000, // NW-FVA Baumartensteckbrief: gesichert 600–1.000 Jahre
     immergruen: true,
     name: 'Eibe',
     lat: 'Taxus baccata',
