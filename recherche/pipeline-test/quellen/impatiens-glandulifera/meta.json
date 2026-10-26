@@ -1,0 +1,25 @@
+{
+  "artId": "impatiens-glandulifera",
+  "wissName": "Impatiens glandulifera",
+  "colId": "3PJSV",
+  "wikidata": "Q158035",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Drüsiges Springkraut",
+      "url": "https://de.wikipedia.org/wiki/Dr%C3%BCsiges_Springkraut",
+      "revision": 268621421,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 13541
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Impatiens glandulifera",
+      "url": "https://en.wikipedia.org/wiki/Impatiens_glandulifera",
+      "revision": 1378569660,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 6604
+    }
+  ]
+}

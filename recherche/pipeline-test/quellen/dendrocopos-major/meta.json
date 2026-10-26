@@ -1,0 +1,25 @@
+{
+  "artId": "dendrocopos-major",
+  "wissName": "Dendrocopos major",
+  "colId": "6CJDB",
+  "wikidata": "Q26209",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Buntspecht",
+      "url": "https://de.wikipedia.org/wiki/Buntspecht",
+      "revision": 269763148,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 10358
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Great spotted woodpecker",
+      "url": "https://en.wikipedia.org/wiki/Great_spotted_woodpecker",
+      "revision": 1357282933,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 17640
+    }
+  ]
+}

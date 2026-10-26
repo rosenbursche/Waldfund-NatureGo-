@@ -1,0 +1,25 @@
+{
+  "artId": "euphorbia-cyparissias",
+  "wissName": "Euphorbia cyparissias",
+  "colId": "3CNHH",
+  "wikidata": "Q148552",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Zypressen-Wolfsmilch",
+      "url": "https://de.wikipedia.org/wiki/Zypressen-Wolfsmilch",
+      "revision": 270377415,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 6456
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Euphorbia cyparissias",
+      "url": "https://en.wikipedia.org/wiki/Euphorbia_cyparissias",
+      "revision": 1328337759,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 2018
+    }
+  ]
+}

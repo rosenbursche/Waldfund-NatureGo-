@@ -1,0 +1,25 @@
+{
+  "artId": "trametes-versicolor",
+  "wissName": "Trametes versicolor",
+  "colId": "57XF8",
+  "wikidata": "Q753833",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Schmetterlings-Tramete",
+      "url": "https://de.wikipedia.org/wiki/Schmetterlings-Tramete",
+      "revision": 251936757,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 4891
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Trametes versicolor",
+      "url": "https://en.wikipedia.org/wiki/Trametes_versicolor",
+      "revision": 1381332959,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 3195
+    }
+  ]
+}

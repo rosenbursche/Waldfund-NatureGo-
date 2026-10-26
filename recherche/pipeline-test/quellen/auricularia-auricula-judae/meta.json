@@ -1,0 +1,25 @@
+{
+  "artId": "auricularia-auricula-judae",
+  "wissName": "Auricularia auricula-judae",
+  "colId": "5W9WJ",
+  "wikidata": "Q321342",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Judasohr",
+      "url": "https://de.wikipedia.org/wiki/Judasohr",
+      "revision": 254393279,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 5016
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Auricularia auricula-judae",
+      "url": "https://en.wikipedia.org/wiki/Auricularia_auricula-judae",
+      "revision": 1331010774,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 11533
+    }
+  ]
+}

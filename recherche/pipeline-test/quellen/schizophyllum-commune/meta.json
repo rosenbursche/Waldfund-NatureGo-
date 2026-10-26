@@ -1,0 +1,25 @@
+{
+  "artId": "schizophyllum-commune",
+  "wissName": "Schizophyllum commune",
+  "colId": "79WX9",
+  "wikidata": "Q941733",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Gemeiner Spaltblättling",
+      "url": "https://de.wikipedia.org/wiki/Gemeiner_Spaltbl%C3%A4ttling",
+      "revision": 267946253,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 3943
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Schizophyllum commune",
+      "url": "https://en.wikipedia.org/wiki/Schizophyllum_commune",
+      "revision": 1371103001,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 5529
+    }
+  ]
+}

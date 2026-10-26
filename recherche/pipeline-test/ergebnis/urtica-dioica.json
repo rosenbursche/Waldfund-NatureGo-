@@ -1,0 +1,193 @@
+{
+  "artId": "urtica-dioica",
+  "colId": "7F2CH",
+  "wissName": "Urtica dioica",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "brennhaar-spritze",
+      "thema": "koerper",
+      "titel": "Winzige Spritzen aus Glas",
+      "text": "Blätter und Stängel der Brennnessel sind mit Brennhaaren besetzt, die mit Kieselsäure verstärkt sind. Die Haare sind hohl und wirken wie kleine Spritzen: Bei Berührung spritzen sie einen Saft in die Haut. Darin stecken Ameisensäure, Histamin, Acetylcholin und Serotonin. Das brennt und juckt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de", "wiki-en"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Blätter und Stängel sind mit kieselsäureverstärkten Brennhaaren bewehrt." },
+        { "quelle": "wiki-de", "text": "Der Brennsaft enthält Ameisensäure, Histamin, Acetylcholin und Serotonin." },
+        { "quelle": "wiki-en", "text": "hollow stinging hairs called trichomes on the leaves and stems, which act like hypodermic needles, injecting histamine and other chemicals" }
+      ]
+    },
+    {
+      "id": "raupenfutter",
+      "thema": "beziehung",
+      "titel": "Ohne Brennnessel kein Tagpfauenauge",
+      "text": "Für viele Schmetterlinge ist die Brennnessel die Kinderstube. Die Raupen von Kleinem Fuchs und Tagpfauenauge fressen fast nur an ihr. Wer Brennnesseln stehen lässt, hilft also diesen bunten Faltern.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Arten wie Kleiner Fuchs und Tagpfauenauge sind monophag, ernähren sich also fast ausschließlich von ihr." }
+      ]
+    },
+    {
+      "id": "drei-ruessler",
+      "thema": "oekologie",
+      "titel": "Drei Käfer, drei Stockwerke",
+      "text": "Drei Rüsselkäferarten leben von der Brennnessel und teilen sich die Pflanze auf: Die Larven des einen wachsen in den Stängelknoten, die des zweiten bohren sich vom Blattstiel in den Stängel, und die des dritten leben in den Wurzeln. So kommen sie sich nicht in die Quere.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die drei Arten besetzen auf der Pflanze unterschiedliche ökologische Nischen." },
+        { "quelle": "wiki-de", "text": "der Gefleckte Brennnesselrüssler entwickelt sich in den Wurzeln" }
+      ]
+    },
+    {
+      "id": "rostpilz",
+      "thema": "beziehung",
+      "titel": "Orange Würstchen am Stängel",
+      "text": "Manchmal sitzen an Brennnesseln auffällige gelborange, raupenförmige Gebilde. Das ist kein Tier, sondern ein Rostpilz. Er nutzt die Brennnessel als Zwischenstation und wechselt danach auf Seggen.",
+      "details": { "pilz": "Puccinia urticata" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "auf der er einen auffälligen, gelborangen, raupenförmigen Fruchtkörper ausbildet, bevor er zur weiteren Entwicklung auf Seggen (Carex) wechselt" }
+      ]
+    },
+    {
+      "id": "ampfer-mythos",
+      "thema": "verblueffend",
+      "titel": "Hilft Ampfer gegen das Brennen?",
+      "text": "Ein altes Hausmittel sagt: Reib die Stelle mit einem Ampferblatt ein, der wächst oft gleich daneben. Eine chemische Wirkung dafür ist nicht belegt. Vielleicht hilft einfach das Reiben selbst. Als beste erste Hilfe gilt, die Stelle mit lauwarmem Wasser und Seife zu waschen und nicht zu kratzen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-en"],
+      "zitate": [
+        { "quelle": "wiki-en", "text": "are regarded as a folk remedy to counteract the sting of a nettle, although there is no evidence of any chemical effect" },
+        { "quelle": "wiki-en", "text": "washing the affected area with lukewarm water and soap, and avoid scratching" }
+      ]
+    },
+    {
+      "id": "nesseltuch",
+      "thema": "geschichte",
+      "titel": "Kleider aus Brennnesseln",
+      "text": "Aus den Fasern im Stängel macht man seit fast 3.000 Jahren Stoff, in Dänemark fand man Nesselgewebe aus der Bronzezeit. Bis ins 18. Jahrhundert war die Brennnessel bei uns eine wichtige Faserpflanze für Nesseltuch, Netze und Stricke. Oft heißt es, deutsche Uniformen im Ersten Weltkrieg seien fast alle aus Nessel gewesen. Dafür gibt es aber kaum Belege.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-en", "wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-en", "text": "ancient nettle textiles from the Bronze Age have been found in Denmark" },
+        { "quelle": "wiki-en", "text": "It is widely believed that German Army uniforms were almost all made from nettle during World War I due to a shortage of cotton, although there is little evidence to support this." },
+        { "quelle": "wiki-de", "text": "Die Große Brennnessel war bis ins 18. Jahrhundert wegen ihrer Bastfasern eine wichtige Faserpflanze" }
+      ]
+    },
+    {
+      "id": "wildgemuese",
+      "thema": "essbar",
+      "titel": "Spinat, der nicht mehr sticht",
+      "text": "Junge Brennnesseltriebe sind ein nahrhaftes Wildgemüse, reich an Eiweiß, Vitaminen und Mineralstoffen. Sie stechen nicht mehr, wenn man sie trocknet, wässert, kocht oder mit dem Nudelholz rollt. Brennnesselsuppe ist in Nord- und Osteuropa ein traditionelles Gericht.",
+      "details": { "teile": ["junge Triebe", "Blätter vor der Blüte"], "zubereitung": "gekocht als Spinat oder Suppe, getrocknet als Tee" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Nur junge Blätter vor der Blüte nehmen: Danach bilden sich kalkhaltige Kristalle, die Nieren und Harnwege reizen können. Nur sammeln, was du sicher erkennst, und nicht an Wegrändern mit Hundekot oder an gedüngten Feldern.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die Blätter stechen nicht mehr, wenn sie entweder getrocknet, gewässert, gekocht oder mechanisch bearbeitet wurden" },
+        { "quelle": "wiki-de", "text": "bilden sich in den Blättern kalkhaltige Zystolithen, die reizend auf Nieren und Harnwege wirken können" }
+      ]
+    },
+    {
+      "id": "wettessen",
+      "thema": "verblueffend",
+      "titel": "Weltmeisterschaft im Brennnessel-Essen",
+      "text": "In Dorset in England gibt es jedes Jahr eine Weltmeisterschaft im Brennnessel-Essen, zu der Tausende Menschen kommen. Die Teilnehmer bekommen 60 Zentimeter lange Stängel, streifen die Blätter ab und essen sie roh.",
+      "details": { "stengellaenge": "60 cm" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-en"],
+      "zitate": [
+        { "quelle": "wiki-en", "text": "an annual World Nettle Eating Championship draws thousands of people to Dorset, where competitors attempt to eat as much of the raw plant as possible" }
+      ]
+    },
+    {
+      "id": "stickstoffzeiger",
+      "thema": "mitmachen",
+      "titel": "Brennnesseln verraten alte Lagerplätze",
+      "text": "Brennnesseln wachsen besonders dort, wo der Boden viel Stickstoff enthält. Oft sind das Stellen, an denen früher Menschen oder Tiere waren, etwa alte Lager, Ställe oder Hofplätze. Ein dichter Brennnesselfleck mitten im Wald kann so ein Hinweis auf frühere Nutzung sein.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die Große Brennnessel ist ein typischer Stickstoffzeiger" },
+        { "quelle": "wiki-de", "text": "zeigt die Große Brennnessel eine starke Assoziation mit den stickstoffangereicherten (früheren) Aufenthaltsorten von Menschen und Tieren" }
+      ]
+    },
+    {
+      "id": "jauche-verbot",
+      "thema": "geschichte",
+      "titel": "Der Brennnessel-Krieg in Frankreich",
+      "text": "Brennnesseljauche nutzen viele Gärtner als Dünger und gegen Läuse. In Frankreich war sie ab 2006 plötzlich verboten, weil nicht zugelassene Pflanzenschutzmittel unter Strafe standen. Es gab heftigen Streit, und erst 2011 wurde selbst gemachte Brennnesseljauche wieder offiziell erlaubt.",
+      "details": { "verbot": "2006", "erlaubt": "2011" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "In Frankreich wurde mit dem Erlass vom 1. Juli 2006 der Verkauf, der Besitz und die Herstellung von nicht zugelassenen Pflanzenschutzmitteln bei Strafe verboten." },
+        { "quelle": "wiki-de", "text": "Erst mit der Verordnung vom 18. April 2011" }
+      ]
+    },
+    {
+      "id": "zweihaeusig",
+      "thema": "mitmachen",
+      "titel": "Brennnessel-Männchen und -Weibchen",
+      "text": "Die Große Brennnessel ist zweihäusig: Es gibt männliche und weibliche Pflanzen, daher auch der Name dioica. Sie blüht von Juli bis Oktober. Bei männlichen Pflanzen stehen die Blütenstände aufrecht, bei weiblichen hängen sie. Vergleich mal zwei Pflanzen, aber vorsichtig, ohne die Blätter zu berühren.",
+      "details": null,
+      "monate": [7, 8, 9, 10],
+      "meldung": "Die Brennnesseln blühen. Findest du eine Pflanze mit hängenden und eine mit aufrechten Blüten?",
+      "sicherheit": "Brennhaare nicht berühren.",
+      "wow": 1,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die Blütezeit reicht von Juli bis Oktober. Die Große Brennnessel ist zweihäusig getrenntgeschlechtig (diözisch)." },
+        { "quelle": "wiki-de", "text": "Die männlichen Blüten sind aufrechtstehend" },
+        { "quelle": "wiki-de", "text": "Die weiblichen Blüten hängen oder sind zurückgebogen." }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": { "titel": "Wikipedia (de): Große Brennnessel", "url": "https://de.wikipedia.org/wiki/Gro%C3%9Fe_Brennnessel", "abgerufen": "2026-10-25" },
+    "wiki-en": { "titel": "Wikipedia (en): Urtica dioica", "url": "https://en.wikipedia.org/wiki/Urtica_dioica", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Wikipedia nennt für junge Triebe keine Monate. Keine Saisonmonate für das Wildgemüse.",
+    "Sicherheitshinweis „nicht an Wegrändern mit Hundekot“: allgemeine Sammelregel, nicht aus der Quelle.",
+    "„Wie kleine Spritzen“ und „hohl“ nur in der englischen Wikipedia."
+  ]
+}

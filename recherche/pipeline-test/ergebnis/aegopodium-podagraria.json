@@ -1,0 +1,146 @@
+{
+  "artId": "aegopodium-podagraria",
+  "colId": "6594Z",
+  "wissName": "Aegopodium podagraria",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "unkraut-und-gemuese",
+      "thema": "verblueffend",
+      "titel": "Der Fluch der Gärtner ist essbar",
+      "text": "Giersch gilt als eines der hartnäckigsten Gartenunkräuter. Mit weißen, brüchigen Ausläufern unter der Erde überzieht eine einzige Pflanze in wenigen Jahren große Flächen. Hacken hilft kaum, er wächst schnell nach, und selbst Glyphosat vernichtet ihn nicht ganz. Gleichzeitig ist er ein gutes Wildgemüse. Im Mittelalter hat man ihn sogar absichtlich angebaut.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Mit unterirdischen Ausläufern breiten sich einzelne Pflanzen binnen weniger Jahre über große Flächen aus." },
+        { "quelle": "wiki-de", "text": "Auch Glyphosat vernichtet Giersch nicht vollständig." },
+        { "quelle": "wiki-de", "text": "Im Mittelalter, aber auch in neuerer Zeit wurde Giersch als Gemüse wie auch als Heilpflanze angebaut." }
+      ]
+    },
+    {
+      "id": "petersilie-karotte",
+      "thema": "essbar",
+      "titel": "Schmeckt nach Petersilie und Möhre",
+      "text": "Junge Gierschblätter schmecken wie eine Mischung aus Petersilie und Karotte. Die Blüten sind süßer, die Früchte schärfer. Die zarten, kaum entfalteten Blätter ab März eignen sich als Salat, ältere als Spinat, Suppe oder Tee. Junge Blätter enthalten viel Vitamin C, etwa 200 mg in 100 g.",
+      "details": { "teile": ["junge Blätter", "Blattstiele", "junge Blütensprosse", "Blüten"], "zubereitung": "roh als Salat, gekocht als Spinat oder Suppe", "vitaminC": "etwa 200 mg je 100 g junge Blätter" },
+      "monate": [3, 4, 5],
+      "meldung": "Giersch-Zeit! Die jungen Blätter sprießen. Erkennst du sie am dreikantigen Stiel?",
+      "sicherheit": "Giersch hat giftige Doppelgänger, zum Beispiel Hundspetersilie, Gefleckten Schierling und Wasserschierling. Nur sammeln, wenn du ihn sicher am dreikantigen Blattstiel erkennst. Im Zweifel stehen lassen.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "gleicht einer Mischung aus Petersilie und Karotte. Die Blüten sind süßer und die Früchte schärfer im Geschmack." },
+        { "quelle": "wiki-de", "text": "Als Salat eignen sich vor allem die jungen, zarten, kaum entfalteten Blätter, die ab März oder auch später im Jahr nach einem Rückschnitt erscheinen." },
+        { "quelle": "wiki-de", "text": "200 mg Vitamin C" }
+      ]
+    },
+    {
+      "id": "dreikant-stiel",
+      "thema": "mitmachen",
+      "titel": "Der dreikantige Stiel",
+      "text": "Den Giersch erkennt man gut am Blattstiel: Im Querschnitt ist er dreieckig, eine Kante ist abgerundet und die gegenüberliegende Seite nach innen gewölbt. Das unterscheidet ihn von giftigen Doldenblütlern wie Hundspetersilie, Wasserschierling oder Geflecktem Schierling. Der Name Dreiblatt kommt von den dreiteiligen Blättern.",
+      "details": null,
+      "monate": [3, 4, 5, 6, 7, 8, 9],
+      "meldung": null,
+      "sicherheit": "Doldenblütler nie nur an einem Merkmal bestimmen. Einige Verwandte sind tödlich giftig.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Der Giersch lässt sich von diesen ungenießbaren und giftigen Arten u. a. gut durch seine dreikantigen Blattstiele unterscheiden, wobei eine Kante abgerundet und die gegenüberliegende Seite konkav eingezogen ist." },
+        { "quelle": "wiki-de", "text": "Hundspetersilie, Wasserschierling, Geflecktem Schierling oder Breitblättrigem Merk" }
+      ]
+    },
+    {
+      "id": "weltkriege",
+      "thema": "geschichte",
+      "titel": "Vitamine in Notzeiten",
+      "text": "Giersch ist anspruchslos und über viele Monate zu finden, anders als die meisten Gemüse. Während der Weltkriege sicherte er deshalb vielen Menschen die Versorgung mit Vitaminen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "sicherte er beispielsweise während der Weltkriege vielen Menschen die Vitaminzufuhr" }
+      ]
+    },
+    {
+      "id": "ziegenfuss",
+      "thema": "name",
+      "titel": "Ziegenfuß und Gichtkraut",
+      "text": "Aegopodium heißt „ziegenfüßig“. Oft liest man, die Blätter sähen aus wie ein Ziegenfuß, doch das tun sie kaum. Wahrscheinlicher erinnern die Hüllblätter an den Knospen der Wurzel an einen Ziegenfuß mit Klauen. Podagraria kommt von Podagra, der Gicht: Früher galt Giersch als Mittel dagegen, daher auch Zipperleinskraut. Ob das hilft, ist nicht belegt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die Gestalt der Blätter an sich erinnert aber kaum an einen Ziegenfuß." },
+        { "quelle": "wiki-de", "text": "Der Trivialname Podagrakraut oder Zipperleinskraut weist darauf hin, dass Giersch als ein Mittel gegen Gicht galt." }
+      ]
+    },
+    {
+      "id": "hundert-namen",
+      "thema": "name",
+      "titel": "Rund hundert Namen",
+      "text": "Kaum eine Pflanze hat so viele Volksnamen. Wikipedia zählt rund hundert Volks- und Regionalnamen auf, von Geißfuß und Dreiblatt über Karnickelfutter (Erfurt) bis Ferkelfüße (Iserlohn). Weil die Blätter denen des Holunders ähneln, heißt er auch Wiesenholler. Auch im Englischen heißt er „ground elder“, Boden-Holunder.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de", "wiki-en"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Weil die Blätter dem Hollerbusch (Holunder) ähneln, wird er auch Wiesenholler genannt." },
+        { "quelle": "wiki-de", "text": "Kaninchenfutter oder Karnickelfutter (Erfurter Umgebung)" },
+        { "quelle": "wiki-en", "text": "The name \"ground elder\" comes from the superficial similarity of its leaves and flowers to those of elder (Sambucus)" }
+      ]
+    },
+    {
+      "id": "insektenmagnet",
+      "thema": "oekologie",
+      "titel": "Treffpunkt für Insekten",
+      "text": "Im Sommer wimmelt es auf den weißen Gierschdolden von Bienen, Schwebfliegen, Schmetterlingen, Käfern und Wanzen. Einige Falter wie Schwalbenschwanz, Dukatenfalter und Kleiner Eisvogel sind auf wenige Doldenblütler wie den Giersch angewiesen, als Raupe zum Fressen und als Falter für den Nektar.",
+      "details": null,
+      "monate": [6, 7],
+      "meldung": "Der Giersch blüht. Zähl mal, wie viele verschiedene Insekten auf einer Dolde sitzen!",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Im Sommer wimmelt es auf den Blüten von Bienen, Schwebfliegen, Schmetterlingen, Käfern und Wanzen." },
+        { "quelle": "wiki-de", "text": "Die Blütezeit reicht meist von Juni bis Juli." }
+      ]
+    },
+    {
+      "id": "kartoffeltrick",
+      "thema": "nutzung",
+      "titel": "Kartoffeln gegen Giersch",
+      "text": "Ein giftfreier Trick gegen Giersch im Garten: alles mitsamt Wurzeln aushacken und dann Kartoffeln auf das Beet setzen. Die Kartoffeln wachsen schneller und nehmen dem Giersch Licht und Nährstoffe. Bei der Ernte zieht man die restlichen Wurzeln heraus. Wer die Beete jedes Jahr wechselt, hat bald einen gierschfreien Garten.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Kartoffeln können den Giersch unterdrücken, da sie schneller wachsen und ihm Licht und Nährstoffe nehmen." }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": { "titel": "Wikipedia (de): Giersch", "url": "https://de.wikipedia.org/wiki/Giersch", "abgerufen": "2026-10-25" },
+    "wiki-en": { "titel": "Wikipedia (en): Aegopodium podagraria", "url": "https://en.wikipedia.org/wiki/Aegopodium_podagraria", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Wikipedia listet beim Giersch viele Heilwirkungen (u. a. „antikanzerogen“) ohne erkennbare Belege – bewusst nicht übernommen.",
+    "„Rund hundert Namen“: eigene Zählung der Liste im Artikel (94 regionale + 6 weitere), nicht als Zahl in der Quelle.",
+    "Monate des Erkennungsmerkmals (3–9) abgeleitet aus Blattsaison; nicht belegt."
+  ]
+}

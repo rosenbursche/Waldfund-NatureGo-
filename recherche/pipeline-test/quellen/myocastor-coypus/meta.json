@@ -1,0 +1,25 @@
+{
+  "artId": "myocastor-coypus",
+  "wissName": "Myocastor coypus",
+  "colId": "6RRQT",
+  "wikidata": "Q187704",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Nutria",
+      "url": "https://de.wikipedia.org/wiki/Nutria",
+      "revision": 269613647,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 12608
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Nutria",
+      "url": "https://en.wikipedia.org/wiki/Nutria",
+      "revision": 1381808892,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 33279
+    }
+  ]
+}

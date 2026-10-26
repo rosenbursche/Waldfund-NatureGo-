@@ -1,0 +1,580 @@
+{
+  "pruefer": "Claude (dieselbe Sitzung, die geschrieben hat – nicht unabhängig)",
+  "zaehlung": {
+    "gedeckt": 77,
+    "teilweise": 15,
+    "nicht gedeckt": 3
+  },
+  "eintraege": [
+    {
+      "eintrag": "acer-pseudoplatanus/propeller",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/pferdegift",
+      "wow": 3,
+      "urteil": "teilweise",
+      "grund": "Rat „Pferde nicht auf Weiden mit Ahornsamen“ ist abgeleitet."
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/riegelahorn",
+      "wow": 3,
+      "urteil": "teilweise",
+      "grund": "„schimmert wie Stoff“ eigene Beschreibung."
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/pollenrekord",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/schwurbaum",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/teerflecken",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/ahornsaft",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "„Nicht nur in Kanada“ – Kanada steht nicht in der Quelle."
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/ahornboden",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "Beschreibung „viele alte Ahorne weit verstreut“ nicht aus der Quelle."
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/falsche-platane",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "acer-pseudoplatanus/langens-fussstapfen",
+      "wow": 2,
+      "urteil": "nicht gedeckt",
+      "grund": "„In Dänemark wächst der Berg-Ahorn nicht von Natur aus“ – die Quelle nennt Dänemark sogar bei den Fundorten; nicht belegt."
+    },
+    {
+      "eintrag": "aegopodium-podagraria/unkraut-und-gemuese",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "aegopodium-podagraria/petersilie-karotte",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "aegopodium-podagraria/dreikant-stiel",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "„Name Dreiblatt kommt von den dreiteiligen Blättern“ – Quelle nennt nur den Namen, nicht die Herkunft."
+    },
+    {
+      "eintrag": "aegopodium-podagraria/weltkriege",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "aegopodium-podagraria/ziegenfuss",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "aegopodium-podagraria/hundert-namen",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "aegopodium-podagraria/insektenmagnet",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "aegopodium-podagraria/kartoffeltrick",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/name-legende",
+      "wow": 3,
+      "urteil": "teilweise",
+      "grund": "„heute meist wood ear“ abgeleitet aus „historically as Jew's ear“."
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/schrumpfen-quellen",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/winterpilz",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/holunder-partner",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/nur-europa",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/pilz-des-jahres",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "auricularia-auricula-judae/ohrform",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/katzenadler-irrtum",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/haeher-imitiert",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/6335-km",
+      "wow": 3,
+      "urteil": "teilweise",
+      "grund": "„Die meisten deutschen Bussarde ziehen höchstens 50 km“ und „jedes Jahr über 10.000“ verallgemeinern die Quelle (großer Teil; Zählung nur 1987–1990)."
+    },
+    {
+      "eintrag": "buteo-buteo/autobahn-ansitz",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/balzflug",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/windraeder",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/mausjahre",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/winterspeck",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "buteo-buteo/treue-paare",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/13000-jahre-bau",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/bahnstrecke",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/igel-jaeger",
+      "wow": 3,
+      "urteil": "teilweise",
+      "grund": "Titel „Der einzige, der den Igel knackt“ übertreibt (Quelle: neben dem Uhu)."
+    },
+    {
+      "eintrag": "dachs/dachsklo",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/keimruhe",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/fuenf-meter-tief",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/dachszupf",
+      "wow": 2,
+      "urteil": "nicht gedeckt",
+      "grund": "„Dackel heißt Dachshund, weil man ihn bei der Jagd auf Dachse einsetzte“ – steht so nicht in der Quelle (eigenes Vorwissen)."
+    },
+    {
+      "eintrag": "dachs/name-bauen",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/pflanzenkost",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "dachs/begasung",
+      "wow": 2,
+      "urteil": "nicht gedeckt",
+      "grund": "„um die Tollwut zu bekämpfen“ und der Mechanismus „starben mit“ stehen nicht in der Quelle (eigenes Vorwissen)."
+    },
+    {
+      "eintrag": "fomes-fomentarius/oetzi-zunder",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/pilzleder",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/kompass-pilz",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/kein-jahresring",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/buche-oder-birke",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/weissfaeule",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/zeiger-alter-wald",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "„Viele Zunderschwämme zeigen naturnahen Wald“ ist Schlussfolgerung."
+    },
+    {
+      "eintrag": "fomes-fomentarius/huadersau",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/zunderboom",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "fomes-fomentarius/blutrot",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/schlangenzischen",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/milchflaschen",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/fledermausjaeger",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/gesang-partnerwahl",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/zizibä",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/kaelteschlaf",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/speckmeise",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/raupen-futter",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "parus-major/brustband",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/wurm-speisekammer",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/schrumpfendes-gehirn",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/30-meter",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/nicht-blind",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/fell-ohne-strich",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "„vorwärts oder rückwärts“ nicht in der Quelle."
+    },
+    {
+      "eintrag": "talpa-europaea/oekosystem-ingenieur",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/maulwurfsburg",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/fresser",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/geschuetzt",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "talpa-europaea/hebel-brehm",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/sirenen-imitator",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/fruehaufsteher",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/komponistin",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/vom-wald-in-die-stadt",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/usutu",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/sonnenbad",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "„sieht aus, als wäre der Vogel krank“ eigene Deutung."
+    },
+    {
+      "eintrag": "turdus-merula/kopf-schief",
+      "wow": 1,
+      "urteil": "teilweise",
+      "grund": "„Meist zieht sie einen Regenwurm heraus“ abgeleitet."
+    },
+    {
+      "eintrag": "turdus-merula/weisse-amseln",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/teilzieher",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/amselfeld",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "turdus-merula/aberglaube",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/brennhaar-spritze",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/raupenfutter",
+      "wow": 3,
+      "urteil": "teilweise",
+      "grund": "Schlussfolgerung „wer Brennnesseln stehen lässt, hilft“ nicht in der Quelle."
+    },
+    {
+      "eintrag": "urtica-dioica/drei-ruessler",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/rostpilz",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/ampfer-mythos",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/nesseltuch",
+      "wow": 3,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/wildgemuese",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/wettessen",
+      "wow": 2,
+      "urteil": "gedeckt",
+      "grund": null
+    },
+    {
+      "eintrag": "urtica-dioica/stickstoffzeiger",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "Deutung „alte Lager, Ställe; Brennnesselfleck im Wald als Hinweis“ geht über die Quelle hinaus."
+    },
+    {
+      "eintrag": "urtica-dioica/jauche-verbot",
+      "wow": 2,
+      "urteil": "teilweise",
+      "grund": "„heftiger Streit“ nur aus dem Filmtitel „Brennnessel-Krieg“ abgeleitet."
+    },
+    {
+      "eintrag": "urtica-dioica/zweihaeusig",
+      "wow": 1,
+      "urteil": "gedeckt",
+      "grund": null
+    }
+  ]
+}

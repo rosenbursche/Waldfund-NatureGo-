@@ -1,0 +1,25 @@
+{
+  "artId": "cornus-sanguinea",
+  "wissName": "Cornus sanguinea",
+  "colId": "YGMF",
+  "wikidata": "Q161416",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Roter Hartriegel",
+      "url": "https://de.wikipedia.org/wiki/Roter_Hartriegel",
+      "revision": 271121525,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 13746
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Cornus sanguinea",
+      "url": "https://en.wikipedia.org/wiki/Cornus_sanguinea",
+      "revision": 1346406207,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 3074
+    }
+  ]
+}

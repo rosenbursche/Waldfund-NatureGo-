@@ -1,0 +1,283 @@
+{
+  "artId": "parus-major",
+  "colId": "75SVV",
+  "wissName": "Parus major",
+  "gruppe": "voegel",
+  "eintraege": [
+    {
+      "id": "schlangenzischen",
+      "thema": "verhalten",
+      "titel": "Eine Meise, die wie eine Schlange zischt",
+      "text": "Stört man ein brütendes Kohlmeisen-Weibchen in seiner Höhle, faucht es laut zischend, spreizt den Schwanz und schlägt mit den Flügeln dumpf gegen die Höhlenwand. Fachleute vermuten, dass es so eine Schlange vortäuscht, um Feinde zu verscheuchen. Im dunklen Nistkasten klingt das ziemlich unheimlich.",
+      "details": null,
+      "monate": [
+        4,
+        5,
+        6
+      ],
+      "meldung": null,
+      "sicherheit": "Nistkästen in der Brutzeit nicht öffnen.",
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Vermutlich dient dieses Verhalten der Abschreckung von Prädatoren und soll die Anwesenheit einer Schlange vortäuschen."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Dabei macht es einen zischenden Laut und stellt das Gefieder der weißen Wangenflecken auf."
+        }
+      ]
+    },
+    {
+      "id": "milchflaschen",
+      "thema": "verhalten",
+      "titel": "Die Meisen, die Milchflaschen knackten",
+      "text": "Kohlmeisen sind sehr erfinderisch und lernen schnell. In Großbritannien lernten sie, die Folienverschlüsse von Milchflaschen vor der Haustür aufzupicken, und dieses Verhalten breitete sich schnell über ganze Landesteile aus. Eine Haselnuss können sie in etwa zehn Minuten aufhacken.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Ein bekanntes Beispiel dafür ist das Öffnen der Folienverschlüsse von Milchflaschen in Großbritannien – ein Verhalten, das sich schnell über einige Landesteile ausbreitete."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Die Kohlmeise vermag auch, Haselnüsse aufzuhacken, was etwa zehn Minuten dauern kann."
+        }
+      ]
+    },
+    {
+      "id": "fledermausjaeger",
+      "thema": "verblueffend",
+      "titel": "Im Notwinter ein Räuber",
+      "text": "In ganz extremen Kältewintern tötet die sonst harmlose Kohlmeise manchmal kleinere Vögel oder sogar Fledermäuse, die im Winterschlaf sind. Sie frisst dann meist nur kleine Teile wie das Gehirn oder Flugmuskeln. Das ist aber eine seltene Ausnahme.",
+      "details": null,
+      "monate": [
+        12,
+        1,
+        2
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "In extremen Ausnahmefällen wie beispielsweise besonderen Kältewintern tötet die Kohlmeise auch kleinere Vögel oder andere Wirbeltiere wie überwinternde Fledermäuse."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Es werden dann meist nur kleinere Teile wie das Gehirn oder ein Teil der Flugmuskulatur verspeist."
+        }
+      ]
+    },
+    {
+      "id": "gesang-partnerwahl",
+      "thema": "verhalten",
+      "titel": "Bloß nicht wie Papa",
+      "text": "Jedes Kohlmeisenmännchen hat 3 bis 7, manchmal bis 18 verschiedene Strophen. Männchen mit vielen Strophen sind meist erfolgreicher. Weibchen wählen meist ein Männchen, dessen Gesang dem ihres Vaters am wenigsten ähnelt.",
+      "details": {
+        "strophentypen": "3–7, selten bis 18"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Weibchen suchen sich meist Männchen, deren Gesang dem des Vaters am wenigsten ähnelt."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Männchen mit großem Gesangsrepertoire sind durchschnittlich dominanter und erfolgreicher."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "wobei jedes Männchen ein Repertoire von 3–7, seltener von bis zu 18 verschiedenen Strophentypen hat"
+        }
+      ]
+    },
+    {
+      "id": "zizibä",
+      "thema": "mitmachen",
+      "titel": "Tsi-da, tsi-da: Frühlingsbote im Winter",
+      "text": "Schon im Winter und dann ab dem zeitigen Frühjahr hört man den hellen, metallischen Gesang „tsi-da … tsi-da … tsi-da“. Achtung Verwechslung: Der Ruf „pink“ klingt fast genau wie der des Buchfinken. Erst wenn er mehrfach wiederholt wird, etwa „zi-pink-pink-pink“, erkennt man die Kohlmeise.",
+      "details": null,
+      "monate": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "meldung": "Hörst du schon das helle „tsi-da, tsi-da“? Die Kohlmeisen singen den Frühling herbei.",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Ab dem zeitigen Frühjahr und teilweise auch schon im Winter ist der recht auffällige, metallisch-helle Gesang zu vernehmen"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "ist ein metallisches pink, das für sich allein kaum vom ähnlichen Ruf des Buchfinken zu unterscheiden ist"
+        }
+      ]
+    },
+    {
+      "id": "kaelteschlaf",
+      "thema": "koerper",
+      "titel": "Nachts auf Sparflamme",
+      "text": "Im Winter schlafen Kohlmeisen in Baumhöhlen oder Nistkästen. In sehr kalten Nächten senken sie ihre Körpertemperatur von etwa 41,8 °C auf 32 °C und sparen so Energie. Ihr Schlaf ist sehr fest.",
+      "details": {
+        "temperatur": "41,8 °C normal, 32 °C in Kältenächten"
+      },
+      "monate": [
+        11,
+        12,
+        1,
+        2
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Sehr kalte Nächte überstehen Kohlmeisen, indem sie ihre Körpertemperatur von üblicherweise 41,8 °C auf 32 °C absenken und so wenig Energie verbrauchen."
+        }
+      ]
+    },
+    {
+      "id": "speckmeise",
+      "thema": "name",
+      "titel": "Kohlmeise, Speckmeise, Talghacker",
+      "text": "Der Name Kohlmeise kommt von den kohlschwarzen Stellen am Kopf und ist seit dem 15. Jahrhundert belegt. Früher hieß sie auch Speckmeise, Schinkenmeise oder Talghacker, weil sie bei Hausschlachtungen Fett und Speck stibitzte. Kurios: Auf Englisch heißt „Coal Tit“, also Kohlmeise, nicht sie, sondern die Tannenmeise.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Der Name Kohlmeise bezieht sich auf die „kohlschwarzen“ Partien am Kopf und ist bereits für das 15. Jahrhundert belegbar."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "welche wiederum auf Englisch Coal Tit, also „Kohlmeise“ heißt"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "im Winter darum bei Hausschlachtungen beobachtet werden konnte oder Speck aus Speisekammern stibitzte"
+        }
+      ]
+    },
+    {
+      "id": "raupen-futter",
+      "thema": "oekologie",
+      "titel": "Raupen für die Kinderstube",
+      "text": "Zur Brutzeit füttern Kohlmeisen ihre Jungen vor allem mit Raupen, etwa vom Eichenwickler und Kleinen Frostspanner. Bienen werden vorher entstachelt, manche Raupen enthaart. Ein Gelege hat meist 6 bis 12 Eier, die Jungen bleiben 17 bis 20 Tage im Nest.",
+      "details": {
+        "gelege": "meist 6–12 Eier",
+        "nestlingszeit": "17–20 Tage (Mitteleuropa)"
+      },
+      "monate": [
+        4,
+        5,
+        6
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "In Mitteleuropa sind dies beispielsweise je nach Lebensraum insbesondere die häufigen Arten Eichenwickler, Kleiner Frostspanner oder Kieferneule."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Bienen werden beispielsweise entstachelt und manche Raupen enthaart."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "in Mitteleuropa meist zwischen 17 und 20 Tagen"
+        }
+      ]
+    },
+    {
+      "id": "brustband",
+      "thema": "mitmachen",
+      "titel": "Der schwarze Schlips als Drohung",
+      "text": "Streiten zwei Kohlmeisen-Männchen im Frühjahr, richtet sich der Angreifer steil auf, zeigt sein schwarzes Brustband und dreht den Kopf, um die weißen Wangen zu präsentieren. Oft reicht das schon. Kommt es doch zum Kampf, dauert er meist nur 30 bis 50 Sekunden.",
+      "details": null,
+      "monate": [
+        3,
+        4
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "bei der sich der imponierende Vogel mit senkrecht gehaltenem Kopf hoch aufrichtet und das schwarze Brustband zeigt"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Kämpfe sind meist kurz und dauern allenfalls 30–50 Sekunden."
+        }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": {
+      "titel": "Wikipedia (de): Kohlmeise",
+      "url": "https://de.wikipedia.org/wiki/Kohlmeise",
+      "abgerufen": "2026-10-25"
+    },
+    "wiki-en": {
+      "titel": "Wikipedia (en): Great tit",
+      "url": "https://en.wikipedia.org/wiki/Great_tit",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Gezielt gelesen: 7 von 28 Abschnitten (22.000 von 70.400 Zeichen); EN nicht gelesen.",
+    "„Klingt ziemlich unheimlich“: eigene Wertung.",
+    "Brutmonate 4–6 und Streit-Monate 3–4 abgeleitet (Wikipedia-Ausschnitt ohne Monatsangaben zur Brut gelesen).",
+    "Englisch: Coal Tit = Tannenmeise ist aus der deutschen Wikipedia, nicht der englischen."
+  ]
+}

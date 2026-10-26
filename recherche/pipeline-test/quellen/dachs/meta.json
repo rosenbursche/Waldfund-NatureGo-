@@ -1,0 +1,25 @@
+{
+  "artId": "dachs",
+  "wissName": "Meles meles",
+  "colId": "3ZDRX",
+  "wikidata": "Q27066",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Europäischer Dachs",
+      "url": "https://de.wikipedia.org/wiki/Europ%C3%A4ischer_Dachs",
+      "revision": 269302049,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 20466
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): European badger",
+      "url": "https://en.wikipedia.org/wiki/European_badger",
+      "revision": 1379706027,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 39107
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "ondatra-zibethicus",
+  "wissName": "Ondatra zibethicus",
+  "colId": "49JSC",
+  "wikidata": "Q26283",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Bisamratte",
+      "url": "https://de.wikipedia.org/wiki/Bisamratte",
+      "revision": 271358360,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 26021
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Muskrat",
+      "url": "https://en.wikipedia.org/wiki/Muskrat",
+      "revision": 1378888273,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 12926
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "fringilla-coelebs",
+  "wissName": "Fringilla coelebs",
+  "colId": "6JPSJ",
+  "wikidata": "Q25383",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Buchfink",
+      "url": "https://de.wikipedia.org/wiki/Buchfink",
+      "revision": 266331247,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 12130
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Eurasian chaffinch",
+      "url": "https://en.wikipedia.org/wiki/Eurasian_chaffinch",
+      "revision": 1375721699,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 17356
+    }
+  ]
+}

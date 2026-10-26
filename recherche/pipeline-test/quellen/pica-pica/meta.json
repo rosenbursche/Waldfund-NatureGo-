@@ -1,0 +1,25 @@
+{
+  "artId": "pica-pica",
+  "wissName": "Pica pica",
+  "colId": "4HPXM",
+  "wikidata": "Q25307",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Elster",
+      "url": "https://de.wikipedia.org/wiki/Elster",
+      "revision": 269008438,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 54103
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Eurasian magpie",
+      "url": "https://en.wikipedia.org/wiki/Eurasian_magpie",
+      "revision": 1377999290,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 18704
+    }
+  ]
+}

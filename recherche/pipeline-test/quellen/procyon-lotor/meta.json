@@ -1,0 +1,25 @@
+{
+  "artId": "procyon-lotor",
+  "wissName": "Procyon lotor",
+  "colId": "4MPXY",
+  "wikidata": "Q121439",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Waschbär",
+      "url": "https://de.wikipedia.org/wiki/Waschb%C3%A4r",
+      "revision": 271445797,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 53050
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Raccoon",
+      "url": "https://en.wikipedia.org/wiki/Raccoon",
+      "revision": 1380701690,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 50764
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "filipendula-ulmaria",
+  "wissName": "Filipendula ulmaria",
+  "colId": "6J2MQ",
+  "wikidata": "Q147176",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Echtes Mädesüß",
+      "url": "https://de.wikipedia.org/wiki/Echtes_M%C3%A4des%C3%BC%C3%9F",
+      "revision": 269209095,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 20516
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Filipendula ulmaria",
+      "url": "https://en.wikipedia.org/wiki/Filipendula_ulmaria",
+      "revision": 1344915470,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 5516
+    }
+  ]
+}

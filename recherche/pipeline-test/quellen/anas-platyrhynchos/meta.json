@@ -1,0 +1,25 @@
+{
+  "artId": "anas-platyrhynchos",
+  "wissName": "Anas platyrhynchos",
+  "colId": "DGP6",
+  "wikidata": "Q25348",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Stockente",
+      "url": "https://de.wikipedia.org/wiki/Stockente",
+      "revision": 270645289,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 25654
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Mallard",
+      "url": "https://en.wikipedia.org/wiki/Mallard",
+      "revision": 1381210122,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 31715
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "cyanistes-caeruleus",
+  "wissName": "Cyanistes caeruleus",
+  "colId": "32NH2",
+  "wikidata": "Q25404",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Blaumeise",
+      "url": "https://de.wikipedia.org/wiki/Blaumeise",
+      "revision": 266641831,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 64767
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Eurasian blue tit",
+      "url": "https://en.wikipedia.org/wiki/Eurasian_blue_tit",
+      "revision": 1379211955,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 14654
+    }
+  ]
+}

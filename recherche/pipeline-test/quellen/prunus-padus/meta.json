@@ -1,0 +1,25 @@
+{
+  "artId": "prunus-padus",
+  "wissName": "Prunus padus",
+  "colId": "4N93X",
+  "wikidata": "Q165424",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Gewöhnliche Traubenkirsche",
+      "url": "https://de.wikipedia.org/wiki/Gew%C3%B6hnliche_Traubenkirsche",
+      "revision": 270975496,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 10278
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Prunus padus",
+      "url": "https://en.wikipedia.org/wiki/Prunus_padus",
+      "revision": 1373708457,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 6524
+    }
+  ]
+}

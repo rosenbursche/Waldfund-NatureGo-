@@ -1,0 +1,25 @@
+{
+  "artId": "oryctolagus-cuniculus",
+  "wissName": "Oryctolagus cuniculus",
+  "colId": "74ZBP",
+  "wikidata": "Q25851",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Wildkaninchen",
+      "url": "https://de.wikipedia.org/wiki/Wildkaninchen",
+      "revision": 269998099,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 14415
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): European rabbit",
+      "url": "https://en.wikipedia.org/wiki/European_rabbit",
+      "revision": 1381714084,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 51831
+    }
+  ]
+}

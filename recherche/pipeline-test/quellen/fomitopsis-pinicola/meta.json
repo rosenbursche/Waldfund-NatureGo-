@@ -1,0 +1,25 @@
+{
+  "artId": "fomitopsis-pinicola",
+  "wissName": "Fomitopsis pinicola",
+  "colId": "6JCCY",
+  "wikidata": "Q1928270",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Rotrandiger Baumschwamm",
+      "url": "https://de.wikipedia.org/wiki/Rotrandiger_Baumschwamm",
+      "revision": 266690228,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 4978
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Fomitopsis pinicola",
+      "url": "https://en.wikipedia.org/wiki/Fomitopsis_pinicola",
+      "revision": 1367800051,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 6443
+    }
+  ]
+}

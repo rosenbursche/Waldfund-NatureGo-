@@ -1,0 +1,25 @@
+{
+  "artId": "hypholoma-fasciculare",
+  "wissName": "Hypholoma fasciculare",
+  "colId": "3NSGX",
+  "wikidata": "Q752507",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Grünblättriger Schwefelkopf",
+      "url": "https://de.wikipedia.org/wiki/Gr%C3%BCnbl%C3%A4ttriger_Schwefelkopf",
+      "revision": 270517793,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 4047
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Hypholoma fasciculare",
+      "url": "https://en.wikipedia.org/wiki/Hypholoma_fasciculare",
+      "revision": 1367301003,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 3201
+    }
+  ]
+}

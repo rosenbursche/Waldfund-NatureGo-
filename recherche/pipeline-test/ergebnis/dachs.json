@@ -1,0 +1,316 @@
+{
+  "artId": "dachs",
+  "colId": "3ZDRX",
+  "wissName": "Meles meles",
+  "gruppe": "saeuger",
+  "eintraege": [
+    {
+      "id": "13000-jahre-bau",
+      "thema": "verblueffend",
+      "titel": "Ein Bau, 13.000 Jahre alt",
+      "text": "Dachsbaue werden über Generationen genutzt, und jede Generation gräbt weiter. Ein Bau in England hatte 50 Kammern und 178 Eingänge, verbunden durch 879 Meter Tunnel. In einem Bau bei Malchin in Mecklenburg-Vorpommern fand man Knochenreste, die mindestens 13.000 Jahre alt sind.",
+      "details": {
+        "kammern": 50,
+        "eingaenge": 178,
+        "tunnel": "879 m"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Ein in England untersuchter Dachsbau umfasste 50 Kammern und 178 Eingänge, die durch insgesamt 879 Meter Tunnel miteinander verbunden waren."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "In einem bei Malchin in Mecklenburg-Vorpommern untersuchten Bau wurden mindestens 13.000 Jahre alte Knochenreste gefunden."
+        }
+      ]
+    },
+    {
+      "id": "bahnstrecke",
+      "thema": "verblueffend",
+      "titel": "Dachse legen eine Bahnstrecke lahm",
+      "text": "2023 wurde die Bahnstrecke von Fröndenberg nach Unna für voraussichtlich mehrere Jahre gesperrt: 140 Dachsbau-Eingänge hatten den Damm auf elf Kilometern instabil gemacht. Die Reparatur kommt einem Neubau gleich. Auch in den Niederlanden mussten im März 2023 zwei Bahnstrecken wegen Dachsbauen gesperrt werden.",
+      "details": {
+        "eingaenge": 140,
+        "streckenlaenge": "11 km"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Nach Angabe der Bahn waren bis dahin 140 Dachsbau-Eingänge entdeckt worden, die den Damm auf elf Kilometer instabil machten."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Im März 2023 mussten aus diesem Grund zwei Bahnstrecken vorübergehend für den Betrieb gesperrt werden"
+        }
+      ]
+    },
+    {
+      "id": "igel-jaeger",
+      "thema": "beziehung",
+      "titel": "Er knackt sogar den Igel",
+      "text": "Dachse können Igel mit ihren langen Krallen aufrollen. Dann stecken sie die Schnauze in die kleine Lücke an der Bauchseite. In Mitteleuropa gehört der Dachs deshalb neben dem Uhu zu den größten Feinden des Igels.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Als natürliche Feinde des Igels sind Dachse in der Lage, diese mit ihren Krallen aufzurollen und zu verzehren, wobei sie ihre Schnauze in die kleine Lücke an der Bauchseite des zusammengerollten Stacheligels stecken."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Daher zählen sie in Mitteleuropa neben den Uhus zu deren größten Fressfeinden."
+        }
+      ]
+    },
+    {
+      "id": "dachsklo",
+      "thema": "mitmachen",
+      "titel": "Dachs oder Fuchs? Schau nach dem Klo!",
+      "text": "Ob ein Bau vom Dachs oder Fuchs stammt, erkennst du an den Dachsabtritten: Der Dachs gräbt kleine Erdlöcher als Toilette nahe dem Bau. Typisch ist auch eine ausgetretene Rinne am Eingang, die in einen deutlichen Pfad übergeht. Manchmal wohnen Fuchs und Dachs sogar gemeinsam im selben Bau.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Baue nur aus Abstand ansehen und nicht stören.",
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Der Dachs setzt seinen Kot in dafür von ihm gegrabene kleine Erdlöcher."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Typisch ist auch die ausgetretene Rinne (Geschleif) am Eingang zum Bau, die in einen deutlich erkennbaren Pfad (Dachs-Pass) übergeht."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Nicht selten werden die Baue auch von Fuchs und Dachs gemeinsam bewohnt."
+        }
+      ]
+    },
+    {
+      "id": "keimruhe",
+      "thema": "verblueffend",
+      "titel": "Paarung im Frühjahr, Junge im nächsten Frühjahr",
+      "text": "Dachse paaren sich vor allem zwischen Februar und Mai. Das befruchtete Ei wächst danach aber nicht weiter, sondern ruht bis zum Winter. Erst zwischen Anfang Dezember und Mitte Januar nistet es sich ein. Nach nur 45 Tagen Tragzeit kommen die meisten Jungen in Mitteleuropa Anfang März zur Welt.",
+      "details": {
+        "tragzeitNachRuhe": "45 Tage",
+        "geburt": "meist Anfang März"
+      },
+      "monate": [
+        2,
+        3
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Erst zwischen Anfang Dezember und Mitte Januar nistet sich die Eizelle dann in die Gebärmutterschleimhaut ein und entwickelt sich regulär fort."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "in Mitteleuropa werden die meisten Jungen Anfang März geboren"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "die meisten und am längsten andauernden aber zwischen Februar und Mai"
+        }
+      ]
+    },
+    {
+      "id": "fuenf-meter-tief",
+      "thema": "verhalten",
+      "titel": "Schlafzimmer in fünf Metern Tiefe",
+      "text": "Der Wohnkessel eines Dachsbaus liegt oft etwa fünf Meter tief. Anders als der Fuchs polstert der Dachs ihn mit trockenem Laub, Moos oder Farn aus. In kalten Gegenden hält er Winterruhe, je nach Wetter mit Unterbrechungen von einigen Tagen bis zu mehreren Monaten.",
+      "details": {
+        "tiefe": "etwa 5 m"
+      },
+      "monate": [
+        12,
+        1,
+        2
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "In etwa fünf Meter Tiefe liegt der Wohnkessel"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Im Gegensatz zum Fuchs polstert der Dachs den Kessel seines Baues mit trockenem Laub, Moos oder Farnkraut aus."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "In den kälteren Gegenden halten sie eine Winterruhe, die je nach Wetterbedingungen mit Unterbrechungen einige Tage bis mehrere Monate dauern kann."
+        }
+      ]
+    },
+    {
+      "id": "dachszupf",
+      "thema": "nutzung",
+      "titel": "Rasierpinsel und Jagdhelfer",
+      "text": "Aus Dachshaaren macht man bis heute hochwertige Rasierpinsel, den sogenannten Dachszupf, und Malerpinsel. Die Haare kommen heute meist aus China. Den Hut des Jägers schmückte ein „Dachsbart“. Gezähmte Dachse setzte man früher sogar wie den Dackel, der auch Dachshund heißt, bei der Jagd als Stöbertiere ein.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Dachshaare wurden für Bürsten und werden noch heute für hochwertige Rasierpinsel verwendet, den sogenannten Dachszupf."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Dachshaare kommen heute meist aus China."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "wie der Dackel genannte Dachshund, bei der Jagd eingesetzt werden"
+        }
+      ]
+    },
+    {
+      "id": "name-bauen",
+      "thema": "name",
+      "titel": "Der Baumeister",
+      "text": "Das Wort Dachs geht wohl auf eine alte Wortwurzel für „bauen“ oder „zimmern“ zurück. Der Dachs wäre also nach seiner Baukunst benannt. Im Altindischen heißt ein ähnliches Wort Zimmermann. In der Fabel heißt der Dachs Grimbart, in der Jägersprache „Schmalzmann“. Mit dem Frechdachs hat er vermutlich nichts zu tun.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Das Tier kann somit nach seiner Baukunst benannt worden sein"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "In der Jägersprache wird der Dachs „Schmalzmann“ genannt."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Der Frechdachs hat vermutlich nichts mit dem Dachs zu tun"
+        }
+      ]
+    },
+    {
+      "id": "pflanzenkost",
+      "thema": "verhalten",
+      "titel": "Ein Marder, der lieber Obst isst",
+      "text": "Der Dachs gehört zu den Mardern, ist aber kein reiner Fleischfresser. Er frisst viel Pflanzliches wie Wildobst, Beeren, Wurzeln, Pilze, Getreide und Mais, in Mastjahren besonders gern Eicheln. Dazu kommen vor allem Regenwürmer, Käferlarven und Wühlmäuse. Seine rüsselartige Nase ragt über die Unterlippe hinaus, ideal zum Wühlen.",
+      "details": null,
+      "monate": [
+        8,
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Im Unterschied zu anderen Mardern ist der Dachs kein ausgesprochener Fleischfresser, sondern nimmt überwiegend pflanzliche Kost zu sich"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "In Mastjahren werden Eicheln intensiv als Nahrung genutzt."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Die rüsselartige Nase ragt mindestens 1,5 cm über die Unterlippe hinaus."
+        }
+      ]
+    },
+    {
+      "id": "begasung",
+      "thema": "geschichte",
+      "titel": "Opfer der Fuchsjagd",
+      "text": "Bis in die 1970er Jahre ließen Behörden in Deutschland massenhaft Fuchsbaue begasen. Das führte auch beim Dachs zu einem dramatischen Rückgang, denn Fuchs und Dachs wohnen nicht selten im selben Bau. Inzwischen haben sich die Dachsbestände wieder erholt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Die massenhafte, behördlich angeordnete Begasung von Rotfuchsbauen hat in Deutschland bis in die 1970er-Jahre zu einem dramatischen Bestandsrückgang des Dachses geführt."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Inzwischen erholten sich die Bestände wieder"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Nicht selten werden die Baue auch von Fuchs und Dachs gemeinsam bewohnt."
+        }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": {
+      "titel": "Wikipedia (de): Europäischer Dachs",
+      "url": "https://de.wikipedia.org/wiki/Europ%C3%A4ischer_Dachs",
+      "abgerufen": "2026-10-25"
+    },
+    "wiki-en": {
+      "titel": "Wikipedia (en): European badger",
+      "url": "https://en.wikipedia.org/wiki/European_badger",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Gezielt gelesen: 13 von 17 Abschnitten (17.000 von 59.600 Zeichen; der Rest ist v. a. Systematik/Variation).",
+    "Nahrungsmonate 8–10 aus „Sommer und Herbst“ abgeleitet.",
+    "Nach der Inhaltsprüfung korrigiert: Begasung (Tollwut-Begründung entfernt), Dachshund-Herleitung entfernt, Igel-Titel entschärft."
+  ]
+}

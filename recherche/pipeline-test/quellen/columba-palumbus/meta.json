@@ -1,0 +1,25 @@
+{
+  "artId": "columba-palumbus",
+  "wissName": "Columba palumbus",
+  "colId": "XBGG",
+  "wikidata": "Q26026",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Ringeltaube",
+      "url": "https://de.wikipedia.org/wiki/Ringeltaube",
+      "revision": 262871775,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 19853
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Common wood pigeon",
+      "url": "https://en.wikipedia.org/wiki/Common_wood_pigeon",
+      "revision": 1358214024,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 8535
+    }
+  ]
+}

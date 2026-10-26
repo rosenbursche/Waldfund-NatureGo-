@@ -1,0 +1,25 @@
+{
+  "artId": "chelidonium-majus",
+  "wissName": "Chelidonium majus",
+  "colId": "5XQW8",
+  "wikidata": "Q156807",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Schöllkraut",
+      "url": "https://de.wikipedia.org/wiki/Sch%C3%B6llkraut",
+      "revision": 271478651,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 28358
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Chelidonium majus",
+      "url": "https://en.wikipedia.org/wiki/Chelidonium_majus",
+      "revision": 1377891067,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 6410
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "artId": "talpa-europaea",
+  "colId": "54M2V",
+  "wissName": "Talpa europaea",
+  "gruppe": "saeuger",
+  "eintraege": [
+    {
+      "id": "wurm-speisekammer",
+      "thema": "verhalten",
+      "titel": "Eine Speisekammer voller betäubter Würmer",
+      "text": "Vor dem Winter legt der Maulwurf Vorräte an: Regenwürmer, denen er die vorderen drei bis fünf Körpersegmente abbeißt. So sind sie betäubt und kriechen nicht davon. Eine einzige Vorratskammer kann bis zu 790 Regenwürmer mit 1,5 kg Gewicht enthalten, Futter für mehr als drei Wochen.",
+      "details": { "wuermer": "bis 790", "gewicht": "1,5 kg", "reichtFuer": "über drei Wochen" },
+      "monate": [9, 10, 11],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Einige derartiger Vorratskammern können aus bis zu 790 Regenwürmern mit einem Gesamtgewicht von 1,5 kg bestehen, was einer Nahrungsmenge für mehr als drei Wochen entspricht." },
+        { "quelle": "wiki-de", "text": "Bei der Lagerung beißt der Europäische Maulwurf den Regenwürmern die vorderen drei bis fünf Körpersegmente ab, wodurch diese betäubt werden." }
+      ]
+    },
+    {
+      "id": "schrumpfendes-gehirn",
+      "thema": "koerper",
+      "titel": "Im Winter schrumpft der Kopf",
+      "text": "Maulwürfe halten keinen Winterschlaf. Um Energie zu sparen, verkleinern sie im Winter ihren Schädel, ihr Gehirn und einige innere Organe. Im Frühjahr wächst alles wieder, aber nicht ganz auf die alte Größe. Diesen Dehnel-Effekt gibt es auch bei Spitzmäusen und Wieseln.",
+      "details": { "effekt": "Dehnel-Effekt" },
+      "monate": [12, 1, 2],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Um in der kalten Jahreszeit etwas Energie einzusparen, verkleinern die Tiere Schädel, Gehirn und einige der inneren Organe im Winter." },
+        { "quelle": "wiki-de", "text": "Nach dem Winter wachsen die geschrumpften Strukturen wieder, erreichen jedoch nicht wieder ihre ursprüngliche Größe." }
+      ]
+    },
+    {
+      "id": "30-meter",
+      "thema": "koerper",
+      "titel": "30 Meter Tunnel in einer Nacht",
+      "text": "In lockerem Boden gräbt ein Maulwurf in einer Nacht rund 30 Meter Tunnel. Er gräbt abwechselnd mit einer Hand, die andere hakt er als Anker in den Boden. Für einen Hügel drückt er die Erde portionsweise nach oben, mit dem Kopf wie eine kleine Planierraupe. Dabei bewegt er das Zehn- bis Zwölffache seines eigenen Gewichts.",
+      "details": { "tunnelProNacht": "rund 30 m" },
+      "monate": [3, 4, 9, 10],
+      "meldung": "Maulwurfszeit! Im Frühjahr wird besonders viel gegraben. Wie viele frische Hügel zählst du auf einer Wiese?",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Innerhalb einer Nacht kann ein Tier in lockerem Boden rund 30 m an Tunneln ausgraben." },
+        { "quelle": "wiki-de", "text": "Demnach presst ein einzelnes Tier beim Graben das zehn- bis zwölffache seines eigenen Körpergewichts durch die Gänge und an die Erdoberfläche." },
+        { "quelle": "wiki-de", "text": "Der Höhepunkt der Grabungsaktivitäten wird zumeist im Frühjahr und im Herbst erreicht" }
+      ]
+    },
+    {
+      "id": "nicht-blind",
+      "thema": "verblueffend",
+      "titel": "Nicht ganz blind",
+      "text": "Maulwürfe haben winzige Augen in einer Lidspalte und keine sichtbaren Ohren. Blind sind sie aber nicht ganz: Sie können hell und dunkel unterscheiden. Sie merken sich ihre Gänge mindestens sechs Wochen lang, können klettern und sogar im Winter schwimmen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Unterstützend zur Orientierung im Raum kommt die Befähigung, hell und dunkel zu unterscheiden, womit der Europäische Maulwurf nicht vollständig blind ist." },
+        { "quelle": "wiki-de", "text": "Allerdings ist der Europäische Maulwurf auch ein guter Kletterer und vermag zu schwimmen, letzteres auch im Winter." }
+      ]
+    },
+    {
+      "id": "fell-ohne-strich",
+      "thema": "mitmachen",
+      "titel": "Ein Fell ohne Strich",
+      "text": "Maulwurffell hat keinen Strich: Die Haare lassen sich in jede Richtung streichen. So bremst nichts, egal ob der Maulwurf vorwärts oder rückwärts durch seinen engen Tunnel läuft. Findest du einen toten Maulwurf, schau es dir an, aber fass ihn nur mit Handschuhen an.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Tote Tiere nur mit Handschuhen anfassen und danach Hände waschen.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Das weiche Fell, das keinen Strich besitzt und so bei der Fortbewegung in den Gängen und Tunneln keinen Widerstand bietet" }
+      ]
+    },
+    {
+      "id": "oekosystem-ingenieur",
+      "thema": "oekologie",
+      "titel": "Maulwurfshügel als Kinderstube für Falter",
+      "text": "Maulwurfshügel unterbrechen die geschlossene Grasdecke einer Wiese. Dort wachsen lichtliebende Pflanzen wie der Wiesen-Sauerampfer, die Futterpflanze der Raupen des Kleinen Feuerfalters. Verlassene Gänge nutzen Spitzmäuse, Kröten und Moorfrösche. Darum gilt der Maulwurf als „Ökosystem-Ingenieur“.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "So bevorzugt unter anderem der Kleine Feuerfalter Bereiche mit Offenboden und hoher Präsenz von Wiesen-Sauerampfer zur Eiablage." },
+        { "quelle": "wiki-de", "text": "wird er teilweise als ecosystem engineer („Ökosystem-Ingenieur“) eingestuft" }
+      ]
+    },
+    {
+      "id": "maulwurfsburg",
+      "thema": "mitmachen",
+      "titel": "Maulwurfsburgen im Sumpf",
+      "text": "Wo der Boden zu nass für tiefe Gänge ist, baut der Maulwurf riesige Hügel, sogenannte Burgen: bis zu 1,40 m breit, 70 cm hoch und aus bis zu 50 kg Erde. Darin liegen Gänge und Nestkammern, die viele Erde hält warm. Normale Hügel sind dagegen 30 bis 50 cm breit.",
+      "details": { "burg": "bis 140 cm breit, 70 cm hoch, 50 kg" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Maulwurfshügel und Burgen nicht zerstören, der Maulwurf ist geschützt.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die „Burgen“ haben Durchmesser von bis zu 140 cm, sind rund 70 cm hoch und bestehen aus bis zu 50 kg Erdmaterial." },
+        { "quelle": "wiki-de", "text": "Typische Maulwurfshügel haben Durchmesser von 30 bis 50 cm" }
+      ]
+    },
+    {
+      "id": "fresser",
+      "thema": "koerper",
+      "titel": "Fast das eigene Gewicht an Futter",
+      "text": "Ein Maulwurf frisst jeden Tag fast so viel, wie er selbst wiegt: Männchen etwa drei Viertel, Weibchen fast 90 Prozent ihres Körpergewichts. Vor allem Regenwürmer, die er meist mit dem Kopfende zuerst verschlingt.",
+      "details": { "maennchen": "rund 73,5 % des Körpergewichts täglich", "weibchen": "rund 88,6 %" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Im Verhältnis nimmt so ein männliches Individuum täglich rund 73,5 % seines eigenen Körpergewichts an Nahrung auf, ein weibliches rund 88,6 %." },
+        { "quelle": "wiki-de", "text": "Die Regenwürmer werden überwiegend mit dem Kopfende zuerst verspeist" }
+      ]
+    },
+    {
+      "id": "geschuetzt",
+      "thema": "geschichte",
+      "titel": "Vom Pelzlieferanten zum Tier des Jahres",
+      "text": "Früher wurden Maulwürfe massenhaft für ihr Fell gejagt: 1906 wurden allein in London rund eine Million Felle gehandelt. Heute ist der Maulwurf in Deutschland besonders geschützt. Man darf ihn nicht fangen, verletzen oder töten, nur vertreiben ist erlaubt. 2020 war er Tier des Jahres.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Maulwürfe nicht fangen oder töten, das ist verboten.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Allein im Jahr 1906 wurden rund eine Million Maulwurfsfelle in London gehandelt" },
+        { "quelle": "wiki-de", "text": "Daher verbietet es § 44 des Bundesnaturschutzgesetzes (BNatschG) diesen Tieren nachzustellen, sie zu fangen, zu verletzen oder zu töten. Einzig die Vergrämung ist erlaubt." },
+        { "quelle": "wiki-de", "text": "Im Jahr 2020 wurde der Europäische Maulwurf sowohl in Deutschland durch die Deutsche Wildtier Stiftung als auch in Österreich vom Naturschutzbund Österreich als Tier des Jahres ausgewählt." }
+      ]
+    },
+    {
+      "id": "hebel-brehm",
+      "thema": "geschichte",
+      "titel": "Schädling oder Nützling?",
+      "text": "Lange stritt man, ob der Maulwurf schadet oder nützt. Brehms Tierleben nannte ihn ein „wahrhaft furchtbares Raubtier“. Johann Peter Hebel dagegen warnte schon 1811: Wer den Maulwurf ausrottet, tut sich selbst den größten Schaden und den Engerlingen den größten Gefallen. Pflanzen frisst der Maulwurf übrigens gar nicht.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "„Wenn ihr also den Maulwurf recht fleißig verfolgt, und mit Stumpf und Stiel vertilgen wollt, so thut ihr euch selbst den grösten Schaden und den Engerlingen den grösten Gefallen.“" },
+        { "quelle": "wiki-de", "text": "Obwohl sie reine Fleischfresser sind und keine pflanzliche Nahrung verzehren" }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": { "titel": "Wikipedia (de): Europäischer Maulwurf", "url": "https://de.wikipedia.org/wiki/Europ%C3%A4ischer_Maulwurf", "abgerufen": "2026-10-25" },
+    "wiki-en": { "titel": "Wikipedia (en): European mole", "url": "https://en.wikipedia.org/wiki/European_mole", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Gezielt gelesen: 9 von 23 Abschnitten (35.000 von 63.000 Zeichen).",
+    "Weibchen mit Zwitterdrüsen (funktional Hermaphroditen): spannend, aber zu schwierig zu erklären; nicht aufgenommen.",
+    "„In jede Richtung streichen“ und „vorwärts oder rückwärts“: Erklärung von „keinen Strich“, Rückwärtslaufen steht nicht in der Quelle.",
+    "Vorrats-Monate 9–11 aus „im Herbst angelegt“ / „vor den Wintermonaten“; Grab-Monate 3–4 und 9–10 aus „Frühjahr und Herbst“."
+  ]
+}

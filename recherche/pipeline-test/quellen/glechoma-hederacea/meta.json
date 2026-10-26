@@ -1,0 +1,25 @@
+{
+  "artId": "glechoma-hederacea",
+  "wissName": "Glechoma hederacea",
+  "colId": "3G6WF",
+  "wikidata": "Q162544",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Gundermann",
+      "url": "https://de.wikipedia.org/wiki/Gundermann",
+      "revision": 271534068,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 22408
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Glechoma hederacea",
+      "url": "https://en.wikipedia.org/wiki/Glechoma_hederacea",
+      "revision": 1372702576,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 10317
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "igel",
+  "wissName": "Erinaceus europaeus",
+  "colId": "3B2C2",
+  "wikidata": "Q6145",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Braunbrustigel",
+      "url": "https://de.wikipedia.org/wiki/Braunbrustigel",
+      "revision": 270104314,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 35705
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): European hedgehog",
+      "url": "https://en.wikipedia.org/wiki/European_hedgehog",
+      "revision": 1381724342,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 15211
+    }
+  ]
+}

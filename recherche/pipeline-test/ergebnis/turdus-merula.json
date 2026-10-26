@@ -1,0 +1,201 @@
+{
+  "artId": "turdus-merula",
+  "colId": "7CYVX",
+  "wissName": "Turdus merula",
+  "gruppe": "voegel",
+  "eintraege": [
+    {
+      "id": "sirenen-imitator",
+      "thema": "verhalten",
+      "titel": "Eine Amsel, die wie ein Handy klingelt",
+      "text": "Amseln erfinden ständig neue Melodien und übernehmen Töne von anderen. Sie ahmen Meisen nach oder das Lachen des Grünspechts. Stadtamseln bauen sogar Martinshörner von Rettungswagen, Handyklingeltöne oder die Alarmanlagen von E-Scootern in ihren Gesang ein.",
+      "details": null,
+      "monate": [3, 4, 5, 6, 7],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Von Amseln im Siedlungsgebiet werden auch Zivilisationsgeräusche, etwa Sirenensignale von Rettungsfahrzeugen, Handyklingeltöne oder Alarmanlagen von E-Scootern in den Gesang aufgenommen." },
+        { "quelle": "wiki-de", "text": "beispielsweise Meisenlaute oder das Lachen von Grau- und Grünspecht" }
+      ]
+    },
+    {
+      "id": "fruehaufsteher",
+      "thema": "mitmachen",
+      "titel": "Sie singt, bevor es hell wird",
+      "text": "Im Frühjahr gehört die Amsel zu den ersten Sängern des Tages: Sie beginnt deutlich vor der Morgendämmerung und singt dann 20 bis 30 Minuten fast ohne Pause. Der Gesang ist von März bis Juli zu hören, am meisten im Mai und Juni. Ein Männchen hat oft über 30 Motive und zwei bis fünf Lieblingsmotive, daran kann man einzelne Amseln sogar wiedererkennen.",
+      "details": { "motive": "oft über 30" },
+      "monate": [3, 4, 5, 6, 7],
+      "meldung": "Steh mal früh auf: Die Amsel singt schon, bevor es hell wird. Erkennst du ihr Lieblingsmotiv?",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Im Frühjahr gehören Amseln morgens zu den ersten Singvögeln, sie beginnen deutlich vor der Morgendämmerung mit dem Gesang." },
+        { "quelle": "wiki-de", "text": "In der Brutsaison geben Amseln während der Morgendämmerung für 20 bis 30 Minuten eine nahezu ununterbrochene Folge solcher Strophen von sich" },
+        { "quelle": "wiki-de", "text": "Männchen haben nicht selten mehr als 30 Motive im Repertoire, wobei sie zwei bis fünf Lieblingsmotive haben, so dass auch für das menschliche Gehör eine Identifikation eines Individuums über den Gesang möglich ist" }
+      ]
+    },
+    {
+      "id": "komponistin",
+      "thema": "geschichte",
+      "titel": "Talentierter als die Nachtigall",
+      "text": "Der Komponist Heinz Tiessen nannte die Amsel den „musikalisch höchststehenden Singvogel Mitteleuropas“, talentierter als die Nachtigall. Olivier Messiaen schrieb ihr ein Stück für Flöte und Klavier, Richard Strauss ließ zu Beginn des „Rosenkavaliers“ eine Klarinette wie eine Amsel singen. In Paul McCartneys „Blackbird“ ist echter Amselgesang zu hören.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "„der musikalisch höchststehende Singvogel Mitteleuropas“" },
+        { "quelle": "wiki-de", "text": "Er widmete der Amsel Le Merle noir, ein Kammermusikstück für Flöte und Klavier." },
+        { "quelle": "wiki-de", "text": "Echter Amselgesang wurde bei der Originalaufnahme von Paul McCartneys Blackbird beigemischt" }
+      ]
+    },
+    {
+      "id": "vom-wald-in-die-stadt",
+      "thema": "verblueffend",
+      "titel": "Früher ein scheuer Waldvogel",
+      "text": "Die Amsel war ursprünglich ein Vogel feuchter, dunkler Wälder. Erst seit 150 bis 200 Jahren zieht sie in Städte. In Bamberg gab es schon 1820 Stadtamseln, in London erst ab den 1930er Jahren. Heute brüten in Städten oft vier und mehr Paare pro Hektar, im Wald selten mehr als eines auf zwei Hektar.",
+      "details": { "dichteStadt": "oft 4+ Brutpaare/ha", "dichteWald": "selten über 0,5 Brutpaare/ha" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "In Bamberg wurde bereits 1820 von Stadtamseln berichtet, in London ist die Amsel erst in den 1930er Jahren in den großen Parks der Stadt heimisch geworden." },
+        { "quelle": "wiki-de", "text": "nicht selten liegt sie bei vier und mehr Brutpaaren pro Hektar" },
+        { "quelle": "wiki-de", "text": "In Wäldern ist die Siedlungsdichte dagegen erheblich geringer, selten brüten mehr als 0,5 Brutpaare pro Hektar." }
+      ]
+    },
+    {
+      "id": "usutu",
+      "thema": "oekologie",
+      "titel": "Das Amselsterben",
+      "text": "Seit 2001 sterben in Teilen Mitteleuropas immer wieder viele Amseln am Usutu-Virus, das Stechmücken übertragen und das vorher nur aus Afrika bekannt war. 2011 waren am nördlichen Oberrhein wohl einige 100.000 Amseln betroffen. In Österreich hatten sich die Bestände nach ein paar Jahren erholt, weil die Vögel immun geworden waren.",
+      "details": null,
+      "monate": [7, 8, 9],
+      "meldung": null,
+      "sicherheit": "Tote oder kranke Vögel nicht mit bloßen Händen anfassen.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Das Usutu-Virus, das zuvor nur aus Afrika bekannt war und zu den durch Stechmücken übertragenen Flaviviren gehört, verursacht seit 2001 in einzelnen Teilen des mitteleuropäischen Verbreitungsgebiets ein auffälliges Vogelsterben." },
+        { "quelle": "wiki-de", "text": "Es wird angenommen, dass dort einige 100.000 Individuen betroffen waren." }
+      ]
+    },
+    {
+      "id": "sonnenbad",
+      "thema": "mitmachen",
+      "titel": "Liegt da eine tote Amsel?",
+      "text": "Im Hochsommer legen sich Amseln manchmal flach auf den Boden, spreizen Schwanz und Flügel und lassen sich von der Sonne bescheinen, bis ihnen zu heiß wird. Das sieht aus, als wäre der Vogel krank, ist aber ein Sonnenbad. Manche setzen sich dabei sogar auf Ameisennester. Warum sie das tun, ist nicht geklärt.",
+      "details": null,
+      "monate": [6, 7, 8],
+      "meldung": "Liegt eine Amsel mit ausgebreiteten Flügeln auf dem Rasen? Keine Sorge, sie nimmt ein Sonnenbad.",
+      "sicherheit": "Nicht stören, den Vogel liegen lassen.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Drosseltypisch legen die Amseln sich flach auf den Boden, spreizen den Schwanz und breiten die Flügel aus." },
+        { "quelle": "wiki-de", "text": "Der Grund dieses intensiven Sonnenbadens ist unklar." },
+        { "quelle": "wiki-de", "text": "von Amseln, die sich auf dem Nest der Gelben Wiesenameisen niederlassen" }
+      ]
+    },
+    {
+      "id": "kopf-schief",
+      "thema": "mitmachen",
+      "titel": "Hüpfen, stoppen, Kopf schief",
+      "text": "Achte mal auf eine Amsel auf dem Rasen: Sie hüpft ein Stück, bleibt reglos stehen, hält den Kopf schief, fixiert eine Stelle und stößt dann blitzschnell mit dem Schnabel zu. Meist zieht sie einen Regenwurm heraus. Im Winter fressen Amseln oft die Beeren des Efeus, dann ist kaum noch anderes Pflanzenfutter übrig.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Charakteristisch für die Nahrungssuche am Boden ist das Hüpfen einer kurzen Strecke und ein anschließendes regungsloses Verharren, wobei die Amsel den Kopf schief hält und eine bestimmte Stelle fixiert, um blitzschnell mit dem Schnabel zuzustoßen." },
+        { "quelle": "wiki-de", "text": "Im Winter stellen in Europa die Früchte des Efeus meist die einzige noch verbliebene pflanzliche Nahrung dar." }
+      ]
+    },
+    {
+      "id": "weisse-amseln",
+      "thema": "verblueffend",
+      "titel": "Weiße Amseln",
+      "text": "Manchmal sieht man gescheckte oder sogar ganz weiße Amseln. Das hat schon Aristoteles beschrieben. Ein Teil davon ist erblich, aber Versuche zeigten, dass auch eiweißarmes Futter während der Mauser zu weißen Federn führen kann.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "beispielsweise hat Aristoteles bereits weiße Amseln beschrieben" },
+        { "quelle": "wiki-de", "text": "Eiweißarme Nahrung scheint Albinismus zu begünstigen." },
+        { "quelle": "wiki-de", "text": "dass die weißen Federn im Gefieder von der Zusammensetzung der Nahrung abhängen können, vor allem während der Mauser" }
+      ]
+    },
+    {
+      "id": "teilzieher",
+      "thema": "verhalten",
+      "titel": "Manche bleiben, manche fliegen",
+      "text": "In Mitteleuropa zieht nur etwa ein Viertel der Amseln im Herbst weg, in Finnland sind es 89 Prozent. Weibchen ziehen häufiger als Männchen. Wer bleibt, riskiert einen harten Winter, kann sich dafür im Frühjahr die besten Reviere sichern. Bei Stadtamseln aus München könnte das Dableiben sogar schon in den Genen stecken.",
+      "details": { "zieherMitteleuropa": "25 %", "zieherFinnland": "89 %" },
+      "monate": [9, 10, 11],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "In Mitteleuropa liegt die Zahl der wegziehenden Amseln dagegen nur bei 25 Prozent." },
+        { "quelle": "wiki-de", "text": "In Schweden ziehen 76 Prozent, in Finnland sogar 89 Prozent." },
+        { "quelle": "wiki-de", "text": "Im Brutgebiet bleibende Vögel haben eine höhere Mortalitätsrate im Winter, dafür können sie aber bessere Brutreviere besetzen." }
+      ]
+    },
+    {
+      "id": "amselfeld",
+      "thema": "name",
+      "titel": "Ist das Amselfeld nach der Amsel benannt?",
+      "text": "Der Name Kosovo wird oft mit „Amselfeld“ übersetzt, kos heißt auf Serbisch Amsel. Nach einer Legende verwandelten sich dort gefallene Helden in Amseln. Dagegen spricht, dass es damals dort kaum Amseln gegeben haben kann, weil sie noch Waldvögel waren. Eine andere Deutung führt den Namen auf ein Wort für „mähen“ zurück.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "wobei kos ‚Amsel‘ bedeutet" },
+        { "quelle": "wiki-de", "text": "Dieser Legende widerspricht allerdings, dass es zur fraglichen Zeit am entsprechenden Ort kaum Amseln gegeben haben kann" }
+      ]
+    },
+    {
+      "id": "aberglaube",
+      "thema": "geschichte",
+      "titel": "Schutz vor dem Blitz",
+      "text": "Früher schrieb man Amseln magische Kräfte zu. In ein Haus, in dem eine Amsel wohnt, sollte der Blitz nicht einschlagen. Das ist natürlich Aberglaube. In Schweden ist die Amsel Nationalvogel, gewählt 1962 und bestätigt 2015.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Beispielsweise soll in ein Haus, in dem eine Amsel weilt, der Blitz nicht einschlagen." },
+        { "quelle": "wiki-de", "text": "In Schweden wurde die Amsel 1962 von Lesern der Zeitung Dagens Nyheter zum Nationalvogel gewählt." }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": { "titel": "Wikipedia (de): Amsel", "url": "https://de.wikipedia.org/wiki/Amsel", "abgerufen": "2026-10-25" },
+    "wiki-en": { "titel": "Wikipedia (en): Common blackbird", "url": "https://en.wikipedia.org/wiki/Common_blackbird", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Gezielt gelesen: nur 8 von 34 Abschnitten (31.000 von 85.500 Zeichen) anhand der Gliederung; EN nicht gelesen.",
+    "Usutu-Monate 7–9 abgeleitet (Ausbrüche im Sommer, „Hitzesommer 2018“); nicht ausdrücklich belegt.",
+    "Sonnenbad: Monate 6–8 aus „bevorzugt im Hochsommer“.",
+    "Zugmonate 9–11: Hauptdurchzug Mitte Oktober, verstärkt ab zweiter Septemberhälfte, Ende im November (belegt).",
+    "Die Mehrzahl der Usutu-Fakten ist bis 2019 aktuell; neuere Lage nicht geprüft."
+  ]
+}

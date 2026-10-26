@@ -1,0 +1,25 @@
+{
+  "artId": "acer-pseudoplatanus",
+  "wissName": "Acer pseudoplatanus",
+  "colId": "94HF",
+  "wikidata": "Q156944",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Berg-Ahorn",
+      "url": "https://de.wikipedia.org/wiki/Berg-Ahorn",
+      "revision": 271385428,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 19107
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Acer pseudoplatanus",
+      "url": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+      "revision": 1379024488,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 21838
+    }
+  ]
+}

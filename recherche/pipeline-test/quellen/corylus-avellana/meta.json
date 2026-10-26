@@ -1,0 +1,25 @@
+{
+  "artId": "corylus-avellana",
+  "wissName": "Corylus avellana",
+  "colId": "YQ55",
+  "wikidata": "Q124969",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Gemeine Hasel",
+      "url": "https://de.wikipedia.org/wiki/Gemeine_Hasel",
+      "revision": 271525784,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 27756
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Corylus avellana",
+      "url": "https://en.wikipedia.org/wiki/Corylus_avellana",
+      "revision": 1381169192,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 7025
+    }
+  ]
+}

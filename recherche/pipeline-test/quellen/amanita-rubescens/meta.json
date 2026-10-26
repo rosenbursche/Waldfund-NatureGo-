@@ -1,0 +1,25 @@
+{
+  "artId": "amanita-rubescens",
+  "wissName": "Amanita rubescens",
+  "colId": "5TZ2T",
+  "wikidata": "Q623485",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Perlpilz",
+      "url": "https://de.wikipedia.org/wiki/Perlpilz",
+      "revision": 255290046,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 8140
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Blusher",
+      "url": "https://en.wikipedia.org/wiki/Blusher",
+      "revision": 1380617832,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 4632
+    }
+  ]
+}

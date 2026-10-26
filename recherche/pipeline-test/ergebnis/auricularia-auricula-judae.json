@@ -1,0 +1,130 @@
+{
+  "artId": "auricularia-auricula-judae",
+  "colId": "5W9WJ",
+  "wissName": "Auricularia auricula-judae",
+  "gruppe": "pilze",
+  "eintraege": [
+    {
+      "id": "name-legende",
+      "thema": "name",
+      "titel": "Das Ohr am Holunder",
+      "text": "Einer Legende nach soll sich Judas, der Jesus verraten hatte, an einem Holunder erhängt haben. Weil dieser Pilz besonders oft an Holunder wächst und aussieht wie ein Ohr, nannte man ihn Judasohr. Ähnliche Namen gibt es in vielen europäischen Sprachen. Schon früh wurde der Name auch kritisiert, weil er abwertend gegenüber Juden verstanden werden kann. Im Englischen sagt man heute meist „wood ear“ oder „jelly ear“.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de", "wiki-en"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Judas Ischariot, der Jünger, der Jesus verriet, soll sich der Legende zufolge anschließend an einem Holunderbaum erhängt haben." },
+        { "quelle": "wiki-de", "text": "Eine entsprechende Namensgebung findet sich auch in vielen anderen europäischen Sprachen." },
+        { "quelle": "wiki-en", "text": "\"Auricularia auricula-Judae is cumbersome and in addition is a slander on the Jews\"" },
+        { "quelle": "wiki-en", "text": "commonly known as wood ear, jelly ear or historically as Jew's ear" }
+      ]
+    },
+    {
+      "id": "schrumpfen-quellen",
+      "thema": "verblueffend",
+      "titel": "Schrumpft auf ein Zehntel – und wächst wieder",
+      "text": "Das Judasohr ist weich und gallertig wie Gummi. Bei Trockenheit wird es steinhart und schrumpft auf ein Zehntel seiner Größe. Nach dem nächsten Regen quillt es wieder auf und wächst einfach weiter.",
+      "details": { "schrumpfen": "auf etwa 1/10" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "kann durch Austrocknen aber sehr hart werden und auf ein Zehntel seiner vorherigen Größe schrumpfen. Nach einem Regen kann er stark aufgequollen weiterwachsen." }
+      ]
+    },
+    {
+      "id": "winterpilz",
+      "thema": "mitmachen",
+      "titel": "Ein Pilz im Schnee",
+      "text": "Das Judasohr ist frostfest und fast das ganze Jahr über zu finden, selbst im tiefsten Winter unter Schnee. Such im Winter mal an alten Holundersträuchern: Die braunen „Ohren“ sitzen seitlich am Holz. Fühl vorsichtig, wie gummiartig sie sind, aber lass sie dran.",
+      "details": null,
+      "monate": [11, 12, 1, 2, 3],
+      "meldung": "Pilze im Winter? Schau mal an alten Holundersträuchern nach braunen, gummiartigen „Ohren“.",
+      "sicherheit": "Nur ansehen, nicht abreißen. Pilze nie ohne Prüfung durch Pilzsachverständige essen.",
+      "wow": 2,
+      "quellen": ["wiki-de", "wiki-en"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Da sie frostbeständig sind, können sie auch im tiefsten Winter unter dem Schnee ausgegraben werden." },
+        { "quelle": "wiki-en", "text": "The fungus can be found throughout the year in Europe" }
+      ]
+    },
+    {
+      "id": "holunder-partner",
+      "thema": "beziehung",
+      "titel": "Lieblingsholz: Holunder",
+      "text": "Das Judasohr zersetzt Holz und erzeugt Weißfäule. Es wächst an vielen Baumarten, etwa an Birken, Robinien, Ulmen und Walnuss, am häufigsten aber an Holunder. Auf Nadelholz ist es sehr selten.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "wie zum Beispiel Birken, Robinien, Ulmen, Walnuss-, Mango-, Kapok- und am häufigsten an Holunderbäumen" }
+      ]
+    },
+    {
+      "id": "nur-europa",
+      "thema": "verblueffend",
+      "titel": "Kein Weltbürger",
+      "text": "Lange galt das Judasohr als weltweit verbreitet. Genetische Untersuchungen zeigten aber: Das echte Judasohr gibt es nur in Europa. Die Pilze aus Amerika und Asien sind eigene Arten. Der Mu-Err aus der asiatischen Küche ist eine verwandte Art, die angebaut wird.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "jedoch zeigten phylogenetische Untersuchungen, dass das Judasohr im engeren Sinn eine ausschließlich europäische Art ist" },
+        { "quelle": "wiki-de", "text": "Der verwandte Mu-Err (Auricularia cornea) wird kommerziell angebaut und in vielen Gerichten der asiatischen Küche verwendet." }
+      ]
+    },
+    {
+      "id": "pilz-des-jahres",
+      "thema": "geschichte",
+      "titel": "Pilz des Jahres 2017",
+      "text": "Die Deutsche Gesellschaft für Mykologie hat das Judasohr 2017 zum Pilz des Jahres gewählt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die Deutsche Gesellschaft für Mykologie hat das Judasohr zum Pilz des Jahres 2017 gekürt." }
+      ]
+    },
+    {
+      "id": "ohrform",
+      "thema": "mitmachen",
+      "titel": "Oben samtig, unten glatt",
+      "text": "Der Fruchtkörper ist 3 bis 10 cm breit, dunkelbraun und oft geformt wie eine Ohrmuschel, mit Adern wie in einem echten Ohr. Die Oberseite ist fein filzig, die Unterseite ist immer heller. Ähnlich sieht der Gezonte Ohrlappenpilz aus, er hat aber einen struppigeren, gestreiften Filz.",
+      "details": { "breite": "3–10 cm" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Ähnliche Pilze gibt es. Bestimmen und essen nur mit Pilzsachverständigen.",
+      "wow": 1,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die dunkelbraunen Fruchtkörper haben eine lappenartige, oft wie eine Ohrmuschel geformte Struktur." },
+        { "quelle": "wiki-de", "text": "Die Unterseite ist immer heller als die Oberseite. Der Pilz wird 3–10 Zentimeter breit" },
+        { "quelle": "wiki-de", "text": "Der Gezonte Ohrlappenpilz (Auricularia mesenterica) besitzt einen gezonten, struppigeren Hutfilz und eine dunklere Unterseite." }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": { "titel": "Wikipedia (de): Judasohr", "url": "https://de.wikipedia.org/wiki/Judasohr", "abgerufen": "2026-10-25" },
+    "wiki-en": { "titel": "Wikipedia (en): Auricularia auricula-judae", "url": "https://en.wikipedia.org/wiki/Auricularia_auricula-judae", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Pilz: kein Eintrag zu essbar/rezept, obwohl Wikipedia ihn „Speisepilz“ nennt.",
+    "Namenskritik: in der EN-Quelle als Zitat von C. G. Lloyd; Einordnung „heute meist wood ear“ aus „historically as Jew's ear“ abgeleitet.",
+    "Winter-Monate 11–3 aus „im tiefsten Winter“ und „ganzjährig“ abgeleitet.",
+    "Nur 7 Einträge: Der Wikipedia-Artikel ist kurz."
+  ]
+}

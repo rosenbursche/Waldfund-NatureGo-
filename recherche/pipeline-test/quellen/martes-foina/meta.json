@@ -1,0 +1,25 @@
+{
+  "artId": "martes-foina",
+  "wissName": "Martes foina",
+  "colId": "3Y9VW",
+  "wikidata": "Q27366",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Steinmarder",
+      "url": "https://de.wikipedia.org/wiki/Steinmarder",
+      "revision": 271077237,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 7960
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Beech marten",
+      "url": "https://en.wikipedia.org/wiki/Beech_marten",
+      "revision": 1370649945,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 11878
+    }
+  ]
+}

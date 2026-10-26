@@ -1,0 +1,268 @@
+{
+  "artId": "buteo-buteo",
+  "colId": "NYV7",
+  "wissName": "Buteo buteo",
+  "gruppe": "voegel",
+  "eintraege": [
+    {
+      "id": "katzenadler-irrtum",
+      "thema": "name",
+      "titel": "Der falsche Katzenadler",
+      "text": "Der Ruf des Bussards klingt wie ein Miauen, „hiääh“. Im 19. Jahrhundert glaubte man deshalb, „Bussard“ komme von einem Wort „Buse“ für Katze, also Katzenadler. So stand es auch in Brehms Tierleben. Das ist falsch: Bussard kommt über das Französische vom lateinischen buteo, Greifvogel. Der Irrtum findet sich trotzdem bis heute manchmal in Vogelbüchern.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Eine ältere Etymologie leitete den Namen irrtümlich von einem neuhochdeutschen Wort Buse für „Katze“ ab und deutete den Namen daher als Katzenaar („Katzenadler“)."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Wie französisch buse „Bussard“ leitet es sich von lateinisch buteo „Greifvogel“ ab."
+        }
+      ]
+    },
+    {
+      "id": "haeher-imitiert",
+      "thema": "beziehung",
+      "titel": "Ist das echt ein Bussard?",
+      "text": "Der Mäusebussard ruft viel, vor allem im Flug, ein abfallend miauendes „hiääh“. Dieser Ruf wird gern vom Eichelhäher nachgeahmt. Hörst du einen Bussard, siehst aber keinen am Himmel, sitzt vielleicht ein Häher im Gebüsch.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Der oft im Flug zu hörende, laute Ruf klingt abfallend miauend und wird gerne vom Eichelhäher imitiert."
+        }
+      ]
+    },
+    {
+      "id": "6335-km",
+      "thema": "verblueffend",
+      "titel": "Von Nordschweden nach Togo",
+      "text": "Viele deutsche Bussarde ziehen im Winter weniger als 50 km weit oder bleiben ganz. Skandinavische Bussarde dagegen ziehen. Ein in Nordschweden beringter Bussard wurde 6.335 km entfernt in Togo in Westafrika wiedergefunden. In Falsterbo in Südschweden zählte man von 1987 bis 1990 jeden Herbst 10.000 bis 13.000 durchziehende Bussarde.",
+      "details": {
+        "rekord": "6.335 km"
+      },
+      "monate": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "welches 6335 km von seinem Geburtsort entfernt, im westafrikanischen Togo wiedergefunden wurde"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Ein großer Teil der mitteleuropäischen Mäusebussarde zieht weniger als 50 km vom Brutrevier weg."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Der Zug beginnt im August, erreicht seinen Höhepunkt Mitte Oktober und endet mit dem November."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "konnten während des Herbstzugs in den Jahren 1987 bis 1990 jährlich 10.000 (1987) bis 13.000 (1990) Mäusebussarde gezählt werden"
+        }
+      ]
+    },
+    {
+      "id": "autobahn-ansitz",
+      "thema": "mitmachen",
+      "titel": "Der Wächter am Autobahnpfosten",
+      "text": "Achte bei der nächsten Autofahrt auf die Pfähle am Straßenrand: Oft sitzt dort ein Mäusebussard und lauert. Von dort sucht er den kurzen Grasstreifen nach Mäusen ab. Er frisst auch überfahrene Tiere und wird dabei manchmal selbst überfahren.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Beim Beobachten aus dem Auto: nur als Beifahrer!",
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Oft sind Mäusebussarde entlang von Autobahnen auf Pfosten sitzend zu sehen, da sie diese und andere Wege bei der Jagd absuchen."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Oft nehmen Mäusebussarde Aas von überfahrenen Tieren von Verkehrswegen auf und werden dabei mitunter selbst überfahren."
+        }
+      ]
+    },
+    {
+      "id": "balzflug",
+      "thema": "mitmachen",
+      "titel": "Achterbahn am Himmel",
+      "text": "Ab Mitte Februar kreisen Bussardpaare rufend über ihrem Revier. Dann folgt ein wellenförmiges Fallen und Steigen, meist beendet mit einem Sturzflug zum Nest. Ab Mitte März legen sie ihre Eier.",
+      "details": null,
+      "monate": [
+        2,
+        3,
+        4
+      ],
+      "meldung": "Die Bussarde balzen! Schau nach oben: Kreisen zwei Bussarde rufend und stürzen sich dann in die Tiefe?",
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Während der Balz ab Mitte Februar vollführen die Brutpaare Balzflüge über dem Brutrevier."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Dann folgt ein sinusähnliches Fallen und Steigen, welches meistens mit einem Sturzflug zum Nest beendet wird."
+        }
+      ]
+    },
+    {
+      "id": "windraeder",
+      "thema": "oekologie",
+      "titel": "Gefahr durch Windräder",
+      "text": "Der Mäusebussard gilt als nicht gefährdet, doch Windräder sind ein Problem. In Norddeutschland sterben laut Wikipedia jedes Jahr knapp 8 Prozent der Bussarde an den Rotorblättern. Deutschland beherbergt über die Hälfte aller Mäusebussarde Mitteleuropas und trägt damit eine besondere Verantwortung.",
+      "details": {
+        "windkraftverluste": "knapp 8 % pro Jahr (Norddeutschland)"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "In Norddeutschland mit seiner bereits hohen Dichte an Windrädern kommen auf diese Weise pro Jahr knapp 8 % der Population zu Tode."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Deutschland beherbergt über 50 Prozent des mitteleuropäischen Mäusebussard-Bestands und trägt damit eine gewisse internationale Verantwortung."
+        }
+      ]
+    },
+    {
+      "id": "mausjahre",
+      "thema": "beziehung",
+      "titel": "Keine Mäuse, keine Küken",
+      "text": "Die Hauptbeute des Mäusebussards ist die Feldmaus. Ihre Zahl schwankt von Jahr zu Jahr stark, und mit ihr der Bussard: In mageren Mäusejahren brüten 40 bis 75 Prozent der Bussarde gar nicht erst.",
+      "details": {
+        "nichtbrueter": "40–75 % bei Nahrungsmangel"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Bei schlechter Nahrungsverfügbarkeit steigt der Nichtbrüteranteil auf 40 bis 75 Prozent, wie in Schleswig-Holstein festgestellt wurde."
+        }
+      ]
+    },
+    {
+      "id": "winterspeck",
+      "thema": "koerper",
+      "titel": "Winterspeck im Gefieder",
+      "text": "Mäusebussard-Weibchen sind schwerer als Männchen, im Schnitt 990 g gegenüber 790 g. Bis zum Winter legen sie Fettreserven an, Männchen bis zu 130 g, Weibchen bis zu 180 g. Im November und Dezember sind sie am schwersten, bis April ist der Speck fast verbraucht.",
+      "details": {
+        "maennchen": "Ø 790 g",
+        "weibchen": "Ø 990 g"
+      },
+      "monate": [
+        11,
+        12
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Ausgewachsene Männchen aus Deutschland wiegen durchschnittlich 790 g (622 bis 1183 g Variationsbreite), Weibchen 990 g (782 bis 1364 g)."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Demnach wird im November/Dezember das Jahreshöchstgewicht erreicht."
+        }
+      ]
+    },
+    {
+      "id": "treue-paare",
+      "thema": "verhalten",
+      "titel": "Ein Paar fürs Leben",
+      "text": "Mäusebussarde sind sehr reviertreu, und Paare können ein Leben lang zusammenbleiben. Bussarde können bis zu 26 Jahre alt werden. Nach dem Ausfliegen betteln die Jungen noch sechs bis zehn Wochen bei den Eltern. Ihre Bettelrufe hört man ab Juli besonders oft.",
+      "details": {
+        "hoechstalter": "26 Jahre"
+      },
+      "monate": [
+        7,
+        8
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Wegen ihrer verhältnismäßig großen Reviertreue können Brutpaare ein Leben lang zusammenbleiben. Mäusebussarde können bis zu 26 Jahre alt werden."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Ab Juli sind diese besonders auffälligen Bettelrufe vor allem als Standortrufe abseits vom Nest zu hören."
+        }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": {
+      "titel": "Wikipedia (de): Mäusebussard",
+      "url": "https://de.wikipedia.org/wiki/M%C3%A4usebussard",
+      "abgerufen": "2026-10-25"
+    },
+    "wiki-en": {
+      "titel": "Wikipedia (en): Common buzzard",
+      "url": "https://en.wikipedia.org/wiki/Common_buzzard",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Gezielt gelesen: 7 von 19 Abschnitten (20.000 von 121.700 Zeichen). Der Rest ist vor allem Systematik/Unterarten.",
+    "Windkraft-Zahl (8 %) ist eine Wikipedia-Angabe, die Studie wurde nicht geöffnet – deshalb „laut Wikipedia“ im Text.",
+    "Sicherheitshinweis „nur als Beifahrer“: eigene Ergänzung.",
+    "„Weibchen sind schwerer“: aus den Durchschnittsgewichten abgeleitet."
+  ]
+}

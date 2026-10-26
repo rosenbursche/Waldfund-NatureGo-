@@ -1,0 +1,1872 @@
+{
+  "summe": {
+    "eintraege": 95,
+    "zitate": 205,
+    "gefunden": 205,
+    "ohneZitat": 0,
+    "zuLang": 0,
+    "regelfehler": 0
+  },
+  "bericht": [
+    {
+      "artId": "acer-pseudoplatanus",
+      "eintraege": [
+        {
+          "id": "propeller",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Flügelnüsse sind typische Schraubenflieger mit etwa 16 Umdrehungen pro Sekunde. Vom Wind werden sie oft mehr als 100 Meter weit getragen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Bei Kindern sind die Flügelnüsse als „Nasenzwicker“ beliebt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Fruchtreife ist von September bis Oktober."
+            }
+          ]
+        },
+        {
+          "id": "pferdegift",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Für Pferde sind die Früchte und Keimblätter, vermutlich auch die Laubblätter des Berg-Ahorns tödlich giftig."
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Horses eating seeds or emergent seedlings of A. pseudoplatanus can suffer from an often fatal condition of atypical myopathy."
+            }
+          ]
+        },
+        {
+          "id": "riegelahorn",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Höchstpreis für einen französischen Berg-Ahorn mit Riegelung betrug dabei über 61.000 Euro. Die Riegelung entsteht durch welligen Verlauf der Fasern des Xylems und tritt nur bei 3 % der Berg-Ahorne auf."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "für die Herstellung der Geigenböden verwendet"
+            }
+          ]
+        },
+        {
+          "id": "pollenrekord",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Mit bis zu 25 Millionen Pollenkörnern pro Blütenstand liegt der Berg-Ahorn deutlich vor dem Spitzahorn mit 238.000 Pollenkörnern."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Berg-Ahorn blüht von April bis Mai mit dem Laubaustrieb oder unmittelbar danach."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "die sehr gute Nektartracht des Berg-Ahorns im Mai bis Anfang Juni"
+            }
+          ]
+        },
+        {
+          "id": "schwurbaum",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "unter dessen Krone am 16. Mai 1424 der Graue Bund gegründet wurde"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der zerborstene Strunk wurde in einer Trauerprozession in den Gerichtssaal von Chur getragen."
+            }
+          ]
+        },
+        {
+          "id": "teerflecken",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "bei der sich die durch den parasitischen Pilz Ahorn-Runzelschorf infizierten Blattpartien schwarz färben. Diese Krankheit tötet den Baum jedoch nicht."
+            }
+          ]
+        },
+        {
+          "id": "ahornsaft",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Pflanzensaft des zeitigen Frühjahrs wurde früher zur Zuckergewinnung genutzt. Der Saft kann auch zu einem most- oder weinähnlichen Getränk vergoren werden."
+            }
+          ]
+        },
+        {
+          "id": "ahornboden",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die so genannten „Ahornböden“ oder Bergahornweiden auf Almwiesen sind durch indirekte Förderung des Berg-Ahorns durch den Menschen entstanden."
+            }
+          ]
+        },
+        {
+          "id": "falsche-platane",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die handförmig gelappten Blätter ähneln denen der Platane, worauf das Artepitheton pseudoplatanus hinweist."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Das Aussehen des Stamms ist dann platanenähnlich."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Vergleich zum Spitzahorn sind die Blattlappen des Berg-Ahorns kürzer zugespitzt"
+            }
+          ]
+        },
+        {
+          "id": "langens-fussstapfen",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Dänemark wird der Berg-Ahorn nach dem deutschen Forstmann Johann Georg von Langen, der als Begründer der planmäßigen Forstwirtschaft Dänemarks gilt, auch als „Von Langens Fußstapfen“ bezeichnet."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "aegopodium-podagraria",
+      "eintraege": [
+        {
+          "id": "unkraut-und-gemuese",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Mit unterirdischen Ausläufern breiten sich einzelne Pflanzen binnen weniger Jahre über große Flächen aus."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Auch Glyphosat vernichtet Giersch nicht vollständig."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Mittelalter, aber auch in neuerer Zeit wurde Giersch als Gemüse wie auch als Heilpflanze angebaut."
+            }
+          ]
+        },
+        {
+          "id": "petersilie-karotte",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "gleicht einer Mischung aus Petersilie und Karotte. Die Blüten sind süßer und die Früchte schärfer im Geschmack."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Als Salat eignen sich vor allem die jungen, zarten, kaum entfalteten Blätter, die ab März oder auch später im Jahr nach einem Rückschnitt erscheinen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "200 mg Vitamin C"
+            }
+          ]
+        },
+        {
+          "id": "dreikant-stiel",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Giersch lässt sich von diesen ungenießbaren und giftigen Arten u. a. gut durch seine dreikantigen Blattstiele unterscheiden, wobei eine Kante abgerundet und die gegenüberliegende Seite konkav eingezogen ist."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Hundspetersilie, Wasserschierling, Geflecktem Schierling oder Breitblättrigem Merk"
+            }
+          ]
+        },
+        {
+          "id": "weltkriege",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "sicherte er beispielsweise während der Weltkriege vielen Menschen die Vitaminzufuhr"
+            }
+          ]
+        },
+        {
+          "id": "ziegenfuss",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Gestalt der Blätter an sich erinnert aber kaum an einen Ziegenfuß."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Trivialname Podagrakraut oder Zipperleinskraut weist darauf hin, dass Giersch als ein Mittel gegen Gicht galt."
+            }
+          ]
+        },
+        {
+          "id": "hundert-namen",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Weil die Blätter dem Hollerbusch (Holunder) ähneln, wird er auch Wiesenholler genannt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Kaninchenfutter oder Karnickelfutter (Erfurter Umgebung)"
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "The name \"ground elder\" comes from the superficial similarity of its leaves and flowers to those of elder (Sambucus)"
+            }
+          ]
+        },
+        {
+          "id": "insektenmagnet",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Sommer wimmelt es auf den Blüten von Bienen, Schwebfliegen, Schmetterlingen, Käfern und Wanzen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Blütezeit reicht meist von Juni bis Juli."
+            }
+          ]
+        },
+        {
+          "id": "kartoffeltrick",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Kartoffeln können den Giersch unterdrücken, da sie schneller wachsen und ihm Licht und Nährstoffe nehmen."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "auricularia-auricula-judae",
+      "eintraege": [
+        {
+          "id": "name-legende",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Judas Ischariot, der Jünger, der Jesus verriet, soll sich der Legende zufolge anschließend an einem Holunderbaum erhängt haben."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Eine entsprechende Namensgebung findet sich auch in vielen anderen europäischen Sprachen."
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "\"Auricularia auricula-Judae is cumbersome and in addition is a slander on the Jews\""
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "commonly known as wood ear, jelly ear or historically as Jew's ear"
+            }
+          ]
+        },
+        {
+          "id": "schrumpfen-quellen",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "kann durch Austrocknen aber sehr hart werden und auf ein Zehntel seiner vorherigen Größe schrumpfen. Nach einem Regen kann er stark aufgequollen weiterwachsen."
+            }
+          ]
+        },
+        {
+          "id": "winterpilz",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Da sie frostbeständig sind, können sie auch im tiefsten Winter unter dem Schnee ausgegraben werden."
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "The fungus can be found throughout the year in Europe"
+            }
+          ]
+        },
+        {
+          "id": "holunder-partner",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wie zum Beispiel Birken, Robinien, Ulmen, Walnuss-, Mango-, Kapok- und am häufigsten an Holunderbäumen"
+            }
+          ]
+        },
+        {
+          "id": "nur-europa",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "jedoch zeigten phylogenetische Untersuchungen, dass das Judasohr im engeren Sinn eine ausschließlich europäische Art ist"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der verwandte Mu-Err (Auricularia cornea) wird kommerziell angebaut und in vielen Gerichten der asiatischen Küche verwendet."
+            }
+          ]
+        },
+        {
+          "id": "pilz-des-jahres",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Deutsche Gesellschaft für Mykologie hat das Judasohr zum Pilz des Jahres 2017 gekürt."
+            }
+          ]
+        },
+        {
+          "id": "ohrform",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die dunkelbraunen Fruchtkörper haben eine lappenartige, oft wie eine Ohrmuschel geformte Struktur."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Unterseite ist immer heller als die Oberseite. Der Pilz wird 3–10 Zentimeter breit"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Gezonte Ohrlappenpilz (Auricularia mesenterica) besitzt einen gezonten, struppigeren Hutfilz und eine dunklere Unterseite."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "buteo-buteo",
+      "eintraege": [
+        {
+          "id": "katzenadler-irrtum",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Eine ältere Etymologie leitete den Namen irrtümlich von einem neuhochdeutschen Wort Buse für „Katze“ ab und deutete den Namen daher als Katzenaar („Katzenadler“)."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Wie französisch buse „Bussard“ leitet es sich von lateinisch buteo „Greifvogel“ ab."
+            }
+          ]
+        },
+        {
+          "id": "haeher-imitiert",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der oft im Flug zu hörende, laute Ruf klingt abfallend miauend und wird gerne vom Eichelhäher imitiert."
+            }
+          ]
+        },
+        {
+          "id": "6335-km",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "welches 6335 km von seinem Geburtsort entfernt, im westafrikanischen Togo wiedergefunden wurde"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Ein großer Teil der mitteleuropäischen Mäusebussarde zieht weniger als 50 km vom Brutrevier weg."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Zug beginnt im August, erreicht seinen Höhepunkt Mitte Oktober und endet mit dem November."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "konnten während des Herbstzugs in den Jahren 1987 bis 1990 jährlich 10.000 (1987) bis 13.000 (1990) Mäusebussarde gezählt werden"
+            }
+          ]
+        },
+        {
+          "id": "autobahn-ansitz",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Oft sind Mäusebussarde entlang von Autobahnen auf Pfosten sitzend zu sehen, da sie diese und andere Wege bei der Jagd absuchen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Oft nehmen Mäusebussarde Aas von überfahrenen Tieren von Verkehrswegen auf und werden dabei mitunter selbst überfahren."
+            }
+          ]
+        },
+        {
+          "id": "balzflug",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Während der Balz ab Mitte Februar vollführen die Brutpaare Balzflüge über dem Brutrevier."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Dann folgt ein sinusähnliches Fallen und Steigen, welches meistens mit einem Sturzflug zum Nest beendet wird."
+            }
+          ]
+        },
+        {
+          "id": "windraeder",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Norddeutschland mit seiner bereits hohen Dichte an Windrädern kommen auf diese Weise pro Jahr knapp 8 % der Population zu Tode."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Deutschland beherbergt über 50 Prozent des mitteleuropäischen Mäusebussard-Bestands und trägt damit eine gewisse internationale Verantwortung."
+            }
+          ]
+        },
+        {
+          "id": "mausjahre",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Bei schlechter Nahrungsverfügbarkeit steigt der Nichtbrüteranteil auf 40 bis 75 Prozent, wie in Schleswig-Holstein festgestellt wurde."
+            }
+          ]
+        },
+        {
+          "id": "winterspeck",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Ausgewachsene Männchen aus Deutschland wiegen durchschnittlich 790 g (622 bis 1183 g Variationsbreite), Weibchen 990 g (782 bis 1364 g)."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Demnach wird im November/Dezember das Jahreshöchstgewicht erreicht."
+            }
+          ]
+        },
+        {
+          "id": "treue-paare",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Wegen ihrer verhältnismäßig großen Reviertreue können Brutpaare ein Leben lang zusammenbleiben. Mäusebussarde können bis zu 26 Jahre alt werden."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Ab Juli sind diese besonders auffälligen Bettelrufe vor allem als Standortrufe abseits vom Nest zu hören."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "dachs",
+      "eintraege": [
+        {
+          "id": "13000-jahre-bau",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Ein in England untersuchter Dachsbau umfasste 50 Kammern und 178 Eingänge, die durch insgesamt 879 Meter Tunnel miteinander verbunden waren."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In einem bei Malchin in Mecklenburg-Vorpommern untersuchten Bau wurden mindestens 13.000 Jahre alte Knochenreste gefunden."
+            }
+          ]
+        },
+        {
+          "id": "bahnstrecke",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Nach Angabe der Bahn waren bis dahin 140 Dachsbau-Eingänge entdeckt worden, die den Damm auf elf Kilometer instabil machten."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im März 2023 mussten aus diesem Grund zwei Bahnstrecken vorübergehend für den Betrieb gesperrt werden"
+            }
+          ]
+        },
+        {
+          "id": "igel-jaeger",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Als natürliche Feinde des Igels sind Dachse in der Lage, diese mit ihren Krallen aufzurollen und zu verzehren, wobei sie ihre Schnauze in die kleine Lücke an der Bauchseite des zusammengerollten Stacheligels stecken."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Daher zählen sie in Mitteleuropa neben den Uhus zu deren größten Fressfeinden."
+            }
+          ]
+        },
+        {
+          "id": "dachsklo",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Dachs setzt seinen Kot in dafür von ihm gegrabene kleine Erdlöcher."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Typisch ist auch die ausgetretene Rinne (Geschleif) am Eingang zum Bau, die in einen deutlich erkennbaren Pfad (Dachs-Pass) übergeht."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Nicht selten werden die Baue auch von Fuchs und Dachs gemeinsam bewohnt."
+            }
+          ]
+        },
+        {
+          "id": "keimruhe",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Erst zwischen Anfang Dezember und Mitte Januar nistet sich die Eizelle dann in die Gebärmutterschleimhaut ein und entwickelt sich regulär fort."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "in Mitteleuropa werden die meisten Jungen Anfang März geboren"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "die meisten und am längsten andauernden aber zwischen Februar und Mai"
+            }
+          ]
+        },
+        {
+          "id": "fuenf-meter-tief",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In etwa fünf Meter Tiefe liegt der Wohnkessel"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Gegensatz zum Fuchs polstert der Dachs den Kessel seines Baues mit trockenem Laub, Moos oder Farnkraut aus."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In den kälteren Gegenden halten sie eine Winterruhe, die je nach Wetterbedingungen mit Unterbrechungen einige Tage bis mehrere Monate dauern kann."
+            }
+          ]
+        },
+        {
+          "id": "dachszupf",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Dachshaare wurden für Bürsten und werden noch heute für hochwertige Rasierpinsel verwendet, den sogenannten Dachszupf."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Dachshaare kommen heute meist aus China."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wie der Dackel genannte Dachshund, bei der Jagd eingesetzt werden"
+            }
+          ]
+        },
+        {
+          "id": "name-bauen",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Das Tier kann somit nach seiner Baukunst benannt worden sein"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In der Jägersprache wird der Dachs „Schmalzmann“ genannt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Frechdachs hat vermutlich nichts mit dem Dachs zu tun"
+            }
+          ]
+        },
+        {
+          "id": "pflanzenkost",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Unterschied zu anderen Mardern ist der Dachs kein ausgesprochener Fleischfresser, sondern nimmt überwiegend pflanzliche Kost zu sich"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Mastjahren werden Eicheln intensiv als Nahrung genutzt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die rüsselartige Nase ragt mindestens 1,5 cm über die Unterlippe hinaus."
+            }
+          ]
+        },
+        {
+          "id": "begasung",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die massenhafte, behördlich angeordnete Begasung von Rotfuchsbauen hat in Deutschland bis in die 1970er-Jahre zu einem dramatischen Bestandsrückgang des Dachses geführt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Inzwischen erholten sich die Bestände wieder"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Nicht selten werden die Baue auch von Fuchs und Dachs gemeinsam bewohnt."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "fomes-fomentarius",
+      "eintraege": [
+        {
+          "id": "oetzi-zunder",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Verwendung des Zunderschwamms reicht bereits etwa 10.000 Jahre zurück."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "trug schon Zunderschwamm auf seinen Wanderungen bei sich"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Zunder verglimmt nur sehr langsam und wurde auch verwendet, um Glut aufzubewahren oder zu transportieren."
+            }
+          ]
+        },
+        {
+          "id": "pilzleder",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Das Textil erinnert an eine Mischung aus feinem, weichem Wildleder und Filz und besitzt eine sehr weiche Haptik."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wird nur noch von wenigen Familien in Rumänien praktiziert"
+            }
+          ]
+        },
+        {
+          "id": "kompass-pilz",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "neu zuwachsende Fruchtschichten werden mit der Unterseite zum Erdboden ausgerichtet"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Bildet ein Fruchtkörper nach dem Umstürzen des Wirtsbaumes neue Fruchtschichten, werden diese um etwa 90° gegenüber den schon vorhandenen ausgebildet."
+            }
+          ]
+        },
+        {
+          "id": "kein-jahresring",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Zunderschwamm bildet mehrjährige, konsolenförmige Fruchtkörper, die bis zu 30 Jahre alt werden können."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "kann aus der Zahl der Schichten nicht auf das Alter des Fruchtkörpers geschlossen werden"
+            }
+          ]
+        },
+        {
+          "id": "buche-oder-birke",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "im Süden des Kontinentes wird Fagus als Hauptwirt gefunden, im Norden Birkenarten, diese Substratgrenze fällt in Deutschland in etwa mit dem Nordrand der Mittelgebirge zusammen"
+            }
+          ]
+        },
+        {
+          "id": "weissfaeule",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "verursacht im Kernholz eine intensive Weißfäule, die den befallenen Baum häufig in mehreren Metern Höhe abbrechen lässt"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "werden die im Holz enthaltenen Nährstoffe dem natürlichen Kreislauf wieder zugänglich gemacht und es entsteht neuer Mutterboden"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wurden 35 Käferarten auf den Fruchtkörpern gesammelt"
+            }
+          ]
+        },
+        {
+          "id": "zeiger-alter-wald",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Süddeutschland ist er in unbewirtschafteten Wäldern der häufigste Pilz, in intensiv bewirtschafteten Waldgebieten fehlt er hingegen ganz."
+            }
+          ]
+        },
+        {
+          "id": "huadersau",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Abgeschlagene und kugelförmig zugeschnitzte Zunderschwämme dienten Kindern als Puck oder Ball für Gassenspiele mit Füßen oder Stöcken."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Für den Bayerischen Wald und den Böhmerwald ist ein Spiel unter dem Namen Huadersautreiben belegt."
+            }
+          ]
+        },
+        {
+          "id": "zunderboom",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Jahr 1842 wurden beispielsweise in Neustadt am Rennsteig 21,5 Tonnen Zunderschwamm verarbeitet."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "dass der Pilz zeitweise aus Osteuropa importiert werden musste und in einigen Gebieten Deutschlands selten wurde"
+            }
+          ]
+        },
+        {
+          "id": "blutrot",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "die für den Zunderschwamm charakteristische blutrote Färbung der Kruste mit Alkalilauge, ausgelöst durch Deprotonierung des Hauptfarbstoffes Fomentariol"
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "parus-major",
+      "eintraege": [
+        {
+          "id": "schlangenzischen",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Vermutlich dient dieses Verhalten der Abschreckung von Prädatoren und soll die Anwesenheit einer Schlange vortäuschen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Dabei macht es einen zischenden Laut und stellt das Gefieder der weißen Wangenflecken auf."
+            }
+          ]
+        },
+        {
+          "id": "milchflaschen",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Ein bekanntes Beispiel dafür ist das Öffnen der Folienverschlüsse von Milchflaschen in Großbritannien – ein Verhalten, das sich schnell über einige Landesteile ausbreitete."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Kohlmeise vermag auch, Haselnüsse aufzuhacken, was etwa zehn Minuten dauern kann."
+            }
+          ]
+        },
+        {
+          "id": "fledermausjaeger",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In extremen Ausnahmefällen wie beispielsweise besonderen Kältewintern tötet die Kohlmeise auch kleinere Vögel oder andere Wirbeltiere wie überwinternde Fledermäuse."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Es werden dann meist nur kleinere Teile wie das Gehirn oder ein Teil der Flugmuskulatur verspeist."
+            }
+          ]
+        },
+        {
+          "id": "gesang-partnerwahl",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Weibchen suchen sich meist Männchen, deren Gesang dem des Vaters am wenigsten ähnelt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Männchen mit großem Gesangsrepertoire sind durchschnittlich dominanter und erfolgreicher."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wobei jedes Männchen ein Repertoire von 3–7, seltener von bis zu 18 verschiedenen Strophentypen hat"
+            }
+          ]
+        },
+        {
+          "id": "zizibä",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Ab dem zeitigen Frühjahr und teilweise auch schon im Winter ist der recht auffällige, metallisch-helle Gesang zu vernehmen"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "ist ein metallisches pink, das für sich allein kaum vom ähnlichen Ruf des Buchfinken zu unterscheiden ist"
+            }
+          ]
+        },
+        {
+          "id": "kaelteschlaf",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Sehr kalte Nächte überstehen Kohlmeisen, indem sie ihre Körpertemperatur von üblicherweise 41,8 °C auf 32 °C absenken und so wenig Energie verbrauchen."
+            }
+          ]
+        },
+        {
+          "id": "speckmeise",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Name Kohlmeise bezieht sich auf die „kohlschwarzen“ Partien am Kopf und ist bereits für das 15. Jahrhundert belegbar."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "welche wiederum auf Englisch Coal Tit, also „Kohlmeise“ heißt"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "im Winter darum bei Hausschlachtungen beobachtet werden konnte oder Speck aus Speisekammern stibitzte"
+            }
+          ]
+        },
+        {
+          "id": "raupen-futter",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Mitteleuropa sind dies beispielsweise je nach Lebensraum insbesondere die häufigen Arten Eichenwickler, Kleiner Frostspanner oder Kieferneule."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Bienen werden beispielsweise entstachelt und manche Raupen enthaart."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "in Mitteleuropa meist zwischen 17 und 20 Tagen"
+            }
+          ]
+        },
+        {
+          "id": "brustband",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "bei der sich der imponierende Vogel mit senkrecht gehaltenem Kopf hoch aufrichtet und das schwarze Brustband zeigt"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Kämpfe sind meist kurz und dauern allenfalls 30–50 Sekunden."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "talpa-europaea",
+      "eintraege": [
+        {
+          "id": "wurm-speisekammer",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Einige derartiger Vorratskammern können aus bis zu 790 Regenwürmern mit einem Gesamtgewicht von 1,5 kg bestehen, was einer Nahrungsmenge für mehr als drei Wochen entspricht."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Bei der Lagerung beißt der Europäische Maulwurf den Regenwürmern die vorderen drei bis fünf Körpersegmente ab, wodurch diese betäubt werden."
+            }
+          ]
+        },
+        {
+          "id": "schrumpfendes-gehirn",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Um in der kalten Jahreszeit etwas Energie einzusparen, verkleinern die Tiere Schädel, Gehirn und einige der inneren Organe im Winter."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Nach dem Winter wachsen die geschrumpften Strukturen wieder, erreichen jedoch nicht wieder ihre ursprüngliche Größe."
+            }
+          ]
+        },
+        {
+          "id": "30-meter",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Innerhalb einer Nacht kann ein Tier in lockerem Boden rund 30 m an Tunneln ausgraben."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Demnach presst ein einzelnes Tier beim Graben das zehn- bis zwölffache seines eigenen Körpergewichts durch die Gänge und an die Erdoberfläche."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Höhepunkt der Grabungsaktivitäten wird zumeist im Frühjahr und im Herbst erreicht"
+            }
+          ]
+        },
+        {
+          "id": "nicht-blind",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Unterstützend zur Orientierung im Raum kommt die Befähigung, hell und dunkel zu unterscheiden, womit der Europäische Maulwurf nicht vollständig blind ist."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Allerdings ist der Europäische Maulwurf auch ein guter Kletterer und vermag zu schwimmen, letzteres auch im Winter."
+            }
+          ]
+        },
+        {
+          "id": "fell-ohne-strich",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Das weiche Fell, das keinen Strich besitzt und so bei der Fortbewegung in den Gängen und Tunneln keinen Widerstand bietet"
+            }
+          ]
+        },
+        {
+          "id": "oekosystem-ingenieur",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "So bevorzugt unter anderem der Kleine Feuerfalter Bereiche mit Offenboden und hoher Präsenz von Wiesen-Sauerampfer zur Eiablage."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wird er teilweise als ecosystem engineer („Ökosystem-Ingenieur“) eingestuft"
+            }
+          ]
+        },
+        {
+          "id": "maulwurfsburg",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die „Burgen“ haben Durchmesser von bis zu 140 cm, sind rund 70 cm hoch und bestehen aus bis zu 50 kg Erdmaterial."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Typische Maulwurfshügel haben Durchmesser von 30 bis 50 cm"
+            }
+          ]
+        },
+        {
+          "id": "fresser",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Verhältnis nimmt so ein männliches Individuum täglich rund 73,5 % seines eigenen Körpergewichts an Nahrung auf, ein weibliches rund 88,6 %."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Regenwürmer werden überwiegend mit dem Kopfende zuerst verspeist"
+            }
+          ]
+        },
+        {
+          "id": "geschuetzt",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Allein im Jahr 1906 wurden rund eine Million Maulwurfsfelle in London gehandelt"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Daher verbietet es § 44 des Bundesnaturschutzgesetzes (BNatschG) diesen Tieren nachzustellen, sie zu fangen, zu verletzen oder zu töten. Einzig die Vergrämung ist erlaubt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Jahr 2020 wurde der Europäische Maulwurf sowohl in Deutschland durch die Deutsche Wildtier Stiftung als auch in Österreich vom Naturschutzbund Österreich als Tier des Jahres ausgewählt."
+            }
+          ]
+        },
+        {
+          "id": "hebel-brehm",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "„Wenn ihr also den Maulwurf recht fleißig verfolgt, und mit Stumpf und Stiel vertilgen wollt, so thut ihr euch selbst den grösten Schaden und den Engerlingen den grösten Gefallen.“"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Obwohl sie reine Fleischfresser sind und keine pflanzliche Nahrung verzehren"
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "turdus-merula",
+      "eintraege": [
+        {
+          "id": "sirenen-imitator",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Von Amseln im Siedlungsgebiet werden auch Zivilisationsgeräusche, etwa Sirenensignale von Rettungsfahrzeugen, Handyklingeltöne oder Alarmanlagen von E-Scootern in den Gesang aufgenommen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "beispielsweise Meisenlaute oder das Lachen von Grau- und Grünspecht"
+            }
+          ]
+        },
+        {
+          "id": "fruehaufsteher",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Frühjahr gehören Amseln morgens zu den ersten Singvögeln, sie beginnen deutlich vor der Morgendämmerung mit dem Gesang."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In der Brutsaison geben Amseln während der Morgendämmerung für 20 bis 30 Minuten eine nahezu ununterbrochene Folge solcher Strophen von sich"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Männchen haben nicht selten mehr als 30 Motive im Repertoire, wobei sie zwei bis fünf Lieblingsmotive haben, so dass auch für das menschliche Gehör eine Identifikation eines Individuums über den Gesang möglich ist"
+            }
+          ]
+        },
+        {
+          "id": "komponistin",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "„der musikalisch höchststehende Singvogel Mitteleuropas“"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Er widmete der Amsel Le Merle noir, ein Kammermusikstück für Flöte und Klavier."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Echter Amselgesang wurde bei der Originalaufnahme von Paul McCartneys Blackbird beigemischt"
+            }
+          ]
+        },
+        {
+          "id": "vom-wald-in-die-stadt",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Bamberg wurde bereits 1820 von Stadtamseln berichtet, in London ist die Amsel erst in den 1930er Jahren in den großen Parks der Stadt heimisch geworden."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "nicht selten liegt sie bei vier und mehr Brutpaaren pro Hektar"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Wäldern ist die Siedlungsdichte dagegen erheblich geringer, selten brüten mehr als 0,5 Brutpaare pro Hektar."
+            }
+          ]
+        },
+        {
+          "id": "usutu",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Das Usutu-Virus, das zuvor nur aus Afrika bekannt war und zu den durch Stechmücken übertragenen Flaviviren gehört, verursacht seit 2001 in einzelnen Teilen des mitteleuropäischen Verbreitungsgebiets ein auffälliges Vogelsterben."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Es wird angenommen, dass dort einige 100.000 Individuen betroffen waren."
+            }
+          ]
+        },
+        {
+          "id": "sonnenbad",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Drosseltypisch legen die Amseln sich flach auf den Boden, spreizen den Schwanz und breiten die Flügel aus."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Grund dieses intensiven Sonnenbadens ist unklar."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "von Amseln, die sich auf dem Nest der Gelben Wiesenameisen niederlassen"
+            }
+          ]
+        },
+        {
+          "id": "kopf-schief",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Charakteristisch für die Nahrungssuche am Boden ist das Hüpfen einer kurzen Strecke und ein anschließendes regungsloses Verharren, wobei die Amsel den Kopf schief hält und eine bestimmte Stelle fixiert, um blitzschnell mit dem Schnabel zuzustoßen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Winter stellen in Europa die Früchte des Efeus meist die einzige noch verbliebene pflanzliche Nahrung dar."
+            }
+          ]
+        },
+        {
+          "id": "weisse-amseln",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "beispielsweise hat Aristoteles bereits weiße Amseln beschrieben"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Eiweißarme Nahrung scheint Albinismus zu begünstigen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "dass die weißen Federn im Gefieder von der Zusammensetzung der Nahrung abhängen können, vor allem während der Mauser"
+            }
+          ]
+        },
+        {
+          "id": "teilzieher",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Mitteleuropa liegt die Zahl der wegziehenden Amseln dagegen nur bei 25 Prozent."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Schweden ziehen 76 Prozent, in Finnland sogar 89 Prozent."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Im Brutgebiet bleibende Vögel haben eine höhere Mortalitätsrate im Winter, dafür können sie aber bessere Brutreviere besetzen."
+            }
+          ]
+        },
+        {
+          "id": "amselfeld",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "wobei kos ‚Amsel‘ bedeutet"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Dieser Legende widerspricht allerdings, dass es zur fraglichen Zeit am entsprechenden Ort kaum Amseln gegeben haben kann"
+            }
+          ]
+        },
+        {
+          "id": "aberglaube",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Beispielsweise soll in ein Haus, in dem eine Amsel weilt, der Blitz nicht einschlagen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Schweden wurde die Amsel 1962 von Lesern der Zeitung Dagens Nyheter zum Nationalvogel gewählt."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    },
+    {
+      "artId": "urtica-dioica",
+      "eintraege": [
+        {
+          "id": "brennhaar-spritze",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Blätter und Stängel sind mit kieselsäureverstärkten Brennhaaren bewehrt."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Der Brennsaft enthält Ameisensäure, Histamin, Acetylcholin und Serotonin."
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "hollow stinging hairs called trichomes on the leaves and stems, which act like hypodermic needles, injecting histamine and other chemicals"
+            }
+          ]
+        },
+        {
+          "id": "raupenfutter",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Arten wie Kleiner Fuchs und Tagpfauenauge sind monophag, ernähren sich also fast ausschließlich von ihr."
+            }
+          ]
+        },
+        {
+          "id": "drei-ruessler",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die drei Arten besetzen auf der Pflanze unterschiedliche ökologische Nischen."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "der Gefleckte Brennnesselrüssler entwickelt sich in den Wurzeln"
+            }
+          ]
+        },
+        {
+          "id": "rostpilz",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "auf der er einen auffälligen, gelborangen, raupenförmigen Fruchtkörper ausbildet, bevor er zur weiteren Entwicklung auf Seggen (Carex) wechselt"
+            }
+          ]
+        },
+        {
+          "id": "ampfer-mythos",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "are regarded as a folk remedy to counteract the sting of a nettle, although there is no evidence of any chemical effect"
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "washing the affected area with lukewarm water and soap, and avoid scratching"
+            }
+          ]
+        },
+        {
+          "id": "nesseltuch",
+          "wow": 3,
+          "zitate": [
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "ancient nettle textiles from the Bronze Age have been found in Denmark"
+            },
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "It is widely believed that German Army uniforms were almost all made from nettle during World War I due to a shortage of cotton, although there is little evidence to support this."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Große Brennnessel war bis ins 18. Jahrhundert wegen ihrer Bastfasern eine wichtige Faserpflanze"
+            }
+          ]
+        },
+        {
+          "id": "wildgemuese",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Blätter stechen nicht mehr, wenn sie entweder getrocknet, gewässert, gekocht oder mechanisch bearbeitet wurden"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "bilden sich in den Blättern kalkhaltige Zystolithen, die reizend auf Nieren und Harnwege wirken können"
+            }
+          ]
+        },
+        {
+          "id": "wettessen",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-en",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "an annual World Nettle Eating Championship draws thousands of people to Dorset, where competitors attempt to eat as much of the raw plant as possible"
+            }
+          ]
+        },
+        {
+          "id": "stickstoffzeiger",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Große Brennnessel ist ein typischer Stickstoffzeiger"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "zeigt die Große Brennnessel eine starke Assoziation mit den stickstoffangereicherten (früheren) Aufenthaltsorten von Menschen und Tieren"
+            }
+          ]
+        },
+        {
+          "id": "jauche-verbot",
+          "wow": 2,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "In Frankreich wurde mit dem Erlass vom 1. Juli 2006 der Verkauf, der Besitz und die Herstellung von nicht zugelassenen Pflanzenschutzmitteln bei Strafe verboten."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Erst mit der Verordnung vom 18. April 2011"
+            }
+          ]
+        },
+        {
+          "id": "zweihaeusig",
+          "wow": 1,
+          "zitate": [
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die Blütezeit reicht von Juli bis Oktober. Die Große Brennnessel ist zweihäusig getrenntgeschlechtig (diözisch)."
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die männlichen Blüten sind aufrechtstehend"
+            },
+            {
+              "quelle": "wiki-de",
+              "gefunden": true,
+              "zuLang": false,
+              "text": "Die weiblichen Blüten hängen oder sind zurückgebogen."
+            }
+          ]
+        }
+      ],
+      "regelfehler": []
+    }
+  ]
+}

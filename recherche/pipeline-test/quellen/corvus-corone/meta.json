@@ -1,0 +1,25 @@
+{
+  "artId": "corvus-corone",
+  "wissName": "Corvus corone",
+  "colId": "YNHJ",
+  "wikidata": "Q26198",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Rabenkrähe",
+      "url": "https://de.wikipedia.org/wiki/Rabenkr%C3%A4he",
+      "revision": 262372663,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 29632
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Carrion crow",
+      "url": "https://en.wikipedia.org/wiki/Carrion_crow",
+      "revision": 1363098183,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 7288
+    }
+  ]
+}

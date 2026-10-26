@@ -1,0 +1,25 @@
+{
+  "artId": "macrolepiota-procera",
+  "wissName": "Macrolepiota procera",
+  "colId": "3X5NV",
+  "wikidata": "Q243381",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Gemeiner Riesenschirmling",
+      "url": "https://de.wikipedia.org/wiki/Gemeiner_Riesenschirmling",
+      "revision": 270813155,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 8533
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Macrolepiota procera",
+      "url": "https://en.wikipedia.org/wiki/Macrolepiota_procera",
+      "revision": 1369058659,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 4456
+    }
+  ]
+}

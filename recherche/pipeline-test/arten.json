@@ -1,0 +1,652 @@
+[
+  {
+    "artId": "alliaria-petiolata",
+    "gruppe": "pflanzen",
+    "name": "Knoblauchsrauke",
+    "wissName": "Alliaria petiolata",
+    "colId": "BTPF",
+    "nachweise": 92786,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 19584
+  },
+  {
+    "artId": "urtica-dioica",
+    "gruppe": "pflanzen",
+    "name": "Große Brennnessel",
+    "wissName": "Urtica dioica",
+    "colId": "7F2CH",
+    "nachweise": 63564,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 34229
+  },
+  {
+    "artId": "glechoma-hederacea",
+    "gruppe": "pflanzen",
+    "name": "Gundermann",
+    "wissName": "Glechoma hederacea",
+    "colId": "3G6WF",
+    "nachweise": 60587,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 32725
+  },
+  {
+    "artId": "filipendula-ulmaria",
+    "gruppe": "pflanzen",
+    "name": "Echtes Mädesüß",
+    "wissName": "Filipendula ulmaria",
+    "colId": "6J2MQ",
+    "nachweise": 59611,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 26032
+  },
+  {
+    "artId": "chelidonium-majus",
+    "gruppe": "pflanzen",
+    "name": "Schöllkraut",
+    "wissName": "Chelidonium majus",
+    "colId": "5XQW8",
+    "nachweise": 49262,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 34768
+  },
+  {
+    "artId": "corylus-avellana",
+    "gruppe": "pflanzen",
+    "name": "Gemeine Hasel",
+    "wissName": "Corylus avellana",
+    "colId": "YQ55",
+    "nachweise": 48699,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 34781
+  },
+  {
+    "artId": "prunus-padus",
+    "gruppe": "pflanzen",
+    "name": "Gewöhnliche Traubenkirsche",
+    "wissName": "Prunus padus",
+    "colId": "4N93X",
+    "nachweise": 44251,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 16802
+  },
+  {
+    "artId": "impatiens-glandulifera",
+    "gruppe": "pflanzen",
+    "name": "Drüsiges Springkraut",
+    "wissName": "Impatiens glandulifera",
+    "colId": "3PJSV",
+    "nachweise": 43070,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 20145
+  },
+  {
+    "artId": "aegopodium-podagraria",
+    "gruppe": "pflanzen",
+    "name": "Giersch",
+    "wissName": "Aegopodium podagraria",
+    "colId": "6594Z",
+    "nachweise": 42907,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 20755
+  },
+  {
+    "artId": "cornus-sanguinea",
+    "gruppe": "pflanzen",
+    "name": "Roter Hartriegel",
+    "wissName": "Cornus sanguinea",
+    "colId": "YGMF",
+    "nachweise": 39848,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 16820
+  },
+  {
+    "artId": "euphorbia-cyparissias",
+    "gruppe": "pflanzen",
+    "name": "Zypressen-Wolfsmilch",
+    "wissName": "Euphorbia cyparissias",
+    "colId": "3CNHH",
+    "nachweise": 39498,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 8474
+  },
+  {
+    "artId": "plantago-lanceolata",
+    "gruppe": "pflanzen",
+    "name": "Spitzwegerich",
+    "wissName": "Plantago lanceolata",
+    "colId": "4JLMM",
+    "nachweise": 39333,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 18325
+  },
+  {
+    "artId": "tanacetum-vulgare",
+    "gruppe": "pflanzen",
+    "name": "Rainfarn",
+    "wissName": "Tanacetum vulgare",
+    "colId": "54NJ4",
+    "nachweise": 39213,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 24045
+  },
+  {
+    "artId": "acer-pseudoplatanus",
+    "gruppe": "pflanzen",
+    "name": "Berg-Ahorn",
+    "wissName": "Acer pseudoplatanus",
+    "colId": "94HF",
+    "nachweise": 37758,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 40945
+  },
+  {
+    "artId": "trifolium-pratense",
+    "gruppe": "pflanzen",
+    "name": "Wiesenklee",
+    "wissName": "Trifolium pratense",
+    "colId": "58Q42",
+    "nachweise": 37708,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 21050
+  },
+  {
+    "artId": "trametes-versicolor",
+    "gruppe": "pilze",
+    "name": "Schmetterlings-Tramete",
+    "wissName": "Trametes versicolor",
+    "colId": "57XF8",
+    "nachweise": 5485,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 8086
+  },
+  {
+    "artId": "fomes-fomentarius",
+    "gruppe": "pilze",
+    "name": "Zunderschwamm",
+    "wissName": "Fomes fomentarius",
+    "colId": "6JCQK",
+    "nachweise": 4552,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 27993
+  },
+  {
+    "artId": "fomitopsis-pinicola",
+    "gruppe": "pilze",
+    "name": "Rotrandiger Baumschwamm",
+    "wissName": "Fomitopsis pinicola",
+    "colId": "6JCCY",
+    "nachweise": 4484,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 11421
+  },
+  {
+    "artId": "macrolepiota-procera",
+    "gruppe": "pilze",
+    "name": "Gemeiner Riesenschirmling",
+    "wissName": "Macrolepiota procera",
+    "colId": "3X5NV",
+    "nachweise": 4318,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 12989
+  },
+  {
+    "artId": "coprinus-comatus",
+    "gruppe": "pilze",
+    "name": "Schopf-Tintling",
+    "wissName": "Coprinus comatus",
+    "colId": "Y5DX",
+    "nachweise": 3975,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 8099
+  },
+  {
+    "artId": "hypholoma-fasciculare",
+    "gruppe": "pilze",
+    "name": "Grünblättriger Schwefelkopf",
+    "wissName": "Hypholoma fasciculare",
+    "colId": "3NSGX",
+    "nachweise": 3786,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 7248
+  },
+  {
+    "artId": "fomitopsis-betulina",
+    "gruppe": "pilze",
+    "name": "Birkenporling",
+    "wissName": "Fomitopsis betulina",
+    "colId": "6JCB8",
+    "nachweise": 3295,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 12684
+  },
+  {
+    "artId": "auricularia-auricula-judae",
+    "gruppe": "pilze",
+    "name": "Judasohr",
+    "wissName": "Auricularia auricula-judae",
+    "colId": "5W9WJ",
+    "nachweise": 3153,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 16549
+  },
+  {
+    "artId": "schizophyllum-commune",
+    "gruppe": "pilze",
+    "name": "Gemeiner Spaltblättling",
+    "wissName": "Schizophyllum commune",
+    "colId": "79WX9",
+    "nachweise": 2935,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 9472
+  },
+  {
+    "artId": "amanita-rubescens",
+    "gruppe": "pilze",
+    "name": "Perlpilz",
+    "wissName": "Amanita rubescens",
+    "colId": "5TZ2T",
+    "nachweise": 2824,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 12772
+  },
+  {
+    "artId": "turdus-merula",
+    "gruppe": "voegel",
+    "name": "Amsel",
+    "wissName": "Turdus merula",
+    "colId": "7CYVX",
+    "nachweise": 830901,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 85508
+  },
+  {
+    "artId": "parus-major",
+    "gruppe": "voegel",
+    "name": "Kohlmeise",
+    "wissName": "Parus major",
+    "colId": "75SVV",
+    "nachweise": 807025,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 70379
+  },
+  {
+    "artId": "cyanistes-caeruleus",
+    "gruppe": "voegel",
+    "name": "Blaumeise",
+    "wissName": "Cyanistes caeruleus",
+    "colId": "32NH2",
+    "nachweise": 714030,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 79421
+  },
+  {
+    "artId": "corvus-corone",
+    "gruppe": "voegel",
+    "name": "Rabenkrähe",
+    "wissName": "Corvus corone",
+    "colId": "YNHJ",
+    "nachweise": 648863,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 36920
+  },
+  {
+    "artId": "columba-palumbus",
+    "gruppe": "voegel",
+    "name": "Ringeltaube",
+    "wissName": "Columba palumbus",
+    "colId": "XBGG",
+    "nachweise": 623222,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 28388
+  },
+  {
+    "artId": "fringilla-coelebs",
+    "gruppe": "voegel",
+    "name": "Buchfink",
+    "wissName": "Fringilla coelebs",
+    "colId": "6JPSJ",
+    "nachweise": 581387,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 29486
+  },
+  {
+    "artId": "erithacus-rubecula",
+    "gruppe": "voegel",
+    "name": "Rotkehlchen",
+    "wissName": "Erithacus rubecula",
+    "colId": "6H2XM",
+    "nachweise": 565589,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 64724
+  },
+  {
+    "artId": "pica-pica",
+    "gruppe": "voegel",
+    "name": "Elster",
+    "wissName": "Pica pica",
+    "colId": "4HPXM",
+    "nachweise": 534879,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 72807
+  },
+  {
+    "artId": "passer-domesticus",
+    "gruppe": "voegel",
+    "name": "Haussperling",
+    "wissName": "Passer domesticus",
+    "colId": "4DXXM",
+    "nachweise": 514209,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 98756
+  },
+  {
+    "artId": "dendrocopos-major",
+    "gruppe": "voegel",
+    "name": "Buntspecht",
+    "wissName": "Dendrocopos major",
+    "colId": "6CJDB",
+    "nachweise": 441913,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 27998
+  },
+  {
+    "artId": "sturnus-vulgaris",
+    "gruppe": "voegel",
+    "name": "Star",
+    "wissName": "Sturnus vulgaris",
+    "colId": "5384V",
+    "nachweise": 426108,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 71135
+  },
+  {
+    "artId": "buteo-buteo",
+    "gruppe": "voegel",
+    "name": "Mäusebussard",
+    "wissName": "Buteo buteo",
+    "colId": "NYV7",
+    "nachweise": 422924,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 121661
+  },
+  {
+    "artId": "anas-platyrhynchos",
+    "gruppe": "voegel",
+    "name": "Stockente",
+    "wissName": "Anas platyrhynchos",
+    "colId": "DGP6",
+    "nachweise": 419395,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 57369
+  },
+  {
+    "artId": "feldhase",
+    "gruppe": "saeuger",
+    "name": "Feldhase",
+    "wissName": "Lepus europaeus",
+    "colId": "6PPYF",
+    "nachweise": 44915,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 42309
+  },
+  {
+    "artId": "igel",
+    "gruppe": "saeuger",
+    "name": "Braunbrustigel",
+    "wissName": "Erinaceus europaeus",
+    "colId": "3B2C2",
+    "nachweise": 42039,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 50916
+  },
+  {
+    "artId": "oryctolagus-cuniculus",
+    "gruppe": "saeuger",
+    "name": "Wildkaninchen",
+    "wissName": "Oryctolagus cuniculus",
+    "colId": "74ZBP",
+    "nachweise": 13134,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 66246
+  },
+  {
+    "artId": "talpa-europaea",
+    "gruppe": "saeuger",
+    "name": "Europäischer Maulwurf",
+    "wissName": "Talpa europaea",
+    "colId": "54M2V",
+    "nachweise": 13113,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 63038
+  },
+  {
+    "artId": "myocastor-coypus",
+    "gruppe": "saeuger",
+    "name": "Nutria",
+    "wissName": "Myocastor coypus",
+    "colId": "6RRQT",
+    "nachweise": 12535,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 45887
+  },
+  {
+    "artId": "dama-dama",
+    "gruppe": "saeuger",
+    "name": "Damhirsch",
+    "wissName": "Dama dama",
+    "colId": "342N9",
+    "nachweise": 10915,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 95134
+  },
+  {
+    "artId": "procyon-lotor",
+    "gruppe": "saeuger",
+    "name": "Waschbär",
+    "wissName": "Procyon lotor",
+    "colId": "4MPXY",
+    "nachweise": 9989,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 103814
+  },
+  {
+    "artId": "ondatra-zibethicus",
+    "gruppe": "saeuger",
+    "name": "Bisamratte",
+    "wissName": "Ondatra zibethicus",
+    "colId": "49JSC",
+    "nachweise": 9866,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 38947
+  },
+  {
+    "artId": "dachs",
+    "gruppe": "saeuger",
+    "name": "Dachs",
+    "wissName": "Meles meles",
+    "colId": "3ZDRX",
+    "nachweise": 8868,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 59573
+  },
+  {
+    "artId": "phocoena-phocoena",
+    "gruppe": "saeuger",
+    "name": "Gewöhnlicher Schweinswal",
+    "wissName": "Phocoena phocoena",
+    "colId": "77C9R",
+    "nachweise": 8588,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 46514
+  },
+  {
+    "artId": "pipistrellus-pipistrellus",
+    "gruppe": "saeuger",
+    "name": "Zwergfledermaus",
+    "wissName": "Pipistrellus pipistrellus",
+    "colId": "6VKNS",
+    "nachweise": 6993,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 9702
+  },
+  {
+    "artId": "martes-foina",
+    "gruppe": "saeuger",
+    "name": "Steinmarder",
+    "wissName": "Martes foina",
+    "colId": "3Y9VW",
+    "nachweise": 5661,
+    "quellen": [
+      "wiki-de",
+      "wiki-en"
+    ],
+    "zeichen": 19838
+  }
+]

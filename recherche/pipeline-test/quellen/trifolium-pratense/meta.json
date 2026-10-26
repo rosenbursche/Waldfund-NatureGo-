@@ -1,0 +1,25 @@
+{
+  "artId": "trifolium-pratense",
+  "wissName": "Trifolium pratense",
+  "colId": "58Q42",
+  "wikidata": "Q156635",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Wiesenklee",
+      "url": "https://de.wikipedia.org/wiki/Wiesenklee",
+      "revision": 267784869,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 12908
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Trifolium pratense",
+      "url": "https://en.wikipedia.org/wiki/Trifolium_pratense",
+      "revision": 1371055360,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 8142
+    }
+  ]
+}

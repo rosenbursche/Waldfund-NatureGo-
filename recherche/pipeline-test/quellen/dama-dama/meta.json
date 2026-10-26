@@ -1,0 +1,25 @@
+{
+  "artId": "dama-dama",
+  "wissName": "Dama dama",
+  "colId": "342N9",
+  "wikidata": "Q159857",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Damhirsch",
+      "url": "https://de.wikipedia.org/wiki/Damhirsch",
+      "revision": 270419882,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 63683
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): European fallow deer",
+      "url": "https://en.wikipedia.org/wiki/European_fallow_deer",
+      "revision": 1380870528,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 31451
+    }
+  ]
+}

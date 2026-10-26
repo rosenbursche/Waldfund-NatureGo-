@@ -1,0 +1,25 @@
+{
+  "artId": "turdus-merula",
+  "wissName": "Turdus merula",
+  "colId": "7CYVX",
+  "wikidata": "Q25234",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Amsel",
+      "url": "https://de.wikipedia.org/wiki/Amsel",
+      "revision": 271100414,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 61306
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Common blackbird",
+      "url": "https://en.wikipedia.org/wiki/Common_blackbird",
+      "revision": 1380659638,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 24202
+    }
+  ]
+}

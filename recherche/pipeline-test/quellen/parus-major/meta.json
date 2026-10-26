@@ -1,0 +1,25 @@
+{
+  "artId": "parus-major",
+  "wissName": "Parus major",
+  "colId": "75SVV",
+  "wikidata": "Q25485",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Kohlmeise",
+      "url": "https://de.wikipedia.org/wiki/Kohlmeise",
+      "revision": 270332786,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 43485
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Great tit",
+      "url": "https://en.wikipedia.org/wiki/Great_tit",
+      "revision": 1377140877,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 26894
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "artId": "fomes-fomentarius",
+  "colId": "6JCQK",
+  "wissName": "Fomes fomentarius",
+  "gruppe": "pilze",
+  "eintraege": [
+    {
+      "id": "oetzi-zunder",
+      "thema": "geschichte",
+      "titel": "Ötzis Feuerzeug",
+      "text": "Menschen nutzen den Zunderschwamm seit etwa 10.000 Jahren. Die lockere, filzige Mittelschicht fängt durch einen Funken sofort an zu glimmen. Damit machte man Feuer und trug sogar Glut von Ort zu Ort. Auch der Gletschermann Ötzi hatte vor über 5.000 Jahren Zunderschwamm dabei. Daher hat der Pilz seinen Namen.",
+      "details": { "nutzungSeit": "etwa 10.000 Jahren" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Die Verwendung des Zunderschwamms reicht bereits etwa 10.000 Jahre zurück." },
+        { "quelle": "wiki-de", "text": "trug schon Zunderschwamm auf seinen Wanderungen bei sich" },
+        { "quelle": "wiki-de", "text": "Zunder verglimmt nur sehr langsam und wurde auch verwendet, um Glut aufzubewahren oder zu transportieren." }
+      ]
+    },
+    {
+      "id": "pilzleder",
+      "thema": "nutzung",
+      "titel": "Hüte aus Pilz",
+      "text": "Aus der Mittelschicht des Zunderschwamms machte man früher ein weiches Material, das an Wildleder und Filz erinnert: Pilzleder. Daraus nähte man Westen und Kappen. Heute können das nur noch wenige Familien in Rumänien. Sie stellen daraus Hüte, Taschen und Untersetzer für Touristen her.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Das Textil erinnert an eine Mischung aus feinem, weichem Wildleder und Filz und besitzt eine sehr weiche Haptik." },
+        { "quelle": "wiki-de", "text": "wird nur noch von wenigen Familien in Rumänien praktiziert" }
+      ]
+    },
+    {
+      "id": "kompass-pilz",
+      "thema": "mitmachen",
+      "titel": "Der Pilz, der umgekippte Bäume verrät",
+      "text": "Neue Röhrenschichten wachsen immer mit der Unterseite zum Boden. Fällt der Baum um, wächst der Pilz deshalb im rechten Winkel weiter. Findest du an einem liegenden Stamm einen Zunderschwamm mit einem „Knick“, dann weißt du: Der Pilz war schon da, als der Baum noch stand.",
+      "details": { "drehung": "etwa 90°" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Fruchtkörper nicht abbrechen.",
+      "wow": 3,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "neu zuwachsende Fruchtschichten werden mit der Unterseite zum Erdboden ausgerichtet" },
+        { "quelle": "wiki-de", "text": "Bildet ein Fruchtkörper nach dem Umstürzen des Wirtsbaumes neue Fruchtschichten, werden diese um etwa 90° gegenüber den schon vorhandenen ausgebildet." }
+      ]
+    },
+    {
+      "id": "kein-jahresring",
+      "thema": "verblueffend",
+      "titel": "Bis zu 30 Jahre alt – aber nicht abzählbar",
+      "text": "Ein Zunderschwamm kann bis zu 30 Jahre alt werden und bis zu 40 cm, selten 60 cm breit. Innen sieht man viele Röhrenschichten übereinander. Man kann sie aber nicht wie Jahresringe zählen: Oft wächst der Pilz zweimal im Jahr.",
+      "details": { "alter": "bis 30 Jahre", "breite": "10–40 cm, selten bis 60 cm" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Der Zunderschwamm bildet mehrjährige, konsolenförmige Fruchtkörper, die bis zu 30 Jahre alt werden können." },
+        { "quelle": "wiki-de", "text": "kann aus der Zahl der Schichten nicht auf das Alter des Fruchtkörpers geschlossen werden" }
+      ]
+    },
+    {
+      "id": "buche-oder-birke",
+      "thema": "beziehung",
+      "titel": "Im Süden Buche, im Norden Birke",
+      "text": "In Mitteleuropa wächst der Zunderschwamm vor allem an Rotbuchen, daneben an Birken und Pappeln. Im Süden Europas ist die Buche sein Hauptwirt, im Norden die Birke. In Deutschland verläuft diese Grenze ungefähr am Nordrand der Mittelgebirge.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "im Süden des Kontinentes wird Fagus als Hauptwirt gefunden, im Norden Birkenarten, diese Substratgrenze fällt in Deutschland in etwa mit dem Nordrand der Mittelgebirge zusammen" }
+      ]
+    },
+    {
+      "id": "weissfaeule",
+      "thema": "oekologie",
+      "titel": "Vom Baum zu neuem Boden",
+      "text": "Der Zunderschwamm dringt über Wunden in geschwächte Bäume ein und zersetzt das Holz zu weißer Fäule. Oft bricht der Baum dann in mehreren Metern Höhe ab. Was aussieht wie Zerstörung, ist wichtig: Die Nährstoffe im Holz kommen zurück in den Kreislauf, und es entsteht neuer Waldboden. Mindestens 35 Käferarten leben in den Fruchtkörpern.",
+      "details": { "kaeferarten": "35 (Studie in Norwegen)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Unter Bäumen mit vielen Zunderschwämmen nicht lange stehen bleiben, sie können abbrechen.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "verursacht im Kernholz eine intensive Weißfäule, die den befallenen Baum häufig in mehreren Metern Höhe abbrechen lässt" },
+        { "quelle": "wiki-de", "text": "werden die im Holz enthaltenen Nährstoffe dem natürlichen Kreislauf wieder zugänglich gemacht und es entsteht neuer Mutterboden" },
+        { "quelle": "wiki-de", "text": "wurden 35 Käferarten auf den Fruchtkörpern gesammelt" }
+      ]
+    },
+    {
+      "id": "zeiger-alter-wald",
+      "thema": "oekologie",
+      "titel": "Häufig im Urwald, selten im Forst",
+      "text": "In unbewirtschafteten Wäldern Süddeutschlands ist der Zunderschwamm der häufigste Pilz. In intensiv bewirtschafteten Wäldern fehlt er dagegen ganz, weil dort alte und kranke Bäume entfernt werden. Viele Zunderschwämme zeigen also einen naturnahen Wald mit alten Bäumen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "In Süddeutschland ist er in unbewirtschafteten Wäldern der häufigste Pilz, in intensiv bewirtschafteten Waldgebieten fehlt er hingegen ganz." }
+      ]
+    },
+    {
+      "id": "huadersau",
+      "thema": "geschichte",
+      "titel": "Huadersautreiben",
+      "text": "Im Bayerischen Wald und Böhmerwald heißt der Zunderschwamm Huadersau. Kinder schnitzten ihn rund und spielten damit wie mit einem Puck oder Ball, mit Füßen oder Stöcken. Das Spiel hieß Huadersautreiben.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Abgeschlagene und kugelförmig zugeschnitzte Zunderschwämme dienten Kindern als Puck oder Ball für Gassenspiele mit Füßen oder Stöcken." },
+        { "quelle": "wiki-de", "text": "Für den Bayerischen Wald und den Böhmerwald ist ein Spiel unter dem Namen Huadersautreiben belegt." }
+      ]
+    },
+    {
+      "id": "zunderboom",
+      "thema": "geschichte",
+      "titel": "21,5 Tonnen Pilz in einem Jahr",
+      "text": "Im 19. Jahrhundert war Zunderschwamm so gefragt, dass er in manchen Gegenden Deutschlands selten wurde und aus Osteuropa eingeführt werden musste. Allein in Neustadt am Rennsteig verarbeitete man 1842 21,5 Tonnen davon.",
+      "details": { "menge1842": "21,5 t (Neustadt am Rennsteig)" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "Im Jahr 1842 wurden beispielsweise in Neustadt am Rennsteig 21,5 Tonnen Zunderschwamm verarbeitet." },
+        { "quelle": "wiki-de", "text": "dass der Pilz zeitweise aus Osteuropa importiert werden musste und in einigen Gebieten Deutschlands selten wurde" }
+      ]
+    },
+    {
+      "id": "blutrot",
+      "thema": "chemie",
+      "titel": "Der Pilz, der rot anläuft",
+      "text": "Gibt man Lauge auf die Kruste, färbt sie sich blutrot. Schuld ist der Farbstoff Fomentariol. So kann man den Zunderschwamm von ähnlichen Baumpilzen wie dem Feuerschwamm unterscheiden. Diesen Test machen Fachleute, für Kinder ist Lauge nichts.",
+      "details": { "farbstoff": "Fomentariol" },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": "Lauge ist ätzend. Nicht selbst ausprobieren.",
+      "wow": 2,
+      "quellen": ["wiki-de"],
+      "zitate": [
+        { "quelle": "wiki-de", "text": "die für den Zunderschwamm charakteristische blutrote Färbung der Kruste mit Alkalilauge, ausgelöst durch Deprotonierung des Hauptfarbstoffes Fomentariol" }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": { "titel": "Wikipedia (de): Zunderschwamm", "url": "https://de.wikipedia.org/wiki/Zunderschwamm", "abgerufen": "2026-10-25" },
+    "wiki-en": { "titel": "Wikipedia (en): Fomes fomentarius", "url": "https://en.wikipedia.org/wiki/Fomes_fomentarius", "abgerufen": "2026-10-25" }
+  },
+  "offen": [
+    "Pilz: bewusst kein Eintrag zu essbar/rezept, obwohl Wikipedia „schmackhaft“ und „Zunderschnaps“ nennt.",
+    "Volksmedizin und Krebs-Anwendungen aus Wikipedia bewusst weggelassen (keine Heilversprechen).",
+    "Sicherheitshinweis „Bäume können abbrechen“ aus der Weißfäule abgeleitet, nicht wörtlich in der Quelle.",
+    "Keine Monate: Der Fruchtkörper ist ganzjährig zu sehen; Wikipedia nennt keine Saison."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "fomes-fomentarius",
+  "wissName": "Fomes fomentarius",
+  "colId": "6JCQK",
+  "wikidata": "Q229814",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Zunderschwamm",
+      "url": "https://de.wikipedia.org/wiki/Zunderschwamm",
+      "revision": 267923923,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 17772
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Fomes fomentarius",
+      "url": "https://en.wikipedia.org/wiki/Fomes_fomentarius",
+      "revision": 1379609841,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 10221
+    }
+  ]
+}

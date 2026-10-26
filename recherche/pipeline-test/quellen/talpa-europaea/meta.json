@@ -1,0 +1,25 @@
+{
+  "artId": "talpa-europaea",
+  "wissName": "Talpa europaea",
+  "colId": "54M2V",
+  "wikidata": "Q209067",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Europäischer Maulwurf",
+      "url": "https://de.wikipedia.org/wiki/Europ%C3%A4ischer_Maulwurf",
+      "revision": 271112268,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 53602
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): European mole",
+      "url": "https://en.wikipedia.org/wiki/European_mole",
+      "revision": 1380863386,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 9436
+    }
+  ]
+}

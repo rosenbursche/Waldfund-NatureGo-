@@ -1,0 +1,25 @@
+{
+  "artId": "plantago-lanceolata",
+  "wissName": "Plantago lanceolata",
+  "colId": "4JLMM",
+  "wikidata": "Q157408",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Spitzwegerich",
+      "url": "https://de.wikipedia.org/wiki/Spitzwegerich",
+      "revision": 268657227,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 10802
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Plantago lanceolata",
+      "url": "https://en.wikipedia.org/wiki/Plantago_lanceolata",
+      "revision": 1377190915,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 7523
+    }
+  ]
+}

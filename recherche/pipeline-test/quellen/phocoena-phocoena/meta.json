@@ -1,0 +1,25 @@
+{
+  "artId": "phocoena-phocoena",
+  "wissName": "Phocoena phocoena",
+  "colId": "77C9R",
+  "wikidata": "Q27027",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Gewöhnlicher Schweinswal",
+      "url": "https://de.wikipedia.org/wiki/Gew%C3%B6hnlicher_Schweinswal",
+      "revision": 265179385,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 30247
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Harbour porpoise",
+      "url": "https://en.wikipedia.org/wiki/Harbour_porpoise",
+      "revision": 1381047066,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 16267
+    }
+  ]
+}

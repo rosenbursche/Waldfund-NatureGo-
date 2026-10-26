@@ -1,0 +1,25 @@
+{
+  "artId": "alliaria-petiolata",
+  "wissName": "Alliaria petiolata",
+  "colId": "BTPF",
+  "wikidata": "Q160097",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Knoblauchsrauke",
+      "url": "https://de.wikipedia.org/wiki/Knoblauchsrauke",
+      "revision": 260909740,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 11568
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Alliaria petiolata",
+      "url": "https://en.wikipedia.org/wiki/Alliaria_petiolata",
+      "revision": 1375930171,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 8016
+    }
+  ]
+}

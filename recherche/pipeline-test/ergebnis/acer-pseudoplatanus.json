@@ -1,0 +1,297 @@
+{
+  "artId": "acer-pseudoplatanus",
+  "colId": "94HF",
+  "wissName": "Acer pseudoplatanus",
+  "gruppe": "pflanzen",
+  "eintraege": [
+    {
+      "id": "propeller",
+      "thema": "mitmachen",
+      "titel": "16 Umdrehungen pro Sekunde",
+      "text": "Die Früchte des Berg-Ahorns sind kleine Propeller: zwei Flügelnüsse, die wie Hubschrauber zu Boden drehen, etwa 16 Mal pro Sekunde. Der Wind trägt sie oft mehr als 100 Meter weit. Kinder kennen sie als „Nasenzwicker“. Wirf mal eine Frucht in die Luft und schau, wie sie sich dreht.",
+      "details": {
+        "umdrehungen": "etwa 16 pro Sekunde",
+        "flugweite": "oft über 100 m"
+      },
+      "monate": [
+        9,
+        10
+      ],
+      "meldung": "Ahorn-Propeller-Zeit! Lass eine Frucht fallen und schau, wie sie sich dreht.",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Die Flügelnüsse sind typische Schraubenflieger mit etwa 16 Umdrehungen pro Sekunde. Vom Wind werden sie oft mehr als 100 Meter weit getragen."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Bei Kindern sind die Flügelnüsse als „Nasenzwicker“ beliebt."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Fruchtreife ist von September bis Oktober."
+        }
+      ]
+    },
+    {
+      "id": "pferdegift",
+      "thema": "giftig",
+      "titel": "Tödlich für Pferde",
+      "text": "Für Pferde sind die Früchte und die jungen Keimlinge des Berg-Ahorns tödlich giftig, vermutlich auch die Blätter. Die Krankheit heißt Atypische Weidemyopathie und endet oft tödlich. Darum sollen Pferde nicht auf Weiden grasen, auf denen viele Ahornsamen oder Keimlinge liegen.",
+      "details": {
+        "krankheit": "Atypische Weidemyopathie"
+      },
+      "monate": [
+        3,
+        4,
+        9,
+        10,
+        11
+      ],
+      "meldung": null,
+      "sicherheit": "Pferde von Ahornsamen und -keimlingen fernhalten. Bei Verdacht sofort einen Tierarzt rufen.",
+      "wow": 3,
+      "quellen": [
+        "wiki-de",
+        "wiki-en"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Für Pferde sind die Früchte und Keimblätter, vermutlich auch die Laubblätter des Berg-Ahorns tödlich giftig."
+        },
+        {
+          "quelle": "wiki-en",
+          "text": "Horses eating seeds or emergent seedlings of A. pseudoplatanus can suffer from an often fatal condition of atypical myopathy."
+        }
+      ]
+    },
+    {
+      "id": "riegelahorn",
+      "thema": "nutzung",
+      "titel": "61.000 Euro für einen Baumstamm",
+      "text": "Bei etwa 3 Prozent der Berg-Ahorne verlaufen die Holzfasern wellig. Dieses Riegelahorn-Holz schimmert wie Stoff und ist sehr begehrt. Ein französischer Berg-Ahorn mit Riegelung brachte über 61.000 Euro. Aus Ahorn macht man Geigenböden und Zargen, die Decke der Geige ist dagegen fast immer aus Fichte.",
+      "details": {
+        "anteilRiegelung": "3 %",
+        "hoechstpreis": "über 61.000 €"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Der Höchstpreis für einen französischen Berg-Ahorn mit Riegelung betrug dabei über 61.000 Euro. Die Riegelung entsteht durch welligen Verlauf der Fasern des Xylems und tritt nur bei 3 % der Berg-Ahorne auf."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "für die Herstellung der Geigenböden verwendet"
+        }
+      ]
+    },
+    {
+      "id": "pollenrekord",
+      "thema": "oekologie",
+      "titel": "25 Millionen Pollenkörner",
+      "text": "Der Berg-Ahorn ist im Frühjahr eine der besten Bienenweiden. Ein einziger Blütenstand trägt bis zu 25 Millionen Pollenkörner, beim Spitzahorn sind es nur 238.000. Neben Honigbienen kommen viele Wildbienen, darunter Sandbienen und Mauerbienen. Reinen Berg-Ahorn-Honig gibt es nur in wenigen Berglagen, er ist hellgelb und mild.",
+      "details": {
+        "pollenProBluetenstand": "bis 25 Mio."
+      },
+      "monate": [
+        4,
+        5,
+        6
+      ],
+      "meldung": "Der Berg-Ahorn blüht. Hör mal hin, ob es in der Krone summt!",
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Mit bis zu 25 Millionen Pollenkörnern pro Blütenstand liegt der Berg-Ahorn deutlich vor dem Spitzahorn mit 238.000 Pollenkörnern."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Der Berg-Ahorn blüht von April bis Mai mit dem Laubaustrieb oder unmittelbar danach."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "die sehr gute Nektartracht des Berg-Ahorns im Mai bis Anfang Juni"
+        }
+      ]
+    },
+    {
+      "id": "schwurbaum",
+      "thema": "geschichte",
+      "titel": "Der Ahorn, unter dem ein Bund gegründet wurde",
+      "text": "Unter einem Berg-Ahorn in Trun in Graubünden wurde am 16. Mai 1424 der Graue Bund gegründet. Die Mitglieder trafen sich bis 1870 unter dem Baum, dann warf ihn ein Sturm um. Seinen Strunk trug man in einer Trauerprozession nach Chur. Heute steht dort ein neuer Ahorn, gezogen aus einem Steckling des alten Baums.",
+      "details": {
+        "gruendung": "16. Mai 1424"
+      },
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 3,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "unter dessen Krone am 16. Mai 1424 der Graue Bund gegründet wurde"
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Der zerborstene Strunk wurde in einer Trauerprozession in den Gerichtssaal von Chur getragen."
+        }
+      ]
+    },
+    {
+      "id": "teerflecken",
+      "thema": "mitmachen",
+      "titel": "Schwarze Teerflecken auf dem Laub",
+      "text": "Auf vielen Ahornblättern sieht man große schwarze Flecken wie Teer. Das ist ein Pilz, der Ahorn-Runzelschorf. Er sieht schlimm aus, tötet den Baum aber nicht.",
+      "details": null,
+      "monate": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "bei der sich die durch den parasitischen Pilz Ahorn-Runzelschorf infizierten Blattpartien schwarz färben. Diese Krankheit tötet den Baum jedoch nicht."
+        }
+      ]
+    },
+    {
+      "id": "ahornsaft",
+      "thema": "geschichte",
+      "titel": "Zucker aus dem Frühlingssaft",
+      "text": "Nicht nur in Kanada gewinnt man Zucker aus Ahorn. Auch aus dem Saft des Berg-Ahorns im zeitigen Frühjahr hat man früher Zucker gemacht oder ihn zu einem mostähnlichen Getränk vergoren.",
+      "details": null,
+      "monate": [
+        2,
+        3
+      ],
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Der Pflanzensaft des zeitigen Frühjahrs wurde früher zur Zuckergewinnung genutzt. Der Saft kann auch zu einem most- oder weinähnlichen Getränk vergoren werden."
+        }
+      ]
+    },
+    {
+      "id": "ahornboden",
+      "thema": "oekologie",
+      "titel": "Ahornböden in den Alpen",
+      "text": "Auf manchen Almwiesen in den Alpen stehen viele alte Berg-Ahorne weit verstreut. Diese „Ahornböden“ sind entstanden, weil der Mensch den Ahorn auf den Weiden indirekt gefördert hat. Am bekanntesten sind der Große und der Kleine Ahornboden im Karwendel.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Die so genannten „Ahornböden“ oder Bergahornweiden auf Almwiesen sind durch indirekte Förderung des Berg-Ahorns durch den Menschen entstanden."
+        }
+      ]
+    },
+    {
+      "id": "falsche-platane",
+      "thema": "name",
+      "titel": "Die falsche Platane",
+      "text": "Der wissenschaftliche Name pseudoplatanus heißt „falsche Platane“: Die handförmigen Blätter ähneln denen der Platane, und an alten Stämmen blättert die Borke wie bei einer Platane in Schuppen ab. Vom Spitzahorn unterscheidet er sich durch kürzer zugespitzte Blattlappen.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 1,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "Die handförmig gelappten Blätter ähneln denen der Platane, worauf das Artepitheton pseudoplatanus hinweist."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Das Aussehen des Stamms ist dann platanenähnlich."
+        },
+        {
+          "quelle": "wiki-de",
+          "text": "Im Vergleich zum Spitzahorn sind die Blattlappen des Berg-Ahorns kürzer zugespitzt"
+        }
+      ]
+    },
+    {
+      "id": "langens-fussstapfen",
+      "thema": "name",
+      "titel": "„Von Langens Fußstapfen“",
+      "text": "In Dänemark heißt der Berg-Ahorn auch „Von Langens Fußstapfen“, nach dem deutschen Forstmann Johann Georg von Langen, der als Begründer der geplanten Forstwirtschaft in Dänemark gilt.",
+      "details": null,
+      "monate": null,
+      "meldung": null,
+      "sicherheit": null,
+      "wow": 2,
+      "quellen": [
+        "wiki-de"
+      ],
+      "zitate": [
+        {
+          "quelle": "wiki-de",
+          "text": "In Dänemark wird der Berg-Ahorn nach dem deutschen Forstmann Johann Georg von Langen, der als Begründer der planmäßigen Forstwirtschaft Dänemarks gilt, auch als „Von Langens Fußstapfen“ bezeichnet."
+        }
+      ]
+    }
+  ],
+  "quellen": {
+    "wiki-de": {
+      "titel": "Wikipedia (de): Berg-Ahorn",
+      "url": "https://de.wikipedia.org/wiki/Berg-Ahorn",
+      "abgerufen": "2026-10-25"
+    },
+    "wiki-en": {
+      "titel": "Wikipedia (en): Acer pseudoplatanus",
+      "url": "https://en.wikipedia.org/wiki/Acer_pseudoplatanus",
+      "abgerufen": "2026-10-25"
+    }
+  },
+  "offen": [
+    "Fehler in der Quelle vermutet: Wikipedia (de) schreibt „kanadisches Berg-Ahorn-Holz“ für Skateboards – in Kanada wächst kein Berg-Ahorn von Natur aus, gemeint ist wohl Zucker-Ahorn. Nicht übernommen. Beispiel dafür, dass Zitatprüfung allein Quellenfehler nicht findet.",
+    "Pferdegift-Monate (3–4 Keimlinge, 9–11 Samen) abgeleitet aus Fruchtreife und Keimung im Frühjahr; Wikipedia nennt keine Monate.",
+    "Teerflecken-Monate 7–10 abgeleitet, nicht belegt.",
+    "Ahornsaft-Monate 2–3 aus „zeitiges Frühjahr“ abgeleitet.",
+    "Riegelahorn „schimmert wie Stoff“: eigene Beschreibung, nicht aus der Quelle."
+  ]
+}

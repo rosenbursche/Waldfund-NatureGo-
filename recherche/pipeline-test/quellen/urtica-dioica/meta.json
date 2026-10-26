@@ -1,0 +1,25 @@
+{
+  "artId": "urtica-dioica",
+  "wissName": "Urtica dioica",
+  "colId": "7F2CH",
+  "wikidata": "Q155909",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Große Brennnessel",
+      "url": "https://de.wikipedia.org/wiki/Gro%C3%9Fe_Brennnessel",
+      "revision": 266526985,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 13924
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Urtica dioica",
+      "url": "https://en.wikipedia.org/wiki/Urtica_dioica",
+      "revision": 1381556941,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 20305
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "artId": "tanacetum-vulgare",
+  "wissName": "Tanacetum vulgare",
+  "colId": "54NJ4",
+  "wikidata": "Q27079",
+  "abgerufen": "2026-10-25",
+  "quellen": [
+    {
+      "id": "wiki-de",
+      "titel": "Wikipedia (de): Rainfarn",
+      "url": "https://de.wikipedia.org/wiki/Rainfarn",
+      "revision": 269776675,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 14330
+    },
+    {
+      "id": "wiki-en",
+      "titel": "Wikipedia (en): Tansy",
+      "url": "https://en.wikipedia.org/wiki/Tansy",
+      "revision": 1367797177,
+      "lizenz": "CC BY-SA 4.0",
+      "zeichen": 9715
+    }
+  ]
+}
